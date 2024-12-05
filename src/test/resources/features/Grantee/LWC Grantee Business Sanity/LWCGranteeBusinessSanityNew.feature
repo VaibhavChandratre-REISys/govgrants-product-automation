@@ -568,9 +568,9 @@ Feature: Sanity scenarios New
     And I select "Refresh" from parallel lines dropdown of "External Programs"
     Then I see table is refreshing
     When I click on "Program Number" column header inside table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    Then I softly see sort order "Ascending" for column "Program Number" inside table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click on "Program Number" column header inside table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     Then I softly see sort order "Descending" for column "Program Number" inside table with id "---grantee_tableId:-:awardExternalProgranTableId---"
+    When I click on "Program Number" column header inside table with id "---grantee_tableId:-:awardExternalProgranTableId---"
+    Then I softly see sort order "Ascending" for column "Program Number" inside table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     When I click on "Title" column header inside table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     When I click on "Title" column header inside table with id "---grantee_tableId:-:awardExternalProgranTableId---"
@@ -610,7 +610,7 @@ Feature: Sanity scenarios New
     And I wait for "3" seconds
     And I click on back arrow
     And I wait for "3" seconds
-    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     And I wait for "2" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardAssociateContactTableId---"
     Then I softly see the following messages in the page details :
@@ -621,40 +621,40 @@ Feature: Sanity scenarios New
       | Contacts added successfully. |
     When I click modal button "Close"
     And I wait for "3" seconds
-    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
     When I click on parallel lines menu bar with data target value "Contacts"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "Contacts"
     Then I see table is refreshing
-    When I click on "Project Role" column header inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I softly see sort order "Ascending" for column "Project Role" inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    When I click on "Project Role" column header inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I softly see sort order "Descending" for column "Project Role" inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    When I click on "Name" column header inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I softly see sort order "Ascending" for column "Name" inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    When I click on "Name" column header inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I softly see sort order "Descending" for column "Name" inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    When I click on "Email" column header inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I softly see sort order "Ascending" for column "Email" inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    When I click on "Email" column header inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I softly see sort order "Descending" for column "Email" inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    When I click on "Is Key Contact" column header inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I softly see sort order "Ascending" for column "Is Key Contact" inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    When I click on "Is Key Contact" column header inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I softly see sort order "Descending" for column "Is Key Contact" inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    When I click on "Is User" column header inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I softly see sort order "Ascending" for column "Is User" inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    When I click on "Is User" column header inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I softly see sort order "Descending" for column "Is User" inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:ContactTableIdApplication---"
-    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I click on "Project Role" column header inside table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I softly see sort order "Ascending" for column "Project Role" inside table with id "---grantee_tableId:-:awardContactTableId---"
+    When I click on "Project Role" column header inside table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I softly see sort order "Descending" for column "Project Role" inside table with id "---grantee_tableId:-:awardContactTableId---"
+    When I click on "Name" column header inside table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I softly see sort order "Ascending" for column "Name" inside table with id "---grantee_tableId:-:awardContactTableId---"
+    When I click on "Name" column header inside table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I softly see sort order "Descending" for column "Name" inside table with id "---grantee_tableId:-:awardContactTableId---"
+    When I click on "Email" column header inside table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I softly see sort order "Ascending" for column "Email" inside table with id "---grantee_tableId:-:awardContactTableId---"
+    When I click on "Email" column header inside table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I softly see sort order "Descending" for column "Email" inside table with id "---grantee_tableId:-:awardContactTableId---"
+    When I click on "Is Key Contact" column header inside table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I softly see sort order "Ascending" for column "Is Key Contact" inside table with id "---grantee_tableId:-:awardContactTableId---"
+    When I click on "Is Key Contact" column header inside table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I softly see sort order "Descending" for column "Is Key Contact" inside table with id "---grantee_tableId:-:awardContactTableId---"
+    When I click on "Is User" column header inside table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I softly see sort order "Ascending" for column "Is User" inside table with id "---grantee_tableId:-:awardContactTableId---"
+    When I click on "Is User" column header inside table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I softly see sort order "Descending" for column "Is User" inside table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:awardContactTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I softly see the following messages in the page details :
       | Table has been reset. |
     #482356
-    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I softly see "Create Contact" opens in overLay window
     Then I softly see field on modal "Organization" inside page block
     Then I softly see field on modal "Title" inside page block
@@ -709,15 +709,15 @@ Feature: Sanity scenarios New
     And I wait for "2" seconds
     And I save the field labeled "Title" as "ContactTitle" on modal
     When I click modal button "Close"
-    When I perform quick search for "{SavedValue:Automation Runtime} Execution" in "---grantee_tableId:-:ContactTableIdApplication---" panel
-    Then I softly see value "{SavedValue:Automation Runtime} Execution" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I can see row level action button "View" against "{SavedValue:Automation Runtime} Execution" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I can see row level action button "Remove" against "{SavedValue:Automation Runtime} Execution" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I can see row level action button "Edit" against "{SavedValue:Automation Runtime} Execution" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I perform quick search for "{SavedValue:Automation Runtime} Execution" in "---grantee_tableId:-:awardContactTableId---" panel
+    Then I softly see value "{SavedValue:Automation Runtime} Execution" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
+    Then I can see row level action button "View" against "{SavedValue:Automation Runtime} Execution" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I can see row level action button "Remove" against "{SavedValue:Automation Runtime} Execution" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I can see row level action button "Edit" against "{SavedValue:Automation Runtime} Execution" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
       | Name                                      | Is Key Contact | Project Role                                   |
       | {SavedValue:Automation Runtime} Execution | Checked        | Project Director/Principal Investigator(PI/PD) |
-    Then I softly see value "Project Director/Principal Investigator(PI/PD)" for title "Project Role" against the value "{SavedValue:Automation Runtime} Execution" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly see value "Project Director/Principal Investigator(PI/PD)" for title "Project Role" against the value "{SavedValue:Automation Runtime} Execution" inside table "---grantee_tableId:-:awardContactTableId---"
     #482359
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     Then I see the header is "Grant" in the page details
