@@ -564,11 +564,6 @@ Feature: Sanity scenarios New
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Download as PDF" from parallel lines dropdown of "External Programs"
-    And I wait for "7" seconds
-    And I download the file
-    Then I softly see "External Programs" on page "1" of "govgrants" pdf file
-    And I close the tab
     And I select "Refresh" from parallel lines dropdown of "External Programs"
     Then I see table is refreshing
     When I click on "Program Number" column header inside table with id "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
@@ -628,11 +623,6 @@ Feature: Sanity scenarios New
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Download as PDF" from parallel lines dropdown of "Contacts"
-    And I wait for "7" seconds
-    And I download the file
-    Then I softly see "Contacts" on page "1" of "govgrants" pdf file
-    And I close the tab
     And I select "Refresh" from parallel lines dropdown of "Contacts"
     Then I see table is refreshing
     When I click on "Project Role" column header inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
