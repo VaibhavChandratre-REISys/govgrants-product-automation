@@ -29990,7 +29990,7 @@ Feature: Sanity scenarios
       | GRANTEE PO      |
       | GRANTEE PM      |
 
-  @474678 @CFVerifyPMuserARrecordownercanabletoseeAmendAwardbuttonwhenARgetAccepted&abletocreatenewAward&checkstatusofoldAward&checkimpactofnewlycreatedAwardonGrant&Award
+  @474678 @474672 @CFVerifyPMuserARrecordownercanabletoseeAmendAwardbuttonwhenARgetAccepted&abletocreatenewAward&checkstatusofoldAward&checkimpactofnewlycreatedAwardonGrant&Award
   Scenario:CF - Verify PM user (AR record owner) can able to see Amend Award button when AR get Accepted & able to create new Award & check status of old Award & check impact of newly created Award on Grant & Award
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -30265,8 +30265,16 @@ Feature: Sanity scenarios
     And I click modal button "Close"
     Then I softly see field "Status" as "Accepted"
     Then I can see top right button "Amend Award" in page detail
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+     And I click on hyperlink containing value "View All"
+    Then I softly see value "Accepted" for title "New Value" inside field history table
+    And I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
+    And I click on back arrow
     And I click on "Amend Award" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+    Then I can see top right button "Delete" in page detail
+    Then I can see top right button "Activate Award" in page detail
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "AwardEGMSID2"
@@ -30294,6 +30302,16 @@ Feature: Sanity scenarios
     And I navigate to "Management" sub tab
     Then I softly see value "{SavedValue:CFAMENDID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
     Then I softly see value "{SavedValue:PRAMENDID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
+    And I wait for "3" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    Then I softly see value "Amended" for title "Status" against the value "{SavedValue:AwardEGMSID1}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Amended"
 
   @474697 @CFVerifyPOuseAROwnercanabletoSubmitARforApproval&Approvedfromassigned4stepapprover&candoSendtoOwner/Forward/Approveactions&seeSubmittoGrantorbuttononceApprovedtheBPCARRecord
   Scenario:CF - Verify PO user (AR Owner) can able to Submit AR for Approval & Approved from assigned 4 step approver & can do Send to Owner/ Forward/ Approve actions & see 'Submit to Grantor' button once Approved the BPC AR Record
@@ -30537,7 +30555,7 @@ Feature: Sanity scenarios
       | Amendment Request |
       | Step 3            |
     Then I softly see the following messages in the page details contains:
-      | Required Fields Missing |
+      | Required fields missing |
     And I refresh the page
     And I wait for "2" seconds
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
@@ -30548,7 +30566,7 @@ Feature: Sanity scenarios
       | Victor EXE | NA                |
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
-      | Responsibilities - At least one approver is required |
+      | Responsibilities - At least one approver is required. |
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name       | Amendment Request |
       | Victor EXE | Step 1            |
@@ -30614,7 +30632,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     And I click on "Submit for Approval" in the page details without processing
     Then I softly see confirmation box with body "Are you sure, you want to submit this request for approval?" is displayed
-    And I click "No" on modal confirmation box
+    And I click "Cancel" on modal confirmation box
     Then I softly see field "Status" as "Created"
     And I click on "Submit for Approval" in the page details without processing
     Then I softly see confirmation box with body "Are you sure, you want to submit this request for approval?" is displayed
@@ -30667,8 +30685,8 @@ Feature: Sanity scenarios
     And I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
     Then I softly see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
 
-  @474678 @CFVerifyPMuserARrecordownercanabletoseeAmendAwardbuttonwhenARgetAccepted&abletocreatenewAward&checkstatusofoldAward&checkimpactofnewlycreatedAwardonGrant&Award
-  Scenario:CF - Verify PM user (AR record owner) can able to see Amend Award button when AR get Accepted & able to create new Award & check status of old Award & check impact of newly created Award on Grant & Award
+  @474674 @CFVerifyPOuserAROwnercanabletotakeNotAcceptedDecisionfromGrantorRecordDecisionmodalonCFAR
+  Scenario:CF - Verify PO user (AR Owner)can able to take Not Accepted Decision from Grantor Record Decision modal on CF AR
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
