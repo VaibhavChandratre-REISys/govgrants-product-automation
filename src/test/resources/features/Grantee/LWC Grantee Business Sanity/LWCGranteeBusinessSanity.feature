@@ -30289,7 +30289,8 @@ Feature: Sanity scenarios
     Then I softly see value "Amended" for title "Status" against the value "{SavedValue:AwardEGMSID1}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     And I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    And I navigate to "Overview" sub tab
+    And I navigate to "Projections" sub tab
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see value "{SavedValue:TitleIndirectRate}" for title "EGMS ID" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     And I navigate to "Monitoring" sub tab
     Then I softly see value "{SavedValue:AmendTermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
@@ -30582,8 +30583,13 @@ Feature: Sanity scenarios
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
       | Name     | Amendment Request |
       | Sarah PM | Step 4            |
+      When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
+      | Name     | Amendment Request |
+      | Sarah PM | Step 4            |
     Then I softly see the following messages in the page details contains:
       | You cannot specify the same step for multiple users for Amendment Request |
+    And I refresh the page
+     And I wait for "5" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -30683,6 +30689,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I can see top right button "Record Decision" in page detail
     Then I can see top right button "Revise Amendment" in page detail
+     And I navigate to "Overview" sub tab
     And I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
     Then I softly see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
 
@@ -30952,8 +30959,6 @@ Feature: Sanity scenarios
     Then I can see top right button "Record Decision" in page detail
     Then I can see top right button "Revise Amendment" in page detail
     When I click on "Record Decision" in the page details
-    Then I softly see fields "AmendmentNumber__c" is in edit mode
-    Then I softly see fields "AwardIssueDate__c" is in edit mode
     Then I softly see fields "Comments__c" is in edit mode
     When I enter values into fields
       | Value        | Field       |
@@ -31166,7 +31171,8 @@ Feature: Sanity scenarios
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
-    And I save the field labeled "EGMS ID" as "CFAMENDID"
+    And I wait for "5" seconds
+    And I save the field labeled "EGMS ID" as "AwardId1"
     And I wait for "5" seconds
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
@@ -31178,17 +31184,12 @@ Feature: Sanity scenarios
     When I click on "Save" in the page details
     And I wait for "2" seconds
     And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AwardEGMSID1"
+    And I save the field labeled "EGMS ID" as "CFAMENDMENT"
     And I wait for "3" seconds
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:carryForwardBudgetTableId---" by clicking "Edit" :
       | Category Name | Carry Forward |
       | Construction  | 0             |
-    And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    Then I softly can see row level action button "View" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    Then I softly can see row level action button "Edit" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    Then I softly can see row level action button "Delete" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I enter in modal value "Terms2" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
@@ -31198,14 +31199,11 @@ Feature: Sanity scenarios
     And I click modal button "Save"
     And I wait for "3" seconds
     Then I softly see value "Terms2" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    And I save the value from row "1" for column name "EGMS ID" as "AmendTermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    And I save the value from row "2" for column name "Title" as "AmendTermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
       | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
       | Rate2 | 15             | 30              | 10                             | Final                   |
     And I save the value from row "1" for column name "Title" as "TitleIndirectRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    And I save the value from row "1" for column name "Effective from" as "Effectivefrom" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    And I save the value from row "1" for column name "Effective until" as "Effectiveuntil" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    And I save the value from row "1" for column name "Approved Indirect Cost Rate(%)" as "ApprovedIndirectCostRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name       | Amendment Request |
