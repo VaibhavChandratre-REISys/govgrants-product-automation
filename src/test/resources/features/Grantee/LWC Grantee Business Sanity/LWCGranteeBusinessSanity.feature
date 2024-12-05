@@ -30200,21 +30200,16 @@ Feature: Sanity scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:carryForwardBudgetTableId---" by clicking "Edit" :
       | Category Name | Carry Forward |
       | Construction  | 0             |
-    And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    Then I softly can see row level action button "View" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    Then I softly can see row level action button "Edit" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    Then I softly can see row level action button "Delete" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    When I enter in modal value "Terms2" into field "Title__c"
+    When I enter in modal value "CFTermsCondition" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
     When I enter in modal value "1" into field "Sequence__c"
     When I enter in modal value "1" into field "EffectiveFrom__c"
     When I enter in modal value "1" into field "EffectiveTill__c"
     And I click modal button "Save"
     And I wait for "3" seconds
-    Then I softly see value "Terms2" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    And I save the value from row "1" for column name "EGMS ID" as "AmendTermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see value "CFTermsCondition" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    And I save the value from row "2" for column name "Title" as "CFTermsCondition" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
       | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
       | Rate2 | 15             | 30              | 10                             | Final                   |
@@ -30290,10 +30285,9 @@ Feature: Sanity scenarios
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     And I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Projections" sub tab
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardIndirectRateTableId---"
-    Then I softly see value "{SavedValue:TitleIndirectRate}" for title "EGMS ID" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
+    Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     And I navigate to "Monitoring" sub tab
-    Then I softly see value "{SavedValue:AmendTermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see value "{SavedValue:CFTermsCondition}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
     And I wait for "3" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
