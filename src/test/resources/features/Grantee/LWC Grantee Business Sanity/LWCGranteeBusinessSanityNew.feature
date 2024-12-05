@@ -326,7 +326,7 @@ Feature: Sanity scenarios New
     When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
     Then I softly cannot see top right button "Create Pre-Application" in page detail
 
-  @482343 @482351 @482352 @482356 @482359 @482361 @ValidatePMUsertheoverviewtabofaward
+  @482343 @482351 @482352 @482356 @482359 @482361 @482363 @ValidatePMUsertheoverviewtabofaward
   Scenario: Validate PM User the overview tab of award
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -359,7 +359,7 @@ Feature: Sanity scenarios New
     And I enter "Grantee_Opp_PreAppNo_Edition" values from "Announcement_Field_Values.xlsx"
     And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
     When I click on "Save" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I refresh the page
     And I wait for "3" seconds
     And I click on "Edit" in the page details
@@ -739,6 +739,14 @@ Feature: Sanity scenarios New
     And I save the field labeled "Congressional District" as "CongressionalDistrict"
     And I save the field labeled "Country" as "Country"
     And I save the field labeled "Zip Code" as "ZipCode"
+    When I navigate to "Setup" sub tab
+    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
+    And I navigate to "Budget" sub tab
+    And I save the field labeled "Program Income Treatment Type" as "ProgramIncomeTreatmentType"
+    And I save the field labeled "Required Match(%)" as "RequiredMatch"
+    And I save the field labeled "Maximum Indirect Cost Rate" as "MaximumIndirectCostRate"
+    And I save the field labeled "Total Budget Requested" as "TotalBudgetRequested"
     And I click on back arrow
     And I click on back arrow
     Then I softly see "Primary Place of Performance" page block displayed
@@ -807,7 +815,16 @@ Feature: Sanity scenarios New
     Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
     And I save the field labeled "Last Modified Date" as "LastModifiedDate"
     Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
-    #482361
+    #482361, 482363
+    And I navigate to "Projections" sub tab
+    Then I softly see field "Project Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
+    Then I softly see field "Project Period End Date" as "{SavedValue:ProjectPeriodEndDate}"
+    Then I softly see field "Budget Redirection Threshhold (%)" as "{SavedValue:RequiredMatch}"
+    Then I softly see field "Award Amount to Date" as "{SavedValue:TotalBudgetRequested}"
+    Then I softly see field "Program Income Treatment Type" as "{SavedValue:ProgramIncomeTreatmentType}"
+    Then I softly see field "Maximum Indirect Cost Rate" as "{SavedValue:MaximumIndirectCostRate}"
+    Then I softly see field "Budget Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
+    When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     And I clear the value from field "AwardIssueDate__c"
     And I clear the value from field "PaymentSystem__c"
@@ -823,5 +840,17 @@ Feature: Sanity scenarios New
     And I enter value "Test" into field "PaymentSystem__c"
     And I navigate to "Projections" sub tab
     And I enter value "Additive" into field "ProgramIncomeType__c"
+    And I enter value "10" into field "BudgetRedirectionThreshhold__c"
+    And I enter value "800" into field "BudgetPeriodEndDate__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
+    Then I softly see "Project Period Details" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I softly see field "Budget Redirection Threshhold (%)" as "10.00%"
+    Then I softly see field "Budget Period End Date" as "{Date:M/d/yyyy::d+800}"
+    Then I softly see field "Carry-Forward this Action" as "$0.00"
+    When I hovering mouse on help text icon inside page block detail "Carry-Forward this Action"
+    Then I softly see "This amount does not add to total awarded amount as it was awarded in a prior budget period" shown as help text
+    Then I softly see field "Award Amount This Action" as "{SavedValue:TotalBudgetRequested}"
+    When I hovering mouse on help text icon inside page block detail "Award Amount This Action"
+    Then I softly see "Award Budget Amount in this award" shown as help text
