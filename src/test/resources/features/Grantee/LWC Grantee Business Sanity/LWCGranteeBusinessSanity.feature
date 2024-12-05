@@ -30951,9 +30951,9 @@ Feature: Sanity scenarios
     Then I can see top right button "Record Decision" in page detail
     Then I can see top right button "Revise Amendment" in page detail
     When I click on "Record Decision" in the page details
-    Then I softly see fields "AmendmentNumber__c" is visible
-    Then I softly see fields "AwardIssueDate__c" is visible
-    Then I softly see fields "Comments__c" is visible
+    Then I softly see fields "AmendmentNumber__c" is in edit mode
+    Then I softly see fields "AwardIssueDate__c" is in edit mode
+    Then I softly see fields "Comments__c" is in edit mode
     When I enter values into fields
       | Value        | Field       |
       | Not Accepted | Decision__c |
