@@ -30194,7 +30194,7 @@ Feature: Sanity scenarios
     When I click on "Save" in the page details
     And I wait for "2" seconds
     And I get the "EGMS ID"
-      And I save the field labeled "EGMS ID" as "CFAMENDID"
+    And I save the field labeled "EGMS ID" as "CFAMENDID"
     And I wait for "3" seconds
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:carryForwardBudgetTableId---" by clicking "Edit" :
@@ -30267,7 +30267,7 @@ Feature: Sanity scenarios
     Then I can see top right button "Amend Award" in page detail
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
-     And I click on hyperlink containing value "View All"
+    And I click on hyperlink containing value "View All"
     Then I softly see value "Accepted" for title "New Value" inside field history table
     And I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
     And I click on back arrow
@@ -30668,6 +30668,7 @@ Feature: Sanity scenarios
     And I click on hyperlink containing value "View All"
     Then I softly see value "Approved" for title "New Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
+    And I click on back arrow
     Then I cannot see top right button "Edit" in page detail
     Then I can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
@@ -31255,7 +31256,7 @@ Feature: Sanity scenarios
     And I click on hyperlink containing value "View All"
     Then I softly see value "Revision in Progress" for title "New Value" inside field history table
     Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
-     And I click on "Submit for Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -31265,7 +31266,7 @@ Feature: Sanity scenarios
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -31280,7 +31281,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I can see top right button "Record Decision" in page detail
     Then I can see top right button "Revise Amendment" in page detail
-     When I click on "Record Decision" in the page details
+    When I click on "Record Decision" in the page details
     When I enter values into fields
       | Value                       | Field             |
       | Accepted                    | Decision__c       |
