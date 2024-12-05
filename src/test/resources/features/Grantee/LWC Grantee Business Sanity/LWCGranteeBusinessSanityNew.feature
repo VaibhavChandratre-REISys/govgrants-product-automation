@@ -502,7 +502,7 @@ Feature: Sanity scenarios New
     Then I softly see field "Version Number" inside page block
     Then I softly see field "Version Number" as "1"
     When I hovering mouse on help text icon inside page block detail "Version Number"
-    Then I softly see "System generated number used to track changes to the award " shown as help text
+    Then I softly see "System generated number used to track changes to the award" shown as help text
     Then I softly see field " Funding Organization " inside page block
     And I save the field labeled " Funding Organization " as "FundingOrganization "
     Then I softly see link "{SavedValue:FundingOrganization}" inside Page block
@@ -556,6 +556,7 @@ Feature: Sanity scenarios New
     Then I softly see the following messages in the page details :
       | No records are selected. |
     When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | Programs associated successfully. |
     When I click modal button "Close"
@@ -566,11 +567,6 @@ Feature: Sanity scenarios New
     Then I see option "Download as PDF" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "External Programs"
     Then I see table is refreshing
-    When I click on "Program Number" column header inside table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    Then I softly see the following messages in the page details :
-      | Table has been reset. |
     When I click on "Program Number" column header inside table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     Then I softly see sort order "Ascending" for column "Program Number" inside table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     When I click on "Program Number" column header inside table with id "---grantee_tableId:-:awardExternalProgranTableId---"
@@ -587,6 +583,10 @@ Feature: Sanity scenarios New
     Then I softly see sort order "Ascending" for column "Is Primary Program" inside table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     When I click on "Is Primary Program" column header inside table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     Then I softly see sort order "Descending" for column "Is Primary Program" inside table with id "---grantee_tableId:-:awardExternalProgranTableId---"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:awardExternalProgranTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
+    Then I softly see the following messages in the page details :
+      | Table has been reset. |
     #482352
     Then I softly see "Contacts" page block displayed
     Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
@@ -607,13 +607,16 @@ Feature: Sanity scenarios New
     When I navigate to "Overview" sub tab
     Then I softly see "Check" symbol against the value "Sarah PM" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
     And I click on back arrow
+    And I wait for "3" seconds
     And I click on back arrow
+    And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
     And I wait for "2" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardAssociateContactTableId---"
     Then I softly see the following messages in the page details :
       | Select at least one record. |
     When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | Contacts added successfully. |
     When I click modal button "Close"
@@ -625,11 +628,6 @@ Feature: Sanity scenarios New
     Then I see option "Download as PDF" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "Contacts"
     Then I see table is refreshing
-    When I click on "Project Role" column header inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:ContactTableIdApplication---"
-    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I softly see the following messages in the page details :
-      | Table has been reset. |
     When I click on "Project Role" column header inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
     Then I softly see sort order "Ascending" for column "Project Role" inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
     When I click on "Project Role" column header inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
@@ -650,6 +648,10 @@ Feature: Sanity scenarios New
     Then I softly see sort order "Ascending" for column "Is User" inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
     When I click on "Is User" column header inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
     Then I softly see sort order "Descending" for column "Is User" inside table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:ContactTableIdApplication---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly see the following messages in the page details :
+      | Table has been reset. |
     #482356
     Then I can see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
@@ -739,7 +741,9 @@ Feature: Sanity scenarios New
     And I save the field labeled "Maximum Indirect Cost Rate" as "MaximumIndirectCostRate"
     And I save the field labeled "Total Budget Requested" as "TotalBudgetRequested"
     And I click on back arrow
+    And I wait for "3" seconds
     And I click on back arrow
+    And I wait for "3" seconds
     Then I softly see "Primary Place of Performance" page block displayed
     Then I softly see field "Address line 1" as "{SavedValue:Addressline1}"
     Then I softly see field "Address line 2" as "{SavedValue:Addressline2}"
