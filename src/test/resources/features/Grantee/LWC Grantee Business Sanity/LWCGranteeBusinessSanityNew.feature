@@ -326,7 +326,7 @@ Feature: Sanity scenarios New
     When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
     Then I softly cannot see top right button "Create Pre-Application" in page detail
 
-  @482343 @482351 @482352 @482356 @482359 @ValidatePMUsertheoverviewtabofaward @GranteeTBE
+  @482343 @482351 @482352 @482356 @482359 @482361 @ValidatePMUsertheoverviewtabofaward
   Scenario: Validate PM User the overview tab of award
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -361,6 +361,7 @@ Feature: Sanity scenarios New
     When I click on "Save" in the page details
     And I wait for "3" seconds
     And I refresh the page
+    And I wait for "3" seconds
     And I click on "Edit" in the page details
     And I enter value "Yes" into field "MaintenanceEffortRequire__c"
     And I enter value "Automation Test" into field "StatutoryMaintenanceOfEffort__c"
@@ -806,3 +807,21 @@ Feature: Sanity scenarios New
     Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
     And I save the field labeled "Last Modified Date" as "LastModifiedDate"
     Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
+    #482361
+    When I click on "Edit" in the page details
+    And I clear the value from field "AwardIssueDate__c"
+    And I clear the value from field "PaymentSystem__c"
+    And I navigate to "Projections" sub tab
+    And I enter value "--None--" into field "ProgramIncomeType__c"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Program Income Treatment Type is required to save under Projections. |
+      | Award Issue Date is required to save under Overview.                 |
+      | Funder Payment System is required to save under Overview.            |
+    And I enter value "10" into field "AwardIssueDate__c"
+    And I enter value "Test" into field "PaymentSystem__c"
+    And I navigate to "Projections" sub tab
+    And I enter value "Additive" into field "ProgramIncomeType__c"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
