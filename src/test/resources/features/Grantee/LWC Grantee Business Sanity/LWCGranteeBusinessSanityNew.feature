@@ -1205,6 +1205,8 @@ Feature: Sanity scenarios New
     And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     And I wait for "3" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Edit" in the page details
     And I enter value "12345" into field " GrantNumber__c"
     And I enter value "Project Grant" into field "GrantType__c"
@@ -1467,6 +1469,8 @@ Feature: Sanity scenarios New
     When I navigate to "Overview" sub tab
     And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I wait for "3" seconds
+    And I refresh the page
     And I wait for "3" seconds
     And I click on "Edit" in the page details
     And I enter value "12345" into field " GrantNumber__c"
