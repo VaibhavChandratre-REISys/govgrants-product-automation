@@ -1010,8 +1010,8 @@ Feature: Sanity scenarios New
     And I select "Refresh" from parallel lines dropdown of "Special Conditions"
     Then I see table is refreshing
 
-  @482402 @ValidatePOUserthefilessectionofaward
-  Scenario: Validate PO User the files section of award
+  @484076 @ValidateFromAppGPCloseoutwhileoverrideifthereisnoopenitemstillabletodooverrideandcontinuetheflow
+  Scenario: Validate From App GP Closeout while override if there is no open item still able to do override and continue the flow
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
