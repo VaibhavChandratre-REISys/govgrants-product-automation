@@ -1599,9 +1599,7 @@ Feature: Validate all scenarios of every modules flow
   Scenario: Opportunities converted to Pre-Application (Grants.gov) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Opportunity which is converted to Pre-application
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I wait for "5" seconds
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
-      | Reviewer Name | Role             | Description            | Due Date | Allow Record Editing |
-      | Grantee PO    | Program Reviewer | Automation Description | -10       | NO                   |
-     Then I softly see the following messages in the page details contains:
-      | Due date should not be in the Past Date |
+    And I navigate to "Home" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:HomeCompletedTask---" panel
+    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:HomeCompletedTask---"
