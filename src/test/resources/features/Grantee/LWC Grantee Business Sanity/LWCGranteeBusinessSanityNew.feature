@@ -877,10 +877,10 @@ Feature: Sanity scenarios New
     Then I softly see value "" for title "End Date" against the value "Automation Permanent Focus Area2" inside table "---grantee_tableId:-:ProjectTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
       | Title                  | Start Date | End Date |
-      | {SavedValue:FocusArea} | 110        | 400      |
+      | {SavedValue:FocusArea} | 110        | 900      |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
       | Title                            | Start Date | End Date |
-      | Automation Permanent Focus Area2 | 110        | 400      |
+      | Automation Permanent Focus Area2 | 110        | 900      |
     When I click on "Validate" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
@@ -1012,7 +1012,7 @@ Feature: Sanity scenarios New
 
   @482402 @ValidatePOUserthefilessectionofaward
   Scenario: Validate PO User the files section of award
-    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -1074,7 +1074,7 @@ Feature: Sanity scenarios New
     When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Opportunities Not Converted to Application - All"
@@ -1130,7 +1130,7 @@ Feature: Sanity scenarios New
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -1180,7 +1180,7 @@ Feature: Sanity scenarios New
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
-      | Grantee PO | Step 1 |
+      | Sarah PM | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -1201,6 +1201,15 @@ Feature: Sanity scenarios New
     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
+    When I navigate to "Overview" sub tab
+    And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I click on "Edit" in the page details
+    And I enter value "12345" into field " GrantNumber__c"
+    And I enter value "Project Grant" into field "GrantType__c"
+    When I click on "Save" in the page details
+    And I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     When I click on "Validate" in the page details
     And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
@@ -1210,3 +1219,55 @@ Feature: Sanity scenarios New
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Activated"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Project Period Start Date" as "PPST"
+    When I navigate to "Closeout" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
+    When I enter values into fields
+      | Value             | Field           |
+      | {SavedValue:PPST} | CloseoutDate__c |
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Closeout_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "closeoutID"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:closeoutApproverTableId---" by clicking "New" :
+      | Name       | Closeout |
+      | Victor EXE | Step 1   |
+    When I navigate to "Open  Items" sub tab
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:pendingAmendmentCloseoutTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PendingProgressReprt---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PendingFinancialReport---"
+    Then I softly can see top right button "Override" in page detail
+    When I navigate to "Overview" sub tab
+    And I click on "Edit" in the page details
+    And I clear the value from field "Justification__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I click on "Override" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - Provide Justification for overriding open items to closure and proceed with the closeout. |
+    And I click on "Edit" in the page details
+    And I enter value "Automation Justification" into field "Justification__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I click on "Override" in the page details
+    Then I softly see field "Status" as "Overridden"
+    Then I softly see status in Progress-bar is "Overridden" and is "dark blue"
+    When I navigate to "Open  Items" sub tab
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:pendingAmendmentCloseoutTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PendingProgressReprt---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PendingFinancialReport---"
