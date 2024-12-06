@@ -1204,6 +1204,7 @@ Feature: Sanity scenarios New
     When I navigate to "Overview" sub tab
     And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I wait for "3" seconds
     And I click on "Edit" in the page details
     And I enter value "12345" into field " GrantNumber__c"
     And I enter value "Project Grant" into field "GrantType__c"
@@ -1466,6 +1467,7 @@ Feature: Sanity scenarios New
     When I navigate to "Overview" sub tab
     And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I wait for "3" seconds
     And I click on "Edit" in the page details
     And I enter value "12345" into field " GrantNumber__c"
     And I enter value "Project Grant" into field "GrantType__c"
@@ -1497,4 +1499,3 @@ Feature: Sanity scenarios New
     Then I softly cannot see "Budget Period Closeouts" sub tab at view detail page
     And I navigate to "Closeout" tab
     Then I do not see "Budget Period Closeouts" inside "Closeouts" is displayed
-
