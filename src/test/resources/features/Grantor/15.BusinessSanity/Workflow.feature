@@ -1598,127 +1598,8 @@ Feature: Validate all scenarios of every modules flow
   Scenario: Validate PM user should able to Create & Activate the KPI
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Award__c/a1oDl000003xbyLIAQ/view"
-    Then I softly see value "Automation Runtime2515066909 Execution" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
-    Then I can see row level action button "View" against "Automation Runtime2515066909 Execution" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    Then I can see row level action button "Remove" against "Automation Runtime2515066909 Execution" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    Then I can see row level action button "Edit" against "Automation Runtime2515066909 Execution" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
-      | Name                                      | Is Key Contact | Project Role                                   |
-      | Automation Runtime2515066909 Execution | Checked        | Project Director/Principal Investigator(PI/PD) |
-    Then I softly see value "Project Director/Principal Investigator(PI/PD)" for title "Project Role" against the value "Automation Runtime2515066909 Execution" inside table "---grantee_tableId:-:awardContactTableId---"
-    #482359
-    And I click on hyperlink containing value "GT--01766"
-    Then I see the header is "Grant" in the page details
-    And I save the field labeled "Application Number" as "ApplicationNumber"
-    And I click on hyperlink containing value "{SavedValue:ApplicationNumber}"
-    When I navigate to "Overview" sub tab
-    And I save the field labeled "Address line 1" as "Addressline1"
-    And I save the field labeled "Address line 2" as "Addressline2"
-    And I save the field labeled "City" as "City"
-    And I save the field labeled "County" as "County"
-    And I save the field labeled "State" as "State"
-    And I save the field labeled "Congressional District" as "CongressionalDistrict"
-    And I save the field labeled "Country" as "Country"
-    And I save the field labeled "Zip Code" as "ZipCode"
-    When I navigate to "Setup" sub tab
-    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
-    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
-    And I navigate to "Budget" sub tab
-    And I save the field labeled "Program Income Treatment Type" as "ProgramIncomeTreatmentType"
-    And I save the field labeled "Required Match(%)" as "RequiredMatch"
-    And I save the field labeled "Maximum Indirect Cost Rate" as "MaximumIndirectCostRate"
-    And I save the field labeled "Total Budget Requested" as "TotalBudgetRequested"
-    And I click on back arrow
-    And I wait for "3" seconds
-    And I click on back arrow
-    And I wait for "3" seconds
-    Then I softly see "Primary Place of Performance" page block displayed
-    Then I softly see field "Address line 1" as "{SavedValue:Addressline1}"
-    Then I softly see field "Address line 2" as "{SavedValue:Addressline2}"
-    Then I softly see field "City" as "{SavedValue:City}"
-    Then I softly see field "County" as "{SavedValue:County}"
-    Then I softly see field "State" as "{SavedValue:State}"
-    #Need to discuss below field with QA for Application field & award field
-#    Then I softly see field "Congressional District" as "{SavedValue:CongressionalDistrict}"
-    Then I softly see field "Country" as "{SavedValue:Country}"
-    Then I softly see field "Zip Code" as "{SavedValue:ZipCode}"
-    When I click on "Edit" in the page details
-    And I clear the value from field "Addressline1__c"
-    And I clear the value from field "Addressline2__c"
-    And I clear the value from field "City__c"
-    And I clear the value from field "County__c"
-    And I clear the value from field "County__c"
-    And I enter value "--None--" into field "State__c"
-    And I clear the value from field "CongressionalDistrictName__c"
-    And I clear the value from field "Zip4__c"
-    And I clear the value from field "Country__c"
-    And I clear the value from field "ZipCode4Extension__c"
-    When I click on "Save" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Address Line 1 is required to save under Overview.         |
-      | City is required to save under Overview.                   |
-      | State is required to save under Overview.                  |
-      | Congressional District is required to save under Overview. |
-      | Zip Code is required to save under Overview.               |
-      | Country is required to save under Overview.                |
-    And I enter value "Alen" into field "Addressline1__c"
-    And I enter value "Dow" into field "Addressline2__c"
-    And I enter value "VA" into field "City__c"
-    And I enter value "Cargo" into field "County__c"
-    And I enter value "AK" into field "State__c"
-    And I enter value "123" into field "CongressionalDistrictName__c"
-    And I enter value "12345" into field "Zip4__c"
-    And I enter value "USA" into field "Country__c"
-    And I enter value "1234" into field "ZipCode4Extension__c"
-    When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see field "Address line 1" as "Alen"
-    Then I softly see field "Address line 2" as "Dow"
-    Then I softly see field "City" as "VA"
-    Then I softly see field "County" as "Cargo"
-    Then I softly see field "State" as "AK"
-    Then I softly see field "Congressional District" as "123"
-    Then I softly see field "Zip Code" as "12345"
-    Then I softly see field "Country" as "USA"
-    Then I softly see field "4-digit Zip Code Extension" as "1234"
-    Then I softly see "System Information" page block displayed
-    And I save the field labeled "Created by" as "Createdby"
-    Then I softly see field "Created by" inside page block
-    Then I softly see link "{SavedValue:Createdby}" inside Page block
-    And I save the field labeled "Last Modified by" as "LastModifiedby"
-    Then I softly see field "Last Modified by" inside page block
-    Then I softly see link "{SavedValue:LastModifiedby}" inside Page block
-    And I click on hyperlink containing value "{SavedValue:LastModifiedby}"
-    Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
-    And I click on back arrow
-    And I click on hyperlink containing value "{SavedValue:Createdby}"
-    Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
-    And I click on back arrow
-    And I save the field labeled "Created Date" as "CreatedDate"
-    Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
-    And I save the field labeled "Last Modified Date" as "LastModifiedDate"
-    Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
-    #482361, 482363
-    And I navigate to "Projections" sub tab
-    Then I softly see field "Project Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
-    Then I softly see field "Project Period End Date" as "{SavedValue:ProjectPeriodEndDate}"
-    Then I softly see field "Budget Redirection Threshhold (%)" as "{SavedValue:RequiredMatch}"
-    Then I softly see field "Award Amount to Date" as "{SavedValue:TotalBudgetRequested}"
-    Then I softly see field "Program Income Treatment Type" as "{SavedValue:ProgramIncomeTreatmentType}"
-    Then I softly see field "Maximum Indirect Cost Rate" as "{SavedValue:MaximumIndirectCostRate}"
-    Then I softly see field "Budget Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
-    And I clear the value from field "AwardIssueDate__c"
-    And I clear the value from field "PaymentSystem__c"
-    And I navigate to "Projections" sub tab
-    And I enter value "--None--" into field "ProgramIncomeType__c"
-    When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details contains:
-      | Program Income Treatment Type is required to save under Projections. |
-      | Award Issue Date is required to save under Overview.                 |
-      | Funder Payment System is required to save under Overview.            |
     And I enter value "10" into field "AwardIssueDate__c"
     And I enter value "Test" into field "PaymentSystem__c"
     And I navigate to "Projections" sub tab
@@ -1737,3 +1618,162 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Award Amount This Action" as "{SavedValue:TotalBudgetRequested}"
     When I hovering mouse on help text icon inside page block detail "Award Amount This Action"
     Then I softly see "Award Budget Amount in this award" shown as help text
+    #482368
+    When I navigate to "Overview" sub tab
+    And I save the field labeled "Application" as "ApplicationNumber"
+    And I click on hyperlink containing value "{SavedValue:ApplicationNumber}"
+    Then I see the header is "Application" in the page details
+    And I navigate to "Setup" sub tab
+    And I save the value from row "1" for column name "Focus Area Title" as "FocusArea" from flex table "---grantee_tableId:-:ChildBudgetPeriodDetailsFromBudgetOfSetUp---"
+    And I click on back arrow
+    And I navigate to "Projections" sub tab
+    Then I softly see "Focus Area" page block displayed
+    Then I softly see value "{SavedValue:FocusArea}" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see "Start Date" in flex table header "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see "End Date" in flex table header "---grantee_tableId:-:ProjectTableId---"
+    Then I can see row level action button "Remove" against "{SavedValue:FocusArea}" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+    Then I can see row level action button "Edit" against "{SavedValue:FocusArea}" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
+    When I click modal button "Close"
+    And I wait for "3" seconds
+    Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I can see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+    Then I can see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "" for title "Start Date" against the value "Automation Permanent Focus Area2" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "" for title "End Date" against the value "Automation Permanent Focus Area2" inside table "---grantee_tableId:-:ProjectTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
+      | Title                  | Start Date | End Date |
+      | {SavedValue:FocusArea} | 110        | 400      |
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
+      | Title                            | Start Date | End Date |
+      | Automation Permanent Focus Area2 | 110        | 400      |
+    When I click on "Validate" in the page details
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Projections Tab - Focus Area Start Date and Focus Area End Date should be between budget period.                                           |
+      | Projections Tab - Focus Area Start Date and Focus Area End Date should be between budget period.                                           |
+      | Projections Tab - At least one focus area must be in place at all times during the budget period. Adjust the focus area dates accordingly. |
+    When I click on parallel lines menu bar with data target value "Focus Area"
+    And I wait for "3" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I select "Refresh" from parallel lines dropdown of "Focus Area"
+    Then I see table is refreshing
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:ProjectTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see the following messages in the page details :
+      | Table has been reset. |
+    #482400
+    And I navigate to "Projections" sub tab
+    And I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
+    And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
+    And I navigate to "Monitoring" sub tab
+    Then I softly see "Special Conditions" page block displayed
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see "Description" in flex table header "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see "Date Effective From" in flex table header "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see "Date Effective To" in flex table header "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:SpecialConditionTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see "Create Special Condition" opens in overLay window
+    Then I see the text " Required to Save | " in modal
+    Then I see the text " Required to Submit" in modal
+    Then I softly see "Information" page block displayed
+    Then I softly see "Effective Dates" page block displayed
+    When I "Collapse" page block contaninig value "Information"
+    Then I softly do not see fields "Title__c" is visible
+    When I "Expanded" page block contaninig value "Information"
+    Then I softly see fields "Title__c" is visible
+    When I "Collapse" page block contaninig value "Effective Dates"
+    Then I softly do not see fields "EffectiveFrom__c" is visible
+    When I "Expanded" page block contaninig value "Effective Dates"
+    Then I softly see fields "EffectiveFrom__c" is visible
+    Then I softly see field on modal "Title" inside page block
+    Then I softly see asterisk mark on "Title"
+    Then I softly see field on modal "Description" inside page block
+    Then I softly see asterisk mark on "Description"
+    When I hovering mouse on help text icon inside modal "Description"
+    Then I softly see "Enter special condition as it's presented in award letter." shown as help text
+    Then I softly see field on modal "Sequence" inside page block
+    Then I softly see asterisk mark on "Sequence"
+    When I hovering mouse on help text icon inside modal "Sequence"
+    Then I softly see "Provide the required sequence for terms and conditions. This allow up to 18 digits." shown as help text
+    Then I softly see field on modal "Mandatory" inside page block
+    When I hovering mouse on help text icon inside modal "Mandatory"
+    Then I softly see "Check the box to make Terms and Conditions mandatory." shown as help text
+    Then I softly see field on modal "Effective From Date" inside page block
+    Then I softly see asterisk mark on "Effective From Date"
+    Then I softly see field on modal "Effective To Date" inside page block
+    Then I softly see asterisk mark on "Effective To Date"
+    And I clear in modal the value from field "Sequence__c"
+    And I clear in modal the value from field "EffectiveFrom__c"
+    And I clear in modal the value from field "EffectiveTill__c"
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Title is required to save.               |
+      | Description is required to save.         |
+      | Sequence is required to save.            |
+      | Effective From Date is required to save. |
+      | Effective To Date is required to save.   |
+    When I enter in modal value "Terms" into field "Title__c"
+    When I enter in modal value "Terms Description" into field "Description__c"
+    When I enter in modal value "1" into field "Sequence__c"
+    When I enter in modal value "{SavedValue:BudgetPeriodStartDate}" into field "EffectiveFrom__c"
+    When I enter in modal value "1" into field "EffectiveTill__c"
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Effective To Date cannot be before Effective From Date |
+    When I enter in modal value "{SavedValue:BudgetPeriodEndDate}" into field "EffectiveTill__c"
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I can see row level action button "View" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I can see row level action button "Delete" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I can see row level action button "Edit" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    And I click on "View" icon for "{SavedValue:TermsId}" inside flex table with id "---grantee_tableId:-:SpecialConditionTableId---" without waiting for record
+    Then I softly see "Special Condition" opens in overLay window
+    Then I see field "EGMS ID" as "{SavedValue:TermsId}" on modal
+    Then I see field "Title" as "Terms" on modal
+    Then I see field "Description" as "Terms Description" on modal
+    Then I see field "Sequence" as "1" on modal
+    Then I see field "Effective From Date" as "{SavedValue:BudgetPeriodStartDate}" on modal
+    Then I see field "Effective To Date" as "{SavedValue:BudgetPeriodEndDate}" on modal
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I click on "EGMS ID" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see sort order "Ascending" for column "EGMS ID" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    When I click on "EGMS ID" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see sort order "Descending" for column "EGMS ID" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see sort order "Descending" for column "Title" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    When I click on "Description" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see sort order "Ascending" for column "Description" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    When I click on "Description" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see sort order "Descending" for column "Description" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    When I click on "Date Effective From" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see sort order "Ascending" for column "Date Effective From" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    When I click on "Date Effective From" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see sort order "Descending" for column "Date Effective From" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    When I click on "Date Effective To" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see sort order "Ascending" for column "Date Effective To" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    When I click on "Date Effective To" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see sort order "Descending" for column "Date Effective To" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:SpecialConditionTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see the following messages in the page details :
+      | Table has been reset. |
+    When I click on parallel lines menu bar with data target value "Special Conditions"
+    And I wait for "3" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I select "Refresh" from parallel lines dropdown of "Special Conditions"
+    Then I see table is refreshing
