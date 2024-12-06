@@ -707,7 +707,6 @@ Feature: Sanity scenarios New
     When I enter in modal value "12345" into field "MailingPostalCode"
     When I click modal button "Save"
     And I wait for "2" seconds
-    When I perform quick search for "{SavedValue:Automation Runtime} Execution" in "---grantee_tableId:-:awardContactTableId---" panel
     Then I softly see value "{SavedValue:Automation Runtime} Execution" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
     Then I can see row level action button "View" against "{SavedValue:Automation Runtime} Execution" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I can see row level action button "Remove" against "{SavedValue:Automation Runtime} Execution" in flex table with id "---grantee_tableId:-:awardContactTableId---"

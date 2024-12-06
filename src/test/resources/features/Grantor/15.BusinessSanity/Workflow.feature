@@ -1596,17 +1596,144 @@ Feature: Validate all scenarios of every modules flow
 
   @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
   Scenario: Validate PM user should able to Create & Activate the KPI
-    When I login to "As a Grantee" app as "GRANTEE FO" user
-    When I navigate to "Applications" tab
-    When I navigate to "Pending Tasks" content inside "My Task" subheader on left panel
-    And I perform quick search for "PR--0083" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "PR--0083" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-    When I navigate to "Applications" tab
-    When I navigate to "Pending Tasks" content inside "My Task" subheader on left panel
-    And I perform quick search for "PR--0083" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "PR--0083" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    When I "Reject" in the approval decision
-    Then I softly see status in Progress-bar is "Rejected" and is "Red"
-    And I halt execution
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Award__c/a1oDl000003xbyLIAQ/view"
+    Then I softly see value "Automation Runtime2515066909 Execution" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
+    Then I can see row level action button "View" against "Automation Runtime2515066909 Execution" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I can see row level action button "Remove" against "Automation Runtime2515066909 Execution" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I can see row level action button "Edit" against "Automation Runtime2515066909 Execution" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
+      | Name                                      | Is Key Contact | Project Role                                   |
+      | Automation Runtime2515066909 Execution | Checked        | Project Director/Principal Investigator(PI/PD) |
+    Then I softly see value "Project Director/Principal Investigator(PI/PD)" for title "Project Role" against the value "{SavedValue:Automation Runtime} Execution" inside table "---grantee_tableId:-:awardContactTableId---"
+    #482359
+    And I click on hyperlink containing value "GT--01766"
+    Then I see the header is "Grant" in the page details
+    And I save the field labeled "Application Number" as "ApplicationNumber"
+    And I click on hyperlink containing value "{SavedValue:ApplicationNumber}"
+    When I navigate to "Overview" sub tab
+    And I save the field labeled "Address line 1" as "Addressline1"
+    And I save the field labeled "Address line 2" as "Addressline2"
+    And I save the field labeled "City" as "City"
+    And I save the field labeled "County" as "County"
+    And I save the field labeled "State" as "State"
+    And I save the field labeled "Congressional District" as "CongressionalDistrict"
+    And I save the field labeled "Country" as "Country"
+    And I save the field labeled "Zip Code" as "ZipCode"
+    When I navigate to "Setup" sub tab
+    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
+    And I navigate to "Budget" sub tab
+    And I save the field labeled "Program Income Treatment Type" as "ProgramIncomeTreatmentType"
+    And I save the field labeled "Required Match(%)" as "RequiredMatch"
+    And I save the field labeled "Maximum Indirect Cost Rate" as "MaximumIndirectCostRate"
+    And I save the field labeled "Total Budget Requested" as "TotalBudgetRequested"
+    And I click on back arrow
+    And I wait for "3" seconds
+    And I click on back arrow
+    And I wait for "3" seconds
+    Then I softly see "Primary Place of Performance" page block displayed
+    Then I softly see field "Address line 1" as "{SavedValue:Addressline1}"
+    Then I softly see field "Address line 2" as "{SavedValue:Addressline2}"
+    Then I softly see field "City" as "{SavedValue:City}"
+    Then I softly see field "County" as "{SavedValue:County}"
+    Then I softly see field "State" as "{SavedValue:State}"
+    #Need to discuss below field with QA for Application field & award field
+#    Then I softly see field "Congressional District" as "{SavedValue:CongressionalDistrict}"
+    Then I softly see field "Country" as "{SavedValue:Country}"
+    Then I softly see field "Zip Code" as "{SavedValue:ZipCode}"
+    When I click on "Edit" in the page details
+    And I clear the value from field "Addressline1__c"
+    And I clear the value from field "Addressline2__c"
+    And I clear the value from field "City__c"
+    And I clear the value from field "County__c"
+    And I clear the value from field "County__c"
+    And I enter value "--None--" into field "State__c"
+    And I clear the value from field "CongressionalDistrictName__c"
+    And I clear the value from field "Zip4__c"
+    And I clear the value from field "Country__c"
+    And I clear the value from field "ZipCode4Extension__c"
+    When I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Address Line 1 is required to save under Overview.         |
+      | City is required to save under Overview.                   |
+      | State is required to save under Overview.                  |
+      | Congressional District is required to save under Overview. |
+      | Zip Code is required to save under Overview.               |
+      | Country is required to save under Overview.                |
+    And I enter value "Alen" into field "Addressline1__c"
+    And I enter value "Dow" into field "Addressline2__c"
+    And I enter value "VA" into field "City__c"
+    And I enter value "Cargo" into field "County__c"
+    And I enter value "AK" into field "State__c"
+    And I enter value "123" into field "CongressionalDistrictName__c"
+    And I enter value "12345" into field "Zip4__c"
+    And I enter value "USA" into field "Country__c"
+    And I enter value "1234" into field "ZipCode4Extension__c"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Address line 1" as "Alen"
+    Then I softly see field "Address line 2" as "Dow"
+    Then I softly see field "City" as "VA"
+    Then I softly see field "County" as "Cargo"
+    Then I softly see field "State" as "AK"
+    Then I softly see field "Congressional District" as "123"
+    Then I softly see field "Zip Code" as "12345"
+    Then I softly see field "Country" as "USA"
+    Then I softly see field "4-digit Zip Code Extension" as "1234"
+    Then I softly see "System Information" page block displayed
+    And I save the field labeled "Created by" as "Createdby"
+    Then I softly see field "Created by" inside page block
+    Then I softly see link "{SavedValue:Createdby}" inside Page block
+    And I save the field labeled "Last Modified by" as "LastModifiedby"
+    Then I softly see field "Last Modified by" inside page block
+    Then I softly see link "{SavedValue:LastModifiedby}" inside Page block
+    And I click on hyperlink containing value "{SavedValue:LastModifiedby}"
+    Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
+    And I click on back arrow
+    And I click on hyperlink containing value "{SavedValue:Createdby}"
+    Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
+    And I click on back arrow
+    And I save the field labeled "Created Date" as "CreatedDate"
+    Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
+    And I save the field labeled "Last Modified Date" as "LastModifiedDate"
+    Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
+    #482361, 482363
+    And I navigate to "Projections" sub tab
+    Then I softly see field "Project Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
+    Then I softly see field "Project Period End Date" as "{SavedValue:ProjectPeriodEndDate}"
+    Then I softly see field "Budget Redirection Threshhold (%)" as "{SavedValue:RequiredMatch}"
+    Then I softly see field "Award Amount to Date" as "{SavedValue:TotalBudgetRequested}"
+    Then I softly see field "Program Income Treatment Type" as "{SavedValue:ProgramIncomeTreatmentType}"
+    Then I softly see field "Maximum Indirect Cost Rate" as "{SavedValue:MaximumIndirectCostRate}"
+    Then I softly see field "Budget Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
+    When I navigate to "Overview" sub tab
+    When I click on "Edit" in the page details
+    And I clear the value from field "AwardIssueDate__c"
+    And I clear the value from field "PaymentSystem__c"
+    And I navigate to "Projections" sub tab
+    And I enter value "--None--" into field "ProgramIncomeType__c"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Program Income Treatment Type is required to save under Projections. |
+      | Award Issue Date is required to save under Overview.                 |
+      | Funder Payment System is required to save under Overview.            |
+    And I enter value "10" into field "AwardIssueDate__c"
+    And I enter value "Test" into field "PaymentSystem__c"
+    And I navigate to "Projections" sub tab
+    And I enter value "Additive" into field "ProgramIncomeType__c"
+    And I enter value "10" into field "BudgetRedirectionThreshhold__c"
+    And I enter value "800" into field "BudgetPeriodEndDate__c"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see "Project Period Details" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I softly see field "Budget Redirection Threshhold (%)" as "10.00%"
+    Then I softly see field "Budget Period End Date" as "{Date:M/d/yyyy::d+800}"
+    Then I softly see field "Carry-Forward this Action" as "$0.00"
+    When I hovering mouse on help text icon inside page block detail "Carry-Forward this Action"
+    Then I softly see "This amount does not add to total awarded amount as it was awarded in a prior budget period" shown as help text
+    Then I softly see field "Award Amount This Action" as "{SavedValue:TotalBudgetRequested}"
+    When I hovering mouse on help text icon inside page block detail "Award Amount This Action"
+    Then I softly see "Award Budget Amount in this award" shown as help text
