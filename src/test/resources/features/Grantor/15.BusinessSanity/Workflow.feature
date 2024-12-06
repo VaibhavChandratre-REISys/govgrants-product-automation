@@ -1599,31 +1599,11 @@ Feature: Validate all scenarios of every modules flow
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Award__c/a1oDl000003xbyLIAQ/view"
     When I navigate to "Overview" sub tab
-    When I click on "Edit" in the page details
-    And I enter value "10" into field "AwardIssueDate__c"
-    And I enter value "Test" into field "PaymentSystem__c"
-    And I navigate to "Projections" sub tab
-    And I enter value "Additive" into field "ProgramIncomeType__c"
-    And I enter value "10" into field "BudgetRedirectionThreshhold__c"
-    And I enter value "800" into field "BudgetPeriodEndDate__c"
-    When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see "Project Period Details" page block displayed
-    Then I softly see "Budget Period Details" page block displayed
-    Then I softly see field "Budget Redirection Threshhold (%)" as "10.00%"
-    Then I softly see field "Budget Period End Date" as "{Date:M/d/yyyy::d+800}"
-    Then I softly see field "Carry-Forward this Action" as "$0.00"
-    When I hovering mouse on help text icon inside page block detail "Carry-Forward this Action"
-    Then I softly see "This amount does not add to total awarded amount as it was awarded in a prior budget period" shown as help text
-    Then I softly see field "Award Amount This Action" as "{SavedValue:TotalBudgetRequested}"
-    When I hovering mouse on help text icon inside page block detail "Award Amount This Action"
-    Then I softly see "Award Budget Amount in this award" shown as help text
-    #482368
-    When I navigate to "Overview" sub tab
     And I save the field labeled "Application" as "ApplicationNumber"
     And I click on hyperlink containing value "{SavedValue:ApplicationNumber}"
     Then I see the header is "Application" in the page details
     And I navigate to "Setup" sub tab
+    Given I expand nested table containing column value "BP01"
     And I save the value from row "1" for column name "Focus Area Title" as "FocusArea" from flex table "---grantee_tableId:-:ChildBudgetPeriodDetailsFromBudgetOfSetUp---"
     And I click on back arrow
     And I navigate to "Projections" sub tab
