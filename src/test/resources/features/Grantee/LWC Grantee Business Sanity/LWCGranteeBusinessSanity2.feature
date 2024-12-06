@@ -2457,7 +2457,8 @@ Feature: Sanity scenarios
     When I click on "Validate" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
-      | The Funding Opportunity has been validated successfully. |And I click on "Submit for Approval" in the page details
+      | The Funding Opportunity has been validated successfully. |
+    And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
@@ -2470,7 +2471,7 @@ Feature: Sanity scenarios
     And I navigate to "Opportunities" tab
     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Opportunities Not Converted to Application - All"
-    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
     When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
     Then I softly can see top right button "Create Application" in page detail
     And I click on "Create Application" in the page details
