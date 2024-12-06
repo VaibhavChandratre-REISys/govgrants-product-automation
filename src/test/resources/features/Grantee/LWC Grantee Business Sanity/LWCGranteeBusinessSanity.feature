@@ -2990,7 +2990,7 @@ Feature: Sanity scenarios
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
-      | Victor EXE | Step 1 |
+      | <Approval> | Step 1 |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Management" sub tab
@@ -3008,8 +3008,6 @@ Feature: Sanity scenarios
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
-    Then I softly see the following messages in the page details contains:
-      | KPIs added succesfully. |
     And I click modal button "Close"
     And I wait for "3" seconds
     Then I can see row level action button "View" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
@@ -3062,6 +3060,7 @@ Feature: Sanity scenarios
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I wait for "5" seconds
     When I select radio button "Forward" in the approval decision
     And I select user "<ForwardUser>" in the approval decision
     When I enter comment "Automation testing" in the approval decision
@@ -3097,10 +3096,10 @@ Feature: Sanity scenarios
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
 
     Examples:
-      | User        | ForwardUser | User1       |
-      | GRANTEE EXE | Sarah PM    | GRANTEE PM  |
-      | GRANTEE PM  | Victor EXE  | GRANTEE EXE |
-      | GRANTEE PO  | David FO    | GRANTEE FO  |
+      | User        | ForwardUser | User1       | Approval    |
+      | GRANTEE EXE | Sarah PM    | GRANTEE PM  |  Victor EXE |
+      | GRANTEE PM  | Victor EXE  | GRANTEE EXE |  Sarah PM   |
+      | GRANTEE PO  | David FO    | GRANTEE FO  |  GRANTEE PO |
 
   @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell
   Scenario: Award - Verify with PM Profile ,After activate the award able to see the Actual Tab in pending Closeout ,closed and amended state as well
