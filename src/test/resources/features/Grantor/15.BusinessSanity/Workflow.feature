@@ -1597,18 +1597,11 @@ Feature: Validate all scenarios of every modules flow
 
   @debug @EXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOpportunitywhichisconvertedtoPre-application
   Scenario: Opportunities converted to Pre-Application (Grants.gov) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Opportunity which is converted to Pre-application
-    When I login to "As a Grantee" app as "GRANTEE PO" user
-    And I navigate to "Opportunities" tab
-    And I click toggle button to select "Opportunities - All"
-    When I perform quick search for "{AUTOEnvData:AutomationPermanentLead}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
-    And I click on "View" icon for "{AUTOEnvData:AutomationPermanentLead}" inside flex table with id "---grantee_tableId:-:opportunitysGranteeTableId---" without waiting for record
-    Then I softly see field "Opportunity Number" inside page block
-    When I hovering mouse on help text icon inside page block detail "Opportunity Number"
-    Then I softly see "Text and number both are allowed. Must not exceed 255 characters" shown as help text
-    Then I softly see field "Internal Organization" inside page block
-    Then I softly see field "Funding Instrument Type" inside page block
-    Then I softly see field "Category Of Funding Activity" inside page block
-    Then I softly see field "Opportunity Category" inside page block
-    Then I softly see field "Expected Number of Awards" inside page block
-    When I hovering mouse on help text icon inside page block detail "Expected Number of Awards"
-    Then I softly see "The maximum number excepted is 999." shown as help text
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I wait for "5" seconds
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
+      | Reviewer Name | Role             | Description            | Due Date | Allow Record Editing |
+      | Grantee PO    | Program Reviewer | Automation Description | -10       | NO                   |
+     Then I softly see the following messages in the page details contains:
+      | Due date should not be in the Past Date |
