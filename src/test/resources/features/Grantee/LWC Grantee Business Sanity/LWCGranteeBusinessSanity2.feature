@@ -2403,8 +2403,8 @@ Feature: Sanity scenarios
     When I perform quick search for "Record Id" in "---grantee_tableId:-:HomeCompletedTask---" panel
     Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:HomeCompletedTask---"
 
-  @482861 @VerifyEXEuserAROwnercanabletoRejecttheCarryForwardAmendmentRequestfromApprovalProcess
-  Scenario:Verify EXE user (AR Owner) can able to Reject the Carry Forward Amendment Request from Approval Process
+  @482415 @POuserVerifyUsershouldabletoapprovetheAwardwith4stepapprover
+  Scenario:PO user ->Verify User should able to approve the Award with 4 step approver
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
