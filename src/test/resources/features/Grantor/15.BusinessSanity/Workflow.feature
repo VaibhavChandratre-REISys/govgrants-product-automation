@@ -1605,7 +1605,7 @@ Feature: Validate all scenarios of every modules flow
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
       | Name                                      | Is Key Contact | Project Role                                   |
       | Automation Runtime2515066909 Execution | Checked        | Project Director/Principal Investigator(PI/PD) |
-    Then I softly see value "Project Director/Principal Investigator(PI/PD)" for title "Project Role" against the value "{SavedValue:Automation Runtime} Execution" inside table "---grantee_tableId:-:awardContactTableId---"
+    Then I softly see value "Project Director/Principal Investigator(PI/PD)" for title "Project Role" against the value "Automation Runtime2515066909 Execution" inside table "---grantee_tableId:-:awardContactTableId---"
     #482359
     And I click on hyperlink containing value "GT--01766"
     Then I see the header is "Grant" in the page details
