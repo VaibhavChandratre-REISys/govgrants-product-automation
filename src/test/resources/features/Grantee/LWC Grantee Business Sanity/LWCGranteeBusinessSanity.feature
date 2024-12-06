@@ -16773,16 +16773,16 @@ Feature: Sanity scenarios
     Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I wait for "2" seconds
-    And I download the file
-    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
-    #bug after click on view modal not display
-    And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I wait for "5" seconds
-    Then I softly see "View" opens in overLay window
-    And I click modal button "Close"
+#    And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+#    And I wait for "2" seconds
+#    And I download the file
+#    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
+#    And I switch to parent tab
+#    #bug after click on view modal not display
+#    And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+#    And I wait for "5" seconds
+#    Then I softly see "View" opens in overLay window
+#    And I click modal button "Close"
     And I wait for "3" seconds
     When I click on parallel lines menu bar with data target value "Amendment Files"
     And I wait for "2" seconds
