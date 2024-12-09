@@ -2997,8 +2997,8 @@ Feature: Sanity scenarios New
     And I click on advance filter of table id "---grantee_tableId:-:AwardBudgetTableId---" for LWC
     And I select value inside table "---grantee_tableId:-:AwardBudgetTableId---" is "All"
     Then I softly see the text containing "Showing 1 to 12 of 12 records"
-    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:AwardBudgetTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see the following messages in the page details :
       | Table has been reset. |
     When I click on parallel lines menu bar with data target value "Award Budget"
@@ -3166,6 +3166,8 @@ Feature: Sanity scenarios New
     And I navigate to "Projections" sub tab
     And I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
     And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
       | Title                           | Start Date                         | End Date                         |
       | Automation Permanent Focus Area | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |

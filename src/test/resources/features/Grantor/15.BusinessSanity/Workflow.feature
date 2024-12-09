@@ -1694,8 +1694,8 @@ Feature: Validate all scenarios of every modules flow
     And I click on advance filter of table id "---grantee_tableId:-:AwardBudgetTableId---" for LWC
     And I select value inside table "---grantee_tableId:-:AwardBudgetTableId---" is "All"
     Then I softly see the text containing "Showing 1 to 12 of 12 records"
-    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:AwardBudgetTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see the following messages in the page details :
       | Table has been reset. |
     When I click on parallel lines menu bar with data target value "Award Budget"
