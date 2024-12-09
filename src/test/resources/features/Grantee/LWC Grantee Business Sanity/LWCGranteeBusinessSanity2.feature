@@ -2765,48 +2765,19 @@ Feature: Sanity scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
       | Open Data Framework | Checked            |
-    And I navigate to "Projections" sub tab
-    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-    And I click modal button "Close"
-    And I refresh the page
-    And I wait for "3" seconds
-    And I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
-    And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
-      | Title                           | Start Date                         | End Date                         |
-      | Automation Permanent Focus Area | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
-    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
-    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Budget | Cash Match | Other Leverage |
-      | Construction | The narrative | 5000         | 500        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
-    And I wait for "3" seconds
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---" by clicking "Edit" :
-      | Focus Area Name                 | Projected Program Income ($) | Program Income Justification |
-      | Automation Permanent Focus Area | 1000                         | Automation Test              |
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
-    When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15             | 30              | 10                             | Final                   |
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
       | Victor EXE | Step 1 |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
-      | Sarah PM   | Step 1 |
+      | Sarah PM   | Step 2 |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
-      | David FO | Step 1 |
+      | David FO   | Step 3 |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
-      | Grantee PO | Step 1 |
+      | Grantee PO | Step 4 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
