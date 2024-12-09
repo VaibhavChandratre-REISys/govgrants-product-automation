@@ -2471,7 +2471,7 @@ Feature: Sanity scenarios
     And I navigate to "Opportunities" tab
     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Opportunities Not Converted to Application - All"
-    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
     When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
     Then I softly can see top right button "Create Application" in page detail
     And I click on "Create Application" in the page details
