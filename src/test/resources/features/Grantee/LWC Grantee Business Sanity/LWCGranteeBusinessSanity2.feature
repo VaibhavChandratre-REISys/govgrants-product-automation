@@ -2919,7 +2919,9 @@ Feature: Sanity scenarios
     And I wait for "5" seconds
     And I refresh the page
     And I wait for "3" seconds
+    When I save the field labeled "Application Due Date" as "ApplicationDueDate"
     And I click on "Edit" in the page details
+    And I enter value "{SavedValue:ApplicationDueDate}" into field "PreApplicationDueDate__c"
     And I enter value "Yes" into field "MaintenanceEffortRequire__c"
     And I enter value "Automation Test" into field "StatutoryMaintenanceOfEffort__c"
     And I click on "Save" in the page details
@@ -2958,11 +2960,6 @@ Feature: Sanity scenarios
     And I wait for "5" seconds
     And I click modal button "Save and Continue"
     And I enter "Grantee_Edition" values from "Application_Field_Values - backup.xlsx"
-    When I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
-    When I save the field labeled "Application Due Date" as "ApplicationDueDate"
-    And I click on "Edit" in the page details
-    And I enter value "{SavedValue:ApplicationDueDate}" into field "PreApplicationDueDate__c"
     When I click on "Save" in the page details
     And I pause execution for "2" seconds
     And I get the "EGMS ID"
