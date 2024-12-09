@@ -2336,7 +2336,7 @@ Feature: Sanity scenarios New
     Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
 
-  @482389 @ValidatePMUsertheAwardbudgetfromprojectiontabverifythevalidation @GranteeTBE
+  @482389 @ValidatePMUsertheAwardbudgetfromprojectiontabverifythevalidation
   Scenario: Validate PM User the Award budget from projection tab & verify the validation
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -2568,6 +2568,7 @@ Feature: Sanity scenarios New
     And I enter advance filter values inside id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
       | Cash Match | equals to | 100 |
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on top right button "Clear" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
     Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
@@ -2646,6 +2647,7 @@ Feature: Sanity scenarios New
     And I enter advance filter values inside id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
       | Cash Match | equals to | 100 |
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on top right button "Clear" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
     When I click on parallel lines menu bar with data target value "Line Items"
     And I wait for "3" seconds
@@ -2730,6 +2732,7 @@ Feature: Sanity scenarios New
     And I enter advance filter values inside id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
       | Cash Match | equals to | 100 |
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on top right button "Clear" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
     Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
@@ -2808,6 +2811,7 @@ Feature: Sanity scenarios New
     And I enter advance filter values inside id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
       | Cash Match | equals to | 100 |
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on top right button "Clear" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
     Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
@@ -2886,6 +2890,7 @@ Feature: Sanity scenarios New
     And I enter advance filter values inside id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
       | Cash Match | equals to | 100 |
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on top right button "Clear" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
     Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
@@ -3349,7 +3354,7 @@ Feature: Sanity scenarios New
     Then I softly see field "Status" as "Closed"
     Then I softly can see "Actuals" sub tab at view detail page
 
-  @482401 @ValidatePOUserthecloseouttab @GranteeTBE
+  @482401 @ValidatePOUserthecloseouttab
   Scenario: Validate PO User the closeout tab
     Given I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab

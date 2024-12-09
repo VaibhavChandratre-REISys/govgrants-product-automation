@@ -1597,165 +1597,510 @@ Feature: Validate all scenarios of every modules flow
   @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
   Scenario: Validate PM user should able to Create & Activate the KPI
     When I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Award__c/a1oDl000003xbyLIAQ/view"
-    When I navigate to "Overview" sub tab
-    And I save the field labeled "Application" as "ApplicationNumber"
-    And I click on hyperlink containing value "{SavedValue:ApplicationNumber}"
-    Then I see the header is "Application" in the page details
-    And I navigate to "Setup" sub tab
-    Given I expand nested table containing column value "BP01"
-    And I save the value from row "1" for column name "Focus Area Title" as "FocusArea" from flex table "---grantee_tableId:-:ChildBudgetPeriodDetailsFromBudgetOfSetUp---"
-    And I click on back arrow
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Award__c/a1oDl000003xhcPIAQ/view"
     And I navigate to "Projections" sub tab
-    Then I softly see "Focus Area" page block displayed
-    Then I softly see value "{SavedValue:FocusArea}" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see "Title" in flex table header "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see "Start Date" in flex table header "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see "End Date" in flex table header "---grantee_tableId:-:ProjectTableId---"
-    Then I can see row level action button "Remove" against "{SavedValue:FocusArea}" in flex table with id "---grantee_tableId:-:ProjectTableId---"
-    Then I can see row level action button "Edit" against "{SavedValue:FocusArea}" in flex table with id "---grantee_tableId:-:ProjectTableId---"
-    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-    When I click modal button "Close"
-    And I wait for "3" seconds
-    And I refresh the page
-    And I wait for "3" seconds
-    Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I can see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:ProjectTableId---"
-    Then I can see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see value "" for title "Start Date" against the value "Automation Permanent Focus Area2" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see value "" for title "End Date" against the value "Automation Permanent Focus Area2" inside table "---grantee_tableId:-:ProjectTableId---"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
-      | Title                  | Start Date | End Date |
-      | {SavedValue:FocusArea} | 110        | 400      |
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
-      | Title                            | Start Date | End Date |
-      | Automation Permanent Focus Area2 | 110        | 400      |
-    When I click on "Validate" in the page details
-    And I wait for "3" seconds
+    Then I can see row level action button "Add Line Items" against "Administrative and legal expenses" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
+    When I click on "Add Line Items" icon for "Administrative and legal expenses" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
+    Then I softly see "Add Line Items" opens in overLay window
+    Then I softly see field "Line Items" inside page block
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Non-Cash Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Total Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
+      | Title        | Award Budget | Cash Match | Non-Cash Match |
+      | Construction | 5000         | 500        | 500            |
     Then I softly see the following messages in the page details contains:
-      | Projections Tab - Focus Area Start Date and Focus Area End Date should be between budget period.                                           |
-      | Projections Tab - Focus Area Start Date and Focus Area End Date should be between budget period.                                           |
-      | Projections Tab - At least one focus area must be in place at all times during the budget period. Adjust the focus area dates accordingly. |
-    When I click on parallel lines menu bar with data target value "Focus Area"
+      | Budget Tab - Provide the narrative for all build-up items. |
+    When I click on parallel lines menu bar with data target value "Line Items"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Refresh" from parallel lines dropdown of "Focus Area"
+    And I select "Refresh" from parallel lines dropdown of "Line Items"
     Then I see table is refreshing
-    When I click on "Title" column header inside table with id "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:ProjectTableId---"
-    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
+      | Construction | The narrative | 5000         | 500        | 500            |
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Title" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Narrative" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Narrative" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Narrative" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Narrative" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Award Budget" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Award Budget" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Award Budget" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Award Budget" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Non-Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Non-Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Non-Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Non-Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Total Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Total Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Other Leverage" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Other Leverage" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Other Leverage" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Other Leverage" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Project Cost" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Total Project Cost" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Project Cost" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Total Project Cost" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see the following messages in the page details :
       | Table has been reset. |
-    #482400
-    And I navigate to "Projections" sub tab
-    And I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
-    And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
-    And I navigate to "Monitoring" sub tab
-    Then I softly see "Special Conditions" page block displayed
-    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see "Title" in flex table header "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see "Description" in flex table header "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see "Date Effective From" in flex table header "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see "Date Effective To" in flex table header "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:SpecialConditionTableId---"
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see "Create Special Condition" opens in overLay window
-    Then I see the text " Required to Save | " in modal
-    Then I see the text " Required to Submit" in modal
-    Then I softly see "Information" page block displayed
-    Then I softly see "Effective Dates" page block displayed
-    When I "Collapse" page block contaninig value "Information"
-    Then I softly do not see fields "Title__c" is visible
-    When I "Expanded" page block contaninig value "Information"
-    Then I softly see fields "Title__c" is visible
-    When I "Collapse" page block contaninig value "Effective Dates"
-    Then I softly do not see fields "EffectiveFrom__c" is visible
-    When I "Expanded" page block contaninig value "Effective Dates"
-    Then I softly see fields "EffectiveFrom__c" is visible
-    Then I softly see field on modal "Title" inside page block
-    Then I softly see asterisk mark on "Title"
-    Then I softly see field on modal "Description" inside page block
-    Then I softly see asterisk mark on "Description"
-    When I hovering mouse on help text icon inside modal "Description"
-    Then I softly see "Enter special condition as it's presented in award letter." shown as help text
-    Then I softly see field on modal "Sequence" inside page block
-    Then I softly see asterisk mark on "Sequence"
-    When I hovering mouse on help text icon inside modal "Sequence"
-    Then I softly see "Provide the required sequence for terms and conditions. This allow up to 18 digits." shown as help text
-    Then I softly see field on modal "Mandatory" inside page block
-    When I hovering mouse on help text icon inside modal "Mandatory"
-    Then I softly see "Check the box to make Terms and Conditions mandatory." shown as help text
-    Then I softly see field on modal "Effective From Date" inside page block
-    Then I softly see asterisk mark on "Effective From Date"
-    Then I softly see field on modal "Effective To Date" inside page block
-    Then I softly see asterisk mark on "Effective To Date"
-    And I clear in modal the value from field "Sequence__c"
-    And I clear in modal the value from field "EffectiveFrom__c"
-    And I clear in modal the value from field "EffectiveTill__c"
-    And I click modal button "Save"
+    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I see the text "Showing 1 to 1 of 1 records" in modal
+    And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
+    And I enter advance filter values inside id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
+      | Cash Match | equals to | 100 |
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on top right button "Clear" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
+    Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on "Delete" icon for "Construction" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
-      | Title is required to save.               |
-      | Description is required to save.         |
-      | Sequence is required to save.            |
-      | Effective From Date is required to save. |
-      | Effective To Date is required to save.   |
-    When I enter in modal value "Terms" into field "Title__c"
-    When I enter in modal value "Terms Description" into field "Description__c"
-    When I enter in modal value "1" into field "Sequence__c"
-    When I enter in modal value "{SavedValue:BudgetPeriodStartDate}" into field "EffectiveFrom__c"
-    When I enter in modal value "1" into field "EffectiveTill__c"
-    And I click modal button "Save"
+      | Record deleted successfully. |
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     And I wait for "3" seconds
+    Then I can see row level action button "Add Line Items" against "Architectural and engineering fees" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
+    When I click on "Add Line Items" icon for "Architectural and engineering fees" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
+    Then I softly see "Add Line Items" opens in overLay window
+    Then I softly see field "Line Items" inside page block
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Non-Cash Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Total Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
+      | Title        | Award Budget | Cash Match | Non-Cash Match |
+      | Construction | 5000         | 500        | 500            |
     Then I softly see the following messages in the page details contains:
-      | Effective To Date cannot be before Effective From Date |
-    When I enter in modal value "{SavedValue:BudgetPeriodEndDate}" into field "EffectiveTill__c"
-    And I click modal button "Save"
-    And I wait for "3" seconds
-    And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I can see row level action button "View" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I can see row level action button "Delete" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I can see row level action button "Edit" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    And I click on "View" icon for "{SavedValue:TermsId}" inside flex table with id "---grantee_tableId:-:SpecialConditionTableId---" without waiting for record
-    Then I softly see "Special Condition" opens in overLay window
-    Then I see field "EGMS ID" as "{SavedValue:TermsId}" on modal
-    Then I see field "Title" as "Terms" on modal
-    Then I see field "Description" as "Terms Description" on modal
-    Then I see field "Sequence" as "1" on modal
-    Then I see field "Effective From Date" as "{SavedValue:BudgetPeriodStartDate}" on modal
-    Then I see field "Effective To Date" as "{SavedValue:BudgetPeriodEndDate}" on modal
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    When I click on "EGMS ID" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see sort order "Ascending" for column "EGMS ID" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    When I click on "EGMS ID" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see sort order "Descending" for column "EGMS ID" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    When I click on "Title" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    When I click on "Title" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see sort order "Descending" for column "Title" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    When I click on "Description" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see sort order "Ascending" for column "Description" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    When I click on "Description" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see sort order "Descending" for column "Description" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    When I click on "Date Effective From" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see sort order "Ascending" for column "Date Effective From" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    When I click on "Date Effective From" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see sort order "Descending" for column "Date Effective From" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    When I click on "Date Effective To" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see sort order "Ascending" for column "Date Effective To" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    When I click on "Date Effective To" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see sort order "Descending" for column "Date Effective To" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:SpecialConditionTableId---"
-    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see the following messages in the page details :
-      | Table has been reset. |
-    When I click on parallel lines menu bar with data target value "Special Conditions"
+      | Budget Tab - Provide the narrative for all build-up items. |
+    When I click on parallel lines menu bar with data target value "Line Items"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Refresh" from parallel lines dropdown of "Special Conditions"
+    And I select "Refresh" from parallel lines dropdown of "Line Items"
+    Then I see table is refreshing
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
+      | Construction | The narrative | 5000         | 500        | 500            |
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Title" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Narrative" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Narrative" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Narrative" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Narrative" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Award Budget" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Award Budget" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Award Budget" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Award Budget" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Non-Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Non-Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Non-Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Non-Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Total Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Total Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Other Leverage" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Other Leverage" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Other Leverage" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Other Leverage" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Project Cost" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Total Project Cost" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Project Cost" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Total Project Cost" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see the following messages in the page details :
+      | Table has been reset. |
+    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I see the text "Showing 1 to 1 of 1 records" in modal
+    And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
+    And I enter advance filter values inside id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
+      | Cash Match | equals to | 100 |
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on top right button "Clear" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
+    When I click on parallel lines menu bar with data target value "Line Items"
+    And I wait for "3" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I select "Refresh" from parallel lines dropdown of "Line Items"
+    Then I see table is refreshing
+    Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on "Delete" icon for "Construction" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Record deleted successfully. |
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I wait for "3" seconds
+    Then I can see row level action button "Add Line Items" against "Construction" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
+    Then I softly see "Add Line Items" opens in overLay window
+    Then I softly see field "Line Items" inside page block
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Non-Cash Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Total Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
+      | Title        | Award Budget | Cash Match | Non-Cash Match |
+      | Construction | 5000         | 500        | 500            |
+    Then I softly see the following messages in the page details contains:
+      | Budget Tab - Provide the narrative for all build-up items. |
+    When I click on parallel lines menu bar with data target value "Line Items"
+    And I wait for "3" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I select "Refresh" from parallel lines dropdown of "Line Items"
+    Then I see table is refreshing
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
+      | Construction | The narrative | 5000         | 500        | 500            |
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Title" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Narrative" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Narrative" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Narrative" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Narrative" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Award Budget" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Award Budget" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Award Budget" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Award Budget" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Non-Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Non-Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Non-Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Non-Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Total Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Total Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Other Leverage" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Other Leverage" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Other Leverage" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Other Leverage" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Project Cost" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Total Project Cost" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Project Cost" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Total Project Cost" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see the following messages in the page details :
+      | Table has been reset. |
+    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I see the text "Showing 1 to 1 of 1 records" in modal
+    And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
+    And I enter advance filter values inside id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
+      | Cash Match | equals to | 100 |
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on top right button "Clear" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
+    Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on "Delete" icon for "Construction" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Record deleted successfully. |
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I wait for "3" seconds
+    Then I can see row level action button "Add Line Items" against "Contingencies" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
+    When I click on "Add Line Items" icon for "Contingencies" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
+    Then I softly see "Add Line Items" opens in overLay window
+    Then I softly see field "Line Items" inside page block
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Non-Cash Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Total Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
+      | Title        | Award Budget | Cash Match | Non-Cash Match |
+      | Construction | 5000         | 500        | 500            |
+    Then I softly see the following messages in the page details contains:
+      | Budget Tab - Provide the narrative for all build-up items. |
+    When I click on parallel lines menu bar with data target value "Line Items"
+    And I wait for "3" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I select "Refresh" from parallel lines dropdown of "Line Items"
+    Then I see table is refreshing
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
+      | Construction | The narrative | 5000         | 500        | 500            |
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Title" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Narrative" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Narrative" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Narrative" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Narrative" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Award Budget" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Award Budget" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Award Budget" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Award Budget" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Non-Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Non-Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Non-Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Non-Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Total Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Total Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Other Leverage" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Other Leverage" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Other Leverage" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Other Leverage" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Project Cost" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Total Project Cost" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Project Cost" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Total Project Cost" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see the following messages in the page details :
+      | Table has been reset. |
+    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I see the text "Showing 1 to 1 of 1 records" in modal
+    And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
+    And I enter advance filter values inside id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
+      | Cash Match | equals to | 100 |
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on top right button "Clear" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
+    Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on "Delete" icon for "Construction" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Record deleted successfully. |
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I wait for "3" seconds
+    Then I can see row level action button "Add Line Items" against "Equipment" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
+    When I click on "Add Line Items" icon for "Equipment" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
+    Then I softly see "Add Line Items" opens in overLay window
+    Then I softly see field "Line Items" inside page block
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Non-Cash Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Total Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
+      | Title        | Award Budget | Cash Match | Non-Cash Match |
+      | Construction | 5000         | 500        | 500            |
+    Then I softly see the following messages in the page details contains:
+      | Budget Tab - Provide the narrative for all build-up items. |
+    When I click on parallel lines menu bar with data target value "Line Items"
+    And I wait for "3" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I select "Refresh" from parallel lines dropdown of "Line Items"
+    Then I see table is refreshing
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
+      | Construction | The narrative | 5000         | 500        | 500            |
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Title" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Narrative" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Narrative" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Narrative" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Narrative" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Award Budget" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Award Budget" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Award Budget" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Award Budget" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Non-Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Non-Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Non-Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Non-Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Total Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Total Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Other Leverage" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Other Leverage" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Other Leverage" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Other Leverage" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Project Cost" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Total Project Cost" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Project Cost" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Total Project Cost" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see the following messages in the page details :
+      | Table has been reset. |
+    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I see the text "Showing 1 to 1 of 1 records" in modal
+    And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
+    And I enter advance filter values inside id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
+      | Cash Match | equals to | 100 |
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on top right button "Clear" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
+    Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on "Delete" icon for "Construction" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Record deleted successfully. |
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I wait for "3" seconds
+    Then I can see row level action button "Add Line Items" against "Indirect costs" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
+    When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
+    Then I softly see "Add Line Items" opens in overLay window
+    Then I softly see field "Line Items" inside page block
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Non-Cash Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Total Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
+      | Title        | Award Budget | Cash Match | Non-Cash Match |
+      | Construction | 5000         | 500        | 500            |
+    Then I softly see the following messages in the page details contains:
+      | Budget Tab - Provide the narrative for all build-up items. |
+    When I click on parallel lines menu bar with data target value "Line Items"
+    And I wait for "3" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I select "Refresh" from parallel lines dropdown of "Line Items"
+    Then I see table is refreshing
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
+      | Construction | The narrative | 5000         | 100        | 100            |
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Title" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Narrative" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Narrative" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Narrative" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Narrative" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Award Budget" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Award Budget" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Award Budget" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Award Budget" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Non-Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Non-Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Non-Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Non-Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Total Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Total Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Other Leverage" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Other Leverage" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Other Leverage" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Other Leverage" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Project Cost" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Ascending" for column "Total Project Cost" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on "Total Project Cost" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see sort order "Descending" for column "Total Project Cost" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see the following messages in the page details :
+      | Table has been reset. |
+    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I see the text "Showing 1 to 1 of 1 records" in modal
+    And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
+    And I enter advance filter values inside id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
+      | Cash Match | equals to | 500 |
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
+    Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click modal button "Close"
+    And I wait for "3" seconds
+    When I click on "Validate" in the page details
+    And I wait for "5" seconds
+    Then I softly see the following messages in the page details contains:
+      | Projections Tab - The Match cannot be less than the given %. |
+    Then I softly see "Budget Category" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Award  Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Non-Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Total Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:AwardBudgetTableId---"
+    And I click on advance filter of table id "---grantee_tableId:-:AwardBudgetTableId---" for LWC
+    And I enter advance filter values inside id "---grantee_tableId:-:AwardBudgetTableId---" for LWC
+      | Budget Category | contains | Construction |
+    Then I softly see value "Construction" for title "Budget Category" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    And I click on top right button "Clear" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
+    And I click on advance filter of table id "---grantee_tableId:-:AwardBudgetTableId---" for LWC
+    And I select value inside table "---grantee_tableId:-:AwardBudgetTableId---" is "All"
+    Then I softly see the text containing "Showing 1 to 12 of 12 records"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:awardLineItemsTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see the following messages in the page details :
+      | Table has been reset. |
+    When I click on parallel lines menu bar with data target value "Award Budget"
+    And I wait for "3" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I select "Refresh" from parallel lines dropdown of "Award Budget"
     Then I see table is refreshing
