@@ -2958,6 +2958,11 @@ Feature: Sanity scenarios
     And I click modal button "Save and Continue"
     And I enter "Grantee_Edition" values from "Application_Field_Values - backup.xlsx"
     When I click on "Save" in the page details
+    When I navigate to "Overview" sub tab
+    When I save the field labeled "Application Due Date" as "ApplicationDueDate"
+    And I click on "Edit" in the page details
+    And I enter value "{SavedValue:ApplicationDueDate}" into field "PreApplicationDueDate__c"
+    When I click on "Save" in the page details
     And I pause execution for "2" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
