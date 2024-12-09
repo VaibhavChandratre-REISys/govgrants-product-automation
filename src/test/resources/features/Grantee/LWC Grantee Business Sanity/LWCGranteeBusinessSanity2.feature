@@ -3135,7 +3135,7 @@ Feature: Sanity scenarios
     And I click on "Create Pre-Application" in the page details
     And I wait for "5" seconds
     And I click modal button "Save and Continue"
-    And I enter "Grantee_Edition" values from "Application_Field_Values - backup.xlsx"
+    And I enter "Grantee_PreApp_Edition" values from "Application_Field_Values - backup.xlsx"
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     When I save the field labeled "Application Due Date" as "ApplicationDueDate"
