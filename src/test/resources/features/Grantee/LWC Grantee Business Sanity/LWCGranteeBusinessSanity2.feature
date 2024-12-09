@@ -3037,9 +3037,6 @@ Feature: Sanity scenarios
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
-
-
-
     When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
       | Name       | PreApplication |
       | David FO   | Step 1         |
