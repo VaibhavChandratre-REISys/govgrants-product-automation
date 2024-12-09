@@ -1857,7 +1857,9 @@ Feature: Sanity scenarios New
     Then I softly see field "Status" as "Overridden"
     Then I softly see status in Progress-bar is "Overridden" and is "dark blue"
     When I navigate to "Open  Items" sub tab
-    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:amendmentEGMSID}" inside table "---grantee_tableId:-:pendingAmendmentCloseoutTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:pendingAmendmentCloseoutTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PendingProgressReprt---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PendingFinancialReport---"
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Closeout has been validated successfully. Please proceed. |
