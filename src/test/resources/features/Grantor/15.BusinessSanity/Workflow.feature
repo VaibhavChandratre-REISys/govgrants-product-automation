@@ -1596,111 +1596,75 @@ Feature: Validate all scenarios of every modules flow
 
   @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
   Scenario: Validate PM user should able to Create & Activate the KPI
-    When I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Award__c/a1oDl000003xhcPIAQ/view"
-    And I navigate to "Projections" sub tab
-    Then I can see row level action button "Add Line Items" against "Indirect costs" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
-    When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
-    Then I softly see "Add Line Items" opens in overLay window
-    Then I softly see field "Line Items" inside page block
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see "Non-Cash Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see "Total Match" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
-      | Title        | Award Budget | Cash Match | Non-Cash Match |
-      | Construction | 5000         | 500        | 500            |
+    When I login to "As a Grantee" app as "GRANTEE FO" user
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "CL--00115" in "---grantee_tableId:-:HomePendingTask---" panel
+    Then I softly see value "CL--00115" for title "EGMS ID" inside table "---grantee_tableId:-:HomePendingTask---"
+    When I click on "Start" icon for "CL--00115" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
+    When I "Send to Owner" in the approval decision
+    Then I softly see field "Status" as "Created"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Closeout" tab
+    And I perform quick search for "CL--00115" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
+    And I click on "View" icon for "CL--00115" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    When I navigate to "Responsibilities" sub tab
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:closeoutApproverTableId---" by clicking "Edit" :
+      | Closeout | Name       |
+      | Step 1   | Victor EXE |
+    When I click on "Override" in the page details
+    Then I softly see field "Status" as "Overridden"
+    When I click on "Submit for Approval" in the page details
+    Then I see field "Status" as "Submitted for Approval"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "CL--00115" in "---grantee_tableId:-:HomePendingTask---" panel
+    When I click on "Start" icon for "CL--00115" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Closeout" tab
+    And I perform quick search for "CL--00115" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
+    And I click on "View" icon for "CL--00115" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    Then I softly can see top right button "Submit to Grantor" in page detail
+    When I click on "Submit to Grantor" in the page details
+    Then I softly see "Submit to Grantor" opens in overLay window
+    And I click modal button "Save"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Budget Tab - Provide the narrative for all build-up items. |
-    When I click on parallel lines menu bar with data target value "Line Items"
-    And I wait for "3" seconds
-    Then I see option "Refresh" present in parallel dropdown
-    Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Refresh" from parallel lines dropdown of "Line Items"
-    Then I see table is refreshing
-    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
-      | Construction | The narrative | 5000         | 100        | 100            |
-    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see sort order "Descending" for column "Title" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click on "Narrative" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see sort order "Ascending" for column "Narrative" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click on "Narrative" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see sort order "Descending" for column "Narrative" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click on "Award Budget" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see sort order "Ascending" for column "Award Budget" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click on "Award Budget" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see sort order "Descending" for column "Award Budget" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click on "Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see sort order "Ascending" for column "Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click on "Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see sort order "Descending" for column "Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click on "Non-Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see sort order "Ascending" for column "Non-Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click on "Non-Cash Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see sort order "Descending" for column "Non-Cash Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click on "Total Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see sort order "Ascending" for column "Total Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click on "Total Match" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see sort order "Descending" for column "Total Match" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click on "Other Leverage" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see sort order "Ascending" for column "Other Leverage" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click on "Other Leverage" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see sort order "Descending" for column "Other Leverage" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click on "Total Project Cost" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see sort order "Ascending" for column "Total Project Cost" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click on "Total Project Cost" column header inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see sort order "Descending" for column "Total Project Cost" inside table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see the following messages in the page details :
-      | Table has been reset. |
-    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I see the text "Showing 1 to 1 of 1 records" in modal
-    And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
-    And I enter advance filter values inside id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
-      | Cash Match | equals to | 500 |
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    And I click on top right button "Clear" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
-    Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I click modal button "Close"
-    And I wait for "3" seconds
-    When I click on "Validate" in the page details
-    And I wait for "5" seconds
+      | Submitted to Grantor On is required to save. |
+    When I enter values into fields
+      | Value | Field                 |
+      | 0     | SubmittedToGrantor__c |
+    And I click modal button "Save"
+    And I wait for "2" seconds
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I softly can see top right button "Complete Closeout" in page detail
+    When I click on "Complete Closeout" in the page details
+    And I click modal button "Save"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Projections Tab - The Match cannot be less than the given %. |
-    Then I softly see "Budget Category" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see "Award  Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see "Non-Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see "Total Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:AwardBudgetTableId---"
-    And I click on advance filter of table id "---grantee_tableId:-:AwardBudgetTableId---" for LWC
-    And I enter advance filter values inside id "---grantee_tableId:-:AwardBudgetTableId---" for LWC
-      | Budget Category | contains | Construction |
-    Then I softly see value "Construction" for title "Budget Category" inside table "---grantee_tableId:-:AwardBudgetTableId---"
-    And I click on top right button "Clear" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
-    And I click on advance filter of table id "---grantee_tableId:-:AwardBudgetTableId---" for LWC
-    And I select value inside table "---grantee_tableId:-:AwardBudgetTableId---" is "All"
-    Then I softly see the text containing "Showing 1 to 12 of 12 records"
-    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:AwardBudgetTableId---"
-    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see the following messages in the page details :
-      | Table has been reset. |
-    When I click on parallel lines menu bar with data target value "Award Budget"
-    And I wait for "3" seconds
-    Then I see option "Refresh" present in parallel dropdown
-    Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Refresh" from parallel lines dropdown of "Award Budget"
-    Then I see table is refreshing
+      | Grantor Closeout Date is required to save. |
+    When I enter values into fields
+      | Value | Field                  |
+      | 0     | FederalCloseoutDate__c |
+    And I click modal button "Save"
+    And I wait for "2" seconds
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Completed"
+    Then I softly see status in Progress-bar is "Completed" and is "dark blue"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Completed" for title "New Value" inside field history table
+    Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
+    And I click on back arrow
+    When I navigate to "Overview" sub tab
+    And I click on hyperlink containing value "GT--01793"
+    Then I softly see field "Status" as "Closed/Completed"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "AD--2122" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Closed"

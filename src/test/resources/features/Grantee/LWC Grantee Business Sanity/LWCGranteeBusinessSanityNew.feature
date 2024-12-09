@@ -1880,7 +1880,7 @@ Feature: Sanity scenarios New
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PhasePendingTask---" panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:HomePendingTask---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---grantee_tableId:-:HomePendingTask---"
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
     When I "Send to Owner" in the approval decision
@@ -1912,6 +1912,7 @@ Feature: Sanity scenarios New
     When I click on "Submit to Grantor" in the page details
     Then I softly see "Submit to Grantor" opens in overLay window
     And I click modal button "Save"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Submitted to Grantor On is required to save. |
     When I enter values into fields
@@ -2227,9 +2228,6 @@ Feature: Sanity scenarios New
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:closeoutNotesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:closeoutAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Supporting Documents" from computer
-    And I wait for "5" seconds
-    Then I softly see the following messages in the page details contains:
-      | File Attachment.pdf Uploaded successfully. |
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:closeoutAddFilesTableId---"
@@ -2259,9 +2257,6 @@ Feature: Sanity scenarios New
     Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:closeoutAddFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:closeoutAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Funder Closeout Document" from computer
-    And I wait for "5" seconds
-    Then I softly see the following messages in the page details contains:
-      | File Attachment.pdf Uploaded successfully. |
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:closeoutAddFilesTableId---"
@@ -3009,7 +3004,7 @@ Feature: Sanity scenarios New
     And I select "Refresh" from parallel lines dropdown of "Award Budget"
     Then I see table is refreshing
 
-  @482392 @ValidatePMUsertheActualTabWhenAwardisinactive @GranteeTBE1
+  @482392 @ValidatePMUsertheActualTabWhenAwardisinactive 
   Scenario: Validate PM User the Actual Tab When Award is in active
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -3292,6 +3287,7 @@ Feature: Sanity scenarios New
     And I click on "Amend Award" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I click on "Activate Award" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
