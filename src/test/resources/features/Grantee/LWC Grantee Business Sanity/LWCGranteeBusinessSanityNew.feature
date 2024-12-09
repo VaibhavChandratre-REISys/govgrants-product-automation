@@ -2490,7 +2490,7 @@ Feature: Sanity scenarios New
     And I wait for "3" seconds
     And I refresh the page
     And I wait for "3" seconds
-    Then I softly see "No Records Found" inside flex table with id "---progressreport:-:AwardBudgetTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
     When I click modal button "Close"
@@ -2502,7 +2502,7 @@ Feature: Sanity scenarios New
     Then I can see row level action button "Add Line Items" against "Administrative and legal expenses" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     When I click on "Add Line Items" icon for "Administrative and legal expenses" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
     Then I softly see "Add Line Items" opens in overLay window
-    Then I softly see field "Line Items" inside page block
+    Then I softly see "Line Items" page block displayed
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
@@ -2581,7 +2581,7 @@ Feature: Sanity scenarios New
     Then I can see row level action button "Add Line Items" against "Architectural and engineering fees" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     When I click on "Add Line Items" icon for "Architectural and engineering fees" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
     Then I softly see "Add Line Items" opens in overLay window
-    Then I softly see field "Line Items" inside page block
+    Then I softly see "Line Items" page block displayed
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
@@ -2666,7 +2666,7 @@ Feature: Sanity scenarios New
     Then I can see row level action button "Add Line Items" against "Construction" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
     Then I softly see "Add Line Items" opens in overLay window
-    Then I softly see field "Line Items" inside page block
+    Then I softly see "Line Items" page block displayed
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
@@ -2745,7 +2745,7 @@ Feature: Sanity scenarios New
     Then I can see row level action button "Add Line Items" against "Contingencies" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     When I click on "Add Line Items" icon for "Contingencies" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
     Then I softly see "Add Line Items" opens in overLay window
-    Then I softly see field "Line Items" inside page block
+    Then I softly see "Line Items" page block displayed
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
@@ -2824,7 +2824,7 @@ Feature: Sanity scenarios New
     Then I can see row level action button "Add Line Items" against "Equipment" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     When I click on "Add Line Items" icon for "Equipment" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
     Then I softly see "Add Line Items" opens in overLay window
-    Then I softly see field "Line Items" inside page block
+    Then I softly see "Line Items" page block displayed
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
@@ -2903,7 +2903,7 @@ Feature: Sanity scenarios New
     Then I can see row level action button "Add Line Items" against "Indirect costs" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
     Then I softly see "Add Line Items" opens in overLay window
-    Then I softly see field "Line Items" inside page block
+    Then I softly see "Line Items" page block displayed
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
@@ -2969,6 +2969,7 @@ Feature: Sanity scenarios New
     And I enter advance filter values inside id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
       | Cash Match | equals to | 500 |
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    And I click on top right button "Clear" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
     Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
