@@ -2204,7 +2204,7 @@ Feature: Sanity scenarios New
     Then I softly see "Grant Overview" page block displayed
     Then I softly see "Closeout Request Details" page block displayed
     Then I softly see "System Information" page block displayed
-    When I navigate to "Open Items" sub tab
+    When I navigate to "Open  Items" sub tab
     Then I softly see "Pending Amendment Requests" page block displayed
     Then I softly see "Pending Progress Reports" page block displayed
     Then I softly see "Pending Financial Reports" page block displayed
@@ -3214,6 +3214,13 @@ Feature: Sanity scenarios New
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Activated"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "Overview" sub tab
     And I save the field labeled "Project Period Start Date" as "PPST"
     When I navigate to "Awards" sub tab
