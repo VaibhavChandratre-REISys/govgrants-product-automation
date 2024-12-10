@@ -890,4 +890,17 @@ public final class GovGrantsAssertionSteps {
     public void iSoftlySeeSortValueForColumnInsideTableWithId(String usage,String sortOrder, String columnName, String tableId) {
         ggAssertionObjects.assertValueForColumnInsideTableWithId(usage, sortOrder, columnName, tableId);
     }
+
+    @Then("^I (softly see|see|do not see|softly do not see) value \"([^\"]*)\" for the field \"([^\"]*)\" inside multipicklist view list$")
+    public void iSoftlySeeValueForTheFieldInsideMultipicklistViewList(String usage, String fieldValue, String labelName) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(ggAssertionObjects.isValuePresentInsidePicklistViewList(fieldValue, labelName));
+        }else if (usage.equalsIgnoreCase("softly see")) {
+           I.amPerforming().assertionsTo().assertThat(ggAssertionObjects.isValuePresentInsidePicklistViewList(fieldValue, labelName)).isTrue();
+        }  else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(ggAssertionObjects.isValuePresentInsidePicklistViewList(fieldValue, labelName));
+        } else{
+            I.amPerforming().assertionsTo().assertThat(ggAssertionObjects.isValuePresentInsidePicklistViewList(fieldValue, labelName)).isFalse();
+        }
+    }
 }

@@ -456,7 +456,7 @@ public final class MainPage {
     }
 
     public String readAndRenamePDFFile(int pageNumber, String fileName) {
-        File file = new File(System.getProperty("user.dir") + File.separatorChar + "target");
+        File file = new File(System.getProperty("user.dir") + File.separatorChar + "target"+ File.separatorChar +"download");
         I.amPerforming().waitFor().makeThreadSleep(5000);
         I.amPerforming().fileHandling().toRenameFileWithSpecificExtension(file, fileName, "pdf", "pdf");
         return I.amPerforming().fileHandling().forAdobeReaderAnd().readFromAdobeFileOnLocalAtUserDirectory(

@@ -1595,38 +1595,76 @@ Feature: Validate all scenarios of every modules flow
     Then I see the text "Email Sent Successfully." in modal
 
   @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
-  Scenario Outline: Validate PM user should able to Create & Activate the KPI
-    When I login to "As a Grantee" app as "<User>" user
-    And I wait for "5" seconds
-    And I navigate to "Messages" sub tab
-    Then I softly see "Messages" page block displayed
-    Then I softly see "Subject" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
-    Then I softly see "From Address" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
-    Then I softly see "To Address" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
-    Then I softly see "CC Address" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
-    Then I softly see "Email Subject" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
-    Then I softly see "Preview" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
-    When I get the "EGMS ID"
-    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
-    And I send the email under collab tab with following details:
-      | To        | Subject            | Body            |
-      | <EmailTo> | Automation Subject | Automation Body |
-    When I click modal button "Close"
-    And I refresh the page
-    And I wait for "3" seconds
-    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "<EmailFrom>" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "<EmailTo>" for title "To Address" inside table "CommunicationHistory"
-    Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
-    Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
-    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:amendmentMessageTableID---"
-    Then I softly see top right button "Advance Filter" inside flex table "---grantee_tableId:-:amendmentMessageTableID---"
-    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:amendmentMessageTableID---"
-    When I click on parallel lines menu bar with data target value "Messages"
+  Scenario: Validate PM user should able to Create & Activate the KPI
+    When I login to "As a Grantee" app as "GRANTEE FO" user
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "CL--00115" in "---grantee_tableId:-:HomePendingTask---" panel
+    Then I softly see value "CL--00115" for title "EGMS ID" inside table "---grantee_tableId:-:HomePendingTask---"
+    When I click on "Start" icon for "CL--00115" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
+    When I "Send to Owner" in the approval decision
+    Then I softly see field "Status" as "Created"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Closeout" tab
+    And I perform quick search for "CL--00115" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
+    And I click on "View" icon for "CL--00115" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    When I navigate to "Responsibilities" sub tab
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:closeoutApproverTableId---" by clicking "Edit" :
+      | Closeout | Name       |
+      | Step 1   | Victor EXE |
+    When I click on "Override" in the page details
+    Then I softly see field "Status" as "Overridden"
+    When I click on "Submit for Approval" in the page details
+    Then I see field "Status" as "Submitted for Approval"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "CL--00115" in "---grantee_tableId:-:HomePendingTask---" panel
+    When I click on "Start" icon for "CL--00115" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Closeout" tab
+    And I perform quick search for "CL--00115" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
+    And I click on "View" icon for "CL--00115" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    Then I softly can see top right button "Submit to Grantor" in page detail
+    When I click on "Submit to Grantor" in the page details
+    Then I softly see "Submit to Grantor" opens in overLay window
+    And I click modal button "Save"
     And I wait for "2" seconds
-    Then I see option "Refresh" present in parallel dropdown
-    Then I see option "Download as PDF" present in parallel dropdown
-    Examples:
-      | User       | EmailFrom                         | EmailTo                 |
-      | GRANTEE PO | grantee.po@yopmail.com.qagrnteatm | sarah.pm.23@yopmail.com |
-      | GRANTEE FO | david.fo@ggp.test8.qagrnteatm     | sarah.pm.23@yopmail.com |
+    Then I softly see the following messages in the page details contains:
+      | Submitted to Grantor On is required to save. |
+    When I enter values into fields
+      | Value | Field                 |
+      | 0     | SubmittedToGrantor__c |
+    And I click modal button "Save"
+    And I wait for "2" seconds
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I softly can see top right button "Complete Closeout" in page detail
+    When I click on "Complete Closeout" in the page details
+    And I click modal button "Save"
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Grantor Closeout Date is required to save. |
+    When I enter values into fields
+      | Value | Field                  |
+      | 0     | FederalCloseoutDate__c |
+    And I click modal button "Save"
+    And I wait for "2" seconds
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Completed"
+    Then I softly see status in Progress-bar is "Completed" and is "dark blue"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Completed" for title "New Value" inside field history table
+    Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
+    And I click on back arrow
+    When I navigate to "Overview" sub tab
+    And I click on hyperlink containing value "GT--01793"
+    Then I softly see field "Status" as "Closed/Completed"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "AD--2122" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Closed"

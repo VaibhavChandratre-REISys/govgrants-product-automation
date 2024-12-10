@@ -4150,4 +4150,15 @@ public final class GovGrantsAssertionObjects {
             }
         return flag;
     }
+
+    public boolean isValuePresentInsidePicklistViewList(String fieldValue, String labelName) {
+        List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//label[text()='" + labelName + "']/..//ul//li"));
+        boolean flag = false;
+        for (int i = 0; i < elements.size(); i++) {
+            if (elements.get(i).getText().equals(fieldValue))
+                flag = true;
+        }
+        return flag;
+    }
+
 }
