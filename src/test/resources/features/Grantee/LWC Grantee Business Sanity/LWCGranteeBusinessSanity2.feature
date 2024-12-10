@@ -2946,7 +2946,7 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | The Funding Opportunity has been validated successfully. |
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
