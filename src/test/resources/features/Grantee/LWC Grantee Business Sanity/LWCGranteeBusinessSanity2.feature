@@ -3142,11 +3142,6 @@ Feature: Sanity scenarios
     And I click modal button "Save and Continue"
     And I enter "Grantee_PreApp_Edition" values from "Application_Field_Values - backup.xlsx"
     When I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
-    When I save the field labeled "Application Due Date" as "ApplicationDueDate"
-    And I click on "Edit" in the page details
-    And I enter value "{SavedValue:ApplicationDueDate}" into field "PreApplicationDueDate__c"
-    When I click on "Save" in the page details
     And I pause execution for "2" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -3157,7 +3152,7 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     And I refresh the page
     And I wait for "3" seconds
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationContactTableId---" by clicking "Edit" :
       | Name     | Is Key Contact | Project Role                                   |
       | Sarah PM | Checked        | Project Director/Principal Investigator(PI/PD) |
     When I navigate to "Setup" sub tab
