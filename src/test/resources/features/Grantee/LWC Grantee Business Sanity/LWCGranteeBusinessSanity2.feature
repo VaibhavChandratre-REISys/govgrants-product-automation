@@ -3036,7 +3036,7 @@ Feature: Sanity scenarios
       | Victor EXE | Step 2         |
     When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
       | Name       | PreApplication |
-      | GRANTEE PO | Step 3         |
+      | Grantee PO | Step 3         |
     When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
       | Name       |  PreApplication |
       | Sarah PM   | Step 4          |
