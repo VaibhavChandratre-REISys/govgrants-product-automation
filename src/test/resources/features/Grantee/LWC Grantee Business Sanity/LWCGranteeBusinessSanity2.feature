@@ -2828,7 +2828,7 @@ Feature: Sanity scenarios
     And I wait for "5" seconds
     And I click on "Edit" in the page details
     And I navigate to "Overview" sub tab
-    And I enter value "12345" into field " GrantNumber__c"
+    And I enter value "12345" into field "GrantNumber__c"
     And I enter value "Project Grant" into field "GrantType__c"
     When I click on "Save" in the page details
     And I navigate to "Awards" sub tab
@@ -2946,7 +2946,7 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | The Funding Opportunity has been validated successfully. |
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab

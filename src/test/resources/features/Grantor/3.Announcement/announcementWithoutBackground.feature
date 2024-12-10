@@ -7104,10 +7104,10 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
     Then I softly see value "automationfd@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
     And I click on "View" icon for "automationfd@yopmail.com" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
-#    Then I softly see following details for email sent under collab:
-#      | pm.automation@yopmail.com                                              |
-#      | automationfd@yopmail.com                                               |
-#      | Notification: Announcement {SavedValue:AnnEGMSID} awaiting peer review |
+    Then I softly see following details for email sent under collab:
+      | pm.automation@yopmail.com                                              |
+      | automationfd@yopmail.com                                               |
+      | Notification: Announcement {SavedValue:AnnEGMSID} awaiting peer review |
     When I close "System Email" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -7171,10 +7171,10 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "View" icon for "Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
     And I wait for "5" seconds
     # Logged the bug for this once resolved will again execute
-#    Then I softly see following details for email sent under collab:
-#      | pm.automation@yopmail.com                                                |
-#      | automationfd@yopmail.com                                                 |
-#      | Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed |
+    Then I softly see following details for email sent under collab:
+      | pm.automation@yopmail.com                                                |
+      | automationfd@yopmail.com                                                 |
+      | Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed |
     When I close "System Email" modal by clicking the top right x button
     #336712
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
