@@ -3210,6 +3210,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Enter Review" against "David FO" in flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
+    When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Pre-Application - All"
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PreApplication---" panel
     When I click on "View" icon for "Record Id" inside table
