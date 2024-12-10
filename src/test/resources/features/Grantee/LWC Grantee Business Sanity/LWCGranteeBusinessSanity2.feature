@@ -2973,10 +2973,9 @@ Feature: Sanity scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
     When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:preAppAssociateContactTableId---"
     When I click modal button "Close"
-    And I wait for "2" seconds
     And I refresh the page
     And I wait for "3" seconds
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationContactTableId---" by clicking "Edit" :
       | Name     | Is Key Contact | Project Role                                   |
       | Sarah PM | Checked        | Project Director/Principal Investigator(PI/PD) |
     When I navigate to "Setup" sub tab
