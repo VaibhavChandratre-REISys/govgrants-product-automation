@@ -2827,6 +2827,7 @@ Feature: Sanity scenarios
     And I refresh the page
     And I wait for "5" seconds
     And I click on "Edit" in the page details
+    And I navigate to "Overview" sub tab
     And I enter value "12345" into field " GrantNumber__c"
     And I enter value "Project Grant" into field "GrantType__c"
     When I click on "Save" in the page details
