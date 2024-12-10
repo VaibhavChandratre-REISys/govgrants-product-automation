@@ -3014,7 +3014,7 @@ Feature: Sanity scenarios
       | PreApplication |
       | Step 3         |
     Then I softly see the following messages in the page details contains:
-      | Required Fields Missing |
+      | Required fields missing |
     And I refresh the page
     And I wait for "2" seconds
     When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
@@ -3025,7 +3025,7 @@ Feature: Sanity scenarios
       | Victor EXE | NA             |
     And I refresh the page
     And I wait for "2" seconds
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
     When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
