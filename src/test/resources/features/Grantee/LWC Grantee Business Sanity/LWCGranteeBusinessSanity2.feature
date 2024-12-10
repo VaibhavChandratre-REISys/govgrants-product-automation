@@ -3171,10 +3171,10 @@ Feature: Sanity scenarios
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---grantee_tableId:-:opportunityPeerReviewTableId---" by clicking "New" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
-    And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:opportunityPeerReviewTableId---" without waiting for record
+    And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---" without waiting for record
     And I pause execution for "3" seconds
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3183,7 +3183,7 @@ Feature: Sanity scenarios
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "Edit" in page detail
-    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:opportunityPeerReviewTableId---" without waiting for record
+    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---" without waiting for record
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
@@ -3193,17 +3193,17 @@ Feature: Sanity scenarios
     When I click modal button "Save"
     And I click on submit review
     And I wait for "3" seconds
-    Then I softly see value "Submitted" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:opportunityPeerReviewTableId---"
-    Then I softly cannot see row level action button "Enter Review" against "David FO" in flex table with id "---grantee_tableId:-:opportunityPeerReviewTableId---"
+    Then I softly see value "Submitted" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:preApplicationPeerReviewTableId---"
+    Then I softly cannot see row level action button "Enter Review" against "David FO" in flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
-    And I click toggle button to select "Applications - All"
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:ApplicationTableId---" panel
+    And I click toggle button to select "Pre-Application - All"
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PreApplication---" panel
     When I click on "View" icon for "Record Id" inside table
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Complete Review" in page detail
     When I navigate to "Responsibilities" sub tab
-    Then I softly can see row level action button "Resend for Review" against "David FO" in flex table with id "---grantee_tableId:-:opportunityPeerReviewTableId---"
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:opportunityPeerReviewTableId---"
+    Then I softly can see row level action button "Resend for Review" against "David FO" in flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:preApplicationPeerReviewTableId---"
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
