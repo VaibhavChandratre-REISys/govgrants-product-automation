@@ -3023,6 +3023,8 @@ Feature: Sanity scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
       | Name       | PreApplication |
       | Victor EXE | NA             |
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
