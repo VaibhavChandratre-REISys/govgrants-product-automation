@@ -3006,25 +3006,25 @@ Feature: Sanity scenarios
       | Required Fields Missing |
     And I refresh the page
     And I wait for "2" seconds
-    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
       | Name     | PreApplication |
       | Sarah PM | NA             |
-    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
       | Name       | PreApplication |
       | Victor EXE | NA             |
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
-    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
       | Name       | PreApplication |
       | David FO   | Step 1         |
-    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
       | Name       | PreApplication |
       | Victor EXE | Step 2         |
-    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
       | Name       | PreApplication |
       | GRANTEE PO | Step 3         |
-    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
       | Name       |  PreApplication |
       | Sarah PM   | Step 4          |
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "Edit" :
