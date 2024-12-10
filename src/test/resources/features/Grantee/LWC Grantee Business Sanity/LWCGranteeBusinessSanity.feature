@@ -29403,13 +29403,13 @@ Feature: Sanity scenarios
     And I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---" without waiting for record
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:preAppcationBudgetTableId---"
 
-  @480768 @480769 @480771 @480773 @480774 @481129 @476066 @EXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOpportunitywhichisconvertedtoPre-application
-  Scenario Outline: Opportunities converted to Pre-Application (Grants.gov) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Opportunity which is converted to Pre-application
+  @480768 @480769 @480771 @480773 @480774 @481129 @476066 @OpportunitiesconvertedtoApplicationGrantsgovVerifyPMusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview
+  Scenario Outline: Opportunities converted to Application (Grants.gov) - Verify PM user can navigate to Opportunity details page from Opportunities Converted to Application list view
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
     And I click toggle button to select "Opportunities - All"
-    When I perform quick search for "{AUTOEnvData:AutomationPermanentLead}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
-    And I click on "View" icon for "{AUTOEnvData:AutomationPermanentLead}" inside flex table with id "---grantee_tableId:-:opportunitysGranteeTableId---" without waiting for record
+    When I perform quick search for "{AUTOEnvData:govGrantOpportunityConvertToprepplication}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
+    And I click on "View" icon for "{AUTOEnvData:govGrantOpportunityConvertToprepplication}" inside flex table with id "---grantee_tableId:-:opportunitysGranteeTableId---" without waiting for record
     Then I softly see field "Status" as "Converted to Application"
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Evaluation" sub tab at view detail page
@@ -29419,7 +29419,7 @@ Feature: Sanity scenarios
     Then I softly can see "Field Audit" sub tab at view detail page
     Then I softly can see "Chatter" sub tab at view detail page
     Then I see the header is "Opportunity" in the page details
-    Then I see the sub-header is "Automation Permanent Lead" in the page details
+    Then I see the sub-header is "Automation Permanent Pre Application" in the page details
     And I save the field labeled "EGMS ID" as "EGMSID"
     Then I softly see field "EGMS ID" as "{SavedValue:EGMSID}"
     Then I softly see field "Status" as "Converted to Application"
@@ -29500,7 +29500,7 @@ Feature: Sanity scenarios
     And I save the field labeled "Last Modified By" as "LastModifiedBy"
     Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
     And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
-    Then I softly see the text containing "product.qa@ggp.test8.qagrnteatm"
+    Then I softly see the text containing "grantee.po@yopmail.com.qagrnteatm"
     And I click on back arrow
     And I navigate to "Evaluation" sub tab
     Then I softly see "Evaluation" page block displayed
