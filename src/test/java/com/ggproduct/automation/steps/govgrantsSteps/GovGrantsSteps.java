@@ -346,7 +346,7 @@ public final class GovGrantsSteps {
 
     @Description("Perform quick search by providing search term and divTable ID")
     @When("^I perform quick search for \"([^\"]*)\" in \"([^\"]*)\" panel$")
-    public void performQuickSearch(String searchTerm, String tableID) throws TestingBlazeCustomException {
+    public void QualifiedperformQuickSearch(String searchTerm, String tableID) throws TestingBlazeCustomException {
         ggObjects.performQuickSearch(
                 tableID,
                 searchTerm
@@ -810,7 +810,7 @@ public final class GovGrantsSteps {
         if (!file.exists()) {
             file.mkdirs();
         }
-        I.amPerforming().waitFor().makeThreadSleep(5000);
+        I.amPerforming().waitFor().makeThreadSleep(7000);
         I.amPerforming().fileHandling().toRenameFileWithSpecificExtension(file, "govgrant", "pdf", "pdf");
         I.amPerforming().waitFor().makeThreadSleep(2000);
     }

@@ -1594,77 +1594,71 @@ Feature: Validate all scenarios of every modules flow
       | pm.automation@yopmail.com | exe.automation@yopmail.com | test    | Automation Test |
     Then I see the text "Email Sent Successfully." in modal
 
-  @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
-  Scenario: Validate PM user should able to Create & Activate the KPI
-    When I login to "As a Grantee" app as "GRANTEE FO" user
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "CL--00115" in "---grantee_tableId:-:HomePendingTask---" panel
-    Then I softly see value "CL--00115" for title "EGMS ID" inside table "---grantee_tableId:-:HomePendingTask---"
-    When I click on "Start" icon for "CL--00115" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
-    When I "Send to Owner" in the approval decision
-    Then I softly see field "Status" as "Created"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-    And I navigate to "Closeout" tab
-    And I perform quick search for "CL--00115" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
-    And I click on "View" icon for "CL--00115" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
-    When I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:closeoutApproverTableId---" by clicking "Edit" :
-      | Closeout | Name       |
-      | Step 1   | Victor EXE |
-    When I click on "Override" in the page details
-    Then I softly see field "Status" as "Overridden"
-    When I click on "Submit for Approval" in the page details
-    Then I see field "Status" as "Submitted for Approval"
+
+  @debug @EXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOpportunitywhichisconvertedtoPre-application
+  Scenario: Opportunities converted to Pre-Application (Grants.gov) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Opportunity which is converted to Pre-application
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I wait for "5" seconds
+    And I refresh the page
+    And I click on "Edit" in the page details
+    And I enter value "12345" into field " GrantNumber__c"
+    And I enter value "Project Grant" into field "GrantType__c"
+    When I click on "Save" in the page details
+    And I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-    And I navigate to "Home" tab
+    And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "CL--00115" in "---grantee_tableId:-:HomePendingTask---" panel
-    When I click on "Start" icon for "CL--00115" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    Then I softly see field "Status" as "Approved"
+    And I wait for "5" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-    And I navigate to "Closeout" tab
-    And I perform quick search for "CL--00115" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
-    And I click on "View" icon for "CL--00115" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
-    Then I softly can see top right button "Submit to Grantor" in page detail
-    When I click on "Submit to Grantor" in the page details
-    Then I softly see "Submit to Grantor" opens in overLay window
-    And I click modal button "Save"
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details contains:
-      | Submitted to Grantor On is required to save. |
-    When I enter values into fields
-      | Value | Field                 |
-      | 0     | SubmittedToGrantor__c |
-    And I click modal button "Save"
-    And I wait for "2" seconds
-    And I click modal button "Close"
-    And I wait for "2" seconds
-    Then I softly see field "Status" as "Submitted to Grantor"
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    Then I softly can see top right button "Complete Closeout" in page detail
-    When I click on "Complete Closeout" in the page details
-    And I click modal button "Save"
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details contains:
-      | Grantor Closeout Date is required to save. |
-    When I enter values into fields
-      | Value | Field                  |
-      | 0     | FederalCloseoutDate__c |
-    And I click modal button "Save"
-    And I wait for "2" seconds
-    And I click modal button "Close"
-    Then I softly see field "Status" as "Completed"
-    Then I softly see status in Progress-bar is "Completed" and is "dark blue"
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    And I wait for "5" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    And I wait for "5" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Activated"
+    When I navigate to "History" sub tab
+    Then I softly see column "Overall Status" at position "1" contains text "Approved"
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "Completed" for title "New Value" inside field history table
-    Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
-    And I click on back arrow
-    When I navigate to "Overview" sub tab
-    And I click on hyperlink containing value "GT--01793"
-    Then I softly see field "Status" as "Closed/Completed"
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "AD--2122" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    Then I softly see field "Status" as "Closed"
+    Then I softly see value "Approved" for title "New Value" inside field history table
+    Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
+    And I wait for "5" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
