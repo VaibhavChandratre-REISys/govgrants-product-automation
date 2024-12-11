@@ -3371,6 +3371,7 @@ Feature: Sanity scenarios
     When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
     And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
