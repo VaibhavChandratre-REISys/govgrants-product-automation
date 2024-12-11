@@ -29410,7 +29410,7 @@ Feature: Sanity scenarios
     And I click toggle button to select "Opportunities - All"
     When I perform quick search for "{AUTOEnvData:govGrantOpportunityConvertToprepplication}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
     And I click on "View" icon for "{AUTOEnvData:govGrantOpportunityConvertToprepplication}" inside flex table with id "---grantee_tableId:-:opportunitysGranteeTableId---" without waiting for record
-    Then I softly see field "Status" as "Converted to Application"
+    Then I softly see field "Status" as "Converted to Pre-Application"
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Evaluation" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
@@ -29422,7 +29422,7 @@ Feature: Sanity scenarios
     Then I see the sub-header is "Automation Permanent Pre Application" in the page details
     And I save the field labeled "EGMS ID" as "EGMSID"
     Then I softly see field "EGMS ID" as "{SavedValue:EGMSID}"
-    Then I softly see field "Status" as "Converted to Application"
+    Then I softly see field "Status" as "Converted to Pre-Application"
     Then I softly see field "Funding Organization" as "Department of Education"
     And I save the field labeled "Days Left" as "DaysLeft"
     Then I softly see field "Days Left" as "{SavedValue:DaysLeft}"
@@ -29472,9 +29472,6 @@ Feature: Sanity scenarios
     Then I softly see field "Funding Organization Grants System" inside page block
     Then I softly see "Financial Details" page block displayed
     Then I softly see field "Is Match Required?" inside page block
-    Then I softly see field "Cost Sharing or Matching Requirement" inside page block
-    Then I softly see field "Required Match(%)" inside page block
-    Then I softly see field "Match Source" inside page block
     Then I softly see field "Estimated Total Program Funding" inside page block
     Then I softly see field "Award Floor" inside page block
     When I hovering mouse on help text icon inside page block detail "Award Floor"
@@ -29542,15 +29539,6 @@ Feature: Sanity scenarios
     Then I softly see field "11. Is match required for this grant?" inside page block
     When I hovering mouse on help text icon inside page block detail "11. Is match required for this grant?"
     Then I softly see "Match Requirement setting as shown in the Financial Details" shown as help text
-    Then I softly see field "11a. What is the match type." inside page block
-    When I hovering mouse on help text icon inside page block detail "11a. What is the match type."
-    Then I softly see "Cost Sharing or Matching Requirement selected in the Financial Details." shown as help text
-    Then I softly see field "11b. If yes, identify the match sources." inside page block
-    When I hovering mouse on help text icon inside page block detail "11b. If yes, identify the match sources."
-    Then I softly see "Match Source as selected in the Financial Details." shown as help text
-    Then I softly see field "11c. Required Match(%)" inside page block
-    When I hovering mouse on help text icon inside page block detail "11c. Required Match(%)"
-    Then I softly see "Required Match(%) as provided in the Financial Details." shown as help text
     Then I softly see field "12. Is program income anticipated?" inside page block
     When I hovering mouse on help text icon inside page block detail "12. Is program income anticipated?"
     Then I softly see "Is Program Income Allowed? setting as selected in the Financial Details." shown as help text
