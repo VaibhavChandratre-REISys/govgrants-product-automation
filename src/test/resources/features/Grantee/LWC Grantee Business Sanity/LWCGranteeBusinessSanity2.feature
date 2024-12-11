@@ -3970,13 +3970,13 @@ Feature: Sanity scenarios
     When I click on "Create Award" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
     And I save the field labeled "Award Title" as "Automation Runtime award"
+    And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
     And I click on "Edit" in the page details
     When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
-    And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
