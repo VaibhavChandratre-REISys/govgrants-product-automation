@@ -3013,6 +3013,10 @@ Feature: Sanity scenarios
       | Required fields missing |
     And I refresh the page
     And I wait for "2" seconds
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Letter of Intent" from computer
+    When I click modal button "Close"
     And I click on "Submit For Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
@@ -3032,13 +3036,9 @@ Feature: Sanity scenarios
       | Name       | PreApplication |
       | Sarah PM   | Step 4         |
     Then I softly see the following messages in the page details contains:
-      | You cannot specify the same step for multiple users for Amendment Request |
+      | You cannot specify the same user for multiple steps for PreApplication |
     And I refresh the page
     And I wait for "2" seconds
-    When I navigate to "Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFilesTableId---"
-    And I upload attachment without random number "Attachment.pdf" of type "Letter of Intent" from computer
-    When I click modal button "Close"
     When I click on "Validate" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
