@@ -1597,16 +1597,54 @@ Feature: Validate all scenarios of every modules flow
 
   @debug @EXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOpportunitywhichisconvertedtoPre-application
   Scenario: Opportunities converted to Pre-Application (Grants.gov) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Opportunity which is converted to Pre-application
-    When I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to "Applications" tab
-    When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    And I click toggle button to select "Pre-Application - All"
-    And I perform quick search for "PR--0111" in "---grantee_tableId:-:PreApplication---" panel
-    When I click on "View" icon for "PR--0111" inside table
-    Then I softly can see top right button "Edit" in page detail
-    Then I softly can see top right button "Complete Review" in page detail
-    When I navigate to "Responsibilities" sub tab
-    Then I softly can see row level action button "Resend for Review" against "David FO" in flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---"
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:preApplicationPeerReviewTableId---"
-    When I click on "Complete Review" in the page details
-    Then I softly see field "Status" as "Reviewed"
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "AD--2136" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "AD--2136" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    And I wait for "5" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "AD--2136" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+    Then I see that "AD--2136" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "AD--2136" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "AD--2136" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    And I wait for "5" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "AD--2136" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+    Then I see that "AD--2136" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "AD--2136" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "AD--2136" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    And I wait for "5" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "AD--2136" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+    Then I see that "AD--2136" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "AD--2136" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "AD--2136" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Activated"
+    When I navigate to "History" sub tab
+    Then I softly see column "Overall Status" at position "1" contains text "Approved"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Approved" for title "New Value" inside field history table
+    Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
+    And I wait for "5" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "AD--2136" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+    Then I see that "AD--2136" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
