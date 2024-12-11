@@ -29578,10 +29578,8 @@ Feature: Sanity scenarios
     Then I softly can see "Field Audit" sub tab at view detail page
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
-    And I click on back arrow
-    Then I can see top right button "Edit" in page detail
-    Then I can see top right button "Delete" in page detail
-
+    Then I cannot see top right button "Edit" in page detail
+    Then I cannot see top right button "Delete" in page detail
 
     Examples:
       | User            |
