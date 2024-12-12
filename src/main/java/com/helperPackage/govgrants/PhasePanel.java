@@ -118,7 +118,7 @@ public final class PhasePanel {
 
     public void clickDoubleArrowtoggleForLWC(String anyItemContainedInDropDown) {
         By doubleArrow = getDoubleArrowLocatorForLWC(anyItemContainedInDropDown);
-        I.amPerforming().waitFor().makeThreadSleep(2000);
+        I.amPerforming().waitFor().ElementToBePresent(doubleArrow);
         I.amPerforming().click().withJavaScript(doubleArrow);
     }
 
@@ -215,7 +215,8 @@ public final class PhasePanel {
     }
 
     public void selectDoubleArrowDropDownItemForLWC(String menuItemNamee) {
-        By doubleArrowDropDownItem = By.xpath("//gnt-flex-table-l-w-c//lightning-button-menu//div//a//span[text()='" + menuItemNamee + "'] | //c-lwc-flex-table//lightning-button-menu//div//a//span[text()='" + menuItemNamee + "']");
+        By doubleArrowDropDownItem = By.xpath("//c-lwc-flex-table//lightning-button-menu//div//a//span[text()='" + menuItemNamee + "']");
+        I.amPerforming().waitFor().ElementToBePresent(doubleArrowDropDownItem);
         I.amPerforming().click().on(doubleArrowDropDownItem);
     }
 
@@ -248,13 +249,8 @@ public final class PhasePanel {
      * @param anyItemContainedInDropDownnn
      */
     public void clickDoubleArrowDropDownAndSelectItem(String anyItemContainedInDropDownnn) {
-        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-           clickDoubleArrowtoggle(anyItemContainedInDropDownnn);
-           selectDoubleArrowDropDownItem(anyItemContainedInDropDownnn);
-       }else {
            clickDoubleArrowtoggleForLWC(anyItemContainedInDropDownnn);
            selectDoubleArrowDropDownItemForLWC(anyItemContainedInDropDownnn);
-       }
     }
 
     /**
@@ -342,9 +338,7 @@ public final class PhasePanel {
      * @return
      */
     public void clickAnyRightPannelButton(String idOfPanelButton, String buttonName) {
-                By rightPanelButton = By.xpath("//div[contains(@class,'header-buttons') and contains(@id,'"
-                    + idOfPanelButton + "')]//*[text()='" + buttonName + "'] | //div[contains(@id,'" + idOfPanelButton + "')]//*[text()='" + buttonName + "'] | //c-lwc-flex-table[@data-flextablename='" + idOfPanelButton + "']//*[@title='" + buttonName + "' or text()='" + buttonName + "']");
-
+                By rightPanelButton = By.xpath("//c-lwc-flex-table[@data-flextablename='" + idOfPanelButton + "']//*[@title='" + buttonName + "' or text()='" + buttonName + "']");
                 I.amPerforming().click().withJavaScript(rightPanelButton);
     }
 
@@ -415,7 +409,7 @@ public final class PhasePanel {
 
     private By getDoubleArrowLocatorForLWC(String anyItemContainedInDropDown) {
         if(anyItemContainedInDropDown.contains("Announcements") || anyItemContainedInDropDown.contains("Funding Decision Memos") || anyItemContainedInDropDown.contains("Contact")){
-            return By.xpath("//gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
+            return By.xpath("//c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
         } else if(anyItemContainedInDropDown.contains("External Funding Sources")|| anyItemContainedInDropDown.contains("NGO Programs")){
             String toggleName1 = anyItemContainedInDropDown.split(" ")[1];
             return By.xpath("//span[contains(text(),'" + toggleName1 + "')]/ancestor::gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //span[contains(text(),'" + toggleName1 + "')]/ancestor::c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");

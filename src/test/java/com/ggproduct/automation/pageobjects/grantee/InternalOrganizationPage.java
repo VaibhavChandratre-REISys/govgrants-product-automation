@@ -49,11 +49,7 @@ public class InternalOrganizationPage extends GranteeProjectManager {
      * @param numberofEntries
      */
     public void clickAndSelectValueInsideShowEntriesDropdown(String flexTableId, String numberofEntries) {
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-            govgrants.perform().flexTable().flexTableShowEntriesDropDown(flexTableId, numberofEntries);
-        } else {
             govgrants.perform().flexTable().flexTableShowEntriesDropDownForLWC(flexTableId, numberofEntries);
-        }
     }
 
     /**
@@ -63,7 +59,7 @@ public class InternalOrganizationPage extends GranteeProjectManager {
      * @param titleName
      */
     public void performClickOnSpecificTableColumnHeader(String tableId, String titleName) {
-        I.amPerforming().click().on(govgrants.perform().flexTable().getSpecificElementFromTableHeader(tableId, titleName));
+        I.amPerforming().click().on(govgrants.perform().flexTable().getSpecificElementFromTableHeaderForLWC(tableId, titleName));
     }
 
   

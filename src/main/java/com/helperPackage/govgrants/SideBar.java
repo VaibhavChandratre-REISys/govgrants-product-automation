@@ -48,17 +48,12 @@ public final class SideBar {
      * @author nauman.shahid
      */
     public void clickSideBarContent(String subHeaderName, String contentName) {
-        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
            handleSideBarContentExpanded(subHeaderName);
-           I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
-       }else{
-//           handleSideBarContentExpanded(subHeaderName);
           try {
                   I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
-          }catch(Exception e) {
+          } catch(Exception e) {
                   I.amPerforming().click().withJavaScript(getSideBarContentLocator(subHeaderName, contentName));
           }
-       }
     }
 
     /**
@@ -156,17 +151,14 @@ public final class SideBar {
      * @modified john.phillips - 02/19/2019 - Added check to skip expansion if in San Diego
      */
     public void handleSideBarContentExpanded(String subHeader) {
-        String sideBarHeader = "//div[@id='sidebar-wrapper']//*[text()='" + subHeader + "']/ancestor::li[2]";
-        String sideBarSubHeader = "//div[@id='sidebar-wrapper']//*[text()='" + subHeader + "']/ancestor::li[1]";
+        By sideBarHeader = By.xpath("//gnt-side-bar-lwc//section//button[@title='" + subHeader + "']/ancestor::ul//div[contains(@class,'summary1')]//button[@aria-expanded='false']");
+        By sideBarSubHeader = By.xpath("//gnt-side-bar-lwc//section//button[@title='" + subHeader + "' and @aria-expanded='false']");
 
-        if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath(sideBarHeader))
-                && !I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath(sideBarHeader + "[contains(@class, 'clicked')]"))) {
-            I.amPerforming().click().on(By.xpath(sideBarHeader + "/a"));
+        if (I.amPerforming().checkToSee().IsElementPresentQuick(sideBarHeader)) {
+            I.amPerforming().click().on(sideBarHeader);
         }
-
-        if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath(sideBarSubHeader))
-                && !I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath(sideBarSubHeader + "[contains(@class,' clicked')]"))) {
-            I.amPerforming().click().on(By.xpath(sideBarSubHeader + "/a"));
+        if (I.amPerforming().checkToSee().IsElementPresentQuick(sideBarSubHeader)) {
+            I.amPerforming().click().on(sideBarSubHeader);
         }
     }
 

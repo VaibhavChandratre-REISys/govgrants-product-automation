@@ -90,10 +90,7 @@ public final class GovGrantsAssertionObjects {
      */
     private boolean isStatusPresentInHighlightPanel(String record, String status) {
         return I.amPerforming().checkToSee().isDisplayed(
-                By.xpath("//span[text()='" + record + "']"
-                        + "/../../../../../../../..//div//dt"
-                        + "/span[text()='Status']/../..//dd"
-                        + "//span[text()='" + status + "'] | //span[text()='" + record + "']/../..//dd//span//a[text()='" + status + "'] | //h2[normalize-space(text())='" + record + "']/parent::div/../..//c-page-block-section//*[text()='" + status + "'] | //c-page-block-section//label[normalize-space(text())='" + record + "']/..//*[text()='" + status + "'] | //span[text()='" + record + "']/ancestor::div/../..//c-page-block-section//*[text()='" + status + "'] | //span[text()='" + record + "']//following-sibling::div//lightning-formatted-text[text()='" + status + "'] | //label[text()='" + record + "']//parent::slot//a[text()='" + status + "']"), true);
+                By.xpath("//h2[normalize-space(text())='" + record + "']/parent::div/../..//c-page-block-section//*[text()='" + status + "'] | //c-page-block-section//label[normalize-space(text())='" + record + "']/..//*[text()='" + status + "'] | //span[text()='" + record + "']/ancestor::div/../..//c-page-block-section//*[text()='" + status + "'] | //span[text()='" + record + "']//following-sibling::div//lightning-formatted-text[text()='" + status + "'] | //label[text()='" + record + "']//parent::slot//a[text()='" + status + "']"), true);
     }
 
     /**
@@ -142,21 +139,6 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertValuesAreInFlexTableAgainstUniqueValue(String columnValue, String columnTitle,
                                                              String uniqueColumnValue, String flexTableDivId, Boolean checkifpresent, boolean isSoftly) {
-//        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-//            if (flexTableDivId.contains("GrantorProgressReportsInternal")) {
-//                flexTableDivId = "Progress Reports - Approved";
-//            } else if (flexTableDivId.contains("StrategicPlansGrantor")) {
-//                flexTableDivId = "Strategic Plans - All";
-//            }
-//            if (isSoftly) {
-//            I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
-//                    columnValue, columnTitle, uniqueColumnValue, flexTableDivId)).isEqualTo(checkifpresent);
-//        } else {
-//            Assert.assertEquals(checkifpresent,
-//                    govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
-//                            columnValue, columnTitle, uniqueColumnValue, flexTableDivId));
-//        }
-//        }else {
         if (isSoftly) {
             I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
                     columnValue, columnTitle, uniqueColumnValue, flexTableDivId)).isEqualTo(checkifpresent);
@@ -186,7 +168,6 @@ public final class GovGrantsAssertionObjects {
         }
         if (checkifpresent != govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
                 flexTableDivId)) {
-            I.amPerforming().waitFor().makeThreadSleep(1000);
         }
 
         if (isSoftly) {
@@ -233,13 +214,9 @@ public final class GovGrantsAssertionObjects {
         By desiredTextSelector = By.xpath("//*[normalize-space(text())='" + desiredText + "']");
         if (isContaining) {
             try {
-                desiredTextSelector = By.xpath("//div[@class='tab-inner-content']//span[contains(normalize-space(text()),'" + desiredText + "')] | //div[@class='slds-box slds-theme_default'] | //span[contains(normalize-space(text()),'" + desiredText + "')] | //*[contains(normalize-space(text()),'" + desiredText + "')] | //*//text()[contains(.,'" + desiredText + "')] | //*[contains(text(),'" + desiredText + "')] | //span[text()='" + desiredText + "']");
+                desiredTextSelector = By.xpath("//div[@class='slds-box slds-theme_default'] | //span[contains(normalize-space(text()),'" + desiredText + "')] | //*[contains(normalize-space(text()),'" + desiredText + "')] | //*//text()[contains(.,'" + desiredText + "')] | //*[contains(text(),'" + desiredText + "')] | //span[text()='" + desiredText + "']");
                 I.amPerforming().getElementReference().of(desiredTextSelector);
-            } catch (InvalidSelectorException e) {
-                /* Above provided xpath (I.e. //text()[contains(.,'" + desiredText + "')] ) is giving InvalidSelectorException, so handling it over here */
-                desiredTextSelector = By.xpath("//div[contains(@class,'panel-body')]//span[contains(.,'" + desiredText + "')] | //div[@class='tab-inner-content']//span[contains(normalize-space(text()),'" + desiredText + "')] | //*[contains(normalize-space(text()),'" + desiredText + "')] | //*[contains(text(),'" + desiredText + "')]");
-                I.amPerforming().getElementReference().of(desiredTextSelector);
-            } catch (Exception e) {
+            }  catch (Exception e) {
                 /* Ignore Exception */
             }
         }
@@ -473,10 +450,6 @@ public final class GovGrantsAssertionObjects {
             } catch (Exception e) {
                 foundValue = null;
             }
-
-//            if (!fieldValue.equalsIgnoreCase(foundValue)) {
-//                I.amPerforming().browserOperationsTo().refreshPage();
-//            }
         }
 
         I.amPerforming().assertionsTo().assertThat(foundValue)
@@ -501,7 +474,7 @@ public final class GovGrantsAssertionObjects {
 
     public void verifyFieldAvailableOnModal(String field, String text) {
         try {
-            By fieldText = By.xpath("//div[@id='modaltemp']//div//span[contains(text(),'" + field + "')]//following::dd//span[contains(text(),'" + text + "')] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/..//lightning-base-combobox//span[text()='" + text + "'] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/parent::div//lightning-formatted-text[text()='" + text + "'] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/parent::div//a[text()='" + text + "']");
+            By fieldText = By.xpath("//div[contains(@class,'modal__container')]//label[text()='" + field + "']/..//lightning-base-combobox//span[text()='" + text + "'] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/parent::div//lightning-formatted-text[text()='" + text + "'] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/parent::div//a[text()='" + text + "']");
             I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(fieldText)).isTrue();
         } catch (Exception e) {
 
@@ -537,12 +510,7 @@ public final class GovGrantsAssertionObjects {
      * @modifier aashish.pardeshi
      */
     public void assertPageMessageValue(boolean contains, List<String> unsanitizedDesiredMessages, String isSoftly) {
-        By pageMessagesSelector = By.xpath("//div[@id='errorDiv']//li//descendant-or-self::*[text()]" // Page messages
-                + " | //div[contains(@class, 'alert') and @ng-repeat]" // First variant of flex table messages
-                + " | //div[contains(@class,'alertMessages')]//div[contains(@class,'alertMessage')]//span[@class='ng-binding']" // Second variant of flex table messages
-                + " | //div[contains(@class,'alert-danger')]" // get the alert danger message...
-                + " | //div//span[contains(@class,'dynamic-msg-box-margin')] | //c-flex-layout-page-messages//span[text()] | //span[contains(@class,'toastMessage')] | //div[@class='errorMsg']//span[@part='formatted-rich-text'] | //div[@class='successMsg']//span[@part='formatted-rich-text'] | //gnt-flex-layout-page-messages//span//lightning-formatted-text | //c-flex-layout-page-messages//span//lightning-formatted-text | //span[@class='toastMessage forceActionsText'] | //span[contains(@class,'changeOwnerErrorMessage')] | //flowruntime-error-content//lightning-formatted-rich-text//span | //div[@data-id='modalcontent1']//lightning-formatted-rich-text//span | //c-flex-layout-page-messages//lightning-formatted-rich-text//span"
-        );
+        By pageMessagesSelector = By.xpath("//c-flex-layout-page-messages//span[text()] | //span[contains(@class,'toastMessage')] | //div[@class='errorMsg']//span[@part='formatted-rich-text'] | //div[@class='successMsg']//span[@part='formatted-rich-text'] | //gnt-flex-layout-page-messages//span//lightning-formatted-text | //c-flex-layout-page-messages//span//lightning-formatted-text | //span[@class='toastMessage forceActionsText'] | //span[contains(@class,'changeOwnerErrorMessage')] | //flowruntime-error-content//lightning-formatted-rich-text//span | //div[@data-id='modalcontent1']//lightning-formatted-rich-text//span | //c-flex-layout-page-messages//lightning-formatted-rich-text//span");
 
         List<String> desiredMessages = unsanitizedDesiredMessages
                 .stream().map(str -> str.replaceAll("\uFFFD\\?", "\"")
@@ -551,9 +519,6 @@ public final class GovGrantsAssertionObjects {
 
         if (isSoftly.contains("not")) {
             try {
-                // Must use WaitForElementToBePresent as this element never becomes visible, and thus it will always wait the full waitTime
-//                govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
-//                I.amPerforming().waitFor().ElementToBePresent(By.xpath("//script[contains(@src, 'PageMessages')]"), 5);
                 I.amPerforming().waitFor().ElementToBePresent(pageMessagesSelector, 2);
             } catch (Exception e) {
                 /* Ignore Exception */
@@ -570,9 +535,6 @@ public final class GovGrantsAssertionObjects {
             I.amPerforming().assertionsTo().assertThat(present).isFalse();
         } else {
             try {
-                // Must use WaitForElementToBePresent as this element never becomes visible, and thus it will always wait the full waitTime
-//                govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
-//                I.amPerforming().waitFor().ElementToBePresent(By.xpath("//script[contains(@src, 'PageMessages')]"), 5);
                 I.amPerforming().waitFor().ElementToBePresent(pageMessagesSelector, 2);
             } catch (Exception e) {
                 /* Ignore Exception */
@@ -875,7 +837,6 @@ public final class GovGrantsAssertionObjects {
         if (uniqueColumnValue.equalsIgnoreCase("Record Id")) {
             columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
         }
-//            I.amPerforming().getElementReference().of(govgrants.perform().flexTable().getFlexTableColumn(columnValueUpdated));
         WebElement ClickSelector = I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//tbody/tr//*[text()='" + columnValueUpdated + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
         I.amPerforming().scroll().withMouseToElement(ClickSelector);
         I.amPerforming().click().withJavaScript(ClickSelector);
@@ -1853,7 +1814,7 @@ public final class GovGrantsAssertionObjects {
      * @modifier keerti.munde
      */
     private WebElement getPageBlockDetailsElement(String changedFieldName) {
-        return I.amPerforming().getElementReference().of(By.xpath("//span[contains(text(),'" + changedFieldName + "')] | //div//dl//span[contains(text(),'" + changedFieldName + "')] | //div[@id='" + changedFieldName + "'] | //span//b[text()='" + changedFieldName + "'] | //c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", changedFieldName) + "]"));
+        return I.amPerforming().getElementReference().of(By.xpath("//span[contains(text(),'" + changedFieldName + "')] | //c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", changedFieldName) + "]"));
     }
 
     /**
@@ -2360,9 +2321,7 @@ public final class GovGrantsAssertionObjects {
     }
 
     private boolean isFieldsIsInEditModeAtPAgeDetails(String fieldApiName) {
-        By fieldsAtPageDetails = ByUsing.xpath("//div[@id='" + fieldApiName + "']//div[contains(@class,'field-value')]//label//following-sibling::span[1] " +
-                "| //*[@field-name='" + fieldApiName + "']//span[contains(@class,'requiredField h-line-left')]" +
-                "|//*[@id='" + fieldApiName + "'] " +
+        By fieldsAtPageDetails = ByUsing.xpath("//*[@id='" + fieldApiName + "'] " +
                 "| //lightning-input[contains(@id,'" + fieldApiName + "')]//input[not(@disabled)] " +
                 "| //div[contains(@class,'modal__content')]//div[@data-field_api_name='" + fieldApiName + "']//input[not(@disabled)] " +
                 "| //div[@data-field_api_name='" + fieldApiName + "']//input[not(@disabled)] " +

@@ -27,7 +27,7 @@ public final class GovGrantsAssertionSteps {
     @Then("^I (softly see|see) status in Progress-bar is \"([^\"]*)\" and is \"([^\"]*)\"$")
     public void assertStatusProgressBar(String usage, String status, String color) {
         govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
-        I.amPerforming().waitFor().makeThreadSleep(3000);
+        I.amPerforming().browserOperationsTo().CheckPageLoadingStatus();
         ggAssertionObjects.assertStatusProgressBar(
                 status,
                 color,
@@ -128,7 +128,6 @@ public final class GovGrantsAssertionSteps {
     @Then("^I (softly see|softly do not see|see) field (matches exactly )?\"([^\"]*)\" as \"([^\"]*)\"$")
     public void assertFieldValue(String usage, String matchExact, String fieldName, String fieldValue) {
         govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
-        I.amPerforming().waitFor().makeThreadSleep(3000);
         ggAssertionObjects.assertFieldValue(
                 fieldName,
                 matchExact != null,
@@ -183,7 +182,6 @@ public final class GovGrantsAssertionSteps {
     @Description("Tests for the presence of top right button on a table")
     @When("^I (softly can see|softly cannot see|can see|cannot see) top right button \"([^\"]*)\" in flex table with id \"([^\"]*)\"$")
     public void assertTopRightButtonInFlexTableById(String usage, String buttonName, String tableId) {
-//        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
         ggAssertionObjects.assertCanOrCannotSeeTopRightButtonInFlexTableById(
                 tableId,
                 buttonName,
@@ -196,7 +194,6 @@ public final class GovGrantsAssertionSteps {
     @Description("Tests for the presence of row level button on a table")
     @When("^I (softly can see|softly cannot see|can see|cannot see) row level action button \"([^\"]*)\" against \"([^\"]*)\" in flex table with id \"([^\"]*)\"$")
     public void assertRowLevelButtonInFlexTableById(String usage, String buttonName, String uniqueColumnValue, String tableId) {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             ggAssertionObjects.assertCanOrCannotSeeRowLevelButtonInFlexTableByIdForLWC(
                     tableId,
                     uniqueColumnValue,
@@ -205,15 +202,6 @@ public final class GovGrantsAssertionSteps {
                     usage.contains("softly")
             );
             I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
-        } else {
-            ggAssertionObjects.assertCanOrCannotSeeRowLevelButtonInFlexTableById(
-                    tableId,
-                    uniqueColumnValue,
-                    buttonName,
-                    ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
-                    usage.contains("softly")
-            );
-        }
     }
 
 

@@ -1551,13 +1551,13 @@ Feature: Validate scenarios in Progress Report Forms
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent " or Add comment in "Comments Section", If "(ii) Other" option in "Federally-owned Property" is checked.     |
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent ", If any option in "1b. Equipment Acquired under a Federal Award" is checked.                               |
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent ", If "3. Report Loss, Destruction or Theft of Federally-owned Property" is checked.                         |
-      | Any one among "Sale Proceeds" or "Estimate of Current Fair Market Value" is required to be checked, if "2b. Sale of acquire equipment" is checked.                                                                              |
-      | "Percentage of Federal participation" is required, if "2b. Sale of acquire equipment" is checked.                                                                                                                               |
-      | "Federal Share" is required, if "2b. Sale of acquire equipment" is checked.                                                                                                                                                     |
-      | "Selling and handling allowance", if "2b. Sale of acquire equipment" is checked.                                                                                                                                               |
-      | Total Amount is required, if "2b. Sale of acquire equipment" is checked.                                                                                                                                                        |
+      | Any one among "Sale Proceeds" or "Estimate of Current Fair Market Value" is required to be checked, if "2b. Sale of acquired equipment" is checked.                                                                              |
+      | "Percentage of Federal participation" is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                               |
+      | "Federal Share" is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                                                     |
+      | "Selling and handling allowance", if "2b. Sale of acquired equipment" is checked.                                                                                                                                               |
+      | Total Amount is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                                                        |
 
- @329591 @ValidateSF425validationshoulddisplayonvalidatebutton @sprint-11-US-328863 @Forms
+  @329591 @ValidateSF425validationshoulddisplayonvalidatebutton @sprint-11-US-328863 @Forms
   Scenario: Validate SF425 validation should display on validate button
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"

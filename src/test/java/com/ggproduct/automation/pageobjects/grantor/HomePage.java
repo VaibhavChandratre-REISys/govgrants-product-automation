@@ -26,9 +26,9 @@ public class HomePage extends GrantorProjectManager {
      */
     public void reassignUser(String userName) {
         try {
-            I.amPerforming().click().on(By.xpath("//div[contains(@class,'panel-body')]//span[@class='select2-chosen'] | //div[contains(@class,'combobox__form-element')]//lightning-input"));
-            I.amPerforming().textInput().in(By.xpath("//div[@id='select2-drop']//div/input | //div[contains(@class,'combobox__form-element')]//lightning-input//input"), userName);
-            I.amPerforming().click().on(By.xpath("//div[contains(@class,'select2-search')]/following-sibling::ul//li//span[text()='" + userName + "'] | //div//ul//span[contains(@class,'lookup__item-action')]//span[text()='" + userName + "']"));
+            I.amPerforming().click().on(By.xpath("//div[contains(@class,'combobox__form-element')]//lightning-input"));
+            I.amPerforming().textInput().in(By.xpath("//div[contains(@class,'combobox__form-element')]//lightning-input//input"), userName);
+            I.amPerforming().click().on(By.xpath("//div//ul//span[contains(@class,'lookup__item-action')]//span[text()='" + userName + "']"));
         } catch (Exception e) {
         }
     }
@@ -66,7 +66,7 @@ public class HomePage extends GrantorProjectManager {
      * @author - Mahadev.hanme
      */
     public String findTaskCount(String tabName, String tableID) {
-        govgrants.perform().mainPage().clickMainMenuBar(tabName);
+        govgrants.perform().mainPage().clickMainMenuBarForLwc(tabName);
         String pendingTaskCount = "";
         govgrants.perform().sideBar().clickSideBarContent("My Tasks", "Pending Tasks");
         try {
@@ -79,7 +79,7 @@ public class HomePage extends GrantorProjectManager {
             pendingTaskCount = "0";
         }
 
-        govgrants.perform().mainPage().clickMainMenuBar("Home");
+        govgrants.perform().mainPage().clickMainMenuBarForLwc("Home");
         return pendingTaskCount;
     }
 

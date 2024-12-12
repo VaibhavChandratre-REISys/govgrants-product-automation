@@ -47,14 +47,6 @@ public final class GovGrantsObjects {
     protected void performQuickSearch(String tableIdForQsearch, String searchTermForQsearch) throws TestingBlazeCustomException {
         this.tableIdForQsearch = tableIdForQsearch;
         this.searchTermForQsearch = searchTermForQsearch;
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-            if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
-                govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch,
-                        govgrants.perform().pageDetails().idOfRecord);
-            } else {
-                govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch, this.searchTermForQsearch);
-            }
-        } else {
             if (this.tableIdForQsearch.contains("PendingTasks") || this.tableIdForQsearch.contains("CompletedTasks")) {
                 boolean recordPresent = false;
                 int counter = 0;
@@ -74,7 +66,6 @@ public final class GovGrantsObjects {
                             }
                         counter++;
                     }
-                }
             }
             if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
                 govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
@@ -109,19 +100,8 @@ public final class GovGrantsObjects {
      * click logout to log out
      */
     protected void clickLogOut() {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             govgrants.perform().mainPage().clickLoginDropDown();
             govgrants.perform().mainPage().clickLoginDropDownItems("Log Out");
-        } else {
-            try {
-                I.amPerforming().waitFor().makeThreadSleep(1000);
-                govgrants.perform().mainPage().clickLoginDropDown();
-                govgrants.perform().mainPage().clickLoginDropDownItems("Logout");
-            } catch (Exception ex) {
-                I.amPerforming().waitFor().makeThreadSleep(1000);
-                I.amPerforming().click().withJavaScript(govgrants.perform().mainPage().getLoginDropDownItems("Logout"));
-            }
-        }
     }
 
     /**
@@ -139,11 +119,7 @@ public final class GovGrantsObjects {
      * Click on Sub Tabs inside Grants and Announcements
      */
     protected void clickSubTab(String subTab) {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
-        } else {
-            govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
-        }
     }
 
     /**
@@ -391,13 +367,6 @@ public final class GovGrantsObjects {
      *                 flex table then we can use this step...
      */
     public void uploadAttachmentInFlexTableFromComputer(Boolean withoutRandomNumber, String fileName, String fileType) {
-        /*By classificationType = By.xpath("//select[@title='Classification' or @name='Classification']");
-        By filePath = By.xpath("//label[contains(@id,'file')]/../input");
-        String defaultFilePath = System.getProperty("user.dir") + "/src/main/resources/";
-        I.amPerforming().dropDownSelection().from(classificationType).selectByValue(fileType);
-        I.amPerforming().textInput().in(filePath, defaultFilePath + fileName);
-        I.amPerforming().click().on(By.xpath("//button[text()='Upload']"));*/
-
         By classificationType = By.xpath("//select[@title='Classification' or @name='Classification']");
         By filePath = By.xpath("//label[contains(@id,'file')]/../input");
         String defaultFilePath = System.getProperty("user.dir") + "/src/main/resources/";
@@ -415,7 +384,7 @@ public final class GovGrantsObjects {
             I.amPerforming().click().withJavaScript(By.xpath("//button[text()='Upload']"));
         } finally {
             try {
-                I.amPerforming().waitFor().makeThreadSleep(10000);
+                I.amPerforming().waitFor().makeThreadSleep(5000);
                 if (!withoutRandomNumber) {
                     // renaming back to the original file name
                     renameFile(defaultFilePath, newFileName, fileName);
@@ -450,37 +419,6 @@ public final class GovGrantsObjects {
             I.amPerforming().waitFor().makeThreadSleep(5000);
             I.amPerforming().textInput().in(filePath, defaultFilePath + newFileName);
             I.amPerforming().textInput().in(descript,Description);
-            I.amPerforming().click().withJavaScript(By.xpath("//button[text()='Upload']"));
-        } finally {
-            try {
-                I.amPerforming().waitFor().makeThreadSleep(10000);
-                if (!withoutRandomNumber) {
-                    // renaming back to the original file name
-                    renameFile(defaultFilePath, newFileName, fileName);
-                }
-            } catch (Exception ee) {
-                ee.printStackTrace();
-            }
-        }
-    }
-
-    public void uploadAttachmentInFlexTableFromComputerForLWC(Boolean withoutRandomNumber, String fileName, String fileType) {
-
-        By classificationType = By.xpath("//button[@title='Classification' or @name='Classification']");
-        By selectClassificationType = By.xpath("//span[normalize-space(text())='" + fileType + "']");
-        By filePath = By.xpath("//label[contains(@id,'file')]/../input");
-        String defaultFilePath = System.getProperty("user.dir") + "/src/main/resources/";
-        String[] splitFileName = fileName.split("\\.");
-        String newFileName = withoutRandomNumber ? fileName : splitFileName[0] + I.amPerforming().addOnsTo().getStringRandomNumber() + "." + splitFileName[1];
-        try {
-            // renamed file with random number
-            if (!withoutRandomNumber) {
-                renameFile(defaultFilePath, fileName, newFileName);
-            }
-            I.amPerforming().click().on(classificationType);
-            I.amPerforming().click().on(selectClassificationType);
-            I.amPerforming().waitFor().makeThreadSleep(5000);
-            I.amPerforming().textInput().in(filePath, defaultFilePath + newFileName);
             I.amPerforming().click().withJavaScript(By.xpath("//button[text()='Upload']"));
         } finally {
             try {

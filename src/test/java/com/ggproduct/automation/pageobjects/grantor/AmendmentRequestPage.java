@@ -49,7 +49,7 @@ public class AmendmentRequestPage extends GrantorProjectManager {
         try {
             if (I.amPerforming().checkToSee().isDisplayed(entriesDropDown)
                     || I.amPerforming().checkToSee().isEnabled(entriesDropDown)) {
-                govgrants.perform().flexTable().flexTableShowEntriesDropDown(flexTableId, numberofEntries);
+                govgrants.perform().flexTable().flexTableShowEntriesDropDownForLWC(flexTableId, numberofEntries);
             }
         } catch (Exception e) {
 
