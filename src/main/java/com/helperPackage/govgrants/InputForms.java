@@ -796,8 +796,8 @@ public final class InputForms {
      * @modified nauman.shahid: replaced regular text input with input with JS & commented pupupDisappear to support old projects like DC,LCTCS. 10/12/2020
      */
     public void handleDateInput(WebElement fieldWrapper, String fieldValue, boolean isDateTime) {
-                WebElement inputBox1 = I.amPerforming().getElementReference().of(By.xpath(".//input[@type='text']"));
-                WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper,inputBox1);
+        String field = fieldWrapper.toString().split("//")[1].split("\'")[1];
+        WebElement inputBox = I.amPerforming().getElementReference().of(By.xpath("//div[@data-field_api_name='" + field + "']//input[@type='text']"));
                 DateTimeFormatter formatter = getDateInputFormat(inputBox, isDateTime);
                 String inputValue = parseDateFieldValue(fieldValue, formatter);
                 try {

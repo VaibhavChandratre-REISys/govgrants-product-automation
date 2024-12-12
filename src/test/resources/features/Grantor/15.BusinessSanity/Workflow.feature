@@ -1595,7 +1595,7 @@ Feature: Validate all scenarios of every modules flow
     Then I see the text "Email Sent Successfully." in modal
 
 
-  @debug @EXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOpportunitywhichisconvertedtoPre-application
+  @EXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOpportunitywhichisconvertedtoPre-application
   Scenario: Opportunities converted to Pre-Application (Grants.gov) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Opportunity which is converted to Pre-application
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000suLhYAI/view"
