@@ -1594,74 +1594,79 @@ Feature: Validate all scenarios of every modules flow
       | pm.automation@yopmail.com | exe.automation@yopmail.com | test    | Automation Test |
     Then I see the text "Email Sent Successfully." in modal
 
-
-  @debug @EXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOpportunitywhichisconvertedtoPre-application
-  Scenario: Opportunities converted to Pre-Application (Grants.gov) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Opportunity which is converted to Pre-application
-    When I login to "As a Grantee" app as "GRANTEE PO" user
-    And I wait for "5" seconds
-        When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
-      | Name     | PreApplication |
-      | David FO | NA             |
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
-    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
-      | PreApplication |
-      | Step 3         |
-    Then I softly see the following messages in the page details contains:
-      | Required fields missing |
-    And I refresh the page
+  @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI @debug
+  Scenario: Validate PM user should able to Create & Activate the KPI
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Award__c/a1oDl000003yZ6VIAU/view"
+    When I navigate to "Actuals" sub tab
+    Then I softly see "Expenditure Detail" page block displayed
+    Then I softly see the text containing "* Records are sorted by Focus Area ascending order, Row Number ascending order"
+    And I select value inside table "---grantee_tableId:-:ExpenditureDetailsTableId---" is "All"
+    Then I softly see value "Administrative and legal expenses" for title "Budget Category" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "Land, structures, rights-of-way, appraisals, etc." for title "Budget Category" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "Relocation expenses and payments" for title "Budget Category" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "Architectural and engineering fees" for title "Budget Category" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "Other architectural and engineering fees" for title "Budget Category" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "Project inspection fees" for title "Budget Category" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "Site work" for title "Budget Category" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "Construction" for title "Budget Category" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "Indirect costs" for title "Budget Category" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "Equipment" for title "Budget Category" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "Miscellaneous" for title "Budget Category" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "Contingencies" for title "Budget Category" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly can see row level action button "Show Financial Transactions" against "Construction" in flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly can see row level action button "Report Non-Cash Match Line Item" against "Construction" in flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    And I click on "Show Financial Transactions" icon for "Construction" inside flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see "Financial Transactions" opens in overLay window
+    Then I softly see "Expenditure Details" page block displayed on modal
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalExpenditureTableId---"
+    When I "Collapse" page block contaninig value "Expenditure Details"
+    Then I softly do not see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalExpenditureTableId---"
+    When I "Expanded" page block contaninig value "Expenditure Details"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalExpenditureTableId---"
+    When I click on parallel lines menu bar with data target value "Expenditure Details"
+    And I wait for "1" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I select "Refresh" from parallel lines dropdown of "Expenditure Details"
+    Then I see table is refreshing
+    And I close the tab
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalCashMatchTableId---"
+    When I "Collapse" page block contaninig value "Cash Match Details"
+    Then I softly do not see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalCashMatchTableId---"
+    When I "Expanded" page block contaninig value "Cash Match Details"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalCashMatchTableId---"
+    When I click on parallel lines menu bar with data target value "Cash Match Details"
+    And I wait for "1" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I select "Refresh" from parallel lines dropdown of "Cash Match Details"
+    Then I see table is refreshing
+    And I close the tab
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalProgramIncomeTableId---"
+    When I "Collapse" page block contaninig value "Program Income Expenses"
+    Then I softly do not see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalProgramIncomeTableId---"
+    When I "Expanded" page block contaninig value "Program Income Expenses"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalProgramIncomeTableId---"
+    When I click on parallel lines menu bar with data target value "Cash Match Details"
+    And I wait for "1" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I select "Refresh" from parallel lines dropdown of "Program Income Expenses"
+    Then I see table is refreshing
+    When I click modal button "Close"
     And I wait for "2" seconds
-    And I click on "Submit For Approval" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Responsibilities - At least one approver is required |
-    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
-      | Name       | PreApplication |
-      | David FO   | Step 1         |
-    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
-      | Name       | PreApplication |
-      | Victor EXE | Step 2         |
-    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
-      | Name       | PreApplication |
-      | Grantee PO | Step 3         |
-    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
-      | Name       |  PreApplication |
-      | Sarah PM   | Step 4          |
-    When I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "Edit" :
-      | Name       | PreApplication |
-      | Sarah PM   | Step 4         |
-    Then I softly see the following messages in the page details contains:
-      | You cannot specify the same user for multiple steps for PreApplication |
-    And I refresh the page
-    And I wait for "2" seconds
-    When I click on "Validate" in the page details
-    And I wait for "3" seconds
-    Then I softly see the following messages in the page details contains:
-      |Pre-Application has been validated successfully. |
-    And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-    When I navigate to "Applications" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-    When I navigate to "Applications" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
-    When I navigate to "Applications" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-    When I navigate to "Applications" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    When I "Approve" in the approval decision
-    Then I softly see field "Status" as "Approved"
+    And I click on "Report Non-Cash Match Line Item" icon for "Construction" inside flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see "Add Non-Cash Match" opens in overLay window
+    Then I softly see "Report Non Cash Match" page block displayed on modal
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsMoalNonCashMatchTableId---"
+    When I "Collapse" page block contaninig value "Report Non Cash Match"
+    Then I softly do not see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsMoalNonCashMatchTableId---"
+    When I "Expanded" page block contaninig value "Report Non Cash Match"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsMoalNonCashMatchTableId---"
+    When I click on parallel lines menu bar with data target value "Report Non Cash Match"
+    And I wait for "1" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I select "Refresh" from parallel lines dropdown of "Report Non Cash Match"
+    Then I see table is refreshing

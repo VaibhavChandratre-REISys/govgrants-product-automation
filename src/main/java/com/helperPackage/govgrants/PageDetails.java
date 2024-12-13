@@ -803,7 +803,7 @@ public final class PageDetails {
      */
     public boolean areValuesPresentInsideDropdownSelector(String fieldApiName, String values) {
         String[] dropdownValues = values.split(",");
-        List<WebElement> elements = I.amPerforming().dropDownSelection().from(By.xpath("//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "']//select | //field[@field-name='" + fieldApiName + "']//select")).getOptions();
+        List<WebElement> elements = I.amPerforming().dropDownSelection().from(By.xpath("//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "']//select | //field[@field-name='" + fieldApiName + "']// | //div[@id='" + fieldApiName + "']//select//option")).getOptions();
         boolean flag = false;
         for (int i = 0; i < elements.size() - 1; i++) {
             if (elements.get(i).getText().contains(dropdownValues[i]))
