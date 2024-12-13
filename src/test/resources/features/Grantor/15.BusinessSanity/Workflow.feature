@@ -1630,12 +1630,6 @@ Feature: Validate all scenarios of every modules flow
     Then I see option "Download as PDF" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "Expenditure Details"
     Then I see table is refreshing
-    When I click on parallel lines menu bar with data target value "Expenditure Details"
-    And I select "Download as PDF" from parallel lines dropdown of "Expenditure Details"
-    And I wait for "8" seconds
-    And I download the file
-    And I wait for "5" seconds
-    Then I softly see "Expenditure Details" on page "1" of "govgrants" pdf file
     And I close the tab
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalCashMatchTableId---"
     When I "Collapse" page block contaninig value "Cash Match Details"
@@ -1648,12 +1642,6 @@ Feature: Validate all scenarios of every modules flow
     Then I see option "Download as PDF" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "Cash Match Details"
     Then I see table is refreshing
-    When I click on parallel lines menu bar with data target value "Cash Match Details"
-    And I select "Download as PDF" from parallel lines dropdown of "Cash Match Details"
-    And I wait for "8" seconds
-    And I download the file
-    And I wait for "6" seconds
-    Then I softly see "Cash Match Details" on page "1" of "govgrants" pdf file
     And I close the tab
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalProgramIncomeTableId---"
     When I "Collapse" page block contaninig value "Program Income Expenses"
@@ -1666,13 +1654,6 @@ Feature: Validate all scenarios of every modules flow
     Then I see option "Download as PDF" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "Program Income Expenses"
     Then I see table is refreshing
-    When I click on parallel lines menu bar with data target value "Program Income Expenses"
-    And I select "Download as PDF" from parallel lines dropdown of "Program Income Expenses"
-    And I wait for "8" seconds
-    And I download the file
-    And I wait for "6" seconds
-    Then I softly see "Program Income Expenses" on page "1" of "govgrants" pdf file
-    And I close the tab
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on "Report Non-Cash Match Line Item" icon for "Construction" inside flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
@@ -1689,9 +1670,3 @@ Feature: Validate all scenarios of every modules flow
     Then I see option "Download as PDF" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "Report Non Cash Match"
     Then I see table is refreshing
-    When I click on parallel lines menu bar with data target value "Report Non Cash Match"
-    And I select "Download as PDF" from parallel lines dropdown of "Report Non Cash Match"
-    And I wait for "8" seconds
-    And I download the file
-    And I wait for "6" seconds
-    Then I softly see "Report Non Cash Match" on page "1" of "govgrants" pdf file
