@@ -903,4 +903,9 @@ public final class GovGrantsAssertionSteps {
             I.amPerforming().assertionsTo().assertThat(ggAssertionObjects.isValuePresentInsidePicklistViewList(fieldValue, labelName)).isFalse();
         }
     }
+
+    @Then("I (softly see|softly do not see) asterisk mark on \"([^\"]*)\" inside \"([^\"]*)\" section$")
+    public void iSoftlySeeAsteriskMarkOnInsideSection(String usage, String fieldName, String sectionName) {
+        ggAssertionObjects.assertAsteriskMarkInsideSection(usage, fieldName, sectionName);
+    }
 }

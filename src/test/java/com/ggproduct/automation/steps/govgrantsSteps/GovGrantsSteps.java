@@ -14,7 +14,6 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -802,11 +801,18 @@ public final class GovGrantsSteps {
     @Description("This will download the file using javascript")
     @When("^I download the file$")
     public void saveTheFileToTarget() throws Throwable {
-        I.amPerforming().fileHandling().toDownloadAnyFileUsingURL("govgrants.pdf");
-        File file = new File(System.getProperty("user.dir") + File.separatorChar + "target");
-        I.amPerforming().waitFor().makeThreadSleep(8000);
+       I.amPerforming().fileHandling().cleanDownloadFolder();
+        I.amPerforming().fileHandling().DownloadAnyFilefromTab();
+        File targetDir = new File(System.getProperty("user.dir") + File.separator + "target");
+        File file = new File(targetDir, "download");
+
+        // Create the download folder if it doesn't exist
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        I.amPerforming().waitFor().makeThreadSleep(7000);
         I.amPerforming().fileHandling().toRenameFileWithSpecificExtension(file, "govgrant", "pdf", "pdf");
-        I.amPerforming().waitFor().makeThreadSleep(5000);
+        I.amPerforming().waitFor().makeThreadSleep(2000);
     }
 
     @Description("Click on Burger Icon present or enhanced view in flex table top right corner")
@@ -1216,4 +1222,11 @@ public final class GovGrantsSteps {
     public void iClickOnbottomNavigatorInpageDetail(String buttonName) {
         ggObjects.toClickOnNavigatorButtonInBottom(buttonName);
     }
+
+    @When("I hovering mouse on help text icon \"([^\"]*)\" inside \"([^\"]*)\" section$")
+    public void iHoveringMouseOnHelpTextIconInsideSection(String usage, String fieldName, String sectionName) {
+        govgrants.perform().pageDetails().getHelpTextAtPageBlockSection(usage, fieldName, sectionName);
+    }
 }
+
+

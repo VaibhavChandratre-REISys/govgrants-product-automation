@@ -541,7 +541,7 @@ public final class GovGrantsAssertionObjects {
                 + " | //div[contains(@class, 'alert') and @ng-repeat]" // First variant of flex table messages
                 + " | //div[contains(@class,'alertMessages')]//div[contains(@class,'alertMessage')]//span[@class='ng-binding']" // Second variant of flex table messages
                 + " | //div[contains(@class,'alert-danger')]" // get the alert danger message...
-                + " | //div//span[contains(@class,'dynamic-msg-box-margin')] | //c-flex-layout-page-messages//span[text()] | //span[contains(@class,'toastMessage')] | //div[@class='errorMsg']//span[@part='formatted-rich-text'] | //div[@class='successMsg']//span[@part='formatted-rich-text'] | //gnt-flex-layout-page-messages//span//lightning-formatted-text | //c-flex-layout-page-messages//span//lightning-formatted-text | //span[@class='toastMessage forceActionsText'] | //span[contains(@class,'changeOwnerErrorMessage')] | //flowruntime-error-content//lightning-formatted-rich-text//span | //div[@data-id='modalcontent1']//lightning-formatted-rich-text//span"
+                + " | //div//span[contains(@class,'dynamic-msg-box-margin')] | //c-flex-layout-page-messages//span[text()] | //span[contains(@class,'toastMessage')] | //div[@class='errorMsg']//span[@part='formatted-rich-text'] | //div[@class='successMsg']//span[@part='formatted-rich-text'] | //gnt-flex-layout-page-messages//span//lightning-formatted-text | //c-flex-layout-page-messages//span//lightning-formatted-text | //span[@class='toastMessage forceActionsText'] | //span[contains(@class,'changeOwnerErrorMessage')] | //flowruntime-error-content//lightning-formatted-rich-text//span | //div[@data-id='modalcontent1']//lightning-formatted-rich-text//span | //c-flex-layout-page-messages//lightning-formatted-rich-text//span"
         );
 
         List<String> desiredMessages = unsanitizedDesiredMessages
@@ -2745,6 +2745,19 @@ public final class GovGrantsAssertionObjects {
         return flag;
     }
 
+    public boolean isAsteriskMarkDisplayedInsideSection(String fieldName, String sectionName) {
+        By fieldsAtPageDetails = By.xpath("//span[contains(@title,'" + sectionName + "')]//parent::div//following-sibling::div//div//label[text()='"+ fieldName +"']/..//span[contains(@class,'required-for-save')]");
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(fieldsAtPageDetails)) {
+                flag = true;
+            }
+        } catch (Exception e) {
+            flag = false;
+        }
+        return flag;
+    }
+
     /**
      * assert true if field is present in section
      *
@@ -3870,6 +3883,22 @@ public final class GovGrantsAssertionObjects {
         return flag;
     }
 
+    private boolean isRadioOptionsInsideSection(String options, String sectionName) {
+        boolean flag = false;
+        By globalDropdownSelector = By.xpath("//*[@data-value='Search: All']");
+        if(I.amPerforming().checkToSee().isDisplayed(globalDropdownSelector)){
+            I.amPerforming().click().on(globalDropdownSelector);
+            List<Elements> elements= I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//ul[@aria-label='" + sectionName + "']//li"));
+            for (Elements element : elements) {
+                if (element.getText().equals(options)) {
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        return flag;
+    }
+
     public void assertFieldInsideRefineByFilter(String usage, String fieldName) {
         if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isFieldInsideRefineByFilter(fieldName)).isTrue();
@@ -4161,4 +4190,12 @@ public final class GovGrantsAssertionObjects {
         return flag;
     }
 
+    public void assertAsteriskMarkInsideSection(String usage, String fieldName, String sectionName) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isAsteriskMarkDisplayedInsideSection(fieldName,sectionName)).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isAsteriskMarkDisplayedInsideSection(fieldName,sectionName)).isFalse();
+        }
+
+    }
 }
