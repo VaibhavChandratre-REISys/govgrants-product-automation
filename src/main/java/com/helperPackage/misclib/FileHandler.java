@@ -255,15 +255,16 @@ public final class FileHandler {
      * @author jitendra.pisal
      */
     public void toDownloadAnyFileUsingURL(String fileNameWithExtension) {
-        // Build the JavaScript snippet
-        String script = "var link = document.createElement('a');" +
-                "link.href = '" + I.amPerforming().browserOperationsTo().getCurrentUrl() + "';" +
-                "link.download = '" + fileNameWithExtension + "';" +
-                "link.click();";
+        String aa = "(function downloadURI(uri, name)\n" +
+                "        {\n" +
+                "            var link = document.createElement(\"a\");\n" +
+                "            link.download = name;\n" +
+                "            link.href = uri;\n" +
+                "            link.click();\n" +
+                "        })(\"" + I.amPerforming().browserOperationsTo().getCurrentUrl() + "\",\"" + fileNameWithExtension + "\");";
 
-        // Execute the JavaScript in the browser context
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) InstanceRecording.getInstance(DeviceBucket.class).getDriver();
-        jsExecutor.executeScript(script);
+        JavascriptExecutor jj = (JavascriptExecutor) InstanceRecording.getInstance(DeviceBucket.class).getDriver();
+        jj.executeScript(aa);
     }
 
     /**
