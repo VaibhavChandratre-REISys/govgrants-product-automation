@@ -2745,6 +2745,19 @@ public final class GovGrantsAssertionObjects {
         return flag;
     }
 
+    public boolean isAsteriskMarkDisplayedInsideSection(String fieldName, String sectionName) {
+        By fieldsAtPageDetails = By.xpath("//span[contains(@title,'" + sectionName + "')]//parent::div//following-sibling::div//div//label[text()='"+ fieldName +"']/..//span[contains(@class,'required-for-save')]");
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(fieldsAtPageDetails)) {
+                flag = true;
+            }
+        } catch (Exception e) {
+            flag = false;
+        }
+        return flag;
+    }
+
     /**
      * assert true if field is present in section
      *
@@ -3870,6 +3883,22 @@ public final class GovGrantsAssertionObjects {
         return flag;
     }
 
+    private boolean isRadioOptionsInsideSection(String options, String sectionName) {
+        boolean flag = false;
+        By globalDropdownSelector = By.xpath("//*[@data-value='Search: All']");
+        if(I.amPerforming().checkToSee().isDisplayed(globalDropdownSelector)){
+            I.amPerforming().click().on(globalDropdownSelector);
+            List<Elements> elements= I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//ul[@aria-label='" + sectionName + "']//li"));
+            for (Elements element : elements) {
+                if (element.getText().equals(options)) {
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        return flag;
+    }
+
     public void assertFieldInsideRefineByFilter(String usage, String fieldName) {
         if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isFieldInsideRefineByFilter(fieldName)).isTrue();
@@ -4161,4 +4190,12 @@ public final class GovGrantsAssertionObjects {
         return flag;
     }
 
+    public void assertAsteriskMarkInsideSection(String usage, String fieldName, String sectionName) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isAsteriskMarkDisplayedInsideSection(fieldName,sectionName)).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isAsteriskMarkDisplayedInsideSection(fieldName,sectionName)).isFalse();
+        }
+
+    }
 }

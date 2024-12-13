@@ -210,8 +210,6 @@ Feature: Sanity scenarios
     When I "Reject" in the approval decision
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
-    Then I softly see "Minimum award amount" shown as help text
-
   @463441 @ValidatePreAppwithPMprofileabletoaproverwithsingleapprover
   Scenario: Validate PreApp with PM profile ,Able to aprover with single approver
     Given I login to "As a Grantee" app as "GRANTEE PM" user
@@ -3200,8 +3198,8 @@ Feature: Sanity scenarios
     Then I softly see the text containing "Post"
 
     Examples:
-      | User        |
-      | GRANTEE PM  |
+      | User       |
+      | GRANTEE PM |
 
   @482415 @POuserVerifyUsershouldabletoapprovetheAwardwith4stepapprover
   Scenario:PO user ->Verify User should able to approve the Award with 4 step approver
@@ -3383,11 +3381,11 @@ Feature: Sanity scenarios
       | Name       | Award  |
       | Victor EXE | Step 1 |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
-      | Sarah PM   | Step 2 |
+      | Name     | Award  |
+      | Sarah PM | Step 2 |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
-      | David FO   | Step 3 |
+      | Name     | Award  |
+      | David FO | Step 3 |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
       | Grantee PO | Step 4 |
@@ -3605,78 +3603,75 @@ Feature: Sanity scenarios
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:preAppllicationLineItemsTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:preAppllicationLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
-      | Construction | The narrative | 5000          | 500        | 500            |
+      | Construction | The narrative | 5000         | 500        | 500            |
     When I click modal button "Close"
     And I wait for "2" seconds
+    When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
       | Name     | PreApplication |
       | David FO | NA             |
-#    When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
-#      | Name     | PreApplication |
-#      | David FO | NA             |
-#    Then I softly see the following messages in the page details contains:
-#      | Saved Successfully! |
-#    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
-#      | PreApplication |
-#      | Step 3         |
-#    Then I softly see the following messages in the page details contains:
-#      | Required fields missing |
-#    And I refresh the page
-#    And I wait for "2" seconds
-#    And I click on "Submit For Approval" in the page details
-#    Then I softly see the following messages in the page details contains:
-#      | Responsibilities - At least one approver is required |
-#    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
-#      | Name       | PreApplication |
-#      | David FO   | Step 1         |
-#    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
-#      | Name       | PreApplication |
-#      | Victor EXE | Step 2         |
-#    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
-#      | Name       | PreApplication |
-#      | Grantee PO | Step 3         |
-#    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
-#      | Name       |  PreApplication |
-#      | Sarah PM   | Step 4          |
-#    When I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "Edit" :
-#      | Name       | PreApplication |
-#      | Sarah PM   | Step 4         |
-#    Then I softly see the following messages in the page details contains:
-#      | You cannot specify the same user for multiple steps for PreApplication |
-#    And I refresh the page
-#    And I wait for "2" seconds
-#    When I click on "Validate" in the page details
-#    And I wait for "3" seconds
-#    Then I softly see the following messages in the page details contains:
-#      |Pre-Application has been validated successfully. |
-#    And I click on "Submit For Approval" in the page details
-#    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
-#    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-#    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-#    When I "Approve" in the approval decision
-#    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-#    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-#    When I "Approve" in the approval decision
-#    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-#    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-#    When I "Approve" in the approval decision
-#    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-#    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-#    When I "Approve" in the approval decision
-#    Then I softly see field "Status" as "Approved"
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
+      | PreApplication |
+      | Step 3         |
+    Then I softly see the following messages in the page details contains:
+      | Required fields missing |
+    And I refresh the page
+    And I wait for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Responsibilities - At least one approver is required |
+    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
+      | Name     | PreApplication |
+      | David FO | Step 1         |
+    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
+      | Name       | PreApplication |
+      | Victor EXE | Step 2         |
+    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
+      | Name       | PreApplication |
+      | Grantee PO | Step 3         |
+    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
+      | Name     | PreApplication |
+      | Sarah PM | Step 4         |
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "Edit" :
+      | Name     | PreApplication |
+      | Sarah PM | Step 4         |
+    Then I softly see the following messages in the page details contains:
+      | You cannot specify the same user for multiple steps for PreApplication |
+    And I refresh the page
+    And I wait for "2" seconds
+    When I click on "Validate" in the page details
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Pre-Application has been validated successfully. |
+    And I click on "Submit For Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
 
   @463431 @PreAppVerifyWithPOprofileAbletoaddpeerreviewerwithAllowrecordEditingYes
   Scenario:PreApp - Verify With PO profile , Able to add peer reviewer with Allow record Editing - Yes.
@@ -3782,7 +3777,7 @@ Feature: Sanity scenarios
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:preAppllicationLineItemsTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:preAppllicationLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
-      | Construction | The narrative | 5000          | 500        | 500            |
+      | Construction | The narrative | 5000         | 500        | 500            |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds

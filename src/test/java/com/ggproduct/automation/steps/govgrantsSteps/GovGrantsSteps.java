@@ -1222,4 +1222,11 @@ public final class GovGrantsSteps {
     public void iClickOnbottomNavigatorInpageDetail(String buttonName) {
         ggObjects.toClickOnNavigatorButtonInBottom(buttonName);
     }
+
+    @When("I hovering mouse on help text icon \"([^\"]*)\" inside \"([^\"]*)\" section$")
+    public void iHoveringMouseOnHelpTextIconInsideSection(String usage, String fieldName, String sectionName) {
+        govgrants.perform().pageDetails().getHelpTextAtPageBlockSection(usage, fieldName, sectionName);
+    }
 }
+
+
