@@ -643,10 +643,18 @@ public final class InputForms {
 
     private void handleRichTextAreaInput(WebElement fieldWrapper, String fieldValue) {
         String field = fieldWrapper.toString().split("//")[1].split("\'")[1];
-        By inputBox = By.xpath("//div[@data-field_api_name='" + field + "']//input[@type='text'] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'text-area')] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'textarea')]//textarea");
-        I.amPerforming().click().withJavaScript(inputBox);
-        I.amPerforming().textInput().toClear(inputBox);
-        I.amPerforming().textInput().in(inputBox, fieldValue);
+        if(field.contains("modal__container")){
+            String field1 = fieldWrapper.toString().split("//")[2].split("\'")[1];
+            By inputBox = By.xpath("//div[@data-field_api_name='" + field1 + "']//input[@type='text'] | //div[@data-field_api_name='" + field1 + "']//div[contains(@class,'text-area')] | //div[@data-field_api_name='" + field1 + "']//div[contains(@class,'textarea')]//textarea");
+            I.amPerforming().click().withJavaScript(inputBox);
+            I.amPerforming().textInput().toClear(inputBox);
+            I.amPerforming().textInput().in(inputBox, fieldValue);
+        } else {
+            By inputBox = By.xpath("//div[@data-field_api_name='" + field + "']//input[@type='text'] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'text-area')] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'textarea')]//textarea");
+            I.amPerforming().click().withJavaScript(inputBox);
+            I.amPerforming().textInput().toClear(inputBox);
+            I.amPerforming().textInput().in(inputBox, fieldValue);
+        }
     }
 
     private void handleClearingRichTextAreaInput(WebElement fieldWrapper) {
@@ -797,19 +805,36 @@ public final class InputForms {
      */
     public void handleDateInput(WebElement fieldWrapper, String fieldValue, boolean isDateTime) {
         String field = fieldWrapper.toString().split("//")[1].split("\'")[1];
-        WebElement inputBox = I.amPerforming().getElementReference().of(By.xpath("//div[@data-field_api_name='" + field + "']//input[@type='text']"));
-                DateTimeFormatter formatter = getDateInputFormat(inputBox, isDateTime);
-                String inputValue = parseDateFieldValue(fieldValue, formatter);
-                try {
-                    SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
-                    Date date = dt.parse(inputValue);
-                    SimpleDateFormat dt1 = new SimpleDateFormat("MMM dd, yyyy");
-                    inputValue = dt1.format(date);
-                } catch (Exception e) {
-                }
-                I.amPerforming().textInput().toClear(inputBox);
-                I.amPerforming().textInput().in(inputBox, inputValue);
-                I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
+        if(field.contains("modal__container")) {
+            String field1 = fieldWrapper.toString().split("//")[2].split("\'")[1];
+            WebElement inputBox = I.amPerforming().getElementReference().of(By.xpath("//div[@data-field_api_name='" + field1 + "']//input[@type='text']"));
+            DateTimeFormatter formatter = getDateInputFormat(inputBox, isDateTime);
+            String inputValue = parseDateFieldValue(fieldValue, formatter);
+            try {
+                SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
+                Date date = dt.parse(inputValue);
+                SimpleDateFormat dt1 = new SimpleDateFormat("MMM dd, yyyy");
+                inputValue = dt1.format(date);
+            } catch (Exception e) {
+            }
+            I.amPerforming().textInput().toClear(inputBox);
+            I.amPerforming().textInput().in(inputBox, inputValue);
+            I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
+        } else {
+            WebElement inputBox = I.amPerforming().getElementReference().of(By.xpath("//div[@data-field_api_name='" + field + "']//input[@type='text']"));
+            DateTimeFormatter formatter = getDateInputFormat(inputBox, isDateTime);
+            String inputValue = parseDateFieldValue(fieldValue, formatter);
+            try {
+                SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
+                Date date = dt.parse(inputValue);
+                SimpleDateFormat dt1 = new SimpleDateFormat("MMM dd, yyyy");
+                inputValue = dt1.format(date);
+            } catch (Exception e) {
+            }
+            I.amPerforming().textInput().toClear(inputBox);
+            I.amPerforming().textInput().in(inputBox, inputValue);
+            I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
+        }
 
     }   //makeCalendarPopupDisappear(inputBox);
 
