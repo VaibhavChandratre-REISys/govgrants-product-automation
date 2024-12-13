@@ -559,7 +559,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I wait for "2" seconds
-    When I close "Enter Review" modal by clicking the top right x button
+    When I click on submit review
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Directed" content inside "Announcements" subheader on left panel
@@ -823,7 +824,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I wait for "2" seconds
-    When I click modal button "Close"
+    When I click on submit review
     And I wait for "2" seconds
     And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
