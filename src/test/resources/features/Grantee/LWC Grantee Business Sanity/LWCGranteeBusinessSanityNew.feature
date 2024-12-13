@@ -1,4 +1,4 @@
-@GranteeSanityBusinessFlowNew
+@GranteeSanityBusinessFlowNew @GranteeTBE
 Feature: Sanity scenarios New
 
   @463446 @ValidatePreAppwithPOprofileusingtherecorddecisionabletoaccept
@@ -3635,7 +3635,7 @@ Feature: Sanity scenarios New
     And I select "Refresh" from parallel lines dropdown of "Project Period Closeout Requests"
     Then I see table is refreshing
 
-  @482393 @ValidatePMUsertheexpendituredetailssection @GranteeTBE
+  @482393 @ValidatePMUsertheexpendituredetailssection
   Scenario: Validate PM User the expenditure details section
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -3922,7 +3922,7 @@ Feature: Sanity scenarios New
     And I select "Refresh" from parallel lines dropdown of "Report Non Cash Match"
     Then I see table is refreshing
 
-  @482402 @ValidatePOUserthefilessectionofaward @GranteeTBE
+  @482402 @ValidatePOUserthefilessectionofaward
   Scenario: Validate PO User the files section of award
     Given I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
