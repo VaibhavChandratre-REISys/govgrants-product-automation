@@ -279,6 +279,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     When I navigate to "Responsibilities" sub tab
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+    And I pause execution for "2" seconds
     And I get the "EGMS ID"
     And I pause execution for "3" seconds
     And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal

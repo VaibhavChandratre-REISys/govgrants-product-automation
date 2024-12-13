@@ -3885,6 +3885,7 @@ Feature: Sanity scenarios New
     Then I see table is refreshing
     When I click on parallel lines menu bar with data target value "Expenditure Details"
     And I select "Download as PDF" from parallel lines dropdown of "Expenditure Details"
+    And I wait for "2" seconds
     And I download the file
     And I wait for "5" seconds
     Then I softly see "Expenditure Details" on page "1" of "govgrants" pdf file
@@ -4150,9 +4151,9 @@ Feature: Sanity scenarios New
     Then I see "Upload" button is disabled at modal under library
     When I upload file "Attachment.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
-    Then I see the text "Attachment.pdf'" in modal
+    Then I see the text "Attachment.pdf" in modal
     When I click modal button "Cancel"
-    Then I do not see the text "Attachment.pdf'" in modal
+    Then I do not see the text "Attachment.pdf" in modal
     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" with description "Automation Test" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -4161,11 +4162,11 @@ Feature: Sanity scenarios New
     Then I softly see "File Extension" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Description" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I see "AttachmentTesting.pdf" has been added in "Award Files" flex table
-    Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "View" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I see "Attachment.pdf" has been added in "Award Files" flex table
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
     When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
@@ -4248,9 +4249,9 @@ Feature: Sanity scenarios New
     Then I see "Upload" button is disabled at modal under library
     When I upload file "Attachment.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
-    Then I see the text "Attachment.pdf'" in modal
+    Then I see the text "Attachment.pdf" in modal
     When I click modal button "Cancel"
-    Then I do not see the text "Attachment.pdf'" in modal
+    Then I do not see the text "Attachment.pdf" in modal
     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" with description "Automation Test" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -4259,11 +4260,11 @@ Feature: Sanity scenarios New
     Then I softly see "File Extension" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Description" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I see "AttachmentTesting.pdf" has been added in "Award Files" flex table
-    Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "View" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I see "Attachment.pdf" has been added in "Award Files" flex table
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
     When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
@@ -4328,9 +4329,9 @@ Feature: Sanity scenarios New
     Then I see "Upload" button is disabled at modal under library
     When I upload file "Attachment.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
-    Then I see the text "Attachment.pdf'" in modal
+    Then I see the text "Attachment.pdf" in modal
     When I click modal button "Cancel"
-    Then I do not see the text "Attachment.pdf'" in modal
+    Then I do not see the text "Attachment.pdf" in modal
     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" with description "Automation Test" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -4339,11 +4340,11 @@ Feature: Sanity scenarios New
     Then I softly see "File Extension" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Description" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I see "AttachmentTesting.pdf" has been added in "Award Files" flex table
-    Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "View" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I see "Attachment.pdf" has been added in "Award Files" flex table
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
     When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
@@ -4407,9 +4408,9 @@ Feature: Sanity scenarios New
     Then I see "Upload" button is disabled at modal under library
     When I upload file "Attachment.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
-    Then I see the text "Attachment.pdf'" in modal
+    Then I see the text "Attachment.pdf" in modal
     When I click modal button "Cancel"
-    Then I do not see the text "Attachment.pdf'" in modal
+    Then I do not see the text "Attachment.pdf" in modal
     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" with description "Automation Test" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -4418,11 +4419,11 @@ Feature: Sanity scenarios New
     Then I softly see "File Extension" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Description" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I see "AttachmentTesting.pdf" has been added in "Award Files" flex table
-    Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "View" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I see "Attachment.pdf" has been added in "Award Files" flex table
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
     When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
@@ -4467,11 +4468,11 @@ Feature: Sanity scenarios New
     Then I softly see "File Extension" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Description" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I see "AttachmentTesting.pdf" has been added in "Award Files" flex table
-    Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I cannot see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I cannot see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "View" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I see "Attachment.pdf" has been added in "Award Files" flex table
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
     When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
@@ -4523,11 +4524,11 @@ Feature: Sanity scenarios New
     Then I softly see "File Extension" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Description" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I see "AttachmentTesting.pdf" has been added in "Award Files" flex table
-    Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I cannot see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I cannot see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "View" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I see "Attachment.pdf" has been added in "Award Files" flex table
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
     When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
@@ -4566,11 +4567,11 @@ Feature: Sanity scenarios New
     Then I softly see "File Extension" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Description" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I see "AttachmentTesting.pdf" has been added in "Award Files" flex table
-    Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I cannot see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I cannot see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "View" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I see "Attachment.pdf" has been added in "Award Files" flex table
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
     When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"

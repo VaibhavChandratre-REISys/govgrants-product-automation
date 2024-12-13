@@ -1632,6 +1632,7 @@ Feature: Validate all scenarios of every modules flow
     Then I see table is refreshing
     When I click on parallel lines menu bar with data target value "Expenditure Details"
     And I select "Download as PDF" from parallel lines dropdown of "Expenditure Details"
+    And I wait for "3" seconds
     And I download the file
     And I wait for "5" seconds
     Then I softly see "Expenditure Details" on page "1" of "govgrants" pdf file
@@ -1649,6 +1650,7 @@ Feature: Validate all scenarios of every modules flow
     Then I see table is refreshing
     When I click on parallel lines menu bar with data target value "Cash Match Details"
     And I select "Download as PDF" from parallel lines dropdown of "Cash Match Details"
+    And I wait for "3" seconds
     And I download the file
     And I wait for "6" seconds
     Then I softly see "Cash Match Details" on page "1" of "govgrants" pdf file
@@ -1666,6 +1668,7 @@ Feature: Validate all scenarios of every modules flow
     Then I see table is refreshing
     When I click on parallel lines menu bar with data target value "Program Income Expenses"
     And I select "Download as PDF" from parallel lines dropdown of "Program Income Expenses"
+    And I wait for "3" seconds
     And I download the file
     And I wait for "6" seconds
     Then I softly see "Program Income Expenses" on page "1" of "govgrants" pdf file
@@ -1688,6 +1691,7 @@ Feature: Validate all scenarios of every modules flow
     Then I see table is refreshing
     When I click on parallel lines menu bar with data target value "Report Non Cash Match"
     And I select "Download as PDF" from parallel lines dropdown of "Report Non Cash Match"
+    And I wait for "3" seconds
     And I download the file
     And I wait for "6" seconds
     Then I softly see "Report Non Cash Match" on page "1" of "govgrants" pdf file
