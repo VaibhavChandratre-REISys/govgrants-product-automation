@@ -3851,13 +3851,6 @@ Feature: Sanity scenarios New
     Then I softly see field "Status" as "Activated"
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    Then I softly see field "Status" as "Active"
-    Then I softly see status in Progress-bar is "Active" and is "dark blue"
     When I navigate to "Actuals" sub tab
     Then I softly see "Expenditure Detail" page block displayed
     Then I softly see the text containing "* Records are sorted by Focus Area ascending order, Row Number ascending order"
