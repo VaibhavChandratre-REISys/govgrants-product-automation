@@ -3804,8 +3804,8 @@ Feature: Sanity scenarios New
       | Rate  | 15             | 30              | 10                             | Final                   |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
-      | Grantee PO | Step 1 |
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -4150,11 +4150,8 @@ Feature: Sanity scenarios New
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Add File" opens in overLay window
     Then I softly see the text containing "Classification"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Select file classification"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Interim Award Document"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Notice of Award"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Terms and Conditions"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Other"
+    Then I see only the following ordered options in dropdown field "Classification" :
+      | Select file classification | Interim Award Document | Notice of Award | Terms and Conditions | Other |
     Then I softly see the text containing "Upload File"
     Then I softly see the text containing "Description"
     Then I see "Upload" button is disabled at modal under library
@@ -4251,11 +4248,8 @@ Feature: Sanity scenarios New
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Add File" opens in overLay window
     Then I softly see the text containing "Classification"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Select file classification"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Interim Award Document"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Notice of Award"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Terms and Conditions"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Other"
+    Then I see only the following ordered options in dropdown field "Classification" :
+      | Select file classification | Interim Award Document | Notice of Award | Terms and Conditions | Other |
     Then I softly see the text containing "Upload File"
     Then I softly see the text containing "Description"
     Then I see "Upload" button is disabled at modal under library
@@ -4334,11 +4328,8 @@ Feature: Sanity scenarios New
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Add File" opens in overLay window
     Then I softly see the text containing "Classification"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Select file classification"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Interim Award Document"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Notice of Award"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Terms and Conditions"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Other"
+    Then I see only the following ordered options in dropdown field "Classification" :
+      | Select file classification | Interim Award Document | Notice of Award | Terms and Conditions | Other |
     Then I softly see the text containing "Upload File"
     Then I softly see the text containing "Description"
     Then I see "Upload" button is disabled at modal under library
@@ -4416,11 +4407,8 @@ Feature: Sanity scenarios New
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Add File" opens in overLay window
     Then I softly see the text containing "Classification"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Select file classification"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Interim Award Document"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Notice of Award"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Terms and Conditions"
-    Then I softly see field dropdown "WorkspaceFilesUpload" contains values "Other"
+    Then I see only the following ordered options in dropdown field "Classification" :
+      | Select file classification | Interim Award Document | Notice of Award | Terms and Conditions | Other |
     Then I softly see the text containing "Upload File"
     Then I softly see the text containing "Description"
     Then I see "Upload" button is disabled at modal under library
