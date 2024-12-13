@@ -14,6 +14,7 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -801,10 +802,23 @@ public final class GovGrantsSteps {
     @Description("This will download the file using javascript")
     @When("^I download the file$")
     public void saveTheFileToTarget() throws Throwable {
+        // Trigger file download via JavaScript
         I.amPerforming().fileHandling().toDownloadAnyFileUsingURL("govgrants.pdf");
-        File file = new File(System.getProperty("user.dir") + File.separatorChar + "target");
-        I.amPerforming().waitFor().makeThreadSleep(5000);
-        I.amPerforming().fileHandling().toRenameFileWithSpecificExtension(file, "govgrant", "pdf", "pdf");
+
+        // Wait for the download to complete
+        File file = new File(System.getProperty("user.dir") + File.separatorChar + "target" + File.separatorChar + "govgrants.pdf");
+        int attempts = 0;
+        while (!file.exists() && attempts < 10) {
+            Thread.sleep(1000);  // Wait for 1 second
+            attempts++;
+        }
+        // Ensure the file exists and then rename it
+        if (file.exists()) {
+            I.amPerforming().fileHandling().toRenameFileWithSpecificExtension(file, "govgrant", "pdf", "pdf");
+        } else {
+            throw new IOException("File download failed.");
+        }
+        // Optional: Wait to ensure renaming completes
         I.amPerforming().waitFor().makeThreadSleep(2000);
     }
 
