@@ -93,7 +93,7 @@ public class UsersAndURL implements UsersController {
         String password;
         switch (userLevel.toUpperCase()) {
             case "ADMIN":
-                password = "Salesforce@2026";
+                password = "Salesforce@2038";
                 break;
             default:
                 password = "Salesforce@2037";

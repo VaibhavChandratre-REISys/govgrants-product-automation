@@ -1597,5 +1597,5 @@ Feature: Validate all scenarios of every modules flow
 
   @debug @EXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOpportunitywhichisconvertedtoPre-application
   Scenario: Opportunities converted to Pre-Application (Grants.gov) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Opportunity which is converted to Pre-application
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "As a Grantor" app as "ADMIN" user
     When I navigate to "Planning" tab
