@@ -1599,3 +1599,29 @@ Feature: Validate all scenarios of every modules flow
   Scenario: Opportunities converted to Pre-Application (Grants.gov) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Opportunity which is converted to Pre-application
     Given I login to "As a Grantor" app as "ADMIN" user
     When I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I re-login to "Grants Portal" app as "SPI4" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
