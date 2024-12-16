@@ -262,6 +262,36 @@ public class UsersAndURL implements UsersController {
             return username.get("ADMIN");
         }
     }
+
+    private String getNYLwcDevEnvironmentUser(String userLevel) {
+        Map<String, String> username = new HashMap<>();
+        username.put("ADMIN", "govgrantsautomation@yopmail.com.nysedgapan");
+        username.put("ADMIN1", "manu.admin@ggp.test8.nysedgapan");
+        username.put("EXE", "test@gmaildemo.com.nysedgapan");
+        username.put("PM", "donald_pm@ggp.test7.atm.nysedgapan");
+        username.put("FO", "auto.fm@auto.com.nysedgapan");
+        username.put("PO", "automationpo@yopmail.com.nysedgapan");
+        username.put("FD", "automationfd@yopmail.com.nysedgapan");
+        username.put("PM1", "pm1.automation@yopmail.com.nysedgapan");
+        username.put("EXE1", "exe1.automation@yopmail.com.nysedgapan");
+        username.put("PO1", "automationpo1@yopmail.com.nysedgapan");
+        username.put("FO1", "fo1.automation@yopmail.com.nysedgapan");
+        username.put("FD1", "automationfd1@yopmail.com.nysedgapan");
+        username.put("SPI3", "aspi3@grants.gov.nysedgapan");
+        username.put("SPA", "spaautomation12@yopmail.com.nysedgapan");
+        username.put("SA", "asa@grants.gov.nysedgapan");
+        username.put("IND", "ind12.automation@yopmail.com.nysedgapan");
+        username.put("AUDITOR", "automationauditor@yopmail.com.nysedgapan");
+        username.put("SME", "sme11@yopmail.com");
+        username.put("SPI4", "spi4@yopmail.com.nysedgapan");
+        username.put("SARAH PM", "sarah.pm@ggp.test8.nysedgapan");
+
+        if (userLevel.toUpperCase() != null) {
+            return username.get(userLevel.toUpperCase());
+        } else {
+            return username.get("ADMIN");
+        }
+    }
     private String getQAEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
         username.put("ADMIN", "govgrantsautomation@yopmail.com.qaorg");
