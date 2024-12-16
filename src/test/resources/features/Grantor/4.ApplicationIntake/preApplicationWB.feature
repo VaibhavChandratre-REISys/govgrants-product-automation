@@ -197,7 +197,6 @@ Feature: Pre-Application scenarios without background
     When I click toggle button to select "Pre-Applications - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for PreApp and App}" in "---preApplication:-:recipientPreApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for PreApp and App}" inside flex table with id "---preApplication:-:recipientPreApplicationsTableId---"
-
    And I wait for "2" seconds
    Then I softly can see top right button "Submit to Grantor" in page detail
 
