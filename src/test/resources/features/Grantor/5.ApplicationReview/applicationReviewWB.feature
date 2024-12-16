@@ -11788,41 +11788,41 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     Then I softly can see row level action button "Request Negotiation" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationReview:-:appTableId---"
-#    When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
-#    When I save the field labeled "EGMS ID" as "EGMSID"
-#    And I navigate to "Negotiations" sub tab
-#    When I clear the value from field "ApplicationSectionsForRevision__c"
-#    When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
-#      | Form Name                | Needs Negotiation |
-#      | Standard Assurances Form | Checked           |
-#    And I pause execution for "5" seconds
-#    And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
-#      | Form Name                | Needs Negotiation |
-#      | Program Application Form | Checked           |
-#    When I click on "Send to Subrecipient" in the page details
-#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-#    And I navigate to "Home" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
-#    And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-#    And I click on "Edit" in the page details
-#    And I navigate to "Negotiations" sub tab
-#    And I enter values into fields
-#      | Value                              | Field                |
-#      | Automation Negotiation Iniatiation | ApplicantResponse__c |
-#    When I click on "Save" in the page details
-#    When I click on "Submit to Grantor" in the page details
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Home" tab
-#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "{SavedValue:EGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
-#    And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
-#    When I click on "Complete Negotiation" in the page details
-#    When I click on "Back to Current Review Step" in the page details
-#    Then I see the sub-header is "Pre-Screen Review" in the page details
-#    Then I softly see field "Status" as "In Progress"
+    When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
+    When I save the field labeled "EGMS ID" as "EGMSID"
+    And I navigate to "Negotiations" sub tab
+    When I clear the value from field "ApplicationSectionsForRevision__c"
+    When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
+      | Form Name                | Needs Negotiation |
+      | Standard Assurances Form | Checked           |
+    And I pause execution for "5" seconds
+    And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
+      | Form Name                | Needs Negotiation |
+      | Program Application Form | Checked           |
+    When I click on "Send to Subrecipient" in the page details
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
+    And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I click on "Edit" in the page details
+    And I navigate to "Negotiations" sub tab
+    And I enter values into fields
+      | Value                              | Field                |
+      | Automation Negotiation Iniatiation | ApplicantResponse__c |
+    When I click on "Save" in the page details
+    When I click on "Submit to Grantor" in the page details
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:EGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
+    When I click on "Complete Negotiation" in the page details
+    When I click on "Back to Current Review Step" in the page details
+    Then I see the sub-header is "Pre-Screen Review" in the page details
+    Then I softly see field "Status" as "In Progress"
 
     Examples:
       | Announcement Name                                               | Application Name                                                |
