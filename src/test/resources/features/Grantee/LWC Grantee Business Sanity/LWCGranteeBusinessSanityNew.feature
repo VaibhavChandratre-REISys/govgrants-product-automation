@@ -6935,7 +6935,7 @@ Feature: Sanity scenarios New
     And I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
     And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
     And I save the total records from the flex table id "---grantee_tableId:-:AwardBudgetTableId---" as "totalRecordsAwards"
-    And I save the value from row "3" for column name "Award Budget" as "AwardBudgetAwardPageLevel" from flex table "---grantee_tableId:-:AwardBudgetTableId---"
+    And I save the value from row "3" for column name "Award  Budget" as "AwardBudgetAwardPageLevel" from flex table "---grantee_tableId:-:AwardBudgetTableId---"
     And I save the value from row "3" for column name "Cash Match" as "CashMatchAwardPageLevel" from flex table "---grantee_tableId:-:AwardBudgetTableId---"
     And I save the value from row "3" for column name "Non-Cash Match" as "NonCashMatchBudgetAwardPageLevel" from flex table "---grantee_tableId:-:AwardBudgetTableId---"
     And I save the value from row "3" for column name "Total Match" as "TotalMatchAwardPageLevel" from flex table "---grantee_tableId:-:AwardBudgetTableId---"
