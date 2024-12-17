@@ -5372,7 +5372,7 @@ Feature: Sanity scenarios New
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Scheduled Activities - All"
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:ScheduledListPage---" panel
     And I save the total records from the flex table id "---grantee_tableId:-:ScheduledListPage---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:ScheduledListPage---"
@@ -5451,7 +5451,7 @@ Feature: Sanity scenarios New
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Scheduled Activities - All"
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:ScheduledListPage---" panel
     And I save the total records from the flex table id "---grantee_tableId:-:ScheduledListPage---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:ScheduledListPage---"
@@ -5510,7 +5510,7 @@ Feature: Sanity scenarios New
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Scheduled Activities - All"
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:ScheduledListPage---" panel
     And I save the total records from the flex table id "---grantee_tableId:-:ScheduledListPage---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:ScheduledListPage---"
@@ -5640,7 +5640,6 @@ Feature: Sanity scenarios New
     And I save the value from row "2" for column name "Reporting Period End Date" as "ReportingPeriodEndDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "1" for column name "Reporting Period Start Date" as "ReportingPeriodStartDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "1" for column name "Reporting Period End Date" as "ReportingPeriodEndDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Scheduled Activities - All"
@@ -5669,7 +5668,6 @@ Feature: Sanity scenarios New
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
       | {SavedValue:EGMS ID1} | 17                          | 47                        |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Scheduled Activities - All"
@@ -5795,7 +5793,6 @@ Feature: Sanity scenarios New
     And I save the value from row "2" for column name "Reporting Period End Date" as "ReportingPeriodEndDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "1" for column name "Reporting Period Start Date" as "ReportingPeriodStartDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "1" for column name "Reporting Period End Date" as "ReportingPeriodEndDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Scheduled Activities - All"
@@ -5825,7 +5822,6 @@ Feature: Sanity scenarios New
       | {SavedValue:EGMS ID1} | 17                          | 47                        |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Scheduled Activities - All"
@@ -5921,7 +5917,6 @@ Feature: Sanity scenarios New
       | {SavedValue:EGMS ID1} | 17                          | 47                        |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Scheduled Activities - All"
@@ -6025,7 +6020,6 @@ Feature: Sanity scenarios New
     And I save the value from row "10" for column name "EGMS ID" as "EGMS ID10" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "11" for column name "EGMS ID" as "EGMS ID11" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "12" for column name "EGMS ID" as "EGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Scheduled Activities - All"
@@ -6107,7 +6101,6 @@ Feature: Sanity scenarios New
       | {SavedValue:EGMS ID1} | 17                          | 47                        |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Scheduled Activities - All"
@@ -6156,7 +6149,7 @@ Feature: Sanity scenarios New
 
     Examples:
       | userType      | userName   | UEI          |
-      | GRANTEE ADMIN | Product QA | 123456789012 |
+      | GRANTEE PM    | Sarah PM   | 123456789123 |
 
   @485368 @485369 @ValidateFOusercanseeProgressreportschedulesfromawardinMonitoringschedules @GranteeTBE
   Scenario Outline: Validate FO user can see Progress report schedules from award in Monitoring schedules
@@ -6500,7 +6493,7 @@ Feature: Sanity scenarios New
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" without waiting for record
+    When I click on "Enter Review" icon for "Victor EXE" inside flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" without waiting for record
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
