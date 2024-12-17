@@ -1892,7 +1892,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I wait for "5" seconds
-    When I navigate to " Assessment" sub tab
+    When I navigate to "Assessment" sub tab
     And I enter value "Checked" into field "Acknowledgement__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
