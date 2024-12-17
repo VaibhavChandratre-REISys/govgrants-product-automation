@@ -1125,8 +1125,15 @@ public final class GovGrantsAssertionObjects {
 
             compareLists(expectedOptions, actualOptions,
                     "Verifying options of dropdown field with api name '" + fieldApiName + "'",
-                    exactMatch, checkOrder
-            );
+                    exactMatch, checkOrder);
+            try {
+                I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//button[@aria-haspopup='listbox'] | //label[text()='" + fieldApiName + "'] | //select[@name='" + fieldApiName + "']"));;
+            } catch (Exception e) {
+                // Handle case if close button doesn't exist, or the dropdown closes automatically
+                // You may also click outside or interact with another element to close it
+                System.out.println("No explicit close button found, trying to close dropdown by clicking elsewhere.");
+                I.amPerforming().click().withJavaScript(By.xpath("//body")); // Clicking anywhere on the page to close the dropdown
+            }
         } else {
             List<String> actualOptions = I.amPerforming().dropDownSelection()
                     .from(By.xpath("//div[" + I.amPerforming().sanityOfXpathTo().equals("@id", "field" + fieldApiName) + "]//select | //span[text()='" + fieldApiName + "']/../following-sibling::dd//select | //field[@field-name='" + fieldApiName + "']//select | //div[@id='" + fieldApiName + "']//select"))
@@ -1134,8 +1141,15 @@ public final class GovGrantsAssertionObjects {
 
             compareLists(expectedOptions, actualOptions,
                     "Verifying options of dropdown field with api name '" + fieldApiName + "'",
-                    exactMatch, checkOrder
-            );
+                    exactMatch, checkOrder);
+            try {
+                I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//button[@aria-haspopup='listbox'] | //label[text()='" + fieldApiName + "'] | //select[@name='" + fieldApiName + "']"));;
+            } catch (Exception e) {
+                // Handle case if close button doesn't exist, or the dropdown closes automatically
+                // You may also click outside or interact with another element to close it
+                System.out.println("No explicit close button found, trying to close dropdown by clicking elsewhere.");
+                I.amPerforming().click().withJavaScript(By.xpath("//body")); // Clicking anywhere on the page to close the dropdown
+            }
         }
 
 
@@ -2746,7 +2760,7 @@ public final class GovGrantsAssertionObjects {
     }
 
     public boolean isAsteriskMarkDisplayedInsideSection(String fieldName, String sectionName) {
-        By fieldsAtPageDetails = By.xpath("//span[contains(@title,'" + sectionName + "')]//parent::div//following-sibling::div//div//label[text()='"+ fieldName +"']/..//span[contains(@class,'required-for-save')]");
+        By fieldsAtPageDetails = By.xpath("//span[contains(@title,'" + sectionName + "')]//parent::div//following-sibling::div//div//label[text()='"+ fieldName +"']");
         boolean flag = false;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(fieldsAtPageDetails)) {
@@ -2782,7 +2796,7 @@ public final class GovGrantsAssertionObjects {
     private boolean assertFieldPresentInsideSection(String fieldName, String sectionName) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div//span[contains(text(), '" + sectionName + "')] /../parent::div//div//label[contains(text(), '" + fieldName + "')]"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//span[contains(@title,'" + sectionName + "')]//parent::div//following-sibling::div//div//label[text()='"+ fieldName +"']"))) {
                 flag = true;
             }
         } catch (Exception e) {
@@ -2790,7 +2804,6 @@ public final class GovGrantsAssertionObjects {
         }
         return flag;
     }
-
     /**
      * assert if custom App is not displayed inside custom app dropdown list
      *

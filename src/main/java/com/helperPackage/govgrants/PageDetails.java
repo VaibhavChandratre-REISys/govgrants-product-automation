@@ -705,9 +705,9 @@ public final class PageDetails {
         String element = null;
 
         if (fieldLabel.contains("'"))
-            element = "//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
+            element = "//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "] | //c-page-block-section//span[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
         else
-            element = "//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
+            element = "//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "] |//c-page-block-section//span[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
 
         try {
             I.amPerforming().getElementReference().of(ByUsing.xpath(element));
@@ -1035,11 +1035,16 @@ public final class PageDetails {
         I.amPerforming().scroll().withMouseToElement(By.xpath("//span[contains(text(),'" + pageBlockDetailTitle + "')]/..//span[contains(@class,'fa-info')] | //a[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span//span[contains(@class,'fa-info')] | //span[text()='" + pageBlockDetailTitle + "']/ancestor::dt//span[@class='fa fa-info helpIcon'] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span/following-sibling::div/following-sibling::helpicon//span//span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//lightning-icon[contains(@style,'pointer')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] | //label[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] |//label[contains(text(),'" + pageBlockDetailTitle + "')]//..//div//button[contains(@aria-describedby,'tooltip')]"));
     }
 
-    public void getHelpTextAtPageBlockSection(String usage, String fieldName, String sectionName) {
-        I.amPerforming().scroll().withMouseToElement(By.xpath("//span[contains(@title,'" + sectionName + "')]//parent::div//following-sibling::div//div//label[contains(text(),'"+ fieldName +"')]//..//div//button[contains(@aria-describedby,'tooltip')]"));
+//    public void getHelpTextAtPageBlockSection(String usage, String fieldName, String sectionName) {
+//        I.amPerforming().scroll().withMouseToElement(By.xpath("//span[contains(text(),'" + sectionName + "')]//parent::div//following-sibling::div//div//label[contains(text(),'"+ fieldName +"')]//..//div//button[contains(@aria-describedby,'tooltip')]"));
+//    }
+
+    public void getHelpTextAtPageBlockSection(String fieldName, String sectionName) {
+        // Ensure the XPath correctly navigates from section to field and targets the help text icon.
+        String xpathExpression = String.format("//span[contains(@title,'%s')]//parent::div//following-sibling::div//div//label[contains(text(),'%s')]//..//div//button[contains(@aria-describedby,'tooltip')]", sectionName, fieldName);
+        I.amPerforming().scroll().withMouseToElement(By.xpath(xpathExpression));
+
     }
-
-
     /**
      * hover on help text inside modal
      *
