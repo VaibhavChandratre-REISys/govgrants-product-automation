@@ -6788,7 +6788,7 @@ Feature: Sanity scenarios New
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
     And I wait for "2" seconds
-    And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
+    And I enter "Grantee_GrantCreationNonCash" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Overview" sub tab
@@ -6853,8 +6853,8 @@ Feature: Sanity scenarios New
       | Saved Successfully! |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Budget | Cash Match | Other Leverage |
-      | Construction | The narrative | 5000         | 500        | 200            |
+      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match | Other Leverage |
+      | Construction | The narrative | 5000         | 500        | 500            | 200            |
     When I close "Add Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---" by clicking "Edit" :
