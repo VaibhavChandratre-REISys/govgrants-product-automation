@@ -1,4 +1,4 @@
-@GranteeSanityBusinessFlow @GranteeTBE
+@GranteeSanityBusinessFlow
 Feature: Sanity scenarios
 
   @473233 @ValidateNotYetConvertedOpportunityManualEXEusercannotcreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord
