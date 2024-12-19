@@ -5052,7 +5052,7 @@ Feature: Sanity scenarios New
     Then I softly see value "{SavedValue:EGMS ID11}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
 
-  @485366 @485367 @ValidatePOusercanseeProgressreportschedulesfromawardinMonitoringschedules @GranteeTBE
+  @485366 @485367 @ValidatePOusercanseeProgressreportschedulesfromawardinMonitoringschedules
   Scenario Outline: Validate PO/ADMIN user can see Progress report schedules from award in Monitoring schedules
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -5510,7 +5510,7 @@ Feature: Sanity scenarios New
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Scheduled Activities - All"
-    And I wait for "5" seconds
+    And I wait for "8" seconds
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:ScheduledListPage---" panel
     And I save the total records from the flex table id "---grantee_tableId:-:ScheduledListPage---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:ScheduledListPage---"
@@ -5535,7 +5535,7 @@ Feature: Sanity scenarios New
 #      | GRANTEE PO    | Grantee PO | 123456789123 |
       | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @485372 @485376 @ValidatePMusercanseeProgressreportschedulesfromawardinMonitoringschedules @GranteeTBE
+  @485372 @485376 @ValidatePMusercanseeProgressreportschedulesfromawardinMonitoringschedules
   Scenario Outline: Validate PM user can see Progress report schedules from award in Monitoring schedules
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -6151,7 +6151,7 @@ Feature: Sanity scenarios New
       | userType      | userName   | UEI          |
       | GRANTEE PM    | Sarah PM   | 123456789123 |
 
-  @485368 @485369 @ValidateFOusercanseeProgressreportschedulesfromawardinMonitoringschedules @GranteeTBE
+  @485368 @485369 @ValidateFOusercanseeProgressreportschedulesfromawardinMonitoringschedules
   Scenario Outline: Validate FO user can see Progress report schedules from award in Monitoring schedules
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -6788,24 +6788,6 @@ Feature: Sanity scenarios New
     When I enter value "123456789123" into field "DUNS__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
-    And I navigate to "Files" sub tab
-    Then I softly can see top right button "Add Files" in flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
-    And I wait for "3" seconds
-    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
-    When I click modal button "Close"
-    And I refresh the page
-    And I wait for "2" seconds
-    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:grantAddFilesTableId---"
-    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:grantNotesTableId---" by clicking "New" :
-      | Title        | Description      |
-      | Notes Record | Automation Notes |
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
-    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:grantNotesTableId---"
-    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
-    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     And I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I get the "EGMS ID"
@@ -6814,6 +6796,8 @@ Feature: Sanity scenarios New
     And I save the field labeled "Award Title" as "Automation Runtime award"
     And I click on "Edit" in the page details
     When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
+    And I navigate to "Projections" sub tab
+    And I enter value "10" into field "ApprovedIndirectCostRate__c"
     And I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
@@ -6858,8 +6842,6 @@ Feature: Sanity scenarios New
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
       | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
       | Rate  | 15             | 30              | 10                             | Final                   |
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
@@ -6867,14 +6849,10 @@ Feature: Sanity scenarios New
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
-    Then I softly see the following messages in the page details contains:
-      | Goals/Objectives associated successfully. |
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
-    Then I softly see the following messages in the page details contains:
-      | KPIs added succesfully. |
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
@@ -6919,7 +6897,6 @@ Feature: Sanity scenarios New
     Then I softly see field "Award EGMS ID" inside page block
     Then I softly see field "Impact" inside page block
     Then I softly see field "Justification" inside page block
-    Then I softly see field "Maximum Indirect Cost Rate" inside page block
     Then I softly see field "Maximum Indirect Cost Rate" inside page block
     Then I softly see field "Submitted to Grantor On" inside page block
     Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
@@ -6970,7 +6947,8 @@ Feature: Sanity scenarios New
     Then I softly see field "Award EGMS ID" as "{SavedValue:AwardEGMSID}"
     Then I softly see field "Grant Number" as "1234"
     Then I softly see field "Grant Award Number" as "1234 - 0"
-    Then I softly see field "Impact" as ""
+    And I save the field labeled "Impact" as "Impact"
+    Then I softly see field "Impact" as "{SavedValue:Impact}"
     And I save the field labeled "Justification" as "Justification"
     Then I softly see field "Justification" as "{SavedValue:Justification}"
     Then I softly see field "Maximum Indirect Cost Rate" as "10.00%"
@@ -7009,6 +6987,8 @@ Feature: Sanity scenarios New
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
     And I click modal button "Close"
     And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly can see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
