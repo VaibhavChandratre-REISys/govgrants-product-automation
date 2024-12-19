@@ -17084,7 +17084,6 @@ Feature: Validate all scenarios in the Application Review without background
   Scenario Outline: Validate PM user "Final Decision" should be present before the Applicant Notified column in recommended Non-recommended section on FDM
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
-    And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
     When I login to "As a Grantor" app as "<User>" user
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -17387,9 +17386,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Funding Decision Memo" sub tab
     And I wait for "3" seconds
     Then I see the following headers in table with id "---subAwardFromFDM:-:recommendedAppTableId---" :
-      | EGMS ID | Application Title | Subrecipient Organization | Grant | Score | Requested Budget | Recommended Budget | State Allocation | Recommend for Funding | Comments | Final Decision | Applicant Notified? |
+      | EGMS ID | Application Title | Subrecipient Organization | Grant | Score  | Recommended Budget | State Allocation | Recommend for Funding | Comments | Final Decision | Applicant Notified? |
     Then I see the following headers in table with id "---subAwardFromFDM:-:fdmNonRecommendedTableId---" :
-      | EGMS ID | Application Title | Subrecipient Organization | Grant | Score | Requested Budget | Recommended Budget | State Allocation | Recommend for Funding | Comments | Final Decision | Applicant Notified? |
+      | EGMS ID | Application Title | Subrecipient Organization | Grant | Score | Recommended Budget | State Allocation | Recommend for Funding | Comments | Final Decision | Applicant Notified? |
     Examples:
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |

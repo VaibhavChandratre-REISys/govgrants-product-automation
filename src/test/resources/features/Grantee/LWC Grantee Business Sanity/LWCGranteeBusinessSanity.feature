@@ -16411,7 +16411,7 @@ Feature: Sanity scenarios
     When I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
     Then I see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
 
-  @464051 @464085 @VerifyFOuserasAROwnercanabletocreatBudgetPeriodChangeARonactiveAward&NotAcceptARbyGrantor&notabletoseeAmendAwardbuttoninNotAcceptedstateofBPCAR @bug-482502
+  @464051 @464085 @VerifyFOuserasAROwnercanabletocreatBudgetPeriodChangeARonactiveAward&NotAcceptARbyGrantor&notabletoseeAmendAwardbuttoninNotAcceptedstateofBPCAR
   Scenario Outline: Verify FO user as (AR Owner) can able to create Budget Period Change AR on active Award & Not Accept AR by Grantor & not able to see Amend Award button in Not Accepted state of BPC AR
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab

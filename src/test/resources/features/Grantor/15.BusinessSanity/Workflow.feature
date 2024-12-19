@@ -1595,33 +1595,56 @@ Feature: Validate all scenarios of every modules flow
     Then I see the text "Email Sent Successfully." in modal
 
 
-  @EXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOpportunitywhichisconvertedtoPre-application
+  @vai
   Scenario: Opportunities converted to Pre-Application (Grants.gov) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Opportunity which is converted to Pre-application
-    Given I login to "As a Grantor" app as "ADMIN" user
-    When I navigate to "Planning" tab
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    When I navigate to "Planning" tab
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    When I navigate to "Planning" tab
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-    When I navigate to "Planning" tab
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-    When I navigate to "Planning" tab
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
-    When I navigate to "Planning" tab
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
-    When I navigate to "Planning" tab
-    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
-    When I navigate to "Planning" tab
-    When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
-    When I navigate to "Planning" tab
-    When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
-    When I navigate to "Planning" tab
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Grants" tab
-    When I re-login to "Grants Portal" app as "SPI4" user on "SUBPORTAL" portal
-    And I navigate to "Grants" tab
-    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
-    And I navigate to "Grants" tab
-    When I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
-    And I navigate to "Grants" tab
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    Then I softly see that "GeneralConditionChanged__c" rendered in view mode only
+    Then I softly do not see fields "AreTCspartofNGAAttachments__c" is visible
+    Then I softly do not see fields "FederalTCLink__c" is visible
+    And I click on "Edit" in the page details
+    Then I softly see fields "GeneralConditionChanged__c" is in edit mode
+    And I enter value "Checked" into field "GeneralConditionChanged__c"
+    And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
+    And I click on "Save" in the page details
+    #@485587
+    Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see "Description" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see "Date Effective From" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see "Date Effective To" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see "From Previous Award" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see field "OnPreviousAward__c" as "checked"
+    Then I softly can see row level action button "View" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly can see row level action button "Edit" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly can see row level action button "Delete" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    #@485589
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see "Effective from" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see "Effective until" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see "Approved Indirect Cost Rate(%)" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see "Indirect Cost Rate Type" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    And I save the value from row "1" for column name "Approved Indirect Cost Rate(%)" as "ApprovedIndirectCostRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    And I save the value from row "1" for column name "Indirect Cost Rate Type" as "IndirectCostRateType" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Edit" against "Rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Delete" against "Rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    # @485591
+    And I navigate to "Files" sub tab
+    Then I softly see "Amendment Files" page block displayed
+    Then I softly see "Notes" page block displayed
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly see "Classification" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly see "File Extension" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly see "Description" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly see value "Interim Award Document" for title "Classification" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Terms and Conditions" has been added in "Amendment Files" flex table
