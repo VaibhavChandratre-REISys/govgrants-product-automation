@@ -8573,7 +8573,7 @@ Feature: Sanity scenarios
       | GRANTEE ADMIN1| Product Admin |
       | GRANTEE PM    | Sarah PM      |
 
-  @449166 @485466 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant
+  @449166 @485466 @449143 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant
   Scenario Outline: Verify PM user as (AR Owner same as Award Owner) can able to create Funding Change AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Grants" tab
@@ -9290,6 +9290,7 @@ Feature: Sanity scenarios
       | User         | Approval      |
       | GRANTEE PO   | Grantee PO    |
       | GRANTEE PM   | Sarah PM      |
+      | GRANTEE EXE  | Victor EXE    |
 
   @460983 @ValidateFederalOrgAuditorprofileusershouldseeallfieldsandsectionreadonlyonfederalOrglayoutViewonlyaccess
   Scenario: Validate Federal Org Auditor profile user should see all fields and section readonly on federal Org layout Viewonly access

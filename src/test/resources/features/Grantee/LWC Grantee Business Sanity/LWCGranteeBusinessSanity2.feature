@@ -5252,9 +5252,9 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     Then I softly cannot see row level action button "Delete" against "Victor EXE" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly cannot see row level action button "view" against "David FO" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
-    Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
-    Then I softly cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I softly cannot see row level action button "view" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I navigate to "Files" sub tab
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
