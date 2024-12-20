@@ -8090,6 +8090,7 @@ Feature: Sanity scenarios
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     And I save the field labeled "Budget Period" as "BudgetPeriod"
     And I navigate to "Projections" sub tab
+    And I wait for "5" seconds
     And I save the field labeled "Budget Redirection Threshhold (%)" as "ReqiredChange"
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
@@ -8678,6 +8679,7 @@ Feature: Sanity scenarios
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     And I save the field labeled "Budget Period" as "BudgetPeriod"
     And I navigate to "Projections" sub tab
+    And I wait for "5" seconds
     And I save the field labeled "Budget Redirection Threshhold (%)" as "ReqiredChange"
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
