@@ -7361,7 +7361,7 @@ Feature: Sanity scenarios New
       | Record deleted successfully. |
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationKeyContactFormTableId---"
 
-  @485514 @ValidateFOuserseeHeaderwiththeToplevelbuttoninvieweditlayout @GranteeTBE
+  @485514 @ValidateFOuserseeHeaderwiththeToplevelbuttoninvieweditlayout
   Scenario: Validate FO user see Header with the Top level button in view & edit layout
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -7496,7 +7496,7 @@ Feature: Sanity scenarios New
     Then I softly see field "Initiated By" as "Grantor"
     Then I softly see field "Amendment Type" as "Funding Change"
 
-  @485304 @ValidatePOuserAROwnercanabletoRejecttheFundingChangeAmendmentRequestfromApprovalProcess @GranteeTBE
+  @485304 @ValidatePOuserAROwnercanabletoRejecttheFundingChangeAmendmentRequestfromApprovalProcess
   Scenario: Validate PO user AR Owner can able to Reject the Funding Change Amendment Request from Approval Process
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
