@@ -8091,7 +8091,7 @@ Feature: Sanity scenarios
     And I save the field labeled "Budget Period" as "BudgetPeriod"
     And I navigate to "Projections" sub tab
     And I wait for "5" seconds
-    And I save the field labeled "Budget Redirection Threshhold (%)" as "ReqiredChange"
+    And I save the field labeled "Budget Redirection Threshold (%)" as "ReqiredChange"
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
@@ -8569,9 +8569,9 @@ Feature: Sanity scenarios
     Then I softly see value "Not Accepted" for title "New Value" inside field history table
     Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
     Examples:
-      | User         | Approval      |
-      | GRANTEE ADMIN| Product Admin |
-      | GRANTEE PM   | Sarah PM      |
+      | User          | Approval      |
+      | GRANTEE ADMIN1| Product Admin |
+      | GRANTEE PM    | Sarah PM      |
 
   @449166 @485466 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant
   Scenario Outline: Verify PM user as (AR Owner same as Award Owner) can able to create Funding Change AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant
@@ -8680,7 +8680,7 @@ Feature: Sanity scenarios
     And I save the field labeled "Budget Period" as "BudgetPeriod"
     And I navigate to "Projections" sub tab
     And I wait for "5" seconds
-    And I save the field labeled "Budget Redirection Threshhold (%)" as "ReqiredChange"
+    And I save the field labeled "Budget Redirection Threshold (%)" as "ReqiredChange"
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
