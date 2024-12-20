@@ -5269,7 +5269,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "View" against "{SavedValue:BPCAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
 
   @485452 @485379 @VerifyFOuserAROwnercannotabletoseeActivatebuttonfornewlyawardfromFundingChangeamendment
-  Scenario: Verify FO user (AR Owner)cannot able to see Activate button for newly award from Funding Change amendment
+  Scenario Outline: Verify FO user (AR Owner)cannot able to see Activate button for newly award from Funding Change amendment
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
