@@ -1597,6 +1597,15 @@ Feature: Validate all scenarios of every modules flow
   @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI @debug
   Scenario: Validate PM user should able to Create & Activate the KPI
     When I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Award__c/a1oDl000004hN3GIAU/view"
-    And I halt execution
-    And I save the value from row "3" for column name "Award Budget" as "AwardBudgetAwardPageLevel" from flex table "---grantee_tableId:-:AwardBudgetTableId---"
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/SF424FamilyForm__c/a3XDl0000003fRmMAI/view?c__formInstanceId=YTBhRFgwMDAwMDYwWjJoWUFF&c__parentId=YTFoRFgwMDAwMDEzWmQzWUFF&c__formConfigId=YTEwRFYwMDAwMDJWYVJ2WUFL"
+    Then I softly see "b. Individual Performing Services (including address if different from No. 10a)" page block displayed
+
+#    Then I softly see the text containing "Agency Owner: Grants.gov"
+#    Then I softly see the text containing :
+##      | Agency Owner: Grants.gov        |
+#      | OMB Number: 4040-0010           |
+#      | Version:2.0                     |
+#      | OMB Expiration Date: 12/31/2026 |
+#    Then I see the page contains text "OMB Number: 4040-0010"
+#    Then I see the page contains text "Version:2.0"
+#    Then I see the page contains text "OMB Expiration Date: 12/31/2026"

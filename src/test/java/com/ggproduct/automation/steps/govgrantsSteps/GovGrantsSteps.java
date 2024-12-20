@@ -579,10 +579,14 @@ public final class GovGrantsSteps {
     }
 
     @Description("click top right button after reaching to page detail inside Split screen")
-    @When("^I click on \"([^\"]*)\" in the split screen page details$")
-    public void clickPageButtonInsideSplitScreen(String buttonName) {
-        govgrants.perform().pageDetails().clickAnyTopRightButtonInsideSplitScreen(buttonName);
-        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+    @When("^I click on \"([^\"]*)\" in the split screen (page details|page details without processing)$")
+    public void clickPageButtonInsideSplitScreen(String buttonName, String buttonLocation) {
+        if (buttonLocation.equalsIgnoreCase("page details")) {
+            govgrants.perform().pageDetails().clickAnyTopRightButtonInsideSplitScreen(buttonName);
+            govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+        } else {
+            govgrants.perform().pageDetails().clickAnyTopRightButtonInsideSplitScreenWithouProcessing(buttonName);
+        }
     }
 
     @Description("click top right button after reaching to page detail without processing")
