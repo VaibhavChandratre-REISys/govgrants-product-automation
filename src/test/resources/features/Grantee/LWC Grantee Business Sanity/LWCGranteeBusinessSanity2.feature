@@ -5013,7 +5013,7 @@ Feature: Sanity scenarios
     When I perform quick search for "{grantee_testData:grantgovtAwardCreateState}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{grantee_testData:grantgovtAwardCreateState}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Awards" sub tab
-    And I click on "View" icon for "{grantee_testData:grantgovtAwardCreateState}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Submit for Approval" in page detail
