@@ -1,4 +1,4 @@
-@GranteeSanityBusinessFlow @GranteeTBE
+@GranteeSanityBusinessFlow
 Feature: Sanity scenarios
 
   @477625 @477603 @477627 @ValidatePMusershouldabletoCreateActivatetheKPI

@@ -5369,7 +5369,7 @@ Feature: Validate all scenarios for program
     And I click on parallel menu button in flex table title "Review Categories"
     And I select "Download as PDF" from parallel lines dropdown of "Review Categories"
     And I download the file
-    Then I see "Review Panel Categories" on page "1" of "govgrants" pdf file
+    Then I see "Review Categories" on page "1" of "govgrants" pdf file
     Examples:
       | Objective                      |
       | Automation Permanent Objective |
