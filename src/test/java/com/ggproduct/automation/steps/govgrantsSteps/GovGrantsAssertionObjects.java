@@ -233,7 +233,7 @@ public final class GovGrantsAssertionObjects {
         By desiredTextSelector = By.xpath("//*[normalize-space(text())='" + desiredText + "']");
         if (isContaining) {
             try {
-                desiredTextSelector = By.xpath("//div[@class='tab-inner-content']//span[contains(normalize-space(text()),'" + desiredText + "')] | //div[@class='slds-box slds-theme_default'] | //span[contains(normalize-space(text()),'" + desiredText + "')] | //*[contains(normalize-space(text()),'" + desiredText + "')] | //*//text()[contains(.,'" + desiredText + "')] | //*[contains(text(),'" + desiredText + "')] | //span[text()='" + desiredText + "']");
+                desiredTextSelector = By.xpath("//div[@class='tab-inner-content']//span[contains(normalize-space(text()),'" + desiredText + "')] | //div[@class='slds-box slds-theme_default'] | //span[contains(normalize-space(text()),'" + desiredText + "')] | //*[contains(normalize-space(text()),'" + desiredText + "')] | //*//text()[contains(.,'" + desiredText + "')] | //*[contains(text(),'" + desiredText + "')] | //span[text()='" + desiredText + "'] | //strong[text()='" + desiredText + "']");
                 I.amPerforming().getElementReference().of(desiredTextSelector);
             } catch (InvalidSelectorException e) {
                 /* Above provided xpath (I.e. //text()[contains(.,'" + desiredText + "')] ) is giving InvalidSelectorException, so handling it over here */
@@ -2760,7 +2760,7 @@ public final class GovGrantsAssertionObjects {
     }
 
     public boolean isAsteriskMarkDisplayedInsideSection(String fieldName, String sectionName) {
-        By fieldsAtPageDetails = By.xpath("//span[contains(@title,'" + sectionName + "')]//parent::div//following-sibling::div//div//label[text()='"+ fieldName +"']");
+        By fieldsAtPageDetails = By.xpath("//span[contains(@title,'" + sectionName + "')]//parent::div//following-sibling::div//div//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldName) + "]/..//span[contains(@class,'required-for-save')]");
         boolean flag = false;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(fieldsAtPageDetails)) {
@@ -2771,7 +2771,6 @@ public final class GovGrantsAssertionObjects {
         }
         return flag;
     }
-
     /**
      * assert true if field is present in section
      *

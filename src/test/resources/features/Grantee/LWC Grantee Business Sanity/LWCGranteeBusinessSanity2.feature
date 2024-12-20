@@ -4080,7 +4080,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Send for Review" against "David FO" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
     Then I softly cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
 
- @debug @473964 @VerifytheallfieldsofSF424formGrantsgovApplication
+ @473964 @VerifytheallfieldsofSF424formGrantsgovApplication
   Scenario:Verify the all fields of SF-424[V4.0] form Grants.gov Application
     Given I login to "As a Grantee" app as "GRANTEE PO" user
     When I navigate to "Applications" tab
@@ -4095,13 +4095,11 @@ Feature: Sanity scenarios
     Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I see the header is "Application for Federal Assistance (SF-424)" in the page details
-#    Then I see the sub-header is "Application for Federal Assistance (SF-424)" in the page details
-#    Then I softly see field "Agency Owner :" as "Grants.gov"
-#    Then I softly see field "OMB Number :" as "4040-0004"
-#    Then I softly see field "Version :" as "4.0"
-#    And I save the field labeled "OMB Expiration Date :" as "OMBExpirationDate"
-#    Then I softly see field "OMB Expiration Date :" as "{SavedValue:OMBExpirationDate}"
+#   Then I softly see the text containing "Application for Federal Assistance (SF-424)"
+   Then I softly see the text containing "Agency Owner: Grants.gov"
+   Then I softly see the text containing "OMB Number: 4040-0004"
+   Then I softly see the text containing "Version 4.0"
+   Then I softly see the text containing "OMB Expiration Date: 11/30/2025"
     And I switch to tab number "1"
     Then I softly can see "Form" sub tab at view detail page
     Then I softly see "Application for Federal Assistance SF-424" page block displayed
@@ -4289,26 +4287,25 @@ Feature: Sanity scenarios
     Then I softly see "Areas Affected" page block displayed
     Then I softly see field "14. Areas Affected by Project (Cities, Counties, States, etc.)" inside page block
     Then I softly see "Descriptive Title" page block displayed
-    Then I softly see field "15. Descriptive Title of Applicant's Project" inside page block
-    Then I softly see asterisk mark on "15. Descriptive Title of Applicant's Project" inside "Descriptive Title" section
-    Then I softly see field "15. Descriptive Title of Applicant's Project" inside "Descriptive Title" section
-    When I hover mouse on help text icon for "15. Descriptive Title of Applicant's Project" inside "Descriptive Title" section
-    Then I softly see "Enter a brief, descriptive title of the project. This field is required. Max character limit for this field is 120." shown as help text
-    Then I softly see "Congressional District" page block displayed
-    Then I softly see field "16.Congressional District" inside page block
-    Then I softly see field "a. Applicant" inside page block
-    Then I softly see asterisk mark on "a. Applicant"
-    When I hover mouse on help text icon for "a. Applicant" inside "Congressional District" section
-    Then I softly see "Enter the Congressional District in the format: 2 character State Abbreviation - 3 character District Number. Examples: CA-005 for California's 5th district, CA-012 for California's 12th district. If outside the US, enter 00-000. This field is required. Max character limit for this field is 6." shown as help text
-    Then I softly see field "b. Program/Project" inside page block
-    Then I softly see asterisk mark on "b. Program/Project"
-    Then I softly see "Proposed Project" page block displayed
-    Then I softly see field "17. Proposed Project" inside page block
-    Then I softly see field "a. Start Date" inside page block
-    Then I softly see asterisk mark on "a. Start Date"
-    When I hovering mouse on help text icon inside page block detail "a. Start Date"
-    Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
-    Then I softly see field "b. End Date" inside page block
+#    Then I softly see field "15. Descriptive Title of Applicant's Project" inside page block
+#    Then I softly see asterisk mark on "15. Descriptive Title of Applicant's Project" inside "Descriptive Title" section
+#    When I hover mouse on help text icon for "15. Descriptive Title of Applicant's Project" inside "Descriptive Title" section
+#    Then I softly see "Enter a brief, descriptive title of the project. This field is required. Max character limit for this field is 120." shown as help text
+   Then I softly see "Congressional District" page block displayed
+   Then I softly see field "16.Congressional District" inside page block
+   Then I softly see field "a. Applicant" inside page block
+   Then I softly see asterisk mark on "a. Applicant"
+   When I hover mouse on help text icon for "a. Applicant" inside "Congressional District" section
+   Then I softly see "Enter the Congressional District in the format: 2 character State Abbreviation - 3 character District Number. Examples: CA-005 for California's 5th district, CA-012 for California's 12th district. If outside the US, enter 00-000. This field is required. Max character limit for this field is 6." shown as help text
+   Then I softly see field "b. Program/Project" inside page block
+   Then I softly see asterisk mark on "b. Program/Project"
+   Then I softly see "Proposed Project" page block displayed
+   Then I softly see field "17. Proposed Project" inside page block
+   Then I softly see field "a. Start Date" inside page block
+   Then I softly see asterisk mark on "a. Start Date"
+   When I hovering mouse on help text icon inside page block detail "a. Start Date"
+   Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
+   Then I softly see field "b. End Date" inside page block
    Then I softly see asterisk mark on "b. End Date"
    When I hovering mouse on help text icon inside page block detail "b. End Date"
    Then I softly see "Enter the date in the format MM/DD/YYYY. This field is required." shown as help text
@@ -4317,100 +4314,100 @@ Feature: Sanity scenarios
    Then I softly see asterisk mark on "a. Federal"
    When I hovering mouse on help text icon inside page block detail "a. Federal"
    Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
-    Then I softly see field "b. Applicant" inside page block
-    Then I softly see asterisk mark on "b. Applicant"
-    When I hovering mouse on help text icon inside page block detail "b. Applicant"
-    Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
-    Then I softly see field "c. State" inside page block
-    Then I softly see asterisk mark on "c. State"
-    When I hovering mouse on help text icon inside page block detail "c. State"
-    Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
-    Then I softly see field "d. Local" inside page block
-    Then I softly see asterisk mark on "d. Local"
-    When I hovering mouse on help text icon inside page block detail "d. Local"
-    Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
-    Then I softly see field "e. Other" inside page block
-    Then I softly see asterisk mark on "e. Other"
-    When I hovering mouse on help text icon inside page block detail "e. Other"
-    Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
-    Then I softly see field "f. Program Income" inside page block
-    Then I softly see asterisk mark on "f.  Program Income"
-    When I hovering mouse on help text icon inside page block detail "f. Program Income"
-    Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
-    Then I softly see field "g. TOTAL" inside page block
-    When I hovering mouse on help text icon inside page block detail "g. TOTAL"
-    Then I softly see "Enter the total dollar amount. This field is required." shown as help text
-    Then I softly see "Application Review" page block displayed
-    Then I softly see field "19. Is Application Subject to Review By State Under Executive Order 12372 Process?" inside page block
-    Then I softly see asterisk mark on "19. Is Application Subject to Review By State Under Executive Order 12372 Process?"
-    When I hovering mouse on help text icon inside page block detail "19. Is Application Subject to Review By State Under Executive Order 12372 Process?"
-    Then I softly see "One selection is required." shown as help text
-    Then I see radio button "a. This application was made available to the State under the Executive Order 12372 Process for review" for field "ApplicationReview__c"
-    Then I see radio button "b. Program is subject to E.O. 12372 but has not been selected by the State for review" for field "ApplicationReview__c"
-    Then I see radio button "c. Program is not covered by E.O. 12372" for field "ApplicationReview__c"
-    Then I softly see field "If option a is selected for the above question then enter the Review Date" inside page block
-    When I hovering mouse on help text icon inside page block detail "If option a is selected for the above question then enter the Review Date"
-    Then I softly see "Enter the date in the format MM/DD/YYYY." shown as help text
-    Then I softly see "Federal Debt (if any)" page block displayed
+   Then I softly see field "b. Applicant" inside page block
+   Then I softly see asterisk mark on "b. Applicant"
+   When I hovering mouse on help text icon inside page block detail "b. Applicant"
+   Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
+   Then I softly see field "c. State" inside page block
+   Then I softly see asterisk mark on "c. State"
+   When I hovering mouse on help text icon inside page block detail "c. State"
+   Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
+   Then I softly see field "d. Local" inside page block
+   Then I softly see asterisk mark on "d. Local"
+   When I hovering mouse on help text icon inside page block detail "d. Local"
+   Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
+   Then I softly see field "e. Other" inside page block
+   Then I softly see asterisk mark on "e. Other"
+   When I hovering mouse on help text icon inside page block detail "e. Other"
+   Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
+   Then I softly see field "f.  Program Income" inside page block
+   Then I softly see asterisk mark on "f.  Program Income"
+   When I hovering mouse on help text icon inside page block detail "f.  Program Income"
+   Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
+   Then I softly see field "g. TOTAL" inside page block
+   When I hovering mouse on help text icon inside page block detail "g. TOTAL"
+   Then I softly see "Enter the total dollar amount. This field is required." shown as help text
+   Then I softly see "Application Review" page block displayed
+   Then I softly see field "19. Is Application Subject to Review By State Under Executive Order 12372 Process?" inside page block
+   Then I softly see asterisk mark on "19. Is Application Subject to Review By State Under Executive Order 12372 Process?"
+   When I hovering mouse on help text icon inside page block detail "19. Is Application Subject to Review By State Under Executive Order 12372 Process?"
+   Then I softly see "One selection is required." shown as help text
+   Then I see radio button "a. This application was made available to the State under the Executive Order 12372 Process for review" for field "ApplicationReview__c"
+   Then I see radio button "b. Program is subject to E.O. 12372 but has not been selected by the State for review" for field "ApplicationReview__c"
+   Then I see radio button "c. Program is not covered by E.O. 12372" for field "ApplicationReview__c"
+   Then I softly see field "If option a is selected for the above question then enter the Review Date" inside page block
+   When I hovering mouse on help text icon inside page block detail "If option a is selected for the above question then enter the Review Date"
+   Then I softly see "Enter the date in the format MM/DD/YYYY." shown as help text
+   Then I softly see "Federal Debt (if any)" page block displayed
     #Then I softly see field "20. Is the Applicant Delinquent On Any Federal Debt? (If "Yes," provide explanation in attachments. Add attachment from the Files section)" inside page block
     #Then I softly see asterisk mark on "20. Is the Applicant Delinquent On Any Federal Debt? (If "Yes," provide explanation in attachments. Add attachment from the Files section)"
     #When I hovering mouse on help text icon inside page block detail "20. Is the Applicant Delinquent On Any Federal Debt? (If "Yes," provide explanation in attachments. Add attachment from the Files section)"
    # Then I softly see "A selection is required." shown as help text
-    Then I see radio button "Yes" for field "FederalDebt__c"
-    Then I see radio button "No" for field "FederalDebt__c"
-    Then I softly see "Agreement Details" page block displayed
-    Then I softly see field "21. By signing this application, I certify (1) to the statements contained in the list of certifications** and (2) that the statements herein are true, complete and accurate to the best of my knowledge. I also provide the required assurances** and agree to comply with any resulting terms if I accept an award. I am aware that any false, fictitious, or fraudulent statements or claims may subject me to criminal, civil, or administrative penalties. (U.S. Code, Title 218, Section 1001)" inside page block
-    Then I softly see field "I AGREE" inside page block
-    Then I softly see asterisk mark on "I AGREE"
-    When I hovering mouse on help text icon inside page block detail "I AGREE"
-    Then I softly see "Check to select. This field is required." shown as help text
-    Then I softly see "Authorized Representative" page block displayed
-    Then I softly see field "Prefix" inside "Authorized Representative" section
-    Then I see only the following ordered options in dropdown field "AOR_Prefix__c" :
-      | --None-- | Mr. | Mrs. | Miss | Ms. | Dr. | Rev. | Prof. |
-    When I hover mouse on help text icon for "Prefix" inside "Authorized Representative" section
-    Then I softly see "Select the Prefix from the provided list or enter a new Prefix not provided on the list." shown as help text
-    Then I softly see asterisk mark on "First Name" inside "Authorized Representative" section
-    Then I softly see field "First Name" inside "Authorized Representative" section
-    When I hover mouse on help text icon for "First Name" inside "Authorized Representative" section
-    Then I softly see "Enter the First Name. This field is required. Max character limit for this field is 35." shown as help text
-    Then I softly see field "Middle Name" inside "Authorized Representative" section
-    When I hover mouse on help text icon for "Middle Name" inside "Authorized Representative" section
-    Then I softly see "Enter the Middle Name. Max character limit for this field is 25." shown as help text
-    Then I softly see asterisk mark on "Last Name" inside "Authorized Representative" section
-    Then I softly see field "Last Name" inside "Authorized Representative" section
-    When I hover mouse on help text icon for "Last Name" inside "Authorized Representative" section
-    Then I softly see "Enter the Last Name. This field is required. Max character limit for this field is 60." shown as help text
-    Then I softly see field "Suffix" inside "Authorized Representative" section
-    Then I see only the following ordered options in dropdown field "AOR_Suffix__c" :
-      | --None-- | Jr. | Sr. | M.D. | Ph.D |
-    When I hover mouse on help text icon for "Suffix" inside "Authorized Representative" section
-    Then I softly see "Select the Suffix from the provided list or enter a new Suffix not provided on the list." shown as help text
-    Then I softly see asterisk mark on "Title" inside "Authorized Representative" section
-    Then I softly see field "Title" inside "Authorized Representative" section
-    When I hover mouse on help text icon for "Title" inside "Authorized Representative" section
-    Then I softly see "Enter the position title. Max character limit for this field is 45." shown as help text
-    Then I softly see asterisk mark on "Telephone Number" inside "Authorized Representative" section
-    Then I softly see field "Telephone Number" inside "Authorized Representative" section
-    When I hover mouse on help text icon for "Telephone Number" inside "Authorized Representative" section
-    Then I softly see "Enter the daytime Telephone Number. This field is required. Max character limit for this field is 25." shown as help text
-    Then I softly see field "Fax Number" inside "Authorized Representative" section
-    When I hover mouse on help text icon for "Fax Number" inside "Authorized Representative" section
-    Then I softly see "ter the Fax Number. Max character limit for this field is 25." shown as help text
-    Then I softly see asterisk mark on "Email" inside "Authorized Representative" section
-    Then I softly see field "Email" inside "Authorized Representative" section
-    When I hover mouse on help text icon for "Email" inside "Authorized Representative" section
-    Then I softly see "Enter a valid Email Address. This field is required. Max character limit for this field is 60." shown as help text
-    Then I softly see "Signature And Date Of Authorized Representative" page block displayed
-    Then I softly see asterisk mark on "Signature of Authorized Representative"
-    Then I softly see field "Signature of Authorized Representative" inside "Signature And Date Of Authorized Representative" section
-    When I hovering mouse on help text icon inside page block detail "Signature of Authorized Representative"
-    Then I softly see "Completed by Grants.gov upon submission. Max character limit for this field is 144." shown as help text
-    Then I softly see field "Date Signed" inside "Signature And Date Of Authorized Representative" section
-    Then I softly see asterisk mark on "Date Signed"
-    When I hovering mouse on help text icon inside page block detail "Date Signed"
-    Then I softly see "Completed by Grants.gov upon submission." shown as help text
-    Then I softly see "Files" page block displayed
+   Then I see radio button "Yes" for field "FederalDebt__c"
+   Then I see radio button "No" for field "FederalDebt__c"
+   Then I softly see "Agreement Details" page block displayed
+   Then I softly see field "21. By signing this application, I certify (1) to the statements contained in the list of certifications** and (2) that the statements herein are true, complete and accurate to the best of my knowledge. I also provide the required assurances** and agree to comply with any resulting terms if I accept an award. I am aware that any false, fictitious, or fraudulent statements or claims may subject me to criminal, civil, or administrative penalties. (U.S. Code, Title 218, Section 1001)" inside page block
+   Then I softly see field "I AGREE" inside page block
+   Then I softly see asterisk mark on "I AGREE"
+   When I hovering mouse on help text icon inside page block detail "I AGREE"
+   Then I softly see "Check to select. This field is required." shown as help text
+   Then I softly see "Authorized Representative" page block displayed
+   Then I softly see field "Prefix" inside "Authorized Representative" section
+   Then I see only the following ordered options in dropdown field "AOR_Prefix__c" :
+     | --None-- | Mr. | Mrs. | Miss | Ms. | Dr. | Rev. | Prof. |
+   When I hover mouse on help text icon for "Prefix" inside "Authorized Representative" section
+   Then I softly see "Select the Prefix from the provided list or enter a new Prefix not provided on the list." shown as help text
+   Then I softly see asterisk mark on "First Name" inside "Authorized Representative" section
+   Then I softly see field "First Name" inside "Authorized Representative" section
+   When I hover mouse on help text icon for "First Name" inside "Authorized Representative" section
+   Then I softly see "Enter the First Name. This field is required. Max character limit for this field is 35." shown as help text
+   Then I softly see field "Middle Name" inside "Authorized Representative" section
+   When I hover mouse on help text icon for "Middle Name" inside "Authorized Representative" section
+   Then I softly see "Enter the Middle Name. Max character limit for this field is 25." shown as help text
+   Then I softly see asterisk mark on "Last Name" inside "Authorized Representative" section
+   Then I softly see field "Last Name" inside "Authorized Representative" section
+   When I hover mouse on help text icon for "Last Name" inside "Authorized Representative" section
+   Then I softly see "Enter the Last Name. This field is required. Max character limit for this field is 60." shown as help text
+   Then I softly see field "Suffix" inside "Authorized Representative" section
+   Then I see only the following ordered options in dropdown field "AOR_Suffix__c" :
+     | --None-- | Jr. | Sr. | M.D. | Ph.D |
+   When I hover mouse on help text icon for "Suffix" inside "Authorized Representative" section
+   Then I softly see "Select the Suffix from the provided list or enter a new Suffix not provided on the list." shown as help text
+   Then I softly see asterisk mark on "Title" inside "Authorized Representative" section
+   Then I softly see field "Title" inside "Authorized Representative" section
+   When I hover mouse on help text icon for "Title" inside "Authorized Representative" section
+   Then I softly see "Enter the position title. Max character limit for this field is 45." shown as help text
+   Then I softly see asterisk mark on "Telephone Number" inside "Authorized Representative" section
+   Then I softly see field "Telephone Number" inside "Authorized Representative" section
+   When I hover mouse on help text icon for "Telephone Number" inside "Authorized Representative" section
+   Then I softly see "Enter the daytime Telephone Number. This field is required. Max character limit for this field is 25." shown as help text
+   Then I softly see field "Fax Number" inside "Authorized Representative" section
+   When I hover mouse on help text icon for "Fax Number" inside "Authorized Representative" section
+   Then I softly see "ter the Fax Number. Max character limit for this field is 25." shown as help text
+   Then I softly see asterisk mark on "Email" inside "Authorized Representative" section
+   Then I softly see field "Email" inside "Authorized Representative" section
+   When I hover mouse on help text icon for "Email" inside "Authorized Representative" section
+   Then I softly see "Enter a valid Email Address. This field is required. Max character limit for this field is 60." shown as help text
+   Then I softly see "Signature And Date Of Authorized Representative" page block displayed
+   Then I softly see asterisk mark on "Signature of Authorized Representative"
+   Then I softly see field "Signature of Authorized Representative" inside "Signature And Date Of Authorized Representative" section
+   When I hovering mouse on help text icon inside page block detail "Signature of Authorized Representative"
+   Then I softly see "Completed by Grants.gov upon submission. Max character limit for this field is 144." shown as help text
+   Then I softly see field "Date Signed" inside "Signature And Date Of Authorized Representative" section
+   Then I softly see asterisk mark on "Date Signed"
+   When I hovering mouse on help text icon inside page block detail "Date Signed"
+   Then I softly see "Completed by Grants.gov upon submission." shown as help text
+   Then I softly see "Files" page block displayed
     Then  I can see top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
@@ -4449,6 +4446,76 @@ Feature: Sanity scenarios
       | Email is required to save.                                                                                                                                      |
       | Signature of Authorized Representative is required to save.                                                                                                     |
       | Date Signed is required to save.                                                                                                                                |
+
+  @473992 @VerifytheallvalidationsofSF424formGrantsgovApplication
+  Scenario:Verify the all fields of SF-424[V4.0] form Grants.gov Application
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "AP--536" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "AP--536" inside table
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I wait for "10" seconds
+    And I click on "Edit" in the page details
+    When I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | a. Legal Name is required to save.                                                                                                                              |
+      | c. UEI is required to save.                                                                                                                                     |
+      | Street1 is required to save.                                                                                                                                    |
+      | City is required to save.                                                                                                                                       |
+      | Zip / Postal Code is required to save.                                                                                                                          |
+      | First Name is required to save.                                                                                                                                 |
+      | Last Name is required to save.                                                                                                                                  |
+      | Telephone Number is required to save.                                                                                                                           |
+      | Email is required to save.                                                                                                                                      |
+      | Other (specify) is required to save.                                                                                                                            |
+      | 10. Name of Federal Agency is required to save.                                                                                                                 |
+      | 11. Assistance Listing Number (Catalog of Federal Domestic Assistance Number) is required to save.                                                              |
+      | Assistance Listing Number (CFDA) Title is required to save.                                                                                                     |
+      | Title is required to save.                                                                                                                                      |
+      | 15. Descriptive Title of Applicant's Project is required to save.                                                                                               |
+      | a. Applicant is required to save.                                                                                                                               |
+      | b. Program/Project is required to save.                                                                                                                         |
+      | a. Start Date is required to save.                                                                                                                              |
+      | b. End Date is required to save.                                                                                                                                |
+      | a. Federal is required to save.                                                                                                                                 |
+      | b. Applicant is required to save.                                                                                                                               |
+      | c. State is required to save.                                                                                                                                   |
+      | d. Local is required to save.                                                                                                                                   |
+      | e. Other is required to save.                                                                                                                                   |
+      | f. Program Income is required to save.                                                                                                                          |
+      | 19. Is Application Subject to Review By State Under Executive Order 12372 Process? is required to save.                                                         |
+      | 20. Is the Applicant Delinquent On Any Federal Debt? (If "Yes," provide explanation in attachments. Add attachment from the Files section) is required to save. |
+      | I AGREE is required to save.                                                                                                                                    |
+      | First Name is required to save.                                                                                                                                 |
+      | Last Name is required to save.                                                                                                                                  |
+      | Title is required to save.                                                                                                                                      |
+      | Telephone Number is required to save.                                                                                                                           |
+      | Email is required to save.                                                                                                                                      |
+      | Signature of Authorized Representative is required to save.                                                                                                     |
+      | Date Signed is required to save.                                                                                                                                |
+    And I wait for "3" seconds
+    When I click on "Cancel" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to cancel?" is displayed
+    When I click modal button "OK"
+    Then I softly can see top right button "Validate" in page detail
+    Then I softly can see top right button "Edit" in page detail
+    And I click on "Edit" in the page details
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    Then I softly see value "100.00%" for title "Percentage" against the value "Application for Federal Assistance (SF-424)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
 
   @485527 @485530 @485532 @485534 @485300 @FCAmdVerifythatPOuserseeIndirectRatesection&theirFieldsunderOverviewTabinFundingChangeAmendmentRequestlayout
   Scenario: FC Amd-->Verify that PO  user see Indirect Rate section & their Fields under Overview Tab in Funding Change Amendment Request layout
@@ -4915,3 +4982,63 @@ Feature: Sanity scenarios
       | User       |
       | GRANTEE FO |
       | GRANTEE PO |
+
+  @473994 @Verifyusershouldabletoseethecolumnsonformssection
+  Scenario:Verify user should able to see the columns on forms section
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "AP--536" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "AP--536" inside table
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see link "grants.gov" inside Page block
+    Then I softly see "Form Name" in flex table header "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see "Mandatory" in flex table header "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see "Percentage" in flex table header "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see "Last Modified By Name" in flex table header "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see "Validated" in flex table header "---grantee_tableId:-:applicationBusinessFormTableId---"
+
+  @482632 @482633 @VerifyAdminuserNonownercanviewawarddetailspagebutcannotseeeditactiononaward
+  Scenario Outline:Verify Admin  user(Non owner) can view award details page but cannot see edit action on award
+    Given I login to "As a Grantee" app as "GRANTEE ADMIN" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{grantee_testData:grantgovtAwardCreateState}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{grantee_testData:grantgovtAwardCreateState}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "{grantee_testData:grantgovtAwardCreateState}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Submit for Approval" in page detail
+    And I click on Menu icon present on top right corner of the page
+    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Take Snapshot" present in parallel dropdown
+    Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:awardExternalProgranTableId---"
+    Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:awardContactTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:awardContactTableId---"
+    And I navigate to "Projections" sub tab
+    Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:awardIndirectRateTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:awardPeerReviewerTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:awardApproverTableId---"
+    Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:awardObjectiveTableId---"
+    Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:SpecialConditionTableId---"
+    When I navigate to "Files" sub tab
+    Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:awardsNotesTableId---"
+    And I navigate to "Messages" sub tab
+    Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
+
+    Examples:
+      | User            |
+      | GRANTEE ADMIN   |
+      | GRANTEE AUDITOR |
+

@@ -705,9 +705,9 @@ public final class PageDetails {
         String element = null;
 
         if (fieldLabel.contains("'"))
-            element = "//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "] | //c-page-block-section//span[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
+            element = "//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "] | //c-page-block-section//span[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "] |//c-page-block-section//div[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
         else
-            element = "//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "] |//c-page-block-section//span[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
+            element = "//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "] |//c-page-block-section//span[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "] | //c-page-block-section//div[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
 
         try {
             I.amPerforming().getElementReference().of(ByUsing.xpath(element));
@@ -1041,6 +1041,7 @@ public final class PageDetails {
 
     public void getHelpTextAtPageBlockSection(String fieldName, String sectionName) {
         // Ensure the XPath correctly navigates from section to field and targets the help text icon.
+//        String newValue = fieldName.replaceAll("\\u00a0", "'");
         String xpathExpression = String.format("//span[contains(@title,'%s')]//parent::div//following-sibling::div//div//label[contains(text(),'%s')]//..//div//button[contains(@aria-describedby,'tooltip')]", sectionName, fieldName);
         I.amPerforming().scroll().withMouseToElement(By.xpath(xpathExpression));
 
