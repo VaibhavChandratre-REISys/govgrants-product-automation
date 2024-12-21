@@ -24575,7 +24575,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
-  @AmendBPC @464049 @VerifyFOuserARrecordownercannoteditthefieldsonBudgetPeriodChangeARisinSubmitforApprovalApprovedSubmittoGrantorAcceptedNotAcceptedRejected
+  @464049 @VerifyFOuserARrecordownercannoteditthefieldsonBudgetPeriodChangeARisinSubmitforApprovalApprovedSubmittoGrantorAcceptedNotAcceptedRejected
   Scenario: Verify FO user (AR record owner) cannot edit the fields on Budget Period Change AR is in Submit for Approval, Approved, Submit to Grantor, Accepted, Not Accepted, Rejected
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
@@ -24933,7 +24933,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
-  @AmendBPC @464049_1 @VerifyFOuserARrecordownercannoteditthefieldsonBudgetPeriodChangeARisinSubmitforApprovalApprovedSubmittoGrantorAcceptedNotAcceptedRejected
+  @464049_1 @VerifyFOuserARrecordownercannoteditthefieldsonBudgetPeriodChangeARisinSubmitforApprovalApprovedSubmittoGrantorAcceptedNotAcceptedRejected
   Scenario: Verify FO user (AR record owner) cannot edit the fields on Budget Period Change AR is in Submit for Approval, Approved, Submit to Grantor, Accepted, Not Accepted, Rejected
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
@@ -25178,7 +25178,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
-  @AmendBPC @464049_2 @VerifyFOuserARrecordownercannoteditthefieldsonBudgetPeriodChangeARisinSubmitforApprovalApprovedSubmittoGrantorAcceptedNotAcceptedRejected
+  @464049_2 @VerifyFOuserARrecordownercannoteditthefieldsonBudgetPeriodChangeARisinSubmitforApprovalApprovedSubmittoGrantorAcceptedNotAcceptedRejected
   Scenario: Verify FO user (AR record owner) cannot edit the fields on Budget Period Change AR is in Submit for Approval, Approved, Submit to Grantor, Accepted, Not Accepted, Rejected
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
