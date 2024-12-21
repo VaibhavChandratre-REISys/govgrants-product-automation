@@ -2758,7 +2758,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Examples:
       | User | UserName                   |
       | SPI3 | {SavedValue:SPI3 Username} |
-#      | SPA  | {SavedValue:SPA Username}  |
+      | SPA  | {SavedValue:SPA Username}  |
 
   @222470 @sprint-10-US-221062  @Allocation
   Scenario Outline: Verify SPI/SPA user can edit "Budget Tab: Budget Summary by Focus Area" section only if pre-application is sent to s/r for negotiation

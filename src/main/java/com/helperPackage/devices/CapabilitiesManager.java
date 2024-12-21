@@ -59,7 +59,7 @@ public class CapabilitiesManager {
                 "profile.default_content_setting_values.notifications", 2,
                 "download.prompt_for_download", "false",
                 "download.directory_upgrade", "true",
-                "download.default_directory", System.getProperty("user.dir") + File.separatorChar + "target"+ File.separatorChar +"download"
+                "download.default_directory", System.getProperty("user.dir") + File.separatorChar + "target"
         ));
 
         if (EnvironmentFactory.isHeadless()) {

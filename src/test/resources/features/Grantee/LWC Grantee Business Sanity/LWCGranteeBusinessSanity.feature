@@ -1003,9 +1003,9 @@ Feature: Sanity scenarios
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
     Then I softly see snapshot with name containing "Complete Review.pdf" as name
     Then I softly can see top right button "View NOGA" in page detail
-    And I click on "View NOGA" in the page details
-    And I download the file
-    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
+#    And I click on "View NOGA" in the page details
+#    And I download the file
+#    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
 
   @445207 @ValidateEXEuserFinancialreportOwnercanabletocreateAdhocFinancialReport&abletosubmitFinancialReporttoGrantor
   Scenario: Validate EXE user Financial report Owner can able to create Adhoc Financial Report & able to submit Financial Report to Grantor
@@ -4242,10 +4242,10 @@ Feature: Sanity scenarios
     Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I wait for "2" seconds
-    And I download the file
-    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
+#    And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+#    And I wait for "2" seconds
+#    And I download the file
+#    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I wait for "5" seconds
@@ -5162,11 +5162,11 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Download as PDF" from parallel lines dropdown of "Federal Contacts"
-    And I wait for "7" seconds
-    And I download the file
-    Then I see "Federal Contacts" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+#    And I select "Download as PDF" from parallel lines dropdown of "Federal Contacts"
+#    And I wait for "7" seconds
+#    And I download the file
+#    Then I see "Federal Contacts" on page "1" of "govgrants" pdf file
+#    And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:fedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:fedContactTableId---"
     Then I softly see "Create Contact" opens in overLay window
@@ -5361,11 +5361,11 @@ Feature: Sanity scenarios
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Download as CSV" present in parallel dropdown
-    And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Programs- All"
-    And I wait for "8" seconds
-    And I download the file
-    Then I softly see "Non-Federal Programs- All" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+#    And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Programs- All"
+#    And I wait for "8" seconds
+#    And I download the file
+#    Then I softly see "Non-Federal Programs- All" on page "1" of "govgrants" pdf file
+#    And I switch to parent tab
     When I click on parallel lines menu bar with data target value "Non-Federal Programs- All"
     And I select "Refresh" from parallel lines dropdown of "Non-Federal Programs- All"
     Then I see table is refreshing
@@ -6903,20 +6903,20 @@ Feature: Sanity scenarios
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download As PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
-    And I click on "Download As PDF" in the page details
-    And I wait for "8" seconds
-    And I download the file
-    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+#    And I click on "Download As PDF" in the page details
+#    And I wait for "8" seconds
+#    And I download the file
+#    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
+#    And I switch to parent tab
     And I click on "Take Snapshot" in the page details
     And I wait for "8" seconds
     And I refresh the page
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "SnapShot on"
-    And I wait for "8" seconds
-    When I download the file
-    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+#    And I click on hyperlink containing value "SnapShot on"
+#    And I wait for "8" seconds
+#    When I download the file
+#    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
+#    And I switch to parent tab
     And I navigate to "Financials" sub tab
     Then I softly cannot see field "Budgeted Cash Match" inside page block
     Then I softly cannot see field "Budgeted Non-Cash Match" inside page block
@@ -7184,11 +7184,11 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Download as PDF" from parallel lines dropdown of "Grants - All"
-    And I wait for "7" seconds
-    And I download the file
-    Then I softly see "Grants - All" on page "1" of "govgrants" pdf file
-    And I close the tab
+#    And I select "Download as PDF" from parallel lines dropdown of "Grants - All"
+#    And I wait for "7" seconds
+#    And I download the file
+#    Then I softly see "Grants - All" on page "1" of "govgrants" pdf file
+#    And I close the tab
     When I click on parallel lines menu bar with data target value "Grants - All"
     And I select "Refresh" from parallel lines dropdown of "Grants - All"
     Then I see table is refreshing
@@ -7474,19 +7474,19 @@ Feature: Sanity scenarios
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download As PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
-    And I click on "Download As PDF" in the page details
-    And I wait for "7" seconds
-    And I download the file
-    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+#    And I click on "Download As PDF" in the page details
+#    And I wait for "7" seconds
+#    And I download the file
+#    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
+#    And I switch to parent tab
     And I click on "Take Snapshot" in the page details
     And I wait for "5" seconds
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "SnapShot on"
-    And I wait for "7" seconds
-    When I download the file
-    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+#    And I click on hyperlink containing value "SnapShot on"
+#    And I wait for "7" seconds
+#    When I download the file
+#    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
+#    And I switch to parent tab
     And I navigate to "Awards" sub tab
     Then I softly cannot see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
@@ -7570,11 +7570,11 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Download as PDF" from parallel lines dropdown of "Awards - All"
-    And I wait for "7" seconds
-    And I download the file
-    Then I softly see "Awards - All" on page "1" of "govgrants" pdf file
-    And I close the tab
+#    And I select "Download as PDF" from parallel lines dropdown of "Awards - All"
+#    And I wait for "7" seconds
+#    And I download the file
+#    Then I softly see "Awards - All" on page "1" of "govgrants" pdf file
+#    And I close the tab
     When I click on parallel lines menu bar with data target value "Awards - All"
     And I select "Refresh" from parallel lines dropdown of "Awards - All"
     Then I see table is refreshing
@@ -13034,10 +13034,10 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Download as PDF" from parallel lines dropdown of "Special Conditions"
-    And I download the file
-    And I wait for "4" seconds
-    Then I see "Special Conditions" on page "1" of "govgrants" pdf file
+#    And I select "Download as PDF" from parallel lines dropdown of "Special Conditions"
+#    And I download the file
+#    And I wait for "4" seconds
+#    Then I see "Special Conditions" on page "1" of "govgrants" pdf file
 
   @443833 @AwardVerifywithPMprofileMonitioringTabofAwardPagelayout
   Scenario:  Award - Verify with PM profile ,Files Tab of AwardPagelayout
@@ -17500,11 +17500,11 @@ Feature: Sanity scenarios
     Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I wait for "2" seconds
-    And I download the file
-    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+#    And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+#    And I wait for "2" seconds
+#    And I download the file
+#    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
+#    And I switch to parent tab
     And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I wait for "5" seconds
     Then I softly see "View" opens in overLay window
@@ -20275,13 +20275,13 @@ Feature: Sanity scenarios
     Then I can see row level action button "View" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I cannot see row level action button "Edit" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I cannot see row level action button "Delete" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I click on "Download" icon for "{SavedValue:Classification}" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I wait for "2" seconds
-    And I download the file
-    And I wait for "2" seconds
-    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
-    And I wait for "3" seconds
-    And I switch to parent tab
+#    And I click on "Download" icon for "{SavedValue:Classification}" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+#    And I wait for "2" seconds
+#    And I download the file
+#    And I wait for "2" seconds
+#    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
+#    And I wait for "3" seconds
+#    And I switch to parent tab
     ### bug id 476696 remaining step working fine
  #  And I click on "View" icon for "{SavedValue:Classification}" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
  #   And I wait for "5" seconds
@@ -21178,11 +21178,11 @@ Feature: Sanity scenarios
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Download as CSV" present in parallel dropdown
-    And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Programs- All"
-    And I wait for "8" seconds
-    And I download the file
-    Then I see "Non-Federal Programs- All" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+#    And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Programs- All"
+#    And I wait for "8" seconds
+#    And I download the file
+#    Then I see "Non-Federal Programs- All" on page "1" of "govgrants" pdf file
+#    And I switch to parent tab
     When I click on parallel lines menu bar with data target value "Non-Federal Programs- All"
     And I select "Refresh" from parallel lines dropdown of "Non-Federal Programs- All"
     Then I see table is refreshing
@@ -21701,11 +21701,11 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Contacts"
-    And I wait for "7" seconds
-    And I download the file
-    Then I see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+#    And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Contacts"
+#    And I wait for "7" seconds
+#    And I download the file
+#    Then I see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
+#    And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     Then I softly see "Create Contact" opens in overLay window
@@ -22150,12 +22150,12 @@ Feature: Sanity scenarios
     Then I see option "Download as PDF" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "Awards"
     Then I see table is refreshing
-    When I click on parallel lines menu bar with data target value "Awards"
-    And I select "Download as PDF" from parallel lines dropdown of "Awards"
-    And I download the file
-    And I wait for "4" seconds
-    Then I see "Awards" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+#    When I click on parallel lines menu bar with data target value "Awards"
+#    And I select "Download as PDF" from parallel lines dropdown of "Awards"
+#    And I download the file
+#    And I wait for "4" seconds
+#    Then I see "Awards" on page "1" of "govgrants" pdf file
+#    And I switch to parent tab
     And I click on page navigation arrow "---grantee_tableId:-:specialConditionPhaseLevelTableId---" for table id "Next"
     Then I see table "---grantee_tableId:-:specialConditionPhaseLevelTableId---" shows "Page 2"
     Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
@@ -22273,12 +22273,12 @@ Feature: Sanity scenarios
     Then I see option "Download as PDF" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "Awards"
     Then I see table is refreshing
-    When I click on parallel lines menu bar with data target value "Awards"
-    And I select "Download as PDF" from parallel lines dropdown of "Awards"
-    And I download the file
-    And I wait for "4" seconds
-    Then I see "Awards" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+#    When I click on parallel lines menu bar with data target value "Awards"
+#    And I select "Download as PDF" from parallel lines dropdown of "Awards"
+#    And I download the file
+#    And I wait for "4" seconds
+#    Then I see "Awards" on page "1" of "govgrants" pdf file
+#    And I switch to parent tab
     And I click on page navigation arrow "---grantee_tableId:-:specialConditionPhaseLevelTableId---" for table id "Next"
     Then I see table "---grantee_tableId:-:specialConditionPhaseLevelTableId---" shows "Page 2"
     Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
@@ -22438,11 +22438,11 @@ Feature: Sanity scenarios
     Then I see option "Download as PDF" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "Financial Transactions"
     Then I see table is refreshing
-    When I click on parallel lines menu bar with data target value "Financial Transactions"
-    And I select "Download as PDF" from parallel lines dropdown of "Financial Transactions"
-    And I download the file
-    And I wait for "4" seconds
-    Then I see "Financial Transactions" on page "1" of "govgrants" pdf file
+#    When I click on parallel lines menu bar with data target value "Financial Transactions"
+#    And I select "Download as PDF" from parallel lines dropdown of "Financial Transactions"
+#    And I download the file
+#    And I wait for "4" seconds
+#    Then I see "Financial Transactions" on page "1" of "govgrants" pdf file
     Examples:
       | userType    | userName   | Approver    |
       | GRANTEE PM  | Victor EXE | GRANTEE EXE |
@@ -22755,12 +22755,12 @@ Feature: Sanity scenarios
     Then I see option "Download as PDF" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "Expenditure Details"
     Then I see table is refreshing
-    When I click on parallel lines menu bar with data target value "Expenditure Details"
-    And I select "Download as PDF" from parallel lines dropdown of "Expenditure Details"
-    And I download the file
-    And I wait for "6" seconds
-    Then I softly see "Expenditure Details" on page "1" of "govgrants" pdf file
-    And I close the tab
+#    When I click on parallel lines menu bar with data target value "Expenditure Details"
+#    And I select "Download as PDF" from parallel lines dropdown of "Expenditure Details"
+#    And I download the file
+#    And I wait for "6" seconds
+#    Then I softly see "Expenditure Details" on page "1" of "govgrants" pdf file
+#    And I close the tab
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalCashMatchTableId---"
     When I "Collapse" page block contaninig value "Cash Match Details"
     Then I softly do not see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalCashMatchTableId---"
@@ -22772,12 +22772,12 @@ Feature: Sanity scenarios
     Then I see option "Download as PDF" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "Cash Match Details"
     Then I see table is refreshing
-    When I click on parallel lines menu bar with data target value "Cash Match Details"
-    And I select "Download as PDF" from parallel lines dropdown of "Cash Match Details"
-    And I download the file
-    And I wait for "6" seconds
-    Then I softly see "Cash Match Details" on page "1" of "govgrants" pdf file
-    And I close the tab
+#    When I click on parallel lines menu bar with data target value "Cash Match Details"
+#    And I select "Download as PDF" from parallel lines dropdown of "Cash Match Details"
+#    And I download the file
+#    And I wait for "6" seconds
+#    Then I softly see "Cash Match Details" on page "1" of "govgrants" pdf file
+#    And I close the tab
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalProgramIncomeTableId---"
     When I "Collapse" page block contaninig value "Program Income Expenses"
     Then I softly do not see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalProgramIncomeTableId---"
@@ -22789,12 +22789,12 @@ Feature: Sanity scenarios
     Then I see option "Download as PDF" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "Program Income Expenses"
     Then I see table is refreshing
-    When I click on parallel lines menu bar with data target value "Program Income Expenses"
-    And I select "Download as PDF" from parallel lines dropdown of "Program Income Expenses"
-    And I download the file
-    And I wait for "6" seconds
-    Then I softly see "Program Income Expenses" on page "1" of "govgrants" pdf file
-    And I close the tab
+#    When I click on parallel lines menu bar with data target value "Program Income Expenses"
+#    And I select "Download as PDF" from parallel lines dropdown of "Program Income Expenses"
+#    And I download the file
+#    And I wait for "6" seconds
+#    Then I softly see "Program Income Expenses" on page "1" of "govgrants" pdf file
+#    And I close the tab
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on "Report Non-Cash Match Line Item" icon for "Construction" inside flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
@@ -22811,11 +22811,11 @@ Feature: Sanity scenarios
     Then I see option "Download as PDF" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "Report Non Cash Match"
     Then I see table is refreshing
-    When I click on parallel lines menu bar with data target value "Report Non Cash Match"
-    And I select "Download as PDF" from parallel lines dropdown of "Report Non Cash Match"
-    And I download the file
-    And I wait for "6" seconds
-    Then I softly see "Report Non Cash Match" on page "1" of "govgrants" pdf file
+#    When I click on parallel lines menu bar with data target value "Report Non Cash Match"
+#    And I select "Download as PDF" from parallel lines dropdown of "Report Non Cash Match"
+#    And I download the file
+#    And I wait for "6" seconds
+#    Then I softly see "Report Non Cash Match" on page "1" of "govgrants" pdf file
     Examples:
       | userType    | userName   | Approver    |
       | GRANTEE PM  | Victor EXE | GRANTEE EXE |

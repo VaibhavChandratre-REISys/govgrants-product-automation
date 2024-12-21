@@ -181,6 +181,26 @@ public final class PageDetails {
      *
      * @param buttonName
      * @return
+     * @author vaibhav.chandratre
+     */
+    public void clickAnyTopRightButtonInsideSplitScreenWithouProcessing(String buttonName) {
+        By topRightButton = By.xpath("//c-flex-layout-quick-view//lightning-button//button[@title='" + buttonName + "'] | //lightning-button-menu[contains(@class,'" + buttonName + "')]");
+        I.amPerforming().waitFor().makeThreadSleep(2000);
+        try {
+            I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
+            I.amPerforming().click().withJavaScript(topRightButton);
+        } catch (Exception ex) {
+            I.amPerforming().click().on(ByUsing.xpath("//c-flex-layout-quick-view//lightning-button-menu//button[contains(@class,'slds-button_last')]"));
+            I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+        }
+    }
+
+    /**
+     * click any button on right header inside detail page. Submit, submit for
+     * approval
+     *
+     * @param buttonName
+     * @return
      * @author john.phillips
      */
     public void clickAnyBottomRightButton(String buttonName) {
@@ -803,7 +823,7 @@ public final class PageDetails {
      */
     public boolean areValuesPresentInsideDropdownSelector(String fieldApiName, String values) {
         String[] dropdownValues = values.split(",");
-        List<WebElement> elements = I.amPerforming().dropDownSelection().from(By.xpath("//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "']//select | //field[@field-name='" + fieldApiName + "']//select")).getOptions();
+        List<WebElement> elements = I.amPerforming().dropDownSelection().from(By.xpath("//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "']//select | //field[@field-name='" + fieldApiName + "']// | //div[@id='" + fieldApiName + "']//select//option")).getOptions();
         boolean flag = false;
         for (int i = 0; i < elements.size() - 1; i++) {
             if (elements.get(i).getText().contains(dropdownValues[i]))
