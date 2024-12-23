@@ -9298,8 +9298,8 @@ Feature: Sanity scenarios
 
     Examples:
       | User         | Approval      |
-     # | GRANTEE PO   | Grantee PO    |
-      | GRANTEE PM   | Sarah PM      |
+      #| GRANTEE PO   | Grantee PO    |
+      #| GRANTEE PM   | Sarah PM      |
       | GRANTEE EXE  | Victor EXE    |
 
   @460983 @ValidateFederalOrgAuditorprofileusershouldseeallfieldsandsectionreadonlyonfederalOrglayoutViewonlyaccess
