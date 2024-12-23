@@ -45,7 +45,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
-    And I enter "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
+    And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1422,7 +1422,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @72347 @negotiationComplete @ProdSan1
+  @72347 @negotiationComplete @ProdSan1 @debug
   Scenario: Validate once the Negotiation Request is completed then the record owner can view the record under Completed Negotiations
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1731,6 +1731,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I navigate to "Assessment" sub tab
+    And I halt execution
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
@@ -4100,12 +4101,12 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     And I click on "View" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
-    And I click on top right button "New" in flex table with id "---progressReport:-:sf428AFederallyOwnedTableId---"
+    When I click on "Edit" in the page details
     And I enter value "1234" into field "FederalGrantSF428A__c"
     And I enter value "(a) Individual (Reporting Federally-owned property for one award)" into field "ReportTypePiclikist__c"
     And I enter value "30 SEP" into field "ReportAsOf__c"
     And I enter value "Test" into field "CommentsSF428__c"
-    And I wait for "5" seconds
+    And I wait for "3" seconds
     When I click on "Save" in the page details
     And I refresh the page
     And I click on top right button "New" in flex table with id "---progressReport:-:sf428AFederallyOwnedTableId---"
@@ -4124,6 +4125,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without Split
     And I switch to tab number "1"
+    When I click on "Edit" in the page details
     And I enter "SF429B_Form_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
     And I wait for "3" seconds
     When I click on "Save" in the page details

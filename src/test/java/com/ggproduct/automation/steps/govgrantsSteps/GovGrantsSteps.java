@@ -123,9 +123,9 @@ public final class GovGrantsSteps {
     @When("^I re-login to \"([^\"]*)\" app as \"([^\"]*)\" user on \"([^\"]*)\" portal$")
     public void reloginToggleToAppInURL(String appName, String userType, String portalType) {
         try {
-            I.amPerforming().waitFor().makeThreadSleep(5000);
+            I.amPerforming().waitFor().makeThreadSleep(3000);
             ggObjects.clickLogOut();
-            I.amPerforming().waitFor().makeThreadSleep(7000);
+            I.amPerforming().waitFor().makeThreadSleep(4000);
             govgrants.perform().mainPage().navigateToPortal(portalType);
             govgrants.perform().mainPage().loginWithUserType(userType);
         } catch (Exception e) {
@@ -313,6 +313,7 @@ public final class GovGrantsSteps {
         I.amPerforming().browserOperationsTo().CheckPageLoadingStatus();
         govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         govgrants.perform().phasePanel().clickDoubleArrowDropDownAndSelectItem(menuItemName);
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
     }
 
     @Description("Perform quick search by providing search term")

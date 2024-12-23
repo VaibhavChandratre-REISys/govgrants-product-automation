@@ -1003,7 +1003,7 @@ public final class InputForms {
                     I.amPerforming().click().on(dropDownSelector);
                     I.amPerforming().click().on(By.xpath("//span[@title='" + value + "']"));
                 } catch (Exception e) {
-//                    I.amPerforming().click().withJavaScript(dropDownSelector);
+                    I.amPerforming().click().withJavaScript(dropDownSelector);
                     I.amPerforming().click().withJavaScript(By.xpath("//span[@title='" + value + "']"));
                 }
     }

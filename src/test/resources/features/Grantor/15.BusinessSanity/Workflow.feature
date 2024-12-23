@@ -1595,7 +1595,7 @@ Feature: Validate all scenarios of every modules flow
     Then I see the text "Email Sent Successfully." in modal
 
 
-  @EXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOpportunitywhichisconvertedtoPre-application @debug
+  @EXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOpportunitywhichisconvertedtoPre-application
   Scenario: Opportunities converted to Pre-Application (Grants.gov) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Opportunity which is converted to Pre-application
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I enter in modal value "Passed" into field "ReviewComments__c"
