@@ -510,18 +510,13 @@ public final class GovGrantsObjects {
      */
     protected void clickTableActionIconsForSpecificSubjectWithoutProcessing(String flextableId, String iconName,
                                                                             String... anycolumnvalue) {
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-            I.amPerforming().click().on(govgrants.perform().flexTable().getTableActionIcon(flextableId, iconName, anycolumnvalue));
-        } else {
             WebElement desiredAction = null;
             for (String uniqueColumnValue : anycolumnvalue) {
                 desiredAction = I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flextableId + "']//tbody/tr//*[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
                 I.amPerforming().scroll().toMoveToElement(desiredAction);
-                I.amPerforming().waitFor().makeThreadSleep(2000);
                 I.amPerforming().click().withJavaScript(desiredAction);
                 I.amPerforming().click().withJavaScript(govgrants.perform().flexTable().getTableActionIcon(flextableId, iconName, anycolumnvalue));
             }
-        }
     }
 
     /**

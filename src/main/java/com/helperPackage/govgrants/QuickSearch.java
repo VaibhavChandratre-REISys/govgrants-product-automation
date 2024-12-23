@@ -46,27 +46,15 @@ public class QuickSearch {
      * @author Monu.Kumar
      */
     public void performGlobalQuickSearch(String searchTerm) {
-        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-        try {
-            I.amPerforming().textInput().toClear(globalSearchInput);
-            I.amPerforming().textInput().in(globalSearchInput, searchTerm);
-            I.amPerforming().click().on(globalSearchButton);
-        } catch (Exception e) {
-            I.amPerforming().textInput().toClear(globalSearchInput);
-            I.amPerforming().textInput().in(globalSearchInput, searchTerm);
-            I.amPerforming().click().on(globalSearchButton);
-        } }else {
             try {
                 I.amPerforming().textInput().toClear(globalSearchInputLwc);
                 I.amPerforming().textInput().in(globalSearchInputLwc, searchTerm);
                 I.amPerforming().textInput().in(globalSearchButtonLwc, Keys.ENTER.toString());
-//                I.amPerforming().click().on(globalSearchButtonLwc);
             } catch (Exception e) {
                 I.amPerforming().textInput().toClear(globalSearchInputLwc);
                 I.amPerforming().textInput().in(globalSearchInputLwc, searchTerm);
                 I.amPerforming().click().on(globalSearchButtonLwc);
             }
-        }
     }
 
     /**

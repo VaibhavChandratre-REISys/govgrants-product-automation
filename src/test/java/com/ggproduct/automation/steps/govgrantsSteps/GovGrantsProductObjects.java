@@ -21,16 +21,10 @@ public final class GovGrantsProductObjects {
     /**
      * Handles entering of Peer review
      */
-    public void enterReview(String rating) {
-        I.amPerforming().dropDownSelection().from(By.xpath("//div[@id='fieldRating__c']//select")).selectByVisibleText(rating);
-        I.amPerforming().textInput().in(By.xpath("//div[@id='fieldReviewComments__c']//textarea"), "Automation Reviewer comments");
-    }
-
     public void enterReviewForLWC(String rating) {
         I.amPerforming().waitFor().ElementListToBePresent(By.xpath("//div[@data-field_api_name='Rating__c']//button[@aria-haspopup='listbox']"));
         I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='Rating__c']//button[@aria-haspopup='listbox']"));
         I.amPerforming().click().withJavaScript(By.xpath("//span[@title='" + rating + "']"));
-
         I.amPerforming().textInput().in(By.xpath("//div[@data-field_api_name='ReviewComments__c']//textarea"), "Automation Reviewer comments");
     }
 
@@ -115,7 +109,7 @@ public final class GovGrantsProductObjects {
     public boolean isRecordPresentInTheFlexTable(String text, String tableId) {
         boolean flag = false;
         try {
-            if(I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//div[@id='" + tableId + "']//*[" + I.amPerforming().sanityOfXpathTo().contains("text()", text) + "] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//*[" + I.amPerforming().sanityOfXpathTo().contains("text()", text) + "]")))){
+            if(I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//*[" + I.amPerforming().sanityOfXpathTo().contains("text()", text) + "]")))){
                 flag = true;
             }
         } catch (Exception e) {

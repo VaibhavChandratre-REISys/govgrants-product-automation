@@ -164,7 +164,7 @@ public final class GovGrantsSteps {
     @Description("Navigate to any specific Main tab")
     @When("^I navigate to \"([^\"]*)\" tab$")
     public void navigateToMenutab(String tabName) {
-            govgrants.perform().mainPage().clickMainMenuBarForLwc(tabName);
+        govgrants.perform().mainPage().clickMainMenuBarForLwc(tabName);
     }
 
     @Description("Navigate to sidebar content inside a sidebar subheader")
@@ -288,7 +288,7 @@ public final class GovGrantsSteps {
     @When("^I click on top right button \"([^\"]*)\" in (flex table without processing having id|flex table with id|notes and attachment with name) \"([^\"]*)\"$")
     public void clickTopRightButtonInFlexTableById(String buttonName, String tableType, String tableIdOrName) {
         if (tableType.contains("without processing")) {
-           I.amPerforming().click().on( govgrants.perform().flexTable().getTopRightButtonLocatorByTableId( tableIdOrName, buttonName));
+            I.amPerforming().click().on(govgrants.perform().flexTable().getTopRightButtonLocatorByTableId(tableIdOrName, buttonName));
         } else {
             govgrants.perform().flexTable().clickTableTopRightButton(
                     tableIdOrName,
@@ -476,22 +476,22 @@ public final class GovGrantsSteps {
     @Description("Used to add attachments from computer")
     @When("^I upload attachment (without random number )?\"([^\"]*)\" of type \"([^\"]*)\" from computer$")
     public void uplaodAttachFromComputer(String withoutRandomNumber, String fileName, String fileType) {
-            ggObjects.uploadAttachmentInFlexTableFromComputer(
-                    withoutRandomNumber != null,
-                    fileName,
-                    fileType
-            );
+        ggObjects.uploadAttachmentInFlexTableFromComputer(
+                withoutRandomNumber != null,
+                fileName,
+                fileType
+        );
     }
 
     @Description("Used to add attachments from computer")
     @When("^I upload attachment (without random number )?\"([^\"]*)\" of type \"([^\"]*)\" with description \"([^\"]*)\" from computer$")
     public void uplaodAttachFromComputerWithDescription(String withoutRandomNumber, String fileName, String fileType, String description) {
-            ggObjects.uploadAttachmentInFlexTableFromComputerWithDescription(
-                    withoutRandomNumber != null,
-                    fileName,
-                    fileType,
-                    description
-            );
+        ggObjects.uploadAttachmentInFlexTableFromComputerWithDescription(
+                withoutRandomNumber != null,
+                fileName,
+                fileType,
+                description
+        );
     }
 
 
@@ -780,7 +780,7 @@ public final class GovGrantsSteps {
     @Description("This will download the file using javascript")
     @When("^I download the file$")
     public void saveTheFileToTarget() throws Throwable {
-       I.amPerforming().fileHandling().cleanDownloadFolder();
+        I.amPerforming().fileHandling().cleanDownloadFolder();
         I.amPerforming().fileHandling().DownloadAnyFilefromTab();
         File targetDir = new File(System.getProperty("user.dir") + File.separator + "target");
         File file = new File(targetDir, "download");
@@ -939,11 +939,7 @@ public final class GovGrantsSteps {
     @Description("To handle the alert pop up")
     @When("^I click alert button \"([^\"]*)\"$")
     public void iClickAlertButton(String buttonName) {
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-            govgrants.perform().modal().clickAlertContentSpecificButton(buttonName);
-        } else {
-            govgrants.perform().modal().clickAlertContentSpecificButtonForLwc(buttonName);
-        }
+        govgrants.perform().modal().clickAlertContentSpecificButtonForLwc(buttonName);
     }
 
     @Description("Checkout to yopmail")
@@ -972,10 +968,9 @@ public final class GovGrantsSteps {
     public void getHelpTextIconsAtPageBlockDetail(String usage, String pageBlockDetailTitle) {
         if (usage.equalsIgnoreCase("modal"))
             govgrants.perform().pageDetails().getHelpTextAtModalWindow(pageBlockDetailTitle);
-        else if(usage.equalsIgnoreCase("modal page block")){
+        else if (usage.equalsIgnoreCase("modal page block")) {
             govgrants.perform().pageDetails().getHelpTextAtModalWindowforPageBlock(pageBlockDetailTitle);
-        }
-        else
+        } else
             govgrants.perform().pageDetails().getHelpTextAtPageBlockDetail(pageBlockDetailTitle);
     }
 
@@ -1016,7 +1011,7 @@ public final class GovGrantsSteps {
 
     @When("^I begin \"([^\"]*)\" registration as \"([^\"]*)\"$")
     public void startRegistration(String officeType, String userType) {
-        govgrants.perform().registration().beginRegistration(officeType,userType);
+        govgrants.perform().registration().beginRegistration(officeType, userType);
     }
 
     @And("^I click on \"([^\"]*)\" button$")
@@ -1027,11 +1022,11 @@ public final class GovGrantsSteps {
     @Description("Select the value in any specific field and also covers lookup data entry")
     @When("^I (select|select in modal) value \"([^\"]*)\" into field \"([^\"]*)\"$")
     public void selectValue(String usage, String fieldValue, String fieldApiName) {
-            By inputBox1 = By.xpath("//lightning-input[contains(@id,'" + fieldApiName + "')]//input[@type='search' or @placeholder='Search User...'] | //c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//input[@type='search' or @placeholder='Search User...'] |//c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//input[@type='search'] ");
-            I.amPerforming().click().withJavaScript(inputBox1);
-            I.amPerforming().textInput().toClear(inputBox1);
-            I.amPerforming().textInput().in(inputBox1, fieldValue);
-            I.amPerforming().click().withJavaScript(By.xpath("//div//ul//span[contains(@class,'lookup__item-action')]//span[text()='" + fieldValue + "'] | //div[@title='" + fieldValue + "']"));
+        By inputBox1 = By.xpath("//lightning-input[contains(@id,'" + fieldApiName + "')]//input[@type='search' or @placeholder='Search User...'] | //c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//input[@type='search' or @placeholder='Search User...'] |//c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//input[@type='search'] ");
+        I.amPerforming().click().withJavaScript(inputBox1);
+        I.amPerforming().textInput().toClear(inputBox1);
+        I.amPerforming().textInput().in(inputBox1, fieldValue);
+        I.amPerforming().click().withJavaScript(By.xpath("//div//ul//span[contains(@class,'lookup__item-action')]//span[text()='" + fieldValue + "'] | //div[@title='" + fieldValue + "']"));
     }
 
     @Description("Edit Notes inside notes page block")
@@ -1154,13 +1149,13 @@ public final class GovGrantsSteps {
 
     @Then("I (softly see|see|do not see|softly do not see) value \"([^\"]*)\" for title \"([^\"]*)\" inside field history table$")
     public void iSoftlySeeValueForTitleInsideFieldHistoryTable(String usage, String rowValue, String headerName) {
-        ggObjects.toCheckValueForTitleInsideFieldHistoryTable(usage,rowValue,headerName);
+        ggObjects.toCheckValueForTitleInsideFieldHistoryTable(usage, rowValue, headerName);
     }
 
 
     @Then("I (softly see|see) value \"([^\"]*)\" for title \"([^\"]*)\" against the value \"([^\"]*)\" inside field history table$")
-    public void iSoftlySeeValueForTitleAgainstTheValueInsideFieldHistoryTable(String usage,String rowValue, String headerName, String uniqueValue) {
-        ggObjects.toCheckValueForTitleInsideFieldHistoryTableAgainstValue(usage.contains("softly"),rowValue,headerName,uniqueValue);
+    public void iSoftlySeeValueForTitleAgainstTheValueInsideFieldHistoryTable(String usage, String rowValue, String headerName, String uniqueValue) {
+        ggObjects.toCheckValueForTitleInsideFieldHistoryTableAgainstValue(usage.contains("softly"), rowValue, headerName, uniqueValue);
     }
 
     @And("I click on row level action button {string} against {string} in global search with id {string}")
@@ -1177,7 +1172,7 @@ public final class GovGrantsSteps {
 
     @And("^I filter (field|dropDown) record by \"([^\"]*)\" by label \"([^\"]*)\" in left panel for global search$")
     public void iFilterRecordByByLableInLeftPanelForGlobalSearch(String usage, String searchValue, String labelName) {
-        ggObjects.toFilterTheValueByLabelName(usage,searchValue, labelName);
+        ggObjects.toFilterTheValueByLabelName(usage, searchValue, labelName);
     }
 
     @And("I click on module {string} on left navigation for global search")

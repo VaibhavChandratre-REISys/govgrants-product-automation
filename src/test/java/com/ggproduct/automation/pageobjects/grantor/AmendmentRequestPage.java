@@ -43,24 +43,8 @@ public class AmendmentRequestPage extends GrantorProjectManager {
         I.amPerforming().propertiesFileOperationsTo().saveValue("updatedBudgetPeriodDate", I.amPerforming().dateOperationsToGet().givenDateWithOffsetFromGivenDate(fieldValue,Integer.parseInt(offset),DateTimeFormatter.ofPattern("M/d/uuuu")));
     }
 
-    public void clickAfterSelectionOfInTheTables(String buttonName, String recordValue, String numberofEntries, String flexTableId) {
-        By entriesDropDown = ByUsing.xpath("//*[@id='" + flexTableId + "']//span[text()='Show' or text()='Records Per Page']/ancestor::div[1]//select | //*[@data-flextablename='" + flexTableId + "']//div//input[@placeholder='Select an Option']");
-
-        try {
-            if (I.amPerforming().checkToSee().isDisplayed(entriesDropDown)
-                    || I.amPerforming().checkToSee().isEnabled(entriesDropDown)) {
-                govgrants.perform().flexTable().flexTableShowEntriesDropDownForLWC(flexTableId, numberofEntries);
-            }
-        } catch (Exception e) {
-
-        }
-        govgrants.perform().flexTable().selectCheckBoxes(flexTableId, recordValue);
-        govgrants.perform().phasePanel().clickAnyRightPannelButton(flexTableId, buttonName);
-    }
-
     public void clickAfterSelectionOfInTheTablesForLwc(String buttonName, String recordValue, String numberofEntries, String flexTableId) {
         By entriesDropDown = ByUsing.xpath("//*[@data-flextablename='" + flexTableId + "']//div//input[@placeholder='Select an Option']");
-
         try {
             I.amPerforming().waitFor().ElementToBePresent(entriesDropDown,5);
             if (I.amPerforming().checkToSee().isDisplayed(entriesDropDown)

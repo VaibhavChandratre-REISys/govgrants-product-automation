@@ -216,7 +216,7 @@ public final class GovGrantsAssertionObjects {
             try {
                 desiredTextSelector = By.xpath("//div[@class='slds-box slds-theme_default'] | //span[contains(normalize-space(text()),'" + desiredText + "')] | //*[contains(normalize-space(text()),'" + desiredText + "')] | //*//text()[contains(.,'" + desiredText + "')] | //*[contains(text(),'" + desiredText + "')] | //span[text()='" + desiredText + "']");
                 I.amPerforming().getElementReference().of(desiredTextSelector);
-            }  catch (Exception e) {
+            } catch (Exception e) {
                 /* Ignore Exception */
             }
         }
@@ -1078,28 +1078,15 @@ public final class GovGrantsAssertionObjects {
      * @modifier 2 meenakshi.jha added xpath for the field-name attribute (11/10/2020)
      */
     public void checkForDropdownOptions(boolean exactMatch, boolean checkOrder, String fieldApiName, List<String> expectedOptions) {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-            I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//button[@aria-haspopup='listbox'] | //label[text()='" + fieldApiName + "'] | //select[@name='" + fieldApiName + "']"));
-            By Options = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//lightning-base-combobox-item//span[@title] | //label[text()='" + fieldApiName + "']/parent::div//lightning-base-combobox-item | //select[@name='" + fieldApiName + "']//option");
-            List<String> actualOptions = I.amPerforming().getElementReference().forListOfElements().of(Options)
-                    .stream().map(Elements::getText).collect(Collectors.toList());
+        I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//button[@aria-haspopup='listbox'] | //label[text()='" + fieldApiName + "'] | //select[@name='" + fieldApiName + "']"));
+        By Options = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//lightning-base-combobox-item//span[@title] | //label[text()='" + fieldApiName + "']/parent::div//lightning-base-combobox-item | //select[@name='" + fieldApiName + "']//option");
+        List<String> actualOptions = I.amPerforming().getElementReference().forListOfElements().of(Options)
+                .stream().map(Elements::getText).collect(Collectors.toList());
 
-            compareLists(expectedOptions, actualOptions,
-                    "Verifying options of dropdown field with api name '" + fieldApiName + "'",
-                    exactMatch, checkOrder
-            );
-        } else {
-            List<String> actualOptions = I.amPerforming().dropDownSelection()
-                    .from(By.xpath("//div[" + I.amPerforming().sanityOfXpathTo().equals("@id", "field" + fieldApiName) + "]//select | //span[text()='" + fieldApiName + "']/../following-sibling::dd//select | //field[@field-name='" + fieldApiName + "']//select | //div[@id='" + fieldApiName + "']//select"))
-                    .getOptions().stream().map(WebElement::getText).collect(Collectors.toList());
-
-            compareLists(expectedOptions, actualOptions,
-                    "Verifying options of dropdown field with api name '" + fieldApiName + "'",
-                    exactMatch, checkOrder
-            );
-        }
-
-
+        compareLists(expectedOptions, actualOptions,
+                "Verifying options of dropdown field with api name '" + fieldApiName + "'",
+                exactMatch, checkOrder
+        );
     }
 
     /**
@@ -1372,8 +1359,7 @@ public final class GovGrantsAssertionObjects {
                             String cellText = cell.getText().trim();
                             String newCell = cellText.split("\n")[1];
                             rowValues.add(newCell);
-                        }
-                        else {
+                        } else {
                             rowValues.add(cell.getText());
                         }
 //                        rowValues.add(cell.getText());
@@ -2255,7 +2241,7 @@ public final class GovGrantsAssertionObjects {
             if (I.amPerforming().checkToSee().isDisplayed(getOverLayTitle(titleName))) {
                 flag = true;
             }
-        } catch(Exception ignored){
+        } catch (Exception ignored) {
 
         }
         return flag;
@@ -2598,7 +2584,7 @@ public final class GovGrantsAssertionObjects {
         boolean flag = false;
         try {
             if (isModal) {
-                if (I.amPerforming().checkToSee().isDisplayed(ByUsing.xpath("//button[text()='" + buttonName + "' and @disabled='true'] | //button[text()='" + buttonName + "' and @aria-disabled='true']"))) {
+                if (I.amPerforming().checkToSee().isDisplayed(ByUsing.xpath("//button[text()='" + buttonName + "' and @aria-disabled='true']"))) {
                     flag = true;
                 }
             } else if (I.amPerforming().checkToSee().isDisplayed(ByUsing.xpath("//button[@class='customDisableBtn' and contains(text(),'" + buttonName + "')]"))) {
@@ -3605,7 +3591,7 @@ public final class GovGrantsAssertionObjects {
             I.amPerforming().assertionsTo().assertThat(isGivenToggleOptionPresent(toggleOptions, flexTableId)).isFalse();
         } else if (usage.equalsIgnoreCase("see")) {
             Assert.assertTrue(isGivenToggleOptionPresent(toggleOptions, flexTableId));
-        } else{
+        } else {
             Assert.assertFalse(isGivenToggleOptionPresent(toggleOptions, flexTableId));
         }
     }
@@ -3620,12 +3606,12 @@ public final class GovGrantsAssertionObjects {
      */
     private Boolean isGivenToggleOptionPresent(String toggleOptions, String flexTableId) {
         boolean flag = false;
-        if(toggleOptions.contains("Announcements") || toggleOptions.contains("Funding Decision Memos")){
+        if (toggleOptions.contains("Announcements") || toggleOptions.contains("Funding Decision Memos")) {
             I.amPerforming().click().on(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']"));
-        } else if(toggleOptions.contains("External Funding Sources")|| toggleOptions.contains("NGO Programs")){
+        } else if (toggleOptions.contains("External Funding Sources") || toggleOptions.contains("NGO Programs")) {
             String toggleName1 = toggleOptions.split(" ")[1];
             I.amPerforming().click().on(By.xpath("//span[contains(text(),'" + toggleName1 + "')]/ancestor::c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']"));
-        } else if(toggleOptions.contains("Subawards")){
+        } else if (toggleOptions.contains("Subawards")) {
             String toggleName1 = toggleOptions.split(" -")[0];
             I.amPerforming().click().on(By.xpath("//span[contains(text(),'" + toggleName1 + "')]/ancestor::c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']"));
         } else {
@@ -3633,7 +3619,8 @@ public final class GovGrantsAssertionObjects {
             I.amPerforming().click().on(By.xpath("//span[contains(text(),'" + toggleName + "')]/ancestor::c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']"));
         }
         try {
-            if (I.amPerforming().checkToSee().IsElementPresentQuick(ByUsing.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//lightning-button-menu//div//a//span[text()='" + toggleOptions + "']")));
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(ByUsing.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//lightning-button-menu//div//a//span[text()='" + toggleOptions + "']")))
+                ;
             flag = true;
         } catch (org.openqa.selenium.NoSuchElementException e) {
         }
@@ -3734,7 +3721,7 @@ public final class GovGrantsAssertionObjects {
 
     }
 
-    public void assertSectionsofGlobalSearchDisplayOrNot( String sectionName, String usage) {
+    public void assertSectionsofGlobalSearchDisplayOrNot(String sectionName, String usage) {
         if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isSectionsInGlobalSearchDisplay(sectionName)).isTrue();
         } else if (usage.equalsIgnoreCase("do not see")) {
@@ -3797,7 +3784,7 @@ public final class GovGrantsAssertionObjects {
     }
 
     private int isTopRecentRecordsInGlobalSearchDisplay(String number) {
-        List<Elements> recentRecords = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@data-aura-class='forceSearchInputDesktop']//div[@role='listbox']//ul//li")).subList(0,5);
+        List<Elements> recentRecords = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@data-aura-class='forceSearchInputDesktop']//div[@role='listbox']//ul//li")).subList(0, 5);
         return recentRecords.size();
     }
 
@@ -3816,9 +3803,9 @@ public final class GovGrantsAssertionObjects {
     private boolean isDropDownOptionsInsideSectionofGlobalSearch(String options, String sectionName) {
         boolean flag = false;
         By globalDropdownSelector = By.xpath("//*[@data-value='Search: All']");
-        if(I.amPerforming().checkToSee().isDisplayed(globalDropdownSelector)){
+        if (I.amPerforming().checkToSee().isDisplayed(globalDropdownSelector)) {
             I.amPerforming().click().on(globalDropdownSelector);
-            List<Elements> elements= I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//ul[@aria-label='" + sectionName + "']//li"));
+            List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//ul[@aria-label='" + sectionName + "']//li"));
             for (Elements element : elements) {
                 if (element.getText().equals(options)) {
                     flag = true;
@@ -3833,10 +3820,10 @@ public final class GovGrantsAssertionObjects {
         if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isFieldInsideRefineByFilter(fieldName)).isTrue();
         } else if (usage.equalsIgnoreCase("see")) {
-           Assert.assertTrue(isFieldInsideRefineByFilter(fieldName));
+            Assert.assertTrue(isFieldInsideRefineByFilter(fieldName));
         } else if (usage.equalsIgnoreCase("do not see")) {
             I.amPerforming().assertionsTo().assertThat(isFieldInsideRefineByFilter(fieldName)).isFalse();
-        } else{
+        } else {
             Assert.assertFalse(isFieldInsideRefineByFilter(fieldName));
         }
     }
@@ -3861,7 +3848,7 @@ public final class GovGrantsAssertionObjects {
             Assert.assertTrue(isTheTextOnLeftNavigationForGlobalSearch(text));
         } else if (usage.equalsIgnoreCase("do not see")) {
             I.amPerforming().assertionsTo().assertThat(isTheTextOnLeftNavigationForGlobalSearch(text)).isFalse();
-        } else{
+        } else {
             Assert.assertFalse(isTheTextOnLeftNavigationForGlobalSearch(text));
         }
     }
@@ -3880,20 +3867,20 @@ public final class GovGrantsAssertionObjects {
 
     public void assertCountForModuleOnLeftNavigationForGlobalSearch(String usage, String countNumber, String moduleName) {
         if (usage.equalsIgnoreCase("softly see")) {
-            I.amPerforming().assertionsTo().assertThat(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber,moduleName)).isTrue();
+            I.amPerforming().assertionsTo().assertThat(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber, moduleName)).isTrue();
         } else if (usage.equalsIgnoreCase("see")) {
-            Assert.assertTrue(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber,moduleName));
+            Assert.assertTrue(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber, moduleName));
         } else if (usage.equalsIgnoreCase("do not see")) {
-            I.amPerforming().assertionsTo().assertThat(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber,moduleName)).isFalse();
-        } else{
-            Assert.assertFalse(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber,moduleName));
+            I.amPerforming().assertionsTo().assertThat(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber, moduleName)).isFalse();
+        } else {
+            Assert.assertFalse(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber, moduleName));
         }
     }
 
     private boolean isCountForModuleOnLeftNavigationForGlobalSearch(String countNumber, String moduleName) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'scopesBlock')]//*[normalize-space(text())='"  + moduleName + "']/ancestor::a//span//span[text()='" + countNumber + "']"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'scopesBlock')]//*[normalize-space(text())='" + moduleName + "']/ancestor::a//span//span[text()='" + countNumber + "']"))) {
                 flag = true;
             }
         } catch (org.openqa.selenium.NoSuchElementException e) {
@@ -3918,9 +3905,9 @@ public final class GovGrantsAssertionObjects {
     private boolean isOptionsInsideDropdown(String options, String dropDownName) {
         boolean flag = false;
         By globalDropdownSelector = By.xpath("//div[contains(@class,'sortMenuLink')]//button[text()='" + dropDownName + "']");
-        if(I.amPerforming().checkToSee().isDisplayed(globalDropdownSelector)){
+        if (I.amPerforming().checkToSee().isDisplayed(globalDropdownSelector)) {
             I.amPerforming().click().on(globalDropdownSelector);
-            List<Elements> elements= I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//div[contains(@class,'sortMenuLink')]//div//ul//li"));
+            List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//div[contains(@class,'sortMenuLink')]//div//ul//li"));
             for (Elements element : elements) {
                 if (element.getText().equals(options)) {
                     flag = true;
@@ -3934,14 +3921,14 @@ public final class GovGrantsAssertionObjects {
     public void assertClickOnModuleOnLeftNavigationForGlobalSearch(String usage, String names) {
         if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isClickOnModuleOnLeftNavigationForGlobalSearch(names)).isTrue();
-        }  else if (usage.equalsIgnoreCase("see")) {
+        } else if (usage.equalsIgnoreCase("see")) {
             Assert.assertTrue(isClickOnModuleOnLeftNavigationForGlobalSearch(names));
         }
     }
 
     private boolean isClickOnModuleOnLeftNavigationForGlobalSearch(String names) {
-       boolean flag = false;
-        WebElement element= I.amPerforming().getElementReference().of(ByUsing.xpath("//div[@class=' scopesBlock']//li//a[@title='" + names + "']"));
+        boolean flag = false;
+        WebElement element = I.amPerforming().getElementReference().of(ByUsing.xpath("//div[@class=' scopesBlock']//li//a[@title='" + names + "']"));
         if (I.amPerforming().checkToSee().isEnabled(element) && I.amPerforming().checkToSee().isDisplayed(element)) {
             I.amPerforming().click().on(element);
             flag = true;
@@ -3952,11 +3939,11 @@ public final class GovGrantsAssertionObjects {
     public void assertloginPageButtons(String usage, String buttonName) {
         if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isloginPageButtonsDisplay(buttonName)).isTrue();
-        }  else if (usage.equalsIgnoreCase("see")) {
+        } else if (usage.equalsIgnoreCase("see")) {
             Assert.assertTrue(isloginPageButtonsDisplay(buttonName));
         } else if (usage.equalsIgnoreCase("softly do not see")) {
             I.amPerforming().assertionsTo().assertThat(isloginPageButtonsDisplay(buttonName)).isFalse();
-        } else{
+        } else {
             Assert.assertFalse(isloginPageButtonsDisplay(buttonName));
         }
     }
@@ -3974,24 +3961,24 @@ public final class GovGrantsAssertionObjects {
 
     public void assertExpandAndCollapseButtonForHeader(String usage, String headerButtonName, String headerOrPage) {
         if (usage.equalsIgnoreCase("softly see")) {
-            I.amPerforming().assertionsTo().assertThat(isExpandCollapseButtonDisplay(headerButtonName,headerOrPage)).isTrue();
-        }  else if (usage.equalsIgnoreCase("see")) {
-            Assert.assertTrue(isExpandCollapseButtonDisplay(headerButtonName,headerOrPage));
+            I.amPerforming().assertionsTo().assertThat(isExpandCollapseButtonDisplay(headerButtonName, headerOrPage)).isTrue();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isExpandCollapseButtonDisplay(headerButtonName, headerOrPage));
         } else if (usage.equalsIgnoreCase("softly do not see")) {
-            I.amPerforming().assertionsTo().assertThat(isExpandCollapseButtonDisplay(headerButtonName,headerOrPage)).isFalse();
-        } else{
-            Assert.assertFalse(isExpandCollapseButtonDisplay(headerButtonName,headerOrPage));
+            I.amPerforming().assertionsTo().assertThat(isExpandCollapseButtonDisplay(headerButtonName, headerOrPage)).isFalse();
+        } else {
+            Assert.assertFalse(isExpandCollapseButtonDisplay(headerButtonName, headerOrPage));
         }
     }
 
     private boolean isExpandCollapseButtonDisplay(String headerButtonName, String headerOrPage) {
         boolean flag = false;
         try {
-            if(headerOrPage.equals("header")) {
+            if (headerOrPage.equals("header")) {
                 if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//button[@title='" + headerButtonName + "' and contains(@class,'btn-collapse-header')]"))) {
                     flag = true;
                 }
-            } else{
+            } else {
                 if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//button[@title='" + headerButtonName + "' and contains(@class,'resizebtn')] |//button[@title='" + headerButtonName + "' and contains(@class,'btn-collapse')] "))) {
                     flag = true;
                 }
@@ -4040,7 +4027,7 @@ public final class GovGrantsAssertionObjects {
     private Boolean isResetButtonInsideFlextable(String buttonName, String tableId) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//button[contains(@title,'" + buttonName +"')]"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//button[contains(@title,'" + buttonName + "')]"))) {
                 flag = true;
             }
         } catch (Exception e) {
@@ -4081,13 +4068,13 @@ public final class GovGrantsAssertionObjects {
 
     public void assertValueForColumnInsideTableWithId(String usage, String sortOrder, String columnName, String tableId) {
         if (usage.equalsIgnoreCase("see")) {
-            Assert.assertTrue(isValueForColumnInsideTableWithId(sortOrder,columnName, tableId));
+            Assert.assertTrue(isValueForColumnInsideTableWithId(sortOrder, columnName, tableId));
         } else if (usage.equalsIgnoreCase("do not see")) {
-            Assert.assertFalse(isValueForColumnInsideTableWithId(sortOrder,columnName, tableId));
+            Assert.assertFalse(isValueForColumnInsideTableWithId(sortOrder, columnName, tableId));
         } else if (usage.equalsIgnoreCase("softly see")) {
-            I.amPerforming().assertionsTo().assertThat(isValueForColumnInsideTableWithId(sortOrder,columnName, tableId)).isTrue();
+            I.amPerforming().assertionsTo().assertThat(isValueForColumnInsideTableWithId(sortOrder, columnName, tableId)).isTrue();
         } else if (usage.equalsIgnoreCase("softly do not see")) {
-            I.amPerforming().assertionsTo().assertThat(isValueForColumnInsideTableWithId(sortOrder,columnName, tableId)).isFalse();
+            I.amPerforming().assertionsTo().assertThat(isValueForColumnInsideTableWithId(sortOrder, columnName, tableId)).isFalse();
         }
     }
 

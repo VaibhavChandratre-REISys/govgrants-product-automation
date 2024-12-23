@@ -682,7 +682,6 @@ public final class InputForms {
      * @author john.phillips
      */
     private void handleClearingTextInput(WebElement fieldWrapper) {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
             if (field.contains("field")) {
                 String field1 = field.toString().split("field")[1];
@@ -701,12 +700,6 @@ public final class InputForms {
                 I.amPerforming().textInput().toClear(inputBox1);
 
             }
-            // Makes the date(time) picker popup disappear, if clearing a date field
-//        if (inputBox.getAttribute("class").contains("date")) {
-//            makeCalendarPopupDisappear(inputBox);
-//        }
-
-        }
     }
 
     private void handleClearingTextInputForTable(WebElement fieldWrapper) {

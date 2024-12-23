@@ -420,13 +420,6 @@ public final class GovGrantsAssertionSteps {
     @Then("^I see the (header) is \"([^\"]*)\" in the page details$")
     @Then("^I see the (sub-header) is \"([^\"]*)\" in the page details$")
     public void validateOverviewHeader(String isHeader, String headerText) {
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-            By headerLocator = By.xpath(String.format("//div[contains(@class, 'overview-header') or contains(@class, 'overviewHeader')]//span[contains(@class, '%s')]",
-                    ("header".equalsIgnoreCase(isHeader) ? "customLabelstyle" : "overview-title")));
-            I.amPerforming().assertionsTo().assertThat(I.amPerforming().actionToGet().text(headerLocator))
-                    .as("Verifying overview header is as expected")
-                    .isEqualToNormalizingWhitespace(headerText);
-        } else {
             if ("header".equalsIgnoreCase(isHeader)) {
                 By headerLocator = By.xpath("//div[contains(@class,'page-header__col-title')]//h2[normalize-space(text())= '" + headerText + "']");
                 Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(headerLocator));
@@ -434,8 +427,6 @@ public final class GovGrantsAssertionSteps {
                 By headerLocator = By.xpath("//div[contains(@class,'page-header__name')]//span[contains(@title,'" + headerText + "') or contains(text(),'" + headerText + "')]");
                 Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(headerLocator));
             }
-
-        }
     }
 
     @Description("It will compare total records inside table with number of rows/records in table")
@@ -762,7 +753,7 @@ public final class GovGrantsAssertionSteps {
     private boolean topRightButtonVisibleOrNot(String buttonName, String tableId) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//div[@id='" + tableId + "']//span//button[@title='New' or text()='" + buttonName + "'] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//*[@title='" + buttonName + "' or text()='" + buttonName + "']")))) {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//*[@title='" + buttonName + "' or text()='" + buttonName + "']")))) {
                 flag = true;
             }
         } catch (Exception e) {

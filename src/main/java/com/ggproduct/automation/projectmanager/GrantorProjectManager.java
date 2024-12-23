@@ -58,7 +58,7 @@ public class GrantorProjectManager extends ProjectManager {
 
     /* handles to veify total records present in flex table */
     public String totalRecordsCount(String tableId) {
-        return (I.amPerforming().actionToGet().text(By.xpath("//div[@id='" + tableId + "']//following-sibling::span[contains(text(),'Total Records')] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//span[contains(text(),'Total Records')]")));
+        return (I.amPerforming().actionToGet().text(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//span[contains(text(),'Total Records')]")));
     }
 
     public void AssertTotalRecordsCountInFlexTable(String totalRecord, String tableId, boolean isSoftly) {
@@ -509,43 +509,23 @@ public class GrantorProjectManager extends ProjectManager {
      * @author jitendra.pisal
      */
     public void compareContactListEquality(String usage, List<String> projectRoles) {
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-
-            List<String> listofRoles = new ArrayList<>();
-            List<WebElement> ll = I.amPerforming().dropDownSelection().from(By.xpath("//field[@field-name='ProjectRole__c']//select")).getOptions();
-            for (WebElement e :
-                    ll) {
-                listofRoles.add(e.getText().trim());
-            }
-            if (usage.contains("softly")) {
-                I.amPerforming().assertionsTo().assertThat(
-                        listofRoles.containsAll(projectRoles)
-                ).isTrue();
-            } else {
-                Assert.assertTrue(
-                        listofRoles.containsAll(projectRoles)
-                );
-            }
-
+        List<String> listofRoles = new ArrayList<>();
+        I.amPerforming().click().withJavaScript(By.xpath("//c-fieldlwc[@data-fieldapiname='ProjectRole__c']//lightning-input//input[@placeholder='Select an Option']"));
+        I.amPerforming().scroll().withMouseToElement(By.xpath("//c-fieldlwc[@data-fieldapiname='ProjectRole__c']//lightning-input//input[@placeholder='Select an Option']"));
+        By Compare = By.xpath("//c-fieldlwc[@data-fieldapiname='ProjectRole__c']//ul/li");
+        List<Elements> ll = I.amPerforming().getElementReference().forListOfElements().of(Compare);
+        for (Elements e :
+                ll) {
+            listofRoles.add(e.getText().trim());
+        }
+        if (usage.contains("softly")) {
+            I.amPerforming().assertionsTo().assertThat(
+                    listofRoles.containsAll(projectRoles)
+            ).isTrue();
         } else {
-            List<String> listofRoles = new ArrayList<>();
-            I.amPerforming().click().withJavaScript(By.xpath("//c-fieldlwc[@data-fieldapiname='ProjectRole__c']//lightning-input//input[@placeholder='Select an Option']"));
-            I.amPerforming().scroll().withMouseToElement(By.xpath("//c-fieldlwc[@data-fieldapiname='ProjectRole__c']//lightning-input//input[@placeholder='Select an Option']"));
-            By Compare = By.xpath("//c-fieldlwc[@data-fieldapiname='ProjectRole__c']//ul/li");
-            List<Elements> ll = I.amPerforming().getElementReference().forListOfElements().of(Compare);
-            for (Elements e :
-                    ll) {
-                listofRoles.add(e.getText().trim());
-            }
-            if (usage.contains("softly")) {
-                I.amPerforming().assertionsTo().assertThat(
-                        listofRoles.containsAll(projectRoles)
-                ).isTrue();
-            } else {
-                Assert.assertTrue(
-                        listofRoles.containsAll(projectRoles)
-                );
-            }
+            Assert.assertTrue(
+                    listofRoles.containsAll(projectRoles)
+            );
         }
     }
 
@@ -695,7 +675,7 @@ public class GrantorProjectManager extends ProjectManager {
      * @author Keerti Munde
      */
     public void clickAllDeleteButtonsInsideFlexTable(String flextableId) {
-        By columnSelector = By.xpath("//*[@id='" + flextableId + "']//table//tr//td[1] | //*[@data-flextablename='" + flextableId + "']//table//tr//td[1]");
+        By columnSelector = By.xpath("//*[@data-flextablename='" + flextableId + "']//table//tr//td[1]");
         I.amPerforming().waitFor().ElementToBeVisible(columnSelector);
         List<Elements> rowValues = I.amPerforming().getElementReference().forListOfElements().of(columnSelector);
         int rowSize = rowValues.size();
@@ -705,15 +685,10 @@ public class GrantorProjectManager extends ProjectManager {
             if (rowValues2.get(counter).getText().equalsIgnoreCase("No Records Found")) {
                 counter++;
             } else {
-                if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
                     I.amPerforming().click().on(columnSelector);
                     I.amPerforming().click().on(By.xpath("//*[@data-flextablename='" + flextableId + "']//td//*[text()='Delete']"));
                     govgrants.perform().modal().acceptPopUp();
-                    I.amPerforming().waitFor().makeThreadSleep(3000);
-                } else {
-                    I.amPerforming().click().on(govgrants.perform().flexTable().getTableActionIcon(flextableId, "Delete", rowValues2.get(counter).getText()));
-                    govgrants.perform().modal().acceptPopUp();
-                }
+                    I.amPerforming().waitFor().makeThreadSleep(2000);
             }
         }
     }
@@ -781,7 +756,7 @@ public class GrantorProjectManager extends ProjectManager {
 
     public Boolean isFieldStatusVisibleInPageblock(String fieldName, String fieldValue, String pageblockName) {
         boolean flag = false;
-        if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//a[text()='" + pageblockName + "']/ancestor::div[@class='panel-heading']//following-sibling::div//span[text()='" + fieldName + "']/ancestor::div[@class='textFieldWrapFlex']//div//dd//span[text()='" + fieldValue + "'] | //span[contains(text(),'" + pageblockName + "')]/ancestor::c-page-block-section//following-sibling::div//label[contains(text(),'" + fieldName + "')]/..//div//lightning-formatted-text[contains(text(),'" + fieldValue + "')] | //span[contains(text(),'" + pageblockName + "')]/parent::div/../div//label[contains(text(),'" + fieldName + "')]/..//div//span[contains(text(),'" + fieldValue + "')] | //span[contains(text(),'" + pageblockName + "')]/parent::div/../div//label[contains(text(),'" + fieldName + "')]/..//span//p[contains(text(),'" + fieldValue + "')] | //span[contains(text(),'" + pageblockName + "')]/parent::div/../div//span[contains(text(),'" + fieldName + "')]/../..//span//p[contains(text(),'" + fieldValue + "')]"))) {
+        if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//span[contains(text(),'" + pageblockName + "')]/ancestor::c-page-block-section//following-sibling::div//label[contains(text(),'" + fieldName + "')]/..//div//lightning-formatted-text[contains(text(),'" + fieldValue + "')] | //span[contains(text(),'" + pageblockName + "')]/parent::div/../div//label[contains(text(),'" + fieldName + "')]/..//div//span[contains(text(),'" + fieldValue + "')] | //span[contains(text(),'" + pageblockName + "')]/parent::div/../div//label[contains(text(),'" + fieldName + "')]/..//span//p[contains(text(),'" + fieldValue + "')] | //span[contains(text(),'" + pageblockName + "')]/parent::div/../div//span[contains(text(),'" + fieldName + "')]/../..//span//p[contains(text(),'" + fieldValue + "')]"))) {
             flag = true;
         } else {
             flag = false;

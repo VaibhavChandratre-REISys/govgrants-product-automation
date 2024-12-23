@@ -266,7 +266,7 @@ public final class PhasePanel {
      * click on right header bars with data Target value
      */
     public void clickParallelMenuBarsWithDataTargetValue(String dataTargetValue) {
-        By parallelMenuBarswithDataTarget = By.xpath("//a[@data-target='" + dataTargetValue + "']/ancestor::div[contains(@class,'panel-heading')]//a[@title='Menu'] |//span[@title='" + dataTargetValue + "']//ancestor::div[@class='header']//button[@title='Menu']");
+        By parallelMenuBarswithDataTarget = By.xpath("//span[@title='" + dataTargetValue + "']//ancestor::div[@class='header']//button[@title='Menu']");
        try {
            I.amPerforming().click().on(parallelMenuBarswithDataTarget);
        }catch (Exception e){
@@ -368,18 +368,7 @@ public final class PhasePanel {
      * @modifier komal.mukhekar added xpath (02/09/2022)
      */
     public void selectItemFromParallelMenuBars(String panelTitleName, String menuItemName) {
-        By parallelMenuItem = By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", panelTitleName) + "]/../.."
-                + "/following-sibling::div//span[contains(@class,'header-bars')]//*[text()='"
-                + menuItemName + "'] | " + "//div//a/following-sibling::span[text()='"
-                + panelTitleName + "']/.."
-                + "/following-sibling::div/span[contains(@class,'header-bars')]//*[text()='"
-                + menuItemName + "'] | " + "//span[text()='" + panelTitleName
-                + "']/.." + "//div[@class='header-bars']//*[text()='" + menuItemName
-                + "']|//div//a[@title='" + panelTitleName
-                + "']/ancestor::div/following-sibling::div//li//span[contains(text(),'" + menuItemName
-                + "')] | //*[text()='"+panelTitleName+"']/preceding-sibling::span//*[@title='Menu' or contains(@class,'fa-bars')]/following-sibling::ul//a[text()='"
-                + menuItemName + "'] | //div//a[@title='"+panelTitleName+"']/ancestor::div/following-sibling::span//li//a[@title='"+ menuItemName+"']" +
-                "| //a[contains(@title,'" + panelTitleName + "')]/ancestor::div/div[@align='right']//li/a[@title='Download as PDF'] | //*[text()='"+panelTitleName+"']/ancestor::c-flex-gridlwc//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"'] | //*[text()='"+panelTitleName+"']/ancestor::c-lwc-flex-table//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"']");
+        By parallelMenuItem = By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("//*[text()='"+panelTitleName+"']/ancestor::c-flex-gridlwc//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"'] | //*[text()='"+panelTitleName+"']/ancestor::c-lwc-flex-table//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"']"));
         I.amPerforming().click().on(parallelMenuItem);
         try {
                 govgrants.perform().modal().acceptPopUpWithParameter("Yes");

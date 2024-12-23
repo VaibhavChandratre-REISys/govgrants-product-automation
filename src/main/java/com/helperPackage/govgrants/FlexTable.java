@@ -140,13 +140,13 @@ public final class FlexTable implements FlexTableComponent {
      * @author john.phillips
      */
     public void clickTableActionIcon(String flexTableId, String iconName, String... anyUniqueColumnValues) {
-           getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
-            try {
-                I.amPerforming().scroll().withMouseToElement(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
-                I.amPerforming().click().on(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
-            } catch (Exception e) {
-                I.amPerforming().click().withJavaScript(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
-            }
+        getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
+        try {
+            I.amPerforming().scroll().withMouseToElement(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
+            I.amPerforming().click().on(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
+        } catch (Exception e) {
+            I.amPerforming().click().withJavaScript(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
+        }
         govgrants.perform().modal().acceptPopUp();
     }
 
@@ -173,8 +173,8 @@ public final class FlexTable implements FlexTableComponent {
      * @author john.phillips
      */
     public void clickTableActionIcons(String iconName, String... anyUniqueColumnValues) {
-            I.amPerforming().click().withJavaScript(getTableActionIconWithoutTableIdForLWC(anyUniqueColumnValues));
-            I.amPerforming().click().withJavaScript(By.xpath("//td//a//span[text()='" + iconName + "']"));
+        I.amPerforming().click().withJavaScript(getTableActionIconWithoutTableIdForLWC(anyUniqueColumnValues));
+        I.amPerforming().click().withJavaScript(By.xpath("//td//a//span[text()='" + iconName + "']"));
     }
 
     /**
@@ -270,104 +270,50 @@ public final class FlexTable implements FlexTableComponent {
      */
     public void expandOrCollapseNestedTable(String uniqueColumnValue, boolean isExpand) {
         try {
-            if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-                String plusOrMinus = isExpand ? "plus" : "minus";
-                By circleIconSelector = By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]"
-                        + "//i[contains(@class, 'fa-" + plusOrMinus + "')]");
-                By collapsingRow = By.xpath("//tr//*[contains(@class, 'collapsing')] | //tr//*[contains(@class, 'collapse')]");
+            String plusOrMinus = isExpand ? "right" : "down";
+            By circleIconSelector = By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]"
+                    + "//lightning-icon[contains(@class, 'chevron" + plusOrMinus + "')]");
+            By collapsingRow = By.xpath("//tr//*[contains(@class, 'collapsing')] | //tr//*[contains(@class, 'collapse')]");
+            WebElement circleIconRow = I.amPerforming().getElementReference().of(circleIconSelector).findElement(By.xpath(".//ancestor::tr[1]"));
+            I.amPerforming().click().withJavaScript(circleIconSelector);
 
-                WebElement circleIconRow = I.amPerforming().getElementReference().of(circleIconSelector).findElement(By.xpath(".//ancestor::tr[1]"));
-                I.amPerforming().click().on(circleIconSelector);
+            boolean clickedAgain = false;
 
-                boolean clickedAgain = false;
-
-                for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
-                     elapsedTime < EnvironmentFactory.getMaxWaitTime() && (I.amPerforming().checkToSee().IsElementPresentQuick(collapsingRow) || circleIconRow.findElements(circleIconSelector).size() != 0);
-                     elapsedTime = (System.currentTimeMillis() - startTime) / 1000
-                ) {
-                    if (!clickedAgain && elapsedTime > EnvironmentFactory.getMaxWaitTime() / 2) {
-                        clickedAgain = true;
-                        try {
-                            I.amPerforming().click().on(circleIconSelector, false);
-                        } catch (Exception e) {
-                            /* Ignore Exception */
-                        }
+            for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
+                 elapsedTime < EnvironmentFactory.getMaxWaitTime() && (I.amPerforming().checkToSee().IsElementPresentQuick(collapsingRow) || circleIconRow.findElements(circleIconSelector).size() != 0);
+                 elapsedTime = (System.currentTimeMillis() - startTime) / 1000
+            ) {
+                if (!clickedAgain && elapsedTime > EnvironmentFactory.getMaxWaitTime() / 2) {
+                    clickedAgain = true;
+                    try {
+                        I.amPerforming().click().on(circleIconSelector, false);
+                    } catch (Exception e) {
+                        /* Ignore Exception */
                     }
                 }
-            } else {
-                String plusOrMinus = isExpand ? "right" : "down";
-                By circleIconSelector = By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]"
-                        + "//lightning-icon[contains(@class, 'chevron" + plusOrMinus + "')]");
-                By collapsingRow = By.xpath("//tr//*[contains(@class, 'collapsing')] | //tr//*[contains(@class, 'collapse')]");
-                WebElement circleIconRow = I.amPerforming().getElementReference().of(circleIconSelector).findElement(By.xpath(".//ancestor::tr[1]"));
-                I.amPerforming().click().withJavaScript(circleIconSelector);
-
-                boolean clickedAgain = false;
-
-                for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
-                     elapsedTime < EnvironmentFactory.getMaxWaitTime() && (I.amPerforming().checkToSee().IsElementPresentQuick(collapsingRow) || circleIconRow.findElements(circleIconSelector).size() != 0);
-                     elapsedTime = (System.currentTimeMillis() - startTime) / 1000
-                ) {
-                    if (!clickedAgain && elapsedTime > EnvironmentFactory.getMaxWaitTime() / 2) {
-                        clickedAgain = true;
-                        try {
-                            I.amPerforming().click().on(circleIconSelector, false);
-                        } catch (Exception e) {
-                            /* Ignore Exception */
-                        }
-                    }
-                }
-
             }
         } catch (StaleElementReferenceException e) {
-            if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-                String plusOrMinus = isExpand ? "plus" : "minus";
-                By circleIconSelector = By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]"
-                        + "//i[contains(@class, 'fa-" + plusOrMinus + "')]");
-                By collapsingRow = By.xpath("//tr//*[contains(@class, 'collapsing')] | //tr//*[contains(@class, 'collapse')]");
+            String plusOrMinus = isExpand ? "right" : "down";
+            By circleIconSelector = By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]"
+                    + "//lightning-icon[contains(@class, 'chevron" + plusOrMinus + "')]");
+            By collapsingRow = By.xpath("//tr//*[contains(@class, 'collapsing')] | //tr//*[contains(@class, 'collapse')]");
+            WebElement circleIconRow = I.amPerforming().getElementReference().of(circleIconSelector).findElement(By.xpath(".//ancestor::tr[1]"));
+            I.amPerforming().click().withJavaScript(circleIconSelector);
 
-                WebElement circleIconRow = I.amPerforming().getElementReference().of(circleIconSelector).findElement(By.xpath(".//ancestor::tr[1]"));
-                I.amPerforming().click().on(circleIconSelector);
+            boolean clickedAgain = false;
 
-                boolean clickedAgain = false;
-
-                for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
-                     elapsedTime < EnvironmentFactory.getMaxWaitTime() && (I.amPerforming().checkToSee().IsElementPresentQuick(collapsingRow) || circleIconRow.findElements(circleIconSelector).size() != 0);
-                     elapsedTime = (System.currentTimeMillis() - startTime) / 1000
-                ) {
-                    if (!clickedAgain && elapsedTime > EnvironmentFactory.getMaxWaitTime() / 2) {
-                        clickedAgain = true;
-                        try {
-                            I.amPerforming().click().on(circleIconSelector, false);
-                        } catch (Exception ee) {
-                            /* Ignore Exception */
-                        }
+            for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
+                 elapsedTime < EnvironmentFactory.getMaxWaitTime() && (I.amPerforming().checkToSee().IsElementPresentQuick(collapsingRow) || circleIconRow.findElements(circleIconSelector).size() != 0);
+                 elapsedTime = (System.currentTimeMillis() - startTime) / 1000
+            ) {
+                if (!clickedAgain && elapsedTime > EnvironmentFactory.getMaxWaitTime() / 2) {
+                    clickedAgain = true;
+                    try {
+                        I.amPerforming().click().on(circleIconSelector, false);
+                    } catch (Exception eg) {
+                        /* Ignore Exception */
                     }
                 }
-            } else {
-                String plusOrMinus = isExpand ? "right" : "down";
-                By circleIconSelector = By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]"
-                        + "//lightning-icon[contains(@class, 'chevron" + plusOrMinus + "')]");
-                By collapsingRow = By.xpath("//tr//*[contains(@class, 'collapsing')] | //tr//*[contains(@class, 'collapse')]");
-                WebElement circleIconRow = I.amPerforming().getElementReference().of(circleIconSelector).findElement(By.xpath(".//ancestor::tr[1]"));
-                I.amPerforming().click().withJavaScript(circleIconSelector);
-
-                boolean clickedAgain = false;
-
-                for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
-                     elapsedTime < EnvironmentFactory.getMaxWaitTime() && (I.amPerforming().checkToSee().IsElementPresentQuick(collapsingRow) || circleIconRow.findElements(circleIconSelector).size() != 0);
-                     elapsedTime = (System.currentTimeMillis() - startTime) / 1000
-                ) {
-                    if (!clickedAgain && elapsedTime > EnvironmentFactory.getMaxWaitTime() / 2) {
-                        clickedAgain = true;
-                        try {
-                            I.amPerforming().click().on(circleIconSelector, false);
-                        } catch (Exception eg) {
-                            /* Ignore Exception */
-                        }
-                    }
-                }
-
             }
         }
     }
@@ -426,8 +372,7 @@ public final class FlexTable implements FlexTableComponent {
      * @param uniqueColumnValues
      */
     public WebElement getSpecificTableColumn(String flexTableId, String... uniqueColumnValues) {
-        String desiredColumn = "//div[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableId)
-                + "] | //c-lwc-flex-table[@data-flextablename='" + flexTableId + "']";
+        String desiredColumn = "//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']";
         for (String uniqueColumnValue : uniqueColumnValues) {
 
             if (uniqueColumnValue.equalsIgnoreCase("Record Id")) {
@@ -503,7 +448,7 @@ public final class FlexTable implements FlexTableComponent {
                 }
                 WebElement rowCell = I.amPerforming().getElementReference().ofNested(newRow,
                         By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + mapColumnHeaderToColumnPosition.get(value) + "]"));
-               I.amPerforming().waitFor().makeThreadSleep(1000);
+                I.amPerforming().waitFor().makeThreadSleep(1000);
                 this.handleFlexTableDataInputs(rowCell, values);
             }
         }
@@ -821,7 +766,7 @@ public final class FlexTable implements FlexTableComponent {
                 + " or " + I.amPerforming().sanityOfXpathTo().equals("@type", buttonName) + "]"
         );
         try {
-                I.amPerforming().waitFor().ElementToBePresent(locator, 2);
+            I.amPerforming().waitFor().ElementToBePresent(locator, 2);
         } catch (Exception ee) {
             System.out.println("Element was not present...");
         }
@@ -852,14 +797,14 @@ public final class FlexTable implements FlexTableComponent {
     public By getTableActionIcon(String flexTableId, String iconName, String... uniqueColumnValues) {
         String desiredAction = null;
 
-            desiredAction = "//c-lwc-flex-table[" + I.amPerforming().sanityOfXpathTo().equals("@data-flextablename", flexTableId) + "]";
-            for (String uniqueColumnValue : uniqueColumnValues) {
-                desiredAction += "//td//*["
-                        + I.amPerforming().sanityOfXpathTo().equals("@title", uniqueColumnValue) + " or "
-                        + I.amPerforming().sanityOfXpathTo().equals("text()", uniqueColumnValue) + "]"
-                        + "/ancestor::tr[1]";
-            }
-            desiredAction += "//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", iconName) + "] | //td//*[" + I.amPerforming().sanityOfXpathTo().equals("@title", iconName) + "]";
+        desiredAction = "//c-lwc-flex-table[" + I.amPerforming().sanityOfXpathTo().equals("@data-flextablename", flexTableId) + "]";
+        for (String uniqueColumnValue : uniqueColumnValues) {
+            desiredAction += "//td//*["
+                    + I.amPerforming().sanityOfXpathTo().equals("@title", uniqueColumnValue) + " or "
+                    + I.amPerforming().sanityOfXpathTo().equals("text()", uniqueColumnValue) + "]"
+                    + "/ancestor::tr[1]";
+        }
+        desiredAction += "//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", iconName) + "] | //td//*[" + I.amPerforming().sanityOfXpathTo().equals("@title", iconName) + "]";
         return By.xpath(desiredAction);
     }
 
@@ -922,7 +867,7 @@ public final class FlexTable implements FlexTableComponent {
                     handleTextInput(fieldWrapper, fieldValue);
                     break;
                 }
-            }  else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='checkbox']")).size() > 0) {
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='checkbox']")).size() > 0) {
                 handleCheckBoxInput(fieldWrapper, fieldValue);
                 break;
             }
@@ -937,14 +882,12 @@ public final class FlexTable implements FlexTableComponent {
      */
 
     private void handleFlexTableLookupInputForLWC(WebElement fieldWrapper, String fieldValue) {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             By lookupInputBoxSelector = By.xpath(".//input[@type='search']");
             I.amPerforming().click().withJavaScript(I.amPerforming().getElementReference().ofNested(fieldWrapper, lookupInputBoxSelector));
             I.amPerforming().textInput().toClear(lookupInputBoxSelector);
             I.amPerforming().textInput().withJavaScript(lookupInputBoxSelector, fieldValue);
             By selectButtonLocator = By.xpath("//div[@title='" + fieldValue + "']");
             I.amPerforming().click().withJavaScript(selectButtonLocator);
-        }
     }
 
     /**
@@ -953,29 +896,29 @@ public final class FlexTable implements FlexTableComponent {
      * @author john.phillips
      */
     private void handleTextInput(WebElement fieldWrapper, String fieldValue) {
-            if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//lightning-input[contains(@id,'combobox-id')]//input[@type='text' or @placeholder='Select an Option'] | .//lightning-input//input[@type='text' and @placeholder='Select an Option']")).size() > 0) {
-                By inputBoxSelector = By.xpath(".//lightning-input[contains(@id,'combobox-id')]//input[@type='text' and @placeholder='Select an Option'] | .//lightning-input//input[@type='text' or @placeholder='Select an Option'] | .//textarea");
-                WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
+        if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//lightning-input[contains(@id,'combobox-id')]//input[@type='text' or @placeholder='Select an Option'] | .//lightning-input//input[@type='text' and @placeholder='Select an Option']")).size() > 0) {
+            By inputBoxSelector = By.xpath(".//lightning-input[contains(@id,'combobox-id')]//input[@type='text' and @placeholder='Select an Option'] | .//lightning-input//input[@type='text' or @placeholder='Select an Option'] | .//textarea");
+            WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
 //                I.amPerforming().scroll().onPageToSpecificElement(inputBox);
-                I.amPerforming().click().withJavaScript(inputBox);
-                        By selectText = By.xpath("//ul/li//span[text()='" + fieldValue + "']");
-                        I.amPerforming().textInput().toClear(inputBox);
-                        I.amPerforming().textInput().in(inputBox, fieldValue);
+            I.amPerforming().click().withJavaScript(inputBox);
+            By selectText = By.xpath("//ul/li//span[text()='" + fieldValue + "']");
+            I.amPerforming().textInput().toClear(inputBox);
+            I.amPerforming().textInput().in(inputBox, fieldValue);
 //                            I.amPerforming().scroll().withMouseToElement(inputBox);
-                        I.amPerforming().click().on(inputBox);
-                        if (I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
-                            try {
-                                I.amPerforming().click().on(selectText);
-                            } catch (Exception e) {
-                                I.amPerforming().click().withJavaScript(selectText);
-                            }
-                        }
-            } else {
-                By inputBoxSelector = By.xpath(".//input[@type='text' or @type='number' or @type='email'] | .//textarea");
-                WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
-                I.amPerforming().textInput().toClear(inputBox);
-                I.amPerforming().textInput().in(inputBox, fieldValue);
+            I.amPerforming().click().on(inputBox);
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
+                try {
+                    I.amPerforming().click().on(selectText);
+                } catch (Exception e) {
+                    I.amPerforming().click().withJavaScript(selectText);
+                }
             }
+        } else {
+            By inputBoxSelector = By.xpath(".//input[@type='text' or @type='number' or @type='email'] | .//textarea");
+            WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
+            I.amPerforming().textInput().toClear(inputBox);
+            I.amPerforming().textInput().in(inputBox, fieldValue);
+        }
     }
 
     /**
@@ -1017,8 +960,7 @@ public final class FlexTable implements FlexTableComponent {
             } catch (Exception e) {
                 I.amPerforming().click().withJavaScript(checkBox);
             }
-        }
-        else if("Unchecked".equalsIgnoreCase(fieldValue)){
+        } else if ("Unchecked".equalsIgnoreCase(fieldValue)) {
             I.amPerforming().click().withJavaScript(checkBox);
         }
     }

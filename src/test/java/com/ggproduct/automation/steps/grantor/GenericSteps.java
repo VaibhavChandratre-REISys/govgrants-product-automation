@@ -527,8 +527,8 @@ public class GenericSteps {
 
     @And("I click on Menu icon present on top right corner of the page")
     public void iClickOnMenuIconPresentOnTopRightCornerOfThePage() {
-        I.amPerforming().waitFor().makeThreadSleep(2000);
-        By menu = By.xpath("//*[contains(@class,'overview-header')]//*[@title='Menu' or (contains(@class,'menu') and (@class='bars'))] | //gnt-header-overview//lightning-button-menu//button");
+        By menu = By.xpath("//gnt-header-overview//lightning-button-menu//button");
+        I.amPerforming().waitFor().ElementToBeVisible(menu);
         I.amPerforming().click().withJavaScript(menu);
     }
 

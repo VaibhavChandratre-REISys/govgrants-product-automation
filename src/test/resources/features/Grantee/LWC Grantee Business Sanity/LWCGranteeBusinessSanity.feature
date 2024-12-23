@@ -1413,10 +1413,9 @@ Feature: Sanity scenarios
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
-#    Bug -463671
-#    When I click on "Validate" in the page details
-#    Then I softly see the following messages in the page details contains:
-#      | The Report has been validated successfully. |
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | The Report has been validated successfully. |
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Monitoring" tab
@@ -25577,7 +25576,7 @@ Feature: Sanity scenarios
       | GRANTEE FD |
 
   @449051_1 @GPCloseoutVerifyWithPOAuditorFOFDProfileAsanonownerCloseoutabletoseeonlyviewmode
-  Scenario Outline: GP Closeout - "Verify With Auditor,As a non owner Closeout  able to see only view mode."
+  Scenario: GP Closeout - "Verify With Auditor,As a non owner Closeout  able to see only view mode."
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
