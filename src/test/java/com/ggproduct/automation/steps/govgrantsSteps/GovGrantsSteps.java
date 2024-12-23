@@ -1236,6 +1236,11 @@ public final class GovGrantsSteps {
     public void iHoverMouseOnHelpTextIconForFieldInsideSection(String fieldName, String sectionName) {
         govgrants.perform().pageDetails().getHelpTextAtPageBlockSection(fieldName, sectionName);
     }
+
+    @When("I click on notification icon")
+    public void iClickOnNotificationIcon() {
+        govgrants.perform().pageDetails().getNotificationIcon();
+    }
 }
 
 

@@ -9236,7 +9236,7 @@ Feature: Sanity scenarios
     When I save the field labeled "Drawn to Date" as "DrawntoDate"
     Then I softly see field "Drawn to Date" as "{SavedValue:DrawntoDate}"
     When I save the field labeled "Spent to Date" as "SpenttoDate"
-    Then I softly see field "SpenttoDate" as "{SavedValue:SpenttoDate}"
+    Then I softly see field "Spent to Date" as "{SavedValue:SpenttoDate}"
     When I save the field labeled "Remaining Balance" as "RemainingBalance"
     Then I softly see field "Remaining Balance" as "{SavedValue:RemainingBalance}"
     When I save the field labeled "Total Match Expenditures to Date this Budget Period" as "TotalMatchExpenditurestoDatethisBudgetPeriod"
@@ -9298,8 +9298,8 @@ Feature: Sanity scenarios
 
     Examples:
       | User         | Approval      |
-      #| GRANTEE PO   | Grantee PO    |
-      #| GRANTEE PM   | Sarah PM      |
+      | GRANTEE PO   | Grantee PO    |
+      | GRANTEE PM   | Sarah PM      |
       | GRANTEE EXE  | Victor EXE    |
 
   @460983 @ValidateFederalOrgAuditorprofileusershouldseeallfieldsandsectionreadonlyonfederalOrglayoutViewonlyaccess
