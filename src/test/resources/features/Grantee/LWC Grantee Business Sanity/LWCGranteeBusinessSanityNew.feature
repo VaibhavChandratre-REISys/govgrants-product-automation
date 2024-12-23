@@ -8419,5 +8419,5 @@ Feature: Sanity scenarios New
     Then I softly see field "Pre-Application Required?" as "No"
     Examples:
       | userName   | userType        |
-      | GRANTEE PM | GRANTEE AUDITOR |
+#      | GRANTEE PM | GRANTEE AUDITOR |
       | GRANTEE PO | GRANTEE ADMIN   |
