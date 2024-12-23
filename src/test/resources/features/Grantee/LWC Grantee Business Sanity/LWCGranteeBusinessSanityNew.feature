@@ -8414,6 +8414,7 @@ Feature: Sanity scenarios New
     When I click toggle button to select "Opportunities Not Converted to Application - All"
     And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
     When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    And I wait for "3" seconds
     Then I softly cannot see top right button "Create Application" in page detail
     When I navigate to "Overview" sub tab
     Then I softly see field "Pre-Application Required?" as "No"
