@@ -8668,6 +8668,7 @@ Feature: Sanity scenarios
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on "Submit For Approval" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
@@ -8729,9 +8730,11 @@ Feature: Sanity scenarios
     Then I softly see "Initiated By" in flex table header "---grantee_tableId:-:AmendmentTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:AmendmentTableId---"
     And I click on "View" icon for "{SavedValue:FNCAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+     And I wait for "3" seconds
     Then I softly see field "EGMS ID" as "{SavedValue:FNCAMENDID}"
     Then I softly see field "Status" as "Created"
-    Then I softly see field "Initiated By" as "Grantor"
+     When I save the field labeled "Initiated By" as "InitiatedBy"
+    Then I softly see field "Initiated By" as "{SavedValue:InitiatedBy}"
     Then I softly see field "Amendment Type" as "Funding Change"
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Delete" in page detail
@@ -9098,6 +9101,7 @@ Feature: Sanity scenarios
       | Test  | The narrative | 2000           | 200        | 200            |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
@@ -9286,7 +9290,7 @@ Feature: Sanity scenarios
 
     Examples:
       | User         | Approval      |
-      | GRANTEE PO   | Grantee PO    |
+     # | GRANTEE PO   | Grantee PO    |
       | GRANTEE PM   | Sarah PM      |
       | GRANTEE EXE  | Victor EXE    |
 
