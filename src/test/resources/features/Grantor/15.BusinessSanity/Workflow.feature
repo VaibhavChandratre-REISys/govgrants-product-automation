@@ -1597,7 +1597,8 @@ Feature: Validate all scenarios of every modules flow
 
   @debug @vai
   Scenario: Opportunities converted to Pre-Application (Grants.gov) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Opportunity which is converted to Pre-application
-    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    Given I login to "As a Grantee" app as "GRANTEE FD" user
     And I wait for "10" seconds
-    And I save the field labeled "Amendment Request" as "AmendmentRequest"
-    Then I softly see field "Amendment Request" as "{SavedValue:AmendmentRequest}"
+    When I click on notification icon
+    And I wait for "10" seconds
+    Then I softly see notification "Sarah PM assigned you a task" contains "Automation Runtime Direct"
