@@ -8161,6 +8161,7 @@ Feature: Sanity scenarios New
     And I click on back arrow
     And I wait for "2" seconds
     And I click on "Amend Award" in the page details
+    And I wait for "3" seconds
     When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -8420,5 +8421,5 @@ Feature: Sanity scenarios New
     Then I softly see field "Pre-Application Required?" as "No"
     Examples:
       | userName   | userType        |
-#      | GRANTEE PM | GRANTEE AUDITOR |
+      | GRANTEE PM | GRANTEE AUDITOR |
       | GRANTEE PO | GRANTEE ADMIN   |
