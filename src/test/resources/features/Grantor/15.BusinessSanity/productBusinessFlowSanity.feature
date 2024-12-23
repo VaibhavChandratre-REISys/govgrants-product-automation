@@ -1,7 +1,7 @@
 @productBusinessFlowSanity @product @grantor-regression @regression
 Feature: Validate sanity testing of Complete Business Flow
 
-  @72335 @activationOfFocusArea @ProdSan1
+  @72335  @72335@activationOfFocusArea @ProdSan1
   Scenario: Validate the activation of Focus Area by User - Admin/EXE/PM and the status is Active
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
@@ -1894,6 +1894,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I wait for "5" seconds
+    When I navigate to "Assessment" sub tab
     And I enter value "Checked" into field "Acknowledgement__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
@@ -4290,17 +4291,14 @@ Feature: Validate sanity testing of Complete Business Flow
     #SF-428-A Blank value validation check
     When I navigate to "Forms and Files" sub tab
     And I select value inside table "---progressReport:-:formTableId---" is "All"
-    And I wait for "2" seconds
-    And I click on "View" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I click on "Edit" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
-    And I click on top right button "New" in flex table with id "---progressReport:-:sf428AFederallyOwnedTableId---"
     And I enter value "1234" into field "FederalGrantSF428A__c"
     And I enter value "(a) Individual (Reporting Federally-owned property for one award)" into field "ReportTypePiclikist__c"
     And I enter value "30 SEP" into field "ReportAsOf__c"
     And I enter value "Test" into field "CommentsSF428__c"
-    And I wait for "5" seconds
     When I click on "Save" in the page details
-    And I wait for "3" seconds
+    And I wait for "2" seconds
     And I refresh the page
     And I click on top right button "New" in flex table with id "---progressReport:-:sf428AFederallyOwnedTableId---"
     When I enter in modal "SF428A_Federal_Property" values from "ProgressReport_Field_Values.xlsx"
