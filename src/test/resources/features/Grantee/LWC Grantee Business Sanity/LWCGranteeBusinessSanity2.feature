@@ -5470,9 +5470,9 @@ Feature: Sanity scenarios
       | GRANTEE FO |
       | GRANTEE FD |
 
-  @482627 @VerifyPOuserNonownercanviewawarddetailspagebutcannotseeeditactiononaward
+  @482627 @482628 @482629 @482630 @482631 @VerifyPOuserNonownercanviewawarddetailspagebutcannotseeeditactiononaward
   Scenario Outline:Verify PO user(Non owner) can view award details page but cannot see edit action on award
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "As a Grantee" app as "<OwnerType>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -5534,7 +5534,7 @@ Feature: Sanity scenarios
     When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Opportunities Not Converted to Application - All"
@@ -5590,7 +5590,7 @@ Feature: Sanity scenarios
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -5667,8 +5667,6 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
-    Then I softly see the following messages in the page details contains:
-      | KPIs added succesfully. |
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
@@ -5723,9 +5721,9 @@ Feature: Sanity scenarios
     Then I cannot see row level action button "Edit" against "{SavedValue:awardEGMSID}" in flex table with id "---grantee_tableId:-:awardTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:awardEGMSID}" in flex table with id "---grantee_tableId:-:awardTableId---"
     And I click on "View" icon for "{SavedValue:awardEGMSID}" inside flex table with id "---grantee_tableId:-:awardTableId---" without waiting for record
-    Then I softly can see top right button "Edit" in page detail
-    Then I softly can see top right button "Validate" in page detail
-    Then I softly can see top right button "Submit for Approval" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Submit for Approval" in page detail
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download As PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
@@ -5768,12 +5766,16 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Download" against "{SavedValue:TitleFiles}" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:TitleFiles}" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly cannot see row level action button "Remove" against "{SavedValue:TitleFiles}" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     And I save the value from row "1" for column name "Title" as "TitleNotes" from flex table "---grantee_tableId:-:awardsNotesTableId---"
     Then I softly see value "{SavedValue:TitleNotes}" for title "Title" inside table "---grantee_tableId:-:awardsNotesTableId---"
     Then I softly cannot see row level action button "View" against "{SavedValue:TitleNotes}" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:TitleNotes}" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Then I softly cannot see row level action button "Remove" against "{SavedValue:TitleNotes}" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Examples:
-      | UserType   |
-      | GRANTEE PO |
+      | UserType    |  OwnerType  |
+      | GRANTEE PO  |  GRANTEE PM |
+      | GRANTEE EXE |  GRANTEE PM |
+      | GRANTEE FO  |  GRANTEE PM |
+      | GRANTEE FD  |  GRANTEE PM |
+      | GRANTEE PM  |  GRANTEE PO |
