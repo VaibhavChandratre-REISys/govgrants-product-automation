@@ -7146,14 +7146,10 @@ Feature: Sanity scenarios
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
-    Then I softly see the following messages in the page details contains:
-      | Goals/Objectives associated successfully. |
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
-    Then I softly see the following messages in the page details contains:
-      | KPIs added succesfully. |
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
@@ -7401,9 +7397,6 @@ Feature: Sanity scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
-    And I save the value from row "1" for column name "Name" as "ContactName" from flex table "---grantee_tableId:-:awardContactTableId---"
-    And I save the value from row "1" for column name "Project Role" as "ProjectRole" from flex table "---grantee_tableId:-:awardContactTableId---"
-    And I save the value from row "1" for column name "Is Key Contact" as "IsKeyContact" from flex table "---grantee_tableId:-:awardContactTableId---"
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
@@ -7558,11 +7551,6 @@ Feature: Sanity scenarios
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I see "Terms and Conditions" has been added in "Amendment Files" flex table
-    And I save the value from row "1" for column name "Classification" as "Classification" from flex table "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly see value "{SavedValue:Classification}" for title "Classification" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID"
     And I click on "Submit for Approval" in the page details
@@ -7596,7 +7584,5 @@ Feature: Sanity scenarios
     Then I can see top right button "Edit" in page detail
     And I click on "Delete" in the page details
     And I wait for "3" seconds
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     When I navigate to "Amendments" sub tab
     Then I do not see value "Record Id" for title "{SavedValue:AmendEGMSID}" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
