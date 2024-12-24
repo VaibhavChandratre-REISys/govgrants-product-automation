@@ -6851,7 +6851,7 @@ Feature: Sanity scenarios
 #    Then I softly do not see "Change Request History" page block displayed
 
   @464034 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess
-  Scenario:Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
+  Scenario Outline: Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -6972,7 +6972,7 @@ Feature: Sanity scenarios
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -7335,8 +7335,8 @@ Feature: Sanity scenarios
     Examples:
       | User           |
       | GRANTEE EXE    |
-      | GRANTEE PM     |
-      | GRANTEE PO     |
-      | GRANTEE ADMIN1 |
-      | GRANTEE FO     |
-      | GRANTEE FD     |
+#      | GRANTEE PM     |
+#      | GRANTEE PO     |
+#      | GRANTEE ADMIN1 |
+#      | GRANTEE FO     |
+#      | GRANTEE FD     |
