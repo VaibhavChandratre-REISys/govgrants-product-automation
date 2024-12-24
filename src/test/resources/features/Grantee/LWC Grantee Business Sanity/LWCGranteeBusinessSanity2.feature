@@ -7073,7 +7073,7 @@ Feature: Sanity scenarios
       | GRANTEE FO     |
 
  @487067 @487073 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess
-  Scenario Outline: Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
+ Scenario: Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
