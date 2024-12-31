@@ -599,7 +599,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     And I pause execution for "3" seconds
     Then I softly see the following messages in the page details contains:
-      | Selected Applicants are associated Successfully. |
+      | Selected Applicants are associated successfully. |
     #219163
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page

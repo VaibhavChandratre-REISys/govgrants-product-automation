@@ -31033,7 +31033,7 @@ Feature: Sanity scenarios
       | User          | Validation     | Toggles                |
 #      | GRANTEE FO      | softly can see    | Qualified Leads - All |
 #      | GRANTEE FD      | softly can see    | Qualified Leads - All |
-      | GRANTEE ADMIN | softly can see | Qualified Leads - Open |
+      | GRANTEE ADMIN1 | softly can see | Qualified Leads - Open |
 #      | GRANTEE AUDITOR | softly cannot see | Qualified Leads - All |
 
   @483166 @483167 @483181 @ValidatePMusertheflowofNotyetqualifiedlead
