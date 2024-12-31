@@ -4688,7 +4688,9 @@ Feature: Validate all scenarios for program
      When I click modal button "Close"
     And I wait for "2" seconds
     When I navigate to "Financials" sub tab
+    When I click on "Edit" in the page details
     And I enter value "Justified" into field "Justification__c"
+    When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :

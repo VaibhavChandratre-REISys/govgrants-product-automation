@@ -1768,7 +1768,7 @@ Feature: Validate all scenarios for program
     And I refresh the page
     And I navigate to "History" sub tab
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
-    Then I softly see snapshot with name containing "Internal Program - submit for approval.pdf" as name
+    Then I softly see snapshot with name containing "Internal Program - Undo Approval.pdf" as name
 
   @wip @279503 @VerifyEXEasstep1approvercanseeundobuttonafterapprovedtheExternalprogram @sprint-3-US-291914  @Undo
   Scenario:  Verify EXE as step 1 approver can see undo button after approved the External program
@@ -3297,7 +3297,7 @@ Feature: Validate all scenarios for program
     And I switch to parent tab
     When I refresh the page
     And I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "Internal Program - submit for approval.pdf" as name
+    Then I softly see snapshot with name containing "Internal Program - Undo Approval.pdf" as name
 
   @282645 @InternalProgVerifypreviousapprovesprogramtaskshouldnotcancelafterlaststepapproverclickonundobutton @sprint-25-US-291914  @Undo @IntProg
   Scenario: Internal Prog_ Verify previous approves program task should not cancel after last step approver click on undo button
