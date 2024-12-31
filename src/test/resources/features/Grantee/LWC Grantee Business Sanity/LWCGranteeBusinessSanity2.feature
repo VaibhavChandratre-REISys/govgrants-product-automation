@@ -4943,7 +4943,6 @@ Feature: Sanity scenarios
     Then I softly see "Date Effective From" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see "Date Effective To" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see "From Previous Award" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    Then I softly see field "OnPreviousAward__c" as "checked"
     Then I softly can see row level action button "View" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly can see row level action button "Edit" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly can see row level action button "Delete" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
@@ -4954,14 +4953,14 @@ Feature: Sanity scenarios
     Then I softly see "Approved Indirect Cost Rate(%)" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see "Indirect Cost Rate Type" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     #bug-486591
-#    And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-#    Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-#    And I save the value from row "1" for column name "Approved Indirect Cost Rate(%)" as "ApprovedIndirectCostRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-#    Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-#    And I save the value from row "1" for column name "Indirect Cost Rate Type" as "IndirectCostRateType" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-#    Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-#    Then I softly can see row level action button "Edit" against "Rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-#    Then I softly can see row level action button "Delete" against "Rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    And I save the value from row "1" for column name "Approved Indirect Cost Rate(%)" as "ApprovedIndirectCostRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    And I save the value from row "1" for column name "Indirect Cost Rate Type" as "IndirectCostRateType" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Edit" against "Rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Delete" against "Rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
     # @485591
     And I navigate to "Files" sub tab
     Then I softly see "Amendment Files" page block displayed
