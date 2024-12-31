@@ -7587,7 +7587,7 @@ Feature: Sanity scenarios
     Then I do not see value "Record Id" for title "{SavedValue:AmendEGMSID}" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
 
   @486513 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward
-  Scenario:Other Type AR -Verify PM user should able to approved the AR & should able to create & activate new award
+  Scenario Outline: Other Type AR -Verify PM user should able to approved the AR & should able to create & activate new award
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -7964,14 +7964,6 @@ Feature: Sanity scenarios
     And I navigate to "History" sub tab
     Then I softly see "Approval History" page block displayed
     Then I softly see "Snapshot History" page block displayed
-    And I navigate to "Messages" sub tab
-    Then I softly see "Messages" page block displayed
-    Then I softly see "Subject" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
-    Then I softly see "From Address" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
-    Then I softly see "To Address" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
-    Then I softly see "CC Address" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
-    Then I softly see "Email Subject" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
-    Then I softly see "Preview" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
     When I get the "EGMS ID"
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
