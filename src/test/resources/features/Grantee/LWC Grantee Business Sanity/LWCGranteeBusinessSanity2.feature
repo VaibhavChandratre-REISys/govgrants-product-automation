@@ -7760,7 +7760,16 @@ Feature: Sanity scenarios
       | Title               | Is Primary Program |
       | Open Data Framework | Checked            |
     And I navigate to "Projections" sub tab
+    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
+    And I click on "Edit" in the page details
+    And I enter value "{SavedValue:ProjectPeriodEndDate}" into field "BudgetPeriodEndDate__c"
+    And I click on "Save" in the page details
     And I wait for "3" seconds
+    And I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
+    And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
+      | Title                           | Start Date                         | End Date                         |
+      | Automation Permanent Focus Area | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---" by clicking "Edit" :
       | Focus Area Name                 | Projected Program Income ($) | Program Income Justification |
       | Automation Permanent Focus Area | 1000                         | Automation Test              |
