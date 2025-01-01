@@ -7952,8 +7952,8 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "Edit" :
-      | Created By | Title         | Description       |
-      | <UserType>   | Notes Record1 | Automation Notes1 |
+      | Created By   | Title         | Description       |
+      | <CreatedBy>   | Notes Record1 | Automation Notes1 |
     And I wait for "2" seconds
     Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" without waiting for record
@@ -8139,7 +8139,7 @@ Feature: Sanity scenarios
     And I save the field labeled "EGMS ID" as "AREGMSID"
     And I click on "Amend Award" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -8257,6 +8257,6 @@ Feature: Sanity scenarios
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | UserType    | emailIdFrom                     | emailIdTo                       |  CreateeBy   |
+      | UserType    | emailIdFrom                     | emailIdTo                       |  CreatedBy   |
       | GRANTEE PM  | sarah.pm.23@yopmail.com         | victor.exeqagrantee@yopmail.com |   Sarah PM   |
 #      | GRANTEE EXE | victor.exeqagrantee@yopmail.com | sarah.pm.23@yopmail.com         |            |
