@@ -4080,7 +4080,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Send for Review" against "David FO" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
     Then I softly cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
 
- @473964 @VerifytheallfieldsofSF424formGrantsgovApplication
+  @473964 @VerifytheallfieldsofSF424formGrantsgovApplication
   Scenario:Verify the all fields of SF-424[V4.0] form Grants.gov Application
     Given I login to "As a Grantee" app as "GRANTEE PO" user
     When I navigate to "Applications" tab
@@ -4096,10 +4096,10 @@ Feature: Sanity scenarios
     Then I can see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
 #   Then I softly see the text containing "Application for Federal Assistance (SF-424)"
-   Then I softly see the text containing "Agency Owner: Grants.gov"
-   Then I softly see the text containing "OMB Number: 4040-0004"
-   Then I softly see the text containing "Version 4.0"
-   Then I softly see the text containing "OMB Expiration Date: 11/30/2025"
+    Then I softly see the text containing "Agency Owner: Grants.gov"
+    Then I softly see the text containing "OMB Number: 4040-0004"
+    Then I softly see the text containing "Version 4.0"
+    Then I softly see the text containing "OMB Expiration Date: 11/30/2025"
     And I switch to tab number "1"
     Then I softly can see "Form" sub tab at view detail page
     Then I softly see "Application for Federal Assistance SF-424" page block displayed
@@ -4219,10 +4219,10 @@ Feature: Sanity scenarios
     Then I softly see field "Title" inside "Applicant Information" section
     When I hover mouse on help text icon for "Title" inside "Applicant Information" section
     Then I softly see "Enter the position title. Max character limit for this field is 45." shown as help text
-   Then I softly see field "Organizational Affiliation" inside "Applicant Information" section
-   When I hover mouse on help text icon for "Organizational Affiliation" inside "Applicant Information" section
-   Then I softly see "Enter the organization if different from the applicant organization. Max character limit for this field is 60." shown as help text
-   Then I softly see asterisk mark on "Telephone Number" inside "Applicant Information" section
+    Then I softly see field "Organizational Affiliation" inside "Applicant Information" section
+    When I hover mouse on help text icon for "Organizational Affiliation" inside "Applicant Information" section
+    Then I softly see "Enter the organization if different from the applicant organization. Max character limit for this field is 60." shown as help text
+    Then I softly see asterisk mark on "Telephone Number" inside "Applicant Information" section
     Then I softly see field "Telephone Number" inside "Applicant Information" section
     When I hover mouse on help text icon for "Telephone Number" inside "Applicant Information" section
     Then I softly see "Enter the daytime Telephone Number. This field is required. Max character limit for this field is 25." shown as help text
@@ -4240,17 +4240,17 @@ Feature: Sanity scenarios
     When I hovering mouse on help text icon inside page block detail "Type of Applicant 1: Select Applicant Type"
     Then I softly see "Select the appropriate applicant type. A selection is required." shown as help text
     Then I see only the following ordered options in dropdown field "ApplicantType1__c" :
-      | --None-- | A: State Government | B: County Government | C: City or Township Government | D: Special District Government | E: Regional Organization | F: U.S. Territory or Possession | G: Independent School District | H: Public/State Controlled Institution of Higher Education | I: Indian/Native American Tribal Government (Federally Recognized) | J: Indian/Native American Tribal Government (Other than Federally Recognized) | K: Indian/Native American Tribally Designated Organization |L: Public/Indian Housing Authority | M: Nonprofit with 501C3 IRS Status (Other than Institution of Higher Education)| N: Nonprofit without 501C3 IRS Status (Other than Institution of Higher Education)|O: Private Institution of Higher Education | P: Individual | Q: For-Profit Organization (Other than Small Business) | R: Small Business | S: Hispanic-serving Institution | T: Historically Black Colleges and Universities (HBCUs) | U: Tribally Controlled Colleges and Universities (TCCUs) | V: Alaska Native and Native Hawaiian Serving Institutions | W: Non-domestic (non-US) Entity | X: Other (specify) |
+      | --None-- | A: State Government | B: County Government | C: City or Township Government | D: Special District Government | E: Regional Organization | F: U.S. Territory or Possession | G: Independent School District | H: Public/State Controlled Institution of Higher Education | I: Indian/Native American Tribal Government (Federally Recognized) | J: Indian/Native American Tribal Government (Other than Federally Recognized) | K: Indian/Native American Tribally Designated Organization | L: Public/Indian Housing Authority | M: Nonprofit with 501C3 IRS Status (Other than Institution of Higher Education) | N: Nonprofit without 501C3 IRS Status (Other than Institution of Higher Education) | O: Private Institution of Higher Education | P: Individual | Q: For-Profit Organization (Other than Small Business) | R: Small Business | S: Hispanic-serving Institution | T: Historically Black Colleges and Universities (HBCUs) | U: Tribally Controlled Colleges and Universities (TCCUs) | V: Alaska Native and Native Hawaiian Serving Institutions | W: Non-domestic (non-US) Entity | X: Other (specify) |
     Then I softly see field "Type of Applicant 2: Select Applicant Type" inside page block
     When I hovering mouse on help text icon inside page block detail "Type of Applicant 2: Select Applicant Type"
     Then I softly see "Select the appropriate applicant type." shown as help text
     Then I see only the following ordered options in dropdown field "ApplicantType2__c" :
-      | --None-- | A: State Government | B: County Government | C: City or Township Government | D: Special District Government | E: Regional Organization | F: U.S. Territory or Possession | G: Independent School District | H: Public/State Controlled Institution of Higher Education | I: Indian/Native American Tribal Government (Federally Recognized) | J: Indian/Native American Tribal Government (Other than Federally Recognized) | K: Indian/Native American Tribally Designated Organization | L: Public/Indian Housing Authority | M: Nonprofit with 501C3 IRS Status (Other than Institution of Higher Education)| N: Nonprofit without 501C3 IRS Status (Other than Institution of Higher Education)|O: Private Institution of Higher Education | P: Individual | Q: For-Profit Organization (Other than Small Business) | R: Small Business | S: Hispanic-serving Institution | T: Historically Black Colleges and Universities (HBCUs) | U: Tribally Controlled Colleges and Universities (TCCUs) | V: Alaska Native and Native Hawaiian Serving Institutions | W: Non-domestic (non-US) Entity | X: Other (specify) |
+      | --None-- | A: State Government | B: County Government | C: City or Township Government | D: Special District Government | E: Regional Organization | F: U.S. Territory or Possession | G: Independent School District | H: Public/State Controlled Institution of Higher Education | I: Indian/Native American Tribal Government (Federally Recognized) | J: Indian/Native American Tribal Government (Other than Federally Recognized) | K: Indian/Native American Tribally Designated Organization | L: Public/Indian Housing Authority | M: Nonprofit with 501C3 IRS Status (Other than Institution of Higher Education) | N: Nonprofit without 501C3 IRS Status (Other than Institution of Higher Education) | O: Private Institution of Higher Education | P: Individual | Q: For-Profit Organization (Other than Small Business) | R: Small Business | S: Hispanic-serving Institution | T: Historically Black Colleges and Universities (HBCUs) | U: Tribally Controlled Colleges and Universities (TCCUs) | V: Alaska Native and Native Hawaiian Serving Institutions | W: Non-domestic (non-US) Entity | X: Other (specify) |
     Then I softly see field "Type of Applicant 3: Select Applicant Type" inside page block
     When I hovering mouse on help text icon inside page block detail "Type of Applicant 3: Select Applicant Type"
     Then I softly see "Select the appropriate applicant type." shown as help text
     Then I see only the following ordered options in dropdown field "ApplicantType3__c" :
-      | --None-- | A: State Government | B: County Government | C: City or Township Government | D: Special District Government | E: Regional Organization | F: U.S. Territory or Possession | G: Independent School District | H: Public/State Controlled Institution of Higher Education | I: Indian/Native American Tribal Government (Federally Recognized) | J: Indian/Native American Tribal Government (Other than Federally Recognized) | K: Indian/Native American Tribally Designated Organization | L: Public/Indian Housing Authority | M: Nonprofit with 501C3 IRS Status (Other than Institution of Higher Education)| N: Nonprofit without 501C3 IRS Status (Other than Institution of Higher Education)|O: Private Institution of Higher Education | P: Individual | Q: For-Profit Organization (Other than Small Business) | R: Small Business | S: Hispanic-serving Institution | T: Historically Black Colleges and Universities (HBCUs) | U: Tribally Controlled Colleges and Universities (TCCUs) | V: Alaska Native and Native Hawaiian Serving Institutions | W: Non-domestic (non-US) Entity | X: Other (specify) |
+      | --None-- | A: State Government | B: County Government | C: City or Township Government | D: Special District Government | E: Regional Organization | F: U.S. Territory or Possession | G: Independent School District | H: Public/State Controlled Institution of Higher Education | I: Indian/Native American Tribal Government (Federally Recognized) | J: Indian/Native American Tribal Government (Other than Federally Recognized) | K: Indian/Native American Tribally Designated Organization | L: Public/Indian Housing Authority | M: Nonprofit with 501C3 IRS Status (Other than Institution of Higher Education) | N: Nonprofit without 501C3 IRS Status (Other than Institution of Higher Education) | O: Private Institution of Higher Education | P: Individual | Q: For-Profit Organization (Other than Small Business) | R: Small Business | S: Hispanic-serving Institution | T: Historically Black Colleges and Universities (HBCUs) | U: Tribally Controlled Colleges and Universities (TCCUs) | V: Alaska Native and Native Hawaiian Serving Institutions | W: Non-domestic (non-US) Entity | X: Other (specify) |
     Then I softly see field "Other (specify)" inside page block
     Then I softly see asterisk mark on "Other (specify)" inside "Type of Applicant" section
     When I hovering mouse on help text icon inside page block detail "Other (specify)"
@@ -4291,123 +4291,123 @@ Feature: Sanity scenarios
 #    Then I softly see asterisk mark on "15. Descriptive Title of Applicant's Project" inside "Descriptive Title" section
 #    When I hover mouse on help text icon for "15. Descriptive Title of Applicant's Project" inside "Descriptive Title" section
 #    Then I softly see "Enter a brief, descriptive title of the project. This field is required. Max character limit for this field is 120." shown as help text
-   Then I softly see "Congressional District" page block displayed
-   Then I softly see field "16.Congressional District" inside page block
-   Then I softly see field "a. Applicant" inside page block
-   Then I softly see asterisk mark on "a. Applicant"
-   When I hover mouse on help text icon for "a. Applicant" inside "Congressional District" section
-   Then I softly see "Enter the Congressional District in the format: 2 character State Abbreviation - 3 character District Number. Examples: CA-005 for California's 5th district, CA-012 for California's 12th district. If outside the US, enter 00-000. This field is required. Max character limit for this field is 6." shown as help text
-   Then I softly see field "b. Program/Project" inside page block
-   Then I softly see asterisk mark on "b. Program/Project"
-   Then I softly see "Proposed Project" page block displayed
-   Then I softly see field "17. Proposed Project" inside page block
-   Then I softly see field "a. Start Date" inside page block
-   Then I softly see asterisk mark on "a. Start Date"
-   When I hovering mouse on help text icon inside page block detail "a. Start Date"
-   Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
-   Then I softly see field "b. End Date" inside page block
-   Then I softly see asterisk mark on "b. End Date"
-   When I hovering mouse on help text icon inside page block detail "b. End Date"
-   Then I softly see "Enter the date in the format MM/DD/YYYY. This field is required." shown as help text
-   Then I softly see "Estimated Funding ($)" page block displayed
-   Then I softly see field "a. Federal" inside page block
-   Then I softly see asterisk mark on "a. Federal"
-   When I hovering mouse on help text icon inside page block detail "a. Federal"
-   Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
-   Then I softly see field "b. Applicant" inside page block
-   Then I softly see asterisk mark on "b. Applicant"
-   When I hovering mouse on help text icon inside page block detail "b. Applicant"
-   Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
-   Then I softly see field "c. State" inside page block
-   Then I softly see asterisk mark on "c. State"
-   When I hovering mouse on help text icon inside page block detail "c. State"
-   Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
-   Then I softly see field "d. Local" inside page block
-   Then I softly see asterisk mark on "d. Local"
-   When I hovering mouse on help text icon inside page block detail "d. Local"
-   Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
-   Then I softly see field "e. Other" inside page block
-   Then I softly see asterisk mark on "e. Other"
-   When I hovering mouse on help text icon inside page block detail "e. Other"
-   Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
-   Then I softly see field "f.  Program Income" inside page block
-   Then I softly see asterisk mark on "f.  Program Income"
-   When I hovering mouse on help text icon inside page block detail "f.  Program Income"
-   Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
-   Then I softly see field "g. TOTAL" inside page block
-   When I hovering mouse on help text icon inside page block detail "g. TOTAL"
-   Then I softly see "Enter the total dollar amount. This field is required." shown as help text
-   Then I softly see "Application Review" page block displayed
-   Then I softly see field "19. Is Application Subject to Review By State Under Executive Order 12372 Process?" inside page block
-   Then I softly see asterisk mark on "19. Is Application Subject to Review By State Under Executive Order 12372 Process?"
-   When I hovering mouse on help text icon inside page block detail "19. Is Application Subject to Review By State Under Executive Order 12372 Process?"
-   Then I softly see "One selection is required." shown as help text
-   Then I see radio button "a. This application was made available to the State under the Executive Order 12372 Process for review" for field "ApplicationReview__c"
-   Then I see radio button "b. Program is subject to E.O. 12372 but has not been selected by the State for review" for field "ApplicationReview__c"
-   Then I see radio button "c. Program is not covered by E.O. 12372" for field "ApplicationReview__c"
-   Then I softly see field "If option a is selected for the above question then enter the Review Date" inside page block
-   When I hovering mouse on help text icon inside page block detail "If option a is selected for the above question then enter the Review Date"
-   Then I softly see "Enter the date in the format MM/DD/YYYY." shown as help text
-   Then I softly see "Federal Debt (if any)" page block displayed
+    Then I softly see "Congressional District" page block displayed
+    Then I softly see field "16.Congressional District" inside page block
+    Then I softly see field "a. Applicant" inside page block
+    Then I softly see asterisk mark on "a. Applicant"
+    When I hover mouse on help text icon for "a. Applicant" inside "Congressional District" section
+    Then I softly see "Enter the Congressional District in the format: 2 character State Abbreviation - 3 character District Number. Examples: CA-005 for California's 5th district, CA-012 for California's 12th district. If outside the US, enter 00-000. This field is required. Max character limit for this field is 6." shown as help text
+    Then I softly see field "b. Program/Project" inside page block
+    Then I softly see asterisk mark on "b. Program/Project"
+    Then I softly see "Proposed Project" page block displayed
+    Then I softly see field "17. Proposed Project" inside page block
+    Then I softly see field "a. Start Date" inside page block
+    Then I softly see asterisk mark on "a. Start Date"
+    When I hovering mouse on help text icon inside page block detail "a. Start Date"
+    Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
+    Then I softly see field "b. End Date" inside page block
+    Then I softly see asterisk mark on "b. End Date"
+    When I hovering mouse on help text icon inside page block detail "b. End Date"
+    Then I softly see "Enter the date in the format MM/DD/YYYY. This field is required." shown as help text
+    Then I softly see "Estimated Funding ($)" page block displayed
+    Then I softly see field "a. Federal" inside page block
+    Then I softly see asterisk mark on "a. Federal"
+    When I hovering mouse on help text icon inside page block detail "a. Federal"
+    Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
+    Then I softly see field "b. Applicant" inside page block
+    Then I softly see asterisk mark on "b. Applicant"
+    When I hovering mouse on help text icon inside page block detail "b. Applicant"
+    Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
+    Then I softly see field "c. State" inside page block
+    Then I softly see asterisk mark on "c. State"
+    When I hovering mouse on help text icon inside page block detail "c. State"
+    Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
+    Then I softly see field "d. Local" inside page block
+    Then I softly see asterisk mark on "d. Local"
+    When I hovering mouse on help text icon inside page block detail "d. Local"
+    Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
+    Then I softly see field "e. Other" inside page block
+    Then I softly see asterisk mark on "e. Other"
+    When I hovering mouse on help text icon inside page block detail "e. Other"
+    Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
+    Then I softly see field "f.  Program Income" inside page block
+    Then I softly see asterisk mark on "f.  Program Income"
+    When I hovering mouse on help text icon inside page block detail "f.  Program Income"
+    Then I softly see "Enter the dollar amount. This field is required. Max limit for this field is 12" shown as help text
+    Then I softly see field "g. TOTAL" inside page block
+    When I hovering mouse on help text icon inside page block detail "g. TOTAL"
+    Then I softly see "Enter the total dollar amount. This field is required." shown as help text
+    Then I softly see "Application Review" page block displayed
+    Then I softly see field "19. Is Application Subject to Review By State Under Executive Order 12372 Process?" inside page block
+    Then I softly see asterisk mark on "19. Is Application Subject to Review By State Under Executive Order 12372 Process?"
+    When I hovering mouse on help text icon inside page block detail "19. Is Application Subject to Review By State Under Executive Order 12372 Process?"
+    Then I softly see "One selection is required." shown as help text
+    Then I see radio button "a. This application was made available to the State under the Executive Order 12372 Process for review" for field "ApplicationReview__c"
+    Then I see radio button "b. Program is subject to E.O. 12372 but has not been selected by the State for review" for field "ApplicationReview__c"
+    Then I see radio button "c. Program is not covered by E.O. 12372" for field "ApplicationReview__c"
+    Then I softly see field "If option a is selected for the above question then enter the Review Date" inside page block
+    When I hovering mouse on help text icon inside page block detail "If option a is selected for the above question then enter the Review Date"
+    Then I softly see "Enter the date in the format MM/DD/YYYY." shown as help text
+    Then I softly see "Federal Debt (if any)" page block displayed
     #Then I softly see field "20. Is the Applicant Delinquent On Any Federal Debt? (If "Yes," provide explanation in attachments. Add attachment from the Files section)" inside page block
     #Then I softly see asterisk mark on "20. Is the Applicant Delinquent On Any Federal Debt? (If "Yes," provide explanation in attachments. Add attachment from the Files section)"
     #When I hovering mouse on help text icon inside page block detail "20. Is the Applicant Delinquent On Any Federal Debt? (If "Yes," provide explanation in attachments. Add attachment from the Files section)"
    # Then I softly see "A selection is required." shown as help text
-   Then I see radio button "Yes" for field "FederalDebt__c"
-   Then I see radio button "No" for field "FederalDebt__c"
-   Then I softly see "Agreement Details" page block displayed
-   Then I softly see field "21. By signing this application, I certify (1) to the statements contained in the list of certifications** and (2) that the statements herein are true, complete and accurate to the best of my knowledge. I also provide the required assurances** and agree to comply with any resulting terms if I accept an award. I am aware that any false, fictitious, or fraudulent statements or claims may subject me to criminal, civil, or administrative penalties. (U.S. Code, Title 218, Section 1001)" inside page block
-   Then I softly see field "I AGREE" inside page block
-   Then I softly see asterisk mark on "I AGREE"
-   When I hovering mouse on help text icon inside page block detail "I AGREE"
-   Then I softly see "Check to select. This field is required." shown as help text
-   Then I softly see "Authorized Representative" page block displayed
-   Then I softly see field "Prefix" inside "Authorized Representative" section
-   Then I see only the following ordered options in dropdown field "AOR_Prefix__c" :
-     | --None-- | Mr. | Mrs. | Miss | Ms. | Dr. | Rev. | Prof. |
-   When I hover mouse on help text icon for "Prefix" inside "Authorized Representative" section
-   Then I softly see "Select the Prefix from the provided list or enter a new Prefix not provided on the list." shown as help text
-   Then I softly see asterisk mark on "First Name" inside "Authorized Representative" section
-   Then I softly see field "First Name" inside "Authorized Representative" section
-   When I hover mouse on help text icon for "First Name" inside "Authorized Representative" section
-   Then I softly see "Enter the First Name. This field is required. Max character limit for this field is 35." shown as help text
-   Then I softly see field "Middle Name" inside "Authorized Representative" section
-   When I hover mouse on help text icon for "Middle Name" inside "Authorized Representative" section
-   Then I softly see "Enter the Middle Name. Max character limit for this field is 25." shown as help text
-   Then I softly see asterisk mark on "Last Name" inside "Authorized Representative" section
-   Then I softly see field "Last Name" inside "Authorized Representative" section
-   When I hover mouse on help text icon for "Last Name" inside "Authorized Representative" section
-   Then I softly see "Enter the Last Name. This field is required. Max character limit for this field is 60." shown as help text
-   Then I softly see field "Suffix" inside "Authorized Representative" section
-   Then I see only the following ordered options in dropdown field "AOR_Suffix__c" :
-     | --None-- | Jr. | Sr. | M.D. | Ph.D |
-   When I hover mouse on help text icon for "Suffix" inside "Authorized Representative" section
-   Then I softly see "Select the Suffix from the provided list or enter a new Suffix not provided on the list." shown as help text
-   Then I softly see asterisk mark on "Title" inside "Authorized Representative" section
-   Then I softly see field "Title" inside "Authorized Representative" section
-   When I hover mouse on help text icon for "Title" inside "Authorized Representative" section
-   Then I softly see "Enter the position title. Max character limit for this field is 45." shown as help text
-   Then I softly see asterisk mark on "Telephone Number" inside "Authorized Representative" section
-   Then I softly see field "Telephone Number" inside "Authorized Representative" section
-   When I hover mouse on help text icon for "Telephone Number" inside "Authorized Representative" section
-   Then I softly see "Enter the daytime Telephone Number. This field is required. Max character limit for this field is 25." shown as help text
-   Then I softly see field "Fax Number" inside "Authorized Representative" section
-   When I hover mouse on help text icon for "Fax Number" inside "Authorized Representative" section
-   Then I softly see "ter the Fax Number. Max character limit for this field is 25." shown as help text
-   Then I softly see asterisk mark on "Email" inside "Authorized Representative" section
-   Then I softly see field "Email" inside "Authorized Representative" section
-   When I hover mouse on help text icon for "Email" inside "Authorized Representative" section
-   Then I softly see "Enter a valid Email Address. This field is required. Max character limit for this field is 60." shown as help text
-   Then I softly see "Signature And Date Of Authorized Representative" page block displayed
-   Then I softly see asterisk mark on "Signature of Authorized Representative"
-   Then I softly see field "Signature of Authorized Representative" inside "Signature And Date Of Authorized Representative" section
-   When I hovering mouse on help text icon inside page block detail "Signature of Authorized Representative"
-   Then I softly see "Completed by Grants.gov upon submission. Max character limit for this field is 144." shown as help text
-   Then I softly see field "Date Signed" inside "Signature And Date Of Authorized Representative" section
-   Then I softly see asterisk mark on "Date Signed"
-   When I hovering mouse on help text icon inside page block detail "Date Signed"
-   Then I softly see "Completed by Grants.gov upon submission." shown as help text
-   Then I softly see "Files" page block displayed
+    Then I see radio button "Yes" for field "FederalDebt__c"
+    Then I see radio button "No" for field "FederalDebt__c"
+    Then I softly see "Agreement Details" page block displayed
+    Then I softly see field "21. By signing this application, I certify (1) to the statements contained in the list of certifications** and (2) that the statements herein are true, complete and accurate to the best of my knowledge. I also provide the required assurances** and agree to comply with any resulting terms if I accept an award. I am aware that any false, fictitious, or fraudulent statements or claims may subject me to criminal, civil, or administrative penalties. (U.S. Code, Title 218, Section 1001)" inside page block
+    Then I softly see field "I AGREE" inside page block
+    Then I softly see asterisk mark on "I AGREE"
+    When I hovering mouse on help text icon inside page block detail "I AGREE"
+    Then I softly see "Check to select. This field is required." shown as help text
+    Then I softly see "Authorized Representative" page block displayed
+    Then I softly see field "Prefix" inside "Authorized Representative" section
+    Then I see only the following ordered options in dropdown field "AOR_Prefix__c" :
+      | --None-- | Mr. | Mrs. | Miss | Ms. | Dr. | Rev. | Prof. |
+    When I hover mouse on help text icon for "Prefix" inside "Authorized Representative" section
+    Then I softly see "Select the Prefix from the provided list or enter a new Prefix not provided on the list." shown as help text
+    Then I softly see asterisk mark on "First Name" inside "Authorized Representative" section
+    Then I softly see field "First Name" inside "Authorized Representative" section
+    When I hover mouse on help text icon for "First Name" inside "Authorized Representative" section
+    Then I softly see "Enter the First Name. This field is required. Max character limit for this field is 35." shown as help text
+    Then I softly see field "Middle Name" inside "Authorized Representative" section
+    When I hover mouse on help text icon for "Middle Name" inside "Authorized Representative" section
+    Then I softly see "Enter the Middle Name. Max character limit for this field is 25." shown as help text
+    Then I softly see asterisk mark on "Last Name" inside "Authorized Representative" section
+    Then I softly see field "Last Name" inside "Authorized Representative" section
+    When I hover mouse on help text icon for "Last Name" inside "Authorized Representative" section
+    Then I softly see "Enter the Last Name. This field is required. Max character limit for this field is 60." shown as help text
+    Then I softly see field "Suffix" inside "Authorized Representative" section
+    Then I see only the following ordered options in dropdown field "AOR_Suffix__c" :
+      | --None-- | Jr. | Sr. | M.D. | Ph.D |
+    When I hover mouse on help text icon for "Suffix" inside "Authorized Representative" section
+    Then I softly see "Select the Suffix from the provided list or enter a new Suffix not provided on the list." shown as help text
+    Then I softly see asterisk mark on "Title" inside "Authorized Representative" section
+    Then I softly see field "Title" inside "Authorized Representative" section
+    When I hover mouse on help text icon for "Title" inside "Authorized Representative" section
+    Then I softly see "Enter the position title. Max character limit for this field is 45." shown as help text
+    Then I softly see asterisk mark on "Telephone Number" inside "Authorized Representative" section
+    Then I softly see field "Telephone Number" inside "Authorized Representative" section
+    When I hover mouse on help text icon for "Telephone Number" inside "Authorized Representative" section
+    Then I softly see "Enter the daytime Telephone Number. This field is required. Max character limit for this field is 25." shown as help text
+    Then I softly see field "Fax Number" inside "Authorized Representative" section
+    When I hover mouse on help text icon for "Fax Number" inside "Authorized Representative" section
+    Then I softly see "ter the Fax Number. Max character limit for this field is 25." shown as help text
+    Then I softly see asterisk mark on "Email" inside "Authorized Representative" section
+    Then I softly see field "Email" inside "Authorized Representative" section
+    When I hover mouse on help text icon for "Email" inside "Authorized Representative" section
+    Then I softly see "Enter a valid Email Address. This field is required. Max character limit for this field is 60." shown as help text
+    Then I softly see "Signature And Date Of Authorized Representative" page block displayed
+    Then I softly see asterisk mark on "Signature of Authorized Representative"
+    Then I softly see field "Signature of Authorized Representative" inside "Signature And Date Of Authorized Representative" section
+    When I hovering mouse on help text icon inside page block detail "Signature of Authorized Representative"
+    Then I softly see "Completed by Grants.gov upon submission. Max character limit for this field is 144." shown as help text
+    Then I softly see field "Date Signed" inside "Signature And Date Of Authorized Representative" section
+    Then I softly see asterisk mark on "Date Signed"
+    When I hovering mouse on help text icon inside page block detail "Date Signed"
+    Then I softly see "Completed by Grants.gov upon submission." shown as help text
+    Then I softly see "Files" page block displayed
     Then  I can see top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
@@ -5763,12 +5763,12 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "{SavedValue:TitleNotes}" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Then I softly cannot see row level action button "Remove" against "{SavedValue:TitleNotes}" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Examples:
-      | UserType    |  OwnerType  |
-      | GRANTEE PO  |  GRANTEE PM |
-      | GRANTEE EXE |  GRANTEE PM |
-      | GRANTEE FO  |  GRANTEE PM |
-      | GRANTEE FD  |  GRANTEE PM |
-      | GRANTEE PM  |  GRANTEE PO |
+      | UserType    | OwnerType  |
+      | GRANTEE PO  | GRANTEE PM |
+      | GRANTEE EXE | GRANTEE PM |
+      | GRANTEE FO  | GRANTEE PM |
+      | GRANTEE FD  | GRANTEE PM |
+      | GRANTEE PM  | GRANTEE PO |
 
   @471004 @BudgetPeriodchangeTypeARVerifytheNotificationforBudgetPeriodchangetypeofAmendmentRequets
   Scenario:Budget Period change Type AR-Verify the Notification for Budget Period change type of Amendment Requets
@@ -6732,13 +6732,13 @@ Feature: Sanity scenarios
       | Automation Permanent Focus Area | {SavedValue:NewBudgetPeriodEndDate} |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Narrative     |  Awarded Budget | Cash Match |
-      | Construction | The narrative | 4500            | 450        |
+      | Title        | Narrative     | Awarded Budget | Cash Match |
+      | Construction | The narrative | 4500           | 450        |
     When I close "Add Line Items" modal by clicking the top right x button
     When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title           | Narrative     | Awarded Budget | Cash Match |
-      | Indirect costs  | The narrative | 500            | 50         |
+      | Title          | Narrative     | Awarded Budget | Cash Match |
+      | Indirect costs | The narrative | 500            | 50         |
     When I close "Add Line Items" modal by clicking the top right x button
     When I navigate to "Overview" sub tab
     Then I softly see "Details" page block displayed
@@ -7058,8 +7058,8 @@ Feature: Sanity scenarios
       | GRANTEE ADMIN1 |
       | GRANTEE FO     |
 
- @487067 @487073 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess
- Scenario: Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
+  @487067 @487073 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess
+  Scenario: Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -7194,167 +7194,167 @@ Feature: Sanity scenarios
     When I navigate to "Amendments" sub tab
     #@487067
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
-   When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
-   And I navigate to "Grants" tab
-   When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-   And I click toggle button to select "Grants - All"
-   When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
-   And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-   When I navigate to "Awards" sub tab
-   And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-   And I navigate to "Overview" sub tab
-   And I save the field labeled "EGMS ID" as "AwardEGMSID"
-   And I save the field labeled "Award Issue Date" as "AwardIssueDate"
-   And I wait for "2" seconds
-   When I navigate to "Amendments" sub tab
-   And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-   And I enter "Grantee_Combination_Creation" values from "AmendmentRequest_Field_Values.xlsx"
-   And I click modal button "Save and Continue"
-   And I wait for "2" seconds
-   And I enter "Grantee_Combination_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-   When I click on "Save" in the page details
-   And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
-   And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
-     | Title                           | End Date                            |
-     | Automation Permanent Focus Area | {SavedValue:NewBudgetPeriodEndDate} |
-   When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-   And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
-     | Title        | Narrative     |  Awarded Budget | Cash Match |
-     | Construction | The narrative | 4500            | 450        |
-   When I close "Add Line Items" modal by clicking the top right x button
-   When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-   When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
-     | Title           | Narrative     | Awarded Budget | Cash Match |
-     | Indirect costs  | The narrative | 500            | 50         |
-   When I close "Add Line Items" modal by clicking the top right x button
-   When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
-   When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:amendmentAssociateContactTableId---"
-   And I wait for "3" seconds
-   And I click modal button "Close"
-   And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentContactTableId---" by clicking "Edit" :
-     | Proposed Name | Project Role    | Is Key Contact |
-     | David FO      | Project Officer | Checked        |
-   And I save the value from row "1" for column name "Proposed Name" as "ProposedName" from flex table "---grantee_tableId:-:amendmentContactTableId---"
-   Then I softly see value "{SavedValue:ProposedName}" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"
-   And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-   When I click "Associate" after selection of "MI_Objective" in the table "---grantee_tableId:-:amendmentAssociateObjectiveTableId---"
-   Then I softly see the following messages in the page details contains:
-     | Objectives were associated successfully. |
-   And I click modal button "Close"
-   And I save the value from row "1" for column name "Title" as "ObjectiveTitle" from flex table "---grantee_tableId:-:amendmentObjectiveTableId---"
-   Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
-   And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
-   When I click "Associate" after selection of "KPI Grantee ETE" in the table "---grantee_tableId:-:selectAmendmentKPITableId---"
-   And I click modal button "Close"
-   And I save the value from row "1" for column name "Title" as "KPITitle" from flex table "---grantee_tableId:-:amendmentKPITableId---"
-   Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:amendmentKPITableId---"
-   And I wait for "3" seconds
-   And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-   When I enter in modal value "Terms1" into field "Title__c"
-   When I enter in modal value "Terms Description" into field "Description__c"
-   When I enter in modal value "1" into field "Sequence__c"
-   When I enter in modal value "1" into field "EffectiveFrom__c"
-   When I enter in modal value "1" into field "EffectiveTill__c"
-   And I click modal button "Save"
-   And I wait for "3" seconds
-   And I save the value from row "1" for column name "Title" as "Terms1" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-   Then I softly see value "{SavedValue:Terms1}" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-   When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
-     | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-     | Rate1 | 15             | 30              | 10                             | Final                   |
-   And I save the value from row "1" for column name "Title" as "TitleIndirectRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-   And I wait for "3" seconds
-   And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
-   And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
-     | Title                           | End Date                            |
-     | Automation Permanent Focus Area | {SavedValue:NewBudgetPeriodEndDate} |
-   And I wait for "3" seconds
-   And I save the value from row "1" for column name "Title" as "FocusArea1" from flex table "---grantee_tableId:-:amendmentFocusAreaTableId---"
-   Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
-   When I navigate to "Responsibilities" sub tab
-   When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-     | Name     | Amendment Request |
-     | Sarah PM | Step 1            |
-   And I navigate to "Files" sub tab
-   And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-   And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
-   When I click modal button "Close"
-   And I wait for "2" seconds
-   Then I see "Terms and Conditions" has been added in "Amendment Files" flex table
-   And I save the value from row "1" for column name "Classification" as "Classification" from flex table "---grantee_tableId:-:amendmentRequestAddFile---"
-   And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:amendmentRequestAddFile---"
-   Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
-   Then I softly see value "{SavedValue:Classification}" for title "Classification" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
-   When I get the "EGMS ID"
-   And I save the field labeled "EGMS ID" as "AmendEGMSID"
-   When I navigate to "Responsibilities" sub tab
-   When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
-     | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
-     | Victor EXE    | Fiscal Reviewer | Automation Description | 5        | No                   |
-   When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
-   And I navigate to "Grants" tab
-   When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-   And I click toggle button to select "Amendment Requests - All"
-   When I perform quick search for "{SavedValue:AmendEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-   And I click on "View" icon for "{SavedValue:AmendEGMSID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
-   Then I softly cannot see top right button "Edit" in page detail
-   And I navigate to "Overview" sub tab
-   Then I softly see value "David FO" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"
-   Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
-   Then I cannot see row level action button "View" against "David FO" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
-   Then I cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
-   Then I cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
-   Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
-   Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-   Then I cannot see row level action button "View" against "{SavedValue:ObjectiveTitle}" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-   Then I cannot see row level action button "Edit" against "{SavedValue:ObjectiveTitle}" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-   Then I cannot see row level action button "Delete" against "{SavedValue:ObjectiveTitle}" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-   Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:amendmentKPITableId---"
-   Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
-   Then I cannot see row level action button "View" against "{SavedValue:KPITitle}" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
-   Then I cannot see row level action button "Edit" against "{SavedValue:KPITitle}" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
-   Then I cannot see row level action button "Delete" against "{SavedValue:KPITitle}" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
-   Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-   Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-   Then I cannot see row level action button "View" against "{SavedValue:TitleIndirectRate}" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-   Then I cannot see row level action button "Edit" against "{SavedValue:TitleIndirectRate}" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-   Then I cannot see row level action button "Delete" against "{SavedValue:TitleIndirectRate}" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-   Then I softly see value "{SavedValue:Terms1}" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-   Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-   Then I can see row level action button "View" against "{SavedValue:Terms1}" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-   Then I cannot see row level action button "Edit" against "{SavedValue:Terms1}" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-   Then I cannot see row level action button "Delete" against "{SavedValue:Terms1}" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-   Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
-   Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
-   Then I cannot see row level action button "View" against "{SavedValue:FocusArea1}" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
-   Then I cannot see row level action button "Edit" against "{SavedValue:FocusArea1}" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
-   Then I cannot see row level action button "Delete" against "{SavedValue:FocusArea1}" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
-   When I navigate to "Responsibilities" sub tab
-   Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-   Then I softly see value "Victor EXE" for title "Title" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-   Then I cannot see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-   Then I cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-   Then I cannot see row level action button "Delete" against "Victor EXE" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-   Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
-   Then I softly see value "Sarah PM" for title "Title" inside table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
-   Then I cannot see row level action button "View" against "Sarah PM" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
-   Then I cannot see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
-   Then I cannot see row level action button "Delete" against "Sarah PM" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
-   And I navigate to "Files" sub tab
-   Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-   Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
-   Then I softly see value "{SavedValue:Classification}" for title "Classification" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
-   Then I can see row level action button "Download" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-   Then I can see row level action button "View" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-   Then I cannot see row level action button "Edit" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-   Then I cannot see row level action button "Delete" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-   And I save the value from row "1" for column name "Description" as "Description" from flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-   Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-   Then I softly see value "{SavedValue:Description}" for title "Description" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-   Then I cannot see row level action button "Download" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-   Then I cannot see row level action button "View" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-   Then I cannot see row level action button "Edit" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-   Then I cannot see row level action button "Delete" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    And I wait for "2" seconds
+    When I navigate to "Amendments" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I enter "Grantee_Combination_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I enter "Grantee_Combination_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
+      | Title                           | End Date                            |
+      | Automation Permanent Focus Area | {SavedValue:NewBudgetPeriodEndDate} |
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
+      | Title        | Narrative     | Awarded Budget | Cash Match |
+      | Construction | The narrative | 4500           | 450        |
+    When I close "Add Line Items" modal by clicking the top right x button
+    When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
+      | Title          | Narrative     | Awarded Budget | Cash Match |
+      | Indirect costs | The narrative | 500            | 50         |
+    When I close "Add Line Items" modal by clicking the top right x button
+    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
+    When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:amendmentAssociateContactTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentContactTableId---" by clicking "Edit" :
+      | Proposed Name | Project Role    | Is Key Contact |
+      | David FO      | Project Officer | Checked        |
+    And I save the value from row "1" for column name "Proposed Name" as "ProposedName" from flex table "---grantee_tableId:-:amendmentContactTableId---"
+    Then I softly see value "{SavedValue:ProposedName}" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    When I click "Associate" after selection of "MI_Objective" in the table "---grantee_tableId:-:amendmentAssociateObjectiveTableId---"
+    Then I softly see the following messages in the page details contains:
+      | Objectives were associated successfully. |
+    And I click modal button "Close"
+    And I save the value from row "1" for column name "Title" as "ObjectiveTitle" from flex table "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
+    When I click "Associate" after selection of "KPI Grantee ETE" in the table "---grantee_tableId:-:selectAmendmentKPITableId---"
+    And I click modal button "Close"
+    And I save the value from row "1" for column name "Title" as "KPITitle" from flex table "---grantee_tableId:-:amendmentKPITableId---"
+    Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:amendmentKPITableId---"
+    And I wait for "3" seconds
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    When I enter in modal value "Terms1" into field "Title__c"
+    When I enter in modal value "Terms Description" into field "Description__c"
+    When I enter in modal value "1" into field "Sequence__c"
+    When I enter in modal value "1" into field "EffectiveFrom__c"
+    When I enter in modal value "1" into field "EffectiveTill__c"
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    And I save the value from row "1" for column name "Title" as "Terms1" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see value "{SavedValue:Terms1}" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate1 | 15             | 30              | 10                             | Final                   |
+    And I save the value from row "1" for column name "Title" as "TitleIndirectRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    And I wait for "3" seconds
+    And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
+      | Title                           | End Date                            |
+      | Automation Permanent Focus Area | {SavedValue:NewBudgetPeriodEndDate} |
+    And I wait for "3" seconds
+    And I save the value from row "1" for column name "Title" as "FocusArea1" from flex table "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+      | Name     | Amendment Request |
+      | Sarah PM | Step 1            |
+    And I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Terms and Conditions" has been added in "Amendment Files" flex table
+    And I save the value from row "1" for column name "Classification" as "Classification" from flex table "---grantee_tableId:-:amendmentRequestAddFile---"
+    And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly see value "{SavedValue:Classification}" for title "Classification" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AmendEGMSID"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
+      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
+      | Victor EXE    | Fiscal Reviewer | Automation Description | 5        | No                   |
+    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "{SavedValue:AmendEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    And I click on "View" icon for "{SavedValue:AmendEGMSID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+    Then I softly cannot see top right button "Edit" in page detail
+    And I navigate to "Overview" sub tab
+    Then I softly see value "David FO" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
+    Then I cannot see row level action button "View" against "David FO" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
+    Then I cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
+    Then I cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
+    Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I cannot see row level action button "View" against "{SavedValue:ObjectiveTitle}" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:ObjectiveTitle}" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:ObjectiveTitle}" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:amendmentKPITableId---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
+    Then I cannot see row level action button "View" against "{SavedValue:KPITitle}" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:KPITitle}" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:KPITitle}" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
+    Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I cannot see row level action button "View" against "{SavedValue:TitleIndirectRate}" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:TitleIndirectRate}" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:TitleIndirectRate}" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see value "{SavedValue:Terms1}" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I can see row level action button "View" against "{SavedValue:Terms1}" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:Terms1}" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:Terms1}" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I cannot see row level action button "View" against "{SavedValue:FocusArea1}" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:FocusArea1}" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:FocusArea1}" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly see value "Victor EXE" for title "Title" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I cannot see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I cannot see row level action button "Delete" against "Victor EXE" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I softly see value "Sarah PM" for title "Title" inside table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I cannot see row level action button "View" against "Sarah PM" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I cannot see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I cannot see row level action button "Delete" against "Sarah PM" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    And I navigate to "Files" sub tab
+    Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly see value "{SavedValue:Classification}" for title "Classification" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I can see row level action button "Download" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I can see row level action button "View" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    And I save the value from row "1" for column name "Description" as "Description" from flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly see value "{SavedValue:Description}" for title "Description" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I cannot see row level action button "Download" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I cannot see row level action button "View" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
   @471672 @CombinationofamendmentVerifythatPOuserabletoDeleteamendmentrequestinCreated&RevisioninProgressstateonARlayout
   Scenario:Combination of amendment - Verify that PO user able to Delete amendment request in Created & Revision in Progress state on AR layout
@@ -7831,8 +7831,11 @@ Feature: Sanity scenarios
     Then I softly do not see fields "FederalTCLink__c" is visible
     And I click on "Save" in the page details
     And I wait for "2" seconds
-    And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    When I save the field labeled "Description of Other Changes" as "DescriptionofOtherChanges"
+    When I save the field labeled "Justification for Purpose and Summary" as "JustificationforPurposeandSummary"
+    When I save the field labeled "If Other amendment type, explain" as "IfOtheramendmenttypeexplain"
+    And I save the value from row "1" for column name "Title" as "TermsTitle" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see value "{SavedValue:TermsTitle}" for title "EGMS ID" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see "Description" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
@@ -7944,12 +7947,15 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "Edit" :
-      | Created By    | Title         | Description       |
-      | <CreatedBy>   | Notes Record1 | Automation Notes1 |
+      | Created By  | Title         | Description       |
+      | <CreatedBy> | Notes Record1 | Automation Notes1 |
     And I wait for "2" seconds
     Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Recor1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    When I click on parallel lines menu bar with data target value "Notes"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
     And I navigate to "History" sub tab
     Then I softly see "Approval History" page block displayed
     Then I softly see "Snapshot History" page block displayed
@@ -8013,6 +8019,7 @@ Feature: Sanity scenarios
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+    When I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     And I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
     And I navigate to "Field Audit" sub tab in split screen
@@ -8023,6 +8030,7 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Submit for Approval" in page detail
+    When I navigate to "Responsibilities" sub tab
     Then I softly see "Name" in flex table header "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     Then I softly see "Amendment Request" in flex table header "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
@@ -8042,7 +8050,8 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
+    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
+    Then I softly see snapshot with name containing "Complete Review.pdf" as name
     And I wait for "2" seconds
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -8086,11 +8095,13 @@ Feature: Sanity scenarios
     Then I softly see "To Address" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
     Then I softly see "CC Address" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
     Then I softly see "Email Subject" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see "Attention To" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
     Then I softly see "Preview" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
+    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
-      | To         | Subject            | Body            |
-      | <emailIdTo>  | Automation Subject | Automation Body |
+      | To          | Subject            | Body            |
+      | <emailIdTo> | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
@@ -8131,14 +8142,8 @@ Feature: Sanity scenarios
     And I save the field labeled "EGMS ID" as "AREGMSID"
     And I click on "Amend Award" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
-    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Pending Activation" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    When I navigate to "Amendments" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I can see top right button "Activate Award" in page detail
     Then I can see top right button "Delete" in page detail
     When I click on "Activate Award" in the page details
@@ -8147,40 +8152,54 @@ Feature: Sanity scenarios
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "AwardEGMSID2"
+    And I navigate to "Overview" sub tab
+    Then I softly see field "Description of Other Changes" as "{SavedValue:DescriptionofOtherChanges}"
+    Then I softly see field "Justification for Purpose and Summary" as "{SavedValue:JustificationforPurposeandSummary}"
+    Then I softly see field "If Other amendment type, explain" as "{SavedValue:IfOtheramendmenttypeexplain}"
     And I navigate to "Projections" sub tab
     And I wait for "3" seconds
+    Then I softly see "Project Period Details" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I softly see "Focus Area" page block displayed
+    Then I softly see "Award Budget" page block displayed
+    Then I softly see "Program Income" page block displayed
+    Then I softly see "Indirect Rates" page block displayed
+    When I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+    Then I softly see field "Project Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
+    When I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
+    Then I softly see field "Project Period End Date" as "{SavedValue:ProjectPeriodEndDate}"
+    When I save the field labeled "Award Amount to Date" as "AwardAmounttoDate"
+    Then I softly see field "Award Amount to Date" as "{SavedValue:AwardAmounttoDate}"
+    When I save the field labeled "Budget Redirection Threshold (%)" as "BudgetRedirectionThreshold"
+    Then I softly see field "Budget Redirection Threshold (%)" as "{SavedValue:BudgetRedirectionThreshold}"
     When I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
     Then I softly see field "Budget Period Start Date" as "{SavedValue:BudgetPeriodStartDate}"
     When I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
     Then I softly see field "Budget Period End Date" as "{SavedValue:BudgetPeriodEndDate}"
+    When I save the field labeled "Carry-Forward this Action" as "CarryForwardthisAction"
+    Then I softly see field "Carry-Forward this Action" as "{SavedValue:CarryForwardthisAction}"
+    When I save the field labeled "Award Amount This Action" as "AwardAmountThisAction"
+    Then I softly see field "Award Amount This Action" as "{SavedValue:AwardAmountThisAction}"
+    When I save the field labeled "Total Match Amount Required" as "TotalMatchAmountRequired"
+    Then I softly see field "Total Match Amount Required" as "{SavedValue:TotalMatchAmountRequired}"
+    When I save the field labeled "Maximum Indirect Cost Rate" as "MaximumIndirectCostRate"
+    Then I softly see field "Maximum Indirect Cost Rate" as "{SavedValue:MaximumIndirectCostRate}"
+    When I save the field labeled "Program Income Treatment Type" as "ProgramIncomeTreatmentType"
+    Then I softly see field "Program Income Treatment Type" as "{SavedValue:ProgramIncomeTreatmentType}"
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see value "$5,000.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
-    Then I softly see value "{SavedValue:Effectivefrom}" for title "Effective from" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
-    Then I softly see value "{SavedValue:Effectiveuntil}" for title "Effective until" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
-    Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
-    Then I softly see value "{SavedValue:FocusAreaName}" for title "Focus Area Name" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    Then I softly see value "{SavedValue:ProjectedProgramIncome}" for title "Projected Program Income ($)" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    Then I softly see value "{SavedValue:ProgramIncomeJustification}" for title "Program Income Justification" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    And I wait for "5" seconds
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    When I navigate to "Awards" sub tab
-    Then I softly see value "Amended" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-    Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    And I navigate to "Projections" sub tab
     Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$5,000.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     When I navigate to "Actuals" sub tab
+    Then I softly see "Financials Summary" page block displayed
+    Then I softly see "Expenditure Detail" page block displayed
+    Then I softly see "Program Income Revenue by Focus Area" page block displayed
+    Then I softly see "Drawdown By Award" page block displayed
     When I save the field labeled "Grant Amount" as "GrantAmount"
     Then I softly see field "Grant Amount" as "{SavedValue:GrantAmount}"
     When I save the field labeled "Total Awarded Budget" as "TotalAwardedBudget"
@@ -8201,13 +8220,21 @@ Feature: Sanity scenarios
     Then I softly see field "Current Balance" as "{SavedValue:CurrentBalance}"
     When I save the field labeled "Grant Balance" as "GrantBalance"
     Then I softly see field "Grant Balance" as "{SavedValue:GrantBalance}"
-    Then I softly see value "$7,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Expenditures to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Carry-Forward" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-    Then I softly see value "$7,000.00" for title "Remaining Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "$5,000.00" for title "Remaining Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Program Income Expenditures" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-    Then I see value "$0.00" for title "Original Program Income Earned" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:awardProgramRevenueTableId---"
+    When I navigate to "Amendments" sub tab
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I navigate to "Monitoring" sub tab
+    Then I softly see value "{SavedValue:TermsTitle}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Activated" for title "New Value" inside field history table
+    Then I softly see value "Pending Activation" for title "Original Value" inside field history table
     And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -8225,6 +8252,8 @@ Feature: Sanity scenarios
     Then I softly see field "Remaining Budget" as "{SavedValue:RemainingBudget}"
     When I save the field labeled "Budgeted Cash Match" as "BudgetedCashMatch"
     Then I softly see field "Budgeted Cash Match" as "{SavedValue:BudgetedCashMatch}"
+    When I save the field labeled "Budgeted Non-Cash Match" as "BudgetedNonCashMatch"
+    Then I softly see field "Budgeted Non-Cash Match" as "{SavedValue:BudgetedNonCashMatch}"
     When I save the field labeled "Budgeted Match" as "BudgetedMatch"
     Then I softly see field "Budgeted Match" as "{SavedValue:BudgetedMatch}"
     When I save the field labeled "Remaining Match" as "RemainingMatch"
@@ -8238,10 +8267,13 @@ Feature: Sanity scenarios
     When I save the field labeled "Total Project Cost" as "TotalProjectCost"
     Then I softly see field "Total Project Cost" as "{SavedValue:TotalProjectCost}"
     Given I expand nested table containing column value "BP01"
-    Then I softly see value "$7,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$700.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$400.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$8,100.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    When I navigate to "Awards" sub tab
+    Then I softly see value "Amended" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
@@ -8249,6 +8281,6 @@ Feature: Sanity scenarios
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | UserType    | emailIdFrom                     | emailIdTo                       | CreatedBy |
-      | GRANTEE PM  | sarah.pm.23@yopmail.com         | victor.exeqagrantee@yopmail.com |  Sarah PM |
+      | UserType   | emailIdFrom             | emailIdTo                       | CreatedBy |
+      | GRANTEE PM | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Sarah PM  |
 #      | GRANTEE EXE | victor.exeqagrantee@yopmail.com | sarah.pm.23@yopmail.com         |            |
