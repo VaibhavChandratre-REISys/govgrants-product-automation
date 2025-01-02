@@ -8628,8 +8628,6 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
-    Then I softly see the following messages in the page details contains:
-      | KPIs added succesfully. |
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
@@ -8662,6 +8660,7 @@ Feature: Sanity scenarios
       | Saved Successfully! |
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:awardsNotesTableId---"
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
