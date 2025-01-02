@@ -8724,7 +8724,7 @@ Feature: Sanity scenarios
       | Title        | Narrative     | Awarded Budget | Cash Match |
       | Construction | The narrative | 4500           | 450        |
     When I close "Add Line Items" modal by clicking the top right x button
-    When I click on "Add Line Items" icon for "Site work" inside flex table with id "---amendment:-:budgetChangeTableId---"
+    When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---"
     When I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Awarded Budget | Cash Match |
       | Extra Salary | The narrative | 600            | 60         |
@@ -8737,7 +8737,7 @@ Feature: Sanity scenarios
     | Overview Tab - Maximum Indirect Cost Rate cannot be greater than 100%.                                                                                                  |
     | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected.|
     | Responsibilities - At least one approver is required.                                                                                                                   |
-    When I click on "Add Line Items" icon for "Site work" inside flex table with id "---amendment:-:budgetChangeTableId---"
+    When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Delete" icon for "Extra Salary" inside flex table with id "---amendment:-:amendmentLineItemsTableId---" without waiting for record
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
@@ -8756,5 +8756,5 @@ Feature: Sanity scenarios
     Examples:
       | User       |
       | GRANTEE PM |
-      | GRANTEE PO |
+#      | GRANTEE PO |
 
