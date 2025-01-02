@@ -7758,7 +7758,7 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
     When I navigate to "Overview" sub tab
-    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID1}"
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I see value "Record Id" for title "{SavedValue:BDRAMENDID}" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
