@@ -7995,8 +7995,8 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "Edit" :
-      | Created By   | Title         | Description       |
-      | <CreatedBy>  | Notes Record1 | Automation Notes1 |
+      | Created By  | Title         | Description       |
+      | <CreatedBy> | Notes Record1 | Automation Notes1 |
     And I wait for "2" seconds
     Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" without waiting for record
@@ -8357,10 +8357,10 @@ Feature: Sanity scenarios
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | OwnerType  | UserType       | emailIdFrom              | emailIdTo                       | CreatedBy    |
+      | OwnerType   | UserType    | emailIdFrom                     | emailIdTo               | CreatedBy  |
 #    | GRANTEE PM | GRANTEE PM     | sarah.pm.23@yopmail.com  | victor.exeqagrantee@yopmail.com | Sarah PM     |
 #    | GRANTEE PO | GRANTEE ADMIN1 | productadmin@yopmail.com | victor.exeqagrantee@yopmail.com | Product Admin|
-      | GRANTEE EXE |  GRANTEE EXE  | victor.exeqagrantee@yopmail.com | sarah.pm.23@yopmail.com  |  Victor EXE  |
+      | GRANTEE EXE | GRANTEE EXE | victor.exeqagrantee@yopmail.com | sarah.pm.23@yopmail.com | Victor EXE |
 
   @487261 @487281 @FCAmdVerifythatFOuserseeFundingChangesection&theirFieldsunderOverviewTabinFundingChangeAmendmentRequestlayout
   Scenario: FC Amd-->Verify that FO user see Funding Change section & their Fields under Overview Tab in Funding Change Amendment Request layout
@@ -8695,8 +8695,13 @@ Feature: Sanity scenarios
     And I enter "Grantee_Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "3" seconds
-    And I save the field labeled "EGMS ID" as "BDRAMENDID"
-    And I enter value "110" into field "ApprovedIndirectCostRate__c"
+    And I click on "Edit" in the page details
+    When I clear the value from field "PurposeRTA__c"
+    When I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Justification is required to save under Overview. |
+    When I enter value "Automation Test" into field "PurposeRTA__c"
+    And I enter value "120" into field "ApprovedIndirectCostRate__c"
     And I enter value "Checked" into field "GeneralConditionChanged__c"
     And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
     And I click on "Save" in the page details
@@ -8708,15 +8713,15 @@ Feature: Sanity scenarios
       | Construction | The narrative | 4500           | 450        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit for Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - Provide a description of other changes.                                                                                                                   |
-      | Overview Tab - Provide the justification for Other amendment purpose and summary.                                                                                        |
-      | Overview Tab - Provide an explanation if Other amendment type is selected.                                                                                               |
+      | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection.                                                                         |
+      | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero.                                                                   |
+      | Overview Tab - Maximum Indirect Cost Rate cannot be greater than 100%.                                                                                                   |
       | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
+      | Responsibilities - At least one approver is required.                                                                                                                    |
 
     Examples:
-      | User        |
-      | GRANTEE PM  |
-#      | GRANTEE PO  |
+      | User       |
+      | GRANTEE PM |
+      | GRANTEE PO |
 
