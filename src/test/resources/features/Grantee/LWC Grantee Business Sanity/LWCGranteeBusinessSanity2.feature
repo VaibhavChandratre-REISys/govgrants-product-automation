@@ -7928,7 +7928,6 @@ Feature: Sanity scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name      | Role             | Description            | Due Date | Allow Record Editing |
       | Danielle FD Garcia | Program Reviewer | Automation Description | 5        | No                   |
-    And I click on top right button "Save" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     And I click on "Send for Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     Then I softly see that "Sent for Review" has been added in flextable with Id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
@@ -8694,7 +8693,6 @@ Feature: Sanity scenarios
     And I enter "Grantee_Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "3" seconds
-    And I click on "Edit" in the page details
     When I clear the value from field "PurposeRTA__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
