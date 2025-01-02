@@ -7579,7 +7579,7 @@ Feature: Sanity scenarios
 
   @486513 @486518 @486535 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward
   Scenario Outline: Other Type AR -Verify PM user should able to approved the AR & should able to create & activate new award
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "As a Grantee" app as "<OwnerType>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -7637,7 +7637,7 @@ Feature: Sanity scenarios
     When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Opportunities Not Converted to Application - All"
@@ -7693,7 +7693,7 @@ Feature: Sanity scenarios
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -7774,18 +7774,11 @@ Feature: Sanity scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---" by clicking "Edit" :
       | Focus Area Name                 | Projected Program Income ($) | Program Income Justification |
       | Automation Permanent Focus Area | 1000                         | Automation Test              |
-    And I save the value from row "1" for column name "Focus Area Name" as "FocusAreaName" from flex table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    And I save the value from row "1" for column name "Projected Program Income ($)" as "ProjectedProgramIncome" from flex table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    And I save the value from row "1" for column name "Program Income Justification" as "ProgramIncomeJustification" from flex table "---grantee_tableId:-:awardProgramIncomeTableId---"
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
       | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
       | Rate  | 15             | 30              | 10                             | Final                   |
-    And I save the value from row "1" for column name "Title" as "TitleIndirectRate" from flex table "---grantee_tableId:-:awardIndirectRateTableId---"
-    And I save the value from row "1" for column name "Effective from" as "Effectivefrom" from flex table "---grantee_tableId:-:awardIndirectRateTableId---"
-    And I save the value from row "1" for column name "Effective until" as "Effectiveuntil" from flex table "---grantee_tableId:-:awardIndirectRateTableId---"
-    And I save the value from row "1" for column name "Approved Indirect Cost Rate(%)" as "ApprovedIndirectCostRate" from flex table "---grantee_tableId:-:awardIndirectRateTableId---"
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
@@ -7867,8 +7860,7 @@ Feature: Sanity scenarios
       | Justification is required to save. |
     And I enter "Grantee_Other_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I wait for "2" seconds
-    And I enter "Grantee_Other_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I wait for "3" seconds
     When I click on "Save" in the page details
     And I wait for "2" seconds
     And I get the "EGMS ID"
@@ -7961,13 +7953,14 @@ Feature: Sanity scenarios
     And I enter value "Unchecked" into field "GeneralConditionChanged__c"
     Then I softly do not see fields "AreTCspartofNGAAttachments__c" is visible
     Then I softly do not see fields "FederalTCLink__c" is visible
+    Then I softly see fields "GeneralConditionChanged__c" is in edit mode
+    And I enter value "Checked" into field "GeneralConditionChanged__c"
+    And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     When I save the field labeled "Description of Other Changes" as "DescriptionofOtherChanges"
     When I save the field labeled "Justification for Purpose and Summary" as "JustificationforPurposeandSummary"
     When I save the field labeled "If Other amendment type, explain" as "IfOtheramendmenttypeexplain"
-    And I save the value from row "1" for column name "Title" as "TermsTitle" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    Then I softly see value "{SavedValue:TermsTitle}" for title "EGMS ID" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see "Description" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
@@ -7983,8 +7976,8 @@ Feature: Sanity scenarios
     And I click modal button "Save"
     And I wait for "3" seconds
     Then I softly see value "Terms1" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    And I click on "Delete" icon for "Terms1" inside flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    Then I softly do not see value "Terms1" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    And I save the value from row "1" for column name "Title" as "TermsTitle" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see value "{SavedValue:TermsTitle}" for title "EGMS ID" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see link "Created By" inside Page block
     And I save the field labeled "Created By" as "CreatedBy"
     Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
@@ -8177,6 +8170,20 @@ Feature: Sanity scenarios
     Then I softly see link "David FO" inside Page block
     Then I softly see link "Sarah PM" inside Page block
     And I click on "Submit for Approval" in the page details
+  | Overview Tab - Provide a description of other changes.                                                                                                                   |
+  | Overview Tab - Provide the justification for Other amendment purpose and summary.                                                                                        |
+  | Overview Tab - Provide an explanation if Other amendment type is selected.                                                                                               |
+  | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
+    When I navigate to "Overview" sub tab
+    And I wait for "2" seconds
+    And I enter "Grantee_Other_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Terms and Conditions" has been added in "Amendment Files" flex table
+    And I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -8274,7 +8281,39 @@ Feature: Sanity scenarios
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I navigate to "Amendments" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Pending Activation" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I can see top right button "Activate Award" in page detail
+    Then I can see top right button "Delete" in page detail
+    When I click on "Delete" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I can see top right button "Record Decision" in page detail
+    Then I can see top right button "Revise Amendment" in page detail
+    When I click on "Record Decision" in the page details
+    When I enter values into fields
+      | Value                       | Field             |
+      | Accepted                    | Decision__c       |
+      | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
+      | Test                        | Comments__c       |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Accepted"
+    And I click on "Amend Award" in the page details
+    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -8418,7 +8457,7 @@ Feature: Sanity scenarios
     Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$500.00" for title "Non-Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$500.00" for title "Total Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$1,000.00" for title "Total Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$0.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$6,000.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     When I navigate to "Awards" sub tab
@@ -8431,6 +8470,7 @@ Feature: Sanity scenarios
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | UserType   | emailIdFrom             | emailIdTo                       | CreatedBy |
-      | GRANTEE PM | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Sarah PM  |
+    | OwnerType  | UserType       | emailIdFrom              | emailIdTo                       | CreatedBy    |
+#    | GRANTEE PM | GRANTEE PM     | sarah.pm.23@yopmail.com  | victor.exeqagrantee@yopmail.com | Sarah PM     |
+    | GRANTEE PO | GRANTEE ADMIN1 | productadmin@yopmail.com | victor.exeqagrantee@yopmail.com | Product Admin|
 #      | GRANTEE EXE | victor.exeqagrantee@yopmail.com | sarah.pm.23@yopmail.com         |            |
