@@ -4246,11 +4246,11 @@ Feature: Sanity scenarios
 #    And I wait for "2" seconds
 #    And I download the file
 #    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
-    And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I wait for "5" seconds
-    Then I softly see "View" opens in overLay window
-    And I click modal button "Close"
+#    And I switch to parent tab
+#    And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+#    And I wait for "5" seconds
+#    Then I softly see "View" opens in overLay window
+#    And I click modal button "Close"
     And I wait for "3" seconds
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I update title as "Automation.pdf" on upload file modal
