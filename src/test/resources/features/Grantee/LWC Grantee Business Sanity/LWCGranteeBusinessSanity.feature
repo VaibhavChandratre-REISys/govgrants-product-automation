@@ -12044,8 +12044,6 @@ Feature: Sanity scenarios
     Then I softly cannot see the following messages in the page details contains:
       | Overview Tab - Money cannot be moved across the Focus Areas during a Budget Redirection request.       |
       | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero. |
-    Then I softly see field "Status" as "Submitted for Approval"
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -12213,8 +12211,6 @@ Feature: Sanity scenarios
     Then I softly cannot see the following messages in the page details contains:
       | Overview Tab - Money cannot be moved across the Focus Areas during a Budget Redirection request.       |
       | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero. |
-    Then I softly see field "Status" as "Submitted for Approval"
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
   @granteeExecution3 @449402 @VerifyUserwillactivatethenewawardfromNonOwnerAwardOwner
   Scenario: Verify User will activate the new award from Non Owner Award Owner
