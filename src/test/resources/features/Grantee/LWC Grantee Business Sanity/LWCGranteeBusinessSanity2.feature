@@ -8477,8 +8477,8 @@ Feature: Sanity scenarios
 #      | GRANTEE EXE | victor.exeqagrantee@yopmail.com | sarah.pm.23@yopmail.com         |            |
 
   @486579 @BudgetRedirectionAREXEusershouldabletoactivatenewawardthroughBRAR
-  Scenario: Budget Redirection AR- EXE user should able to activate new award through BR AR
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+  Scenario Outline: Budget Redirection AR- EXE user should able to activate new award through BR AR
+    When I login to "As a Grantee" app as "<OwnerType>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
@@ -8494,7 +8494,7 @@ Feature: Sanity scenarios
     And I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID1"
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Title" as "Automation Runtime award"
     And I click on "Edit" in the page details
@@ -8620,7 +8620,7 @@ Feature: Sanity scenarios
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -8833,7 +8833,15 @@ Feature: Sanity scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name       | Amendment Request |
       | Victor EXE | Step 1            |
+    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+      | Name     | Amendment Request |
+      | David FO | Step 2            |
+    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+      | Name     | Amendment Request |
+      | Sarah PM | Step 3            |
     Then I softly see link "Victor EXE" inside Page block
+    Then I softly see link "David FO" inside Page block
+    Then I softly see link "Sarah PM" inside Page block
     And I click on hyperlink containing value "Victor EXE"
     Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
     And I click on back arrow
@@ -8856,15 +8864,6 @@ Feature: Sanity scenarios
     Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-#    And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-#    And I wait for "2" seconds
-#    And I download the file
-#    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
-    And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I wait for "5" seconds
-    Then I softly see "View" opens in overLay window
-    And I click modal button "Close"
     And I wait for "3" seconds
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I update title as "Automation.pdf" on upload file modal
@@ -8895,8 +8894,8 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "Edit" :
-      | Created By | Title         | Description       |
-      | Sarah PM   | Notes Record1 | Automation Notes1 |
+      | Created By   | Title         | Description       |
+      | <CreatedBy>  | Notes Record1 | Automation Notes1 |
     And I wait for "2" seconds
     Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" without waiting for record
@@ -8937,7 +8936,7 @@ Feature: Sanity scenarios
     When I click modal button "Save"
     And I click on submit review
     And I wait for "3" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -8953,39 +8952,28 @@ Feature: Sanity scenarios
       | Title        | Narrative     | Awarded Budget | Cash Match |
       | Construction | The narrative | 4500           | 450        |
     When I close "Add Line Items" modal by clicking the top right x button
+    When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
+      | Title     | Narrative     | Awarded Budget | Cash Match |
+      | Site work | The narrative | 500            | 50         |
+    When I close "Add Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
     Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
-    When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title     | Narrative     | Awarded Budget | Cash Match |
-      | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
-    Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
-    And I click on "Submit for Approval" in the page details
-    And I wait for "3" seconds
-    Then I softly see the following messages in the page details contains:
-      | Overview Tab - Money cannot be moved across the Focus Areas during a Budget Redirection request.       |
-      | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero. |
-    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---"
-    When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title     | Narrative     | Awarded Budget | Cash Match |
-      | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
-    Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
-    And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Narrative     | Awarded Budget | Cash Match |
       | Construction | The narrative | 4500           | 450        |
     When I close "Add Line Items" modal by clicking the top right x button
+    When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
+      | Title     | Narrative     | Awarded Budget | Cash Match |
+      | Site work | The narrative | 500            | 50         |
+    When I close "Add Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
-    And I wait for "3" seconds
-    Then I softly cannot see the following messages in the page details contains:
-      | Overview Tab - Money cannot be moved across the Focus Areas during a Budget Redirection request.       |
-      | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero. |
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
@@ -8994,7 +8982,63 @@ Feature: Sanity scenarios
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
+    And I wait for "3" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    And I wait for "3" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    When I navigate to "History" sub tab
+    Then I softly see column "Overall Status" at position "1" contains text "Approved"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Approved" for title "New Value" inside field history table
+    Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
+    And I click on back arrow
+    And I navigate to "Messages" sub tab
+    Then I softly see "Messages" page block displayed
+    Then I softly see "Subject" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see "From Address" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see "To Address" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see "CC Address" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see "Email Subject" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see "Attention To" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see "Preview" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
+    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    And I send the email under collab tab with following details:
+      | To          | Subject            | Body            |
+      | <emailIdTo> | Automation Subject | Automation Body |
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
+    Then I softly see value "<emailIdFrom>" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "<emailIdTo>" for title "To Address" inside table "CommunicationHistory"
+    Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
+    Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
+    And I wait for "3" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
+    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -9021,20 +9065,200 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Edit" in page detail
     And I click on "Amend Award" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+    When I navigate to "Amendments" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
+    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Pending Activation" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I can see top right button "Activate Award" in page detail
+    Then I can see top right button "Delete" in page detail
+    When I click on "Delete" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I can see top right button "Record Decision" in page detail
+    Then I can see top right button "Revise Amendment" in page detail
+    When I click on "Record Decision" in the page details
+    When I enter values into fields
+      | Value                       | Field             |
+      | Accepted                    | Decision__c       |
+      | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
+      | Test                        | Comments__c       |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Accepted"
+    And I click on "Amend Award" in the page details
+    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Pending Activation" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I can see top right button "Activate Award" in page detail
+    Then I can see top right button "Delete" in page detail
     When I click on "Activate Award" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
-    And I save the field labeled "EGMS ID" as "AwardEGMSID1"
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "AwardEGMSID2"
+    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I navigate to "Overview" sub tab
+    Then I softly see field "Description of Other Changes" as "{SavedValue:DescriptionofOtherChanges}"
+    Then I softly see field "Justification for Purpose and Summary" as "{SavedValue:JustificationforPurposeandSummary}"
+    Then I softly see field "If Other amendment type, explain" as "{SavedValue:IfOtheramendmenttypeexplain}"
+    And I navigate to "Projections" sub tab
+    And I wait for "3" seconds
+    Then I softly see "Project Period Details" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I softly see "Focus Area" page block displayed
+    Then I softly see "Award Budget" page block displayed
+    Then I softly see "Program Income" page block displayed
+    Then I softly see "Indirect Rates" page block displayed
+    When I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+    Then I softly see field "Project Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
+    When I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
+    Then I softly see field "Project Period End Date" as "{SavedValue:ProjectPeriodEndDate}"
+    When I save the field labeled "Award Amount to Date" as "AwardAmounttoDate"
+    Then I softly see field "Award Amount to Date" as "{SavedValue:AwardAmounttoDate}"
+    When I save the field labeled "Budget Redirection Threshold (%)" as "BudgetRedirectionThreshold"
+    Then I softly see field "Budget Redirection Threshold (%)" as "{SavedValue:BudgetRedirectionThreshold}"
+    When I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
+    Then I softly see field "Budget Period Start Date" as "{SavedValue:BudgetPeriodStartDate}"
+    When I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
+    Then I softly see field "Budget Period End Date" as "{SavedValue:BudgetPeriodEndDate}"
+    When I save the field labeled "Carry-Forward this Action" as "CarryForwardthisAction"
+    Then I softly see field "Carry-Forward this Action" as "{SavedValue:CarryForwardthisAction}"
+    When I save the field labeled "Award Amount This Action" as "AwardAmountThisAction"
+    Then I softly see field "Award Amount This Action" as "{SavedValue:AwardAmountThisAction}"
+    When I save the field labeled "Total Match Amount Required" as "TotalMatchAmountRequired"
+    Then I softly see field "Total Match Amount Required" as "{SavedValue:TotalMatchAmountRequired}"
+    When I save the field labeled "Maximum Indirect Cost Rate" as "MaximumIndirectCostRate"
+    Then I softly see field "Maximum Indirect Cost Rate" as "{SavedValue:MaximumIndirectCostRate}"
+    When I save the field labeled "Program Income Treatment Type" as "ProgramIncomeTreatmentType"
+    Then I softly see field "Program Income Treatment Type" as "{SavedValue:ProgramIncomeTreatmentType}"
+    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$5,000.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$500.00" for title "Non-Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$1,000.00" for title "Total Match" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$0.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$6,000.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    When I navigate to "Actuals" sub tab
+    Then I softly see "Financials Summary" page block displayed
+    Then I softly see "Expenditure Detail" page block displayed
+    Then I softly see "Program Income Revenue by Focus Area" page block displayed
+    Then I softly see "Drawdown By Award" page block displayed
+    When I save the field labeled "Grant Amount" as "GrantAmount"
+    Then I softly see field "Grant Amount" as "{SavedValue:GrantAmount}"
+    When I save the field labeled "Total Awarded Budget" as "TotalAwardedBudget"
+    Then I softly see field "Total Awarded Budget" as "{SavedValue:TotalAwardedBudget}"
+    When I save the field labeled "Drawn to Date" as "DrawntoDate"
+    Then I softly see field "Drawn to Date" as "{SavedValue:DrawntoDate}"
+    When I save the field labeled "Spent to Date" as "SpenttoDate"
+    Then I softly see field "Spent to Date" as "{SavedValue:SpenttoDate}"
+    When I save the field labeled "Remaining Balance" as "RemainingBalance"
+    Then I softly see field "Remaining Balance" as "{SavedValue:RemainingBalance}"
+    When I save the field labeled "Total Match Expenditures to Date this Budget Period" as "TotalMatchExpenditurestoDatethisBudgetPeriod"
+    Then I softly see field "Total Match Expenditures to Date this Budget Period" as "{SavedValue:TotalMatchExpenditurestoDatethisBudgetPeriod}"
+    When I save the field labeled "Total Program Income Revenue this Budget Period" as "TotalProgramIncomeRevenuethisBudgetPeriod"
+    Then I softly see field "Total Program Income Revenue this Budget Period" as "{SavedValue:TotalProgramIncomeRevenuethisBudgetPeriod}"
+    When I save the field labeled "Total Leverage" as "TotalLeverage"
+    Then I softly see field "Total Leverage" as "{SavedValue:TotalLeverage}"
+    When I save the field labeled "Current Balance" as "CurrentBalance"
+    Then I softly see field "Current Balance" as "{SavedValue:CurrentBalance}"
+    When I save the field labeled "Grant Balance" as "GrantBalance"
+    Then I softly see field "Grant Balance" as "{SavedValue:GrantBalance}"
+    Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "$0.00" for title "Expenditures to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "$0.00" for title "Carry-Forward" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "$5,000.00" for title "Remaining Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "$0.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "$0.00" for title "Program Income Expenditures" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    When I navigate to "Amendments" sub tab
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I navigate to "Monitoring" sub tab
+    Then I softly see value "{SavedValue:TermsTitle}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Activated" for title "New Value" inside field history table
+    Then I softly see value "Pending Activation" for title "Original Value" inside field history table
     And I wait for "5" seconds
     And I navigate to "Grants" tab
-    And I select "Awards" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:AwardEGMSID1}"
-    Then I softly can see row level action button "Edit" against "{SavedValue:AwardEGMSID1}" in global search with id "Awards"
-    Then I softly cannot see row level action button "Change Owner" against "{SavedValue:AwardEGMSID1}" in global search with id "Awards"
-    Then I softly cannot see row level action button "Delete" against "{SavedValue:AwardEGMSID1}" in global search with id "Awards"
-    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID1}" in global search with id "Awards"
-    Then I softly see field "Status" as "Activated"
-    Then I cannot see top right button "Save" in page detail
-    Then I cannot see top right button "Cancel" in page detail
-    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Financials" sub tab
+    When I save the field labeled "Total Anticipated Amount" as "TotalAnticipatedAmount"
+    Then I softly see field "Total Anticipated Amount" as "{SavedValue:TotalAnticipatedAmount}"
+    When I save the field labeled "Award Amount to Date" as "AwardAmounttoDate"
+    Then I softly see field "Award Amount to Date" as "{SavedValue:AwardAmounttoDate}"
+    When I save the field labeled "Expenditures to Date" as "ExpenditurestoDate"
+    Then I softly see field "Expenditures to Date" as "{SavedValue:ExpenditurestoDate}"
+    When I save the field labeled "Remaining Budget" as "RemainingBudget"
+    Then I softly see field "Remaining Budget" as "{SavedValue:RemainingBudget}"
+    When I save the field labeled "Budgeted Cash Match" as "BudgetedCashMatch"
+    Then I softly see field "Budgeted Cash Match" as "{SavedValue:BudgetedCashMatch}"
+    When I save the field labeled "Budgeted Non-Cash Match" as "BudgetedNonCashMatch"
+    Then I softly see field "Budgeted Non-Cash Match" as "{SavedValue:BudgetedNonCashMatch}"
+    When I save the field labeled "Budgeted Match" as "BudgetedMatch"
+    Then I softly see field "Budgeted Match" as "{SavedValue:BudgetedMatch}"
+    When I save the field labeled "Remaining Match" as "RemainingMatch"
+    Then I softly see field "Remaining Match" as "{SavedValue:RemainingMatch}"
+    When I save the field labeled "Budgeted Leverage" as "BudgetedLeverage"
+    Then I softly see field "Budgeted Leverage" as "{SavedValue:BudgetedLeverage}"
+    When I save the field labeled "Total Anticipated Program Income" as "TotalAnticipatedProgramIncome"
+    Then I softly see field "Total Anticipated Program Income" as "{SavedValue:TotalAnticipatedProgramIncome}"
+    When I save the field labeled "Total Program Income Expenditure" as "TotalProgramIncomeExpenditure"
+    Then I softly see field "Total Program Income Expenditure" as "{SavedValue:TotalProgramIncomeExpenditure}"
+    When I save the field labeled "Total Project Cost" as "TotalProjectCost"
+    Then I softly see field "Total Project Cost" as "{SavedValue:TotalProjectCost}"
+    Given I expand nested table containing column value "BP01"
+    Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$500.00" for title "Non-Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$1,000.00" for title "Total Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$0.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$6,000.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    When I navigate to "Awards" sub tab
+    Then I softly see value "Amended" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
+    Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
+
+    Examples:
+      | OwnerType  | UserType       | emailIdFrom              | emailIdTo                       | CreatedBy    |
+#    | GRANTEE PM | GRANTEE PM     | sarah.pm.23@yopmail.com  | victor.exeqagrantee@yopmail.com | Sarah PM     |
+#    | GRANTEE PO | GRANTEE ADMIN1 | productadmin@yopmail.com | victor.exeqagrantee@yopmail.com | Product Admin|
+      | GRANTEE EXE |  GRANTEE EXE  | victor.exeqagrantee@yopmail.com | sarah.pm.23@yopmail.com  |  Victor EXE  |
+
+
