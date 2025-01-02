@@ -8177,7 +8177,9 @@ Feature: Sanity scenarios
      | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
     When I navigate to "Overview" sub tab
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     And I enter "Grantee_Other_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click on "Save" in the page details
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
