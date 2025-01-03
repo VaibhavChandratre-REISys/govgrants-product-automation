@@ -1795,7 +1795,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79978 @ValidatingSuccessMessagePromoteNextButtonPreScreenReviewStepForm
+  @79978_1 @ValidatingSuccessMessagePromoteNextButtonPreScreenReviewStepForm
   Scenario Outline: To validate system generated error message ,for user will not be able to Promote to Next step for application when the reviewer decision is still pending for the steps which are Mandatory of prescreen review review step in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
