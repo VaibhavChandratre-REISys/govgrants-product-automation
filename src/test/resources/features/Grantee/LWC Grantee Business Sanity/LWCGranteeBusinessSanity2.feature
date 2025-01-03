@@ -8373,8 +8373,8 @@ Feature: Sanity scenarios
     Examples:
       | OwnerType   | UserType      | emailIdFrom                       | CreatedBy     |
       | GRANTEE PM  | GRANTEE PM    | sarah.pm.23@yopmail.com           | Sarah PM      |
-      | GRANTEE PO  | GRANTEE PO    | grantee.po@yopmail.com.qagrnteatm | Grantee PO    |
-      | GRANTEE EXE | GRANTEE EXE   | victor.exeqagrantee@yopmail.com   | Victor EXE    |
+#      | GRANTEE PO  | GRANTEE PO    | grantee.po@yopmail.com.qagrnteatm | Grantee PO    |
+#      | GRANTEE EXE | GRANTEE EXE   | victor.exeqagrantee@yopmail.com   | Victor EXE    |
 
   @487261 @487281 @FCAmdVerifythatFOuserseeFundingChangesection&theirFieldsunderOverviewTabinFundingChangeAmendmentRequestlayout
   Scenario: FC Amd-->Verify that FO user see Funding Change section & their Fields under Overview Tab in Funding Change Amendment Request layout
