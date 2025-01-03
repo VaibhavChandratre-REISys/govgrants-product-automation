@@ -4497,7 +4497,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Create Subaward" in the page details
     Then I softly see the following messages in the page details :
       | The Budgeted Amount must be equal to the Allocation Amount in the application for each focus area. So please select the "Budget: Budget Details" option in the "Application Sections for Negotiations" field and send the application back for revision to the subrecipient. |
-
     Examples:
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |

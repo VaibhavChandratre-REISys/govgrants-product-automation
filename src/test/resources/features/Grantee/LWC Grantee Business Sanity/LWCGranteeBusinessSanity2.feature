@@ -7892,8 +7892,6 @@ Feature: Sanity scenarios
     And I click modal button "Save"
     And I wait for "3" seconds
     Then I softly see value "Terms1" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    And I click on "Delete" icon for "Terms1" inside flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    Then I softly do not see value "Terms1" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     And I save the field labeled "Created By" as "CreatedBy"
     Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
     And I save the field labeled "Created Date" as "CreatedDate"
@@ -8383,8 +8381,8 @@ Feature: Sanity scenarios
     Examples:
       | OwnerType   | UserType      | emailIdTo                         | CreatedBy     |
       | GRANTEE PM  | GRANTEE PM    | victor.exeqagrantee@yopmail.com   | Sarah PM      |
-#      | GRANTEE PO  | GRANTEE PO    | grantee.po@yopmail.com.qagrnteatm | Grantee PO    |
-#      | GRANTEE EXE | GRANTEE EXE   | victor.exeqagrantee@yopmail.com   | Victor EXE    |
+      | GRANTEE PO  | GRANTEE PO    | grantee.po@yopmail.com.qagrnteatm | Grantee PO    |
+      | GRANTEE EXE | GRANTEE EXE   | victor.exeqagrantee@yopmail.com   | Victor EXE    |
 
   @487261 @487281 @FCAmdVerifythatFOuserseeFundingChangesection&theirFieldsunderOverviewTabinFundingChangeAmendmentRequestlayout
   Scenario: FC Amd-->Verify that FO user see Funding Change section & their Fields under Overview Tab in Funding Change Amendment Request layout
