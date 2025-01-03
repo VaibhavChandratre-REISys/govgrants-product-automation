@@ -1670,4 +1670,4 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Pre-Application Required?" as "No"
     Examples:
       | userName   | userType        |
-      | GRANTEE PO | GRANTEE ADMIN   |
+      | GRANTEE PO | GRANTEE ADMIN1   |
