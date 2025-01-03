@@ -8371,8 +8371,8 @@ Feature: Sanity scenarios
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | OwnerType   | UserType      | emailIdFrom                       | CreatedBy     |
-      | GRANTEE PM  | GRANTEE PM    | sarah.pm.23@yopmail.com           | Sarah PM      |
+      | OwnerType   | UserType      | emailIdTo                         | CreatedBy     |
+      | GRANTEE PM  | GRANTEE PM    | victor.exeqagrantee@yopmail.com   | Sarah PM      |
 #      | GRANTEE PO  | GRANTEE PO    | grantee.po@yopmail.com.qagrnteatm | Grantee PO    |
 #      | GRANTEE EXE | GRANTEE EXE   | victor.exeqagrantee@yopmail.com   | Victor EXE    |
 
