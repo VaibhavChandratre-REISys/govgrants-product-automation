@@ -8742,7 +8742,7 @@ Feature: Sanity scenarios
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Awarded Budget | Cash Match |
       | Site work    | The narrative | 500            | 50         |
     When I close "Add Line Items" modal by clicking the top right x button
