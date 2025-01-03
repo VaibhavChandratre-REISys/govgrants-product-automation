@@ -7577,7 +7577,7 @@ Feature: Sanity scenarios
     When I navigate to "Amendments" sub tab
     Then I do not see value "Record Id" for title "{SavedValue:AmendEGMSID}" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
 
-  @486579 @BudgetRedirectionAREXEusershouldabletoactivatenewawardthroughBRAR
+  @486579 @486584 @486585 @BudgetRedirectionAREXEusershouldabletoactivatenewawardthroughBRAR
   Scenario Outline: Budget Redirection AR- EXE user should able to activate new award through BR AR
     When I login to "As a Grantee" app as "<OwnerType>" user
     And I navigate to "Grants" tab
@@ -8741,10 +8741,10 @@ Feature: Sanity scenarios
     And I click on "Delete" icon for "Extra Salary" inside flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" without waiting for record
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
-    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+    When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Narrative     | Awarded Budget | Cash Match |
-      | Construction | The narrative | 500            | 50         |
+      | Site work    | The narrative | 500            | 50         |
     When I close "Add Line Items" modal by clicking the top right x button
     Then I softly see the following messages in the page details contains:
      | Overview Tab - Money cannot be moved across the Focus Areas during a Budget Redirection request.                                                                        |
@@ -8756,5 +8756,5 @@ Feature: Sanity scenarios
     Examples:
       | User       |
       | GRANTEE PM |
-#      | GRANTEE PO |
+      | GRANTEE PO |
 
