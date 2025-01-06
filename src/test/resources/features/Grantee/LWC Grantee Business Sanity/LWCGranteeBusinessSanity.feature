@@ -31009,10 +31009,10 @@ Feature: Sanity scenarios
 
     Examples:
       | User          | Validation     | Toggles                |
-#      | GRANTEE FO      | softly can see    | Qualified Leads - All |
-#      | GRANTEE FD      | softly can see    | Qualified Leads - All |
+      | GRANTEE FO      | softly can see    | Qualified Leads - All |
+      | GRANTEE FD      | softly can see    | Qualified Leads - All |
       | GRANTEE ADMIN | softly can see | Qualified Leads - Open |
-#      | GRANTEE AUDITOR | softly cannot see | Qualified Leads - All |
+      | GRANTEE AUDITOR | softly cannot see | Qualified Leads - All |
 
   @483166 @483167 @483181 @ValidatePMusertheflowofNotyetqualifiedlead
   Scenario Outline: Validate PM user the flow of Not yet qualified lead

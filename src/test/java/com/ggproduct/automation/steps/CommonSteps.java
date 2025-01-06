@@ -37,6 +37,12 @@ public class CommonSteps {
         projectManager.deletionApi(recordName, objectType);
     }
 
+
+    @And("^I delete the grantee record \"([^\"]*)\"$")
+    public void iDeleteTheRecord(String recordName) {
+        projectManager.deletionApiForGrantee(recordName);
+    }
+
     @When("I close the tab")
     public void closeCurrentTab() {
         I.amPerforming().waitFor().makeThreadSleep(5000);
