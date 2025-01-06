@@ -8079,6 +8079,9 @@ Feature: Sanity scenarios
     Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
     Then I softly see value "Reviewed" for title "Original Value" inside field history table
     And I click on back arrow
+    And I wait for "3" seconds
+    And I refresh the page
+    And I wait for "2" seconds
     When I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
     Then I softly see snapshot with name containing "Complete Review.pdf" as name
