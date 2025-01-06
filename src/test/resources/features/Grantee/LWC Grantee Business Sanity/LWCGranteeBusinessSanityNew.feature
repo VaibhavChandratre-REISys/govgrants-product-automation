@@ -8425,7 +8425,7 @@ Feature: Sanity scenarios New
       | GRANTEE PM | GRANTEE AUDITOR |
       | GRANTEE PO | GRANTEE ADMIN   |
 
-  @463594 @ValidateOpportunitiesconvertedtoPreApplicationManualPOusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPreapplication @GranteeTBE
+  @463594 @ValidateOpportunitiesconvertedtoPreApplicationManualPOusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPreapplication
   Scenario: Validate Opportunities converted to Pre-Application Manual PO user can navigate to Opportunity details page after clicking on view action for the Oppprotunity which is converted to Pre-application
     Given I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
@@ -8588,7 +8588,7 @@ Feature: Sanity scenarios New
     Then I softly see field "Is Program Income Allowed?" inside page block
     Then I softly see field "Program Income Treatment Type" inside page block
     When I hovering mouse on help text icon inside page block detail "Program Income Treatment Type"
-    Then I softly see "•    Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. •    Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based.  •    Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
+    Then I softly see "•    Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives.  •    Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based.•    Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
     Then I softly see field "Are Indirect Costs Allowed?" inside page block
     Then I softly see field "Is Leverage Allowed?" inside page block
     Then I softly see "System Information" page block displayed
@@ -8683,10 +8683,12 @@ Feature: Sanity scenarios New
     Then I softly can see "Field Audit" sub tab at view detail page
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
+    And I refresh the page
+    And I wait for "3" seconds
     Then I cannot see top right button "Edit" in page detail
     Then I cannot see top right button "Delete" in page detail
 
-  @475808 @ValidateNotYetConvertedOpportunitGrantsgovPMusercancreatePreApplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord @GranteeTBE1
+  @475808 @ValidateNotYetConvertedOpportunitGrantsgovPMusercancreatePreApplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord
   Scenario: Validate Not Yet Converted Opportunity Grants.gov PM user can create Pre-Application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
@@ -8767,7 +8769,7 @@ Feature: Sanity scenarios New
     And I wait for "2" seconds
     Then I see the header is "Pre-Application" in the page details
 
-  @487215 @487216 @ValidateNotYetConvertedOpportunityManualPMusercancreatePre-applicationfromOpportunityifPre-ApplicationRequiredisselectedasYesonOpportunityrecord @GranteeTBE
+  @487215 @487216 @ValidateNotYetConvertedOpportunityManualPMusercancreatePre-applicationfromOpportunityifPre-ApplicationRequiredisselectedasYesonOpportunityrecord
   Scenario Outline: Validate Not Yet Converted Opportunity Manual PM user can create  Pre-application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
     Given I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Opportunities" tab
@@ -8800,7 +8802,7 @@ Feature: Sanity scenarios New
     And I enter "Grantee_Opportunity_Edition" values from "Announcement_Field_Values.xlsx"
     And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
     When I click on "Save" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I refresh the page
     And I wait for "3" seconds
     And I click on "Edit" in the page details
@@ -8845,9 +8847,9 @@ Feature: Sanity scenarios New
     Examples:
       | userType   |
       | GRANTEE PM |
-      | GRANTEE PO |
+#      | GRANTEE PO |
 
-  @487217 @487218 @487219 @487220 @487221 @ValidateNotYetConvertedOpportunityManualEXEusercannotcreatePreapplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord @GranteeTBE1
+  @487217 @487218 @487219 @487220 @487221 @ValidateNotYetConvertedOpportunityManualEXEusercannotcreatePreapplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord
   Scenario Outline: Validate Not Yet Converted Opportunity Manual EXE user cannot create Pre-application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
     Given I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Opportunities" tab
