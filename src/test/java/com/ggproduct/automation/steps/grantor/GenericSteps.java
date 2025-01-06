@@ -503,6 +503,11 @@ public class GenericSteps {
         grantorWebServices.publishAnnouncment(annType, annName, filter);
     }
 
+    @And("I Update for setting as grantsgov lead with opportunity number {string}")
+    public void iUpdateForSettingAsGrantsgovLeadWithOpportunityNumber(String OppoNumber) {
+        grantorWebServices.UpdateForSettingAsGrantsgovLeadWithOpportunityNumber(OppoNumber);
+    }
+
     @And("I activated standalone subaward {string} with properties {string}")
     public void iActivatedStandaloneSubawardWithProperties(String grantName, String filter) {
         String newGrantName = grantName + I.amPerforming().addOnsTo().getRandomNumber();

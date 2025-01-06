@@ -607,6 +607,21 @@ public class GrantorPayloads {
         }
     }
 
+    public JsonObject UpdateLeadSettingsAPI(String oppoNumber) {
+        JsonObject json = getDefaultUpdateLeadSettings(oppoNumber);
+        return json;
+    }
+
+    private JsonObject getDefaultUpdateLeadSettings(String oppoNumber) {
+        JsonObject parent = new JsonObject();
+        JsonObject opportunity = new JsonObject();
+        JsonArray opportunityA = new JsonArray();
+        opportunity.addProperty("OpportunityNumber", oppoNumber);
+        opportunityA.add(opportunity);
+        parent.add("OpportunityNumber", opportunityA);
+        return parent;
+    }
+
     private JsonObject invitedIndUserOrganizationbyApplicantRiskNo(JsonObject json) {
         JsonObject jsonObject = json.getAsJsonArray("InvitedApplicant").get(0).getAsJsonObject();
         JsonArray pre = new JsonArray();

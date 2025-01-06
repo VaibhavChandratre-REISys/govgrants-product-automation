@@ -217,6 +217,13 @@ public class GrantorWebServices extends ProjectWebServices {
     }
 
     /**
+     * @param oppoNumber to update gov grants lead from backend
+     */
+    public void UpdateForSettingAsGrantsgovLeadWithOpportunityNumber(String oppoNumber) {
+        UpdateLeadSettingsAPIPostCall(projectApis.UpdateLeadSettingsAPI(oppoNumber));
+    }
+
+    /**
      * @param grantName name of award
      * @param filter    if we want to change anything from default payload then we can create
      *                  our own filter in payloadForCreateStandaloneAward(String, String) method
@@ -246,6 +253,14 @@ public class GrantorWebServices extends ProjectWebServices {
     private void publishAnnouncementPostCall(JsonObject jsonObject) {
         String finalEndPoint = endPoint + "/services/apexrest/PublishAnnouncementCopy";
         Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                finalEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    private void UpdateLeadSettingsAPIPostCall(JsonObject jsonObject) {
+        String finalEndPoint = endPoint + "/services/apexrest/updateLeadSettings";
+        Response response = I.amPerforming().restHttp().patchCall(jsonObject, null,
                 finalEndPoint, "Authorization", "Bearer " + tokenString, null);
         response.prettyPrint();
         assertStatusCode(response);
