@@ -8380,10 +8380,13 @@ Feature: Sanity scenarios
     Then I softly see value "{SavedValue:AwardEGMSID1}" for title "Original Value" inside field history table
 
     Examples:
-      | OwnerType   | UserType      | emailIdTo                         | CreatedBy     |
-      | GRANTEE PM  | GRANTEE PM    | victor.exeqagrantee@yopmail.com   | Sarah PM      |
-      | GRANTEE PO  | GRANTEE PO    | grantee.po@yopmail.com.qagrnteatm | Grantee PO    |
-      | GRANTEE EXE | GRANTEE EXE   | victor.exeqagrantee@yopmail.com   | Victor EXE    |
+      | OwnerType      | UserType       | emailIdTo                         | CreatedBy         |
+#      | GRANTEE PM     | GRANTEE PM     | victor.exeqagrantee@yopmail.com   | Sarah PM          |
+#      | GRANTEE PO     | GRANTEE PO     | grantee.po@yopmail.com.qagrnteatm | Grantee PO        |
+#      | GRANTEE EXE    | GRANTEE EXE    | victor.exeqagrantee@yopmail.com   | Victor EXE        |
+      | GRANTEE ADMIN1 | GRANTEE ADMIN1 | victor.exeqagrantee@yopmail.com   | Product Admin     |
+      | GRANTEE EXE    | GRANTEE FO     | victor.exeqagrantee@yopmail.com   | David FO          |
+      | GRANTEE EXE    | GRANTEE FD     | victor.exeqagrantee@yopmail.com   | Danielle FD Garcia|
 
   @487261 @487281 @FCAmdVerifythatFOuserseeFundingChangesection&theirFieldsunderOverviewTabinFundingChangeAmendmentRequestlayout
   Scenario: FC Amd-->Verify that FO user see Funding Change section & their Fields under Overview Tab in Funding Change Amendment Request layout
