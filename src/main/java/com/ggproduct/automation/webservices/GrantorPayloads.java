@@ -614,11 +614,7 @@ public class GrantorPayloads {
 
     private JsonObject getDefaultUpdateLeadSettings(String oppoNumber) {
         JsonObject parent = new JsonObject();
-        JsonObject opportunity = new JsonObject();
-        JsonArray opportunityA = new JsonArray();
-        opportunity.addProperty("OpportunityNumber", oppoNumber);
-        opportunityA.add(opportunity);
-        parent.add("OpportunityNumber", opportunityA);
+        parent.addProperty("OpportunityNumber", oppoNumber);
         return parent;
     }
 

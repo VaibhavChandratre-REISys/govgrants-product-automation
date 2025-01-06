@@ -8731,7 +8731,9 @@ Feature: Sanity scenarios New
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I halt execution
     And I Update for setting as grantsgov lead with opportunity number "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
+    And I halt execution
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:opportunityExternalProgramTableId---"
     When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:opportunityExternalProgramModalTableId---"
@@ -8847,7 +8849,7 @@ Feature: Sanity scenarios New
     Examples:
       | userType   |
       | GRANTEE PM |
-#      | GRANTEE PO |
+      | GRANTEE PO |
 
   @487217 @487218 @487219 @487220 @487221 @ValidateNotYetConvertedOpportunityManualEXEusercannotcreatePreapplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord
   Scenario Outline: Validate Not Yet Converted Opportunity Manual EXE user cannot create Pre-application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record

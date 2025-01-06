@@ -19,7 +19,7 @@ import java.util.List;
 
 public final class PageDetails {
     private final By textInsideHelpText = By.xpath(
-            "//div[@class='tooltipster-base tooltipster-noir tooltipster-fade tooltipster-fade-show'] | //span[contains(@class,'fa fa-info helpIcon')]/following-sibling::span[contains(@class,'ng-binding')] | //span[contains(@class,'fa fa-info helpIcon')]/following-sibling::span[contains(@class,'hidden508')] | //i[contains(@class,'fa fa-thumbs-up')]/parent::a | //i[contains(@class,'fa fa-clock-o')]/parent::a | //div[contains(@class,'tooltipster-content')]/span | //i[contains(@class,'fa fa-ban')]/parent::a | //span[@role='tooltip']//span | //lightning-primitive-bubble[@role='tooltip']//div//div | //lightning-primitive-bubble[@role='tooltip']//div//div[@class='slds-popover__body']");
+            "//div[@class='tooltipster-base tooltipster-noir tooltipster-fade tooltipster-fade-show'] | //span[contains(@class,'fa fa-info helpIcon')]/following-sibling::span[contains(@class,'ng-binding')] | //span[contains(@class,'fa fa-info helpIcon')]/following-sibling::span[contains(@class,'hidden508')] | //i[contains(@class,'fa fa-thumbs-up')]/parent::a | //i[contains(@class,'fa fa-clock-o')]/parent::a | //div[contains(@class,'tooltipster-content')]/span | //i[contains(@class,'fa fa-ban')]/parent::a | //span[@role='tooltip']//span | //lightning-primitive-bubble[@role='tooltip']//div//div[@class='slds-popover__body'] | //lightning-primitive-bubble[@role='tooltip']//div//div");
     public String idOfRecord = null;
 
     /**
@@ -725,7 +725,7 @@ public final class PageDetails {
         String element = null;
 
         if (fieldLabel.contains("'") ||fieldLabel.contains("?") )
-            element = "//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().contains("text()", fieldLabel) + "]";
+            element = "//c-page-block-section//label[contains(text(), '" + fieldLabel + "')]";
         else
             element = "//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
 
