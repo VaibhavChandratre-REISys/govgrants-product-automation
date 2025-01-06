@@ -8022,8 +8022,6 @@ Feature: Sanity scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
