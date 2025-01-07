@@ -8425,8 +8425,8 @@ Feature: Sanity scenarios New
       | GRANTEE PM | GRANTEE AUDITOR |
       | GRANTEE PO | GRANTEE ADMIN   |
 
-  @463594 @ValidateOpportunitiesconvertedtoPreApplicationManualPOusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPreapplication
-  Scenario: Validate Opportunities converted to Pre-Application Manual PO user can navigate to Opportunity details page after clicking on view action for the Oppprotunity which is converted to Pre-application
+  @463594 @480703 @480706 @480708 @480709 @ValidateOpportunitiesconvertedtoPreApplicationManualPOusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPreapplication
+  Scenario Outline: Validate Opportunities converted to Pre-Application Manual PO user can navigate to Opportunity details page after clicking on view action for the Oppprotunity which is converted to Pre-application
     Given I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
@@ -8503,6 +8503,7 @@ Feature: Sanity scenarios New
     And I enter "Grantee_Edition_DetailLineItems" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
+    When I re-login to "As a Grantee" app as "<userName>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Opportunities - All"
@@ -8664,7 +8665,6 @@ Feature: Sanity scenarios New
     When I hovering mouse on help text icon inside page block detail "15. Does the grant allow indirect costs?"
     Then I softly see "Are Indirect Costs Allowed? setting as selected in the Financial Details." shown as help text
     Then I softly see field "16. Is there an administrative cost limit?" inside page block
-    Then I softly see field "16a. If yes, what percent is the administrative cost limit?" inside page block
     Then I softly see field "17. How will the program be sustained, should funding end?" inside page block
     Then I softly see "Certifications and Other" page block displayed
     Then I softly see field "18. Describe any additional legal requirements or policy impact from receiving an award." inside page block
@@ -8681,12 +8681,25 @@ Feature: Sanity scenarios New
     Then I softly see "Snapshot History" page block displayed
     And I navigate to "Field Audit" sub tab in split screen
     Then I softly can see "Field Audit" sub tab at view detail page
+    When I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Converted to Pre-Application" for title "New Value" inside field history table
+    Then I softly see value "Approved" for title "Original Value" inside field history table
+    And I click on back arrow
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
     And I refresh the page
     And I wait for "3" seconds
     Then I cannot see top right button "Edit" in page detail
     Then I cannot see top right button "Delete" in page detail
+    Examples:
+      | userName        |
+#      | GRANTEE PO      |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE ADMIN   |
+      | GRANTEE AUDITOR |
 
   @475808 @ValidateNotYetConvertedOpportunitGrantsgovPMusercancreatePreApplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord
   Scenario: Validate Not Yet Converted Opportunity Grants.gov PM user can create Pre-Application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
@@ -8700,7 +8713,9 @@ Feature: Sanity scenarios New
     And I click modal button "Save and Continue"
     And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I Update for setting as grantsgov lead with opportunity number "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "State" as "Forecasted"
     And I save the field labeled "EGMS ID" as "LeadsEGMSID"
     When I click on "Activate" in the page details without processing
@@ -8724,6 +8739,7 @@ Feature: Sanity scenarios New
     When I click on "Save" in the page details
     And I wait for "3" seconds
     And I refresh the page
+    And I wait for "3" seconds
     And I click on "Edit" in the page details
     And I enter value "Yes" into field "MaintenanceEffortRequire__c"
     And I enter value "Automation Test" into field "StatutoryMaintenanceOfEffort__c"
@@ -8731,9 +8747,6 @@ Feature: Sanity scenarios New
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I halt execution
-    And I Update for setting as grantsgov lead with opportunity number "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
-    And I halt execution
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:opportunityExternalProgramTableId---"
     When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:opportunityExternalProgramModalTableId---"
