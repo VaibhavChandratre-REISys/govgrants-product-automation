@@ -29605,7 +29605,7 @@ Feature: Sanity scenarios
       | GRANTEE PM      |
 
   @480702 @OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application
-  Scenario Outline: OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application
+  Scenario Outline: Opportunities converted to Application (Manual) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Oppprotunity which is converted to Pre-application
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
     And I click toggle button to select "Opportunities - All"
