@@ -179,5 +179,25 @@ public class ProjectWebServices {
         return defaultEndPointGetToken;
     }
 
+    /**
+     * calls the api to delete test data
+     *
+     * @param recordName - the opportunity number for Grants.gov Leads
+     */
+    public void deletionApiForGrantee(String recordName) {
+        System.out.print("Making API call... ");
+        try {
+            recordName = URLEncoder.encode(recordName, StandardCharsets.UTF_8.toString());
+        } catch (Exception e) {
+        }
+        String finalEndPoint = endPoint + "/services/apexrest/deleteFundingOpportunity/" + recordName;
+        Response response = I.amPerforming().restHttp().DeleteCall(null, null, finalEndPoint, "Authorization", "Bearer " + tokenString,
+                null);
+        System.out.println(finalEndPoint);
+        response.prettyPrint();
+        System.out.println("Completed. ");
+        assertStatusCode(response);
+    }
+
 
 }

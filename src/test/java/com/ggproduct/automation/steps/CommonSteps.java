@@ -124,6 +124,11 @@ public class CommonSteps {
     public void iSoftlySeeNotificationContains(String usage, String messageTitle, String messageValue) {
         projectManager.assertNotificationValues(usage,messageTitle,messageValue);
     }
+
+    @And("^I delete the grantee record \"([^\"]*)\"$")
+    public void iDeleteTheRecord(String recordName) {
+        projectManager.deletionApiForGrantee(recordName);
+    }
 }
 
 
