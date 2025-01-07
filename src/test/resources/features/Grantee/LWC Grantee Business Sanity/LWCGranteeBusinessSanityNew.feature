@@ -8785,7 +8785,7 @@ Feature: Sanity scenarios New
     Then I see the header is "Pre-Application" in the page details
     Examples:
       | userName        |
-#      | GRANTEE PM      |
+      | GRANTEE PM      |
       | GRANTEE PO      |
 
   @487215 @487216 @ValidateNotYetConvertedOpportunityManualPMusercancreatePre-applicationfromOpportunityifPre-ApplicationRequiredisselectedasYesonOpportunityrecord
@@ -9024,7 +9024,7 @@ Feature: Sanity scenarios New
     Examples:
       | userType        |
       | GRANTEE EXE     |
-#      | GRANTEE FO      |
-#      | GRANTEE FD      |
-#      | GRANTEE ADMIN   |
-#      | GRANTEE AUDITOR |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE ADMIN   |
+      | GRANTEE AUDITOR |
