@@ -1596,77 +1596,47 @@ Feature: Validate all scenarios of every modules flow
 
 
   @debug @vai
-  Scenario: Validate Not Yet Converted Opportunity Manual Auditor user cannot create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
-    Given I login to "As a Grantee" app as "GRANTEE PO" user
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "GT-GA-03123" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "GT-GA-03123" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "AD-GA-3377" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-    And I navigate to "Projections" sub tab
-    And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
-    Then I softly see field "Status" as "Activated"
-    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
-    And I save the field labeled "EGMS ID" as "AwardEGMSID2"
+  @OpportunitiesNotconvertedGrantsgovVerifyEXEuserReviewereditaccessasNocanabletosubmitReview
+  Scenario: Opportunities Not converted (Grants.gov)  - Verify EXE user (Reviewer edit access as = No)can able to submit Review
+    Given I login to "As a Grantee" app as "GRANTEE EXE" user
     And I wait for "5" seconds
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "GT-GA-03123" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "GT-GA-03123" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    And I navigate to "Financials" sub tab
-    When I save the field labeled "Total Anticipated Amount" as "TotalAnticipatedAmount"
-    Then I softly see field "Total Anticipated Amount" as "{SavedValue:TotalAnticipatedAmount}"
-    When I save the field labeled "Award Amount to Date" as "AwardAmounttoDate"
-    Then I softly see field "Award Amount to Date" as "{SavedValue:AwardAmounttoDate}"
-    When I save the field labeled "Expenditures to Date" as "ExpenditurestoDate"
-    Then I softly see field "Expenditures to Date" as "{SavedValue:ExpenditurestoDate}"
-    When I save the field labeled "Remaining Budget" as "RemainingBudget"
-    Then I softly see field "Remaining Budget" as "{SavedValue:RemainingBudget}"
-    When I save the field labeled "Budgeted Cash Match" as "BudgetedCashMatch"
-    Then I softly see field "Budgeted Cash Match" as "{SavedValue:BudgetedCashMatch}"
-    When I save the field labeled "Budgeted Match" as "BudgetedMatch"
-    Then I softly see field "Budgeted Match" as "{SavedValue:BudgetedMatch}"
-    When I save the field labeled "Remaining Match" as "RemainingMatch"
-    Then I softly see field "Remaining Match" as "{SavedValue:RemainingMatch}"
-    When I save the field labeled "Budgeted Leverage" as "BudgetedLeverage"
-    Then I softly see field "Budgeted Leverage" as "{SavedValue:BudgetedLeverage}"
-    When I save the field labeled "Total Anticipated Program Income" as "TotalAnticipatedProgramIncome"
-    Then I softly see field "Total Anticipated Program Income" as "{SavedValue:TotalAnticipatedProgramIncome}"
-    When I save the field labeled "Total Program Income Expenditure" as "TotalProgramIncomeExpenditure"
-    Then I softly see field "Total Program Income Expenditure" as "{SavedValue:TotalProgramIncomeExpenditure}"
-    When I save the field labeled "Total Project Cost" as "TotalProjectCost"
-    Then I softly see field "Total Project Cost" as "{SavedValue:TotalProjectCost}"
-    Given I expand nested table containing column value "BP01"
-    Then I softly see value "{SavedValue:BudgetPeriodEndDate}" for title "End Date" against the value "BP01" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    When I navigate to "Awards" sub tab
-    Then I softly see value "Activated" for title "Status" against the value "AD-GA-3377" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-    And I navigate to "Management" sub tab
-    Then I softly see value "Accepted" for title "Status" against the value "AD-GA-3266" inside table "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
-    And I navigate to "History" sub tab
-    And I navigate to "Field Audit" sub tab in split screen
-    And I click on hyperlink containing value "View All"
-    Then I softly see value "AD-GA-3377" for title "New Value" inside field history table
-    Then I softly see value "AD-GA-3264" for title "Original Value" inside field history table
-    And I click on back arrow
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-    And I navigate to "History" sub tab
-    Then I softly see field "Source Change Request" as "CR-AD-GA-3266-00"
-    Then I softly see field "Request Type" as "Change Request"
-    And I wait for "5" seconds
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "GT-GA-03123" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "GT-GA-03123" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-    And I navigate to "History" sub tab
-    Then I softly do not see "Change Request History" page block displayed
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" by clicking "New" :
+      | Reviewer Name | Responsibility  | Description            | Due Date | Allow Record Editing |
+      | David FO      | Fiscal Reviewer | Automation Description | 5        | NO                   |
+    And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
+    And I pause execution for "3" seconds
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    Then I softly see value "{SavedValue:opportunityEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
+    When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I navigate to "Responsibilities" sub tab
+    Then I softly cannot see top right button "Edit" in page detail
+    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
+    And I wait for "2" seconds
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Rating is required to save.   |
+      | Comments is required to save. |
+    And I enter a review as "Passed"
+    When I click modal button "Save"
+    And I click on submit review
+    And I wait for "3" seconds
+    Then I softly see value "Submitted" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I softly cannot see row level action button "Enter Review" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    And I click toggle button to select "Opportunities - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly can see top right button "Complete Review" in page detail
+    When I navigate to "Responsibilities" sub tab
+    Then I softly can see row level action button "Resend for Review" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    When I click on "Complete Review" in the page details
+    Then I softly see field "Status" as "Reviewed"

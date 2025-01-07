@@ -9227,8 +9227,8 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" by clicking "New" :
-      | Reviewer Name | Responsibility  | Description            | Due Date | Allow Record Editing |
-      | David FO      | Fiscal Reviewer | Automation Description | 5        | NO                   |
+       | Responsibility  | Description            | Due Date | Allow Record Editing | Reviewer Name |
+       | Fiscal Reviewer | Automation Description | 5        | NO                   |  David FO    |
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
     And I pause execution for "3" seconds
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
