@@ -9223,6 +9223,8 @@ Feature: Sanity scenarios
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I wait for "2" seconds
+    When I click on "Convert to Opportunity" in the page details
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" by clicking "New" :
       | Reviewer Name | Responsibility  | Description            | Due Date | Allow Record Editing |
