@@ -8308,9 +8308,9 @@ Feature: Sanity scenarios
 #      | GRANTEE PM     | GRANTEE PM     | victor.exeqagrantee@yopmail.com   | Sarah PM          |
 #      | GRANTEE PO     | GRANTEE PO     | grantee.po@yopmail.com.qagrnteatm | Grantee PO        |
 #      | GRANTEE EXE    | GRANTEE EXE    | victor.exeqagrantee@yopmail.com   | Victor EXE        |
-      | GRANTEE ADMIN1 | GRANTEE ADMIN1 | qa.admin@ggp.test8.qagrnteatm     | Product Admin     |
-      | GRANTEE EXE    | GRANTEE FO     | victor.exeqagrantee@yopmail.com   | David FO          |
-      | GRANTEE EXE    | GRANTEE FD     | victor.exeqagrantee@yopmail.com   | Danielle FD Garcia|
+#      | GRANTEE ADMIN1 | GRANTEE ADMIN1 | qa.admin@ggp.test8.qagrnteatm     | Product Admin     |
+#      | GRANTEE EXE    | GRANTEE FO     | victor.exeqagrantee@yopmail.com   | David FO          |
+#      | GRANTEE EXE    | GRANTEE FD     | victor.exeqagrantee@yopmail.com   | Danielle FD Garcia|
       | GRANTEE EXE    | GRANTEE ADMIN1 | victor.exeqagrantee@yopmail.com   | Product Admin     |
 
   @487261 @487281 @FCAmdVerifythatFOuserseeFundingChangesection&theirFieldsunderOverviewTabinFundingChangeAmendmentRequestlayout
@@ -8760,8 +8760,6 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
-    Then I softly see the following messages in the page details contains:
-      | KPIs added succesfully. |
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"

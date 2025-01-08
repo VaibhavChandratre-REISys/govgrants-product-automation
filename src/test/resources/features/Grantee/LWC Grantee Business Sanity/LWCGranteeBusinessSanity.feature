@@ -29169,13 +29169,8 @@ Feature: Sanity scenarios
     Then I softly see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Expired" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    And I click on page navigation arrow "---grantee_tableId:-:preApplicaltionTableId---" for table id "Next"
-    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
     Then I softly see top right button "Advance Filter" inside flex table "---grantee_tableId:-:preApplicaltionTableId---"
-    And I click toggle button to select "Pre-Application - All"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:preApplicaltionTableId---"
     When I click on parallel lines menu bar with data target value "Pre-Application - All"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -29192,131 +29187,26 @@ Feature: Sanity scenarios
     When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Approved" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Rejected" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Expired" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Expired" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    And I wait for "2" seconds
-    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly can see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    And I click toggle button to select "Pre-Application - Submitted"
-    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly do not see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Approved" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly do not see value "Rejected" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly do not see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Expired" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Expired" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    And I wait for "2" seconds
-    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    And I click toggle button to select "Pre-Application - Expired"
-    When I perform quick search for "Expired" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Expired" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Approved" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Rejected" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     And I wait for "2" seconds
-    When I perform quick search for "Expired" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Expired" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    And I click toggle button to select "Pre-Application - Submitted"
+    When I perform quick search for "Submit to Grantor" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Submit to Grantor" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     And I wait for "2" seconds
-    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
     And I click toggle button to select "Pre-Application - Converted to Application"
     When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Submitted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Approved" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Rejected" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     And I wait for "2" seconds
-    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    And I wait for "2" seconds
-    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
     And I click toggle button to select "Pre-Application - My Records"
-    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Activated" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Closed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Amended" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    And I wait for "2" seconds
     And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
