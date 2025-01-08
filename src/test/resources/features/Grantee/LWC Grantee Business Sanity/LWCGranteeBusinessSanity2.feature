@@ -9193,10 +9193,10 @@ Feature: Sanity scenarios
      |  GRANTEE PO | GRANTEE ADMIN1 |
      |  GRANTEE PO | GRANTEE AUDITOR|
 
-  @475755 @OpportunitiesNotconvertedGrantsgovVerifyEXEuserReviewereditaccessasNocanabletosubmitReview
-  Scenario: Opportunities Not converted (Grants.gov)  - Verify EXE user (Reviewer edit access as = No)can able to submit Review
+  @475755 @475754 @OpportunitiesNotconvertedGrantsgovVerifyEXEuserReviewereditaccessasNocanabletosubmitReview
+  Scenario Outline: Opportunities Not converted (Grants.gov)  - Verify EXE user (Reviewer edit access as = No)can able to submit Review
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
-    Given I login to "As a Grantee" app as "GRANTEE EXE" user
+    Given I login to "As a Grantee" app as "<UserType>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -9225,13 +9225,25 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     When I click on "Convert to Opportunity" in the page details
     And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | David FO      | Fiscal Reviewer | Automation Description | 5        | NO                   |
+    When I enter the following values into flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" by clicking "New" :
+      | Reviewer Name     | Role            | Description            | Due Date | Allow Record Editing |
+      | Danielle FD Garcia| Program Reviewer| Automation Description | 5        | Yes                  |
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
+    And I pause execution for "2" seconds
+    And I click on "Send for Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
     And I pause execution for "3" seconds
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    And I click toggle button to select "Opportunities Not Converted to Application - My Records"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:opportunityEGMSID}" in flex table with id "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    And I wait for "5" seconds
     And I navigate to "Opportunities" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -9248,13 +9260,36 @@ Feature: Sanity scenarios
     Then I softly see value "Submitted" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
     Then I softly cannot see row level action button "Enter Review" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
     Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    And I click toggle button to select "Opportunities Not Converted to Application - My Records"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly can see row level action button "Edit" against "{SavedValue:opportunityEGMSID}" in flex table with id "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    And I wait for "5" seconds
+    And I navigate to "Opportunities" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    Then I softly see value "{SavedValue:opportunityEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
+    When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I navigate to "Responsibilities" sub tab
+    Then I softly can see top right button "Edit" in page detail
+    When I click on "Enter Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
+    And I wait for "2" seconds
+    And I enter a review as "Passed"
+    When I click modal button "Save"
+    And I click on submit review
+    And I wait for "3" seconds
+    Then I softly see value "Submitted" for title "Status" against the value "Danielle FD Garcia" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I softly cannot see row level action button "Enter Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I softly cannot see row level action button "Edit" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
+    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Opportunities Not Converted to Application - All"
     And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
     When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
-    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Complete Review" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly can see row level action button "Resend for Review" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
@@ -9262,3 +9297,162 @@ Feature: Sanity scenarios
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
     Then I softly see value "Submitted" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+
+    Examples:
+      | UserType    |
+      | GRANTEE EXE |
+      | GRANTEE PM  |
+
+  @487232 @NotYetConvertedOpportunityGrantsgovVerifyPOusercancreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord
+  Scenario: Not Yet Converted Opportunity (Grants.gov)  - Verify PO user can create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I enter "Grantee_Leads_CAS-HHS0001212745" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I Update for setting as grantsgov lead with opportunity number "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see field "State" as "Forecasted"
+    And I save the field labeled "EGMS ID" as "LeadsEGMSID"
+    When I click on "Activate" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
+    When I click modal button "OK"
+    Then I softly see field "State" as "Posted"
+    Then I can see top right button "Qualify Lead" in page detail
+    And I click on "Qualify Lead" in the page details
+    Then I softly see field "Status" as "Qualified Lead"
+    And I save the field labeled "EGMS ID" as "QualifiedLeadEGMSID"
+    And I click on "Edit" in the page details
+    And I enter "Grantee_Qualifiedleads_Edition" values from "Announcement_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I click on "Convert to Opportunity" in the page details
+    And I click on "Edit" in the page details
+    And I refresh the page
+    And I wait for "3" seconds
+    And I enter "Grantee_Opp_PreAppNo_Edition" values from "Announcement_Field_Values.xlsx"
+    And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I refresh the page
+    And I click on "Edit" in the page details
+    And I enter value "Yes" into field "MaintenanceEffortRequire__c"
+    And I enter value "Automation Test" into field "StatutoryMaintenanceOfEffort__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:opportunityExternalProgramModalTableId---"
+    When I click modal button "Close"
+    And I wait for "3" seconds
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:opportunityApproverTableId---" by clicking "New" :
+      | Name     | Opportunity |
+      | Sarah PM | Step 1      |
+    When I click on "Validate" in the page details
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | The Funding Opportunity has been validated successfully. |
+    And I click on "Submit for Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly can see top right button "Create Application" in page detail
+    When I click on "Create Application" in the page details
+    And I wait for "2" seconds
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Application_Field_Values - backup.xlsx"
+    When I click on "Save" in the page details
+    And I pause execution for "2" seconds
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+
+  @475743 @OpportunitiesNotconvertedGrantsgovVerifyasPMuservalidationisdisplayedonSaveforrequiredforsavefieldsand*isdisplayedforrequiredfields
+  Scenario: Opportunities Not converted (Grants.gov ) - Verify as PM user,  validation is displayed on Save for required for save fields and * is displayed for required fields
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I enter "Grantee_Leads_CAS-HHS0001212745" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I Update for setting as grantsgov lead with opportunity number "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see field "State" as "Forecasted"
+    And I save the field labeled "EGMS ID" as "LeadsEGMSID"
+    When I click on "Activate" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
+    When I click modal button "OK"
+    Then I softly see field "State" as "Posted"
+    Then I can see top right button "Qualify Lead" in page detail
+    And I click on "Qualify Lead" in the page details
+    Then I softly see field "Status" as "Qualified Lead"
+    And I save the field labeled "EGMS ID" as "QualifiedLeadEGMSID"
+    And I click on "Edit" in the page details
+    And I enter "Grantee_Qualifiedleads_Edition" values from "Announcement_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I click on "Convert to Opportunity" in the page details
+    And I click on "Edit" in the page details
+    And I refresh the page
+    And I wait for "3" seconds
+    And I enter "Grantee_Opp_PreAppYes_Edition" values from "Announcement_Field_Values.xlsx"
+    And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
+    When I click on "Save" in the page details
+    And I wait for "5" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    When I navigate to "Overview" sub tab
+    When I save the field labeled "Application Due Date" as "ApplicationDueDate"
+    And I click on "Edit" in the page details
+    And I enter value "{SavedValue:ApplicationDueDate}" into field "PreApplicationDueDate__c"
+    And I navigate to "Evaluation" sub tab
+    And I enter value "Yes" into field "MaintenanceEffortRequire__c"
+    And I enter value "Automation Test" into field "StatutoryMaintenanceOfEffort__c"
+    And I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:opportunityExternalProgramModalTableId---"
+    When I click modal button "Close"
+    And I wait for "3" seconds
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:opportunityApproverTableId---" by clicking "New" :
+      | Name       | Opportunity |
+      | Victor EXE | Step 1      |
+    When I navigate to "Overview" sub tab
+    Then I softly see asterisk mark on "Category Of Funding Activity"
+    Then I softly see asterisk mark on "Description"
+    Then I softly see asterisk mark on "Is Leverage Allowed?"
+    And I click on "Edit" in the page details
+    Then I see textarea field "AnnouncementDescription__c" is editable
+    Then I softly see fields "Is Leverage Allowed?" is in edit mode
+    Then I softly see fields "AnnouncementDescription__c" is in edit mode
+    Then I softly see fields "Category Of Funding Activity" is in edit mode
+    And I clear the value from field "AnnouncementDescription__c"
+    And I enter value "120" into field "EstimatedProjectPeriodStartDate__c"
+    And I enter value "120" into field "AnticipatedAwardDate__c"
+    And I enter value "120" into field "LetterOfIntentDueDate__c"
+    And I click on "Save" in the page details
