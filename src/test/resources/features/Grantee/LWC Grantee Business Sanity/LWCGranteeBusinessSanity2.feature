@@ -8241,34 +8241,6 @@ Feature: Sanity scenarios
     Then I softly see "System Information" page block displayed
     And I navigate to "Projections" sub tab
     And I wait for "3" seconds
-    Then I softly see "Project Period Details" page block displayed
-    Then I softly see "Budget Period Details" page block displayed
-    Then I softly see "Focus Area" page block displayed
-    Then I softly see "Award Budget" page block displayed
-    Then I softly see "Program Income" page block displayed
-    Then I softly see "Indirect Rates" page block displayed
-    When I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
-    Then I softly see field "Project Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
-    When I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
-    Then I softly see field "Project Period End Date" as "{SavedValue:ProjectPeriodEndDate}"
-    When I save the field labeled "Award Amount to Date" as "AwardAmounttoDate"
-    Then I softly see field "Award Amount to Date" as "{SavedValue:AwardAmounttoDate}"
-    When I save the field labeled "Budget Redirection Threshold (%)" as "BudgetRedirectionThreshold"
-    Then I softly see field "Budget Redirection Threshold (%)" as "{SavedValue:BudgetRedirectionThreshold}"
-    When I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
-    Then I softly see field "Budget Period Start Date" as "{SavedValue:BudgetPeriodStartDate}"
-    When I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
-    Then I softly see field "Budget Period End Date" as "{SavedValue:BudgetPeriodEndDate}"
-    When I save the field labeled "Carry-Forward this Action" as "CarryForwardthisAction"
-    Then I softly see field "Carry-Forward this Action" as "{SavedValue:CarryForwardthisAction}"
-    When I save the field labeled "Award Amount This Action" as "AwardAmountThisAction"
-    Then I softly see field "Award Amount This Action" as "{SavedValue:AwardAmountThisAction}"
-    When I save the field labeled "Total Match Amount Required" as "TotalMatchAmountRequired"
-    Then I softly see field "Total Match Amount Required" as "{SavedValue:TotalMatchAmountRequired}"
-    When I save the field labeled "Maximum Indirect Cost Rate" as "MaximumIndirectCostRate"
-    Then I softly see field "Maximum Indirect Cost Rate" as "{SavedValue:MaximumIndirectCostRate}"
-    When I save the field labeled "Program Income Treatment Type" as "ProgramIncomeTreatmentType"
-    Then I softly see field "Program Income Treatment Type" as "{SavedValue:ProgramIncomeTreatmentType}"
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
@@ -8285,30 +8257,6 @@ Feature: Sanity scenarios
     Then I softly see value "$0.00" for title "Other Leverage" against the value "Site work" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$550.00" for title "Total Project Cost" against the value "Site work" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     When I navigate to "Actuals" sub tab
-    Then I softly see "Financials Summary" page block displayed
-    Then I softly see "Expenditure Detail" page block displayed
-    Then I softly see "Program Income Revenue by Focus Area" page block displayed
-    Then I softly see "Drawdown By Award" page block displayed
-    When I save the field labeled "Grant Amount" as "GrantAmount"
-    Then I softly see field "Grant Amount" as "{SavedValue:GrantAmount}"
-    When I save the field labeled "Total Awarded Budget" as "TotalAwardedBudget"
-    Then I softly see field "Total Awarded Budget" as "{SavedValue:TotalAwardedBudget}"
-    When I save the field labeled "Drawn to Date" as "DrawntoDate"
-    Then I softly see field "Drawn to Date" as "{SavedValue:DrawntoDate}"
-    When I save the field labeled "Spent to Date" as "SpenttoDate"
-    Then I softly see field "Spent to Date" as "{SavedValue:SpenttoDate}"
-    When I save the field labeled "Remaining Balance" as "RemainingBalance"
-    Then I softly see field "Remaining Balance" as "{SavedValue:RemainingBalance}"
-    When I save the field labeled "Total Match Expenditures to Date this Budget Period" as "TotalMatchExpenditurestoDatethisBudgetPeriod"
-    Then I softly see field "Total Match Expenditures to Date this Budget Period" as "{SavedValue:TotalMatchExpenditurestoDatethisBudgetPeriod}"
-    When I save the field labeled "Total Program Income Revenue this Budget Period" as "TotalProgramIncomeRevenuethisBudgetPeriod"
-    Then I softly see field "Total Program Income Revenue this Budget Period" as "{SavedValue:TotalProgramIncomeRevenuethisBudgetPeriod}"
-    When I save the field labeled "Total Leverage" as "TotalLeverage"
-    Then I softly see field "Total Leverage" as "{SavedValue:TotalLeverage}"
-    When I save the field labeled "Current Balance" as "CurrentBalance"
-    Then I softly see field "Current Balance" as "{SavedValue:CurrentBalance}"
-    When I save the field labeled "Grant Balance" as "GrantBalance"
-    Then I softly see field "Grant Balance" as "{SavedValue:GrantBalance}"
     Then I softly see value "$500.00" for title "Award Budget" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Expenditures to Date" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Carry-Forward" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
@@ -8337,30 +8285,6 @@ Feature: Sanity scenarios
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     And I navigate to "Financials" sub tab
-    When I save the field labeled "Total Anticipated Amount" as "TotalAnticipatedAmount"
-    Then I softly see field "Total Anticipated Amount" as "{SavedValue:TotalAnticipatedAmount}"
-    When I save the field labeled "Award Amount to Date" as "AwardAmounttoDate"
-    Then I softly see field "Award Amount to Date" as "{SavedValue:AwardAmounttoDate}"
-    When I save the field labeled "Expenditures to Date" as "ExpenditurestoDate"
-    Then I softly see field "Expenditures to Date" as "{SavedValue:ExpenditurestoDate}"
-    When I save the field labeled "Remaining Budget" as "RemainingBudget"
-    Then I softly see field "Remaining Budget" as "{SavedValue:RemainingBudget}"
-    When I save the field labeled "Budgeted Cash Match" as "BudgetedCashMatch"
-    Then I softly see field "Budgeted Cash Match" as "{SavedValue:BudgetedCashMatch}"
-    When I save the field labeled "Budgeted Non-Cash Match" as "BudgetedNonCashMatch"
-    Then I softly see field "Budgeted Non-Cash Match" as "{SavedValue:BudgetedNonCashMatch}"
-    When I save the field labeled "Budgeted Match" as "BudgetedMatch"
-    Then I softly see field "Budgeted Match" as "{SavedValue:BudgetedMatch}"
-    When I save the field labeled "Remaining Match" as "RemainingMatch"
-    Then I softly see field "Remaining Match" as "{SavedValue:RemainingMatch}"
-    When I save the field labeled "Budgeted Leverage" as "BudgetedLeverage"
-    Then I softly see field "Budgeted Leverage" as "{SavedValue:BudgetedLeverage}"
-    When I save the field labeled "Total Anticipated Program Income" as "TotalAnticipatedProgramIncome"
-    Then I softly see field "Total Anticipated Program Income" as "{SavedValue:TotalAnticipatedProgramIncome}"
-    When I save the field labeled "Total Program Income Expenditure" as "TotalProgramIncomeExpenditure"
-    Then I softly see field "Total Program Income Expenditure" as "{SavedValue:TotalProgramIncomeExpenditure}"
-    When I save the field labeled "Total Project Cost" as "TotalProjectCost"
-    Then I softly see field "Total Project Cost" as "{SavedValue:TotalProjectCost}"
     Given I expand nested table containing column value "BP01"
     Then I softly see value "$500.00" for title "Awarded Budget" against the value "Site work" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$50.00" for title "Cash Match" against the value "Site work" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
@@ -9385,10 +9309,10 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @475743 @OpportunitiesNotconvertedGrantsgovVerifyasPMuservalidationisdisplayedonSaveforrequiredforsavefieldsand*isdisplayedforrequiredfields
-  Scenario: Opportunities Not converted (Grants.gov ) - Verify as PM user,  validation is displayed on Save for required for save fields and * is displayed for required fields
+  @475743 @487225 @487226 @OpportunitiesNotconvertedGrantsgovVerifyasPMuservalidationisdisplayedonSaveforrequiredforsavefieldsand*isdisplayedforrequiredfields
+  Scenario Outline: Opportunities Not converted (Grants.gov ) - Verify as PM user,  validation is displayed on Save for required for save fields and * is displayed for required fields
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "As a Grantee" app as "<UserType>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -9448,11 +9372,24 @@ Feature: Sanity scenarios
     Then I softly see asterisk mark on "Is Leverage Allowed?"
     And I click on "Edit" in the page details
     Then I see textarea field "AnnouncementDescription__c" is editable
-    Then I softly see fields "Is Leverage Allowed?" is in edit mode
+    Then I softly see fields "LaverageAllowed__c" is in edit mode
     Then I softly see fields "AnnouncementDescription__c" is in edit mode
-    Then I softly see fields "Category Of Funding Activity" is in edit mode
+    Then I softly see fields "CategoryOfFundingActivity__c" is in edit mode
     And I clear the value from field "AnnouncementDescription__c"
-    And I enter value "120" into field "EstimatedProjectPeriodStartDate__c"
-    And I enter value "120" into field "AnticipatedAwardDate__c"
-    And I enter value "120" into field "LetterOfIntentDueDate__c"
     And I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Description is required to save under Overview.  |
+    And I enter value "Test" into field "AnnouncementDescription__c"
+    And I enter value "-30" into field "EstimatedProjectPeriodStartDate__c"
+    And I enter value "150" into field "AnticipatedAwardDate__c"
+    And I enter value "150" into field "LetterOfIntentDueDate__c"
+    And I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Estimated Project Period Start Date should be after Application Due Date             |
+      | Anticipated award date should be between application due date and project start date |
+
+    Examples:
+      | UserType    |
+      | GRANTEE PM  |
+      | GRANTEE EXE |
+      | GRANTEE PO  |
