@@ -422,10 +422,8 @@ public final class PageDetails {
      * @author daniel.hilla
      */
     public void clickLookupLink(String lookupRelationshipAPIName) {
-        By path = By.xpath(
-                "//dl//dd//a[" + I.amPerforming().sanityOfXpathTo().contains("@id", lookupRelationshipAPIName) + "]| //dl//dd//a[" + I.amPerforming().sanityOfXpathTo().contains("text()", lookupRelationshipAPIName) + "] | //lightning-formatted-lookup//a[" + I.amPerforming().sanityOfXpathTo().contains("text()", lookupRelationshipAPIName) + "]");
+        By path = By.xpath("//lightning-formatted-lookup//a[" + I.amPerforming().sanityOfXpathTo().contains("text()", lookupRelationshipAPIName) + "]");
         I.amPerforming().click().withJavaScript(path);
-
     }
 
     /**

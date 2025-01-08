@@ -870,8 +870,6 @@ Feature: Validate scenarios in Progress Report without background
       | Description | Required  | Applies To      | Status |
       | Automation  | Mandatory | Progress Report | Active |
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-#    And I am on "SUBPORTAL" portal
-#    And I login to "Grants Portal" app as "SPI3" user
     And I delete the record "<Award Name>" from the object "Progress Report"
     And I delete the record "<Award Name>" from the object "Progress Report"
     When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
@@ -1149,7 +1147,6 @@ Feature: Validate scenarios in Progress Report without background
     And I wait for "2" seconds
     When I download the file
     Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
-    #Then I see "Program_Field_Values.xlsx" has been added in "Attachments" flex table
     Examples:
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |

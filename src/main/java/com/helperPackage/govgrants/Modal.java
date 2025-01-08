@@ -46,7 +46,7 @@ public final class Modal {
      * Modifier - saranjit.modak Added Xpath - 17/05/2023
      */
     public void closeModalByClickingTopRightCloseButton(String titleName) {
-        By closeButton = By.xpath("//*[@id='customLookupModalTitle' and contains(text(),'" + titleName + "')]/../..//button[contains(text(),'×')] | //div[contains(@class,'modal')]//h2[text()='" + titleName + "']/parent::header//button[@title='Close']");
+        By closeButton = By.xpath("//div[contains(@class,'modal')]//h2[text()='" + titleName + "']/parent::header//button[@title='Close']");
         I.amPerforming().click().on(closeButton);
     }
 
