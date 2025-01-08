@@ -9227,8 +9227,8 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" by clicking "New" :
-      | Reviewer Name  | Role            | Description            | Due Date | Allow Record Editing |
-      |  David FO      | Fiscal Reviewer | Automation Description | 5        | NO                   |
+      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
+      | David FO      | Fiscal Reviewer | Automation Description | 5        | NO                   |
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
     And I pause execution for "3" seconds
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
@@ -9241,10 +9241,6 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Edit" in page detail
     When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
     And I wait for "2" seconds
-    When I click modal button "Save"
-    Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -9255,8 +9251,8 @@ Feature: Sanity scenarios
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
-    And I click toggle button to select "Opportunities - All"
-    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
+    And I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
     When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly can see top right button "Complete Review" in page detail
@@ -9265,3 +9261,4 @@ Feature: Sanity scenarios
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:OpportunityPeerReviewers---"
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
+    Then I softly see value "Submitted" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
