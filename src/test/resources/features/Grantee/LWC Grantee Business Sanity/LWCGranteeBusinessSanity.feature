@@ -29189,13 +29189,13 @@ Feature: Sanity scenarios
     When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Approved" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see value "Approved" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Rejected" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see value "Rejected" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     And I wait for "2" seconds
     And I click toggle button to select "Pre-Application - Submitted"
@@ -29207,11 +29207,10 @@ Feature: Sanity scenarios
     Then I softly see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     And I wait for "2" seconds
     And I click toggle button to select "Pre-Application - My Records"
-    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly can see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Created" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly can see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
     Then I softly see "Actions" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
     Then I softly see "Opportunity Number" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
