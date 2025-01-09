@@ -1,7 +1,7 @@
 @GranteeForms
 Feature: Grantee Forms Scenario
 
-  @485407 @485428 @ValidateProjectNarrativeAttachmentFOuserasaReviewershouldabletoedittheformifeditaccessisYes @GranteeTBE
+  @485407 @485428 @ValidateProjectNarrativeAttachmentFOuserasaReviewershouldabletoedittheformifeditaccessisYes
   Scenario: Validate Project Narrative Attachment FO user as a Reviewer should able to edit the form if edit access is Yes
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberProjectnarrativeForm}"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
@@ -352,7 +352,7 @@ Feature: Grantee Forms Scenario
     And I click on "Edit" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative Document" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -646,18 +646,43 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
-    When I navigate to "Applications" tab
-    And I navigate to "Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see value "Sarah PM" for title "Last Modified By Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationPeerReview---" by clicking "New" :
+      | Reviewer Name | Responsibility  | Description            | Due Date | Allow Record Editing |
+      | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
+    And I click on "Send for Review" icon for "David FO" inside table
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:HomePendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
+    Then I softly can see top right button "Edit" in page detail
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "Preview" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "Splitview" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "Edit" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I wait for "2" seconds
+    And I upload attachment without random number "Attachment1.pdf" of type "Mandatory Project Narrative Document" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Attachment1.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
     And I close the tab
+    And I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:ApplicationPeerReview---" without waiting for record
+    And I enter a review as "Passed"
+    When I click modal button "Save"
+    And I click on submit review
+    And I wait for "3" seconds
     When I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -665,7 +690,7 @@ Feature: Grantee Forms Scenario
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     When I navigate to "Forms and Files" sub tab
-    Then I softly see value "Grantee PO" for title "Last Modified By Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see value "David FO" for title "Last Modified By Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
 
   @485427 @478403 @ValidateProjectNarrativeAttachmentPMuserisrejecttheapplicationthensubmittograntsgovbuttonisnotdisplaytheeditaccess @GranteeTBE
   Scenario: Validate Project Narrative Attachment PM user is reject the application then submit to grants.gov button is not display & verify the edit access
@@ -780,7 +805,7 @@ Feature: Grantee Forms Scenario
     And I click on "Edit" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative Document" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -1093,7 +1118,7 @@ Feature: Grantee Forms Scenario
     And I click on "Edit" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative Document" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
