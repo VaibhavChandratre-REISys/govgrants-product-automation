@@ -1507,7 +1507,7 @@ Feature: Sanity scenarios New
     And I navigate to "Closeout" tab
     Then I do not see "Budget Period Closeouts" inside "Closeouts" is displayed
 
-  @484063 @ValidateFromAppGPCloseoutwithPMProfileabletocreateProjectperiodcloseoutandabletocompletethecloseout @GranteeTBE
+  @484063 @ValidateFromAppGPCloseoutwithPMProfileabletocreateProjectperiodcloseoutandabletocompletethecloseout
   Scenario: Validate From App GP Closeout with PM Profile Able to create Project period closeout and able to complete the closeout
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -1950,7 +1950,7 @@ Feature: Sanity scenarios New
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Closed"
 
-  @484057 @ValidateFromAppGPCloseoutwithPMProfileIfCloseoutisinApprovedstatethenabletoseetheaccessofsection @GranteeTBE1
+  @484057 @ValidateFromAppGPCloseoutwithPMProfileIfCloseoutisinApprovedstatethenabletoseetheaccessofsection
   Scenario: Validate From AppGP Closeout with PM Profile If Closeout is in Approved state then able to see the access of section
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab

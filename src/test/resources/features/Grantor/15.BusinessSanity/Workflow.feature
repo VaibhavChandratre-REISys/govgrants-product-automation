@@ -1699,7 +1699,10 @@ Feature: Validate all scenarios of every modules flow
     And I click on "Edit" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I enter "SF424_FORM" values from "Application_Field_Values - backup.xlsx"
-    And I click on "Save" in the page details
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
@@ -1780,6 +1783,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     Then I softly see field "Status" as "Submitted for Review"
     Then I softly can see top right button "Complete Review" in page detail
+    And I click on "Complete Review" in the page details
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
