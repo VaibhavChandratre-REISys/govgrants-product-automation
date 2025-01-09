@@ -9400,7 +9400,7 @@ Feature: Sanity scenarios
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
-    And I enter "Grantee_Leads_CAS-HHS0001222659" values from "Announcement_Field_Values.xlsx"
+    And I enter "Grantee_Leads_CAS-HHS0000660610" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -9497,6 +9497,16 @@ Feature: Sanity scenarios
     When I close "Add Line Item Details" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
+    When I navigate to "Forms and Files" sub tab
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I switch to parent tab
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
       | Name     | Application |

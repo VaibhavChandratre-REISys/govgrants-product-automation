@@ -1599,24 +1599,12 @@ Feature: Validate all scenarios of every modules flow
   @OpportunitiesNotconvertedGrantsgovVerifyEXEuserReviewereditaccessasNocanabletosubmitReview
   Scenario: Opportunities Not converted (Grants.gov)  - Verify EXE user (Reviewer edit access as = No)can able to submit Review
     Given I login to "As a Grantee" app as "GRANTEE PM" user
-    When I navigate to "Overview" sub tab
-    Then I softly see asterisk mark on "Category Of Funding Activity"
-    Then I softly see asterisk mark on "Description"
-    Then I softly see asterisk mark on "Is Leverage Allowed?"
+    When I navigate to "Forms and Files" sub tab
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
-    Then I see textarea field "AnnouncementDescription__c" is editable
-    Then I softly see fields "LaverageAllowed__c" is in edit mode
-    Then I softly see fields "AnnouncementDescription__c" is in edit mode
-    Then I softly see fields "CategoryOfFundingActivity__c" is in edit mode
-    And I clear the value from field "AnnouncementDescription__c"
-    And I click on "Save" in the page details
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
-      | Description is required to save under Overview.  |
-    And I enter value "Test" into field "AnnouncementDescription__c"
-    And I enter value "-30" into field "EstimatedProjectPeriodStartDate__c"
-    And I enter value "150" into field "AnticipatedAwardDate__c"
-    And I enter value "150" into field "LetterOfIntentDueDate__c"
-    And I click on "Save" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Estimated Project Period Start Date should be after Application Due Date             |
-      | Anticipated award date should be between application due date and project start date |
+      | Form Validated Successfully. |
