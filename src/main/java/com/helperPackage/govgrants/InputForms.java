@@ -1023,7 +1023,11 @@ public final class InputForms {
                 + ".//input[" + I.amPerforming().sanityOfXpathTo().equals("@value", fieldValue)
                 + " or " + I.amPerforming().sanityOfXpathTo().equals("text()", fieldValue) + "]/..//span[@class='slds-radio_faux']");
         WebElement radioButton = I.amPerforming().getElementReference().ofNested(fieldWrapper, (radioButtonSelector));
-        I.amPerforming().click().on(radioButton);
+       try {
+           I.amPerforming().click().on(radioButton);
+       }catch (Exception e){
+           I.amPerforming().click().withJavaScript(radioButton);
+       }
     }
 
     /******** Holds private methods for filling up of Review form ******/
