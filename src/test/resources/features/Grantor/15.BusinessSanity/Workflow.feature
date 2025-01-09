@@ -1904,3 +1904,15 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+
+  @debug
+  Scenario:
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Application__c/a1hDl0000018npRIAQ/view"
+    And I wait for "10" seconds
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Project Narrative Document" from computer
+    When I click modal button "Close"
