@@ -8308,10 +8308,10 @@ Feature: Sanity scenarios
 #      | GRANTEE PM     | GRANTEE PM     | victor.exeqagrantee@yopmail.com   | Sarah PM          |
 #      | GRANTEE PO     | GRANTEE PO     | grantee.po@yopmail.com.qagrnteatm | Grantee PO        |
 #      | GRANTEE EXE    | GRANTEE EXE    | victor.exeqagrantee@yopmail.com   | Victor EXE        |
-#      | GRANTEE ADMIN1 | GRANTEE ADMIN1 | qa.admin@ggp.test8.qagrnteatm     | Product Admin     |
+      | GRANTEE ADMIN1 | GRANTEE ADMIN1 | productadmin@yopmail.com          | Product Admin     |
 #      | GRANTEE EXE    | GRANTEE FO     | victor.exeqagrantee@yopmail.com   | David FO          |
 #      | GRANTEE EXE    | GRANTEE FD     | victor.exeqagrantee@yopmail.com   | Danielle FD Garcia|
-      | GRANTEE EXE    | GRANTEE ADMIN1 | victor.exeqagrantee@yopmail.com   | Product Admin     |
+#      | GRANTEE EXE    | GRANTEE ADMIN1 | victor.exeqagrantee@yopmail.com   | Product Admin     |
 
   @487261 @487281 @FCAmdVerifythatFOuserseeFundingChangesection&theirFieldsunderOverviewTabinFundingChangeAmendmentRequestlayout
   Scenario: FC Amd-->Verify that FO user see Funding Change section & their Fields under Overview Tab in Funding Change Amendment Request layout
