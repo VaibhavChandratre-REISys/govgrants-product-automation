@@ -2184,7 +2184,7 @@ public final class GovGrantsAssertionObjects {
     private Boolean seeBelowFieldsInPageBlock(String pageBlockName, List<String> fieldLabel) {
         boolean flag = false;
         try {
-            List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//h3//a[contains(text(),'" + pageBlockName + "')]/ancestor::div[@class='panel-heading']/following-sibling::div//dt | //h3[contains(text(),'" + pageBlockName + "')]/ancestor::div[@class='panel-heading']/following-sibling::div//dt | //span[contains(text(),'" + pageBlockName + "')]//parent::div/following-sibling::div//label"));
+            List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//span[contains(text(),'" + pageBlockName + "')]//parent::div/following-sibling::div//label"));
             List<String> fieldlist = new ArrayList<String>();
             for (int i = 0; i < elements.size(); i++) {
                 fieldlist.add(elements.get(i).getText().trim());
