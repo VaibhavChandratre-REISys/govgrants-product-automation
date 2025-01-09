@@ -9394,7 +9394,7 @@ Feature: Sanity scenarios
 
   @486513 @486518 @486535 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward
   Scenario Outline: Other Type AR -Verify PM user should able to approved the AR & should able to create & activate new award
-    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     Given I login to "As a Grantee" app as "<OwnerType>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
