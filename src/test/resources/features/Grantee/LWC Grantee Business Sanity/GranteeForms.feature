@@ -548,7 +548,7 @@ Feature: Grantee Forms Scenario
     Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
 
-  @485425 @ValidateProjectNarrativeAttachmentAdminuserusershouldabletoseethelastmodifycolumnisupdateifonlyformiseditedbyanyuser @GranteeTBE
+  @485425 @ValidateProjectNarrativeAttachmentAdminuserusershouldabletoseethelastmodifycolumnisupdateifonlyformiseditedbyanyuser
   Scenario: Validate Project Narrative Attachment Admin user user should able  to see the last modify column is update if only form is edited by any user
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberProjectnarrativeForm}"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
