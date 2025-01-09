@@ -9404,7 +9404,7 @@ Feature: Sanity scenarios
     And I click modal button "Save and Continue"
     And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I Update for setting as grantsgov lead with opportunity number "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
+    And I Update for setting as grantsgov lead with opportunity number "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see field "State" as "Forecasted"
