@@ -632,6 +632,7 @@ Feature: Grantee Forms Scenario
     And I switch to tab number "1"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "3" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Mandatory Project Narrative Document" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
