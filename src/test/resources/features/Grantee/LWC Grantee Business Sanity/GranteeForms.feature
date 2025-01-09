@@ -104,6 +104,7 @@ Feature: Grantee Forms Scenario
     And I switch to tab number "1"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Mandatory Project Narrative Document" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -325,6 +326,7 @@ Feature: Grantee Forms Scenario
     And I click on "Edit" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Mandatory Project Narrative Document" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -338,6 +340,7 @@ Feature: Grantee Forms Scenario
     And I switch to tab number "1"
     And I enter "SF424_FORM" values from "Application_Field_Values - backup.xlsx"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Delinquent Federal Debt" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -349,6 +352,7 @@ Feature: Grantee Forms Scenario
     And I click on "Edit" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative Document" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -632,13 +636,13 @@ Feature: Grantee Forms Scenario
     And I switch to tab number "1"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I wait for "3" seconds
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Mandatory Project Narrative Document" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I click on "Save" in the split screen page details
-    And I click on "Validate" in the split screen page details
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
@@ -750,6 +754,7 @@ Feature: Grantee Forms Scenario
     And I click on "Edit" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Mandatory Project Narrative Document" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -763,6 +768,7 @@ Feature: Grantee Forms Scenario
     And I switch to tab number "1"
     And I enter "SF424_FORM" values from "Application_Field_Values - backup.xlsx"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Delinquent Federal Debt" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -774,6 +780,7 @@ Feature: Grantee Forms Scenario
     And I click on "Edit" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative Document" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -973,7 +980,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | Fill all the required data in the form before submitting. |
 
-  @478400 @478403 @ValidateProjectNarrativeAttachmentformusershouldabletoaddtheattachmentincreatedsendforreviewsubmittedforreviewreviewedstate
+  @478400 @478403 @ValidateProjectNarrativeAttachmentformusershouldabletoaddtheattachmentincreatedsendforreviewsubmittedforreviewreviewedstate @GranteeTBE
   Scenario: Validate Project Narrative Attachment form user should able to add the attachment in created, send for review submitted for review, reviewed state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberProjectnarrativeForm}"
     Given I login to "As a Grantee" app as "GRANTEE PO" user
@@ -1060,6 +1067,7 @@ Feature: Grantee Forms Scenario
     And I click on "Edit" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Mandatory Project Narrative Document" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -1073,6 +1081,7 @@ Feature: Grantee Forms Scenario
     And I switch to tab number "1"
     And I enter "SF424_FORM" values from "Application_Field_Values - backup.xlsx"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Delinquent Federal Debt" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -1084,6 +1093,7 @@ Feature: Grantee Forms Scenario
     And I click on "Edit" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative Document" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -1115,6 +1125,7 @@ Feature: Grantee Forms Scenario
     And I click on "Edit" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment1.pdf" of type "Mandatory Project Narrative Document" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -1149,6 +1160,7 @@ Feature: Grantee Forms Scenario
     And I click on "Edit" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Mandatory Project Narrative Document" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
