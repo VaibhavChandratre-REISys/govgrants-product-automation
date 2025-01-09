@@ -759,7 +759,10 @@ Feature: Grantee Forms Scenario
     And I click on "Edit" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I enter "SF424_FORM" values from "Application_Field_Values - backup.xlsx"
-    And I click on "Save" in the page details
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
