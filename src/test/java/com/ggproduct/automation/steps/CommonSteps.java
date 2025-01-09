@@ -119,6 +119,11 @@ public class CommonSteps {
     public void iLeftNavigationContaninigValue(String actionIcon, String leftNavigationButton) {
         govgrants.perform().pageDetails().leftNavigationContaninigValue(actionIcon,leftNavigationButton);
     }
+
+    @And("^I delete the grantee record \"([^\"]*)\"$")
+    public void iDeleteTheRecord(String recordName) {
+        projectManager.deletionApiForGrantee(recordName);
+    }
 }
 
 

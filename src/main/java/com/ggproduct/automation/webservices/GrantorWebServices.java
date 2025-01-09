@@ -371,4 +371,19 @@ public class GrantorWebServices extends ProjectWebServices {
     private void deleteOrganization(String recordName) {
         deletionApi(recordName, "USER REGISTRATION");
     }
+
+    /**
+     * @param oppoNumber to update gov grants lead from backend
+     */
+    public void UpdateForSettingAsGrantsgovLeadWithOpportunityNumber(String oppoNumber) {
+        UpdateLeadSettingsAPIPostCall(projectApis.UpdateLeadSettingsAPI(oppoNumber));
+    }
+
+    private void UpdateLeadSettingsAPIPostCall(JsonObject jsonObject) {
+        String finalEndPoint = endPoint + "/services/apexrest/updateLeadSettings";
+        Response response = I.amPerforming().restHttp().patchCall(jsonObject, null,
+                finalEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
 }
