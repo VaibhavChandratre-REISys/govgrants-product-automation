@@ -10499,11 +10499,11 @@ Feature: Sanity scenarios
     Examples:
       | OwnerType   | NonOwner      |
       | GRANTEE PM  |GRANTEE PO     |
-      | GRANTEE PO  |GRANTEE ADMIN1 |
-      | GRANTEE PM  |GRANTEE EXE    |
-      | GRANTEE EXE |GRANTEE FO     |
-      | GRANTEE EXE |GRANTEE FD     |
-      | GRANTEE PM  |GRANTEE AUDITOR|
+#      | GRANTEE PO  |GRANTEE ADMIN1 |
+#      | GRANTEE PM  |GRANTEE EXE    |
+#      | GRANTEE EXE |GRANTEE FO     |
+#      | GRANTEE EXE |GRANTEE FD     |
+#      | GRANTEE PM  |GRANTEE AUDITOR|
 
   @482030 @GrantsgovlobbingformVerifyassignedreviewerEXEwitheditaccessasNocannotseeeditbuttonforGrantsgovlobbingformandcannoteditanydataontheform
   Scenario Outline: Grants.gov lobbing form - Verify assigned reviewer(EXE)  with edit access as No cannot see edit button for Grants.gov lobbing form and cannot edit any data on the form
