@@ -1909,7 +1909,7 @@ Feature: Grantee Forms Scenario
     And I save the field labeled "EGMS ID" as "appEGMSID"
     Then I softly see field "Status" as "Created"
 
-  @477581 @477583 @477584 @477585 @477586 @477587 @ValidateAttachmentsformEXEuseruserNonOwnercanonlyviewfilesaddedonattachments @GranteeTBE
+  @477581 @477583 @477584 @477585 @477586 @477587 @ValidateAttachmentsformEXEuseruserNonOwnercanonlyviewfilesaddedonattachments
   Scenario: Validate Attachments form EXE, PO, FO, FD, ADMIN, AUDITOR user user Non Owner can only view files added on attachments
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberAttachmentsForm}"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
@@ -2028,6 +2028,7 @@ Feature: Grantee Forms Scenario
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     Then I softly see field "Status" as "Created"
     When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly see value "Attachments" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I cannot see row level action button "Edit" against "Attachments" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Attachments" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -2066,6 +2067,7 @@ Feature: Grantee Forms Scenario
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     Then I softly see field "Status" as "Created"
     When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly see value "Attachments" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I cannot see row level action button "Edit" against "Attachments" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Attachments" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -2104,6 +2106,7 @@ Feature: Grantee Forms Scenario
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     Then I softly see field "Status" as "Created"
     When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly see value "Attachments" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I cannot see row level action button "Edit" against "Attachments" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Attachments" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -2142,6 +2145,7 @@ Feature: Grantee Forms Scenario
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     Then I softly see field "Status" as "Created"
     When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly see value "Attachments" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I cannot see row level action button "Edit" against "Attachments" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Attachments" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -2180,6 +2184,7 @@ Feature: Grantee Forms Scenario
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     Then I softly see field "Status" as "Created"
     When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly see value "Attachments" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I cannot see row level action button "Edit" against "Attachments" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Attachments" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -2218,6 +2223,7 @@ Feature: Grantee Forms Scenario
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     Then I softly see field "Status" as "Created"
     When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly see value "Attachments" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I cannot see row level action button "Edit" against "Attachments" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Attachments" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -2248,7 +2254,7 @@ Feature: Grantee Forms Scenario
     Then I can see row level action button "View" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
 
-  @477582 @ValidateAttachmentsformPMuserNonOwnercanonlyviewfilesaddedonattachments @GranteeTBE
+  @477582 @ValidateAttachmentsformPMuserNonOwnercanonlyviewfilesaddedonattachments
   Scenario: Validate Attachments form PM user Non Owner can only view files added on attachments
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberAttachmentsForm}"
     Given I login to "As a Grantee" app as "GRANTEE PO" user
