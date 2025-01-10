@@ -10557,6 +10557,7 @@ Feature: Sanity scenarios
     Then I can see row level action button "SplitView" against "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     When I click on "View" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I wait for "3" seconds
     And I switch to tab number "1"
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Delete" in page detail
