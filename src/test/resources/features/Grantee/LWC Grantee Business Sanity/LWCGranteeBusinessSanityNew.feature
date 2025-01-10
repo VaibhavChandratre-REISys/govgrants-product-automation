@@ -1,4 +1,4 @@
-@GranteeSanityBusinessFlowNew
+@GranteeSanityBusinessFlowNew @GranteeTBE
 Feature: Sanity scenarios New
 
   @463446 @ValidatePreAppwithPOprofileusingtherecorddecisionabletoaccept
@@ -7161,7 +7161,7 @@ Feature: Sanity scenarios New
     Then I softly see the text containing "Key Contacts"
     Then I softly see the text containing :
       | Agency Owner: Grants.gov |
-#    Need to check below validations
+    #Need to check below validations
 #      | OMB Number: 4040-0010           |
 #      | Version:2.0                     |
 #      | OMB Expiration Date: 12/31/2026 |
@@ -8703,7 +8703,7 @@ Feature: Sanity scenarios New
 
   @475808 @475750 @ValidateNotYetConvertedOpportunitGrantsgovPMusercancreatePreApplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord
   Scenario Outline: Validate Not Yet Converted Opportunity Grants.gov PM user can create Pre-Application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
-    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
     Given I login to "As a Grantee" app as "<userName>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
@@ -8713,7 +8713,7 @@ Feature: Sanity scenarios New
     And I click modal button "Save and Continue"
     And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I Update for setting as grantsgov lead with opportunity number "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
+    And I Update for setting as grantsgov lead with opportunity number "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see field "State" as "Forecasted"
@@ -8948,7 +8948,7 @@ Feature: Sanity scenarios New
 
   @487227 @487228 @487229 @487230 @487231 @ValidateOpportunitiesNotconvertedGrantsgovEXEusercannotseeCreatePreapplicationbuttononApprovedOpportunity
   Scenario Outline: Validate Opportunities Not converted Grants gov EXE user cannot see Create Preapplication button on Approved
-    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
     Given I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
@@ -8958,7 +8958,7 @@ Feature: Sanity scenarios New
     And I click modal button "Save and Continue"
     And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I Update for setting as grantsgov lead with opportunity number "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
+    And I Update for setting as grantsgov lead with opportunity number "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see field "State" as "Forecasted"

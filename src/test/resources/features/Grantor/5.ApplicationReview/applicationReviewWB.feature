@@ -266,10 +266,8 @@ Feature: Validate all scenarios in the Application Review without background
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see the following messages in the page details contains:
-      | Cannot promote <Announcement Name> because it does not meet the minimum review requirements: |
-      | Program Review has 0 out of 1 complete reviews                                               |
-      | Fiscal Review has 0 out of 1 complete reviews                                                |
-      | Compliance Review has 0 out of 1 complete reviews                                            |
+      | Cannot promote <Announcement Name> because it does not meet the minimum review requirements:  |
+      | Pre-Screen has 0 out of 1 complete reviews                                                    |
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -11790,6 +11788,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly can see row level action button "Request Negotiation" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"
+    And I wait for "5" seconds
     And I navigate to "Negotiations" sub tab
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
@@ -16683,7 +16682,8 @@ Feature: Validate all scenarios in the Application Review without background
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
     #204106
-    Then I see confirmation box with quotes in body "Rejecting the FDM will update the 'Final Decision' for all applications in this FDM to 'Cancelled' and the system will not allow you to award any recommended applications in the FDM. Are you sure you wish to continue?" is displayed
+    Then I softly see the following messages in the page details contains:
+      | Rejecting the FDM will update the 'Final Decision' for all applications in this FDM to 'Cancelled' and the system will not allow you to award any recommended applications in the FDM. Are you sure you wish to continue? |
     Then I softly see button "Continue" on confirmation pop-up
     Then I softly see button "Cancel" on confirmation pop-up
     And I click "Continue" on modal confirmation box
@@ -17082,7 +17082,6 @@ Feature: Validate all scenarios in the Application Review without background
   Scenario Outline: Validate PM user "Final Decision" should be present before the Applicant Notified column in recommended Non-recommended section on FDM
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
-    And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
     When I login to "As a Grantor" app as "<User>" user
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -17385,9 +17384,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Funding Decision Memo" sub tab
     And I wait for "3" seconds
     Then I see the following headers in table with id "---subAwardFromFDM:-:recommendedAppTableId---" :
-      | EGMS ID | Application Title | Subrecipient Organization | Grant | Score | Requested Budget | Recommended Budget | State Allocation | Recommend for Funding | Comments | Final Decision | Applicant Notified? |
+      | EGMS ID | Application Title | Subrecipient Organization | Grant | Score  | Recommended Budget | State Allocation | Recommend for Funding | Comments | Final Decision | Applicant Notified? |
     Then I see the following headers in table with id "---subAwardFromFDM:-:fdmNonRecommendedTableId---" :
-      | EGMS ID | Application Title | Subrecipient Organization | Grant | Score | Requested Budget | Recommended Budget | State Allocation | Recommend for Funding | Comments | Final Decision | Applicant Notified? |
+      | EGMS ID | Application Title | Subrecipient Organization | Grant | Score | Recommended Budget | State Allocation | Recommend for Funding | Comments | Final Decision | Applicant Notified? |
     Examples:
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |

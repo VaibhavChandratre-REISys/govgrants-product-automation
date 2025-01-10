@@ -175,7 +175,7 @@ public class ProjectWebServices {
             if (EnvironmentFactory.getEnvironmentName().contains("GRANTEE")) {
                 defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG92DxHaawSd0luAabE5ir8xlXoKuHsm5noVyqnHFUOo829AX1MfWuFpJhCDn0__e7EWt_DixBbuY2yy1.H&client_secret=BAAC6A7374660FC52DFAF43304D80F6E4EF17DA8C3F9503F6E3380EEEEF20784&username=product.qa@ggp.test8.qagrnteatm&password=Grantee@2028";
             } else {
-                defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG9EMJF5MdlzDpWtwqe6mmNu6pKIqddD1EHYQ5aFtdFg2byvYHIDmBSe9K0zEIIoEPMZOboCG7TDTSb3DQK&client_secret=E85D4B829EBD78A51880E666A9B43E933F42BE7F39155C7281D7D595A7F684C3&username=govgrantsautomation@yopmail.com.qaorg&password=Salesforce2040";
+                defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG9EMJF5MdlzDpWtwqe6mmNu6pKIqddD1EHYQ5aFtdFg2byvYHIDmBSe9K0zEIIoEPMZOboCG7TDTSb3DQK&client_secret=E85D4B829EBD78A51880E666A9B43E933F42BE7F39155C7281D7D595A7F684C3&username=govgrantsautomation@yopmail.com.qaorg&password=Salesforce@2034";
             }
         else if (EnvironmentFactory.getEnvironmentName().contains("AUTO")) {
             if (EnvironmentFactory.getEnvironmentName().contains("GRANTEE")) {
@@ -192,8 +192,31 @@ public class ProjectWebServices {
         else if (EnvironmentFactory.getEnvironmentName().contains("NYLWC"))
             defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG90D5vR7Utjboc8b3nxgWl_TIAtGV_TgV2OQsaOZNGnhetFSjnMGSvL67KfRN99.Z0ne32YZHHlzdyCb_a&client_secret=F1F4C218C1E6AB1ECA2DD46CDCFB204D66FCEFA2DB939003C5C4B207DAF0A736&username=govgrantsautomation@yopmail.com.nysedgapan&password=Salesforce@2036";
 
+        else if (EnvironmentFactory.getEnvironmentName().contains("NYDEV"))
+            defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG90D5vR7Utjboc8b3nxgWl_TIAtGV_TgV2OQsaOZNGnhetFSjnMGSvL67KfRN99.Z0ne32YZHHlzdyCb_a&client_secret=F1F4C218C1E6AB1ECA2DD46CDCFB204D66FCEFA2DB939003C5C4B207DAF0A736&username=govgrantsautomation@yopmail.com.nyseddev&password=Salesforce2027";
+
         System.out.println(defaultEndPointGetToken);
         return defaultEndPointGetToken;
+    }
+
+    /**
+     * calls the api to delete test data
+     *
+     * @param recordName - the opportunity number for Grants.gov Leads
+     */
+    public void deletionApiForGrantee(String recordName) {
+        System.out.print("Making API call... ");
+        try {
+            recordName = URLEncoder.encode(recordName, StandardCharsets.UTF_8.toString());
+        } catch (Exception e) {
+        }
+        String finalEndPoint = endPoint + "/services/apexrest/deleteFundingOpportunity/" + recordName;
+        Response response = I.amPerforming().restHttp().DeleteCall(null, null, finalEndPoint, "Authorization", "Bearer " + tokenString,
+                null);
+        System.out.println(finalEndPoint);
+        response.prettyPrint();
+        System.out.println("Completed. ");
+        assertStatusCode(response);
     }
 
 

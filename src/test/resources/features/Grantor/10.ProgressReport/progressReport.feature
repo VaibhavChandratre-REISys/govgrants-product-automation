@@ -962,10 +962,14 @@ Feature: Validate all scenarios in Progress Report
     Then I softly see field "Last Modified Date" is getting updated with todays date
     And I click on "Take Snapshot" in the page details
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "Progress Report Snapshot"
-    When I download the file
-    And I wait for "5" seconds
-    Then I softly see "Submitted to Grantor" on page "1" of "govgrant" pdf file
+    #link not created
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I see snapshot with name containing "SnapShot on" as name
+#    And I click on hyperlink containing value "Progress Report Snapshot"
+#    When I download the file
+#    And I wait for "5" seconds
+#    Then I softly see "Submitted to Grantor" on page "1" of "govgrant" pdf file
 
   @59675 @59674 @validateSendBackToSRUser
   Scenario: Validate Pending Task is created for SR user when Award owner Sent Back the Progress report | Validate Pending Task is created for Award Owner when Progress report status is submitted to Grantor

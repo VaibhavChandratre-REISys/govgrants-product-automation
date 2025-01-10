@@ -1,4 +1,4 @@
-@GranteeForms
+@GranteeForms @GranteeTBE
 Feature: Grantee Forms Scenario
 
   @485407 @485428 @ValidateProjectNarrativeAttachmentFOuserasaReviewershouldabletoedittheformifeditaccessisYes

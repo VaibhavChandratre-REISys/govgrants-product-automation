@@ -2932,4 +2932,14 @@ public class GrantorPayloads {
 
         return parent;
     }
+    public JsonObject UpdateLeadSettingsAPI(String oppoNumber) {
+        JsonObject json = getDefaultUpdateLeadSettings(oppoNumber);
+        return json;
+    }
+
+    private JsonObject getDefaultUpdateLeadSettings(String oppoNumber) {
+        JsonObject parent = new JsonObject();
+        parent.addProperty("OpportunityNumber", oppoNumber);
+        return parent;
+    }
 }

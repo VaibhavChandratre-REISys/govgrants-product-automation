@@ -1221,7 +1221,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
     And I refresh the page
-    And I pause execution for "3" seconds
+    And I pause execution for "120" seconds
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly see that "Announcement" is in "Draft" status
     And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal

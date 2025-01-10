@@ -1228,9 +1228,19 @@ public final class GovGrantsSteps {
         ggObjects.toClickOnNavigatorButtonInBottom(buttonName);
     }
 
-    @When("I hovering mouse on help text icon \"([^\"]*)\" inside \"([^\"]*)\" section$")
-    public void iHoveringMouseOnHelpTextIconInsideSection(String usage, String fieldName, String sectionName) {
-        govgrants.perform().pageDetails().getHelpTextAtPageBlockSection(usage, fieldName, sectionName);
+//    @When("I hovering mouse on help text icon \"([^\"]*)\" inside \"([^\"]*)\" section$")
+//    public void iHoveringMouseOnHelpTextIconInsideSection(String usage, String fieldName, String sectionName) {
+//        govgrants.perform().pageDetails().getHelpTextAtPageBlockSection(usage, fieldName, sectionName);
+//    }
+
+    @When("I hover mouse on help text icon for \"([^\"]*)\" inside \"([^\"]*)\" section$")
+    public void iHoverMouseOnHelpTextIconForFieldInsideSection(String fieldName, String sectionName) {
+        govgrants.perform().pageDetails().getHelpTextAtPageBlockSection(fieldName, sectionName);
+    }
+
+    @When("I click on notification icon")
+    public void iClickOnNotificationIcon() {
+        govgrants.perform().pageDetails().getNotificationIcon();
     }
 }
 
