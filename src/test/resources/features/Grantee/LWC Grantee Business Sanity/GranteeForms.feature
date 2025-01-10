@@ -2248,7 +2248,7 @@ Feature: Grantee Forms Scenario
     Then I can see row level action button "View" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
 
-  @477582 @ValidateAttachmentsformPMuserNonOwnercanonlyviewfilesaddedonattachments @GarnteeTBE
+  @477582 @ValidateAttachmentsformPMuserNonOwnercanonlyviewfilesaddedonattachments @GranteeTBE
   Scenario: Validate Attachments form PM user Non Owner can only view files added on attachments
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberAttachmentsForm}"
     Given I login to "As a Grantee" app as "GRANTEE PO" user
