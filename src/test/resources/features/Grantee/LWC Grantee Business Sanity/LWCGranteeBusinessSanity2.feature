@@ -10463,14 +10463,17 @@ Feature: Sanity scenarios
     And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "Lobbying_Form" values from "Application_Field_Values.xlsx"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
+    And I save the field labeled "APPLICANT'S ORGANIZATION:" as "APPLICANTSORGANIZATION"
+    And I save the field labeled "AUTHORIZED REPRESENTATIVE:" as "AUTHORIZEDREPRESENTATIVE"
+    And I save the field labeled "Prefix:" as "Prefix"
+    And I save the field labeled "First Name:" as "FirstName"
+    And I save the field labeled "Last Name:" as "LastName"
+    And I save the field labeled "Title:" as "Title"
+    And I save the field labeled "SIGNATURE:" as "SIGNATURE"
     When I re-login to "As a Grantee" app as "<NonOwner>" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -10484,7 +10487,13 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Delete" in page detail
     Then I softly cannot see top right button "Edit" in page detail
-
+    Then I softly see field "Status" as "{SavedValue:APPLICANTSORGANIZATION}"
+    Then I softly see field "Status" as "{SavedValue:AUTHORIZEDREPRESENTATIVE}"
+    Then I softly see field "Status" as "{SavedValue:Prefix}"
+    Then I softly see field "Status" as "{SavedValue:FirstName}"
+    Then I softly see field "Status" as "{SavedValue:LastName}"
+    Then I softly see field "Status" as "{SavedValue:Title}"
+    Then I softly see field "Status" as "{SavedValue:SIGNATURE}"
 
     Examples:
       | OwnerType  | NonOwner  |
