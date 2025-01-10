@@ -687,9 +687,4 @@ public class GenericSteps {
         I.amPerforming().waitFor().makeThreadSleep(2000);
         I.amPerforming().fileHandling().cleanDownloadFolder();
     }
-
-    @And("I Update for setting as grantsgov lead with opportunity number {string}")
-    public void iUpdateForSettingAsGrantsgovLeadWithOpportunityNumber(String OppoNumber) {
-        grantorWebServices.UpdateForSettingAsGrantsgovLeadWithOpportunityNumber(OppoNumber);
-    }
 }
