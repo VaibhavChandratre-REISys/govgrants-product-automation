@@ -10450,7 +10450,7 @@ Feature: Sanity scenarios
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
     And I wait for "2" seconds
     And I navigate to "Budget" sub tab
-    Given I expand nested table containing column value "BP02"
+    Given I expand nested table containing column value "BP01"
     When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
@@ -10458,9 +10458,36 @@ Feature: Sanity scenarios
     When I close "Add Line Item Details" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
+    When I navigate to "Forms and Files" sub tab
+    When I click on "View" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    And I enter "Lobbying_Form" values from "Application_Field_Values.xlsx"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    When I re-login to "As a Grantee" app as "<NonOwner>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    When I navigate to "Forms and Files" sub tab
+    When I click on "View" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Delete" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+
 
     Examples:
-      | OwnerType  |
-   #   | GRANTEE PM |
-      | GRANTEE PO |
+      | OwnerType  | NonOwner  |
+   #   | GRANTEE PM|GRANTEE PO|
+      | GRANTEE PO | GRANTEE ADMIN1 |
 
