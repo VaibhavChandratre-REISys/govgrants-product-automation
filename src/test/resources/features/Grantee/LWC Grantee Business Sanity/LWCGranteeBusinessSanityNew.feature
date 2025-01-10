@@ -4575,7 +4575,7 @@ Feature: Sanity scenarios New
     Then I see table is refreshing
 
   @485363 @VerifyEXEusercanseeProgressreportschedulesfromawardinMonitoringschedules
-  Scenario: Verify EXE user can see Progress report schedules from award in Monitoring schedules
+  Scenario: Verify EXE user can see Financial report schedules from award in Monitoring schedules
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -4611,9 +4611,9 @@ Feature: Sanity scenarios New
     Then I softly see "Report Type" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
     Then I softly see "Frequency" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
     Then I softly see "Reporting Period" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
-    Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
-    Then I softly can see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
-    And I click on "View" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
+    Then I softly can see row level action button "View" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly can see row level action button "Edit" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+    And I click on "View" icon for "Financial Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     Then I softly see "Reports Schedule" opens in overLay window
     Then I softly see "Scheduled Report" page block displayed on modal
     Then I softly see field "Report Type" inside page block
@@ -4625,7 +4625,7 @@ Feature: Sanity scenarios New
     Then I softly see field "Description" inside page block
     Then I softly see field "Lead time (in days) for report task creation" inside page block
     Then I softly see field "# of days for report submission" inside page block
-    Then I softly see field "Report Type" as "Progress Report"
+    Then I softly see field "Report Type" as "Financial Report"
     Then I softly see field "Report Title" as "{SavedValue:Automation Runtime award}"
     Then I softly see field "Reporting Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
     Then I softly see field "Reporting Period End Date" as "{SavedValue:ProjectPeriodEndDate}"
@@ -4636,7 +4636,7 @@ Feature: Sanity scenarios New
     Then I softly see field "# of days for report submission" as "15"
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
+    And I click on "Edit" icon for "Financial Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     Then I softly see "Reports Schedule" opens in overLay window
     Then I softly see "Scheduled Report" page block displayed on modal
     Then I softly see field "Report Type" inside page block
@@ -4648,7 +4648,7 @@ Feature: Sanity scenarios New
     Then I softly see field "Description" inside page block
     Then I softly see field "Lead time (in days) for report task creation" inside page block
     Then I softly see field "# of days for report submission" inside page block
-    Then I softly see field "Report Type" as "Progress Report"
+    Then I softly see field "Report Type" as "Financial Report"
     Then I softly see fields "SubmissionTitle__c" is in edit mode
     Then I softly see fields "CalReportingStartDate__c" is in edit mode
     Then I softly see fields "CalReportingEndDate__c" is in edit mode
@@ -4657,10 +4657,10 @@ Feature: Sanity scenarios New
     Then I softly see fields "Description__c" is in edit mode
     Then I softly see fields "DaysBeforeEndDate__c" is in edit mode
     Then I softly see fields "DaysAfterEndDate__c" is in edit mode
-    When I enter in modal "Grantee_Progress_Schedules" values from "Award_Field_Values.xlsx"
+    When I enter in modal "Grantee_Financial_Schedules" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I wait for "3" seconds
-    And I expand nested table containing column value "Progress Report"
+    And I expand nested table containing column value "Financial Report"
     And I save the total records from the flex table id "---grantee_tableId:-:financialReportProgressReportSchedules---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I select value inside table "---grantee_tableId:-:financialReportProgressReportSchedules---" is "All"
@@ -4709,18 +4709,18 @@ Feature: Sanity scenarios New
     And I select value inside table "---grantee_tableId:-:ScheduledListPage---" is "All"
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID1}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID2}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID3}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID4}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID5}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID6}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID7}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID8}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID9}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID10}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID11}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID1}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID2}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID3}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID4}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID5}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID6}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID7}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID8}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID9}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID10}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID11}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -4774,14 +4774,14 @@ Feature: Sanity scenarios New
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" without waiting for record
     And I pause execution for "3" seconds
     And I navigate to "Management" sub tab
-    Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
-    Then I softly can see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
-    And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
+    Then I softly can see row level action button "View" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly can see row level action button "Edit" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+    And I click on "Edit" icon for "Financial Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     Then I softly see "Reports Schedule" opens in overLay window
-    When I enter in modal "Grantee_Progress_Schedules" values from "Award_Field_Values.xlsx"
+    When I enter in modal "Grantee_Financial_Schedules" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I wait for "2" seconds
-    And I expand nested table containing column value "Progress Report"
+    And I expand nested table containing column value "Financial Report"
     And I save the total records from the flex table id "---grantee_tableId:-:financialReportProgressReportSchedules---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I select value inside table "---grantee_tableId:-:financialReportProgressReportSchedules---" is "All"
@@ -4830,18 +4830,18 @@ Feature: Sanity scenarios New
     And I select value inside table "---grantee_tableId:-:ScheduledListPage---" is "All"
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID1}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID2}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID3}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID4}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID5}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID6}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID7}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID8}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID9}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID10}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID11}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID1}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID2}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID3}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID4}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID5}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID6}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID7}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID8}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID9}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID10}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID11}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4863,14 +4863,14 @@ Feature: Sanity scenarios New
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I click on "Complete Review" in the page details
     And I navigate to "Management" sub tab
-    Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
-    Then I softly can see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
-    And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
+    Then I softly can see row level action button "View" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly can see row level action button "Edit" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+    And I click on "Edit" icon for "Financial Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     Then I softly see "Reports Schedule" opens in overLay window
-    When I enter in modal "Grantee_Progress_Schedules" values from "Award_Field_Values.xlsx"
+    When I enter in modal "Grantee_Financial_Schedules" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I wait for "2" seconds
-    And I expand nested table containing column value "Progress Report"
+    And I expand nested table containing column value "Financial Report"
     And I save the total records from the flex table id "---grantee_tableId:-:financialReportProgressReportSchedules---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I select value inside table "---grantee_tableId:-:financialReportProgressReportSchedules---" is "All"
@@ -4902,18 +4902,18 @@ Feature: Sanity scenarios New
     And I select value inside table "---grantee_tableId:-:ScheduledListPage---" is "All"
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID1}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID2}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID3}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID4}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID5}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID6}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID7}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID8}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID9}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID10}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID11}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID1}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID2}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID3}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID4}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID5}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID6}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID7}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID8}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID9}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID10}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID11}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -4953,9 +4953,9 @@ Feature: Sanity scenarios New
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Management" sub tab
-    Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
-    Then I softly cannot see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
-    And I expand nested table containing column value "Progress Report"
+    Then I softly can see row level action button "View" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+    And I expand nested table containing column value "Financial Report"
     And I save the total records from the flex table id "---grantee_tableId:-:financialReportProgressReportSchedules---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I select value inside table "---grantee_tableId:-:financialReportProgressReportSchedules---" is "All"
@@ -4979,18 +4979,18 @@ Feature: Sanity scenarios New
     And I save the total records from the flex table id "---grantee_tableId:-:ScheduledListPage---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:ScheduledListPage---"
     And I select value inside table "---grantee_tableId:-:ScheduledListPage---" is "All"
-    Then I softly see value "{SavedValue:EGMS ID1}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID2}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID3}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID4}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID5}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID6}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID7}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID8}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID9}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID10}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID11}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID1}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID2}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID3}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID4}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID5}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID6}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID7}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID8}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID9}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID10}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID11}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -5001,14 +5001,14 @@ Feature: Sanity scenarios New
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Activated"
     And I navigate to "Management" sub tab
-    Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
-    Then I softly can see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
-    And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
+    Then I softly can see row level action button "View" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly can see row level action button "Edit" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+    And I click on "Edit" icon for "Financial Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     Then I softly see "Reports Schedule" opens in overLay window
-    When I enter in modal "Grantee_Progress_Schedules" values from "Award_Field_Values.xlsx"
+    When I enter in modal "Grantee_Financial_Schedules" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I wait for "2" seconds
-    And I expand nested table containing column value "Progress Report"
+    And I expand nested table containing column value "Financial Report"
     And I save the total records from the flex table id "---grantee_tableId:-:financialReportProgressReportSchedules---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I select value inside table "---grantee_tableId:-:financialReportProgressReportSchedules---" is "All"
@@ -5040,18 +5040,18 @@ Feature: Sanity scenarios New
     And I select value inside table "---grantee_tableId:-:ScheduledListPage---" is "All"
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID1}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID2}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID3}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID4}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID5}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID6}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID7}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID8}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID9}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID10}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID11}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID1}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID2}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID3}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID4}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID5}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID6}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID7}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID8}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID9}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID10}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID11}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
 
   @485366 @485367 @ValidatePOusercanseeProgressreportschedulesfromawardinMonitoringschedules
   Scenario Outline: Validate PO/ADMIN user can see Progress report schedules from award in Monitoring schedules
