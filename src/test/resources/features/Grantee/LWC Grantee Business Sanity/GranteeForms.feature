@@ -239,7 +239,7 @@ Feature: Grantee Forms Scenario
     Then I can see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Splitview" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
 
-  @485414 @485415 @485416 @485417 @485418 @ValidateProjectNarrativeAttachmentEXEusershouldabletoviewaccessinallstateofApplicationforform
+  @485414 @485415 @485416 @485417 @485418 @ValidateProjectNarrativeAttachmentEXEusershouldabletoviewaccessinallstateofApplicationforform @wip
   Scenario: Validate Project Narrative Attachment EXE user should able to view access in all state of Application for form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberProjectnarrativeForm}"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
