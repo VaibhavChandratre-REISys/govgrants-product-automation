@@ -10353,7 +10353,7 @@ Feature: Sanity scenarios
       | GRANTEE PM | GRANTEE PM     | sarah.pm.23@yopmail.com  | victor.exeqagrantee@yopmail.com | Sarah PM     |
 #      | GRANTEE PO | GRANTEE ADMIN1 | productadmin@yopmail.com | victor.exeqagrantee@yopmail.com | Product Admin|
 
-  @482022 @GrantsgovlobbingformVerifyPOuserNonOwnercannotaddeditdeletedatainGrantsgovlobbingformandcanonlyviewdataenteredbyownerintheform
+  @482022 @482023 @482024 @482025 @482026 @482027 @GrantsgovlobbingformVerifyPOuserNonOwnercannotaddeditdeletedatainGrantsgovlobbingformandcanonlyviewdataenteredbyownerintheform
   Scenario Outline: Grants.gov lobbing form -  Verify PO user (Non Owner) cannot add/edit/delete data in Grants.gov lobbing form and can only view data entered by owner in the form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumber}"
     Given I login to "As a Grantee" app as "<OwnerType>" user
@@ -10488,16 +10488,19 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Delete" in page detail
     Then I softly cannot see top right button "Edit" in page detail
-    Then I softly see field "Status" as "{SavedValue:APPLICANTSORGANIZATION}"
-    Then I softly see field "Status" as "{SavedValue:AUTHORIZEDREPRESENTATIVE}"
-    Then I softly see field "Status" as "{SavedValue:Prefix}"
-    Then I softly see field "Status" as "{SavedValue:FirstName}"
-    Then I softly see field "Status" as "{SavedValue:LastName}"
-    Then I softly see field "Status" as "{SavedValue:Title}"
-    Then I softly see field "Status" as "{SavedValue:SIGNATURE}"
-
+    Then I softly see field "APPLICANT'S ORGANIZATION:" as "{SavedValue:APPLICANTSORGANIZATION}"
+    Then I softly see field "AUTHORIZED REPRESENTATIVE:" as "{SavedValue:AUTHORIZEDREPRESENTATIVE}"
+    Then I softly see field "Prefix:" as "{SavedValue:Prefix}"
+    Then I softly see field "First Name:" as "{SavedValue:FirstName}"
+    Then I softly see field "Last Name:" as "{SavedValue:LastName}"
+    Then I softly see field "Title:" as "{SavedValue:Title}"
+    Then I softly see field "SIGNATURE:" as "{SavedValue:SIGNATURE}"
     Examples:
-      | OwnerType  | NonOwner  |
-   #   | GRANTEE PM|GRANTEE PO|
-      | GRANTEE PO | GRANTEE ADMIN1 |
+      | OwnerType   | NonOwner      |
+      | GRANTEE PM  |GRANTEE PO     |
+      | GRANTEE PO  |GRANTEE ADMIN1 |
+      | GRANTEE PM  |GRANTEE EXE    |
+      | GRANTEE EXE |GRANTEE FO     |
+      | GRANTEE EXE |GRANTEE FD     |
+      | GRANTEE PM  |GRANTEE AUDITOR|
 
