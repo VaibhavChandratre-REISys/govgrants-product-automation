@@ -5714,7 +5714,7 @@ Feature: Sanity scenarios
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I click on notification icon
-    Then I softly see notification "Sarah PM assigned you a task" contains "Automation Runtime Direct"
+    Then I softly see notification "Sarah PM assigned you a task" contains "{SavedValue:Automation Runtime Direct}"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
@@ -5731,7 +5731,7 @@ Feature: Sanity scenarios
     And I click modal button "Save"
     And I click modal button "Close"
     Then I softly see field "Status" as "Submitted to Grantor"
-    Then I softly do not see notification "Grantee PO assigned you a task" contains "Automation Runtime Direct"
+    Then I softly do not see notification "Grantee PO assigned you a task" contains "{SavedValue:Automation Runtime Direct}"
 
   @471004_1 @BudgetPeriodchangeTypeARVerifytheNotificationforBudgetPeriodchangetypeofAmendmentRequets
   Scenario:Budget Period change Type AR-Verify the Notification for Budget Period change type of Amendment Requets
@@ -5908,7 +5908,7 @@ Feature: Sanity scenarios
     Then I see status in Progress-bar is "Rejected" and is "Red"
     When I click on notification icon
     And I wait for "2" seconds
-    Then I softly do not see notification "Sarah PM assigned you a task" contains "Automation Runtime Direct"
+    Then I softly do not see notification "Sarah PM assigned you a task" contains "{SavedValue:Automation Runtime Direct}"
 
   @485478 @FundingChangeTypeARVerifytheNotificationforFundingchangetypeofAmendmentRequets
   Scenario:Funding Change Type AR-Verify the Notification for Funding change type of Amendment Requets
@@ -6138,7 +6138,7 @@ Feature: Sanity scenarios
     And I click modal button "Save"
     And I click modal button "Close"
     Then I softly see field "Status" as "Submitted to Grantor"
-    Then I softly do not see notification "Grantee PO assigned you a task" contains "Automation Runtime Direct"
+    Then I softly do not see notification "Grantee PO assigned you a task" contains "{SavedValue:Automation Runtime Direct}"
 
   @485478_1 @FundingChangeTypeARVerifytheNotificationforFundingchangetypeofAmendmentRequets
   Scenario:Funding Change Type AR-Verify the Notification for Funding change type of Amendment Requets
@@ -6318,7 +6318,7 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Rejected" and is "Red"
     When I click on notification icon
-    Then I softly do not see notification "Sarah PM assigned you a task" contains "Automation Runtime Direct"
+    Then I softly do not see notification "Sarah PM assigned you a task" contains "{SavedValue:Automation Runtime Direct}"
 
   @487040 @487061 @487062 @487063 @487064 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess
   Scenario Outline: Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
