@@ -1824,7 +1824,7 @@ Feature: Grantee Forms Scenario
     Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
 
   @475809 @ValidateNotYetConvertedOpportunityGrantsgovPMusercancreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord
-    Scenario: Not Yet Converted Opportunity Grantsgov PM user can create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
+  Scenario: Not Yet Converted Opportunity Grantsgov PM user can create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberProjectnarrativeForm}"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
