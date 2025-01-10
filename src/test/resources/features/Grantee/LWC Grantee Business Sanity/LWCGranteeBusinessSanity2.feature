@@ -10504,3 +10504,61 @@ Feature: Sanity scenarios
       | GRANTEE EXE |GRANTEE FD     |
       | GRANTEE PM  |GRANTEE AUDITOR|
 
+  @482030 @GrantsgovlobbingformVerifyassignedreviewerEXEwitheditaccessasNocannotseeeditbuttonforGrantsgovlobbingformandcannoteditanydataontheform
+  Scenario Outline: Grants.gov lobbing form - Verify assigned reviewer(EXE)  with edit access as No cannot see edit button for Grants.gov lobbing form and cannot edit any data on the form
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
+    Given I login to "As a Grantee" app as "<UserType>" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I enter "Grantee_Leads_CAS-HHS0001212745" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I Update for setting as grantsgov lead with opportunity number "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see field "State" as "Forecasted"
+    And I save the field labeled "EGMS ID" as "LeadsEGMSID"
+    When I click on "Activate" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
+    When I click modal button "OK"
+    Then I softly see field "State" as "Posted"
+    Then I can see top right button "Qualify Lead" in page detail
+    And I click on "Qualify Lead" in the page details
+    Then I softly see field "Status" as "Qualified Lead"
+    And I save the field labeled "EGMS ID" as "QualifiedLeadEGMSID"
+    And I click on "Edit" in the page details
+    And I enter "Grantee_Qualifiedleads_Edition" values from "Announcement_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I wait for "2" seconds
+    When I click on "Convert to Opportunity" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" by clicking "New" :
+      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
+      | Victor EXE    | Fiscal Reviewer | Automation Description | 5        | NO                   |
+    And I click on "Send for Review" icon for "Victor EXE" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
+    And I pause execution for "2" seconds
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    Then I softly see value "{SavedValue:opportunityEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
+    When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I navigate to "Forms and Files" sub tab
+    Then I can see row level action button "Preview" against "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "View" against "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "SplitView" against "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    When I click on "View" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Delete" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+    Examples:
+      | UserType    |
+      | GRANTEE PM  |
