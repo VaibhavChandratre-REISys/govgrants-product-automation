@@ -266,10 +266,8 @@ Feature: Validate all scenarios in the Application Review without background
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see the following messages in the page details contains:
-      | Cannot promote <Announcement Name> because it does not meet the minimum review requirements: |
-      | Program Review has 0 out of 1 complete reviews                                               |
-      | Fiscal Review has 0 out of 1 complete reviews                                                |
-      | Compliance Review has 0 out of 1 complete reviews                                            |
+      | Cannot promote <Announcement Name> because it does not meet the minimum review requirements:  |
+      | Pre-Screen has 0 out of 1 complete reviews                                                    |
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel

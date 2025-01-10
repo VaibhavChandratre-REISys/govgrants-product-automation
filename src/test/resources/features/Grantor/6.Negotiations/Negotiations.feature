@@ -1916,7 +1916,6 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see fields "AppplicationSubmitted__c" is in edit mode
     Then I softly see fields "SubmittedOnForm__c" is in edit mode
 
-
   @189512 @Validates/rusersshouldbeseethesectionNegotiationRequestdetailsintheNegotiationstabforapplication @sprint-13
   Scenario: Validate  s/r users should be  see the section  Negotiation Request details in the Negotiations tab for application
     Given I login to "As a Grantor" app as "dynamicUser" user
@@ -1955,7 +1954,7 @@ Feature: Validate all scenarios in Negotiations
     And I navigate to "Negotiations" sub tab
     When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
-    Then I softly see field "Application Sections for Negotiation" as "Forms and Files:Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Forms and Files: Forms"
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     Then I softly see field "Due Date" as "10/18/2142" in "Negotiation Request Details" pageblock
 

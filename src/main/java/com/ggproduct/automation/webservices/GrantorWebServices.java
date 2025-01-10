@@ -166,6 +166,21 @@ public class GrantorWebServices extends ProjectWebServices {
         }
     }
 
+    /**
+     * @param oppoNumber to update gov grants lead from backend
+     */
+    public void UpdateForSettingAsGrantsgovLeadWithOpportunityNumber(String oppoNumber) {
+        UpdateLeadSettingsAPIPostCall(projectApis.UpdateLeadSettingsAPI(oppoNumber));
+    }
+
+    private void UpdateLeadSettingsAPIPostCall(JsonObject jsonObject) {
+        String finalEndPoint = endPoint + "/services/apexrest/updateLeadSettings";
+        Response response = I.amPerforming().restHttp().patchCall(jsonObject, null,
+                finalEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
     public void initateApplicationReviewOnAnnouncement(String applicationTitle, String announcementTitle, String filter) {
         initiateApplicationReview(projectApis.applicationReview(applicationTitle, announcementTitle, filter));
     }

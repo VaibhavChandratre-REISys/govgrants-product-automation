@@ -7160,7 +7160,7 @@ Feature: Sanity scenarios New
     Then I softly see the text containing "Key Contacts"
     Then I softly see the text containing :
       | Agency Owner: Grants.gov |
-#    Need to check below validations
+    #Need to check below validations
 #      | OMB Number: 4040-0010           |
 #      | Version:2.0                     |
 #      | OMB Expiration Date: 12/31/2026 |

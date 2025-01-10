@@ -119,6 +119,16 @@ public class CommonSteps {
     public void iLeftNavigationContaninigValue(String actionIcon, String leftNavigationButton) {
         govgrants.perform().pageDetails().leftNavigationContaninigValue(actionIcon,leftNavigationButton);
     }
+
+    @Then("^I (softly see|softly do not see|see) notification \"([^\"]*)\" contains \"([^\"]*)\"$")
+    public void iSoftlySeeNotificationContains(String usage, String messageTitle, String messageValue) {
+        projectManager.assertNotificationValues(usage,messageTitle,messageValue);
+    }
+
+    @And("^I delete the grantee record \"([^\"]*)\"$")
+    public void iDeleteTheRecord(String recordName) {
+        projectManager.deletionApiForGrantee(recordName);
+    }
 }
 
 

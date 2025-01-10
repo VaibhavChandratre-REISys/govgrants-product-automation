@@ -1066,6 +1066,10 @@ public final class PageDetails {
         I.amPerforming().scroll().withMouseToElement(By.xpath(xpathExpression));
 
     }
+
+    public void getNotificationIcon() {
+        I.amPerforming().click().on(By.xpath("//div[@class='headerButtonBody']//lightning-icon"));
+    }
     /**
      * hover on help text inside modal
      *

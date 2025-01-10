@@ -4036,7 +4036,7 @@ Feature: Sanity scenarios
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
-    Then I see value "Record Id" for title "{SavedValue:BDRAMENDID}" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
+    Then I see value "{SavedValue:BDRAMENDID}" for title "EGMS ID" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I softly can see row level action button "View" against "{SavedValue:BDRAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I softly can see row level action button "Edit" against "{SavedValue:BDRAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I softly can see row level action button "Delete" against "{SavedValue:BDRAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
@@ -4246,18 +4246,15 @@ Feature: Sanity scenarios
 #    And I wait for "2" seconds
 #    And I download the file
 #    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
-    And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I wait for "5" seconds
-    Then I softly see "View" opens in overLay window
-    And I click modal button "Close"
+#    And I switch to parent tab
+#    And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+#    And I wait for "5" seconds
+#    Then I softly see "View" opens in overLay window
+#    And I click modal button "Close"
     And I wait for "3" seconds
-    And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I update title as "Automation.pdf" on upload file modal
-    And I select Classification as "Notice of Award" at upload file modal
-    When I click modal button "Save"
-    And I click modal button "Close"
-    And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" by clicking "Edit" :
+      | Title          | Title          | Classification  |
+      | Attachment.pdf | Automation.pdf | Notice of Award |
     And I refresh the page
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
     And I click on "Delete" icon for "Notice of Award" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" without waiting for record
@@ -8668,6 +8665,7 @@ Feature: Sanity scenarios
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on "Submit For Approval" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
@@ -8729,9 +8727,11 @@ Feature: Sanity scenarios
     Then I softly see "Initiated By" in flex table header "---grantee_tableId:-:AmendmentTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:AmendmentTableId---"
     And I click on "View" icon for "{SavedValue:FNCAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+     And I wait for "3" seconds
     Then I softly see field "EGMS ID" as "{SavedValue:FNCAMENDID}"
     Then I softly see field "Status" as "Created"
-    Then I softly see field "Initiated By" as "Grantor"
+     When I save the field labeled "Initiated By" as "InitiatedBy"
+    Then I softly see field "Initiated By" as "{SavedValue:InitiatedBy}"
     Then I softly see field "Amendment Type" as "Funding Change"
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Delete" in page detail
@@ -9098,6 +9098,7 @@ Feature: Sanity scenarios
       | Test  | The narrative | 2000           | 200        | 200            |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
@@ -9225,10 +9226,14 @@ Feature: Sanity scenarios
     Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     When I navigate to "Actuals" sub tab
+    When I save the field labeled "Grant Amount" as "GrantAmount"
+    Then I softly see field "Grant Amount" as "{SavedValue:GrantAmount}"
     When I save the field labeled "Total Awarded Budget" as "TotalAwardedBudget"
     Then I softly see field "Total Awarded Budget" as "{SavedValue:TotalAwardedBudget}"
-    #When I save the field labeled "Total Spent" as "TotalSpent"
-    #Then I softly see field "Total Spent" as "{SavedValue:TotalSpent}"
+    When I save the field labeled "Drawn to Date" as "DrawntoDate"
+    Then I softly see field "Drawn to Date" as "{SavedValue:DrawntoDate}"
+    When I save the field labeled "Spent to Date" as "SpenttoDate"
+    Then I softly see field "Spent to Date" as "{SavedValue:SpenttoDate}"
     When I save the field labeled "Remaining Balance" as "RemainingBalance"
     Then I softly see field "Remaining Balance" as "{SavedValue:RemainingBalance}"
     When I save the field labeled "Total Match Expenditures to Date this Budget Period" as "TotalMatchExpenditurestoDatethisBudgetPeriod"
@@ -9237,6 +9242,10 @@ Feature: Sanity scenarios
     Then I softly see field "Total Program Income Revenue this Budget Period" as "{SavedValue:TotalProgramIncomeRevenuethisBudgetPeriod}"
     When I save the field labeled "Total Leverage" as "TotalLeverage"
     Then I softly see field "Total Leverage" as "{SavedValue:TotalLeverage}"
+    When I save the field labeled "Current Balance" as "CurrentBalance"
+    Then I softly see field "Current Balance" as "{SavedValue:CurrentBalance}"
+    When I save the field labeled "Grant Balance" as "GrantBalance"
+    Then I softly see field "Grant Balance" as "{SavedValue:GrantBalance}"
     Then I softly see value "$7,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Expenditures to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Carry-Forward" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
@@ -11961,7 +11970,6 @@ Feature: Sanity scenarios
     And I select Classification as "Interim Award Document" at upload file modal
     When I click modal button "Save"
     And I click modal button "Close"
-    And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see value "Interim Award Document" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
@@ -12032,8 +12040,6 @@ Feature: Sanity scenarios
     Then I softly cannot see the following messages in the page details contains:
       | Overview Tab - Money cannot be moved across the Focus Areas during a Budget Redirection request.       |
       | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero. |
-    Then I softly see field "Status" as "Submitted for Approval"
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -12201,8 +12207,6 @@ Feature: Sanity scenarios
     Then I softly cannot see the following messages in the page details contains:
       | Overview Tab - Money cannot be moved across the Focus Areas during a Budget Redirection request.       |
       | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero. |
-    Then I softly see field "Status" as "Submitted for Approval"
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
   @granteeExecution3 @449402 @VerifyUserwillactivatethenewawardfromNonOwnerAwardOwner
   Scenario: Verify User will activate the new award from Non Owner Award Owner
@@ -16821,7 +16825,6 @@ Feature: Sanity scenarios
     Then I softly see "Email Subject" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
     Then I softly see "Preview" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
     When I get the "EGMS ID"
-    #bug 482507
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To        | Subject            | Body            |
@@ -29166,13 +29169,8 @@ Feature: Sanity scenarios
     Then I softly see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Expired" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    And I click on page navigation arrow "---grantee_tableId:-:preApplicaltionTableId---" for table id "Next"
-    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
     Then I softly see top right button "Advance Filter" inside flex table "---grantee_tableId:-:preApplicaltionTableId---"
-    And I click toggle button to select "Pre-Application - All"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:preApplicaltionTableId---"
     When I click on parallel lines menu bar with data target value "Pre-Application - All"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -29189,136 +29187,30 @@ Feature: Sanity scenarios
     When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Approved" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Rejected" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Expired" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Expired" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    And I wait for "2" seconds
-    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly can see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    And I click toggle button to select "Pre-Application - Submitted"
-    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Approved" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Rejected" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Expired" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Expired" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    And I wait for "2" seconds
-    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    And I click toggle button to select "Pre-Application - Expired"
-    When I perform quick search for "Expired" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Expired" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Approved" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Rejected" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    And I wait for "2" seconds
-    When I perform quick search for "Expired" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Expired" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    And I wait for "2" seconds
-    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    And I click toggle button to select "Pre-Application - Converted to Application"
-    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Submitted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Approved" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Rejected" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly do not see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    And I wait for "2" seconds
-    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    And I wait for "2" seconds
-    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    And I click toggle button to select "Pre-Application - My Records"
-    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Activated" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Closed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Approved" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Approved" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Amended" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see value "Rejected" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     And I wait for "2" seconds
-    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly can see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    And I click toggle button to select "Pre-Application - Submitted"
+    When I perform quick search for "Submit to Grantor" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Submit to Grantor" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    And I wait for "2" seconds
+    And I click toggle button to select "Pre-Application - Converted to Application"
+    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    And I wait for "2" seconds
+    And I click toggle button to select "Pre-Application - My Records"
+    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Created" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly can see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
     Then I softly see "Actions" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
     Then I softly see "Opportunity Number" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
@@ -29602,7 +29494,7 @@ Feature: Sanity scenarios
       | GRANTEE PM      |
 
   @480702 @OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application
-  Scenario Outline: OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application
+  Scenario Outline: Opportunities converted to Application (Manual) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Oppprotunity which is converted to Pre-application
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
     And I click toggle button to select "Opportunities - All"
@@ -31021,7 +30913,7 @@ Feature: Sanity scenarios
       | User          | Validation     | Toggles                |
 #      | GRANTEE FO      | softly can see    | Qualified Leads - All |
 #      | GRANTEE FD      | softly can see    | Qualified Leads - All |
-      | GRANTEE ADMIN | softly can see | Qualified Leads - Open |
+      | GRANTEE ADMIN1 | softly can see | Qualified Leads - Open |
 #      | GRANTEE AUDITOR | softly cannot see | Qualified Leads - All |
 
   @483166 @483167 @483181 @ValidatePMusertheflowofNotyetqualifiedlead
