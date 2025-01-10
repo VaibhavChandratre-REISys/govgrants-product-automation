@@ -10355,17 +10355,17 @@ Feature: Sanity scenarios
 
   @482022 @GrantsgovlobbingformVerifyPOuserNonOwnercannotaddeditdeletedatainGrantsgovlobbingformandcanonlyviewdataenteredbyownerintheform
   Scenario Outline: Grants.gov lobbing form -  Verify PO user (Non Owner) cannot add/edit/delete data in Grants.gov lobbing form and can only view data entered by owner in the form
-    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumber}"
     Given I login to "As a Grantee" app as "<OwnerType>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
-    And I enter "Grantee_Leads_CAS-HHS0000660610" values from "Announcement_Field_Values.xlsx"
+    And I enter "Grantee_Leads_CAS-HHS0001241410" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I Update for setting as grantsgov lead with opportunity number "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I Update for setting as grantsgov lead with opportunity number "{grantee_testData:GrantsgovOpportunityNumber}"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see field "State" as "Forecasted"
