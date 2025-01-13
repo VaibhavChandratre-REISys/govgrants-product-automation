@@ -2040,96 +2040,96 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Created"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I can see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Created"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Created"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Created"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Created"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -2142,96 +2142,96 @@ Feature: Validate all scenarios of every modules flow
       | David FO      | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "David FO" inside table
     Then I softly see field "Status" as "Submitted for Review"
-#    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Submitted for Review"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Submitted for Review"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Submitted for Review"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Submitted for Review"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Submitted for Review"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2252,96 +2252,96 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Submitted for Review"
     Then I softly can see top right button "Complete Review" in page detail
     And I click on "Complete Review" in the page details
-#    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Reviewed"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Reviewed"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Reviewed"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Reviewed"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Reviewed"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Reviewed"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Reviewed"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Reviewed"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Reviewed"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Reviewed"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -2382,96 +2382,96 @@ Feature: Validate all scenarios of every modules flow
       | Application has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-#    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Submitted for Approval"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Submitted for Approval"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Submitted for Approval"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Submitted for Approval"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Submitted for Approval"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
     When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2479,96 +2479,96 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-#    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Approved"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Approved"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Approved"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Approved"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Approved"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Approved"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Approved"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Approved"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Approved"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Approved"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -2579,96 +2579,96 @@ Feature: Validate all scenarios of every modules flow
     Then I softly can see top right button "Submit To Grants.Gov" in page detail
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-#    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Submitted to Grantor"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Submitted to Grantor"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Submitted to Grantor"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Submitted to Grantor"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Submitted to Grantor"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -2677,92 +2677,92 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     When I click on "Revise" in the page details
     Then I softly see field "Status" as "Revision in Progress"
-#    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Revision in Progress"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Revision in Progress"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Revision in Progress"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Revision in Progress"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    And I close the tab
-#    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-#    Then I softly see field "Status" as "Revision in Progress"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    And I switch to tab number "1"
-#    Then I cannot see top right button "Edit" in page detail
-#    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-#    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Revision in Progress"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Revision in Progress"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Revision in Progress"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Revision in Progress"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
+    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Revision in Progress"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
