@@ -10049,7 +10049,7 @@ Feature: Sanity scenarios
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
-    When I click on "Submit to Grantor" in the page details
+    When I click on "Submit To Grants.Gov" in the page details
     When I enter values into fields
       | Value | Field                 |
       | 0     | SubmittedToGrantor__c |
