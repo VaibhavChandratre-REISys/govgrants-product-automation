@@ -10195,10 +10195,13 @@ Feature: Sanity scenarios
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | OwnerType  | UserType       | emailIdFrom              | emailIdTo                       | CreatedBy    |
-      | GRANTEE PM | GRANTEE PM     | sarah.pm.23@yopmail.com  | victor.exeqagrantee@yopmail.com | Sarah PM     |
-#      | GRANTEE PO | GRANTEE ADMIN1 | productadmin@yopmail.com | victor.exeqagrantee@yopmail.com | Product Admin|
-#      | GRANTEE EXE | victor.exeqagrantee@yopmail.com | sarah.pm.23@yopmail.com         |            |
+      | OwnerType  | UserType      | emailIdFrom             | emailIdTo                       | CreatedBy         |
+      | GRANTEE PM | GRANTEE PM    | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Sarah PM          |
+      | GRANTEE PO | GRANTEE ADMIN1| sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Product Admin     |
+      | GRANTEE PO | GRANTEE EXE   | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Victor EXE        |
+      | GRANTEE PM | GRANTEE FD    | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Danielle FD Garcia|
+      | GRANTEE PM | GRANTEE FO    | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | David FO          |
+      | GRANTEE PO | GRANTEE PO    | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Grantee PO        |
 
   @485355 @SF424VerifyFOuserasaReviewershouldabletoedittheformifeditaccessisYes
   Scenario Outline: SF-424 -Verify FO user as a Reviewer should able to edit the form if edit access is Yes
@@ -10602,7 +10605,7 @@ Feature: Sanity scenarios
       | UserType    |
       | GRANTEE PM  |
 
-  @485370 @Sf424VerifyAdminusershouldabletoviewaccessforforminallstateofApplication
+  @485370 @485371 @485364 @485365 @485361 @Sf424VerifyAdminusershouldabletoviewaccessforforminallstateofApplication
   Scenario Outline: Sf-424-Verify Admin user should able to view access for form in all  state of Application
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     Given I login to "As a Grantee" app as "<OwnerType>" user
@@ -10893,5 +10896,9 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
-      | OwnerType  | UserType       |
-      | GRANTEE PM | GRANTEE ADMIN1 |
+      | OwnerType  | UserType        |
+      | GRANTEE PM | GRANTEE ADMIN1  |
+#      | GRANTEE PM | GRANTEE AUDITOR |
+#      | GRANTEE PM | GRANTEE FO      |
+#      | GRANTEE PM | GRANTEE FD      |
+#      | GRANTEE PM | GRANTEE EXE     |
