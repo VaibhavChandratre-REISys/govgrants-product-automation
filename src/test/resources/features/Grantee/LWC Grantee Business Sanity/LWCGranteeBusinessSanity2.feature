@@ -10317,9 +10317,9 @@ Feature: Sanity scenarios
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-    Then I softly see value "{SavedValue:opportunityEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
-    When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    Then I softly see value "{SavedValue:appEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
+    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I navigate to "Forms and Files" sub tab
     Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
