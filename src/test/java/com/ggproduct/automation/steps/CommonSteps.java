@@ -11,6 +11,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import jdk.jfr.Description;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 
 public class CommonSteps {
@@ -123,6 +124,16 @@ public class CommonSteps {
     @And("^I delete the grantee record \"([^\"]*)\"$")
     public void iDeleteTheRecord(String recordName) {
         projectManager.deletionApiForGrantee(recordName);
+    }
+
+    @Then("^I softly see field with quotes \"(.*?)\" inside page block$")
+    public void iSoftlySeeFieldWithQuotesOtherInsidePageBlock(String shouldBeDisplayed, String fieldLabel) {
+        String fieldLabel1 = fieldLabel.replaceAll("\\u00a0", " ");
+        if (shouldBeDisplayed.contains("softly")) {
+            I.amPerforming().assertionsTo().assertThat("softly see".equalsIgnoreCase(shouldBeDisplayed)).isEqualTo(govgrants.perform().pageDetails().isElementPresentInsidePageBlockWithQuotes(fieldLabel1));
+        } else {
+            Assert.assertEquals("see".equalsIgnoreCase(shouldBeDisplayed), govgrants.perform().pageDetails().isElementPresentInsidePageBlockWithQuotes(fieldLabel1));
+        }
     }
 }
 

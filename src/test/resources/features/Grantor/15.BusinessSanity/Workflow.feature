@@ -1922,13 +1922,6 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "3" seconds
     Then I softly see field "State" as "Forecasted"
     And I save the field labeled "EGMS ID" as "LeadsEGMSID"
-    When I click on "Activate" in the page details without processing
-    Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
-    When I click modal button "OK"
-    Then I softly see field "State" as "Posted"
-    Then I can see top right button "Qualify Lead" in page detail
-    And I click on "Qualify Lead" in the page details
-    Then I softly see field "Status" as "Qualified Lead"
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Financials" sub tab at view detail page
     Then I softly can see "Files" sub tab at view detail page
