@@ -10929,7 +10929,7 @@ Feature: Sanity scenarios
     Examples:
       | OwnerType  | UserType        |
       | GRANTEE PM | GRANTEE ADMIN1  |
-#      | GRANTEE PM | GRANTEE AUDITOR |
-#      | GRANTEE PM | GRANTEE FO      |
-#      | GRANTEE PM | GRANTEE FD      |
-#      | GRANTEE PM | GRANTEE EXE     |
+      | GRANTEE PM | GRANTEE AUDITOR |
+      | GRANTEE PM | GRANTEE FO      |
+      | GRANTEE PM | GRANTEE FD      |
+      | GRANTEE PM | GRANTEE EXE     |
