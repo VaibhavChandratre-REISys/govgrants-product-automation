@@ -9554,8 +9554,8 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    Then I softly can see top right button "Submit To Grantor" in page detail
-    When I click on "Submit To Grantor" in the page details
+    Then I softly can see top right button "Submit To Grants.Gov" in page detail
+    When I click on "Submit To Grants.Gov" in the page details
     When I enter values into fields
       | Value | Field          |
       | 0     | SubmittedOn__c |
@@ -10049,7 +10049,7 @@ Feature: Sanity scenarios
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
-    When I click on "Submit To Grants.Gov" in the page details
+    When I click on "Submitted to Grantor" in the page details
     When I enter values into fields
       | Value | Field                 |
       | 0     | SubmittedToGrantor__c |
