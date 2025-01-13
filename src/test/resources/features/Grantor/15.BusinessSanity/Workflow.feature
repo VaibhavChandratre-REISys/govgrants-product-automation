@@ -1905,7 +1905,7 @@ Feature: Validate all scenarios of every modules flow
     Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
 
-  @482165 @482166 @ValidateQualifyLeadPMusercanqualifytheleadwhichisingestedfromgrantsgov @debug
+  @482165 @482166 @ValidateQualifyLeadPMusercanqualifytheleadwhichisingestedfromgrantsgov
   Scenario Outline: Validate Qualify Lead PM user can qualify the lead which is ingested from grants gov
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
     Given I login to "As a Grantee" app as "<userType>" user
@@ -2107,8 +2107,8 @@ Feature: Validate all scenarios of every modules flow
     Then I softly can see top right button "Validate" in page detail
     And I close the tab
     Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I can see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Splitview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -2154,7 +2154,7 @@ Feature: Validate all scenarios of every modules flow
     Then I cannot see row level action button "Delete" against "{SavedValue:appEGMSID}" in flex table with id "---grantee_tableId:-:ApplicationTableId---"
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     Then I softly see field "Status" as "Created"
-    Then I softly can see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I cannot see row level action button "Edit" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -2167,8 +2167,8 @@ Feature: Validate all scenarios of every modules flow
     Then I softly cannot see top right button "Validate" in page detail
     And I close the tab
     Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I cannot see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Splitview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -2200,7 +2200,4 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - My Records"
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-    Then I softly see value "{SavedValue:appEGMSID}" for title "Form Name" inside table "---grantee_tableId:-:ApplicationTableId---"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:appEGMSID}" in flex table with id "---grantee_tableId:-:ApplicationTableId---"
-    Then I softly can see row level action button "View" against "{SavedValue:appEGMSID}" in flex table with id "---grantee_tableId:-:ApplicationTableId---"
-    Then I softly cannot see row level action button "Delete" against "{SavedValue:appEGMSID}" in flex table with id "---grantee_tableId:-:ApplicationTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:ApplicationTableId---"

@@ -202,6 +202,7 @@ public final class GovGrantsAssertionSteps {
                     usage.contains("softly")
             );
             I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
+            I.amPerforming().waitFor().makeThreadSleep(500);
     }
 
 
