@@ -126,7 +126,7 @@ public class CommonSteps {
         projectManager.deletionApiForGrantee(recordName);
     }
 
-    @Then("^I softly see field with quotes \"(.*?)\" inside page block$")
+    @Then("^I (softly see|see) field with quotes \"(.*?)\" inside page block$")
     public void iSoftlySeeFieldWithQuotesOtherInsidePageBlock(String shouldBeDisplayed, String fieldLabel) {
         String fieldLabel1 = fieldLabel.replaceAll("\\u00a0", " ");
         if (shouldBeDisplayed.contains("softly")) {
