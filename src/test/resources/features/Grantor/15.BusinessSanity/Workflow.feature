@@ -2121,7 +2121,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Reviewed"
     Then I softly can see top right button "Validate" in page detail
     Then I softly can see top right button "Edit" in page detail
-    Then I softly can see top right button "Submit for Approval" in page detail
+    Then I softly can see top right button "Submit For Approval" in page detail
     And I navigate to "Overview" sub tab
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
     Then I softly can see row level action button "Edit" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
@@ -2155,7 +2155,8 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     Then I softly can see row level action button "Add Line Item Details" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
-    And I wait for "2" seconds 
+    Given I expand nested table containing column value "BP01"
+    When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" with wait for record
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
