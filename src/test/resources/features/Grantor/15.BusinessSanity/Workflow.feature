@@ -2161,8 +2161,8 @@ Feature: Validate all scenarios of every modules flow
     When I enter the following values into flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
       | Construction | The narrative | 5000         | 500        | 500            |
-    Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
-    Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+    Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
+    Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
     When I close "Budget Category Line Item" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
@@ -2200,7 +2200,7 @@ Feature: Validate all scenarios of every modules flow
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PreApplication---" panel
     When I click on "View" icon for "{SavedValue:PreappEGMSID}" inside table
     When I navigate to "Files" sub tab
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
 
@@ -2658,8 +2658,8 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" with wait for record
     And I wait for "2" seconds
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
-    Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
-    Then I softly cannot see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+    Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
+    Then I softly cannot see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
     When I close "Budget Category Line Item" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
