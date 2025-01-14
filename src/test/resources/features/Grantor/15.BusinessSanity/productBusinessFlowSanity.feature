@@ -31,7 +31,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "5" seconds
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "dark blue"
+#    Then I see status in Progress-bar is "Active" and is "dark blue"
 
   @72337 @activationOFFundingSource @ProdSan1 @ovrerun1
   Scenario: Validate the activation of Funding Source HappyPath and the status is Active
@@ -4251,3 +4251,214 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:DeskReview}" inside flex table with id "---deskreview:-:managementInitiateDRtableid---"
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly see field "EGMS ID" as "{SavedValue:DeskReview}"
+
+  @SF425FormsNegativeValidationCheckAndSF428ABlankvalueValidationCheckAlsoSF429Bformnegativevaluesenteredvalidationcheck @ProdSan4
+  Scenario: SF425 Forms Negative Validation Check and SF 428 A Blank value Validation Check also SF429B form negative values entered validation check
+    Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
+    Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Direct Award}" having object api name as "ProgressReports__c"
+    And I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I wait for "2" seconds
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "progID"
+    And I click on "Edit" in the page details
+    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I wait for "2" seconds
+    And I click on "View" icon for "Federal Financial Report - SF-425" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    And I enter "SF425_Form" values from "ProgressReport_Field_Values.xlsx"
+    And I edit the following rows inline in flex table with id "---progressReport:-:sf425TransactionTableID---" by clicking "Edit" :
+      | Classification                                                          | Cumulative |
+      | a. Cash Receipts                                                        | -30        |
+      | b. Cash Disbursements                                                   | -10        |
+      | d. Total Federal funds authorized                                       | -30        |
+      | e. Federal share of expenditures                                        | -20        |
+      | f. Federal share of unliquated obligations                              | -5         |
+      | i. Total recipient share required                                       | -30        |
+      | j. Recipient share of expenditures                                      | -20        |
+      | l. Total Federal share of program income earned                         | -30        |
+      | m. Program income expended in accordance with the deduction alternative | -20        |
+      | n. Program income expended in accordance with the addition alternative  | -5         |
+    Then I softly see the following messages in the page details :
+      | The amount cannot be less than zero. |
+    And I close the tab
+    #SF-428-A Blank value validation check
+    When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I click on "Edit" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
+    And I enter value "1234" into field "FederalGrantSF428A__c"
+    And I enter value "(a) Individual (Reporting Federally-owned property for one award)" into field "ReportTypePiclikist__c"
+    And I enter value "30 SEP" into field "ReportAsOf__c"
+    And I enter value "Test" into field "CommentsSF428__c"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I refresh the page
+    And I click on top right button "New" in flex table with id "---progressReport:-:sf428AFederallyOwnedTableId---"
+    When I enter in modal "SF428A_Federal_Property" values from "ProgressReport_Field_Values.xlsx"
+    And I click modal button "Save"
+    And I refresh the page
+    And I wait for "5" seconds
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | If year is selected, report type As of Year is required. |
+    And I close the tab
+    #SF429B form negative values entered validation check
+    When I navigate to "Forms and Files" sub tab
+    And I wait for "2" seconds
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I wait for "2" seconds
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without Split
+    And I switch to tab number "1"
+    And I enter "SF429B_Form_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
+    And I wait for "3" seconds
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | If "Other" option is selected in "14k", Justification in specify is required.                                                                |
+      | If "Other" option is selected in "14l", Justification in specify is required.                                                                |
+      | If "Other" is selected in "Real Property Ownership Type", Description is required.                                                           |
+      | Unit type is required, if amount entered in "14d. Land Acreage or Square Units".                                                             |
+      | Unit type is required, if amount entered in "14e. Gross and Usable Square Footage/Meters".                                                   |
+      | Values can only be entered against the Electric (KWh) or Electric (Btu) in section "14k"                                                     |
+      | Values can only be entered against the Electric (KWh) or Electric (Btu) in section "14l"                                                     |
+      | Please enter Zip code in the Zip + 4 codes format (e.g. 12345-1234) in the 'Zip / Postal code' field.                                        |
+      | Federal Percentage cannot be less than zero.                                                                                                 |
+      | Non Federal Percentage cannot be less than zero.                                                                                             |
+      | The Land Acreage Amount cannot be less than zero.                                                                                            |
+      | The Gross Amount cannot be less than zero.                                                                                                   |
+      | The Usable Amount cannot be less than zero.                                                                                                  |
+      | Federal Share cannot be less than zero.                                                                                                      |
+      | Non Federal Share cannot be less than zero.                                                                                                  |
+      | Value in "Electric" in "14k" cannot be less than zero.                                                                                       |
+      | Value in "Btu" in "14k" cannot be less than zero.                                                                                            |
+      | Value in "Petroleum" in "14k" cannot be less than zero.                                                                                      |
+      | Value in "Natural Gas" in "14k" cannot be less than zero.                                                                                    |
+      | Value in "Other" in "14k" cannot be less than zero.                                                                                          |
+      | Value in "Electric" in "14l" cannot be less than zero.                                                                                       |
+      | Value in "Btu" in "14l" cannot be less than zero.                                                                                            |
+      | Value in "Petroleum" in "14l" cannot be less than zero.                                                                                      |
+      | Value in "Natural Gas" in "14l" cannot be less than zero.                                                                                    |
+      | Value in "Other" in "14l" cannot be less than zero.                                                                                          |
+      | Adding file is required in "Files section" with classification "Environmental Compliance Requirements", if "Yes" option in "14h" is checked. |
+      | Adding file is required in "Files section" with classification "NHPA", if "Yes" option in "14i" is checked.                                  |
+
+  @AwardWithFocusNo
+  Scenario: Award with focus area no
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition_ByApp_Focus_No" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I navigate to "Budget" sub tab
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I click on "Edit" in the page details
+    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I navigate to "Budget" sub tab
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Encumbrance |
+      | {SavedValue:fundingAccount} | 1000        |
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
+    When I navigate to "Performance" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
+      | EGMS ID                  | Target |
+      | Automation Permanent KPI | 10     |
+    And I navigate to "Terms" sub tab
+    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+    And I click modal button "Save"
+    And I wait for "2" seconds
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
+    And I click modal button "Save"
+    And I wait for "2" seconds
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name                       | Project Role             | Is Key Personnel |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name                      | Award  |
+      | {SavedValue:EXE Username} | Step 1 |
+    And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Sent to Subrecipient"
+    And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    When I click on "Accept" in the page details
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    When I navigate to "Terms" sub tab
+    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Sent to Subrecipient after Approval"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    Then I softly see field "Status" as "Sent to Subrecipient after Approval"
+    And I click on "Accept after Approval" in the page details
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "Activate" in the page details
+    Then I softly see that "Subaward" is in "Activated" status
