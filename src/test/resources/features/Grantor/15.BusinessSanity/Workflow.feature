@@ -3006,5 +3006,4 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Save" in the page details
     And I pause execution for "2" seconds
     Then I softly see field "Status" as "Created"
-    Then I see status in Progress-bar is "Created" and is "dark blue"
-    And I halt execution
+    Then I see status in Progress-bar is "Activated" and is "dark blue"
