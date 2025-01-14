@@ -11255,4 +11255,4 @@ Feature: Sanity scenarios
     And I switch to tab number "1"
     Then I softly can see top right button "Validate" in page detail
     Then I softly can see top right button "Edit" in page detail
-    And I click on "Edit" in the page details
+    And I click on "Edit1" in the page details
