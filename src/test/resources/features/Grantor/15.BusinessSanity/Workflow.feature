@@ -1597,21 +1597,14 @@ Feature: Validate all scenarios of every modules flow
 
   @debug @vai
   @OpportunitiesNotconvertedGrantsgovVerifyEXEuserReviewereditaccessasNocanabletosubmitReview
-  Scenario Outline: Opportunities Not converted (Grants.gov)  - Verify EXE user (Reviewer edit access as = No)can able to submit Review
-    Given I login to "As a Grantee" app as "<UserType>" user
+  Scenario: Opportunities Not converted (Grants.gov)  - Verify EXE user (Reviewer edit access as = No)can able to submit Review
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "AP--751" in "---grantee_tableId:-:ApplicationTableId---" panel
-    When I click on "View" icon for "AP--751" inside table
-    When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
-    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I wait for "3" seconds
-    And I switch to tab number "1"
-    And I wait for "2" seconds
-    Then I softly see value "Delinquent Federal Debt" for title "Classification" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
-    Then I softly see value "Areas Affected" for title "Classification" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
-    Examples:
-      | OwnerType  | UserType        |
-      | GRANTEE PM | GRANTEE ADMIN1  |
+    And I perform quick search for "AP--752" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "AP--752" inside table
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    Then I softly can see top right button "Submit To Grants.Gov" in page detail
+    When I click on "Submit To Grants.Gov" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
