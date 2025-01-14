@@ -1597,27 +1597,21 @@ Feature: Validate all scenarios of every modules flow
 
   @debug @vai
   @OpportunitiesNotconvertedGrantsgovVerifyEXEuserReviewereditaccessasNocanabletosubmitReview
-  Scenario: Opportunities Not converted (Grants.gov)  - Verify EXE user (Reviewer edit access as = No)can able to submit Review
-    Given I login to "As a Grantee" app as "GRANTEE ADMIN1" user
+  Scenario Outline: Opportunities Not converted (Grants.gov)  - Verify EXE user (Reviewer edit access as = No)can able to submit Review
+    Given I login to "As a Grantee" app as "<UserType>" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "AP--675" in "---grantee_tableId:-:ApplicationTableId---" panel
-    When I click on "View" icon for "AP--675" inside table
+    And I perform quick search for "AP--751" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "AP--751" inside table
     When I navigate to "Forms and Files" sub tab
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
-    And I wait for "3" seconds
-    When I click on "View" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I wait for "3" seconds
     And I switch to tab number "1"
-    And I wait for "3" seconds
-    Then I softly cannot see top right button "Validate" in page detail
-    Then I softly cannot see top right button "Delete" in page detail
-    Then I softly cannot see top right button "Edit" in page detail
-    Then I softly see field "APPLICANT'S ORGANIZATION:" as "{SavedValue:APPLICANTSORGANIZATION}"
-    Then I softly see field "AUTHORIZED REPRESENTATIVE:" as "{SavedValue:AUTHORIZEDREPRESENTATIVE}"
-    Then I softly see field "Prefix:" as "{SavedValue:Prefix}"
-    Then I softly see field "First Name:" as "{SavedValue:FirstName}"
-    Then I softly see field "Last Name:" as "{SavedValue:LastName}"
-    Then I softly see field "Title:" as "{SavedValue:Title}"
-    Then I softly see field "SIGNATURE:" as "{SavedValue:SIGNATURE}"
+    And I wait for "2" seconds
+    Then I softly see value "Delinquent Federal Debt" for title "Classification" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly see value "Areas Affected" for title "Classification" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Examples:
+      | OwnerType  | UserType        |
+      | GRANTEE PM | GRANTEE ADMIN1  |

@@ -11426,8 +11426,8 @@ Feature: Sanity scenarios
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     When I navigate to "Forms and Files" sub tab
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
-    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I wait for "3" seconds
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
@@ -11444,6 +11444,7 @@ Feature: Sanity scenarios
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     When I navigate to "Forms and Files" sub tab
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    And I wait for "3" seconds
     When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I wait for "3" seconds
     And I switch to tab number "1"
