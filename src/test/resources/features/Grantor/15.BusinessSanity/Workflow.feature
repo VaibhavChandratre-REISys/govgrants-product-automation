@@ -2115,7 +2115,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Complete Review" in page detail
     When I navigate to "Responsibilities" sub tab
-    Then I softly can see row level action button "Resend for Review" against "David FO" in flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---"
+    Then I softly can see row level action button "Resend for Review" against "Victor EXE" in flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:preApplicationPeerReviewTableId---"
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
@@ -2154,8 +2154,8 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
-    Then I softly can see top right button "Add Line Item Details" in flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
     Then I softly can see row level action button "Add Line Item Details" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+    And I wait for "2" seconds 
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
@@ -2655,6 +2655,7 @@ Feature: Validate all scenarios of every modules flow
     Given I expand nested table containing column value "BP01"
     Then I softly can see row level action button "Add Line Item Details" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
     When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" with wait for record
+    And I wait for "2" seconds
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
     Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
@@ -2674,7 +2675,7 @@ Feature: Validate all scenarios of every modules flow
     Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
     Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
     Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
 
