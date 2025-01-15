@@ -328,7 +328,7 @@ public class UsersAndURL implements UsersController {
 
         username.put("GRANTEE ADMIN", "product.qa@ggp.test8.qagrnteatm");
         username.put("GRANTEE ADMIN1", "qa.admin@ggp.test8.qagrnteatm");
-        username.put("GRANTEE PM", "sarah.pm@ggpqa.admin@ggp.test8.qagrnteatm.test8.qagrnteatm");
+        username.put("GRANTEE PM", "sarah.pm@ggp.test8.qagrnteatm");
         username.put("GRANTEE EXE", "victor.exe@ggp.test8.qagrnteatm");
         username.put("GRANTEE FO", "david.fo@ggp.test8.qagrnteatm");
         username.put("GRANTEE FD", "danielle.garcia@ggp.test8.qagrnteatm");
