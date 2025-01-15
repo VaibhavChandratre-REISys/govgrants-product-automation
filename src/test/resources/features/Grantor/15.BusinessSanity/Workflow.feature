@@ -2804,6 +2804,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly can see top right button "Edit" in page detail
     And I click on "Edit" in the page details
     Then I softly can see top right button "Save" in page detail
+    And I click on "Save" in the page details
     And I close the tab
     And I click on "Splitview" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see top right button "Edit" in the split screen page details
@@ -2838,6 +2839,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly can see top right button "Edit" in page detail
     And I click on "Edit" in the page details
     Then I softly can see top right button "Save" in page detail
+    And I click on "Save" in the page details
     And I close the tab
     And I click on "Splitview" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see top right button "Edit" in the split screen page details
