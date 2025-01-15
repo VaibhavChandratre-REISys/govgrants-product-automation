@@ -1180,4 +1180,11 @@ public final class PageDetails {
         return flag;
     }
 
+    public boolean isElementPresentInsidePageBlockWithQuotes(String fieldLabel1) {
+        try {
+            return getElementFromPageBlock(fieldLabel1).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

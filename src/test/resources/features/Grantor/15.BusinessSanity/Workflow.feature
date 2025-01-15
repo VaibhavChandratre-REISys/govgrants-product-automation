@@ -1594,7 +1594,7 @@ Feature: Validate all scenarios of every modules flow
       | pm.automation@yopmail.com | exe.automation@yopmail.com | test    | Automation Test |
     Then I see the text "Email Sent Successfully." in modal
 
-  @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI @debug
+  @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
   Scenario: Validate PM user should able to Create & Activate the KPI
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Announcement__c/a1bDl000003rKhHIAU/view"

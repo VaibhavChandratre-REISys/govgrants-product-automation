@@ -4469,7 +4469,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE |
       | GRANTEE PM  |
 
-  @443719 @477483 @477485 @477486 @477488 @477489 @VerifytheinternalOrganizationallsectionandfields
+  @443719 @482123 @442117 @477483 @477485 @477486 @477488 @477489 @482124 @482126 @482127 @VerifytheinternalOrganizationallsectionandfields
   Scenario Outline: Verify the internal Organization all section and fields
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -9705,7 +9705,7 @@ Feature: Sanity scenarios
       | userType   | attachment     | Notes        | userName | Title | userAuditor     |
       | GRANTEE PM | Attachment.pdf | Notes Record | Sarah PM | Test  | GRANTEE AUDITOR |
 
-  @442181 @477498 @477500 @477501 @477504 @477507 @ValidatePMusershouldabletosaveandcreateinternalcontact
+  @442181 @477498 @477500 @477501 @477504 @477507 @482130 @482131 @482132 @482133 @482134 @ValidatePMusershouldabletosaveandcreateinternalcontact
   Scenario Outline: Validate PM/PO/FO/EXE/FD/ADMIN user should able to save and create internal contact
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -31064,7 +31064,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE |
       | GRANTEE PO  |
 
-  @473231 @463455 @ValidateNotYetConvertedOpportunityManualPMusercancreatePreApplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord
+  @463455 @ValidateNotYetConvertedOpportunityManualPMusercancreatePreApplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord
   Scenario: Validate Not Yet Converted Opportunity Manual PM user can create Pre-Application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -31143,7 +31143,6 @@ Feature: Sanity scenarios
     Then I see the header is "Pre-Application" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime Leads}" in the page details
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    #463455
     When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
