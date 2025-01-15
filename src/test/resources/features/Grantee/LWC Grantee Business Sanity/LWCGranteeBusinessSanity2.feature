@@ -11820,6 +11820,7 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Cancel" in page detail
     Then I softly can see top right button "Save" in page detail
     And I click on "Save" in the page details
+    When I click on "Validate" in the page details
     And I close the tab
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
@@ -11973,6 +11974,163 @@ Feature: Sanity scenarios
     And I switch to tab number "1"
     Then I softly can see top right button "Validate" in page detail
     Then I softly can see top right button "Edit" in page detail
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Mandatory Budget Narrative Document" from computer
+    When I click modal button "Close"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Optional Budget Narrative Document" from computer
+    When I click modal button "Close"
+    Then I softly can see row level action button "Download" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see row level action button "View" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see row level action button "Edit" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see row level action button "Delete" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    When I re-login to "As a Grantee" app as "<NonOwner>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    When I navigate to "Forms and Files" sub tab
+    Then I can see row level action button "Preview" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "View" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "SplitView" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I wait for "3" seconds
+    And I switch to tab number "1"
+    And I wait for "3" seconds
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+    Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see row level action button "Download" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see row level action button "View" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly cannot see row level action button "Edit" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly cannot see row level action button "Delete" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Examples:
+      | OwnerType   | NonOwner      |
+      | GRANTEE PM  |GRANTEE EXE    |
+      | GRANTEE PM  |GRANTEE FD     |
+      | GRANTEE PM  |GRANTEE FO     |
+      | GRANTEE PM  |GRANTEE ADMIN1 |
+      | GRANTEE PM  |GRANTEE AUDITOR|
+
+  @477449 @BudgetNarrativeattachmentformVerifyvalidationdisplayedtoPMuseronBudgetNarrativeattachmentform
+  Scenario Outline:Budget Narrative attachment form - Verify validation displayed to PM user on Budget Narrative attachment form
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
+    Given I login to "As a Grantee" app as "<OwnerType>" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I enter "Grantee_Leads_CAS-HHS0001212745" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I Update for setting as grantsgov lead with opportunity number "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see field "State" as "Forecasted"
+    And I save the field labeled "EGMS ID" as "LeadsEGMSID"
+    When I click on "Activate" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
+    When I click modal button "OK"
+    Then I softly see field "State" as "Posted"
+    Then I can see top right button "Qualify Lead" in page detail
+    And I click on "Qualify Lead" in the page details
+    Then I softly see field "Status" as "Qualified Lead"
+    And I save the field labeled "EGMS ID" as "QualifiedLeadEGMSID"
+    And I click on "Edit" in the page details
+    And I enter "Grantee_Qualifiedleads_Edition" values from "Announcement_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I click on "Convert to Opportunity" in the page details
+    And I click on "Edit" in the page details
+    And I refresh the page
+    And I wait for "3" seconds
+    And I enter "Grantee_Opp_PreAppNo_Edition" values from "Announcement_Field_Values.xlsx"
+    And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I refresh the page
+    And I click on "Edit" in the page details
+    And I enter value "Yes" into field "MaintenanceEffortRequire__c"
+    And I enter value "Automation Test" into field "StatutoryMaintenanceOfEffort__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:opportunityExternalProgramModalTableId---"
+    When I click modal button "Close"
+    And I wait for "3" seconds
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:opportunityApproverTableId---" by clicking "New" :
+      | Name       | Opportunity |
+      | Victor EXE | Step 1      |
+    When I click on "Validate" in the page details
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | The Funding Opportunity has been validated successfully. |
+    And I click on "Submit for Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly can see top right button "Create Application" in page detail
+    And I click on "Create Application" in the page details
+    And I wait for "5" seconds
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Application_Field_Values - backup.xlsx"
+    When I click on "Save" in the page details
+    And I pause execution for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:ContactModalTableIdApplication---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ContactTableIdApplication---" by clicking "Edit" :
+      | Name     | Is Key Contact | Project Role                                   |
+      | Sarah PM | Checked        | Project Director/Principal Investigator(PI/PD) |
+    When I navigate to "Setup" sub tab
+    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
+    And I wait for "2" seconds
+    And I navigate to "Budget" sub tab
+    Given I expand nested table containing column value "BP01"
+    When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---" with wait for record
+    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---" by clicking "New" :
+      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
+      | Construction | The narrative | 5000         | 500        | 500            |
+    When I close "Add Line Item Details" modal by clicking the top right x button
+    And I refresh the page
+    And I wait for "2" seconds
+    When I navigate to "Forms and Files" sub tab
+    Then I can see row level action button "Preview" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "View" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "SplitView" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "Edit" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "SplitView" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I navigate to "Quickview" sub tab in split screen
+    Then I softly can see top right button "Edit" in the split screen page details
+    Then I softly can see top right button "Validate" in the split screen page details
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Mandatory Budget Narrative Document" from computer
     When I click modal button "Close"
