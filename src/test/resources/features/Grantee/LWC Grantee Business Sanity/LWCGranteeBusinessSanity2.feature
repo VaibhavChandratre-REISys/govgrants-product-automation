@@ -12131,11 +12131,11 @@ Feature: Sanity scenarios
     When I navigate to "Forms and Files" sub tab
     When I click on "View" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
-    Then I softly cannot see top right button "Validate" in page detail
-    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly can see top right button "Validate" in page detail
+    Then I softly can see top right button "Edit" in page detail
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
-      | Add the file for Mandatory Budget Narrative Document type. |
+      | Please upload the required attachments. |
     Examples:
       | OwnerType   |
       | GRANTEE PM  |
