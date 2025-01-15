@@ -11730,6 +11730,11 @@ Feature: Sanity scenarios
     And I click on "Edit" in the page details
     Then I softly can see top right button "Cancel" in page detail
     Then I softly can see top right button "Save" in page detail
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     And I close the tab
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
