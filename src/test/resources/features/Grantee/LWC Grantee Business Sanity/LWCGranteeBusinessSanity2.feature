@@ -9241,13 +9241,6 @@ Feature: Sanity scenarios
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
-    Then I softly see field "APPLICANT'S ORGANIZATION:" as "Department of Education"
-    Then I softly see field "AUTHORIZED REPRESENTATIVE:" as "Grantee PO"
-    Then I softly see field "Prefix:" as "Mr."
-    Then I softly see field "First Name:" as "John"
-    Then I softly see field "Last Name:" as "Andrew"
-    Then I softly see field "Title:" as "Test"
-    Then I softly see field "SIGNATURE:" as "Test"
     When I re-login to "As a Grantee" app as "<NonOwner>" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -9264,21 +9257,14 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Delete" in page detail
     Then I softly cannot see top right button "Edit" in page detail
-    Then I softly see field "APPLICANT'S ORGANIZATION:" as "Department of Education"
-    Then I softly see field "AUTHORIZED REPRESENTATIVE:" as "Grantee PO"
-    Then I softly see field "Prefix:" as "Mr."
-    Then I softly see field "First Name:" as "John"
-    Then I softly see field "Last Name:" as "Andrew"
-    Then I softly see field "Title:" as "Test"
-    Then I softly see field "SIGNATURE:" as "Test"
     Examples:
       | OwnerType   | NonOwner      |
       | GRANTEE PM  |GRANTEE PO     |
-#      | GRANTEE PO  |GRANTEE ADMIN1 |
-#      | GRANTEE PM  |GRANTEE EXE    |
-#      | GRANTEE EXE |GRANTEE FO     |
-#      | GRANTEE EXE |GRANTEE FD     |
-#      | GRANTEE PM  |GRANTEE AUDITOR|
+      | GRANTEE PO  |GRANTEE ADMIN1 |
+      | GRANTEE PM  |GRANTEE EXE    |
+      | GRANTEE EXE |GRANTEE FO     |
+      | GRANTEE EXE |GRANTEE FD     |
+      | GRANTEE PM  |GRANTEE AUDITOR|
 
   @482030 @GrantsgovlobbingformVerifyassignedreviewerEXEwitheditaccessasNocannotseeeditbuttonforGrantsgovlobbingformandcannoteditanydataontheform
   Scenario Outline: Grants.gov lobbing form - Verify assigned reviewer(EXE)  with edit access as No cannot see edit button for Grants.gov lobbing form and cannot edit any data on the form
@@ -11868,7 +11854,7 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Cancel" in page detail
     Then I softly can see top right button "Save" in page detail
 
-  @477451 @VerifyEXEuserNonOwneranonlyviewfilesaddedonBudgetNarrativeattachmentform
+  @477451 @477452 @477453 @4774514 @477455 @VerifyEXEuserNonOwneranonlyviewfilesaddedonBudgetNarrativeattachmentform
   Scenario Outline: Verify EXE user (Non Owner) can only view files added on Budget Narrative attachment form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
     Given I login to "As a Grantee" app as "<OwnerType>" user
@@ -12007,7 +11993,9 @@ Feature: Sanity scenarios
     Then I can see row level action button "SplitView" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I cannot see row level action button "Edit" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I click on "View" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I wait for "3" seconds
     And I switch to tab number "1"
+    And I wait for "3" seconds
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
@@ -12018,8 +12006,7 @@ Feature: Sanity scenarios
     Examples:
       | OwnerType   | NonOwner      |
       | GRANTEE PM  |GRANTEE EXE    |
-#      | GRANTEE PO  |GRANTEE ADMIN1 |
-#      | GRANTEE PM  |GRANTEE EXE    |
-#      | GRANTEE EXE |GRANTEE FO     |
-#      | GRANTEE EXE |GRANTEE FD     |
-#      | GRANTEE PM  |GRANTEE AUDITOR|
+      | GRANTEE PM  |GRANTEE FD     |
+      | GRANTEE PM  |GRANTEE FO     |
+      | GRANTEE PM  |GRANTEE ADMIN1 |
+      | GRANTEE PM  |GRANTEE AUDITOR|

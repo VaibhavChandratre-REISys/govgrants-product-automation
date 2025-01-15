@@ -1598,13 +1598,23 @@ Feature: Validate all scenarios of every modules flow
   @debug @vai
   @OpportunitiesNotconvertedGrantsgovVerifyEXEuserReviewereditaccessasNocanabletosubmitReview
   Scenario: Opportunities Not converted (Grants.gov)  - Verify EXE user (Reviewer edit access as = No)can able to submit Review
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "As a Grantee" app as "GRANTEE EXE" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "AP--752" in "---grantee_tableId:-:ApplicationTableId---" panel
-    When I click on "View" icon for "AP--752" inside table
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    Then I softly can see top right button "Submit To Grants.Gov" in page detail
-    When I click on "Submit To Grants.Gov" in the page details
-    Then I softly see field "Status" as "Submitted to Grantor"
+    And I perform quick search for "AP--777" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "AP--777" inside table
+    When I navigate to "Forms and Files" sub tab
+    Then I can see row level action button "Preview" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "View" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "SplitView" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+    Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see row level action button "Download" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see row level action button "View" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly cannot see row level action button "Edit" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly cannot see row level action button "Delete" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
