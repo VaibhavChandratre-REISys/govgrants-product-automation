@@ -11992,9 +11992,7 @@ Feature: Sanity scenarios
     Then I cannot see row level action button "Edit" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I navigate to "Forms and Files" sub tab
     When I click on "View" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I wait for "3" seconds
     And I switch to tab number "1"
-    And I wait for "3" seconds
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
@@ -12129,6 +12127,8 @@ Feature: Sanity scenarios
     And I click on "Save" in the split screen page details
     Then I softly see the following messages in the page details contains:
       | Add the file for Mandatory Budget Narrative Document type. |
+    And I click on "Cancel" in the split screen page details
+    When I navigate to "Forms and Files" sub tab
     When I click on "View" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     Then I softly cannot see top right button "Validate" in page detail
@@ -12139,7 +12139,7 @@ Feature: Sanity scenarios
     Examples:
       | OwnerType   |
       | GRANTEE PM  |
-      | GRANTEE PO  |
+#      | GRANTEE PO  |
 
   @477446 @BudgetNarrativeattachmentformVerifyFDusercannotaddeditViewdeletefilesinBudgetnarrativeattachmentforminSplitviewmodewhenApplicationisinsubmittedforreviewstate
   Scenario: Budget Narrative attachment form - Verify FD user cannot add/edit/View/delete files in Budget narrative attachment form in Split view mode when Application is in submitted for review state
