@@ -10069,6 +10069,7 @@ Feature: Sanity scenarios New
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:fedContactTableId---"
+    And I perform quick search for "{SavedValue:Title}" in "---grantee_tableId:-:fedContactTableId---" panel
     When I click on "View" icon for "{SavedValue:Title}" inside flex table with id "---grantee_tableId:-:fedContactTableId---"
     Then I softly see field on modal "Organization" inside page block
     Then I softly see field on modal "Title" inside page block
