@@ -1594,11 +1594,17 @@ Feature: Validate all scenarios of every modules flow
       | pm.automation@yopmail.com | exe.automation@yopmail.com | test    | Automation Test |
     Then I see the text "Email Sent Successfully." in modal
 
-  @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
+  @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI @debug
   Scenario: Validate PM user should able to Create & Activate the KPI
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Announcement__c/a1bDl000003rKhHIAU/view"
-    And I wait for "10" seconds
-    When I hovering mouse on help text icon inside page block detail for invisible element "Program Income Treatment Type"
-    Then I softly see "•Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. •Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based.  •Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
-
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I wait for "5" seconds
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212745" with properties "default"
+    And I halt execution

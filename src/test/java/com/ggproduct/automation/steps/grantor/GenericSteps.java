@@ -687,4 +687,23 @@ public class GenericSteps {
         I.amPerforming().waitFor().makeThreadSleep(2000);
         I.amPerforming().fileHandling().cleanDownloadFolder();
     }
+
+    @And("I create {string} qualified lead for title {string} and opportunity number {string} with properties {string}")
+    public void iCreateQualifiedLeadTitleOfOpportunityNumberWithProperties(String isManual, String oppTitle, String oppoNo, String filter) {
+        String newoppTitle = oppTitle + I.amPerforming().addOnsTo().getRandomNumber();
+        I.amPerforming().propertiesFileOperationsTo().saveValue(oppTitle, newoppTitle);
+        oppTitle = newoppTitle;
+
+        if (oppoNo.startsWith("Automation Runtime")) {
+            var newFieldValue = oppoNo + I.amPerforming().addOnsTo().getStringRandomNumber();
+            I.amPerforming().propertiesFileOperationsTo().saveValue(oppoNo, newFieldValue);
+            oppoNo = newFieldValue;
+        }
+        grantorWebServices.createQualifiedLead(isManual,oppTitle,oppoNo,filter);
+    }
+
+    @And("I create opportunity with state {string} for opportunity number {string} with properties {string}")
+    public void iCreateOpportunityWithStateForOpportunityNumberWithProperties(String state, String oppoNo, String filter) {
+        grantorWebServices.CreateOpportunityWithStateForOpportunityNumberWithProperties(state, oppoNo, filter);
+    }
 }

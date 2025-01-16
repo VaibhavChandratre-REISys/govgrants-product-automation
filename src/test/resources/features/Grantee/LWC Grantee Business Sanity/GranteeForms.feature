@@ -2775,7 +2775,7 @@ Feature: Grantee Forms Scenario
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
 
-  @479461 @479462 @ValidatePOProfileabletoseevalidateandsavebuttononformsandsplitviewscreenonceformsstatuscreatedSubmitedforreviewReviewed @debug
+  @479461 @479462 @ValidatePOProfileabletoseevalidateandsavebuttononformsandsplitviewscreenonceformsstatuscreatedSubmitedforreviewReviewed
   Scenario: Validate PO Profile able to see validate and save button on forms and split view screen once forms status created Submited for review Reviewed
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     Given I login to "As a Grantee" app as "GRANTEE PO" user
