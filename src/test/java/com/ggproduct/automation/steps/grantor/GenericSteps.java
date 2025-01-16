@@ -503,6 +503,11 @@ public class GenericSteps {
         grantorWebServices.publishAnnouncment(annType, annName, filter);
     }
 
+    @And("I Update for setting as grantsgov lead with opportunity number {string}")
+    public void iUpdateForSettingAsGrantsgovLeadWithOpportunityNumber(String OppoNumber) {
+        grantorWebServices.UpdateForSettingAsGrantsgovLeadWithOpportunityNumber(OppoNumber);
+    }
+
     @And("I activated standalone subaward {string} with properties {string}")
     public void iActivatedStandaloneSubawardWithProperties(String grantName, String filter) {
         String newGrantName = grantName + I.amPerforming().addOnsTo().getRandomNumber();
@@ -683,8 +688,29 @@ public class GenericSteps {
         I.amPerforming().fileHandling().cleanDownloadFolder();
     }
 
-    @And("I Update for setting as grantsgov lead with opportunity number {string}")
-    public void iUpdateForSettingAsGrantsgovLeadWithOpportunityNumber(String OppoNumber) {
-        grantorWebServices.UpdateForSettingAsGrantsgovLeadWithOpportunityNumber(OppoNumber);
+    @And("I create {string} qualified lead for title {string} and opportunity number {string} with properties {string}")
+    public void iCreateQualifiedLeadTitleOfOpportunityNumberWithProperties(String isManual, String oppTitle, String oppoNo, String filter) {
+        String newoppTitle = oppTitle + I.amPerforming().addOnsTo().getRandomNumber();
+        I.amPerforming().propertiesFileOperationsTo().saveValue(oppTitle, newoppTitle);
+        oppTitle = newoppTitle;
+
+        if (oppoNo.startsWith("Automation Runtime")) {
+            var newFieldValue = oppoNo + I.amPerforming().addOnsTo().getStringRandomNumber();
+            I.amPerforming().propertiesFileOperationsTo().saveValue(oppoNo, newFieldValue);
+            oppoNo = newFieldValue;
+        }
+        grantorWebServices.createQualifiedLead(isManual,oppTitle,oppoNo,filter);
+    }
+
+    @And("I create opportunity with state {string} for opportunity number {string} with properties {string}")
+    public void iCreateOpportunityWithStateForOpportunityNumberWithProperties(String state, String oppoNo, String filter) {
+        grantorWebServices.CreateOpportunityWithStateForOpportunityNumberWithProperties(state, oppoNo, filter);
+    }
+
+    @And("I create adhoc closeout {string} for status {string} with properties {string}")
+    public void iCreateAdhocCloseoutForStatusWithProperties(String grantTitle, String status, String filter) {
+        grantorWebServices.CreateAdhocCloseoutForStatusWithProperties(grantTitle, status, filter);
     }
 }
+
+
