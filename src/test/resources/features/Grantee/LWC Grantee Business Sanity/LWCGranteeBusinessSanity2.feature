@@ -12463,7 +12463,7 @@ Feature: Sanity scenarios
   @481564 @VerifyEXEusershouldabletoviewaccessinallstateofApplicationforform
   Scenario Outline: Verify EXE user should able to view access in all  state of Application for form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
-    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default-Sarah PM"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Sarah PM"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
