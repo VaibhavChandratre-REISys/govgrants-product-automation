@@ -1602,8 +1602,8 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "AP--777" in "---grantee_tableId:-:ApplicationTableId---" panel
-    When I click on "View" icon for "AP--777" inside table
+    And I perform quick search for "AP--800" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "AP--800" inside table
     When I navigate to "Forms and Files" sub tab
     Then I can see row level action button "Preview" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"

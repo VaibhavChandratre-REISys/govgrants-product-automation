@@ -12005,10 +12005,10 @@ Feature: Sanity scenarios
     Examples:
       | OwnerType   | NonOwner      |
       | GRANTEE PM  |GRANTEE EXE    |
-#      | GRANTEE PM  |GRANTEE FD     |
-#      | GRANTEE PM  |GRANTEE FO     |
-#      | GRANTEE PM  |GRANTEE ADMIN1 |
-#      | GRANTEE PM  |GRANTEE AUDITOR|
+      | GRANTEE PM  |GRANTEE FD     |
+      | GRANTEE PM  |GRANTEE FO     |
+      | GRANTEE PM  |GRANTEE ADMIN1 |
+      | GRANTEE PM  |GRANTEE AUDITOR|
 
   @477449 @477450 @BudgetNarrativeattachmentformVerifyvalidationdisplayedtoPMuseronBudgetNarrativeattachmentform
   Scenario Outline:Budget Narrative attachment form - Verify validation displayed to PM user on Budget Narrative attachment form
@@ -12260,6 +12260,7 @@ Feature: Sanity scenarios
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Mandatory Budget Narrative Document" from computer
     When I click modal button "Close"
+    And I close the tab
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationPeerReview---" by clicking "New" :
       | Reviewer Name | Responsibility  | Description            | Due Date | Allow Record Editing |
