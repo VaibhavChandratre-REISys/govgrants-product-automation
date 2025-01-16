@@ -12461,7 +12461,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Submitted to Grantor"
 
   @481564 @VerifyEXEusershouldabletoviewaccessinallstateofApplicationforform
-  Scenario: Verify EXE user should able to view access in all  state of Application for form
+  Scenario Outline: Verify EXE user should able to view access in all  state of Application for form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     Given I login to "As a Grantee" app as "<OwnerType>" user
     And I navigate to "Opportunities" tab
@@ -12573,6 +12573,17 @@ Feature: Sanity scenarios
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project Abstract Summary" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Project Abstract Summary" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    And I enter "Project_Abstract_Summary" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
