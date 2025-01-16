@@ -12290,7 +12290,6 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I can see row level action button "Preview" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I cannot see row level action button "Edit" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -12301,9 +12300,9 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Validate" in the split screen page details
     Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly can see row level action button "Download" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    Then I softly can see row level action button "View" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly cannot see row level action button "Edit" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly cannot see row level action button "Delete" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see row level action button "View" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
 
   @477437 @BudgetNarrativeattachmentformVerifyPMusercanaddfilesinBudgetnarrativeattachmentinViewmodeandsuccessfullysubmitapplicationtograntsgov
   Scenario: Budget Narrative attachment form - Verify PM user can add files in Budget narrative attachment in View mode and successfully submit application to grants.gov
@@ -12427,8 +12426,11 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Validate" in page detail
     Then I softly can see top right button "Edit" in page detail
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Optional Budget Narrative Document" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Mandatory Budget Narrative Document" from computer
     When I click modal button "Close"
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
     And I close the tab
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
