@@ -11986,10 +11986,10 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     When I navigate to "Forms and Files" sub tab
+    Then I cannot see row level action button "Edit" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Preview" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "SplitView" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I cannot see row level action button "Edit" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I wait for "4" seconds
     When I click on "View" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I wait for "3" seconds
@@ -11998,10 +11998,10 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    Then I softly can see row level action button "Download" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    Then I softly can see row level action button "View" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly cannot see row level action button "Edit" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly cannot see row level action button "Delete" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see row level action button "Download" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see row level action button "View" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Examples:
       | OwnerType   | NonOwner      |
       | GRANTEE PM  |GRANTEE EXE    |
@@ -12420,6 +12420,9 @@ Feature: Sanity scenarios
     When I click modal button "Close"
     And I wait for "2" seconds
     When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
     And I close the tab
     When I click on "View" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
@@ -12460,7 +12463,7 @@ Feature: Sanity scenarios
   @481564 @VerifyEXEusershouldabletoviewaccessinallstateofApplicationforform
   Scenario: Verify EXE user should able to view access in all  state of Application for form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "As a Grantee" app as "<OwnerType>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -12521,7 +12524,7 @@ Feature: Sanity scenarios
     When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Opportunities Not Converted to Application - All"
@@ -12565,16 +12568,36 @@ Feature: Sanity scenarios
     When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I click on "Edit" in the page details
-    Then I softly can see top right button "Cancel" in page detail
-    Then I softly can see top right button "Save" in page detail
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
     And I close the tab
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I wait for "3" seconds
+    And I switch to tab number "1"
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -12583,29 +12606,32 @@ Feature: Sanity scenarios
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationPeerReview---" by clicking "New" :
       | Reviewer Name | Responsibility  | Description            | Due Date | Allow Record Editing |
-      | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
+      | David FO      | Fiscal Reviewer | Automation Description | 5        | No                   |
     When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
       | Name     | Application |
       | David FO | Step 1      |
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:ApplicationPeerReview---" without waiting for record
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Review"
+    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
     When I navigate to "Forms and Files" sub tab
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I can see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I wait for "3" seconds
     And I switch to tab number "1"
-    Then I softly can see top right button "Edit" in page detail
-    Then I softly can see top right button "Validate" in page detail
-    And I click on "Edit" in the page details
-    Then I softly can see top right button "Cancel" in page detail
-    Then I softly can see top right button "Save" in page detail
-    And I click on "Save" in the page details
-    And I close the tab
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -12618,49 +12644,60 @@ Feature: Sanity scenarios
     When I click modal button "Save"
     And I click on submit review
     Then I softly see field "Status" as "Submitted for Review"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-    When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
-    Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I can see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I wait for "3" seconds
-    And I switch to tab number "1"
-    Then I softly can see top right button "Edit" in page detail
-    Then I softly can see top right button "Validate" in page detail
-    And I click on "Edit" in the page details
-    Then I softly can see top right button "Cancel" in page detail
-    Then I softly can see top right button "Save" in page detail
-    And I click on "Save" in the page details
-    And I close the tab
     Given I click on "Complete Review" in the page details
+    Then I softly see field "Status" as "Reviewed"
+    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     Then I softly see field "Status" as "Reviewed"
     When I navigate to "Forms and Files" sub tab
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I can see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I wait for "3" seconds
     And I switch to tab number "1"
-    Then I softly can see top right button "Edit" in page detail
-    Then I softly can see top right button "Validate" in page detail
-    And I click on "Edit" in the page details
-    Then I softly can see top right button "Cancel" in page detail
-    Then I softly can see top right button "Save" in page detail
-    And I click on "Save" in the page details
-    When I click on "Validate" in the page details
-    And I close the tab
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I wait for "3" seconds
+    And I switch to tab number "1"
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -12668,7 +12705,26 @@ Feature: Sanity scenarios
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Approved"
+    When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I wait for "3" seconds
+    And I switch to tab number "1"
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -12677,23 +12733,59 @@ Feature: Sanity scenarios
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I softly can see top right button "Submit To Grants.Gov" in page detail
     When I click on "Submit To Grants.Gov" in the page details
-    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I can see top right button "Check Status" in page detail
     Then I can see top right button "Revise" in page detail
+    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I wait for "3" seconds
+    And I switch to tab number "1"
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     When I click on "Revise" in the page details
+    Then I softly see field "Status" as "Revision In Progress"
+    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     Then I softly see field "Status" as "Revision In Progress"
     When I navigate to "Forms and Files" sub tab
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I can see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I wait for "3" seconds
     And I switch to tab number "1"
-    Then I softly can see top right button "Validate" in page detail
-    Then I softly can see top right button "Edit" in page detail
-    And I click on "Edit" in the page details
-    Then I softly can see top right button "Cancel" in page detail
-    Then I softly can see top right button "Save" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+    Examples:
+      | OwnerType  | UserType        |
+#      | GRANTEE PM | GRANTEE ADMIN1  |
+#      | GRANTEE PM | GRANTEE AUDITOR |
+#      | GRANTEE PM | GRANTEE FO      |
+#      | GRANTEE PM | GRANTEE FD      |
+      | GRANTEE PM | GRANTEE EXE     |
