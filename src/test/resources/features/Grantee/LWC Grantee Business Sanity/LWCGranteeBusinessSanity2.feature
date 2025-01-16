@@ -12473,7 +12473,7 @@ Feature: Sanity scenarios
     When I click on "Convert to Opportunity" in the page details
     And I wait for "5" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default-Sarah PM"
     When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
