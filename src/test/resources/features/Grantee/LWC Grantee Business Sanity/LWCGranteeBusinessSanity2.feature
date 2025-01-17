@@ -12463,7 +12463,7 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @481564 @481565 @481566 @481567 @481568 @481571 @VerifyEXEusershouldabletoviewaccessinallstateofApplicationforform
+  @481564 @481565 @481566 @481567 @481568 @VerifyEXEusershouldabletoviewaccessinallstateofApplicationforform
   Scenario Outline: Verify EXE user should able to view access in all  state of Application for form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     Given I login to "As a Grantee" app as "<OwnerType>" user
@@ -13263,6 +13263,7 @@ Feature: Sanity scenarios
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I softly can see top right button "Submit To Grants.Gov" in page detail
     When I click on "Submit To Grants.Gov" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I can see top right button "Check Status" in page detail
     Then I can see top right button "Revise" in page detail
