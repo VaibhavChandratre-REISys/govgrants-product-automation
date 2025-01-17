@@ -153,7 +153,7 @@ public final class SideBar {
     public void handleSideBarContentExpanded(String subHeader) {
         By sideBarHeader = By.xpath("//gnt-side-bar-lwc//section//button[@title='" + subHeader + "']/ancestor::ul//div[contains(@class,'summary1')]//button[@aria-expanded='false']");
         By sideBarSubHeader = By.xpath("//gnt-side-bar-lwc//section//button[@title='" + subHeader + "' and @aria-expanded='false']");
-
+        I.amPerforming().browserOperationsTo().CheckPageLoadingStatus();
         if (I.amPerforming().checkToSee().IsElementPresentQuick(sideBarHeader)) {
             I.amPerforming().click().on(sideBarHeader);
         }

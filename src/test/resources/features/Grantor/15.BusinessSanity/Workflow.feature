@@ -3012,7 +3012,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Activated" and is "dark blue"
 
-  @472391 @Validatethatuserabletocreatetheapplicationfromthequalifiedleads @debug
+  @472391 @Validatethatuserabletocreatetheapplicationfromthequalifiedleads
   Scenario: Validate that user able to create the application from the qualified leads
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -3093,7 +3093,7 @@ Feature: Validate all scenarios of every modules flow
     And I save the field labeled "EGMS ID" as "appEGMSID"
     Then I softly see field "Status" as "Created"
 
-  @487171 @ValidatethatAuditoruserdonotabletocreateAdhocProgressReportdonotseeanybuttononanysection @debug
+  @487171 @ValidatethatAuditoruserdonotabletocreateAdhocProgressReportdonotseeanybuttononanysection
   Scenario: Validate that Auditor user do not able to create Adhoc Progress Report & do not see any button on any section
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
