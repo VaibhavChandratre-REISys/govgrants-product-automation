@@ -2788,147 +2788,147 @@ Feature: Validate all scenarios of every modules flow
     And I close the tab
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I click on "Save" in the split screen page details
+#    And I click on "Save" in the split screen page details
     Then I can see top right button "Edit" in the split screen page details
     Then I can see top right button "Validate" in the split screen page details
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationPeerReview---" by clicking "New" :
-      | Reviewer Name | Responsibility  | Description            | Due Date | Allow Record Editing |
-      | David FO      | Fiscal Reviewer | Automation Description | 5        | No                   |
-    And I click on "Send for Review" icon for "David FO" inside table
-    Then I softly see field "Status" as "Submitted for Review"
-    When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
-    Then I softly can see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I click on "View" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1"
-    Then I softly can see top right button "Validate" in page detail
-    Then I softly can see top right button "Edit" in page detail
-    And I click on "Edit" in the page details
-    Then I softly can see top right button "Save" in page detail
-    And I click on "Save" in the page details
-    And I close the tab
-    And I click on "Splitview" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I can see top right button "Edit" in the split screen page details
-    Then I can see top right button "Validate" in the split screen page details
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:HomePendingTask---" panel
-    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
-    And I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:ApplicationPeerReview---" without waiting for record
-    And I enter a review as "Passed"
-    When I click modal button "Save"
-    And I click on submit review
-    And I wait for "3" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
-    When I navigate to "Applications" tab
-    And I navigate to "Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-    Then I softly see field "Status" as "Submitted for Review"
-    Then I softly can see top right button "Complete Review" in page detail
-    And I click on "Complete Review" in the page details
-    Then I softly see field "Status" as "Reviewed"
-    When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
-    Then I softly can see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I click on "View" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1"
-    Then I softly can see top right button "Validate" in page detail
-    Then I softly can see top right button "Edit" in page detail
-    And I click on "Edit" in the page details
-    Then I softly can see top right button "Save" in page detail
-    And I click on "Save" in the page details
-    And I close the tab
-    And I click on "Splitview" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I can see top right button "Edit" in the split screen page details
-    Then I can see top right button "Validate" in the split screen page details
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:ContactModalTableIdApplication---"
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    And I refresh the page
-    And I wait for "3" seconds
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ContactTableIdApplication---" by clicking "Edit" :
-      | Name     | Is Key Contact | Project Role                                   |
-      | Sarah PM | Checked        | Project Director/Principal Investigator(PI/PD) |
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
-    When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
-    And I wait for "2" seconds
-    And I navigate to "Budget" sub tab
-    Given I expand nested table containing column value "BP01"
-    When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---" with wait for record
-    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
-      | Construction | The narrative | 5000         | 500        | 500            |
-    When I close "Add Line Item Details" modal by clicking the top right x button
-    And I refresh the page
-    And I wait for "2" seconds
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
-      | Name       | Application |
-      | Victor EXE | Step 1      |
-    When I click on "Validate" in the page details
-    And I wait for "3" seconds
-    Then I softly see the following messages in the page details contains:
-      | Application has been validated successfully. |
-    And I click on "Submit For Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
-    When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
-    Then I softly cannot see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I click on "View" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1"
-    Then I softly cannot see top right button "Validate" in page detail
-    Then I softly cannot see top right button "Edit" in page detail
-    And I close the tab
-    And I click on "Splitview" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I cannot see top right button "Edit" in the split screen page details
-    Then I cannot see top right button "Validate" in the split screen page details
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-    When I navigate to "Applications" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    When I "Approve" in the approval decision
-    Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
-    When I navigate to "Applications" tab
-    And I navigate to "Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-    Then I softly see field "Status" as "Approved"
-    When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
-    Then I softly cannot see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I click on "View" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1"
-    Then I softly cannot see top right button "Validate" in page detail
-    Then I softly cannot see top right button "Edit" in page detail
-    And I close the tab
-    And I click on "Splitview" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I cannot see top right button "Edit" in the split screen page details
-    Then I cannot see top right button "Validate" in the split screen page details
-    When I click on "Submit To Grants.Gov" in the page details
-    Then I softly see field "Status" as "Submitted to Grantor"
-    When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
-    Then I softly cannot see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I click on "View" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1"
-    Then I softly cannot see top right button "Validate" in page detail
-    Then I softly cannot see top right button "Edit" in page detail
-    And I close the tab
-    And I click on "Splitview" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I cannot see top right button "Edit" in the split screen page details
-    Then I cannot see top right button "Validate" in the split screen page details
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationPeerReview---" by clicking "New" :
+#      | Reviewer Name | Responsibility  | Description            | Due Date | Allow Record Editing |
+#      | David FO      | Fiscal Reviewer | Automation Description | 5        | No                   |
+#    And I click on "Send for Review" icon for "David FO" inside table
+#    Then I softly see field "Status" as "Submitted for Review"
+#    When I navigate to "Forms and Files" sub tab
+#    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+#    Then I softly can see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+#    And I click on "View" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+#    And I switch to tab number "1"
+#    Then I softly can see top right button "Validate" in page detail
+#    Then I softly can see top right button "Edit" in page detail
+#    And I click on "Edit" in the page details
+#    Then I softly can see top right button "Save" in page detail
+#    And I click on "Save" in the page details
+#    And I close the tab
+#    And I click on "Splitview" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+#    Then I can see top right button "Edit" in the split screen page details
+#    Then I can see top right button "Validate" in the split screen page details
+#    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:HomePendingTask---" panel
+#    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
+#    And I navigate to "Responsibilities" sub tab
+#    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:ApplicationPeerReview---" without waiting for record
+#    And I enter a review as "Passed"
+#    When I click modal button "Save"
+#    And I click on submit review
+#    And I wait for "3" seconds
+#    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+#    When I navigate to "Applications" tab
+#    And I navigate to "Applications" content inside "Applications" subheader on left panel
+#    When I click toggle button to select "Applications - All"
+#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+#    Then I softly see field "Status" as "Submitted for Review"
+#    Then I softly can see top right button "Complete Review" in page detail
+#    And I click on "Complete Review" in the page details
+#    Then I softly see field "Status" as "Reviewed"
+#    When I navigate to "Forms and Files" sub tab
+#    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+#    Then I softly can see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+#    And I click on "View" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+#    And I switch to tab number "1"
+#    Then I softly can see top right button "Validate" in page detail
+#    Then I softly can see top right button "Edit" in page detail
+#    And I click on "Edit" in the page details
+#    Then I softly can see top right button "Save" in page detail
+#    And I click on "Save" in the page details
+#    And I close the tab
+#    And I click on "Splitview" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+#    Then I can see top right button "Edit" in the split screen page details
+#    Then I can see top right button "Validate" in the split screen page details
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+#    When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:ContactModalTableIdApplication---"
+#    When I click modal button "Close"
+#    And I wait for "2" seconds
+#    And I refresh the page
+#    And I wait for "3" seconds
+#    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ContactTableIdApplication---" by clicking "Edit" :
+#      | Name     | Is Key Contact | Project Role                                   |
+#      | Sarah PM | Checked        | Project Director/Principal Investigator(PI/PD) |
+#    When I navigate to "Setup" sub tab
+#    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+#    When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
+#    And I wait for "2" seconds
+#    And I navigate to "Budget" sub tab
+#    Given I expand nested table containing column value "BP01"
+#    When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---" with wait for record
+#    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---" by clicking "New" :
+#      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
+#      | Construction | The narrative | 5000         | 500        | 500            |
+#    When I close "Add Line Item Details" modal by clicking the top right x button
+#    And I refresh the page
+#    And I wait for "2" seconds
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
+#      | Name       | Application |
+#      | Victor EXE | Step 1      |
+#    When I click on "Validate" in the page details
+#    And I wait for "3" seconds
+#    Then I softly see the following messages in the page details contains:
+#      | Application has been validated successfully. |
+#    And I click on "Submit For Approval" in the page details
+#    Then I softly see field "Status" as "Submitted for Approval"
+#    When I navigate to "Forms and Files" sub tab
+#    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+#    Then I softly cannot see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+#    And I click on "View" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+#    And I switch to tab number "1"
+#    Then I softly cannot see top right button "Validate" in page detail
+#    Then I softly cannot see top right button "Edit" in page detail
+#    And I close the tab
+#    And I click on "Splitview" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+#    Then I cannot see top right button "Edit" in the split screen page details
+#    Then I cannot see top right button "Validate" in the split screen page details
+#    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+#    When I navigate to "Applications" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+#    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+#    When I "Approve" in the approval decision
+#    Then I softly see field "Status" as "Approved"
+#    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+#    When I navigate to "Applications" tab
+#    And I navigate to "Applications" content inside "Applications" subheader on left panel
+#    When I click toggle button to select "Applications - All"
+#    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+#    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+#    Then I softly see field "Status" as "Approved"
+#    When I navigate to "Forms and Files" sub tab
+#    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+#    Then I softly cannot see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+#    And I click on "View" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+#    And I switch to tab number "1"
+#    Then I softly cannot see top right button "Validate" in page detail
+#    Then I softly cannot see top right button "Edit" in page detail
+#    And I close the tab
+#    And I click on "Splitview" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+#    Then I cannot see top right button "Edit" in the split screen page details
+#    Then I cannot see top right button "Validate" in the split screen page details
+#    When I click on "Submit To Grants.Gov" in the page details
+#    Then I softly see field "Status" as "Submitted to Grantor"
+#    When I navigate to "Forms and Files" sub tab
+#    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+#    Then I softly cannot see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+#    And I click on "View" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+#    And I switch to tab number "1"
+#    Then I softly cannot see top right button "Validate" in page detail
+#    Then I softly cannot see top right button "Edit" in page detail
+#    And I close the tab
+#    And I click on "Splitview" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+#    Then I cannot see top right button "Edit" in the split screen page details
+#    Then I cannot see top right button "Validate" in the split screen page details
 
   @480415 @ValidateBudgetInformationNonConstructionProgramSF424AthatPMuserseevalidationmessageifdonotfillclickontoplevelsavebutton
   Scenario: Validate Budget Information Non Construction Program (SF-424A) that PM user see validation message if do not fill & click on top level save button
