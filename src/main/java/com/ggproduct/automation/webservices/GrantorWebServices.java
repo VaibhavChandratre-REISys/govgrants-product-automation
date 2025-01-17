@@ -410,4 +410,40 @@ public class GrantorWebServices extends ProjectWebServices {
         response.prettyPrint();
         assertStatusCode(response);
     }
+
+    public void CreateAdhocCloseoutForStatusWithProperties(String grantTitle, String status, String filter) {
+        createAdhocCloseoutPostCall(projectApis.payloadForAdhocCloseoutCreatedAndApproved(grantTitle, status, filter));
+    }
+
+    private void createAdhocCloseoutPostCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/CreateCloseoutRequest";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void CreatePreApplicationWithStateForOpportunityNumberWithProperties(String preAppTitle, String state, String oppoNo, String filter) {
+        createPreApplicationPostCall(projectApis.payloadForPreApplicationCreatedAndAccepted(preAppTitle, state, oppoNo, filter));
+    }
+
+    private void createPreApplicationPostCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/CreateGranteePreAppAndApp";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void CreateScheduleCloseoutForStatusWithProperties(String grantTitle, String status, String filter) {
+        createScheduleCloseoutPostCall(projectApis.payloadForScheduleCloseoutCreatedAndApproved(grantTitle, status, filter));
+    }
+
+    private void createScheduleCloseoutPostCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/scheduledCloseout2";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
 }

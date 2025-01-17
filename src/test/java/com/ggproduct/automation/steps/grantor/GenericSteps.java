@@ -706,4 +706,23 @@ public class GenericSteps {
     public void iCreateOpportunityWithStateForOpportunityNumberWithProperties(String state, String oppoNo, String filter) {
         grantorWebServices.CreateOpportunityWithStateForOpportunityNumberWithProperties(state, oppoNo, filter);
     }
+
+    @And("^I create (Pre-application|Application) \"([^\"]*)\" with state \"([^\"]*)\" for opportunity number \"([^\"]*)\" with properties \"([^\"]*)\"$")
+    public void iCreatePreApplicationWithStateForOpportunityNumberWithProperties(String module, String preAppTitle, String state, String oppoNo, String filter) {
+       if(module.equalsIgnoreCase("Pre-application")) {
+           grantorWebServices.CreatePreApplicationWithStateForOpportunityNumberWithProperties(preAppTitle, state, oppoNo, filter);
+       } else{
+           grantorWebServices.CreatePreApplicationWithStateForOpportunityNumberWithProperties(preAppTitle, state, oppoNo, filter);
+       }
+    }
+
+    @And("I create adhoc closeout {string} for status {string} with properties {string}")
+    public void iCreateAdhocCloseoutForStatusWithProperties(String grantTitle, String status, String filter) {
+        grantorWebServices.CreateAdhocCloseoutForStatusWithProperties(grantTitle, status, filter);
+    }
+
+    @And("I create schedule closeout {string} for status {string} with properties {string}")
+    public void iCreateScheduleCloseoutForStatusWithProperties(String grantTitle, String status, String filter) {
+        grantorWebServices.CreateScheduleCloseoutForStatusWithProperties(grantTitle, status, filter);
+    }
 }

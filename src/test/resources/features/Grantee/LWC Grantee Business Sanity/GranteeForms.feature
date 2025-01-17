@@ -2883,7 +2883,6 @@ Feature: Grantee Forms Scenario
     And I close the tab
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I click on "Save" in the split screen page details
     Then I can see top right button "Edit" in the split screen page details
     Then I can see top right button "Validate" in the split screen page details
     When I navigate to "Responsibilities" sub tab

@@ -1596,8 +1596,8 @@ Feature: Validate all scenarios of every modules flow
 
   @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI @debug
   Scenario: Validate PM user should able to Create & Activate the KPI
-    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
-    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default"
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
+    And I create "Grants.gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001241410" with properties "COSTSHARING_NO"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
@@ -1605,6 +1605,15 @@ Feature: Validate all scenarios of every modules flow
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
-    And I wait for "5" seconds
-    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212745" with properties "default"
+    And I wait for "3" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001241410" with properties "PRE_APPLICATION_YES_NO_CONSTRUCTION"
+#    And I refresh the page
+#    And I wait for "5" seconds
     And I halt execution
+#    And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001241410" with properties "default"
+#    Adhoc Closeout API
+#    And I create adhoc closeout "Automation Runtime Direct Award2819170932" for status "Completed" with properties "default"
+#    And I create schedule closeout "Automation Runtime Leads3087653300" for status "Approved" with properties "default"
+#    And I halt execution
