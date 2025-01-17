@@ -3012,6 +3012,7 @@ public class GrantorPayloads {
         opportunity.addProperty("estimatedTotalProgramFunding", 10000);
         opportunity.addProperty("awardFloor", 1000);
         opportunity.addProperty("awardCeiling", 10000);
+        opportunity.addProperty("CostSharingOrMatchingRequirement", "Yes");
         opportunity.addProperty("relevance", "3 - Medium");
         opportunity.addProperty("impact", "3 - Medium");
         opportunity.addProperty("justification", "Automation Test Justification");
@@ -3025,11 +3026,18 @@ public class GrantorPayloads {
         filter = filter.toUpperCase();
 
         switch (filter) {
-            case "APPLICATION":
-                break;
+            case "PRE_APPLICATION_YES":
+                return updatePreApplicationAsYesForOpportunity(defaultJson);
             default:
                 return defaultJson;
         }
+    }
+
+    private JsonObject updatePreApplicationAsYesForOpportunity(JsonObject defaultJson) {
+        JsonObject opportunity = new JsonObject();
+        opportunity.addProperty("isPreApplicationRequired", "Yes");
+//        defaultJson.add(opportunity);
+//        defaultJson.add("opportunity", pre);
         return defaultJson;
     }
 
@@ -3040,7 +3048,7 @@ public class GrantorPayloads {
         opportunity.addProperty("budgetType", "Construction");
         opportunity.addProperty("projectPeriodStartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(210, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         opportunity.addProperty("projectPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(365, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        opportunity.addProperty("isPreApplicationRequired", "No");
+        opportunity.addProperty("isPreApplicationRequired", "Yes");
         opportunity.addProperty("preApplicationDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(100, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         opportunity.addProperty("letterOfIntentRequired", "Yes");
         opportunity.addProperty("letterOfIntentDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(50, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
@@ -3049,6 +3057,14 @@ public class GrantorPayloads {
         opportunity.addProperty("programIncomeTreatmentType", "Additive");
         opportunity.addProperty("indirectCostsAllowed", "Yes");
         opportunity.addProperty("IsLeverageAllowed", "Yes");
+        opportunity.addProperty("isMatchRequired", "Yes");
+        opportunity.addProperty("CostSharingOrMatchingRequirement", "Cash and Non-Cash Match");
+        opportunity.addProperty("AnticipatedAwardDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(105, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        opportunity.addProperty("MaximumIndirectCostRate", "10"); //provide required match in string format
+        opportunity.addProperty("RateForOrgnizationUse", "Federally approved indirect rate");
+        opportunity.addProperty("requiredMatch", "10"); //provide required match in string format
+        opportunity.addProperty("MatchSource", "External Source");
+        opportunity.addProperty("MaintenanceEffortRequire", "No");
 
         // Evaluation Questions
         opportunity.addProperty("q1_receivedAward", "Yes");
@@ -3067,12 +3083,19 @@ public class GrantorPayloads {
         opportunity.addProperty("q9_requiresCollaboration", "Yes");
         opportunity.addProperty("q9a_explainCollaboration", "Automation Test");
         opportunity.addProperty("q17_sustainabilityPlan", "Automation Test");
+        opportunity.addProperty("HowProgramWillSustain", "Automation Test");
+        opportunity.addProperty("q14_DoesTheGranteRequirePass", "Yes");
+        opportunity.addProperty("q14a_PercentOfFunding", 10);
+        opportunity.addProperty("q16_AdminCostLimit", "Yes");
+        opportunity.addProperty("q16a_PercentOfAdminCostLimit", 10);
+        opportunity.addProperty("q18_LegalRequirements", "Automation Test");
+        opportunity.addProperty("q19_OrgCertificationInfo", "Automation Test");
 
         // Roles and Responsibilities
         JsonArray approvers = new JsonArray();
         JsonObject approver = new JsonObject();
         approver.addProperty("name", ProjectWebServices.getIdOf("User", "Victor EXE"));
-        approver.addProperty("opportunity", "Step1");
+        approver.addProperty("Announcement", "Step1");
         approvers.add(approver);
         opportunity.add("approvers", approvers);
 
@@ -3146,5 +3169,144 @@ public class GrantorPayloads {
         closeoutDetails.add("approvers", approvers);
 
         return closeoutDetails;
+    }
+
+    public JsonObject payloadForPreApplicationCreatedAndAccepted(String preAppTitle, String state, String oppoNo, String filter) {
+        String user = "";
+        JsonObject json;
+        json = defaultPayloadToPreApplication(preAppTitle, state, oppoNo);
+
+        if (filter.toLowerCase().contains("user")) {
+            if (filter.contains("-Automation")) {
+                user = filter.split("-")[1].split("user")[0].trim();
+                updateAwardOwner(json, user);
+                filter = filter.split("-")[0];
+            } else {
+                user = filter.replace("user", "").trim();
+                filter = "USER";
+            }
+        } else {
+            filter = filter.toUpperCase();
+        }
+
+        switch (filter) {
+            case "NO_RISK_ASSESSMENT":
+                return payloadForCreateStandAloneWithNORiskAssement(json);
+            default:
+                return json;
+        }
+    }
+
+    private JsonObject defaultPayloadToPreApplication(String preAppTitle, String state, String oppoNo) {
+
+        JsonObject opportunityDetails = new JsonObject();
+
+        // Basic opportunity details
+        opportunityDetails.addProperty("OpportunityNumber", oppoNo);
+        opportunityDetails.addProperty("isStatusCreatedOrAccepted", state);
+        opportunityDetails.addProperty("UEI", ProjectWebServices.getIdOf("DUNS__c", "YRNMVN96JC17"));
+        opportunityDetails.addProperty("preAppTitle", preAppTitle);
+        opportunityDetails.addProperty("ProjectDirector", ProjectWebServices.getIdOf("ProjectDirectorContact__c", "Victor EXE"));
+        opportunityDetails.addProperty("ProjectAbstract", "Automation Test Abstraction");
+
+        // Contacts and focus areas
+        JsonArray contacts = new JsonArray();
+        contacts.add(ProjectWebServices.getIdOf("User", "Victor EXE"));
+        opportunityDetails.add("contacts", contacts);
+
+        JsonArray focusAreas = new JsonArray();
+        focusAreas.add("Automation Permanent Focus Area");
+        focusAreas.add("Automation Permanent Focus Area2");
+        opportunityDetails.add("focusAreas", focusAreas);
+
+        // Budget-related details
+        JsonArray bpNames = new JsonArray();
+        bpNames.add("BP01");
+        bpNames.add("BP02");
+        opportunityDetails.add("bpName", bpNames);
+        opportunityDetails.addProperty("programincome", "Additive");
+        opportunityDetails.addProperty("InternalOrgId",  ProjectWebServices.getIdOf("Account", "Department of Product"));
+        opportunityDetails.addProperty("AORContact",  ProjectWebServices.getIdOf("User", "Victor EXE"));
+
+        // Address details
+        opportunityDetails.addProperty("City", "Memphis");
+        opportunityDetails.addProperty("Addressline1", "4159 Mapleview Drive");
+        opportunityDetails.addProperty("Zip4", "38110");
+        opportunityDetails.addProperty("Country", "USA");
+        opportunityDetails.addProperty("State", "TN");
+        opportunityDetails.addProperty("CongressionalDistrict1", "123");
+
+        // Other properties
+        opportunityDetails.addProperty("MaintainenceOfEffertsRequired", "Yes");
+        opportunityDetails.addProperty("BudgetLevel", "Detailed Line Item Budget");
+
+        // Build-up items
+        JsonArray buildUpItems = new JsonArray();
+        JsonObject buildUpItem = new JsonObject();
+        buildUpItem.addProperty("ServiceAreaName", "Automation Permanent Focus Area");
+        buildUpItem.addProperty("BudgetCatName", "Construction");
+        JsonArray buildUpItemBudgetPeriod = new JsonArray();
+        buildUpItemBudgetPeriod.add("BP01");
+        buildUpItem.add("budgetPeriod", buildUpItemBudgetPeriod);
+        buildUpItem.addProperty("Title", "Construction");
+        buildUpItem.addProperty("Narrative", "Test Build-up");
+        buildUpItem.addProperty("awardBudget", 1000);
+        buildUpItem.addProperty("CashMatch", 100);
+        buildUpItem.addProperty("NonCashMatch", 100);
+        buildUpItems.add(buildUpItem);
+        opportunityDetails.add("buildUpItems", buildUpItems);
+
+        // Build-up items
+        JsonArray buildUpItems1 = new JsonArray();
+        JsonObject buildUpItem1 = new JsonObject();
+        buildUpItem.addProperty("ServiceAreaName", "Automation Permanent Focus Area2");
+        buildUpItem.addProperty("BudgetCatName", "Construction");
+        JsonArray buildUpItemBudgetPeriod1 = new JsonArray();
+        buildUpItemBudgetPeriod1.add("BP02");
+        buildUpItem1.add("budgetPeriod", buildUpItemBudgetPeriod);
+        buildUpItem1.addProperty("Title", "Construction");
+        buildUpItem1.addProperty("Narrative", "Test Build-up");
+        buildUpItem1.addProperty("awardBudget", 1000);
+        buildUpItem1.addProperty("CashMatch", 100);
+        buildUpItem1.addProperty("NonCashMatch", 100);
+        buildUpItems1.add(buildUpItem1);
+        opportunityDetails.add("buildUpItems", buildUpItems1);
+
+        // Pre-application budget categories
+        JsonArray preAppBudgetCats = new JsonArray();
+        JsonObject preAppBudgetCat = new JsonObject();
+        preAppBudgetCat.add("budgetPeriod", buildUpItemBudgetPeriod);
+        preAppBudgetCat.addProperty("BudgetCatName", "Construction");
+        preAppBudgetCat.addProperty("ServiceAreaName", "Automation Permanent Focus Area");
+        preAppBudgetCat.addProperty("AwardBudget", 1000);
+        preAppBudgetCat.addProperty("CashMatch", 100);
+        preAppBudgetCat.addProperty("NonCashMatch", 100);
+        preAppBudgetCats.add(preAppBudgetCat);
+        opportunityDetails.add("PreAppBudgetCats", preAppBudgetCats);
+
+        // Approvers
+        JsonArray approvers = new JsonArray();
+        JsonObject approver = new JsonObject();
+        approver.addProperty("name", ProjectWebServices.getIdOf("User", "Victor EXE"));
+        approver.addProperty("preApplication", "Step1");
+        approver.addProperty("application", "Step1");
+        approvers.add(approver);
+        opportunityDetails.add("approvers", approvers);
+
+        return opportunityDetails;
+    }
+
+    public JsonObject payloadForScheduleCloseoutCreatedAndApproved(String grantTitle, String status, String filter) {
+        JsonObject defaultJson = defaultAdhocCloseoutCreatedAndApproved(grantTitle, status);
+
+        filter = filter.toUpperCase();
+
+        switch (filter) {
+            case "APPLICATION":
+                break;
+            default:
+                return defaultJson;
+        }
+        return defaultJson;
     }
 }
