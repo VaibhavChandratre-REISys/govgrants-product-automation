@@ -3048,7 +3048,7 @@ public class GrantorPayloads {
         opportunity.addProperty("budgetType", "Construction");
         opportunity.addProperty("projectPeriodStartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(210, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         opportunity.addProperty("projectPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(365, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        opportunity.addProperty("isPreApplicationRequired", "Yes");
+        opportunity.addProperty("isPreApplicationRequired", "No");
         opportunity.addProperty("preApplicationDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(100, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         opportunity.addProperty("letterOfIntentRequired", "Yes");
         opportunity.addProperty("letterOfIntentDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(50, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
