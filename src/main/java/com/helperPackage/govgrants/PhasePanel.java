@@ -368,7 +368,7 @@ public final class PhasePanel {
      * @modifier komal.mukhekar added xpath (02/09/2022)
      */
     public void selectItemFromParallelMenuBars(String panelTitleName, String menuItemName) {
-        By parallelMenuItem = By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("//*[text()='"+panelTitleName+"']/ancestor::c-flex-gridlwc//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"'] | //*[text()='"+panelTitleName+"']/ancestor::c-lwc-flex-table//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"']"));
+        By parallelMenuItem = By.xpath("//*[text()='"+panelTitleName+"']/ancestor::c-flex-gridlwc//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"'] | //*[text()='"+panelTitleName+"']/ancestor::c-lwc-flex-table//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"']");
         I.amPerforming().click().on(parallelMenuItem);
         try {
                 govgrants.perform().modal().acceptPopUpWithParameter("Yes");

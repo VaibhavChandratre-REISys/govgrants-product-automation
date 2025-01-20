@@ -517,22 +517,40 @@ public final class GovGrantsAssertionObjects {
                         .replaceAll("\u201C", "\"").replaceAll("\u201D", "\"")
                         .replaceAll("\u2018", "'").replaceAll("\u2019", "'")).collect(Collectors.toList());
 
+        // Perform actions based on the 'isSoftly' value
         if (isSoftly.contains("not")) {
             try {
                 I.amPerforming().waitFor().ElementToBePresent(pageMessagesSelector, 2);
             } catch (Exception e) {
                 /* Ignore Exception */
             }
-            List<String> presentMessages = I.amPerforming().getElementReference().forListOfElements().of(pageMessagesSelector, contains)
-                    .stream().map(el -> el.getText().replaceAll("[\u201c\u201d]", "\"").replaceAll("[\u2018\u2019]", "'"))
-                    .collect(Collectors.toList());
-            boolean present = true;
-            for (int i = 0; i < desiredMessages.size(); i++) {
-                present = presentMessages.contains(desiredMessages.get(i));
-                if (present)
-                    break;
+
+            // Retry logic to avoid StaleElementReferenceException
+            List<String> presentMessages = null;
+            boolean retry = true;
+            int attempts = 3; // Retry up to 3 times
+            while (retry && attempts > 0) {
+                try {
+                    presentMessages = I.amPerforming().getElementReference().forListOfElements().of(pageMessagesSelector, contains)
+                            .stream().map(el -> el.getText().replaceAll("[\u201c\u201d]", "\"").replaceAll("[\u2018\u2019]", "'"))
+                            .collect(Collectors.toList());
+                    retry = false; // If successful, exit loop
+                } catch (StaleElementReferenceException e) {
+                    attempts--;
+                    if (attempts == 0) {
+                        throw e; // Rethrow if all retries fail
+                    }
+                    I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_CRITICAL, "Stale Element Exception : Retrying once again");
+                }
             }
-            I.amPerforming().assertionsTo().assertThat(present).isFalse();
+
+            // Check if present messages match desired messages
+            boolean present = false; // Start with false, meaning no match
+            for (int i = 0; i < desiredMessages.size(); i++) {
+                present = presentMessages.contains(desiredMessages.get(i)); // Check if any message matches
+                if (present) break; // Stop once a match is found
+            }
+            I.amPerforming().assertionsTo().assertThat(present).isFalse(); // Assert that no messages were present
         } else {
             try {
                 I.amPerforming().waitFor().ElementToBePresent(pageMessagesSelector, 2);
@@ -540,12 +558,28 @@ public final class GovGrantsAssertionObjects {
                 /* Ignore Exception */
             }
 
-            Set<String> presentMessages = I.amPerforming().getElementReference().forListOfElements().of(pageMessagesSelector, contains)
-                    .stream().map(el -> el.getText().replaceAll("[\u201c\u201d]", "\"").replaceAll("[\u2018\u2019]", "'"))
-                    .collect(Collectors.toSet());
+            // Retry logic to avoid StaleElementReferenceException
+            Set<String> presentMessages = null;
+            boolean retry = true;
+            int attempts = 3; // Retry up to 3 times
+            while (retry && attempts > 0) {
+                try {
+                    presentMessages = I.amPerforming().getElementReference().forListOfElements().of(pageMessagesSelector, contains)
+                            .stream().map(el -> el.getText().replaceAll("[\u201c\u201d]", "\"").replaceAll("[\u2018\u2019]", "'"))
+                            .collect(Collectors.toSet());
+                    retry = false; // If successful, exit loop
+                } catch (StaleElementReferenceException e) {
+                    attempts--;
+                    if (attempts == 0) {
+                        throw e; // Rethrow if all retries fail
+                    }
+                    I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_CRITICAL, "Stale Element Exception : Retrying once again");
+                }
+            }
 
+            Set<String> finalPresentMessages = presentMessages;
             Set<String> missingMessages = desiredMessages.stream()
-                    .filter(desired -> presentMessages.stream()
+                    .filter(desired -> finalPresentMessages.stream()
                             .noneMatch(present -> contains ? present.contains(desired) : present.equalsIgnoreCase(desired)))
                     .collect(Collectors.toSet());
 
@@ -2584,7 +2618,7 @@ public final class GovGrantsAssertionObjects {
         boolean flag = false;
         try {
             if (isModal) {
-                if (I.amPerforming().checkToSee().isDisplayed(ByUsing.xpath("//button[text()='" + buttonName + "' and @aria-disabled='true']"))) {
+                if (I.amPerforming().checkToSee().isDisplayed(ByUsing.xpath("//button[text()='" + buttonName + "' and @disabled='true'] | //button[text()='" + buttonName + "' and @aria-disabled='true']"))) {
                     flag = true;
                 }
             } else if (I.amPerforming().checkToSee().isDisplayed(ByUsing.xpath("//button[@class='customDisableBtn' and contains(text(),'" + buttonName + "')]"))) {

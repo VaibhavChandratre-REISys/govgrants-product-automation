@@ -387,7 +387,6 @@ Feature: Validate all scenarios for program with add file
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
-    And I click modal button "Close"
     And I refresh the page
     Then I cannot see top right button "Edit" in page detail
     And I navigate to "Files" sub tab

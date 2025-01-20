@@ -3231,3 +3231,11 @@ Feature: Validate all scenarios of every modules flow
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
+
+    @testExecution
+    Scenario:
+      Given I login to "As a Grantor" app as "ADMIN" user
+      And I navigate to "Planning" tab
+      When I navigate to "External Programs" content inside "Programs" subheader on left panel
+      And I click toggle button to select "All NGO Programs"
+      And I halt execution
