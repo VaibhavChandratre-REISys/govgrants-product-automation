@@ -91,7 +91,7 @@ public class ProjectManager extends ProjectWebServices {
      * @author- vaibhav.chandratre
      */
     public void assertTextOnPage(String desiredText) {
-        Assert.assertTrue(I.amPerforming().getElementReference().of(By.xpath("//div[@class='messageText'] | //div[@class='tabheaderinstruction']//div | //div[@class='tab-instructions slds-m-left_medium']//div"))
+        Assert.assertTrue(I.amPerforming().getElementReference().of(By.xpath("//div[@class='tab-instructions slds-m-left_medium']//div"))
                 .getAttribute("innerText").contains(desiredText));
     }
 
@@ -131,7 +131,7 @@ public class ProjectManager extends ProjectWebServices {
     private boolean isFieldNotInEditMode(String fieldAPIName) {
         boolean flag = true;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//field[@field-name='" + fieldAPIName + "']/input | //div[@data-field_api_name='" + fieldAPIName + "']//input")))
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@data-field_api_name='" + fieldAPIName + "']//input")))
                 flag = true;
         } catch (Exception e) {
             flag = false;

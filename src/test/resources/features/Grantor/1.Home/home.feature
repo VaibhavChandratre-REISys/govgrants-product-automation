@@ -953,7 +953,7 @@ Feature: Validate all scenarios in the home tab
     Examples:
       | userType |
       | SPI3     |
-#      | SPA      |
+      | SPA      |
       | IND      |
 
   @201750 @ValidateSPI\SPA\INDusercanedittheAccessibilityModefieldonexternalprofileuser @sprint-5-US-200038

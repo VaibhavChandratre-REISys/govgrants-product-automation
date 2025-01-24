@@ -413,7 +413,7 @@ public class GrantorProjectManager extends ProjectManager {
      * To verify RIsk level image
      */
     public Boolean assertRiskLevelImage(String fieldLabel, String imageName) throws IOException {
-        if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//span[@class='customLabelstyle' and contains(text(),'" + fieldLabel + "')]/ancestor::dl[1]//dd//img[contains(@src,'" + imageName + "')] | //label[@class='slds-text-title header-field-label' and contains(text(),'" + fieldLabel + "')]//parent::div//lightning-formatted-rich-text//span//img[contains(@src,'" + imageName + "')]"))) {
+        if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//label[@class='slds-text-title header-field-label' and contains(text(),'" + fieldLabel + "')]//parent::div//lightning-formatted-rich-text//span//img[contains(@src,'" + imageName + "')]"))) {
             return true;
         } else {
             return false;
@@ -440,7 +440,7 @@ public class GrantorProjectManager extends ProjectManager {
      */
     public Boolean isButtonDisplayedOnModal(String buttonName) {
         try {
-            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@id,'modaltemp')]//button[@title='" + buttonName + "'] | //c-modal-flex-layout//button[@title='" + buttonName + "'] | //div[contains(@class,'modal__footer')]//button[text()='" + buttonName + "']"));
+            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-modal-flex-layout//button[@title='" + buttonName + "'] | //div[contains(@class,'modal__footer')]//button[text()='" + buttonName + "']"));
         } catch (Exception e) {
         }
         return false;
@@ -571,7 +571,7 @@ public class GrantorProjectManager extends ProjectManager {
     }
 
     public void validateModalEnlargeAndGrantDetails(String usage) {
-        By modalEnlarge = By.xpath("//div[@id='editDiv']/div/div[2] | //lightning-record-edit-form-create");
+        By modalEnlarge = By.xpath("//lightning-record-edit-form-create");
         List<String> ids = List.of(
                 "LaverageAllowed__c",
                 "IsProgramIncomeAnticipated__c",

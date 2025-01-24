@@ -174,7 +174,7 @@ public final class GovGrantsProductObjects {
     private Boolean isTableColumnDropDownPresent(String tableId, String titleName) {
         boolean flag = false;
         try {
-            I.amPerforming().scroll().toMoveToElement(ByUsing.xpath("//div[@id='" + tableId + "']//tr//th//span[contains(text(),'" + titleName + "')] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']"));
+            I.amPerforming().scroll().toMoveToElement(ByUsing.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']"));
             String dropdownXpath = "//div[@id='" + tableId + "']//tr//th//span[contains(text(),'" + titleName + "')]//following::div[@class='dropdown thDropMenu']";
             if (I.amPerforming().checkToSee().isDisplayed(ByUsing.xpath(dropdownXpath))) {
                 flag = true;

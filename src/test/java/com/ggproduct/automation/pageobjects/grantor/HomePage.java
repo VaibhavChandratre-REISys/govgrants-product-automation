@@ -135,7 +135,7 @@ public class HomePage extends GrantorProjectManager {
      * @param dropDownValue - value to be selected
      */
     public void selectValueFromGlobalSearchDropDown(String dropDownValue) {
-        By globalDropdownSelector = By.xpath("//*[@id='selectSearchId'] |//*[@data-value='Search: All']");
+        By globalDropdownSelector = By.xpath("//*[@data-value='Search: All']");
         if(I.amPerforming().checkToSee().isDisplayed(globalDropdownSelector)){
             I.amPerforming().click().on(globalDropdownSelector);
             List<Elements> elements= I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//ul[@aria-label='All Searchable Items']//li"));

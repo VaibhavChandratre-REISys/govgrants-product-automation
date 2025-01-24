@@ -1604,7 +1604,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
-    And I cannot see the following messages in the page details contains:
+    Then I softly see the following messages in the page details contains:
       | Negotiation Tab: Please select "Budget Tab: Budget Details" with "Budget Tab: Budget Summary by Focus Area" in the Application Sections for the Negotiation field. |
     Then I softly see field "Status" as "Negotiation Initiated"
     Examples:

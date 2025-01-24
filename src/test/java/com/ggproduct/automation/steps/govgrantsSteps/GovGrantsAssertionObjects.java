@@ -116,7 +116,6 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertValuesAreInFlexTable(String appName, String awardAmount, Boolean shouldBePresent, boolean isSoftly) {
         if (shouldBePresent != isValuesPresentInFlexTable(appName, awardAmount)) {
-            I.amPerforming().waitFor().makeThreadSleep(2000);
         }
 
         if (isSoftly) {
@@ -735,7 +734,7 @@ public final class GovGrantsAssertionObjects {
         try {
             By fieldWrapperLocator;
             if (responseType.equalsIgnoreCase("text")) {
-                fieldWrapperLocator = ByUsing.xpath("//div[@id='field" + fieldName + "' or @id='" + fieldName + "']//input[not(contains(@type,'hidden'))] | //div[@id='field" + fieldName + "' or @id='" + fieldName + "']//textarea | //div[@id='field" + fieldName + "' or @id='" + fieldName + "']//select | //div[@data-field_api_name='" + fieldName + "']//button[contains(@id,'combobox-button')]");
+                fieldWrapperLocator = ByUsing.xpath("//div[@data-field_api_name='" + fieldName + "']//button[contains(@id,'combobox-button')]");
                 String givenText = I.amPerforming().actionToGet().text(fieldWrapperLocator);
                 if (givenText.equals(text)) {
                     flag = true;
@@ -3114,7 +3113,7 @@ public final class GovGrantsAssertionObjects {
      */
     public boolean isSearchedValuePresentAutoSearchResult(String itemName) {
         boolean flag = false;
-        List<Elements> listViewOptions = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[contains(@class,'select2-search')]/following-sibling::ul//li//span|//div[contains(@class,'select2-search')]/following-sibling::ul//li | //div[contains(@id,'listbox-id')]//ul//li"));
+        List<Elements> listViewOptions = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[contains(@id,'listbox-id')]//ul//li"));
         for (Elements we : listViewOptions) {
             if (we.getText().contains(itemName) && we.getText().contentEquals(itemName)) {
                 flag = true;
@@ -3703,7 +3702,7 @@ public final class GovGrantsAssertionObjects {
      */
     private boolean isButtonPresent(String buttonLabel) {
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class, 'modal-content')]//button[text()='" + buttonLabel + "'] | //div[contains(@class, 'modal__footer')]//button[text()='" + buttonLabel + "']")))) {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class, 'modal__footer')]//button[text()='" + buttonLabel + "']")))) {
                 return true;
             }
         } catch (Exception e) {
