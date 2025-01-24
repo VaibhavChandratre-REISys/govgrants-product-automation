@@ -3236,5 +3236,6 @@ Feature: Validate all scenarios of every modules flow
     Scenario:
       Given I login to "As a Grantor" app as "PM" user
       And I navigate to "Planning" tab
-      When I navigate to "External Programs" content inside "Programs" subheader on left panel
-      And I click toggle button to select "All NGO Programs"
+      And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+      When I perform quick search for "PG--0054" in "---program:-:pendingTaskTableId---" panel
+      And I click on "View" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
