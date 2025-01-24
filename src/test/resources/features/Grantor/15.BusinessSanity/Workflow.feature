@@ -3234,7 +3234,7 @@ Feature: Validate all scenarios of every modules flow
 
     @testExecution
     Scenario:
-      Given I login to "As a Grantor" app as "ADMIN" user
+      Given I login to "As a Grantor" app as "PM" user
       And I navigate to "Planning" tab
       When I navigate to "External Programs" content inside "Programs" subheader on left panel
       And I click toggle button to select "All NGO Programs"
