@@ -3238,4 +3238,3 @@ Feature: Validate all scenarios of every modules flow
       And I navigate to "Planning" tab
       When I navigate to "External Programs" content inside "Programs" subheader on left panel
       And I click toggle button to select "All NGO Programs"
-      And I halt execution
