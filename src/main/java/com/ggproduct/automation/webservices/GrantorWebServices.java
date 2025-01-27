@@ -446,4 +446,72 @@ public class GrantorWebServices extends ProjectWebServices {
         response.prettyPrint();
         assertStatusCode(response);
     }
+
+    public void StandaloneSubawardWithProperties(String grantTitle, String state, String filter) {
+        standaloneAwardPostCall(projectApis.payloadForStandaloneAwardCreatedAndActivated(grantTitle, state, filter));
+    }
+
+    private void standaloneAwardPostCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/CreateGranteeGrant";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void CreateTheProgressReportForTitleWithProperties(String status, String type, String title, String filter) {
+        CreateProgressandFinancialReportPostCall(projectApis.payloadForCreateTheProgressReportCreatedAndApproved(status, type, title, filter));
+    }
+
+    private void CreateProgressandFinancialReportPostCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/CreateProgressReport";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void CreateTheScheduleProgressReportForTitleWithProperties(String type, String grantTitle, String filter) {
+        CreateScheduleProgressandFinancialReportPostCall(projectApis.payloadForCreateTheScheduleProgressReportCreatedAndApproved(type, grantTitle, filter));
+    }
+
+    private void CreateScheduleProgressandFinancialReportPostCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/scheduledProgressFinancialReport";
+        Response response = I.amPerforming().restHttp().patchCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void CreateTheAmendmentRequestWithType(String state, String type, String grantTitle, String filter) {
+        CreateTheAmendmentRequestPostCall(projectApis.payloadForCreateTheAmendmentRequestWithType(state, type, grantTitle, filter));
+    }
+
+    private void CreateTheAmendmentRequestPostCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/createAllAmendmentApi";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void CreateActivateTheAward(String grantTitle) {
+        activateAwardPostCall(projectApis.payloadForActivateTheAward(grantTitle));
+    }
+
+    private void activateAwardPostCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/ActivateAwardGrant";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void UpdateTheScheduleProgressReportForTitleWithProperties(String type, String state, String grantTitle, String filter) {
+        CreateScheduleProgressandFinancialReportPostCall(projectApis.payloadForUpdateTheScheduleProgressReportCreatedAndApproved(type, state, grantTitle, filter));
+    }
+
+    public void awardFromApplicationForOpportunityForTitleWithProperties(String state, String oppoNo, String appTitle, String filter) {
+        standaloneAwardPostCall(projectApis.payloadForawardFromApplicationForOpportunityForTitle(state, oppoNo, appTitle, filter));
+    }
 }

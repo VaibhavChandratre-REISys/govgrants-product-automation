@@ -725,4 +725,42 @@ public class GenericSteps {
     public void iCreateScheduleCloseoutForStatusWithProperties(String grantTitle, String status, String filter) {
         grantorWebServices.CreateScheduleCloseoutForStatusWithProperties(grantTitle, status, filter);
     }
+
+    @And("I {string} standalone subaward {string} with properties {string}")
+    public void iStandaloneSubawardWithProperties(String state, String grantTitle, String filter) {
+        String newGrantName = grantTitle + I.amPerforming().addOnsTo().getRandomNumber();
+        I.amPerforming().propertiesFileOperationsTo().saveValue(grantTitle, newGrantName);
+        grantTitle = newGrantName;
+        grantorWebServices.StandaloneSubawardWithProperties(grantTitle, state, filter);
+    }
+
+    @And("I {string} the {string} for title {string} with properties {string}")
+    public void iTheForTitleWithProperties(String status, String type, String title, String filter) {
+        grantorWebServices.CreateTheProgressReportForTitleWithProperties(status, type, title, filter);
+    }
+
+    @And("I Created the schedule {string} for title {string} with properties {string}")
+    public void iCreatedTheForTitleWithProperties(String type, String grantTitle, String filter) {
+        grantorWebServices.CreateTheScheduleProgressReportForTitleWithProperties(type, grantTitle, filter);
+    }
+
+    @And("I {string} of type {string} amendment request for title {string} with properties {string}")
+    public void iOfTypeAmendmentRequestForTitleWithProperties(String state, String type, String grantTitle, String filter) {
+        grantorWebServices.CreateTheAmendmentRequestWithType(state, type, grantTitle, filter);
+    }
+
+    @And("I activate the award for title {string}")
+    public void iActivateTheAwardForTitle(String grantTitle) {
+        grantorWebServices.CreateActivateTheAward( grantTitle);
+    }
+
+    @And("I update the schedule {string} in {string} state for title {string} with properties {string}")
+    public void iUpdateTheScheduleInStateForTitleWithProperties(String type, String state, String grantTitle, String filter) {
+        grantorWebServices.UpdateTheScheduleProgressReportForTitleWithProperties(type, state, grantTitle, filter);
+    }
+
+    @And("I {string} award from application for opportunity {string} for title {string} with properties {string}")
+    public void iAwardFromApplicationForOpportunityForTitleWithProperties(String state, String oppoNo, String appTitle, String filter) {
+        grantorWebServices.awardFromApplicationForOpportunityForTitleWithProperties(state, oppoNo, appTitle, filter);
+    }
 }
