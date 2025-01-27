@@ -386,4 +386,40 @@ public class GrantorWebServices extends ProjectWebServices {
     private void deleteOrganization(String recordName) {
         deletionApi(recordName, "USER REGISTRATION");
     }
+
+    public void createQualifiedLead(String isManual, String oppTitle, String oppoNo, String filter) {
+        createQualifiedLeadGetCall(projectApis.payloadForQualifiedLead(isManual, oppTitle, oppoNo, filter));
+    }
+
+    private void createQualifiedLeadGetCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/createOpportunityFromLead";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void CreateOpportunityWithStateForOpportunityNumberWithProperties(String state, String oppoNo, String filter) {
+        createOpportunityPatchCall(projectApis.payloadForCreatedOrApprovedOpportunity(state, oppoNo, filter));
+    }
+
+    private void createOpportunityPatchCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/UpdateGranteeOpportunity";
+        Response response = I.amPerforming().restHttp().patchCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void CreateAdhocCloseoutForStatusWithProperties(String grantTitle, String status, String filter) {
+        createAdhocCloseoutPostCall(projectApis.payloadForAdhocCloseoutCreatedAndApproved(grantTitle, status, filter));
+    }
+
+    private void createAdhocCloseoutPostCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/CreateCloseoutRequest";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
 }
