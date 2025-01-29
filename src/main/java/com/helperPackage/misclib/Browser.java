@@ -88,6 +88,13 @@ public final class Browser {
     /**
      * @return status of the page load like Completed , loading , Interactive
      */
+    public String CheckPageLoadingStatus() {
+        return javaScript.getPageLoadingStatus();
+    }
+
+    /**
+     * @return status of the page load like Completed , loading , Interactive
+     */
     public String getPageLoadStatus() {
         return javaScript.getPageLoadStatus();
     }

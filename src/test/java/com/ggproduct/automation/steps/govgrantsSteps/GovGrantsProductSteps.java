@@ -41,10 +41,14 @@ public final class GovGrantsProductSteps {
     @Description("To check no records displayed in flex table")
     @Then("^I (softly see|see|do not see|softly do not see) \"([^\"]*)\" inside flex table with id \"([^\"]*)\"$")
     public void iSeeInsideFlexTableWithId(String usage, String text, String tableID) {
-            if (usage.contains("softly")) {
+            if (usage.equals("softly see")) {
                 I.amPerforming().assertionsTo().assertThat(ggProductObjects.isRecordPresentInTheFlexTable(text, tableID)).isTrue();
-            } else {
+            } else if (usage.equals("see")) {
                 Assert.assertTrue(ggProductObjects.isRecordPresentInTheFlexTable(text, tableID));
+            } else if (usage.equals("softly do not see")) {
+                I.amPerforming().assertionsTo().assertThat(ggProductObjects.isRecordPresentInTheFlexTable(text, tableID)).isFalse();
+            } else {
+                Assert.assertFalse(ggProductObjects.isRecordPresentInTheFlexTable(text, tableID));
             }
         }
 
@@ -67,15 +71,9 @@ public final class GovGrantsProductSteps {
     @Description("Enter a Peer Review with the given rating")
     @When("^I enter a review as \"([^\"]*)\"$")
     public void enterReview(String rating) {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             ggProductObjects.enterReviewForLWC(
                     rating
             );
-        } else {
-            ggProductObjects.enterReview(
-                    rating
-            );
-        }
     }
 
     /******** Page/ Record Detail level *************/
@@ -212,7 +210,6 @@ public final class GovGrantsProductSteps {
     @Description("To click on table header column using table id")
     @When("^I click on \"([^\"]*)\" column header inside table with id \"([^\"]*)\"$")
     public void ClickOnSpecificTableHeaderColumn(String titleName, String tableId) {
-        I.amPerforming().waitFor().makeThreadSleep(3000);
         ggProductObjects.performClickOnSpecificTableColumnHeader(tableId, titleName);
     }
 
@@ -262,5 +259,10 @@ public final class GovGrantsProductSteps {
     @And("I click on global search box")
     public void iClickOnGlobalSearchBox() {
         ggProductObjects.iClickOnGlobalSearchBox();
+    }
+
+    @And("I post the message {string} inside chatter")
+    public void iPostTheMessageInsideChatter(String message) {
+        ggProductObjects.iPostTheMessageInsideChatter(message);
     }
 }

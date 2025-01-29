@@ -82,19 +82,19 @@ public final class PhasePanel {
      */
     public void handleDropdownInputForAdvanceFilterForLWC(String advanceFilterId, List rowvalues) {
         By filterAction = null;
-        By dropDownSelector1 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Column')]/..//c-outer-picklist//input");
-        By dropDownSelector2 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Operator')]/..//c-outer-picklist//input");
-        By dropDownSelector3 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Value')]/..//c-outer-picklist//input");
+        By dropDownSelector1 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//c-outer-picklist//label[contains(text(),'Column')]/..//input");
+        By dropDownSelector2 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//c-outer-picklist//label[contains(text(),'Operator')]/..//input");
+        By dropDownSelector3 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Value')]/..//input");
         By inputField = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Value')]/..//input");
         filterAction = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//*[@title='Apply']");
         I.amPerforming().textInput().toClear(dropDownSelector1);
         I.amPerforming().textInput().in(dropDownSelector1, rowvalues.get(0).toString());
         By selectDropdown1 = By.xpath("//c-outer-picklist//ul//li//span[text()='" + rowvalues.get(0).toString() +"']");
-        I.amPerforming().click().withJavaScript(selectDropdown1);
+        I.amPerforming().click().on(selectDropdown1);
         I.amPerforming().textInput().toClear(dropDownSelector2);
         I.amPerforming().textInput().in(dropDownSelector2, rowvalues.get(1).toString());
         By selectDropdown2 = By.xpath("//c-outer-picklist//ul//li//span[text()='" + rowvalues.get(1).toString() +"']");
-        I.amPerforming().click().withJavaScript(selectDropdown2);
+        I.amPerforming().click().on(selectDropdown2);
         if (I.amPerforming().checkToSee().IsElementPresentQuick(inputField)) {
             I.amPerforming().textInput().toClear(inputField);
             I.amPerforming().textInput().in(inputField, rowvalues.get(2).toString());
@@ -118,7 +118,7 @@ public final class PhasePanel {
 
     public void clickDoubleArrowtoggleForLWC(String anyItemContainedInDropDown) {
         By doubleArrow = getDoubleArrowLocatorForLWC(anyItemContainedInDropDown);
-        I.amPerforming().waitFor().makeThreadSleep(2000);
+        I.amPerforming().waitFor().ElementToBePresent(doubleArrow);
         I.amPerforming().click().withJavaScript(doubleArrow);
     }
 
@@ -215,7 +215,8 @@ public final class PhasePanel {
     }
 
     public void selectDoubleArrowDropDownItemForLWC(String menuItemNamee) {
-        By doubleArrowDropDownItem = By.xpath("//gnt-flex-table-l-w-c//lightning-button-menu//div//a//span[text()='" + menuItemNamee + "'] | //c-lwc-flex-table//lightning-button-menu//div//a//span[text()='" + menuItemNamee + "']");
+        By doubleArrowDropDownItem = By.xpath("//c-lwc-flex-table//lightning-button-menu//div//a//span[text()='" + menuItemNamee + "']");
+        I.amPerforming().waitFor().ElementToBePresent(doubleArrowDropDownItem);
         I.amPerforming().click().on(doubleArrowDropDownItem);
     }
 
@@ -248,13 +249,8 @@ public final class PhasePanel {
      * @param anyItemContainedInDropDownnn
      */
     public void clickDoubleArrowDropDownAndSelectItem(String anyItemContainedInDropDownnn) {
-        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-           clickDoubleArrowtoggle(anyItemContainedInDropDownnn);
-           selectDoubleArrowDropDownItem(anyItemContainedInDropDownnn);
-       }else {
            clickDoubleArrowtoggleForLWC(anyItemContainedInDropDownnn);
            selectDoubleArrowDropDownItemForLWC(anyItemContainedInDropDownnn);
-       }
     }
 
     /**
@@ -270,8 +266,12 @@ public final class PhasePanel {
      * click on right header bars with data Target value
      */
     public void clickParallelMenuBarsWithDataTargetValue(String dataTargetValue) {
-        By parallelMenuBarswithDataTarget = By.xpath("//a[@data-target='" + dataTargetValue + "']/ancestor::div[contains(@class,'panel-heading')]//a[@title='Menu']");
-        I.amPerforming().click().on(parallelMenuBarswithDataTarget);
+        By parallelMenuBarswithDataTarget = By.xpath("//span[@title='" + dataTargetValue + "']//ancestor::div[@class='header']//button[@title='Menu']");
+       try {
+           I.amPerforming().click().on(parallelMenuBarswithDataTarget);
+       }catch (Exception e){
+           I.amPerforming().click().withJavaScript(parallelMenuBarswithDataTarget);
+       }
     }
 
     /**
@@ -338,9 +338,7 @@ public final class PhasePanel {
      * @return
      */
     public void clickAnyRightPannelButton(String idOfPanelButton, String buttonName) {
-                By rightPanelButton = By.xpath("//div[contains(@class,'header-buttons') and contains(@id,'"
-                    + idOfPanelButton + "')]//*[text()='" + buttonName + "'] | //div[contains(@id,'" + idOfPanelButton + "')]//*[text()='" + buttonName + "'] | //c-lwc-flex-table[@data-flextablename='" + idOfPanelButton + "']//*[@title='" + buttonName + "' or text()='" + buttonName + "']");
-
+                By rightPanelButton = By.xpath("//c-lwc-flex-table[@data-flextablename='" + idOfPanelButton + "']//*[@title='" + buttonName + "' or text()='" + buttonName + "']");
                 I.amPerforming().click().withJavaScript(rightPanelButton);
     }
 
@@ -370,18 +368,7 @@ public final class PhasePanel {
      * @modifier komal.mukhekar added xpath (02/09/2022)
      */
     public void selectItemFromParallelMenuBars(String panelTitleName, String menuItemName) {
-        By parallelMenuItem = By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", panelTitleName) + "]/../.."
-                + "/following-sibling::div//span[contains(@class,'header-bars')]//*[text()='"
-                + menuItemName + "'] | " + "//div//a/following-sibling::span[text()='"
-                + panelTitleName + "']/.."
-                + "/following-sibling::div/span[contains(@class,'header-bars')]//*[text()='"
-                + menuItemName + "'] | " + "//span[text()='" + panelTitleName
-                + "']/.." + "//div[@class='header-bars']//*[text()='" + menuItemName
-                + "']|//div//a[@title='" + panelTitleName
-                + "']/ancestor::div/following-sibling::div//li//span[contains(text(),'" + menuItemName
-                + "')] | //*[text()='"+panelTitleName+"']/preceding-sibling::span//*[@title='Menu' or contains(@class,'fa-bars')]/following-sibling::ul//a[text()='"
-                + menuItemName + "'] | //div//a[@title='"+panelTitleName+"']/ancestor::div/following-sibling::span//li//a[@title='"+ menuItemName+"']" +
-                "| //a[contains(@title,'" + panelTitleName + "')]/ancestor::div/div[@align='right']//li/a[@title='Download as PDF'] | //*[text()='"+panelTitleName+"']/ancestor::c-flex-gridlwc//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"']");
+        By parallelMenuItem = By.xpath("//*[text()='"+panelTitleName+"']/ancestor::c-flex-gridlwc//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"'] | //*[text()='"+panelTitleName+"']/ancestor::c-lwc-flex-table//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"']");
         I.amPerforming().click().on(parallelMenuItem);
         try {
                 govgrants.perform().modal().acceptPopUpWithParameter("Yes");
@@ -410,8 +397,8 @@ public final class PhasePanel {
     }
 
     private By getDoubleArrowLocatorForLWC(String anyItemContainedInDropDown) {
-        if(anyItemContainedInDropDown.contains("Announcements") || anyItemContainedInDropDown.contains("Funding Decision Memos")){
-            return By.xpath("//gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
+        if(anyItemContainedInDropDown.contains("Announcements") || anyItemContainedInDropDown.contains("Funding Decision Memos") || anyItemContainedInDropDown.contains("Contact")){
+            return By.xpath("//c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
         } else if(anyItemContainedInDropDown.contains("External Funding Sources")|| anyItemContainedInDropDown.contains("NGO Programs")){
             String toggleName1 = anyItemContainedInDropDown.split(" ")[1];
             return By.xpath("//span[contains(text(),'" + toggleName1 + "')]/ancestor::gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //span[contains(text(),'" + toggleName1 + "')]/ancestor::c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");

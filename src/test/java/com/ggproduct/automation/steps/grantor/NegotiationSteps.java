@@ -14,11 +14,11 @@ public class NegotiationSteps {
 
     @Description("To verify value is present in pick list")
     @Then("^I (see|do not see) multipicklist field \"([^\"]*)\" contains value \"([^\"]*)\" under list \"([^\"]*)\"$")
-    public void verifyValueInMultiPickList(String usage,String fieldAPIName, String valueFromList, String listTitleFromMultiPickList) {
+    public void verifyValueInMultiPickList(String usage, String fieldAPIName, String valueFromList, String listTitleFromMultiPickList) {
         if (usage.equalsIgnoreCase("see")) {
-        Assert.assertTrue(negotiationPage.isValuePresentInsidePicklist(usage,fieldAPIName,valueFromList,listTitleFromMultiPickList));
-    }   else if (usage.equalsIgnoreCase("do not see")) {
-            Assert.assertFalse(negotiationPage.isValuePresentInsidePicklist(usage,fieldAPIName,valueFromList,listTitleFromMultiPickList));
+            Assert.assertTrue(negotiationPage.isValuePresentInsidePicklist(usage, fieldAPIName, valueFromList, listTitleFromMultiPickList));
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(negotiationPage.isValuePresentInsidePicklist(usage, fieldAPIName, valueFromList, listTitleFromMultiPickList));
         }
-        }
+    }
 }
