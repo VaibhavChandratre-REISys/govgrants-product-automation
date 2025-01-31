@@ -687,4 +687,91 @@ public class GenericSteps {
     public void iUpdateForSettingAsGrantsgovLeadWithOpportunityNumber(String OppoNumber) {
         grantorWebServices.UpdateForSettingAsGrantsgovLeadWithOpportunityNumber(OppoNumber);
     }
+
+    @And("I create {string} qualified lead for title {string} and opportunity number {string} with properties {string}")
+    public void iCreateQualifiedLeadTitleOfOpportunityNumberWithProperties(String isManual, String oppTitle, String oppoNo, String filter) {
+        String newoppTitle = oppTitle + I.amPerforming().addOnsTo().getRandomNumber();
+        I.amPerforming().propertiesFileOperationsTo().saveValue(oppTitle, newoppTitle);
+        oppTitle = newoppTitle;
+
+        if (oppoNo.startsWith("Automation Runtime")) {
+            var newFieldValue = oppoNo + I.amPerforming().addOnsTo().getStringRandomNumber();
+            I.amPerforming().propertiesFileOperationsTo().saveValue(oppoNo, newFieldValue);
+            oppoNo = newFieldValue;
+        }
+        grantorWebServices.createQualifiedLead(isManual,oppTitle,oppoNo,filter);
+    }
+
+    @And("I create opportunity with state {string} for opportunity number {string} with properties {string}")
+    public void iCreateOpportunityWithStateForOpportunityNumberWithProperties(String state, String oppoNo, String filter) {
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+        grantorWebServices.CreateOpportunityWithStateForOpportunityNumberWithProperties(state, oppoNo, filter);
+    }
+
+    @And("^I create (Pre-application|Application) \"([^\"]*)\" with state \"([^\"]*)\" for opportunity number \"([^\"]*)\" with properties \"([^\"]*)\"$")
+    public void iCreatePreApplicationWithStateForOpportunityNumberWithProperties(String module, String preAppTitle, String state, String oppoNo, String filter) {
+        if(module.equalsIgnoreCase("Pre-application")) {
+            grantorWebServices.CreatePreApplicationWithStateForOpportunityNumberWithProperties(module, preAppTitle, state, oppoNo, filter);
+        } else{
+            grantorWebServices.CreatePreApplicationWithStateForOpportunityNumberWithProperties(module, preAppTitle, state, oppoNo, filter);
+        }
+    }
+
+    @And("I {string} award from application for opportunity {string} for title {string} with properties {string}")
+    public void iAwardFromApplicationForOpportunityForTitleWithProperties(String state, String oppoNo, String appTitle, String filter) {
+        grantorWebServices.awardFromApplicationForOpportunityForTitleWithProperties(state, oppoNo, appTitle, filter);
+    }
+
+    @And("I create adhoc closeout {string} for status {string} with properties {string}")
+    public void iCreateAdhocCloseoutForStatusWithProperties(String grantTitle, String status, String filter) {
+        grantorWebServices.CreateAdhocCloseoutForStatusWithProperties(grantTitle, status, filter);
+    }
+
+    @And("I create schedule closeout {string} for status {string} with properties {string}")
+    public void iCreateScheduleCloseoutForStatusWithProperties(String grantTitle, String status, String filter) {
+        grantorWebServices.CreateScheduleCloseoutForStatusWithProperties(grantTitle, status, filter);
+    }
+
+    @And("I {string} standalone subaward {string} with properties {string}")
+    public void iStandaloneSubawardWithProperties(String state, String grantTitle, String filter) {
+        String newGrantName = grantTitle + I.amPerforming().addOnsTo().getRandomNumber();
+        I.amPerforming().propertiesFileOperationsTo().saveValue(grantTitle, newGrantName);
+        grantTitle = newGrantName;
+        grantorWebServices.StandaloneSubawardWithProperties(grantTitle, state, filter);
+    }
+
+    @And("I activate the award for title {string}")
+    public void iActivateTheAwardForTitle(String grantTitle) {
+        grantorWebServices.CreateActivateTheAward( grantTitle);
+    }
+
+    @And("I {string} the {string} for title {string} with properties {string}")
+    public void iTheForTitleWithProperties(String status, String type, String title, String filter) {
+        grantorWebServices.CreateTheProgressReportForTitleWithProperties(status, type, title, filter);
+    }
+
+    @And("I Created the schedule {string} for title {string} with properties {string}")
+    public void iCreatedTheForTitleWithProperties(String type, String grantTitle, String filter) {
+        grantorWebServices.CreateTheScheduleProgressReportForTitleWithProperties(type, grantTitle, filter);
+    }
+
+    @And("I update the schedule {string} in {string} state for title {string} with properties {string}")
+    public void iUpdateTheScheduleInStateForTitleWithProperties(String type, String state, String grantTitle, String filter) {
+        grantorWebServices.UpdateTheScheduleProgressReportForTitleWithProperties(type, state, grantTitle, filter);
+    }
+
+    @And("I {string} of type {string} amendment request for title {string} with properties {string}")
+    public void iOfTypeAmendmentRequestForTitleWithProperties(String state, String type, String grantTitle, String filter) {
+        grantorWebServices.CreateTheAmendmentRequestWithType(state, type, grantTitle, filter);
+    }
+
+    @And("I updated award from application for title {string} with properties {string}")
+    public void iUpdatedAwardFromApplicationForTitleWithProperties(String appTitle, String filter) {
+        grantorWebServices.updatedAwardFromApplicationForTitleWithProperties(appTitle, filter);
+    }
+
+    @And("I updated direct grant award for title {string} with properties {string}")
+    public void iUpdatedDirectGrantAwardForTitleWithProperties(String appTitle, String filter) {
+        grantorWebServices.UpdatedDirectGrantAwardForTitleWithProperties(appTitle, filter);
+    }
 }

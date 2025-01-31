@@ -386,4 +386,148 @@ public class GrantorWebServices extends ProjectWebServices {
         response.prettyPrint();
         assertStatusCode(response);
     }
+
+    public void createQualifiedLead(String isManual, String oppTitle, String oppoNo, String filter) {
+        createQualifiedLeadGetCall(projectApis.payloadForQualifiedLead(isManual, oppTitle, oppoNo, filter));
+    }
+
+    private void createQualifiedLeadGetCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/createOpportunityFromLead";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void CreateOpportunityWithStateForOpportunityNumberWithProperties(String state, String oppoNo, String filter) {
+        createOpportunityPatchCall(projectApis.payloadForCreatedOrApprovedOpportunity(state, oppoNo, filter));
+    }
+
+    private void createOpportunityPatchCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/UpdateGranteeOpportunity";
+        Response response = I.amPerforming().restHttp().patchCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void CreatePreApplicationWithStateForOpportunityNumberWithProperties(String module, String preAppTitle, String state, String oppoNo, String filter) {
+        createPreApplicationPostCall(projectApis.payloadForPreApplicationCreatedAndAccepted(module, preAppTitle, state, oppoNo, filter));
+    }
+
+    private void createPreApplicationPostCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/CreateGranteePreAppAndApp";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void awardFromApplicationForOpportunityForTitleWithProperties(String state, String oppoNo, String appTitle, String filter) {
+        standaloneAwardPostCall(projectApis.payloadForawardFromApplicationForOpportunityForTitle(state, oppoNo, appTitle, filter));
+    }
+
+    private void standaloneAwardPostCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/CreateGranteeGrant";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void CreateAdhocCloseoutForStatusWithProperties(String grantTitle, String status, String filter) {
+        createAdhocCloseoutPostCall(projectApis.payloadForAdhocCloseoutCreatedAndApproved(grantTitle, status, filter));
+    }
+
+    private void createAdhocCloseoutPostCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/CreateCloseoutRequest";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void CreateScheduleCloseoutForStatusWithProperties(String grantTitle, String status, String filter) {
+        createScheduleCloseoutPostCall(projectApis.payloadForScheduleCloseoutCreatedAndApproved(grantTitle, status, filter));
+    }
+
+    private void createScheduleCloseoutPostCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/scheduledCloseout2";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void StandaloneSubawardWithProperties(String grantTitle, String state, String filter) {
+        standaloneAwardPostCall(projectApis.payloadForStandaloneAwardCreatedAndActivated(grantTitle, state, filter));
+    }
+
+    public void CreateActivateTheAward(String grantTitle) {
+        activateAwardPostCall(projectApis.payloadForActivateTheAward(grantTitle));
+    }
+
+    private void activateAwardPostCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/ActivateAwardGrant";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void CreateTheProgressReportForTitleWithProperties(String status, String type, String title, String filter) {
+        CreateProgressandFinancialReportPostCall(projectApis.payloadForCreateTheProgressReportCreatedAndApproved(status, type, title, filter));
+    }
+
+    private void CreateProgressandFinancialReportPostCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/CreateProgressReport";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void CreateTheScheduleProgressReportForTitleWithProperties(String type, String grantTitle, String filter) {
+        CreateScheduleProgressandFinancialReportPostCall(projectApis.payloadForCreateTheScheduleProgressReportCreatedAndApproved(type, grantTitle, filter));
+    }
+
+    private void CreateScheduleProgressandFinancialReportPostCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/scheduledProgressFinancialReport";
+        Response response = I.amPerforming().restHttp().patchCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void UpdateTheScheduleProgressReportForTitleWithProperties(String type, String state, String grantTitle, String filter) {
+        CreateScheduleProgressandFinancialReportPostCall(projectApis.payloadForUpdateTheScheduleProgressReportCreatedAndApproved(type, state, grantTitle, filter));
+    }
+
+    public void CreateTheAmendmentRequestWithType(String state, String type, String grantTitle, String filter) {
+        CreateTheAmendmentRequestPostCall(projectApis.payloadForCreateTheAmendmentRequestWithType(state, type, grantTitle, filter));
+    }
+
+    private void CreateTheAmendmentRequestPostCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/createAllAmendmentApi";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void updatedAwardFromApplicationForTitleWithProperties(String appTitle, String filter) {
+        appToAwardUpdatePostCall(projectApis.payloadupdatedAwardFromApplicationForTitle(appTitle, filter));
+    }
+
+    private void appToAwardUpdatePostCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/GranteeGrantChildshandler";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void UpdatedDirectGrantAwardForTitleWithProperties(String appTitle, String filter) {
+        appToAwardUpdatePostCall(projectApis.payloadupdatedDirectGrantAwardForTitle(appTitle, filter));
+    }
 }

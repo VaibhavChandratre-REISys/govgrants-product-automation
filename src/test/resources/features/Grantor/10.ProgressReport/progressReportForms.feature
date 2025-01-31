@@ -1557,7 +1557,7 @@ Feature: Validate scenarios in Progress Report Forms
       | "Selling and handling allowance", if "2b. Sale of acquired equipment" is checked.                                                                                                                                               |
       | Total Amount is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                                                        |
 
-  @329591 @ValidateSF425validationshoulddisplayonvalidatebutton @sprint-11-US-328863 @Forms
+ @329591 @ValidateSF425validationshoulddisplayonvalidatebutton @sprint-11-US-328863 @Forms
   Scenario: Validate SF425 validation should display on validate button
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"

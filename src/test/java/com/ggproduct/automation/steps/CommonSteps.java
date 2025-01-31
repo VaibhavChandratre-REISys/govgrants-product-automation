@@ -135,6 +135,11 @@ public class CommonSteps {
             Assert.assertEquals("see".equalsIgnoreCase(shouldBeDisplayed), govgrants.perform().pageDetails().isElementPresentInsidePageBlockWithQuotes(fieldLabel1));
         }
     }
+
+    @Then("^I (softly see|softly do not see|see) notification \"([^\"]*)\" contains \"([^\"]*)\"$")
+    public void iSoftlySeeNotificationContains(String usage, String messageTitle, String messageValue) {
+        projectManager.assertNotificationValues(usage,messageTitle,messageValue);
+    }
 }
 
 

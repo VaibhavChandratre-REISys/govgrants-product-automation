@@ -264,6 +264,7 @@ public final class GovGrantsSteps {
                 anyUniqueColumnValue.split(",")
         );
         govgrants.perform().modal().acceptPopUp();
+        I.amPerforming().browserOperationsTo().CheckPageLoadingStatus();
     }
 
     @Description("Clicks on a series of action view icons inside a table$") // **
@@ -964,13 +965,15 @@ public final class GovGrantsSteps {
     }
 
     @Description("To mouse hover on help text icon inside page details")
-    @When("^I hovering mouse on help text icon inside (page block detail|modal|modal page block) \"([^\"]*)\"$")
+    @When("^I hovering mouse on help text icon inside (page block detail|modal|modal page block|page block detail for invisible element) \"([^\"]*)\"$")
     public void getHelpTextIconsAtPageBlockDetail(String usage, String pageBlockDetailTitle) {
         if (usage.equalsIgnoreCase("modal"))
             govgrants.perform().pageDetails().getHelpTextAtModalWindow(pageBlockDetailTitle);
-        else if (usage.equalsIgnoreCase("modal page block")) {
+        else if(usage.equalsIgnoreCase("modal page block")){
             govgrants.perform().pageDetails().getHelpTextAtModalWindowforPageBlock(pageBlockDetailTitle);
-        } else
+        }else if(usage.equalsIgnoreCase("page block detail for invisible element")){
+            govgrants.perform().pageDetails().getHelpTextAtPageBlockDetailForInvisibleElement(pageBlockDetailTitle);
+        }else
             govgrants.perform().pageDetails().getHelpTextAtPageBlockDetail(pageBlockDetailTitle);
     }
 
@@ -1188,5 +1191,10 @@ public final class GovGrantsSteps {
     @And("I click on bottom button {string} in page detail")
     public void iClickOnbottomNavigatorInpageDetail(String buttonName) {
         ggObjects.toClickOnNavigatorButtonInBottom(buttonName);
+    }
+
+    @When("I click on notification icon")
+    public void iClickOnNotificationIcon() {
+        govgrants.perform().pageDetails().getNotificationIcon();
     }
 }

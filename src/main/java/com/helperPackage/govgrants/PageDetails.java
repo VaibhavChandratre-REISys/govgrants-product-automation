@@ -180,13 +180,13 @@ public final class PageDetails {
             try {
                 if (I.amPerforming().checkToSee().isDisplayed(desiredTab)) {
                     I.amPerforming().scroll().toMoveToElement(desiredTab);
-                    I.amPerforming().click().on(desiredTab);
+                    I.amPerforming().click().withJavaScript(desiredTab);
                 } else {
                     I.amPerforming().scroll().toMoveToElement(moreTabs);
-                    I.amPerforming().click().on(moreTabs);
+                    I.amPerforming().click().withJavaScript(moreTabs);
                     I.amPerforming().waitFor().ElementToBePresent(desiredTab);
                     I.amPerforming().scroll().toMoveToElement(desiredTab);
-                    I.amPerforming().click().on(desiredTab);
+                    I.amPerforming().click().withJavaScript(desiredTab);
                 }
             } catch (Exception ex) {
                 I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     An exception is thrown - Retrying with javaScript");
@@ -1000,5 +1000,14 @@ public final class PageDetails {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public void getNotificationIcon() {
+        I.amPerforming().click().on(By.xpath("//div[@class='headerButtonBody']//lightning-icon"));
+    }
+
+    public void getHelpTextAtPageBlockDetailForInvisibleElement(String pageBlockDetailTitle) {
+        I.amPerforming().scroll().onPageToSpecificElement(By.xpath("//span[contains(text(),'" + pageBlockDetailTitle + "')]/..//span[contains(@class,'fa-info')] | //a[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span//span[contains(@class,'fa-info')] | //span[text()='" + pageBlockDetailTitle + "']/ancestor::dt//span[@class='fa fa-info helpIcon'] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span/following-sibling::div/following-sibling::helpicon//span//span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//lightning-icon[contains(@style,'pointer')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] | //label[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] |//label[contains(text(),'" + pageBlockDetailTitle + "')]//..//div//button[contains(@aria-describedby,'tooltip')] | //label[contains(text(),'" + pageBlockDetailTitle + "')]//..//div[@part='help-text']//button"));
+        I.amPerforming().scroll().withMouseToElement(By.xpath("//span[contains(text(),'" + pageBlockDetailTitle + "')]/..//span[contains(@class,'fa-info')] | //a[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span//span[contains(@class,'fa-info')] | //span[text()='" + pageBlockDetailTitle + "']/ancestor::dt//span[@class='fa fa-info helpIcon'] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span/following-sibling::div/following-sibling::helpicon//span//span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//lightning-icon[contains(@style,'pointer')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] | //label[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] |//label[contains(text(),'" + pageBlockDetailTitle + "')]//..//div//button[contains(@aria-describedby,'tooltip')] | //label[contains(text(),'" + pageBlockDetailTitle + "')]//..//div[@part='help-text']//button"));
     }
 }
