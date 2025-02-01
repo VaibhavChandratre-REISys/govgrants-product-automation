@@ -3255,7 +3255,7 @@ public class GrantorPayloads {
         // Adding Focus Areas
         JsonArray focusAreas = new JsonArray();
         focusAreas.add("Automation Permanent Focus Area");
-        focusAreas.add("Automation Permanent Focus Area2");
+//        focusAreas.add("Automation Permanent Focus Area2");
         opportunityData.add("focusAreas", focusAreas);
 
         // Adding BP Name
@@ -3350,6 +3350,7 @@ public class GrantorPayloads {
         // Creating the ProgramIncomeTable
         JsonArray programIncomeTable = new JsonArray();
         JsonObject income2 = new JsonObject();
+        income2.addProperty("BudgetPeriod", "BP01");
         income2.addProperty("FocusArea", "Automation Permanent Focus Area");
         income2.addProperty("ProjectedProgramIncome", 1000);
         income2.addProperty("ProgramIncomeDetails", "Automation Test");

@@ -1596,7 +1596,7 @@ Feature: Validate all scenarios of every modules flow
 
   @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
   Scenario: Validate PM user should able to Create & Activate the KPI
-#    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -1608,20 +1608,21 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "3" seconds
     And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
 #   And I halt execution
+#    And I wait for "2" seconds
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
-    And I "Submitted for Approval" award from application for opportunity "{SavedValue:Automation Runtime}" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
-    And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
-    And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
+#    And I "Submitted for Approval" award from application for opportunity "{SavedValue:Automation Runtime}" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+#    And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+#    And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
 #    Adhoc Closeout API
-#    And I create adhoc closeout "Automation Runtime Leads3260360868" for status "Completed" with properties "UPDATE_CLOSEOUT_TYPE"
-#    And I create schedule closeout "Automation Runtime Leads1305567379" for status "Completed" with properties "default"
 #    And I halt execution
 #    And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
 #    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
 #    And I activate the award for title "{SavedValue:Automation Runtime Award}"
-#    And I "Submitted to Grantor" the "Financial Report" for title "Automation Runtime Leads4768356041" with properties "default"
-#    And I Created the schedule "Financial Report" for title "Automation Runtime Leads2477853626" with properties "default"
-#    And I update the schedule "Financial Report" in "Submitted to Grantor" state for title "Automation Runtime Leads2477853626" with properties "FINAL_PROGRESS_YES"
+#    And I create adhoc closeout "{SavedValue:Automation Runtime Award}" for status "Completed" with properties "UPDATE_CLOSEOUT_TYPE"
+#    And I create schedule closeout "Automation Runtime Award103116" for status "Completed" with properties "default"
+#    And I "Submitted to Grantor" the "Progress Report" for title "Automation Runtime Award103116" with properties "default"
+#    And I Created the schedule "Financial Report" for title "Automation Runtime Award103116" with properties "default"
+#    And I update the schedule "Financial Report" in "Submitted to Grantor" state for title "Automation Runtime Award103116" with properties "FINAL_PROGRESS_YES"
 #    And I "Approved" of type "Budget Redirection" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "BUDGET_REDIRECTION"
     And I halt execution
 
