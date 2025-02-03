@@ -19,7 +19,7 @@ import java.util.List;
 
 public final class PageDetails {
     private final By textInsideHelpText = By.xpath(
-            "//div[@class='tooltipster-base tooltipster-noir tooltipster-fade tooltipster-fade-show'] | //span[contains(@class,'fa fa-info helpIcon')]/following-sibling::span[contains(@class,'ng-binding')] | //span[contains(@class,'fa fa-info helpIcon')]/following-sibling::span[contains(@class,'hidden508')] | //i[contains(@class,'fa fa-thumbs-up')]/parent::a | //i[contains(@class,'fa fa-clock-o')]/parent::a | //div[contains(@class,'tooltipster-content')]/span | //i[contains(@class,'fa fa-ban')]/parent::a | //span[@role='tooltip']//span | //lightning-primitive-bubble[@role='tooltip']//div//div");
+            "//span[@role='tooltip']//span | //lightning-primitive-bubble[@role='tooltip']//div//div");
     public String idOfRecord = null;
 
     /**
@@ -34,12 +34,7 @@ public final class PageDetails {
      * @modifier saranjit.modak (added xpath in or to click/assert the page navigation button)
      */
     public By getAnyTopRightButton(String buttonName) {
-        return By.xpath("//*[contains(@class,'overview-header') or contains(@class,'panel-footer')]//*[(local-name()='a' or local-name()='button' or local-name()='input') and not(contains(@class,'hidden')) and ("
-                + I.amPerforming().sanityOfXpathTo().equals("@title", buttonName) + " or "
-                + I.amPerforming().sanityOfXpathTo().equals("text()", buttonName) + " or "
-                + I.amPerforming().sanityOfXpathTo().equals("@value", buttonName) + ")] |" +
-                "//*[contains(@class,'overview-header') or contains(@class,'panel-footer')]//*[(local-name()='a' or local-name()='button' or local-name()='input') and not(contains(@class,'hidden'))]//span[(text()='" + buttonName + "') and not(contains(@class,'hidden'))] |" +
-                "//*[contains(@class,'panel-heading')]//*[local-name()='a' and contains(@class,'menuLinks') and @title='" + buttonName + "'] | //*[@value='" + buttonName + "' and @class='customBtn'] | //lightning-button//button[@title='" + buttonName + "' or text()='" + buttonName + "'] | //div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "'] | //lightning-menu-item//div//*[text()='" + buttonName + "'] | //li/a/div[@title='" + buttonName + "']");
+        return By.xpath("//lightning-button//button[@title='" + buttonName + "' or text()='" + buttonName + "'] | //div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "'] | //lightning-menu-item//div//*[text()='" + buttonName + "'] | //li/a/div[@title='" + buttonName + "']");
     }
 
     /**
@@ -69,28 +64,44 @@ public final class PageDetails {
     public void clickAnyTopRightButton(String buttonName) {
         By topRightButton = getAnyTopRightButton(buttonName);
         try {
-            I.amPerforming().scroll().onPageWindow("PAGEUP", 0, -800);
-            I.amPerforming().waitFor().makeThreadSleep(2000);
+            I.amPerforming().waitFor().ElementToBeVisible(topRightButton);
             try {
-                I.amPerforming().waitFor().ElementToBeVisible(topRightButton);
-                try {
-                    I.amPerforming().click().on(topRightButton);
-                } catch (Exception e) {
-                    I.amPerforming().click().withJavaScript(topRightButton);
-                }
-                govgrants.perform().modal().acceptPopUp();
-            } catch (Exception ex) {
-                I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//gnt-header-overview//lightning-button-menu//button"));
-                I.amPerforming().click().withJavaScript(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
-                I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
-                govgrants.perform().modal().acceptPopUp();
+                I.amPerforming().click().on(topRightButton);
+            } catch (ElementClickInterceptedException e) {
+                I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "Exception {ElementClickInterceptedException} is thrown - used Explicit Wait and Java Script to click the element");
+                I.amPerforming().click().withJavaScript(topRightButton);
             }
-
-        } catch (ElementClickInterceptedException e) {
-            I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "Exception {ElementClickInterceptedException} is thrown - used Explicit Wait and Java Script to click the element");
-            I.amPerforming().waitFor().ElementToBeClickable(topRightButton);
-            I.amPerforming().click().withJavaScript(topRightButton);
             govgrants.perform().modal().acceptPopUp();
+        } catch (Exception ex) {
+            I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//gnt-header-overview//lightning-button-menu//button"));
+            I.amPerforming().click().withJavaScript(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
+            I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+            govgrants.perform().modal().acceptPopUp();
+        }
+    }
+    /**
+     * click any button on right header inside detail page. Submit, submit for
+     * approval without processing
+     *
+     * @param buttonName
+     * @return
+     * @author john.phillips
+     * modifier saranjit.modak - 09.09.2022 added explicit wait used try catch to handle ElementClickInterceptedException exception
+     */
+    public void clickAnyTopRightButtonForWithoutProcessing(String buttonName) {
+        By topRightButton = getAnyTopRightButton(buttonName);
+        try {
+            I.amPerforming().waitFor().ElementToBeVisible(topRightButton);
+            try {
+                I.amPerforming().click().on(topRightButton);
+            } catch (ElementClickInterceptedException e) {
+                I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "Exception {ElementClickInterceptedException} is thrown - used Explicit Wait and Java Script to click the element");
+                I.amPerforming().click().withJavaScript(topRightButton);
+            }
+        } catch (Exception ex) {
+            I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//gnt-header-overview//lightning-button-menu//button"));
+            I.amPerforming().click().withJavaScript(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
+            I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
         }
     }
 
@@ -105,7 +116,6 @@ public final class PageDetails {
      */
     public void clickAnyTopRightButtonInsideSplitScreen(String buttonName) {
         By topRightButton = By.xpath("//c-flex-layout-quick-view//lightning-button//button[@title='" + buttonName + "'] | //lightning-button-menu[contains(@class,'" + buttonName + "')]");
-        I.amPerforming().waitFor().makeThreadSleep(2000);
         try {
             I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
             I.amPerforming().click().withJavaScript(topRightButton);
@@ -163,106 +173,32 @@ public final class PageDetails {
      * @author jitendra.pisal
      * @modifier yugandhara.chibade Added new xpath at line 122 and updated method logic for click on more tab element
      */
-    public void clickSubTabsInsideTableView(String tabName) {
-        By desiredTab = By.xpath("//div[@id='myTabs']//span[" + I.amPerforming().sanityOfXpathTo().equals("text()", tabName) + "]/ancestor::li[1]/a");
-        By isdesiredTabActive = By.xpath("//div[@id='myTabs']//span[" + I.amPerforming().sanityOfXpathTo().equals("text()", tabName) + "]/ancestor::li[1][contains(@class,'active')]");
-        By moreTabs = By.xpath("//div[@id='myTabs']//span[text()='More Tabs']/ancestor::li[1]");
-        By moreTabElement = By.xpath("//div[@id='myTabs']//span[text()='" + tabName + "']/ancestor::li[not(@style)]");
-
-        if (EnvironmentFactory.getDevice().equalsIgnoreCase("firefox")) {
-            I.amPerforming().waitFor().makeThreadSleep(4000);
-        }
-        // wait until any one of the subtab to be active to get rid of the issue of
-        // click effect is not taking place even after clicking on it.
-        try {
-            I.amPerforming().getElementReference().of(By.xpath("//ul[@id='topTabsID']//li[contains(@class,'active')]"));
-        } catch (Exception ee) {
-            // Who cares!
-        }
-
-        try {
-            if (I.amPerforming().checkToSee().IsElementPresentQuick(moreTabElement)) {
-                I.amPerforming().click().on(moreTabs);
-                I.amPerforming().click().on(desiredTab);
-                I.amPerforming().click().on(moreTabs);
-            } else {
-                I.amPerforming().click().on(desiredTab);
-            }
-        } catch (Exception ex) {
-            try {
-                I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     An exception is thrown - Retrying with javaScript");
-                I.amPerforming().waitFor().makeThreadSleep(3000);
-                I.amPerforming().click().withJavaScript(desiredTab, false);
-            } catch (Exception e) {
-                if (!EnvironmentFactory.getDevice().equalsIgnoreCase("firefox"))
-                    throw e;
-            }
-        }
-
-        try {
-            if (!I.amPerforming().checkToSee().isEnabled(isdesiredTabActive, false)) {
-                I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     The click was not successful - Retrying with javaScript");
-                I.amPerforming().click().withJavaScript(desiredTab, false);
-            }
-        } catch (Exception e) {
-            I.amPerforming().click().withJavaScript(desiredTab, false);
-        }
-    }
-
     public void clickSubTabsInsideTableViewForLWC(String tabName) {
             By desiredTab = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']");
-            By isdesiredTabActive = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']//ancestor::li[contains(@class,'active')]");
-//        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//button[@title='More Tabs']");
             By moreTabs = By.xpath("//div[@class='slds-tabs_default']//li[not(contains(@style,'hidden'))]//button[@title='More Tabs'] | //button[@title='More Tabs']");
-            By selectMoreTabs = By.xpath("//a//span[text()='" + tabName + "']");
-//        By moreTabElement = By.xpath("//div[@id='myTabs']//span[text()='" + tabName + "']/ancestor::li[not(@style)]");
-
-            if (EnvironmentFactory.getDevice().equalsIgnoreCase("firefox")) {
-                I.amPerforming().waitFor().makeThreadSleep(4000);
-            }
-            // wait until any one of the subtab to be active to get rid of the issue of
-            // click effect is not taking place even after clicking on it.
-//        try {
-//            I.amPerforming().getElementReference().of(By.xpath("//ul[@id='topTabsID']//li[contains(@class,'active')]"));
-//        } catch (Exception ee) {
-//            // Who cares!
-//        }
 
             try {
                 if (I.amPerforming().checkToSee().isDisplayed(desiredTab)) {
-
+                    I.amPerforming().scroll().toMoveToElement(desiredTab);
                     I.amPerforming().click().on(desiredTab);
-
                 } else {
+                    I.amPerforming().scroll().toMoveToElement(moreTabs);
                     I.amPerforming().click().on(moreTabs);
                     I.amPerforming().waitFor().ElementToBePresent(desiredTab);
+                    I.amPerforming().scroll().toMoveToElement(desiredTab);
                     I.amPerforming().click().on(desiredTab);
                 }
             } catch (Exception ex) {
                 I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     An exception is thrown - Retrying with javaScript");
                 if (I.amPerforming().checkToSee().isDisplayed(desiredTab)) {
-
                     I.amPerforming().click().withJavaScript(desiredTab, false);
-
                 } else {
                     I.amPerforming().click().on(moreTabs);
                     I.amPerforming().waitFor().ElementToBePresent(desiredTab);
                     I.amPerforming().click().withJavaScript(desiredTab, false);
                 }
-
             }
-
-
-//        try {
-//            if (!I.amPerforming().checkToSee().isEnabled(isdesiredTabActive, false)) {
-//                I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     The click was not successful - Retrying with javaScript");
-//                I.amPerforming().click().withJavaScript(desiredTab, false);
-//            }
-//        } catch (Exception e) {
-//            I.amPerforming().click().withJavaScript(desiredTab, false);
-//        }
-        }
-
+    }
 
     public void clickSubTabsInsideTableViewForSplitScreen(String tabName) {
         By desiredTab = By.xpath("//div[@class='uiTabBar']//ul//li//a[@title='" + tabName + "'] | //div[@class='slds-tabs_card']//ul//li//a[text()='" + tabName + "'] | //div[contains(@class,'forceCommunityTabLayout')]//ul//li//a[text()='" + tabName + "']");
@@ -357,8 +293,7 @@ public final class PageDetails {
      * @return * @modified meenakshi.jha updated xpath at 240 line(10/15/2020)
      */
     public WebElement getSpecificStatusFromProgressBar(String statusName) {
-        By progressBarStatusLocator = By.xpath("//div[@class='container-fluid']//*[@id='progressBarId']//ol//li" + "//span["
-                + I.amPerforming().sanityOfXpathTo().contains("text()", statusName) + "]" + "/ancestor::li[1]|//div[@class='container-fluid']//*[@id='progressBarId']//ol//li[contains(text(),'" + statusName + "')] | //lightning-progress-step[@data-id='" + statusName + "' and contains(@class,'active')] | //c-step-progressbar//span[text()='" + statusName + "']/ancestor::li[contains(@class,'active')]");
+        By progressBarStatusLocator = By.xpath("//lightning-progress-step[@data-id='" + statusName + "' and contains(@class,'active')] | //c-step-progressbar//span[text()='" + statusName + "']/ancestor::li[contains(@class,'active')]");
         return I.amPerforming().getElementReference().of(progressBarStatusLocator);
     }
 
@@ -452,7 +387,7 @@ public final class PageDetails {
                 if (I.amPerforming().actionToGet().attribute(element, "title").equalsIgnoreCase(helpText) || (I.amPerforming().actionToGet().attribute(element, "onfocus").contains(helpText)))
                     flag = true;
             } catch (Exception e) {
-                element = By.xpath("//span[contains(text(),'" + fieldLabel[0] + "')]/..//span[contains(@class,'fa-info')]/following-sibling::span | //label[contains(text(),'" + fieldLabel[0] + "')]/..//div[@part='help-text'] ");
+                element = By.xpath("//span[contains(text(),'" + fieldLabel[0] + "')]/..//span[contains(@class,'fa-info')]/following-sibling::span | //label[contains(text(),'" + fieldLabel[0] + "')]/..//div[@part='help-text']");
                 if (I.amPerforming().actionToGet().text(element).contains(helpText))
                     flag = true;
             }
@@ -483,10 +418,8 @@ public final class PageDetails {
      * @author daniel.hilla
      */
     public void clickLookupLink(String lookupRelationshipAPIName) {
-        By path = By.xpath(
-                "//dl//dd//a[" + I.amPerforming().sanityOfXpathTo().contains("@id", lookupRelationshipAPIName) + "]| //dl//dd//a[" + I.amPerforming().sanityOfXpathTo().contains("text()", lookupRelationshipAPIName) + "] | //lightning-formatted-lookup//a[" + I.amPerforming().sanityOfXpathTo().contains("text()", lookupRelationshipAPIName) + "]");
+        By path = By.xpath("//lightning-formatted-lookup//a[" + I.amPerforming().sanityOfXpathTo().contains("text()", lookupRelationshipAPIName) + "]");
         I.amPerforming().click().withJavaScript(path);
-
     }
 
     /**
@@ -510,7 +443,6 @@ public final class PageDetails {
      */
     public String getFieldValue(String fieldLabel, boolean matchLabelExactly) {
         By fieldLabelLocator = null;
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             fieldLabelLocator = By.xpath(String.format(""
                                     // This option should work in all situations, if using the latest version of GovGrants
                                     + "//div//label[contains(@class,'label') and %s]",
@@ -519,20 +451,9 @@ public final class PageDetails {
                                     : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
                     )
             );
-        } else {
-
-            fieldLabelLocator = By.xpath(String.format(""
-                                    // This option should work in all situations, if using the latest version of GovGrants
-                                    + "//dt//span[contains(@class, 'customLabelstyle') and %s]",
-                            matchLabelExactly
-                                    ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
-                                    : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
-                    )
-            );
-        }
         String fieldValue;
         WebElement fieldData = I.amPerforming().getElementReference().of(fieldLabelLocator)
-                .findElement(By.xpath("./ancestor::dl[1]/dd | ./ancestor::dl[1]/following-sibling::dd | ./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::slot//lightning-formatted-text[not(@part='help-text')] | ./parent::div//li[not(@part='help-text')]"));
+                .findElement(By.xpath("./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::slot//lightning-formatted-text[not(@part='help-text')] | ./parent::div//li[not(@part='help-text')] | ./parent::div//span//p[not(@part='help-text')]"));
         if (fieldData.findElements(By.xpath(".//input[@type='checkbox']")).size() != 0) {
             fieldValue = I.amPerforming().checkToSee().isSelected(I.amPerforming().getElementReference().ofNested(fieldData, By.xpath(".//input[@type='checkbox']")))
                     ? "Checked" : "Unchecked";
@@ -550,7 +471,6 @@ public final class PageDetails {
 
     public String getFieldValueOnModal(String fieldLabel, boolean matchLabelExactly) {
         By fieldLabelLocator = null;
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             fieldLabelLocator = By.xpath(String.format(""
                                     // This option should work in all situations, if using the latest version of GovGrants
                                     + "//div[@class='slds-modal__container']//div//label[contains(@class,'label') and %s]",
@@ -559,20 +479,9 @@ public final class PageDetails {
                                     : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
                     )
             );
-        } else {
-
-            fieldLabelLocator = By.xpath(String.format(""
-                                    // This option should work in all situations, if using the latest version of GovGrants
-                                    + "//dt//span[contains(@class, 'customLabelstyle') and %s]",
-                            matchLabelExactly
-                                    ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
-                                    : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
-                    )
-            );
-        }
         String fieldValue;
         WebElement fieldData = I.amPerforming().getElementReference().of(fieldLabelLocator)
-                .findElement(By.xpath("./ancestor::dl[1]/dd | ./ancestor::dl[1]/following-sibling::dd | ./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::slot//lightning-formatted-text[not(@part='help-text')] | ./parent::div//li[not(@part='help-text')] | ./parent::div//div//lightning-formatted-text[not(@part='help-text')]"));
+                .findElement(By.xpath("./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::slot//lightning-formatted-text[not(@part='help-text')] | ./parent::div//li[not(@part='help-text')] | ./parent::div//div//lightning-formatted-text[not(@part='help-text')]"));
         if (fieldData.findElements(By.xpath(".//input[@type='checkbox']")).size() != 0) {
             fieldValue = I.amPerforming().checkToSee().isSelected(I.amPerforming().getElementReference().ofNested(fieldData, By.xpath(".//input[@type='checkbox']")))
                     ? "Checked" : "Unchecked";
@@ -599,7 +508,7 @@ public final class PageDetails {
         ));
         String fieldValue;
         WebElement fieldData = I.amPerforming().getElementReference().of(fieldLabelLocator)
-                .findElement(By.xpath("./ancestor::dl[1]/dd | ./ancestor::dl[1]/following-sibling::dd | ./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::lightning-output-field/..//div//lightning-formatted-text"));
+                .findElement(By.xpath("./ancestor::dl[1]/dd | ./ancestor::dl[1]/following-sibling::dd | ./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::lightning-output-field/..//div//lightning-formatted-text | ./parent::lightning-output-field/..//div//lightning-formatted-number"));
         if (fieldData.findElements(By.xpath(".//input[@type='checkbox']")).size() != 0) {
             fieldValue = I.amPerforming().checkToSee().isSelected(I.amPerforming().getElementReference().ofNested(fieldData, By.xpath(".//input[@type='checkbox']")))
                     ? "Checked" : "Unchecked";
@@ -772,11 +681,37 @@ public final class PageDetails {
 
     public void pageBlockExpandedOrCollapse(String pageBlockTitle, String actionIcon) {
         if (actionIcon.contains("Collapse")) {
-            By pageBlockExpandCollapseIconSelector = By.xpath("//span[contains(@title,'" + pageBlockTitle + "')]//..//span[text()='Expanded']");
+            By pageBlockExpandCollapseIconSelector = By.xpath("//span[contains(@title,'" + pageBlockTitle + "')]//..//lightning-icon[contains(@icon-name,'up')]");
             I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
         } else {
-            By pageBlockExpandCollapseIconSelector = By.xpath("//span[contains(@title,'" + pageBlockTitle + "')]//..//span[text()='Collapse']");
+            By pageBlockExpandCollapseIconSelector = By.xpath("//span[contains(@title,'" + pageBlockTitle + "')]//..//lightning-icon[contains(@icon-name,'down')]");
             I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
+        }
+    }
+
+
+    public void leftNavigationContaninigValue(String actionIcon, String leftNavigationButton) {
+        if (actionIcon.contains("Collapse")) {
+            try {
+                By pageBlockExpand = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='true']");
+                if (I.amPerforming().checkToSee().isDisplayed(pageBlockExpand)) {
+                    I.amPerforming().click().withJavaScript(pageBlockExpand);
+                }
+            } catch (Exception e) {
+
+            }
+            I.amPerforming().waitFor().makeThreadSleep(1000);
+        } else if (actionIcon.contains("Expanded")) {
+            try {
+                By pageBlockCollapse = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='false']");
+                if (I.amPerforming().checkToSee().IsElementPresentQuick(pageBlockCollapse)) {
+                    I.amPerforming().click().withJavaScript(pageBlockCollapse);
+                }
+            } catch (Exception e) {
+
+            }
+            I.amPerforming().waitFor().makeThreadSleep(1000);
+
         }
     }
 
@@ -883,6 +818,8 @@ public final class PageDetails {
             I.amPerforming().click().on(ByUsing.xpath("//div[@id='" + linkName + "']//a//img[@src='/resource/GovGrantsImages/PieChartIcon.jpg']"));
         } else if (usage.equalsIgnoreCase("hyperlink for global search")) {
             I.amPerforming().click().on(ByUsing.xpath("//div[@data-aura-class='forceInlineEditGrid']//table//a[contains(text(),'" + linkName + "')]"));
+        } else if (usage.equalsIgnoreCase("hyperlink for modal")) {
+            I.amPerforming().click().withJavaScript(ByUsing.xpath("//div[contains(@class,'modal__container')]//a[contains(text(),'" + linkName + "')] | //div[contains(@class,'modal__container')]//span[contains(text(),'" + linkName + "')] | //div[contains(@class,'modal__container')]//a[contains(@href,'" + linkName + "')] | //div[contains(@class,'modal__container')]//a//span[@class='" + linkName + "' or text()='" + linkName + "']"));
         }
 
     }
@@ -942,7 +879,7 @@ public final class PageDetails {
      * @modifier saranjit.modak added xpath
      */
     public void getHelpTextAtPageBlockDetail(String pageBlockDetailTitle) {
-        I.amPerforming().scroll().withMouseToElement(By.xpath("//span[contains(text(),'" + pageBlockDetailTitle + "')]/..//span[contains(@class,'fa-info')] | //a[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span//span[contains(@class,'fa-info')] | //span[text()='" + pageBlockDetailTitle + "']/ancestor::dt//span[@class='fa fa-info helpIcon'] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span/following-sibling::div/following-sibling::helpicon//span//span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//lightning-icon[contains(@style,'pointer')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] | //label[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')]"));
+        I.amPerforming().scroll().withMouseToElement(By.xpath("//span[contains(text(),'" + pageBlockDetailTitle + "')]/..//span[contains(@class,'fa-info')] | //a[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span//span[contains(@class,'fa-info')] | //span[text()='" + pageBlockDetailTitle + "']/ancestor::dt//span[@class='fa fa-info helpIcon'] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span/following-sibling::div/following-sibling::helpicon//span//span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//lightning-icon[contains(@style,'pointer')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] | //label[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] |//label[contains(text(),'" + pageBlockDetailTitle + "')]//..//div//button[contains(@aria-describedby,'tooltip')] | //label[contains(text(),'" + pageBlockDetailTitle + "')]//..//div[@part='help-text']//button"));
     }
 
     /**
@@ -953,6 +890,17 @@ public final class PageDetails {
      */
     public void getHelpTextAtModalWindow(String modalFieldTitle) {
         I.amPerforming().scroll().withMouseToElement(By.xpath("//div[contains(@class,'modal__content')]//label[contains(text(),'" + modalFieldTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')]"));
+    }
+
+    /**
+     * hover on help text inside modal
+     *
+     * @param modalPageBlockTitle
+     * @author komal.mukhekar
+     */
+
+    public void getHelpTextAtModalWindowforPageBlock(String modalPageBlockTitle) {
+        I.amPerforming().scroll().withMouseToElement(By.xpath("//div[contains(@class,'modal__content')]//span[contains(text(),'" + modalPageBlockTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')]"));
     }
 
     /**
@@ -1044,5 +992,13 @@ public final class PageDetails {
         } catch (org.openqa.selenium.NoSuchElementException e) {
         }
         return flag;
+    }
+
+    public boolean isElementPresentInsidePageBlockWithQuotes(String fieldLabel1) {
+        try {
+            return getElementFromPageBlock(fieldLabel1).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

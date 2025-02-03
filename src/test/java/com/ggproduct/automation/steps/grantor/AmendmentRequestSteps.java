@@ -1,6 +1,7 @@
 package com.ggproduct.automation.steps.grantor;
 
 import com.ggproduct.automation.pageobjects.grantor.AmendmentRequestPage;
+import com.helperPackage.handlers.govgrants;
 import com.helperPackage.register.I;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
@@ -27,13 +28,9 @@ public class AmendmentRequestSteps {
 
     @When("I click {string} after selection of {string} by showing entries {string} in flex table with id {string}")
     public void iClickAfterSelectionOfInTheTables(String buttonName, String recordValue, String numberOfEntries, String flexTableId) {
-        I.amPerforming().waitFor().makeThreadSleep(3000);
-        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-            amendmentRequestPage.clickAfterSelectionOfInTheTables(buttonName, recordValue, numberOfEntries, flexTableId);
-        } else {
-            amendmentRequestPage.clickAfterSelectionOfInTheTablesForLwc(buttonName, recordValue, numberOfEntries, flexTableId);
-        }
-        I.amPerforming().waitFor().makeThreadSleep(2000);
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+        amendmentRequestPage.clickAfterSelectionOfInTheTablesForLwc(buttonName, recordValue, numberOfEntries, flexTableId);
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
     }
 }
 

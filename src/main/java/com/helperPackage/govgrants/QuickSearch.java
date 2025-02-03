@@ -46,27 +46,15 @@ public class QuickSearch {
      * @author Monu.Kumar
      */
     public void performGlobalQuickSearch(String searchTerm) {
-        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-        try {
-            I.amPerforming().textInput().toClear(globalSearchInput);
-            I.amPerforming().textInput().in(globalSearchInput, searchTerm);
-            I.amPerforming().click().on(globalSearchButton);
-        } catch (Exception e) {
-            I.amPerforming().textInput().toClear(globalSearchInput);
-            I.amPerforming().textInput().in(globalSearchInput, searchTerm);
-            I.amPerforming().click().on(globalSearchButton);
-        } }else {
             try {
                 I.amPerforming().textInput().toClear(globalSearchInputLwc);
                 I.amPerforming().textInput().in(globalSearchInputLwc, searchTerm);
                 I.amPerforming().textInput().in(globalSearchButtonLwc, Keys.ENTER.toString());
-//                I.amPerforming().click().on(globalSearchButtonLwc);
             } catch (Exception e) {
                 I.amPerforming().textInput().toClear(globalSearchInputLwc);
                 I.amPerforming().textInput().in(globalSearchInputLwc, searchTerm);
                 I.amPerforming().click().on(globalSearchButtonLwc);
             }
-        }
     }
 
     /**
@@ -125,30 +113,15 @@ public class QuickSearch {
      * @author nauman.shahid
      * @modifier meenakshi.jha added xpath
      */
-    public void performModalSpecificQuickSearch(String tableId, String searchTerm) {
-        By searchInputBox = By.cssSelector("div#" + tableId + " div>input");
-
-        try {
-            I.amPerforming().textInput().toClear(searchInputBox);
-            I.amPerforming().textInput().in(searchInputBox, searchTerm);
-            I.amPerforming().click().withJavaScript(By.cssSelector("div#" + tableId + " a>i.fa.fa-search,div#" + tableId + " button>i.fa.fa-search"));
-        } catch (Exception e) {
-            I.amPerforming().textInput().toClear(searchInputBox);
-            I.amPerforming().textInput().in(searchInputBox, searchTerm);
-            I.amPerforming().click().on(By.cssSelector("div#" + tableId + " a>i.fa.fa-search"));
-        }
-    }
-
     public void performModalSpecificQuickSearchForLWC(String tableId, String searchTerm) {
         By searchInputBox = By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//input[@placeholder='Search...' and @type='search']");
-
         try {
             I.amPerforming().textInput().toClear(searchInputBox);
             I.amPerforming().textInput().in(searchInputBox, searchTerm);
             I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.ENTER);
         } catch (Exception e) {
             I.amPerforming().textInput().toClear(searchInputBox);
-            I.amPerforming().textInput().in(searchInputBox, searchTerm);
+            I.amPerforming().textInput().withJavaScript(searchInputBox, searchTerm);
             I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.ENTER);
         }
     }
