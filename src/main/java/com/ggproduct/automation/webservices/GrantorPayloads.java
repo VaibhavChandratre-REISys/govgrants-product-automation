@@ -3591,8 +3591,8 @@ public class GrantorPayloads {
         // Grant closeout details
         closeoutDetails.addProperty("grantTitle", grantTitle);
         closeoutDetails.addProperty("justification", "Automation Test");
-        closeoutDetails.addProperty("closeoutDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(180, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        closeoutDetails.addProperty("closeoutEffectiveDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(160, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        closeoutDetails.addProperty("closeoutDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        closeoutDetails.addProperty("closeoutEffectiveDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3620, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 
         // Yes/No fields
         closeoutDetails.addProperty("reviewExpenditure", "Yes");
@@ -4049,13 +4049,13 @@ public class GrantorPayloads {
 //        grantAwardData.add("contacts", contacts);
 
         // Focus Areas
-//        JsonArray focusAreas = new JsonArray();
-//        JsonObject focusArea = new JsonObject();
-//        focusArea.addProperty("Title", "Automation Permanent Focus Area");
-//        focusArea.addProperty("StartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-//        focusArea.addProperty("EndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-//        focusAreas.add(focusArea);
-//        grantAwardData.add("focusAreas", focusAreas);
+        JsonArray focusAreas = new JsonArray();
+        JsonObject focusArea = new JsonObject();
+        focusArea.addProperty("Title", "Automation Permanent Focus Area");
+        focusArea.addProperty("StartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        focusArea.addProperty("EndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        focusAreas.add(focusArea);
+        grantAwardData.add("focusAreas", focusAreas);
 
         // Build-up Items
         JsonArray buildUpItems = new JsonArray();
