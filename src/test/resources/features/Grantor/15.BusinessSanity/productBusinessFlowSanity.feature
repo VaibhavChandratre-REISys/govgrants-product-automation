@@ -1328,7 +1328,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
+    And I wait for "15" seconds
     Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1341,7 +1341,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "5" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
+    And I wait for "15" seconds
     Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1354,7 +1354,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
+    And I wait for "15" seconds
     Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1395,7 +1395,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
+    And I wait for "15" seconds
     Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Applications" tab
