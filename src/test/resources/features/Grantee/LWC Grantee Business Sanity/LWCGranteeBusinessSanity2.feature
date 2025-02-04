@@ -3326,8 +3326,8 @@ Feature: Sanity scenarios
     Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Indirect Cost Rate Type" as "IndirectCostRateType" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly can see row level action button "Edit" against "Rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly can see row level action button "Delete" against "Rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Edit" against "New Indirect rate1" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Delete" against "New Indirect rate1" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see that "GeneralConditionChanged__c" rendered in view mode only
     And I click on "Edit" in the page details
     Then I softly see field "Required Match(%)" inside page block
@@ -5415,14 +5415,14 @@ Feature: Sanity scenarios
     And I save the value from row "1" for column name "Proposed Name" as "ProposedName" from flex table "---grantee_tableId:-:amendmentContactTableId---"
     Then I softly see value "{SavedValue:ProposedName}" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-    When I click "Associate" after selection of "MI_Objective" in the table "---grantee_tableId:-:amendmentAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---grantee_tableId:-:amendmentAssociateObjectiveTableId---"
     Then I softly see the following messages in the page details contains:
       | Objectives were associated successfully. |
     And I click modal button "Close"
     And I save the value from row "1" for column name "Title" as "ObjectiveTitle" from flex table "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
-    When I click "Associate" after selection of "KPI Grantee ETE" in the table "---grantee_tableId:-:selectAmendmentKPITableId---"
+    When I click "Associate" after selection of "Automation Runtime KPI2" in the table "---grantee_tableId:-:selectAmendmentKPITableId---"
     And I click modal button "Close"
     And I save the value from row "1" for column name "Title" as "KPITitle" from flex table "---grantee_tableId:-:amendmentKPITableId---"
     Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:amendmentKPITableId---"
@@ -5679,10 +5679,10 @@ Feature: Sanity scenarios
       | Proposed Name | Project Role    | Is Key Contact |
       | David FO      | Project Officer | Checked        |
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-    When I click "Associate" after selection of "MI_Objective" in the table "---grantee_tableId:-:amendmentAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---grantee_tableId:-:amendmentAssociateObjectiveTableId---"
     And I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
-    When I click "Associate" after selection of "KPI Grantee ETE" in the table "---grantee_tableId:-:selectAmendmentKPITableId---"
+    When I click "Associate" after selection of "Automation Runtime KPI2" in the table "---grantee_tableId:-:selectAmendmentKPITableId---"
     And I click modal button "Close"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I enter in modal value "Terms1" into field "Title__c"
@@ -5917,8 +5917,8 @@ Feature: Sanity scenarios
     Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Indirect Cost Rate Type" as "IndirectCostRateType" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly can see row level action button "Edit" against "Rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly can see row level action button "Delete" against "Rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Edit" against "New Indirect rate1" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Delete" against "New Indirect rate1" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
 
   @485543 @BPCVerifyFOuserasAROwnercanabletocreateBPCAR&decreasetheBudgetPerioddateonactiveAward&abletoseeimpactonGrant&AwardafterreducingtheBudgetPeriod
   Scenario:BPC -->Verify FO user as (AR Owner)can able to create BPC AR & decrease the Budget Period date on active Award & able to see impact on Grant & Award after reducing the Budget Period
@@ -7210,7 +7210,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "Congressionaldistrict__c"
+    And I enter value "1st District" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -7513,7 +7513,7 @@ Feature: Sanity scenarios
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "Congressionaldistrict__c"
+    And I enter value "1st District" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -7597,7 +7597,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Revision In Progress"
     When I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "Congressionaldistrict__c"
+    And I enter value "1st District" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
@@ -7658,7 +7658,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "Congressionaldistrict__c"
+    And I enter value "1st District" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -7744,7 +7744,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "Congressionaldistrict__c"
+    And I enter value "1st District" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -7844,7 +7844,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "Congressionaldistrict__c"
+    And I enter value "1st District" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -7997,7 +7997,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "Congressionaldistrict__c"
+    And I enter value "1st District" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -8073,7 +8073,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "Congressionaldistrict__c"
+    And I enter value "1st District" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -8126,7 +8126,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "Congressionaldistrict__c"
+    And I enter value "1st District" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -8204,7 +8204,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "Congressionaldistrict__c"
+    And I enter value "1st District" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -8457,7 +8457,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "Congressionaldistrict__c"
+    And I enter value "1st District" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -8541,7 +8541,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "Congressionaldistrict__c"
+    And I enter value "1st District" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -8612,7 +8612,7 @@ Feature: Sanity scenarios
     When I click on "Revise" in the page details
     Then I softly see field "Status" as "Revision In Progress"
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "Congressionaldistrict__c"
+    And I enter value "1st District" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -8684,7 +8684,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "Congressionaldistrict__c"
+    And I enter value "1st District" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"

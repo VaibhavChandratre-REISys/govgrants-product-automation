@@ -1671,6 +1671,10 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario:
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Planning" tab
-    When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/ServiceArea__c/a3aKQ0000008RHLYA2/view"
+    And I navigate to "Messages" sub tab
+    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    And I send the email under collab tab with following details:
+      | To                        | Subject            | Body            |
+      | pm.automation@yopmail.com | Automation Subject | Automation Body |

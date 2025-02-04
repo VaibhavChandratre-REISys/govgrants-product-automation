@@ -4811,7 +4811,6 @@ Feature: Validate all scenarios for program
       | Reviewer Name  | Responsibility  | Description                 | Due Date |
       | Automation FO1 | Fiscal Reviewer | Automation Test Description | 10       |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
-    And I pause execution for "5" second
     When I navigate to "Responsibilities" sub tab
     And I click on "Send for Review" icon for "Automation FO1" inside table
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal

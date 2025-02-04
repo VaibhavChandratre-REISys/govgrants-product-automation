@@ -765,7 +765,7 @@ public final class FlexTable implements FlexTableComponent {
                 + " or " + I.amPerforming().sanityOfXpathTo().equals("@type", buttonName) + "]"
         );
         try {
-            I.amPerforming().waitFor().ElementToBePresent(locator, 2);
+            I.amPerforming().waitFor().ElementToBePresent(locator, 5);
         } catch (Exception ee) {
             System.out.println("Element was not present...");
         }
