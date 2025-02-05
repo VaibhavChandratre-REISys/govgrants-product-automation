@@ -3667,10 +3667,10 @@ Feature: Validate sanity testing of Complete Business Flow
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
     And I refresh the page
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "14i. NHPA Description" from computer
     When I click modal button "Close"
-    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "14h. Environmental Compliance Requirements" from computer
     When I click modal button "Close"
@@ -3783,7 +3783,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I clear the value from field "FederalShare__c"
     And I clear the value from field "SellingandHandlingAllowance__c"
     When I click on "Save" in the page details
-    And I wait for "9" seconds
+    And I wait for "3" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | If "1d" is checked, uncheck "1a", "1b" and "1c" in 'Report' section.                                                                            |

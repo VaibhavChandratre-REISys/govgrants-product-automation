@@ -4131,7 +4131,7 @@ public class GrantorPayloads {
         grantAwardData.addProperty("ownerId", ProjectWebServices.getIdOf("User", "Sarah PM"));
         grantAwardData.addProperty("isStatusCreatedOrApproved", state);
         grantAwardData.addProperty("MaximumIndirectCostRate", 10);
-        grantAwardData.addProperty("NewAwardTitle", grantTitle);
+        grantAwardData.addProperty("NewAwardTitle", "Approved");
         grantAwardData.addProperty("NewAwardDescription", "Automation Test");
         grantAwardData.addProperty("BudgetRedirectionThreshold", 10);
         grantAwardData.addProperty("Addressline", "Rei System");
