@@ -95,6 +95,9 @@ public class UsersAndURL implements UsersController {
             case "ADMIN":
                 password = "Salesforce@2038";
                 break;
+            case "IND":
+                password = "Salesforce@2038";
+                break;
             default:
                 password = "Salesforce@2037";
         }

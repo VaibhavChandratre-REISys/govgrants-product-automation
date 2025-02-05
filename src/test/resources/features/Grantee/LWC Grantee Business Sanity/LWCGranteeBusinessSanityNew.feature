@@ -1,4 +1,4 @@
-@GranteeSanityBusinessFlowNew @GranteeTBE
+@GranteeSanityBusinessFlowNew
 Feature: Sanity scenarios New
 
   @463446 @ValidatePreAppwithPOprofileusingtherecorddecisionabletoaccept

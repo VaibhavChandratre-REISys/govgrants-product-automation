@@ -4029,9 +4029,57 @@ public class GrantorPayloads {
                 return updateNonCashMatchBudget(defaultJson);
             case "NO_BUDGET":
                 return updateNonBudget(defaultJson, type, grantTitle, state);
+            case "GRANTEE_FO_APPROVER":
+                return payloadForGranteeFOAmendmentApprover(defaultJson);
+            case "STEP_FOUR_APPROVER":
+                return payloadForGranteeStepFourApprover(defaultJson);
             default:
                 return defaultJson;
         }
+    }
+
+    private JsonObject payloadForGranteeStepFourApprover(JsonObject defaultJson) {
+        JsonObject preAPPData = defaultJson.getAsJsonArray("GrantAwardData").get(0).getAsJsonObject();
+        JsonArray topLevelApprovers = new JsonArray();
+        JsonObject topLevelApprover = new JsonObject();
+        topLevelApprover.addProperty("name", ProjectWebServices.getIdOf("User", "Sarah PM"));
+        topLevelApprover.addProperty("amendmentRequest", "Step1");
+        topLevelApprovers.add(topLevelApprover);
+
+        JsonObject topLevelApprover1 = new JsonObject();
+        topLevelApprover1.addProperty("name", ProjectWebServices.getIdOf("User", "Victor EXE"));
+        topLevelApprover1.addProperty("amendmentRequest", "Step2");
+        topLevelApprovers.add(topLevelApprover1);
+
+        JsonObject topLevelApprover2 = new JsonObject();
+        topLevelApprover2.addProperty("name", ProjectWebServices.getIdOf("User", "Grantee PO"));
+        topLevelApprover2.addProperty("amendmentRequest", "Step3");
+        topLevelApprovers.add(topLevelApprover2);
+
+        JsonObject topLevelApprover3 = new JsonObject();
+        topLevelApprover3.addProperty("name", ProjectWebServices.getIdOf("User", "David FO"));
+        topLevelApprover3.addProperty("amendmentRequest", "Step4");
+        topLevelApprovers.add(topLevelApprover3);
+
+        preAPPData.add("approvers", topLevelApprovers);
+        JsonArray preAPPDataDataArray = new JsonArray();
+        preAPPDataDataArray.add(preAPPData);
+        defaultJson.add("GrantAwardData", preAPPDataDataArray);
+        return defaultJson;
+    }
+
+    private JsonObject payloadForGranteeFOAmendmentApprover(JsonObject defaultJson) {
+        JsonObject preAPPData = defaultJson.getAsJsonArray("GrantAwardData").get(0).getAsJsonObject();
+        JsonArray topLevelApprovers = new JsonArray();
+        JsonObject topLevelApprover = new JsonObject();
+        topLevelApprover.addProperty("name", ProjectWebServices.getIdOf("User", "David FO"));
+        topLevelApprover.addProperty("amendmentRequest", "Step1");
+        topLevelApprovers.add(topLevelApprover);
+        preAPPData.add("approvers", topLevelApprovers);
+        JsonArray preAPPDataDataArray = new JsonArray();
+        preAPPDataDataArray.add(preAPPData);
+        defaultJson.add("GrantAwardData", preAPPDataDataArray);
+        return defaultJson;
     }
 
     private JsonObject updateNonBudget(JsonObject defaultJson, String type, String grantTitle, String state) {
@@ -4590,12 +4638,28 @@ public class GrantorPayloads {
             case "ADDED_APPROVER_FOR_AMENDMENT":
                 return payloadForAddedApproverForAmendment(json, appTitle);
             case "GRANTEE_PO_APPROVER":
-                return payloadForGranteePOApprover(json, appTitle);
+                return payloadForGranteePOApprover(json);
+            case "GRANTEE_PM_APPROVER":
+                return payloadForGranteePMApprover(json);
             case "NON_CASH_MATCH_BUDGET":
                 return payloadForNonCashMatchBudget(json);
             default:
                 return json;
         }
+    }
+
+    private JsonObject payloadForGranteePMApprover(JsonObject json) {
+        JsonObject preAPPData = json.getAsJsonArray("GrantAwardData").get(0).getAsJsonObject();
+        JsonArray topLevelApprovers = new JsonArray();
+        JsonObject topLevelApprover = new JsonObject();
+        topLevelApprover.addProperty("name", ProjectWebServices.getIdOf("User", "Sarah PM"));
+        topLevelApprover.addProperty("Award", "Step1");
+        topLevelApprovers.add(topLevelApprover);
+        preAPPData.add("approvers", topLevelApprovers);
+        JsonArray preAPPDataDataArray = new JsonArray();
+        preAPPDataDataArray.add(preAPPData);
+        json.add("GrantAwardData", preAPPDataDataArray);
+        return json;
     }
 
     private JsonObject payloadForNonCashMatchBudget(JsonObject json) {
@@ -4619,7 +4683,7 @@ public class GrantorPayloads {
         return json;
     }
 
-    private JsonObject payloadForGranteePOApprover(JsonObject json, String appTitle) {
+    private JsonObject payloadForGranteePOApprover(JsonObject json) {
         JsonObject preAPPData = json.getAsJsonArray("GrantAwardData").get(0).getAsJsonObject();
         JsonArray topLevelApprovers = new JsonArray();
         JsonObject topLevelApprover = new JsonObject();
