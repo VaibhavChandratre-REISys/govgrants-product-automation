@@ -1643,7 +1643,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I halt execution
     When I click on "Submit to Grantor" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I enter values into fields
       | Value | Field                 |
       | 0     | SubmittedToGrantor__c |
@@ -1661,7 +1661,6 @@ Feature: Validate all scenarios of every modules flow
     And I click modal button "Save"
     And I click modal button "Close"
     Then I softly see field "Status" as "Accepted"
-    And I halt execution
     And I click on "Amend Award" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I click on "Activate Award" in the page details

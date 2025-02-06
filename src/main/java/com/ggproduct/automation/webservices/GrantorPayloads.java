@@ -3275,9 +3275,9 @@ public class GrantorPayloads {
         buildUpItem.add("budgetPeriod", buildUpBudgetPeriod);
         buildUpItem.addProperty("Title", "Construction");
         buildUpItem.addProperty("Narrative", "Test Build-up");
-        buildUpItem.addProperty("awardBudget", 1000);
-        buildUpItem.addProperty("CashMatch", 100);
-        buildUpItem.addProperty("NonCashMatch", 100);
+        buildUpItem.addProperty("awardBudget", 5000);
+        buildUpItem.addProperty("CashMatch", 500);
+        buildUpItem.addProperty("NonCashMatch", 500);
         buildUpItems.add(buildUpItem);
 
 //        JsonObject buildUpItem1 = new JsonObject();
@@ -3725,13 +3725,13 @@ public class GrantorPayloads {
     private JsonObject payloadForSecondFocusWithBudget(JsonObject json) {
         JsonObject grantAwardData = json.getAsJsonArray("AwardChildData").get(0).getAsJsonObject();
 
-        JsonArray focusAreas = new JsonArray();
+        JsonArray focusAreas1 = new JsonArray();
         JsonObject focusArea2 = new JsonObject();
         focusArea2.addProperty("Title", "Automation Permanent Focus Area2");
         focusArea2.addProperty("StartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         focusArea2.addProperty("EndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        focusAreas.add(focusArea2);
-        grantAwardData.add("focusAreas", focusAreas);
+        focusAreas1.add(focusArea2);
+        grantAwardData.add("focusAreas", focusAreas1);
 
         // Adding build-up items
         JsonArray buildUpItems = new JsonArray();
@@ -4213,9 +4213,9 @@ public class GrantorPayloads {
         buildUpItem1.addProperty("BudgetCategory", "Construction");
         buildUpItem1.addProperty("Title", "Construction");
         buildUpItem1.addProperty("Narrative", "Test Build-up");
-        buildUpItem1.addProperty("awardBudget", 7700);
-        buildUpItem1.addProperty("CashMatch", 770);
-        buildUpItem1.addProperty("OtherLeverage", 770);
+        buildUpItem1.addProperty("awardBudget", 700);
+        buildUpItem1.addProperty("CashMatch", 70);
+        buildUpItem1.addProperty("OtherLeverage", 70);
         buildUpItem1.addProperty("ServiceAreaName", "Automation Permanent Focus Area");
         buildUpItems.add(buildUpItem1);
         grantAwardData.add("buildUpItems", buildUpItems);

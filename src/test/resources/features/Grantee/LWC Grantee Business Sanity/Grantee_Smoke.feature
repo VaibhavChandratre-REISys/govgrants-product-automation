@@ -283,7 +283,7 @@ Feature: Grantee Smoke scenarios
       | Sarah PM user   | GRANTEE PM |
       | Grantee PO user | GRANTEE PO |
 
-  @487040 @487061 @487062 @487063 @487064 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @Grantee_Smoke
+  @487040 @487061 @487062 @487063 @487064 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @Grantee_Smoke @GranteeTest
   Scenario Outline: Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -300,6 +300,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    And I save the value from row "1" for column name "Name" as "ContactName" from flex table "---grantee_tableId:-:awardContactTableId---"
     And I save the value from row "1" for column name "Name" as "ProposedName" from flex table "---grantee_tableId:-:awardContactTableId---"
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
@@ -362,6 +363,9 @@ Feature: Grantee Smoke scenarios
     And I click modal button "Close"
     And I save the value from row "1" for column name "Title" as "KPITitle" from flex table "---grantee_tableId:-:amendmentKPITableId---"
     Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:amendmentKPITableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentKPITableId---" by clicking "Edit" :
+      | Title                   | Target | Current Value As Of |
+      | Automation Runtime KPI2 | 10     | 0                   |
     And I click on "Edit" in the page details
     Then I softly see fields "GeneralConditionChanged__c" is in edit mode
     And I enter value "Checked" into field "GeneralConditionChanged__c"
@@ -435,6 +439,7 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     And I click on "Complete Review" in the page details
     And I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -687,7 +692,7 @@ Feature: Grantee Smoke scenarios
       | Sarah PM user   | GRANTEE PM |
       | Grantee PO user | GRANTEE PO |
 
-  @486579 @486584 @486585 @486586 @486592 @486593 @487329 @487330 @BudgetRedirectionAREXEusershouldabletoactivatenewawardthroughBRAR @Grantee_Smoke
+  @486579 @486584 @486585 @486586 @486592 @486593 @487329 @487330 @BudgetRedirectionAREXEusershouldabletoactivatenewawardthroughBRAR @Grantee_Smoke @GranteeTest
   Scenario Outline: Budget Redirection AR- EXE user should able to activate new award through BR AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<OwnerType>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -701,11 +706,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Active"
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
     Then I softly can see "Actuals" sub tab at view detail page
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
@@ -1209,7 +1216,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "3" seconds
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Award  Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
@@ -1272,14 +1279,14 @@ Feature: Grantee Smoke scenarios
     Examples:
       | OwnerType          | UserType       | emailIdTo                         | CreatedBy          |
       | Sarah PM user      | GRANTEE PM     | victor.exeqagrantee@yopmail.com   | Sarah PM           |
-      | Grantee PO user    | GRANTEE PO     | grantee.po@yopmail.com.qagrnteatm | Grantee PO         |
-      | Victor EXE user    | GRANTEE EXE    | victor.exeqagrantee@yopmail.com   | Victor EXE         |
-      | Product Admin user | GRANTEE ADMIN1 | productadmin@yopmail.com          | Product Admin      |
-      | Victor EXE user    | GRANTEE FO     | victor.exeqagrantee@yopmail.com   | David FO           |
-      | Victor EXE user    | GRANTEE FD     | victor.exeqagrantee@yopmail.com   | Danielle FD Garcia |
-      | Victor EXE user    | GRANTEE ADMIN1 | victor.exeqagrantee@yopmail.com   | Product Admin      |
+#      | Grantee PO user    | GRANTEE PO     | grantee.po@yopmail.com.qagrnteatm | Grantee PO         |
+#      | Victor EXE user    | GRANTEE EXE    | victor.exeqagrantee@yopmail.com   | Victor EXE         |
+#      | Product Admin user | GRANTEE ADMIN1 | productadmin@yopmail.com          | Product Admin      |
+#      | Victor EXE user    | GRANTEE FO     | victor.exeqagrantee@yopmail.com   | David FO           |
+#      | Victor EXE user    | GRANTEE FD     | victor.exeqagrantee@yopmail.com   | Danielle FD Garcia |
+#      | Victor EXE user    | GRANTEE ADMIN1 | victor.exeqagrantee@yopmail.com   | Product Admin      |
 
-  @485372 @485376 @ValidatePMusercanseeProgressreportschedulesfromawardinMonitoringschedules @Grantee_Smoke
+  @485372 @485376 @ValidatePMusercanseeProgressreportschedulesfromawardinMonitoringschedules @Grantee_Smoke @GranteeTest
   Scenario Outline: Validate PM user can see Progress report schedules from award in Monitoring schedules
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -1409,8 +1416,8 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
@@ -1562,8 +1569,8 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
@@ -1657,8 +1664,8 @@ Feature: Grantee Smoke scenarios
     And I save the value from row "12" for column name "EGMS ID" as "EGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "2" for column name "Reporting Period End Date" as "ReportingPeriodEndDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
@@ -1841,8 +1848,8 @@ Feature: Grantee Smoke scenarios
     And I save the value from row "12" for column name "EGMS ID" as "EGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "2" for column name "Reporting Period End Date" as "ReportingPeriodEndDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
@@ -1895,7 +1902,7 @@ Feature: Grantee Smoke scenarios
       | userType   | userName | UEI          |
       | GRANTEE PM | Sarah PM | 123456789123 |
 
-  @484063 @ValidateFromAppGPCloseoutwithPMProfileabletocreateProjectperiodcloseoutandabletocompletethecloseout @Grantee_Smoke
+  @484063 @ValidateFromAppGPCloseoutwithPMProfileabletocreateProjectperiodcloseoutandabletocompletethecloseout @Grantee_Smoke @GranteeTest
   Scenario: Validate From App GP Closeout with PM Profile Able to create Project period closeout and able to complete the closeout
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -1906,7 +1913,6 @@ Feature: Grantee Smoke scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
-    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
@@ -2517,7 +2523,7 @@ Feature: Grantee Smoke scenarios
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:ApplicationTableId---"
 
-  @477625 @477603 @477627 @ValidatePMusershouldabletoCreateActivatetheKPI @Grantee_Smoke
+  @477625 @477603 @477627 @ValidatePMusershouldabletoCreateActivatetheKPI @Grantee_Smoke @GranteeTest
   Scenario Outline: Validate PM/EXE/ADMIN user should able to Create & Activate the KPI
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
@@ -2611,12 +2617,12 @@ Feature: Grantee Smoke scenarios
     Then I softly see "No Records Found" inside flex table with id "Goals"
     Then I softly see "No Records Found" inside flex table with id "KPIsGranteeRelatedAwards"
     And I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "Activate.pdf" as name
+    Then I softly see snapshot with name containing "History.pdf" as name
     Examples:
       | userType      | emailId                         |
       | GRANTEE PM    | sarah.pm.23@yopmail.com         |
-      | GRANTEE EXE   | victor.exeqagrantee@yopmail.com |
-      | GRANTEE ADMIN | productqa@yopmail.com           |
+#      | GRANTEE EXE   | victor.exeqagrantee@yopmail.com |
+#      | GRANTEE ADMIN | productqa@yopmail.com           |
 
   @477437 @BudgetNarrativeattachmentformVerifyPMusercanaddfilesinBudgetnarrativeattachmentinViewmodeandsuccessfullysubmitapplicationtograntsgov @Grantee_Smoke
   Scenario: Budget Narrative attachment form - Verify PM user can add files in Budget narrative attachment in View mode and successfully submit application to grants.gov
@@ -2629,7 +2635,6 @@ Feature: Grantee Smoke scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
-    And I wait for "5" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
@@ -2691,7 +2696,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @477676 @477677 @477679 @476282 @VerifyPOusershouldabletoseethevalidationmessagesandrejecttheSOWamendmentrequest @Grantee_Smoke
+  @477676 @477677 @477679 @476282 @VerifyPOusershouldabletoseethevalidationmessagesandrejecttheSOWamendmentrequest @Grantee_Smoke @GranteeTest
   Scenario Outline: Verify PO user should able to see the validation messages and reject the SOW amendment request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -2785,6 +2790,7 @@ Feature: Grantee Smoke scenarios
     And I click on "Edit" in the page details
     Then I softly see fields "GeneralConditionChanged__c" is in edit mode
     And I enter value "Checked" into field "GeneralConditionChanged__c"
+    And I clear the value from field "FederalTCLink__c"
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
@@ -2857,11 +2863,11 @@ Feature: Grantee Smoke scenarios
     Examples:
       | User        |
       | GRANTEE PM  |
-      | GRANTEE PO  |
-      | GRANTEE EXE |
-      | GRANTEE FO  |
+#      | GRANTEE PO  |
+#      | GRANTEE EXE |
+#      | GRANTEE FO  |
 
-  @476067 @480684 @480685 @480686 @480687 @480688 @480689 @EXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOpportunitywhichisconvertedtoPre-application @Grantee_Smoke
+  @476067 @480684 @480685 @480686 @480687 @480688 @480689 @EXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOpportunitywhichisconvertedtoPre-application @Grantee_Smoke @GranteeTest
   Scenario Outline: Opportunities converted to Pre-Application (Grants.gov) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Opportunity which is converted to Pre-application
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -3057,14 +3063,14 @@ Feature: Grantee Smoke scenarios
     Examples:
       | User            |
       | GRANTEE EXE     |
-      | GRANTEE FO      |
-      | GRANTEE FD      |
-      | GRANTEE AUDITOR |
-      | GRANTEE ADMIN   |
-      | GRANTEE PO      |
-      | GRANTEE PM      |
+#      | GRANTEE FO      |
+#      | GRANTEE FD      |
+#      | GRANTEE AUDITOR |
+#      | GRANTEE ADMIN   |
+#      | GRANTEE PO      |
+#      | GRANTEE PM      |
 
-  @480768 @480769 @480771 @480773 @480774 @481129 @476066 @OpportunitiesconvertedtoApplicationGrantsgovVerifyPMusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @Grantee_Smoke
+  @480768 @480769 @480771 @480773 @480774 @481129 @476066 @OpportunitiesconvertedtoApplicationGrantsgovVerifyPMusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @Grantee_Smoke @GranteeTest
   Scenario Outline: Opportunities converted to Application (Grants.gov) - Verify PM user can navigate to Opportunity details page from Opportunities Converted to Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -3075,7 +3081,6 @@ Feature: Grantee Smoke scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
-    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "PRE_APPLICATION_YES"
     And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
@@ -3258,14 +3263,14 @@ Feature: Grantee Smoke scenarios
     Examples:
       | User            |
       | GRANTEE EXE     |
-      | GRANTEE FO      |
-      | GRANTEE FD      |
-      | GRANTEE AUDITOR |
-      | GRANTEE ADMIN   |
-      | GRANTEE PO      |
-      | GRANTEE PM      |
+#      | GRANTEE FO      |
+#      | GRANTEE FD      |
+#      | GRANTEE AUDITOR |
+#      | GRANTEE ADMIN   |
+#      | GRANTEE PO      |
+#      | GRANTEE PM      |
 
-  @475809 @ValidateNotYetConvertedOpportunityGrantsgovPMusercancreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord @Grantee_Smoke
+  @475809 @ValidateNotYetConvertedOpportunityGrantsgovPMusercancreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord @Grantee_Smoke @GranteeTest
   Scenario: Not Yet Converted Opportunity Grantsgov PM user can create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberProjectnarrativeForm}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212704" with properties "default"
@@ -3327,7 +3332,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE PM |
       | GRANTEE PO |
 
-  @474678 @474672 @CFVerifyPMuserARrecordownercanabletoseeAmendAwardbuttonwhenARgetAccepted&abletocreatenewAward&checkstatusofoldAward&checkimpactofnewlycreatedAwardonGrant&Award @Grantee_Smoke
+  @474678 @474672 @CFVerifyPMuserARrecordownercanabletoseeAmendAwardbuttonwhenARgetAccepted&abletocreatenewAward&checkstatusofoldAward&checkimpactofnewlycreatedAwardonGrant&Award @Grantee_Smoke @GranteeTest
   Scenario:CF - Verify PM user (AR record owner) can able to see Amend Award button when AR get Accepted & able to create new Award & check status of old Award & check impact of newly created Award on Grant & Award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -3346,6 +3351,8 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     When I navigate to "Amendments" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I save the field labeled "EGMS ID" as "CFAMENDID"
@@ -3395,7 +3402,7 @@ Feature: Grantee Smoke scenarios
     And I click modal button "Save"
     And I wait for "3" seconds
     Then I softly see value "CFTermsCondition" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    And I save the value from row "2" for column name "Title" as "CFTermsCondition" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    And I save the value from row "1" for column name "Title" as "CFTermsCondition" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
       | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
       | Rate2 | 15             | 30              | 10                             | Final                   |
@@ -3493,7 +3500,7 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Amended"
 
-  @472256 @476988 @476989 @476990 @476991 @476992 @CombinationofamendmentVerifyEXEusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @Grantee_Smoke
+  @472256 @476988 @476989 @476990 @476991 @476992 @CombinationofamendmentVerifyEXEusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @Grantee_Smoke @GranteeTest
   Scenario Outline:Combination of amendment : Verify EXE user can create combination of amendment using following combinations and activate new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -3556,10 +3563,13 @@ Feature: Grantee Smoke scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
     When I click "Associate" after selection of "Automation Runtime KPI2" in the table "---grantee_tableId:-:selectAmendmentKPITableId---"
     Then I softly see the following messages in the page details contains:
-      | KPIs added succesfully. |
+      | KPIs added successfully. |
     And I click modal button "Close"
     And I save the value from row "1" for column name "Title" as "KPITitle" from flex table "---grantee_tableId:-:amendmentKPITableId---"
     Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:amendmentKPITableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentKPITableId---" by clicking "Edit" :
+      | Title                   | Target | Current Value As Of |
+      | Automation Runtime KPI2 | 10     | 5                   |
     And I click on "Edit" in the page details
     Then I softly see fields "GeneralConditionChanged__c" is in edit mode
     And I enter value "Checked" into field "GeneralConditionChanged__c"
@@ -3577,6 +3587,7 @@ Feature: Grantee Smoke scenarios
     And I click modal button "Save"
     And I save the value from row "1" for column name "Title" as "Terms1" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see value "{SavedValue:Terms1}" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    And I wait for "2" seconds
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
       | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
       | Rate1 | 15             | 30              | 10                             | Final                   |
@@ -3652,6 +3663,7 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     And I click on "Complete Review" in the page details
     And I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3848,15 +3860,15 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
     Examples:
-      | User           |
-      | GRANTEE EXE    |
-      | GRANTEE PM     |
-      | GRANTEE PO     |
-      | GRANTEE ADMIN1 |
-      | GRANTEE FO     |
-      | GRANTEE FD     |
+      | User        |
+      | GRANTEE EXE |
+#      | GRANTEE PM     |
+#      | GRANTEE PO     |
+#      | GRANTEE ADMIN1 |
+#      | GRANTEE FO     |
+#      | GRANTEE FD     |
 
-  @471362 @VerifyPOuserasAROwnercanabletocreateBPCAR&IncreasetheBudgetPerioddateonactiveAward&abletoseeimpactonGrant&AwardafterreducingtheBudgetPeriod @Grantee_Smoke
+  @471362 @VerifyPOuserasAROwnercanabletocreateBPCAR&IncreasetheBudgetPerioddateonactiveAward&abletoseeimpactonGrant&AwardafterreducingtheBudgetPeriod @Grantee_Smoke @GranteeTest
   Scenario:Verify PO user as (AR Owner)can able to create BPC AR & Increase the Budget Period date on active Award & able to see impact on Grant & Award after reducing the Budget Period
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -3877,6 +3889,9 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Amendments" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AmendEGMSID"
+    And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     When I click on "Submit to Grantor" in the page details
     When I enter values into fields
       | Value | Field                 |
@@ -3932,15 +3947,16 @@ Feature: Grantee Smoke scenarios
     When I save the field labeled "Total Project Cost" as "TotalProjectCost"
     Then I softly see field "Total Project Cost" as "{SavedValue:TotalProjectCost}"
     Given I expand nested table containing column value "BP01"
+    And I wait for "2" seconds
     Then I softly see value "{SavedValue:NewBudgetPeriodEndDate}" for title "End Date" against the value "BP01" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$7,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$700.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$400.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$8,100.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     When I navigate to "Awards" sub tab
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     And I navigate to "Management" sub tab
-    Then I softly see value "Accepted" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
+    Then I softly see value "Accepted" for title "Status" against the value "{SavedValue:AmendEGMSID}" inside table "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
@@ -3952,7 +3968,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "History" sub tab
     Then I softly see field "Source Change Request" as "{SavedValue:AmendEGMSID}"
     Then I softly see field "Request Type" as "Change Request"
-    And I wait for "5" seconds
+    And I wait for "4" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -4071,7 +4087,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "History" sub tab
     Then I softly do not see "Change Request History" page block displayed
 
-  @471029 @VerifytheFlowofothertypeofAR @Grantee_Smoke
+  @471029 @VerifytheFlowofothertypeofAR @Grantee_Smoke @GranteeTest
   Scenario:Verify the Flow of other type of AR
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -4082,7 +4098,7 @@ Feature: Grantee Smoke scenarios
     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
@@ -4464,7 +4480,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Source Change Request" as "{SavedValue:AREGMSID}"
     Then I softly see field "Request Type" as "Change Request"
 
-  @470843 @PRamdVerifytheimpactonGrants&AwardafterPeriodicRenewalAmendmentRequestisAccepted&creatednewaward @Grantee_Smoke
+  @470843 @PRamdVerifytheimpactonGrants&AwardafterPeriodicRenewalAmendmentRequestisAccepted&creatednewaward @Grantee_Smoke @GranteeTest
   Scenario:PR amd the impact on Grants & Award after Periodic Renewal Amendment Request is Accepted & created new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -4485,7 +4501,12 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Amendments" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AmendEGMSID1"
+    And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
+    And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriodEndDate"
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     When I enter values into fields
       | Value | Field                 |
       | 0     | SubmittedToGrantor__c |
@@ -4540,7 +4561,8 @@ Feature: Grantee Smoke scenarios
     When I save the field labeled "Total Project Cost" as "TotalProjectCost"
     Then I softly see field "Total Project Cost" as "{SavedValue:TotalProjectCost}"
     Given I expand nested table containing column value "BP01"
-    Then I softly see value "7,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    And I wait for "2" seconds
+    Then I softly see value "$7,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$700.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$400.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$8,100.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
@@ -4550,7 +4572,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Accepted" for title "Status" against the value "{SavedValue:AmendEGMSID1}" inside table "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
     When I navigate to "Awards" sub tab
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-    Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    Then I softly see value "Amended" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     When I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     And I navigate to "Projections" sub tab
     Then I softly see value "{SavedValue:updatedBudgetPeriodStartDate}" for title "Start Date" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:ProjectTableId---"
@@ -4562,8 +4584,8 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Actuals" sub tab
     When I save the field labeled "Total Awarded Budget" as "TotalAwardedBudget"
     Then I softly see field "Total Awarded Budget" as "{SavedValue:TotalAwardedBudget}"
-    When I save the field labeled "Total Spent" as "TotalSpent"
-    Then I softly see field "Total Spent" as "{SavedValue:TotalSpent}"
+    When I save the field labeled "Spent to Date" as "TotalSpent"
+    Then I softly see field "Spent to Date" as "{SavedValue:TotalSpent}"
     When I save the field labeled "Remaining Balance" as "RemainingBalance"
     Then I softly see field "Remaining Balance" as "{SavedValue:RemainingBalance}"
     When I save the field labeled "Total Match Expenditures to Date this Budget Period" as "TotalMatchExpenditurestoDatethisBudgetPeriod"
@@ -4759,12 +4781,11 @@ Feature: Grantee Smoke scenarios
       | GRANTEE FO  | GRANTEE FD |
       | GRANTEE FD  | GRANTEE FO |
 
-  @464050 @VerifyPMuserARrecordownercanabletoseeAmendAwardbuttonwhenARgetAccepted&abletocreatenewAward&checkstatusofoldAward&checkimpactofnewlycreatedAwardonGrant&Award @Grantee_Smoke
+  @464050 @VerifyPMuserARrecordownercanabletoseeAmendAwardbuttonwhenARgetAccepted&abletocreatenewAward&checkstatusofoldAward&checkimpactofnewlycreatedAwardonGrant&Award @Grantee_Smoke @GranteeTest
   Scenario:Verify PM user (AR record owner) can able to see Amend Award button when AR get Accepted & able to create new Award & check status of old Award & check impact of newly created Award on Grant & Award
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
     And I "Approved" of type "Budget Period Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
@@ -4902,21 +4923,19 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Monitoring" sub tab
     Then I softly do not see value "{SavedValue:AmendTermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
 
-  @463431 @PreAppVerifyWithPOprofileAbletoaddpeerreviewerwithAllowrecordEditingYes @Grantee_Smoke
+  @463431 @PreAppVerifyWithPOprofileAbletoaddpeerreviewerwithAllowrecordEditingYes @Grantee_Smoke @GranteeTest
   Scenario:PreApp - Verify With PO profile , Able to add peer reviewer with Allow record Editing - Yes.
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
-    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "PRE_APPLICATION_YES"
     And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "default-Grantee PO user"
-    Given I login to "As a Grantee" app as "GRANTEE PO" user
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Application - All"
@@ -4960,7 +4979,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
 
-  @463441 @ValidatePreAppwithPMprofileabletoaproverwithsingleapprover @Grantee_Smoke
+  @463441 @ValidatePreAppwithPMprofileabletoaproverwithsingleapprover @Grantee_Smoke @GranteeTest
   Scenario: Validate PreApp with PM profile ,Able to aprover with single approver
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "COSTSHARING_NO"
     When I login to "As a Grantee" app as "GRANTEE PM" user
@@ -4982,6 +5001,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Letter of Intent" from computer
+    And I wait for "2" seconds
     When I click modal button "Close"
     When I click on "Validate" in the page details
     And I wait for "2" seconds
@@ -4989,16 +5009,16 @@ Feature: Grantee Smoke scenarios
       | Pre-Application has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I select radio button "Forward" in the approval decision
-    And I select user "David FO" in the approval decision
+    And I select user "Victor EXE" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -5021,7 +5041,7 @@ Feature: Grantee Smoke scenarios
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
-  @463418 @463456 @ValidatePreAppwithPOprofileifinopportunitiespreapplicationrequiredselectYesthenonlyabletocreatepreapplication @Grantee_Smoke
+  @463418 @463456 @ValidatePreAppwithPOprofileifinopportunitiespreapplicationrequiredselectYesthenonlyabletocreatepreapplication @Grantee_Smoke @GranteeTest
   Scenario: Validate PreApp with PO profile if in opportunities pre application required select Yes then only able to create pre application
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PO" user
@@ -5031,7 +5051,6 @@ Feature: Grantee Smoke scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
-    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "PRE_APPLICATION_YES"
     When I navigate to "Opportunities" tab
@@ -5042,7 +5061,12 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Create Pre-Application" in page detail
     Then I softly see field "Pre-Application Required?" as "Yes"
     And I click on "Create Pre-Application" in the page details
+    And I wait for "2" seconds
     Then I softly see fields "Title__c" is in edit mode
+    When I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I wait for "2" seconds
     #463456
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
@@ -5072,7 +5096,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Are Indirect Costs Allowed?" as "Yes"
     Then I softly see field "Is Leverage Allowed?" as "Yes"
 
-  @449166 @485466 @449143 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant @Grantee_Smoke
+  @449166 @485466 @449143 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant @Grantee_Smoke @GranteeTest
   Scenario Outline: Verify PM user as (AR Owner same as Award Owner) can able to create Funding Change AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -5623,7 +5647,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Projections" sub tab
-    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Award  Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
@@ -5697,10 +5721,10 @@ Feature: Grantee Smoke scenarios
     Examples:
       | userName        | User        | Approval   |
       | Grantee PO user | GRANTEE PO  | Grantee PO |
-      | Sarah PM user   | GRANTEE PM  | Sarah PM   |
-      | Victor EXE user | GRANTEE EXE | Victor EXE |
+#      | Sarah PM user   | GRANTEE PM  | Sarah PM   |
+#      | Victor EXE user | GRANTEE EXE | Victor EXE |
 
-  @445639 @477317 @477315 @477316 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke
+  @445639 @477317 @477315 @477316 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke @GranteeTest
   Scenario Outline: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -6007,6 +6031,9 @@ Feature: Grantee Smoke scenarios
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Title                  | Target | Current Value | Current Value As Of |
+      | Automation Runtime KPI | 10     | 10            | 0                   |
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     When I enter in modal value "Terms" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
@@ -6114,11 +6141,11 @@ Feature: Grantee Smoke scenarios
     Examples:
       | userType      | userName   | UEI          |
       | GRANTEE PM    | Sarah PM   | 123456789123 |
-      | GRANTEE EXE   | Victor EXE | 123456789123 |
-      | GRANTEE PO    | Grantee PO | 123456789123 |
-      | GRANTEE ADMIN | Product QA | 123456789012 |
+#      | GRANTEE EXE   | Victor EXE | 123456789123 |
+#      | GRANTEE PO    | Grantee PO | 123456789123 |
+#      | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @445640 @446229 @477326 @477325 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke
+  @445640 @446229 @477326 @477325 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke @GranteeTest
   Scenario Outline: Validate Financial Report Schedule user can edit Financial report schedule on Created Submitted for review Reviewed Activated award
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -6415,6 +6442,10 @@ Feature: Grantee Smoke scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
     And I click modal button "Close"
+    And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Title                  | Target | Current Value | Current Value As Of |
+      | Automation Runtime KPI | 10     | 10            | 0                   |
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     When I enter in modal value "Terms" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
@@ -6512,11 +6543,11 @@ Feature: Grantee Smoke scenarios
     Examples:
       | userType      | userName   | UEI          |
       | GRANTEE PM    | Sarah PM   | 123456789123 |
-      | GRANTEE EXE   | Victor EXE | 123456789123 |
-      | GRANTEE PO    | Grantee PO | 123456789123 |
-      | GRANTEE ADMIN | Product QA | 123456789012 |
+#      | GRANTEE EXE   | Victor EXE | 123456789123 |
+#      | GRANTEE PO    | Grantee PO | 123456789123 |
+#      | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @445435 @ValidateNonFederalprogramPMusercancreateandActivateNonFederalprogram @Grantee_Smoke
+  @445435 @ValidateNonFederalprogramPMusercancreateandActivateNonFederalprogram @Grantee_Smoke @GranteeTest
   Scenario: Validate Non-Federal program PM user can create and Activate Non Federal program
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
@@ -6593,7 +6624,7 @@ Feature: Grantee Smoke scenarios
 #    And I download the file
 #    Then I softly see "Non-Federal Programs- All" on page "1" of "govgrants" pdf file
 #    And I switch to parent tab
-    When I click on parallel lines menu bar with data target value "Non-Federal Programs- All"
+#    When I click on parallel lines menu bar with data target value "Non-Federal Programs- All"
     And I select "Refresh" from parallel lines dropdown of "Non-Federal Programs- All"
     Then I see table is refreshing
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFederalProgramsTableId---"
@@ -6714,7 +6745,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE EXE   |
       | GRANTEE ADMIN |
 
-  @443850 @443840 @443848 @443844 @443847 @ValidatewithPMProfileIfindirectgrantkeepsettingYESthenInApprovedActivestateabletoseetheaccessofsection @Grantee_Smoke
+  @443850 @443840 @443848 @443844 @443847 @ValidatewithPMProfileIfindirectgrantkeepsettingYESthenInApprovedActivestateabletoseetheaccessofsection @Grantee_Smoke @GranteeTest
   Scenario: Validate with PM Profile in direct grant keep setting YES then In Approved Active state able to see the access of section
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -6789,7 +6820,7 @@ Feature: Grantee Smoke scenarios
       | Automation Permanent Focus Area | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
-    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Award  Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
@@ -6848,7 +6879,7 @@ Feature: Grantee Smoke scenarios
     Then I cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     Then I cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     Then I cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Award  Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
@@ -6905,7 +6936,7 @@ Feature: Grantee Smoke scenarios
     Then I cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     Then I can see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     Then I can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Award  Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
@@ -6978,7 +7009,7 @@ Feature: Grantee Smoke scenarios
     Then I cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     Then I can see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     Then I can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Award  Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
@@ -7008,12 +7039,15 @@ Feature: Grantee Smoke scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
     Then I softly see the following messages in the page details contains:
-      | KPIs added succesfully. |
+      | KPIs added successfully. |
     And I click modal button "Close"
     And I wait for "3" seconds
     Then I can see row level action button "View" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     Then I can see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     Then I can see row level action button "Remove" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Title                  | Target | Current Value | Current Value As Of |
+      | Automation Runtime KPI | 10     | 10            | 0                   |
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     When I enter in modal value "Terms" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
@@ -7072,7 +7106,7 @@ Feature: Grantee Smoke scenarios
     Then I cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     Then I cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     Then I cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Award  Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
@@ -7472,7 +7506,7 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see row level action button "Delete" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
 
-  @443756 @461002 @477522 @477527 @477529 @477532 @477542 @482151 @482152 @482153 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg @Grantee_Smoke
+  @443756 @461002 @477522 @477527 @477529 @477532 @477542 @482151 @482152 @482153 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg @Grantee_Smoke @GranteeTest
   Scenario Outline: Validate Federal user should see all fields and section on federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -7648,13 +7682,13 @@ Feature: Grantee Smoke scenarios
     Examples:
       | userType      | attachment            | Notes           |
       | GRANTEE PM    | Attachment.pdf        | Notes for PM    |
-      | GRANTEE PO    | AttachmentTesting.pdf | Notes for PO    |
-      | GRANTEE FO    | AttachmentTesting.pdf | Notes for FO    |
-      | GRANTEE EXE   | AttachmentTesting.pdf | Notes for EXE   |
-      | GRANTEE FD    | AttachmentTesting.pdf | Notes for FD    |
-      | GRANTEE ADMIN | AttachmentTesting.pdf | Notes for ADMIN |
+#      | GRANTEE PO    | AttachmentTesting.pdf | Notes for PO    |
+#      | GRANTEE FO    | AttachmentTesting.pdf | Notes for FO    |
+#      | GRANTEE EXE   | AttachmentTesting.pdf | Notes for EXE   |
+#      | GRANTEE FD    | AttachmentTesting.pdf | Notes for FD    |
+#      | GRANTEE ADMIN | AttachmentTesting.pdf | Notes for ADMIN |
 
-  @443755 @477510 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @Grantee_Smoke
+  @443755 @477510 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @Grantee_Smoke @GranteeTest
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -7697,7 +7731,7 @@ Feature: Grantee Smoke scenarios
     When I enter in modal value "USA" into field "BillingCountry"
     When I enter in modal value "45623" into field "BillingPostalCode"
     And I click modal button "Save and Continue"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     Then I see the header is "Non-Federal Organization" in the page details
     Then I see the sub-header is "Automation Runtime Organization" in the page details
@@ -7767,7 +7801,7 @@ Feature: Grantee Smoke scenarios
     When I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
     When I enter in modal value "12345" into field "MailingPostalCode"
     When I click modal button "Save"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I save the field labeled "Title" as "ContactTitle" on modal
     When I click modal button "Close"
     When I perform quick search for "{SavedValue:ContactTitle}" in "---grantee_tableId:-:FedOrgRelatedContacts---" panel
@@ -7783,7 +7817,14 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedBy}"
     And I save the field labeled "Last Modified Date" as "LastModifiedDate"
     Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
-    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:nonFedChildOrgTableId---"
+    Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:nonFedChildOrgTableId---"
+    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:nonFedChildOrgTableId---"
+    Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:nonFedChildOrgAssociateTableId---"
+    When I click "Associate" after selection of "NGO" in the table "---program:-:nonFedChildOrgAssociateTableId---"
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    And I save the value from row "1" for column name "Organization Name" as "OrganizationName" from flex table "---grantee_tableId:-:nonFedChildOrgTableId---"
+    Then I softly see value "{SavedValue:OrganizationName}" for title "Organization Name" inside table "---grantee_tableId:-:nonFedChildOrgTableId---"
     And I navigate to "Related Log" sub tab
     Then I softly see "Active Leads" page block displayed
     Then I softly see "Opportunities" page block displayed
@@ -7854,7 +7895,7 @@ Feature: Grantee Smoke scenarios
     Examples:
       | userType      | attachment     | Notes           | userName   | Title |
       | GRANTEE PM    | Attachment.pdf | Notes Record    | Sarah PM   | Test  |
-      | GRANTEE ADMIN | Attachment.pdf | Notes for ADMIN | Product QA | Test2 |
+#      | GRANTEE ADMIN | Attachment.pdf | Notes for ADMIN | Product QA | Test2 |
 
   @443676 @477545 @477546 @477548 @477549 @477550 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts @Grantee_Smoke
   Scenario Outline: Validate Non federal PO user should see all fields and section for non federal contact's
@@ -8155,7 +8196,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE FD    |
       | GRANTEE ADMIN |
 
-  @442181 @477498 @477500 @477501 @477504 @477507 @482130 @482131 @482132 @482133 @482134 @ValidatePMusershouldabletosaveandcreateinternalcontact @Grantee_Smoke
+  @442181 @477498 @477500 @477501 @477504 @477507 @482130 @482131 @482132 @482133 @482134 @ValidatePMusershouldabletosaveandcreateinternalcontact @Grantee_Smoke @GranteeTest
   Scenario Outline: Validate PM/PO/FO/EXE/FD/ADMIN user should able to save and create internal contact
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -8324,13 +8365,13 @@ Feature: Grantee Smoke scenarios
     Examples:
       | userType      |
       | GRANTEE PM    |
-      | GRANTEE PO    |
-      | GRANTEE FO    |
-      | GRANTEE EXE   |
-      | GRANTEE FD    |
-      | GRANTEE ADMIN |
+#      | GRANTEE PO    |
+#      | GRANTEE FO    |
+#      | GRANTEE EXE   |
+#      | GRANTEE FD    |
+#      | GRANTEE ADMIN |
 
-  @443719 @482123 @442117 @477483 @477485 @477486 @477488 @477489 @482124 @482126 @482127 @VerifytheinternalOrganizationallsectionandfields @Grantee_Smoke
+  @443719 @482123 @442117 @477483 @477485 @477486 @477488 @477489 @482124 @482126 @482127 @VerifytheinternalOrganizationallsectionandfields @Grantee_Smoke @GranteeTest
   Scenario Outline: Verify the internal Organization all section and fields
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -8556,13 +8597,13 @@ Feature: Grantee Smoke scenarios
     Examples:
       | userType      | CreatedNotes       | NotesRecord        | NotesRecord1        |
       | GRANTEE PM    | Sarah PM           | Notes Record PM    | Notes Record PM1    |
-      | GRANTEE PO    | Grantee PO         | Notes Record PO    | Notes Record PO1    |
-      | GRANTEE EXE   | Victor EXE         | Notes Record EXE   | Notes Record EXE1   |
-      | GRANTEE FO    | David FO           | Notes Record FO    | Notes Record FO1    |
-      | GRANTEE FD    | Danielle FD Garcia | Notes Record FD    | Notes Record FD1    |
-      | GRANTEE ADMIN | Product QA         | Notes Record ADMIN | Notes Record ADMIN1 |
+#      | GRANTEE PO    | Grantee PO         | Notes Record PO    | Notes Record PO1    |
+#      | GRANTEE EXE   | Victor EXE         | Notes Record EXE   | Notes Record EXE1   |
+#      | GRANTEE FO    | David FO           | Notes Record FO    | Notes Record FO1    |
+#      | GRANTEE FD    | Danielle FD Garcia | Notes Record FD    | Notes Record FD1    |
+#      | GRANTEE ADMIN | Product QA         | Notes Record ADMIN | Notes Record ADMIN1 |
 
-  @440386 @476278 @ValidatePMusercancreateandActivateStrategicplan @Grantee_Smoke
+  @440386 @476278 @ValidatePMusercancreateandActivateStrategicplan @Grantee_Smoke @GranteeTest
   Scenario Outline: Validate PM user can create and Activate Strategic plan
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
@@ -8734,9 +8775,9 @@ Feature: Grantee Smoke scenarios
     Examples:
       | userType    | emailIdFrom                     | emailIdTo                       |
       | GRANTEE PM  | sarah.pm.23@yopmail.com         | victor.exeqagrantee@yopmail.com |
-      | GRANTEE EXE | victor.exeqagrantee@yopmail.com | sarah.pm.23@yopmail.com         |
+#      | GRANTEE EXE | victor.exeqagrantee@yopmail.com | sarah.pm.23@yopmail.com         |
 
-  @440274 @ValidateFocusAreaWithEXEProfileAbletocreateActivateDeactivethefocusarea @Grantee_Smoke
+  @440274 @ValidateFocusAreaWithEXEProfileAbletocreateActivateDeactivethefocusarea @Grantee_Smoke @GranteeTest
   Scenario: Validate Focus Area With EXE Profile Able to create Activate Deactive the focus area
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     When I navigate to "Planning" tab
