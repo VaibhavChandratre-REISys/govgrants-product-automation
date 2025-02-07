@@ -4805,6 +4805,7 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "BPCAMENDID"
+    And I halt execution
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     When I enter values into fields
@@ -4991,7 +4992,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
 
-  @463441 @ValidatePreAppwithPMprofileabletoaproverwithsingleapprover @Grantee_Smoke @GranteeTest
+  @463441 @ValidatePreAppwithPMprofileabletoaproverwithsingleapprover @Grantee_Smoke
   Scenario: Validate PreApp with PM profile ,Able to aprover with single approver
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "COSTSHARING_NO"
     When I login to "As a Grantee" app as "GRANTEE PM" user
