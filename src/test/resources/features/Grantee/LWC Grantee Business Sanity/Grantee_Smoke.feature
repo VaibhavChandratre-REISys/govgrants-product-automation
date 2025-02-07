@@ -4335,7 +4335,7 @@ Feature: Grantee Smoke scenarios
 #    And I switch to parent tab
     And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see the image "Attachment.pdf" in page detail
-    And I click on "close" button for view files page
+    And I click on "Close" button for view files page
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Notice of Award" at upload file modal
