@@ -6031,7 +6031,7 @@ Feature: Grantee Smoke scenarios
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---" by clicking "Edit" :
       | Title                  | Target | Current Value | Current Value As Of |
       | Automation Runtime KPI | 10     | 10            | 0                   |
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
@@ -6443,7 +6443,7 @@ Feature: Grantee Smoke scenarios
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
     And I click modal button "Close"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---" by clicking "Edit" :
       | Title                  | Target | Current Value | Current Value As Of |
       | Automation Runtime KPI | 10     | 10            | 0                   |
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
@@ -7045,7 +7045,7 @@ Feature: Grantee Smoke scenarios
     Then I can see row level action button "View" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     Then I can see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     Then I can see row level action button "Remove" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:budgetPeriodTableId---" by clicking "Edit" :
       | Title                  | Target | Current Value | Current Value As Of |
       | Automation Runtime KPI | 10     | 10            | 0                   |
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
@@ -7688,7 +7688,7 @@ Feature: Grantee Smoke scenarios
 #      | GRANTEE FD    | AttachmentTesting.pdf | Notes for FD    |
 #      | GRANTEE ADMIN | AttachmentTesting.pdf | Notes for ADMIN |
 
-  @443755 @477510 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @Grantee_Smoke @GranteeTest
+  @443755 @477510 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @Grantee_Smoke
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -8603,7 +8603,7 @@ Feature: Grantee Smoke scenarios
 #      | GRANTEE FD    | Danielle FD Garcia | Notes Record FD    | Notes Record FD1    |
 #      | GRANTEE ADMIN | Product QA         | Notes Record ADMIN | Notes Record ADMIN1 |
 
-  @440386 @476278 @ValidatePMusercancreateandActivateStrategicplan @Grantee_Smoke @GranteeTest
+  @440386 @476278 @ValidatePMusercancreateandActivateStrategicplan @Grantee_Smoke
   Scenario Outline: Validate PM user can create and Activate Strategic plan
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
