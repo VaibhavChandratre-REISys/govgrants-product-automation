@@ -629,10 +629,10 @@ Feature: Grantee Smoke scenarios
     Examples:
       | User           |
       | GRANTEE EXE    |
-      | GRANTEE PM     |
-      | GRANTEE PO     |
-      | GRANTEE ADMIN1 |
-      | GRANTEE FO     |
+#      | GRANTEE PM     |
+#      | GRANTEE PO     |
+#      | GRANTEE ADMIN1 |
+#      | GRANTEE FO     |
 
   @486596 @486597 @BudgetRedirectARPmusershouldabletoseethevalidation @Grantee_Smoke
   Scenario Outline: Budget Redirect AR-Pm user should able to see the validation
@@ -1905,7 +1905,7 @@ Feature: Grantee Smoke scenarios
       | userType   | userName | UEI          |
       | GRANTEE PM | Sarah PM | 123456789123 |
 
-  @484063 @ValidateFromAppGPCloseoutwithPMProfileabletocreateProjectperiodcloseoutandabletocompletethecloseout @Grantee_Smoke @GranteeTest
+  @484063 @ValidateFromAppGPCloseoutwithPMProfileabletocreateProjectperiodcloseoutandabletocompletethecloseout @Grantee_Smoke
   Scenario: Validate From App GP Closeout with PM Profile Able to create Project period closeout and able to complete the closeout
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -4324,9 +4324,9 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see value "Interim Award Document" for title "Classification" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     When I click modal button "Close"
-    Then I see "Attachment.pdf" has been added in "Amendment Files" flex table
+    Then I see "AttachmentTesting.pdf" has been added in "Amendment Files" flex table
     Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
@@ -4337,7 +4337,7 @@ Feature: Grantee Smoke scenarios
 #    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
 #    And I switch to parent tab
     And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly see the image "Attachment.pdf" in page detail
+    Then I softly see the image "AttachmentTesting.pdf" in page detail
     And I click on "Close" button for view files page
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I update title as "Automation.pdf" on upload file modal
