@@ -4807,6 +4807,7 @@ Feature: Grantee Smoke scenarios
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "BPCAMENDID"
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     When I enter values into fields
       | Value | Field                 |
       | 0     | SubmittedToGrantor__c |
@@ -5025,6 +5026,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
+    And I wait for "100" seconds
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
@@ -5724,7 +5726,7 @@ Feature: Grantee Smoke scenarios
 #      | Sarah PM user   | GRANTEE PM  | Sarah PM   |
 #      | Victor EXE user | GRANTEE EXE | Victor EXE |
 
-  @445639 @477317 @477315 @477316 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke @GranteeTest
+  @445639 @477317 @477315 @477316 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke
   Scenario Outline: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -6145,7 +6147,7 @@ Feature: Grantee Smoke scenarios
 #      | GRANTEE PO    | Grantee PO | 123456789123 |
 #      | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @445640 @446229 @477326 @477325 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke @GranteeTest
+  @445640 @446229 @477326 @477325 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke
   Scenario Outline: Validate Financial Report Schedule user can edit Financial report schedule on Created Submitted for review Reviewed Activated award
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -7045,7 +7047,7 @@ Feature: Grantee Smoke scenarios
     Then I can see row level action button "View" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     Then I can see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     Then I can see row level action button "Remove" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:budgetPeriodTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---" by clicking "Edit" :
       | Title                  | Target | Current Value | Current Value As Of |
       | Automation Runtime KPI | 10     | 10            | 0                   |
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
