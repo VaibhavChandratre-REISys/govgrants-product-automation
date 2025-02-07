@@ -1594,7 +1594,7 @@ Feature: Validate all scenarios of every modules flow
       | pm.automation@yopmail.com | exe.automation@yopmail.com | test    | Automation Test |
     Then I see the text "Email Sent Successfully." in modal
 
-  @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
+  @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI @debug
   Scenario: Validate PM user should able to Create & Activate the KPI
 #    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
 #    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
@@ -1672,7 +1672,7 @@ Feature: Validate all scenarios of every modules flow
 #    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD"
     And I halt execution
 
-  @debug
+  @debugtest
   Scenario:
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/ServiceArea__c/a3aKQ0000008RHLYA2/view"
