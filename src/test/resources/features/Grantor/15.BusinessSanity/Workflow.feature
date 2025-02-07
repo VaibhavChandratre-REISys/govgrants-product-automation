@@ -1619,6 +1619,7 @@ Feature: Validate all scenarios of every modules flow
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
 #    And I create adhoc closeout "{SavedValue:Automation Runtime Award}" for status "Completed" with properties "UPDATE_CLOSEOUT_TYPE"
+    And I create schedule closeout "{SavedValue:Automation Runtime Award}" for status "Created" with properties "default"
     And I create schedule closeout "{SavedValue:Automation Runtime Award}" for status "Completed" with properties "default"
 #    And I "Submitted to Grantor" the "Progress Report" for title "Automation Runtime Award103116" with properties "default"
 #    And I Created the schedule "Financial Report" for title "{SavedValue:Automation Runtime Award}" with properties "default"

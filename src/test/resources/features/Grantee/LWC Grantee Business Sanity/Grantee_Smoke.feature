@@ -5026,6 +5026,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
+    And I wait for "100" seconds
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
