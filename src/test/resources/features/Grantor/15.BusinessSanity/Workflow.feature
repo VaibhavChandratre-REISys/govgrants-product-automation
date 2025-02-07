@@ -1620,10 +1620,11 @@ Feature: Validate all scenarios of every modules flow
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
 #    And I create adhoc closeout "{SavedValue:Automation Runtime Award}" for status "Completed" with properties "UPDATE_CLOSEOUT_TYPE"
     And I create schedule closeout "{SavedValue:Automation Runtime Award}" for status "Created" with properties "default"
+    And I create schedule closeout "{SavedValue:Automation Runtime Award}" for status "Submitted to Grantor" with properties "default"
     And I create schedule closeout "{SavedValue:Automation Runtime Award}" for status "Completed" with properties "default"
-#    And I "Submitted to Grantor" the "Progress Report" for title "Automation Runtime Award103116" with properties "default"
-#    And I Created the schedule "Financial Report" for title "{SavedValue:Automation Runtime Award}" with properties "default"
-#    And I update the schedule "Financial Report" in "Submitted to Grantor" state for title "Automation Runtime Award103116" with properties "FINAL_PROGRESS_YES"
+  #    And I "Submitted to Grantor" the "Progress Report" for title "Automation Runtime Award103116" with properties "default"
+#    And I Created the schedule "Progress Report" for title "{SavedValue:Automation Runtime Award}" with properties "default"
+#    And I update the schedule "Financial Report" in "Approved" state for title "Automation Runtime Award115221" with properties "FINAL_PROGRESS_YES"
 #    And I "Approved" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
 #    When I login to "As a Grantee" app as "GRANTEE PM" user
 #    And I navigate to "Grants" tab
