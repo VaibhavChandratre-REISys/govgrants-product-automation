@@ -2696,7 +2696,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @477676 @477677 @477679 @476282 @VerifyPOusershouldabletoseethevalidationmessagesandrejecttheSOWamendmentrequest @Grantee_Smoke @GranteeTest
+  @477676 @477677 @477679 @476282 @VerifyPOusershouldabletoseethevalidationmessagesandrejecttheSOWamendmentrequest @Grantee_Smoke
   Scenario Outline: Verify PO user should able to see the validation messages and reject the SOW amendment request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -3270,7 +3270,7 @@ Feature: Grantee Smoke scenarios
 #      | GRANTEE PO      |
 #      | GRANTEE PM      |
 
-  @475809 @ValidateNotYetConvertedOpportunityGrantsgovPMusercancreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord @Grantee_Smoke @GranteeTest
+  @475809 @ValidateNotYetConvertedOpportunityGrantsgovPMusercancreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord @Grantee_Smoke
   Scenario: Not Yet Converted Opportunity Grantsgov PM user can create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberProjectnarrativeForm}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212704" with properties "default"
@@ -4923,7 +4923,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Monitoring" sub tab
     Then I softly do not see value "{SavedValue:AmendTermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
 
-  @463431 @PreAppVerifyWithPOprofileAbletoaddpeerreviewerwithAllowrecordEditingYes @Grantee_Smoke @GranteeTest
+  @463431 @PreAppVerifyWithPOprofileAbletoaddpeerreviewerwithAllowrecordEditingYes @Grantee_Smoke
   Scenario:PreApp - Verify With PO profile , Able to add peer reviewer with Allow record Editing - Yes.
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     Given I login to "As a Grantee" app as "GRANTEE PO" user
@@ -5041,7 +5041,7 @@ Feature: Grantee Smoke scenarios
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
-  @463418 @463456 @ValidatePreAppwithPOprofileifinopportunitiespreapplicationrequiredselectYesthenonlyabletocreatepreapplication @Grantee_Smoke @GranteeTest
+  @463418 @463456 @ValidatePreAppwithPOprofileifinopportunitiespreapplicationrequiredselectYesthenonlyabletocreatepreapplication @Grantee_Smoke
   Scenario: Validate PreApp with PO profile if in opportunities pre application required select Yes then only able to create pre application
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PO" user
@@ -6547,7 +6547,7 @@ Feature: Grantee Smoke scenarios
 #      | GRANTEE PO    | Grantee PO | 123456789123 |
 #      | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @445435 @ValidateNonFederalprogramPMusercancreateandActivateNonFederalprogram @Grantee_Smoke @GranteeTest
+  @445435 @ValidateNonFederalprogramPMusercancreateandActivateNonFederalprogram @Grantee_Smoke
   Scenario: Validate Non-Federal program PM user can create and Activate Non Federal program
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
@@ -7506,7 +7506,7 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see row level action button "Delete" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
 
-  @443756 @461002 @477522 @477527 @477529 @477532 @477542 @482151 @482152 @482153 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg @Grantee_Smoke @GranteeTest
+  @443756 @461002 @477522 @477527 @477529 @477532 @477542 @482151 @482152 @482153 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg @Grantee_Smoke
   Scenario Outline: Validate Federal user should see all fields and section on federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -8196,7 +8196,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE FD    |
       | GRANTEE ADMIN |
 
-  @442181 @477498 @477500 @477501 @477504 @477507 @482130 @482131 @482132 @482133 @482134 @ValidatePMusershouldabletosaveandcreateinternalcontact @Grantee_Smoke @GranteeTest
+  @442181 @477498 @477500 @477501 @477504 @477507 @482130 @482131 @482132 @482133 @482134 @ValidatePMusershouldabletosaveandcreateinternalcontact @Grantee_Smoke
   Scenario Outline: Validate PM/PO/FO/EXE/FD/ADMIN user should able to save and create internal contact
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -8371,7 +8371,7 @@ Feature: Grantee Smoke scenarios
 #      | GRANTEE FD    |
 #      | GRANTEE ADMIN |
 
-  @443719 @482123 @442117 @477483 @477485 @477486 @477488 @477489 @482124 @482126 @482127 @VerifytheinternalOrganizationallsectionandfields @Grantee_Smoke @GranteeTest
+  @443719 @482123 @442117 @477483 @477485 @477486 @477488 @477489 @482124 @482126 @482127 @VerifytheinternalOrganizationallsectionandfields @Grantee_Smoke
   Scenario Outline: Verify the internal Organization all section and fields
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -8712,7 +8712,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Activities" as "Automation Test Description"
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:strategicObjectivesKPITableId---"
-    When I click "Add" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
+    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
