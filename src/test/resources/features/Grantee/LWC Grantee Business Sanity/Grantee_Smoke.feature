@@ -7820,7 +7820,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:nonFedChildOrgTableId---"
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:nonFedChildOrgTableId---"
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:nonFedChildOrgAssociateTableId---"
-    When I click "Associate" after selection of "NGO" in the table "---program:-:nonFedChildOrgAssociateTableId---"
+    When I click "Associate" after selection of "NGO" in the table "---grantee_tableId:-:nonFedChildOrgAssociateTableId---"
     And I click modal button "Close"
     And I wait for "2" seconds
     And I save the value from row "1" for column name "Organization Name" as "OrganizationName" from flex table "---grantee_tableId:-:nonFedChildOrgTableId---"
