@@ -140,6 +140,12 @@ public class CommonSteps {
     public void iSoftlySeeNotificationContains(String usage, String messageTitle, String messageValue) {
         projectManager.assertNotificationValues(usage,messageTitle,messageValue);
     }
+
+    @And("I click on {string} button for view files page")
+    public void iClickOnButtonForViewFilesPage(String buttonName) {
+        projectManager.clickOnButtonForViewFilesPage(buttonName);
+
+    }
 }
 
 

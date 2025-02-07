@@ -76,6 +76,7 @@ public class ProjectManager extends ProjectWebServices {
     private boolean imageIsVisibleOrNot(String imageName) {
         boolean flag = false;
         try {
+            I.amPerforming().waitFor().ElementToBePresent(By.xpath("//img[contains(@title,'" + imageName + "')] | //img[contains(@alt,'" + imageName + "')]"));
             if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(ByUsing.xpath("//img[contains(@title,'" + imageName + "')] | //img[contains(@alt,'" + imageName + "')]")))) {
                 flag = true;
             }
@@ -228,5 +229,9 @@ public class ProjectManager extends ProjectWebServices {
             flag = false;
         }
         return flag;
+    }
+
+    public void clickOnButtonForViewFilesPage(String buttonName) {
+        I.amPerforming().click().on(By.xpath("//div[@class='forceContentPreviewerAction']//button[@title='" + buttonName + "']"));
     }
 }
