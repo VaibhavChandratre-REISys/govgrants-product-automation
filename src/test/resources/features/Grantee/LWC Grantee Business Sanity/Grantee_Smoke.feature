@@ -1929,7 +1929,7 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     Then I softly see field "Status" as "Active"
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
-    And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Overview" sub tab
     And I save the field labeled "Project Period Start Date" as "PPST"
     When I navigate to "Closeout" sub tab
@@ -1940,7 +1940,7 @@ Feature: Grantee Smoke scenarios
       | Value             | Field           |
       | {SavedValue:PPST} | CloseoutDate__c |
     And I click modal button "Save and Continue"
-    And I wait for "5" seconds
+    And I wait for "3" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -5448,12 +5448,16 @@ Feature: Grantee Smoke scenarios
 #    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
 #    And I switch to parent tab
     And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly see the image "AttachmentTesting.pdf" in page detail
+    Then I softly see the image "Attachment.pdf" in page detail
     And I click on "Close" button for view files page
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" by clicking "Edit" :
-      | Title          | Title          | Classification  |
-      | Attachment.pdf | Automation.pdf | Notice of Award |
-    And I wait for "3" seconds
+    And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I update title as "Attachment.pdf" on upload file modal
+    And I select Classification as "Notice of Award" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
     And I click on "Delete" icon for "Notice of Award" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" without waiting for record
     Then I softly do not see value "Notice of Award" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
