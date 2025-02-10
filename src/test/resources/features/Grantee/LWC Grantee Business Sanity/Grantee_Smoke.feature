@@ -3894,7 +3894,6 @@ Feature: Grantee Smoke scenarios
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID"
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
-    And I halt execution
     When I click on "Submit to Grantor" in the page details
     When I enter values into fields
       | Value | Field                 |
