@@ -4025,7 +4025,7 @@ public class GrantorPayloads {
                 return updateBudgetRedirection(defaultJson);
             case "CARRY_FORWARD":
                 return updateCarryForward(defaultJson, type, grantTitle, state);
-            case "BUDGET_PERIOD_CHANGE":
+            case "BUDGET_PERIOD_CHANGE_GRANTEE_PO":
                 return updateBudgetPeriodChange(defaultJson, type, grantTitle, state);
             case "NON_CASH_MATCH_BUDGET":
                 return updateNonCashMatchBudget(defaultJson);
@@ -4047,7 +4047,7 @@ public class GrantorPayloads {
         grantAwardData.addProperty("AwardTitle", grantTitle);
         grantAwardData.addProperty("Justification", "Automation Test");
         grantAwardData.addProperty("Impact", "Automation Test Impact");
-        grantAwardData.addProperty("ownerId", ProjectWebServices.getIdOf("User", "Sarah PM"));
+        grantAwardData.addProperty("ownerId", ProjectWebServices.getIdOf("User", "Grantee PO"));
         grantAwardData.addProperty("isStatusCreatedOrApproved", state);
         grantAwardData.addProperty("MaximumIndirectCostRate", 10);
         grantAwardData.addProperty("NewAwardTitle", state);
@@ -4233,7 +4233,7 @@ public class GrantorPayloads {
         buildUpItem.addProperty("NonCashMatch", 450);
         buildUpItem.addProperty("ServiceAreaName", "Automation Permanent Focus Area");
         buildUpItems.add(buildUpItem);
-        grantAwardData.add("buildUpItems", buildUpItems);
+        grantAwardData.add("BuildUpItems", buildUpItems);
         JsonArray grantAwardDataArray = new JsonArray();
         grantAwardDataArray.add(grantAwardData);
         defaultJson.add("GrantAwardData", grantAwardDataArray);
@@ -4289,7 +4289,7 @@ public class GrantorPayloads {
         buildUpItem1.addProperty("OtherLeverage", 70);
         buildUpItem1.addProperty("ServiceAreaName", "Automation Permanent Focus Area");
         buildUpItems.add(buildUpItem1);
-        grantAwardData.add("buildUpItems", buildUpItems);
+        grantAwardData.add("BuildUpItems", buildUpItems);
 
 
         // Indirect Rates
@@ -4342,7 +4342,7 @@ public class GrantorPayloads {
         buildUpItem1.addProperty("OtherLeverage", 10);
         buildUpItem1.addProperty("ServiceAreaName", "Automation Permanent Focus Area");
         buildUpItems.add(buildUpItem1);
-        grantAwardData.add("buildUpItems", buildUpItems);
+        grantAwardData.add("BuildUpItems", buildUpItems);
         JsonArray grantAwardDataArray = new JsonArray();
         grantAwardDataArray.add(grantAwardData);
         defaultJson.add("GrantAwardData", grantAwardDataArray);
@@ -4408,7 +4408,7 @@ public class GrantorPayloads {
         buildUpItem.addProperty("OtherLeverage", 200);
         buildUpItem.addProperty("ServiceAreaName", "Automation Permanent Focus Area");
         buildUpItems.add(buildUpItem);
-        grantAwardData.add("buildUpItems", buildUpItems);
+        grantAwardData.add("BuildUpItems", buildUpItems);
 
 
         // Indirect Rates
