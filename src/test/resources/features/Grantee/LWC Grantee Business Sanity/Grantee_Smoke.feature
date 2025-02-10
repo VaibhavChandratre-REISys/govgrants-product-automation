@@ -5448,8 +5448,8 @@ Feature: Grantee Smoke scenarios
 #    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
 #    And I switch to parent tab
     And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly see "View" opens in overLay window
-    And I click modal button "Close"
+    Then I softly see the image "AttachmentTesting.pdf" in page detail
+    And I click on "Close" button for view files page
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" by clicking "Edit" :
       | Title          | Title          | Classification  |
       | Attachment.pdf | Automation.pdf | Notice of Award |
