@@ -2096,6 +2096,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
     When I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
+    And I wait for "100" seconds
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
