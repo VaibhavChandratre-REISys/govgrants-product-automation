@@ -3745,13 +3745,12 @@ public class GrantorPayloads {
         buildUpItems.add(buildUpItem);
         grantAwardData.add("buildUpItems", buildUpItems);
 
-        JsonArray focusAreas1 = new JsonArray();
         JsonObject focusArea2 = new JsonObject();
-        focusArea2.addProperty("Title", "Automation Permanent Focus Area2");
+        focusArea2.addProperty("Title","Automation Permanent Focus Area2");
         focusArea2.addProperty("StartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         focusArea2.addProperty("EndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        focusAreas1.add(focusArea2);
-        grantAwardData.add("focusAreas", focusAreas1);
+        focusAreas.add(focusArea2);
+        grantAwardData.add("focusAreas", focusAreas);
 
         // Adding build-up items
         JsonArray buildUpItems1 = new JsonArray();
