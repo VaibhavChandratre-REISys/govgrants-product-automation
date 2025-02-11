@@ -721,7 +721,6 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
-    And I halt execution
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
