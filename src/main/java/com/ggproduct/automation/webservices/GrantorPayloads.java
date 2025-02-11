@@ -3725,6 +3725,26 @@ public class GrantorPayloads {
     private JsonObject payloadForSecondFocusWithBudget(JsonObject json) {
         JsonObject grantAwardData = json.getAsJsonArray("AwardChildData").get(0).getAsJsonObject();
 
+        JsonArray focusAreas = new JsonArray();
+        JsonObject focusArea1 = new JsonObject();
+        focusArea1.addProperty("Title", "Automation Permanent Focus Area");
+        focusArea1.addProperty("StartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        focusArea1.addProperty("EndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        focusAreas.add(focusArea1);
+        grantAwardData.add("focusAreas", focusAreas);
+
+        JsonArray buildUpItems = new JsonArray();
+        JsonObject buildUpItem = new JsonObject();
+        buildUpItem.addProperty("BudgetCategory", "Construction");
+        buildUpItem.addProperty("Title", "Construction");
+        buildUpItem.addProperty("Narrative", "Test Build-up");
+        buildUpItem.addProperty("awardBudget", 5000);
+        buildUpItem.addProperty("CashMatch", 500);
+        buildUpItem.addProperty("OtherLeverage", 200);
+        buildUpItem.addProperty("ServiceAreaName", "Automation Permanent Focus Area");
+        buildUpItems.add(buildUpItem);
+        grantAwardData.add("buildUpItems", buildUpItems);
+
         JsonArray focusAreas1 = new JsonArray();
         JsonObject focusArea2 = new JsonObject();
         focusArea2.addProperty("Title", "Automation Permanent Focus Area2");
@@ -3734,7 +3754,7 @@ public class GrantorPayloads {
         grantAwardData.add("focusAreas", focusAreas1);
 
         // Adding build-up items
-        JsonArray buildUpItems = new JsonArray();
+        JsonArray buildUpItems1 = new JsonArray();
         JsonObject buildUpItem1 = new JsonObject();
         buildUpItem1.addProperty("BudgetCategory", "Construction");
         buildUpItem1.addProperty("Title", "Construction");
@@ -3743,8 +3763,8 @@ public class GrantorPayloads {
         buildUpItem1.addProperty("CashMatch", 500);
         buildUpItem1.addProperty("OtherLeverage", 200);
         buildUpItem1.addProperty("ServiceAreaName", "Automation Permanent Focus Area2");
-        buildUpItems.add(buildUpItem1);
-        grantAwardData.add("buildUpItems", buildUpItems);
+        buildUpItems1.add(buildUpItem1);
+        grantAwardData.add("buildUpItems", buildUpItems1);
 
         JsonArray grantAwardDataArray = new JsonArray();
         grantAwardDataArray.add(grantAwardData);
