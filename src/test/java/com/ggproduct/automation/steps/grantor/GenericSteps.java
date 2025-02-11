@@ -243,7 +243,7 @@ public class GenericSteps {
 
             for (int i = 2; i < data.length; i++) {
                 int colLen = data[i].length;
-                govgrants.perform().mainPage().clickMainMenuBar(testDataMap.get("Navigation"));
+                govgrants.perform().mainPage().clickMainMenuBarForLwc(testDataMap.get("Navigation"));
                 govgrants.perform().sideBar().clickSideBarContent(testDataMap.get("subHeader"), testDataMap.get("subHeaderContent"));
                 govgrants.perform().flexTable().clickTableTopRightButton(testDataMap.get("FlexTableId"), testDataMap.get("PageDetailsButton"));
 
@@ -253,7 +253,7 @@ public class GenericSteps {
                     String value = data[i][j].trim();
 
                     if (subTab != null && !"None".equalsIgnoreCase(subTab) && !subTab.equalsIgnoreCase(currentSubTab)) {
-                        govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
+                        govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
                         currentSubTab = subTab;
                     }
                     govgrants.perform().inputForms().inputFormDataByFieldApiName(apiName, value, false);
@@ -521,14 +521,14 @@ public class GenericSteps {
 
     @And("I click on submit review")
     public void iClickOnSubmitReview() {
-        By submit_button = By.xpath("//div[@class='panel-footer']//div[@id='footerButtonsPanel']//*[text()='Submit Review' or @title='Submit Review'] | //div[contains(@class,'modal__container')]//*[text()='Submit Review' or @title='Submit Review']");
+        By submit_button = By.xpath("//div[contains(@class,'modal__container')]//*[text()='Submit Review' or @title='Submit Review']");
         I.amPerforming().click().on(submit_button);
     }
 
     @And("I click on Menu icon present on top right corner of the page")
     public void iClickOnMenuIconPresentOnTopRightCornerOfThePage() {
-        I.amPerforming().waitFor().makeThreadSleep(2000);
-        By menu = By.xpath("//*[contains(@class,'overview-header')]//*[@title='Menu' or (contains(@class,'menu') and (@class='bars'))] | //gnt-header-overview//lightning-button-menu//button");
+        By menu = By.xpath("//gnt-header-overview//lightning-button-menu//button");
+        I.amPerforming().waitFor().ElementToBeVisible(menu);
         I.amPerforming().click().withJavaScript(menu);
     }
 
@@ -676,4 +676,11 @@ public class GenericSteps {
     public void iClickOnButtonOnLeftNavigationForGlobalSearch(String buttonName) {
         grantorProjectManager.isButtonClickOnLeftNavigation(buttonName);
     }
+
+    @And("I delete the file in download folder")
+    public void iDeleteTheFileInDownloadFolder() throws IOException {
+        I.amPerforming().waitFor().makeThreadSleep(2000);
+        I.amPerforming().fileHandling().cleanDownloadFolder();
+    }
+
 }

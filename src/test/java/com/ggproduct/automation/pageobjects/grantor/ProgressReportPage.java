@@ -113,7 +113,7 @@ public class ProgressReportPage extends GrantorProjectManager {
      */
     public Boolean isTopRightButtonDisplayed(String buttonName, String flextableHeaderName) {
         try {
-            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//a[text()='" + flextableHeaderName + "']/../../div/button[text()='" + buttonName + "']"));
+            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flextableHeaderName + "']//*[@title='" + buttonName + "' or text()='" + buttonName + "']"));
         } catch (Exception e) {
             return false;
         }
@@ -186,7 +186,7 @@ public class ProgressReportPage extends GrantorProjectManager {
 
     public Boolean isCheckboxFieldEditable(String fieldLabel) {
         try {
-            I.amPerforming().checkToSee().isDisplayed(By.xpath("//span[@class='customLabelstyle' and text()='" + fieldLabel + "']/ancestor::dl[1]//dd//input[@type='checkbox' and @disabled='true']"));
+            I.amPerforming().checkToSee().isDisplayed(By.xpath("//label[text()='" + fieldLabel + "']//parent::div//input[@type='checkbox']"));
             return false;
         } catch (Exception e) {
         }

@@ -27,12 +27,9 @@ import static com.helperPackage.misclib.ConsoleFormatter.COLOR.GREEN;
 import static com.helperPackage.misclib.ConsoleFormatter.ICON.TICK;
 
 public final class MainPage {
-    public static By navLogo = By.xpath(""
-            + "//div[@id='holdon-overlay']" // https://bit.ly/2WgAkE1
-            + " | "
-            + "//div[@class='rowLevelOverlay'] | //div[@class='modalLoadIcon' and @style='display: block;] | //div[@class='rowLevelOverlay1']");
+    public static By navLogo = By.xpath("//div[@class='rowLevelOverlay1']//div[@class='spinner-container slds-spinner']");
     private final By
-            loginDropDown = By.xpath("//div[contains(@class,'navTopHeader')]//li[@class='dropdown userDropdown']//a[@class='dropdown-toggle'] | //div[contains(@class,'global-header')]//li//span[contains(@class,'oneUserProfileCardTrigger')] | //button//div[contains(@class,'comm-user-profile-menu__trigger-icon')]"),
+            loginDropDown = By.xpath(" //div[contains(@class,'global-header')]//li//span[contains(@class,'oneUserProfileCardTrigger')] | //button//div[contains(@class,'comm-user-profile-menu__trigger-icon')]"),
             egmsHeader = By.xpath("//span[contains(@class, 'navbarBrandText')]"),
             topRightDropDown = By.cssSelector("div>ul>li.dropdown.appDropdown>a"),
             navProfile_CurrentApp = By.cssSelector("div#myNavbarProfile>ul>li>a>span"),
@@ -43,7 +40,7 @@ public final class MainPage {
             loginResult = By.xpath("//span[contains(@class, 'navbarBrandText')]" +
                     " | //li[contains(@class, 'main-title')]" +
                     " | //*[text()='GovGrants Launcher']" +
-                    " | //a[text()=\"I Don't Want to Register My Phone\"]"),
+                    " | //a[text()='I Don't Want to Register My Phone']"),
             loginResultLWC = By.xpath("//a[@title='Home']"),
             switchToLighteningButton = By.xpath("//a[@class='switch-to-lightning']"),
             govGrantsLauncherButton = By.xpath("//ul/li/a[@title='GovGrants Launcher Tab']"),
@@ -292,20 +289,8 @@ public final class MainPage {
      *
      * @param tabName
      */
-    public void clickMainMenuBar(String tabName) {
-        By mainMenuButton = By.xpath("//div/ul[@class='nav navbar-nav' or @class='nav nav-tabs']/li/a[@title='" + tabName
-                + "' or @name='" + tabName + "'] | //nav/ul/li/a[@title='" + tabName + "' or @name='" + tabName + "']");
-        if (EnvironmentFactory.getDevice().equalsIgnoreCase("firefox")) {
-            I.amPerforming().waitFor().makeThreadSleep(3000);
-        }
-        I.amPerforming().click().on(mainMenuButton);
-    }
-
     public void clickMainMenuBarForLwc(String tabName) {
         By mainMenuButton = By.xpath("//div[@class='slds-no-print oneAppNavContainer']//a[@title='" + tabName + "' or @name='" + tabName + "'] | //nav//ul//li//a[text()='" + tabName + "']");
-        if (EnvironmentFactory.getDevice().equalsIgnoreCase("firefox")) {
-            I.amPerforming().waitFor().makeThreadSleep(3000);
-        }
         I.amPerforming().click().withJavaScript(mainMenuButton);
     }
 
@@ -456,7 +441,7 @@ public final class MainPage {
     }
 
     public String readAndRenamePDFFile(int pageNumber, String fileName) {
-        File file = new File(System.getProperty("user.dir") + File.separatorChar + "target");
+        File file = new File(System.getProperty("user.dir") + File.separatorChar + "target"+ File.separatorChar +"download");
         I.amPerforming().waitFor().makeThreadSleep(5000);
         I.amPerforming().fileHandling().toRenameFileWithSpecificExtension(file, fileName, "pdf", "pdf");
         return I.amPerforming().fileHandling().forAdobeReaderAnd().readFromAdobeFileOnLocalAtUserDirectory(
@@ -526,7 +511,7 @@ public final class MainPage {
 
     public By getLoginDropDownItems(String loginMenuItem) {
         return By
-                .xpath("//div/ul/li[contains(@class,'dropdown userDropdown')]/ul/li/a[@title='" + loginMenuItem + "'] | //div[contains(@class,'profile-card-toplinks')]//a[text()='" + loginMenuItem + "'] | //div[contains(@class,'comm-user-profile-menu__dropdown-ctn')]//ul[@role='menu']//li//a//span[text()='" + loginMenuItem + "']");
+                .xpath("//div[contains(@class,'profile-card-toplinks')]//a[text()='" + loginMenuItem + "'] | //div[contains(@class,'comm-user-profile-menu__dropdown-ctn')]//ul[@role='menu']//li//a//span[text()='" + loginMenuItem + "']");
     }
 
     /**

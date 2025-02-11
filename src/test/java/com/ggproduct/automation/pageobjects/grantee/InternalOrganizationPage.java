@@ -49,11 +49,7 @@ public class InternalOrganizationPage extends GranteeProjectManager {
      * @param numberofEntries
      */
     public void clickAndSelectValueInsideShowEntriesDropdown(String flexTableId, String numberofEntries) {
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-            govgrants.perform().flexTable().flexTableShowEntriesDropDown(flexTableId, numberofEntries);
-        } else {
             govgrants.perform().flexTable().flexTableShowEntriesDropDownForLWC(flexTableId, numberofEntries);
-        }
     }
 
     /**
@@ -63,7 +59,7 @@ public class InternalOrganizationPage extends GranteeProjectManager {
      * @param titleName
      */
     public void performClickOnSpecificTableColumnHeader(String tableId, String titleName) {
-        I.amPerforming().click().on(govgrants.perform().flexTable().getSpecificElementFromTableHeader(tableId, titleName));
+        I.amPerforming().click().on(govgrants.perform().flexTable().getSpecificElementFromTableHeaderForLWC(tableId, titleName));
     }
 
   
@@ -238,13 +234,13 @@ public class InternalOrganizationPage extends GranteeProjectManager {
     }
 
     private boolean isButtonDisplayedAtModal(String btn) {
-        By iframeOfActiveModal = By.xpath("//div[contains(@class,'modal') and contains(@style,'block')]//iframe");
-        String iframeId = I.amPerforming().actionToGet().attribute(iframeOfActiveModal, "id");
-        I.amPerforming().switchTo().frame(By.xpath("//iframe[@id='" + iframeId + "']"));
+//        By iframeOfActiveModal = By.xpath("//div[contains(@class,'modal') and contains(@style,'block')]//iframe");
+//        String iframeId = I.amPerforming().actionToGet().attribute(iframeOfActiveModal, "id");
+//        I.amPerforming().switchTo().frame(By.xpath("//iframe[@id='" + iframeId + "']"));
 
         boolean flag = false;
         try {
-            By toLookInto = By.xpath("//div[not (contains(@id,'footerButtonsPanel'))]//input[@value='Save' or text()='Save']");
+            By toLookInto = By.xpath("//div[@class='slds-modal__container']//button[@title='" + btn + "' or text()='" + btn + "']");
             I.amPerforming().checkToSee().isDisplayed(toLookInto);
             flag = true;
         } catch (Exception ee) {
@@ -664,7 +660,7 @@ public class InternalOrganizationPage extends GranteeProjectManager {
     private boolean isNumberOfPagesInsideTableDisplayed(String tableId, String text) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//*[@id='" + tableId + "']//span[contains(text(),'" + text + "')]"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//span[contains(text(),'" + text + "')]"))) {
                 flag = true;
             }
         } catch (Exception e) {
@@ -782,7 +778,7 @@ public class InternalOrganizationPage extends GranteeProjectManager {
      * validate if fields is not visible at page details
      */
     private boolean isFieldsVisibleAtPAgeDetails(String fieldApiName) {
-        By fieldsAtPage = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']");
+        By fieldsAtPage = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']/../../parent::div[not(contains(@class,'hide'))]");
         boolean flag = false;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(fieldsAtPage)) {
