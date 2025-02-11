@@ -3753,7 +3753,6 @@ public class GrantorPayloads {
         grantAwardData.add("focusAreas", focusAreas);
 
         // Adding build-up items
-        JsonArray buildUpItems1 = new JsonArray();
         JsonObject buildUpItem1 = new JsonObject();
         buildUpItem1.addProperty("BudgetCategory", "Construction");
         buildUpItem1.addProperty("Title", "Construction");
@@ -3762,8 +3761,8 @@ public class GrantorPayloads {
         buildUpItem1.addProperty("CashMatch", 500);
         buildUpItem1.addProperty("OtherLeverage", 200);
         buildUpItem1.addProperty("ServiceAreaName", "Automation Permanent Focus Area2");
-        buildUpItems1.add(buildUpItem1);
-        grantAwardData.add("buildUpItems", buildUpItems1);
+        buildUpItems.add(buildUpItem1);
+        grantAwardData.add("buildUpItems", buildUpItems);
 
         JsonArray grantAwardDataArray = new JsonArray();
         grantAwardDataArray.add(grantAwardData);
