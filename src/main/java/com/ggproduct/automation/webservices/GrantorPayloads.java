@@ -4117,6 +4117,7 @@ public class GrantorPayloads {
         condition1.addProperty("EffectiveFromDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         condition1.addProperty("EffectiveEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         specialCondition.add(condition1);
+        grantAwardData.add("specialCondition", specialCondition);
 
         // Approvers
         JsonArray approvers = new JsonArray();
