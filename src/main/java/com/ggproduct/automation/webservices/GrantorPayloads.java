@@ -4700,9 +4700,6 @@ public class GrantorPayloads {
         JsonObject approver = new JsonObject();
         approver.addProperty("name", ProjectWebServices.getIdOf("User", "Victor EXE"));
         approver.addProperty("Award", "Step1");
-        approver.addProperty("AmendmentRequest", "Step1");
-        approver.addProperty("ProgressReport", "Step1");
-        approver.addProperty("Closeout", "Step1");
         approvers.add(approver);
         grantDetails.add("approvers", approvers);
 

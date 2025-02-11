@@ -1943,6 +1943,8 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Overview" sub tab
     And I save the field labeled "Project Period Start Date" as "PPST"
+    When I navigate to "Awards" sub tab
+    And I save the value from row "1" for column name "Award EGMS ID" as "AwardEGMSID" from flex table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     When I navigate to "Closeout" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
@@ -2121,7 +2123,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Submit to Grantor" in the page details
     Then I softly see "Submit to Grantor" opens in overLay window
     And I click modal button "Save"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Submitted to Grantor On is required to save. |
     When I enter values into fields
@@ -3051,7 +3053,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "13. Is there a maintenance of effort required?" inside page block
     Then I softly see field "14. Does the grant require pass through funding to subrecipients?" inside page block
     Then I softly see field "15. Does the grant allow indirect costs?" inside page block
-    When I hovering mouse on help text icon inside page block detail "15. Does the grant allow indirect costs?"
+    When I hovering mouse on help text icon inside page block detail for invisible element "15. Does the grant allow indirect costs?"
     Then I softly see "Are Indirect Costs Allowed? setting as selected in the Financial Details." shown as help text
     Then I softly see field "16. Is there an administrative cost limit?" inside page block
     Then I softly see field "16a. If yes, what percent is the administrative cost limit?" inside page block
