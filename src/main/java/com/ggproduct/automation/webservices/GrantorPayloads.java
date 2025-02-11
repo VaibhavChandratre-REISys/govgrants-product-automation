@@ -4100,7 +4100,7 @@ public class GrantorPayloads {
         // Indirect Rates
         JsonArray indirectRates = new JsonArray();
         JsonObject indirectRate = new JsonObject();
-        indirectRate.addProperty("title", "New Indirect rate1");
+        indirectRate.addProperty("title", "New Indirect rate2");
         indirectRate.addProperty("effectiveFrom", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         indirectRate.addProperty("effectiveUntil", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(50, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         indirectRate.addProperty("indirectCostRates", 10);
