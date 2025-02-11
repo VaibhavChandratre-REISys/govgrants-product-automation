@@ -1008,7 +1008,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     Then I softly do not see value "Notes Record8" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
   @220104 @220163 @ValidatePMEXEFOusercanAddeditdeletehisnotesonadirectedannouncementwhichisPublished @sprint-9-US-201923  @Notes
-  Scenario: Validate PM/EXE/FO user can Add/edit/delete his notes on a directed announcement which  is Published
+  Scenario: Validate PM/EXE/FO user can Add/edit/delete his notes on a directed announcement which is Published
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Directed" content inside "Announcements" subheader on left panel
