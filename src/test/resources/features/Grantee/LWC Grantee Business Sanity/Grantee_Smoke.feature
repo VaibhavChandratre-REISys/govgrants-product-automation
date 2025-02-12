@@ -7364,10 +7364,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly see value "Optional Other Attachment" for title "Classification" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I click on "Download" icon for "Optional Other Attachment" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---" without waiting for record
-    And I wait for "2" seconds
-    And I download the file
-    And I wait for "2" seconds
     Then I softly verify that the file "Automation.pdf" is downloaded
+    And I close the tab
     And I click on "Delete" icon for "Optional Other Attachment" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---" without waiting for record
     Then I softly do not see value "Optional Other Attachment" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I click on "Save" in the page details
@@ -7384,7 +7382,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Add File" opens in overLay window
     And I upload attachment without random number "Attachment.pdf" of type "Mandatory Other Attachment" from computer
     When I click modal button "Close"
-    Then I see "Attachment.pdf" has been added in "Award Files" flex table
+    Then I see "Attachment.pdf" has been added in "Files" flex table
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
