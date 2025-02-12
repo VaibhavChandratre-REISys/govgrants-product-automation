@@ -7346,7 +7346,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Add File" opens in overLay window
     And I upload attachment without random number "Attachment.pdf" of type "Mandatory Other Attachment" from computer
     When I click modal button "Close"
-    Then I see "Attachment.pdf" has been added in "Award Files" flex table
+    Then I see "Attachment.pdf" has been added in "Files" flex table
     Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
