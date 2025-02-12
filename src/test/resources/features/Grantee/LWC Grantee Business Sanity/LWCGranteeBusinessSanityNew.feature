@@ -15437,7 +15437,6 @@ Feature: Sanity scenarios New
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     And I navigate to "Financials" sub tab
-    And I halt execution
     When I save the field labeled "Total Anticipated Amount" as "TotalAnticipatedAmount"
     Then I softly see field "Total Anticipated Amount" as "{SavedValue:TotalAnticipatedAmount}"
     When I save the field labeled "Award Amount to Date" as "AwardAmounttoDate"

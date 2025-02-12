@@ -7289,5 +7289,116 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
     Examples:
-      | User          |
-      | GRANTEE PO    |
+      | User       |
+      | GRANTEE PO |
+
+  @480737 @ValidatewithPOprofileonClickeditactionotherattachmentformgetopen
+  Scenario: Validate with PO profile on Click edit action other attachment form get open
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I click on "Edit" in the page details
+    And I enter value "123" into field "CongressionalDistrict1__c"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I navigate to "Forms and Files" sub tab
+    When I navigate to "Forms and Files" sub tab
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    Then I softly see value "Other Attachments Forms" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "Edit" icon for "Other Attachments Forms" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+    Then I see the header is "Other Attachment Form" in the page details
+    Then I softly see the field "Agency Owner :" as "Grants.gov" on forms
+    Then I softly see the field "Version :" as "1.2" on forms
+    Then I softly can see "Form" sub tab at view detail page
+    Then I softly see "Files" page block displayed
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly see "Add File" opens in overLay window
+    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Other Attachment" from computer
+    When I click modal button "Close"
+    Then I see "Attachment.pdf" has been added in "Award Files" flex table
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I click on "View" icon for "Mandatory Other Attachment" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly see the image "Attachment.pdf" in page detail
+    And I click on "Close" button for view files page
+    And I click on "Edit" icon for "Mandatory Other Attachment" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Optional Other Attachment" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly see value "Optional Other Attachment" for title "Classification" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I click on "Download" icon for "Optional Other Attachment" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---" without waiting for record
+    And I wait for "2" seconds
+    And I download the file
+    And I wait for "2" seconds
+    Then I softly verify that the file "Automation.pdf" is downloaded
+    And I click on "Delete" icon for "Optional Other Attachment" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---" without waiting for record
+    Then I softly do not see value "Optional Other Attachment" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I click on "Save" in the page details
+    And I click on Menu icon present on top right corner of the page
+    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Take Snapshot" present in parallel dropdown
+    When I "Collapse" page block contaninig value "Files"
+    Then I softly do not see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    When I "Expanded" page block contaninig value "Files"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Validate" in page detail
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly see "Add File" opens in overLay window
+    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Other Attachment" from computer
+    When I click modal button "Close"
+    Then I see "Attachment.pdf" has been added in "Award Files" flex table
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I close the tab
+    And I navigate to "Quickview" sub tab in split screen
+    When I click on "Splitview" icon for "Other Attachments Forms" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see top right button "Edit" in the split screen page details
+    Then I softly can see top right button "Download As PDF" in the split screen page details
+    Then I softly can see top right button "Take Snapshot" in the split screen page details
+    And I click on "Validate" in the split screen page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I refresh the page
+    And I wait for "3" seconds
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Application has been validated successfully. |

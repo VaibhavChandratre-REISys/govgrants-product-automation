@@ -146,6 +146,11 @@ public class CommonSteps {
         projectManager.clickOnButtonForViewFilesPage(buttonName);
 
     }
+
+    @Then("^I (softly see|softly do not see|see|do not see) the field \"([^\"]*)\" as \"([^\"]*)\" on forms$")
+    public void iSoftlySeeTheFieldAs(String usage, String fieldLabel, String fieldValue) {
+        projectManager.assertFormsFields(usage, fieldLabel, fieldValue);
+    }
 }
 
 

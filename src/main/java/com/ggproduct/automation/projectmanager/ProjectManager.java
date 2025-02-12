@@ -234,4 +234,27 @@ public class ProjectManager extends ProjectWebServices {
     public void clickOnButtonForViewFilesPage(String buttonName) {
         I.amPerforming().click().on(By.xpath("//div[@class='forceContentPreviewerAction']//button[@title='" + buttonName + "']"));
     }
+
+    public void assertFormsFields(String usage, String fieldLabel, String fieldValue) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(assertFormsFieldsValues(fieldLabel, fieldValue)).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(assertFormsFieldsValues(fieldLabel, fieldValue)).isFalse();
+        } else if (usage.equalsIgnoreCase("see")) {
+           Assert.assertTrue(assertFormsFieldsValues(fieldLabel, fieldValue));
+        }else {
+            Assert.assertFalse(assertFormsFieldsValues(fieldLabel, fieldValue));
+        }
+    }
+
+    private boolean assertFormsFieldsValues(String fieldLabel, String fieldValue) {
+        boolean flag = true;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//span[text()='" + fieldLabel + "']//br[following-sibling::text()[contains(., '" + fieldValue + "')]]")))
+                flag = true;
+        } catch (Exception e) {
+            flag = false;
+        }
+        return flag;
+    }
 }
