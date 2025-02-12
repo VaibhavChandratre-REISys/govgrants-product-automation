@@ -1,7 +1,7 @@
 @GranteeSmokeTestCases @GranteeTest
 Feature: Grantee Smoke scenarios
 
-  @462721 @470406 @482113 @482114 @ValidatetheflowofasPMuserisabletocreateandqualifythemanuallead @Grantee_Smoke
+  @470406 @ValidatetheflowofasPMuserisabletocreateandqualifythemanuallead @Grantee_Smoke1
   Scenario Outline: Validate the flow of as PM/PO user is able to create and qualify the manual lead
     Given I login to "As a Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
@@ -141,7 +141,6 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Qualified Lead"
     And I save the field labeled "EGMS ID" as "QualifiedLeadEGMSID"
     Then I softly see field "EGMS ID" as "{SavedValue:QualifiedLeadEGMSID}"
-    #470406
     And I click on "Edit" in the page details
     And I enter "Grantee_Qualifiedleads_Edition" values from "Announcement_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -183,8 +182,6 @@ Feature: Grantee Smoke scenarios
     Examples:
       | User        |
       | GRANTEE PM  |
-#      | GRANTEE PO  |
-#      | GRANTEE EXE |
 
   @488703 @488705 @488706 @488708 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads @Grantee_Smoke
   Scenario Outline: Verify As FO user should not see new button for not yet qualify lead and edit access on not yet qualify leads
@@ -3104,7 +3101,7 @@ Feature: Grantee Smoke scenarios
 #      | GRANTEE PO      |
 #      | GRANTEE PM      |
 
-  @480768 @480769 @480771 @480773 @480774 @481129 @476066 @OpportunitiesconvertedtoApplicationGrantsgovVerifyPMusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @Grantee_Smoke 
+  @476066 @OpportunitiesconvertedtoApplicationGrantsgovVerifyPMusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @Grantee_Smoke1
   Scenario Outline: Opportunities converted to Application (Grants.gov) - Verify PM user can navigate to Opportunity details page from Opportunities Converted to Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -3296,15 +3293,9 @@ Feature: Grantee Smoke scenarios
 
     Examples:
       | User            |
-      | GRANTEE EXE     |
-#      | GRANTEE FO      |
-#      | GRANTEE FD      |
-#      | GRANTEE AUDITOR |
-#      | GRANTEE ADMIN   |
-#      | GRANTEE PO      |
-#      | GRANTEE PM      |
+      | GRANTEE PM      |
 
-  @475809 @ValidateNotYetConvertedOpportunityGrantsgovPMusercancreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord @Grantee_Smoke
+  @475809 @ValidateNotYetConvertedOpportunityGrantsgovPMusercancreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord @Grantee_Smoke1
   Scenario: Not Yet Converted Opportunity Grantsgov PM user can create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberProjectnarrativeForm}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212704" with properties "default"
@@ -4516,7 +4507,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Source Change Request" as "{SavedValue:AREGMSID}"
     Then I softly see field "Request Type" as "Change Request"
 
-  @470843 @PRamdVerifytheimpactonGrants&AwardafterPeriodicRenewalAmendmentRequestisAccepted&creatednewaward @Grantee_Smoke 
+  @470843 @PRamdVerifytheimpactonGrants&AwardafterPeriodicRenewalAmendmentRequestisAccepted&creatednewaward @Grantee_Smoke1
   Scenario:PR amd the impact on Grants & Award after Periodic Renewal Amendment Request is Accepted & created new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -4639,7 +4630,7 @@ Feature: Grantee Smoke scenarios
     Then I see value "$0.00" for title "Original Program Income Earned" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:awardProgramRevenueTableId---"
     Then I see value "" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:DrawdownTableId---"
 
-  @470797 @477663 @477666 @477669 @477670 @VerifyPMusershouldabletocreateandaccepttheSOWamendmentrequest @Grantee_Smoke
+  @470797 @VerifyPMusershouldabletocreateandaccepttheSOWamendmentrequest @Grantee_Smoke1
   Scenario Outline: Verify PM user should able to create and accept the SOW amendment request
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -4812,12 +4803,8 @@ Feature: Grantee Smoke scenarios
     Examples:
       | User        | Non Owner  |
       | GRANTEE PM  | GRANTEE PO |
-#      | GRANTEE PO  | GRANTEE PM |
-#      | GRANTEE EXE | GRANTEE PO |
-#      | GRANTEE FO  | GRANTEE FD |
-#      | GRANTEE FD  | GRANTEE FO |
 
-  @464050 @VerifyPMuserARrecordownercanabletoseeAmendAwardbuttonwhenARgetAccepted&abletocreatenewAward&checkstatusofoldAward&checkimpactofnewlycreatedAwardonGrant&Award @Grantee_Smoke 
+  @464050 @VerifyPMuserARrecordownercanabletoseeAmendAwardbuttonwhenARgetAccepted&abletocreatenewAward&checkstatusofoldAward&checkimpactofnewlycreatedAwardonGrant&Award @Grantee_Smoke1
   Scenario:Verify PM user (AR record owner) can able to see Amend Award button when AR get Accepted & able to create new Award & check status of old Award & check impact of newly created Award on Grant & Award
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -4983,7 +4970,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Monitoring" sub tab
     Then I softly do not see value "{SavedValue:AmendTermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
 
-  @463431 @PreAppVerifyWithPOprofileAbletoaddpeerreviewerwithAllowrecordEditingYes @Grantee_Smoke
+  @463431 @PreAppVerifyWithPOprofileAbletoaddpeerreviewerwithAllowrecordEditingYes @Grantee_Smoke1
   Scenario:PreApp - Verify With PO profile , Able to add peer reviewer with Allow record Editing - Yes.
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     Given I login to "As a Grantee" app as "GRANTEE PO" user
@@ -5039,7 +5026,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
 
-  @463441 @ValidatePreAppwithPMprofileabletoaproverwithsingleapprover @Grantee_Smoke
+  @463441 @ValidatePreAppwithPMprofileabletoaproverwithsingleapprover @Grantee_Smoke1
   Scenario: Validate PreApp with PM profile ,Able to aprover with single approver
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "COSTSHARING_NO"
     When I login to "As a Grantee" app as "GRANTEE PM" user
@@ -5157,7 +5144,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Are Indirect Costs Allowed?" as "Yes"
     Then I softly see field "Is Leverage Allowed?" as "Yes"
 
-  @449166 @485466 @449143 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant @Grantee_Smoke 
+  @449166 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant @Grantee_Smoke1
   Scenario Outline: Verify PM user as (AR Owner same as Award Owner) can able to create Funding Change AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -5784,11 +5771,9 @@ Feature: Grantee Smoke scenarios
 
     Examples:
       | userName        | User        | Approval   |
-      | Grantee PO user | GRANTEE PO  | Grantee PO |
-#      | Sarah PM user   | GRANTEE PM  | Sarah PM   |
-#      | Victor EXE user | GRANTEE EXE | Victor EXE |
+      | Sarah PM user   | GRANTEE PM  | Sarah PM   |
 
-  @445639 @477317 @477315 @477316 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke
+  @445639 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke1
   Scenario Outline: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -6205,11 +6190,8 @@ Feature: Grantee Smoke scenarios
     Examples:
       | userType      | userName   | UEI          |
       | GRANTEE PM    | Sarah PM   | 123456789123 |
-#      | GRANTEE EXE   | Victor EXE | 123456789123 |
-#      | GRANTEE PO    | Grantee PO | 123456789123 |
-#      | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @445640 @446229 @477326 @477325 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke
+  @445640 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke1
   Scenario Outline: Validate Financial Report Schedule user can edit Financial report schedule on Created Submitted for review Reviewed Activated award
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -6607,11 +6589,8 @@ Feature: Grantee Smoke scenarios
     Examples:
       | userType      | userName   | UEI          |
       | GRANTEE PM    | Sarah PM   | 123456789123 |
-#      | GRANTEE EXE   | Victor EXE | 123456789123 |
-#      | GRANTEE PO    | Grantee PO | 123456789123 |
-#      | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @445435 @ValidateNonFederalprogramPMusercancreateandActivateNonFederalprogram @Grantee_Smoke
+  @445435 @ValidateNonFederalprogramPMusercancreateandActivateNonFederalprogram @Grantee_Smoke1
   Scenario: Validate Non-Federal program PM user can create and Activate Non Federal program
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
@@ -7570,7 +7549,7 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see row level action button "Delete" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
 
-  @443756 @461002 @477522 @477527 @477529 @477532 @477542 @482151 @482152 @482153 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg @Grantee_Smoke
+  @443756 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg @Grantee_Smoke1
   Scenario Outline: Validate Federal user should see all fields and section on federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -7746,11 +7725,6 @@ Feature: Grantee Smoke scenarios
     Examples:
       | userType      | attachment            | Notes           |
       | GRANTEE PM    | Attachment.pdf        | Notes for PM    |
-#      | GRANTEE PO    | AttachmentTesting.pdf | Notes for PO    |
-#      | GRANTEE FO    | AttachmentTesting.pdf | Notes for FO    |
-#      | GRANTEE EXE   | AttachmentTesting.pdf | Notes for EXE   |
-#      | GRANTEE FD    | AttachmentTesting.pdf | Notes for FD    |
-#      | GRANTEE ADMIN | AttachmentTesting.pdf | Notes for ADMIN |
 
   @443755 @477510 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @Grantee_Smoke
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
@@ -8110,7 +8084,7 @@ Feature: Grantee Smoke scenarios
 #      | GRANTEE FD    |
 #      | GRANTEE ADMIN |
 
-  @477551 @477554 @477556 @477564 @477592 @443672 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact @Grantee_Smoke
+  @443672 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact @Grantee_Smoke1
   Scenario Outline: federal_ Verify user should see all fields and section for federal contact's
     When I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -8254,14 +8228,9 @@ Feature: Grantee Smoke scenarios
     Examples:
       | User          |
       | GRANTEE PM    |
-#      | GRANTEE PO    |
-#      | GRANTEE EXE   |
-#      | GRANTEE FO    |
-#      | GRANTEE FD    |
-#      | GRANTEE ADMIN |
 
-  @442181 @477498 @477500 @477501 @477504 @477507 @482130 @482131 @482132 @482133 @482134 @ValidatePMusershouldabletosaveandcreateinternalcontact @Grantee_Smoke
-  Scenario Outline: Validate PM/PO/FO/EXE/FD/ADMIN user should able to save and create internal contact
+  @442181 @ValidatePMusershouldabletosaveandcreateinternalcontact @Grantee_Smoke1
+  Scenario Outline: Validate PM user should able to save and create internal contact
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     Then I see "External" inside "Contacts" is displayed
@@ -8429,11 +8398,6 @@ Feature: Grantee Smoke scenarios
     Examples:
       | userType      |
       | GRANTEE PM    |
-#      | GRANTEE PO    |
-#      | GRANTEE FO    |
-#      | GRANTEE EXE   |
-#      | GRANTEE FD    |
-#      | GRANTEE ADMIN |
 
   @443719 @482123 @442117 @477483 @477485 @477486 @477488 @477489 @482124 @482126 @482127 @VerifytheinternalOrganizationallsectionandfields @Grantee_Smoke
   Scenario Outline: Verify the internal Organization all section and fields
@@ -8667,7 +8631,7 @@ Feature: Grantee Smoke scenarios
 #      | GRANTEE FD    | Danielle FD Garcia | Notes Record FD    | Notes Record FD1    |
 #      | GRANTEE ADMIN | Product QA         | Notes Record ADMIN | Notes Record ADMIN1 |
 
-  @440386 @476278 @ValidatePMusercancreateandActivateStrategicplan @Grantee_Smoke
+  @440386 @ValidatePMusercancreateandActivateStrategicplan @Grantee_Smoke1
   Scenario Outline: Validate PM user can create and Activate Strategic plan
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
@@ -8839,7 +8803,6 @@ Feature: Grantee Smoke scenarios
     Examples:
       | userType    | emailIdFrom                     | emailIdTo                       |
       | GRANTEE PM  | sarah.pm.23@yopmail.com         | victor.exeqagrantee@yopmail.com |
-#      | GRANTEE EXE | victor.exeqagrantee@yopmail.com | sarah.pm.23@yopmail.com         |
 
   @440274 @ValidateFocusAreaWithEXEProfileAbletocreateActivateDeactivethefocusarea @Grantee_Smoke 
   Scenario: Validate Focus Area With EXE Profile Able to create Activate Deactive the focus area
@@ -8903,7 +8866,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Deactivate.pdf" as name
 
-  @440215 @FocusAreaVerifyOnlyAdminEXEPMprofileabletoseetheNEWbuttontocreatetheFocusareas @Grantee_Smoke
+  @440215 @FocusAreaVerifyOnlyAdminEXEPMprofileabletoseetheNEWbuttontocreatetheFocusareas @Grantee_Smoke1
   Scenario Outline: Focus Area - Verify Only Admin ,EXE ,PM profile able to see the NEW button to create the Focus areas.
     When I login to "As a Grantee" app as "<User>" user
     When I navigate to "Planning" tab
@@ -8912,5 +8875,258 @@ Feature: Grantee Smoke scenarios
     Examples:
       | User          |
       | GRANTEE Admin |
-#      | GRANTEE EXE   |
-#      | GRANTEE PM    |
+      | GRANTEE EXE   |
+      | GRANTEE PM    |
+
+  @446149 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout @Grantee_Smoke1
+  Scenario: Validate GP Closeout with PM Profile Able to create Project period closeout and able to complete the closeout
+    And I "Created" standalone subaward "Automation Runtime award" with properties "INDIRECT_COST_NO"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    When I navigate to "Amendments" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I enter "Grantee_FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "3" seconds
+    When I enter values into fields
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "amendmentEGMSID"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Project Period Start Date" as "PPST"
+    When I navigate to "Closeout" sub tab
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
+    When I enter values into fields
+      | Value             | Field           |
+      | {SavedValue:PPST} | CloseoutDate__c |
+    And I click modal button "Save and Continue"
+    And I wait for "5" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Closeout" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly can see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly can see row level action button "Delete" against "Created" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    When I click on "Delete" icon for "Created" inside table with table id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---" without processing
+    Then I softly see confirmation box with body "Are you sure, you want to permanently delete the project period closeout?" is displayed
+    When I click modal button "OK"
+    And I wait for "4" seconds
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
+    When I enter values into fields
+      | Value             | Field           |
+      | {SavedValue:PPST} | CloseoutDate__c |
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Closeout_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "closeoutID"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly see field "Status" as "Created"
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Open Items" sub tab at view detail page
+    Then I softly can see "Check List" sub tab at view detail page
+    Then I softly can see "Responsibilities" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Override" in page detail
+    When I navigate to "Overview" sub tab
+    Then I softly see "Grant Overview" page block displayed
+    Then I softly see "Closeout Request Details" page block displayed
+    Then I softly see "System Information" page block displayed
+    When I navigate to "Open  Items" sub tab
+    Then I softly see "Pending Amendment Requests" page block displayed
+    Then I softly see "Pending Progress Reports" page block displayed
+    Then I softly see "Pending Financial Reports" page block displayed
+    Then I softly see value "Created" for title "Status" against the value "{SavedValue:amendmentEGMSID}" inside table "---grantee_tableId:-:pendingAmendmentCloseoutTableId---"
+    When I navigate to "Check List" sub tab
+    Then I softly see "Expenses" page block displayed
+    Then I softly see "Record Changes" page block displayed
+    Then I softly see "Report/Finance" page block displayed
+    Then I softly see "Report/Property" page block displayed
+    Then I softly see "Monitoring" page block displayed
+    Then I softly see "Overall" page block displayed
+    Then I softly see "Link to Disclosure of Lobbying form (SF-LLL)" page block displayed
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see "Peer Reviewers" page block displayed
+    Then I softly see "Approvers" page block displayed
+    Then I softly see "Owner" page block displayed
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:closeoutPeerReviewTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:closeoutApproverTableId---"
+    When I navigate to "Files" sub tab
+    Then I softly see "Closeout Files" page block displayed
+    Then I softly see "Notes" page block displayed
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:closeoutAddFilesTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:closeoutNotesTableId---"
+    When I navigate to "History" sub tab
+    Then I softly see "Approval History" page block displayed
+    Then I softly see "Snapshot History" page block displayed
+    When I navigate to "Messages" sub tab
+    Then I softly see "Messages" page block displayed
+    Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---" by clicking "New" :
+      | Reviewer Name | Responsibility  | Description            | Due Date | Allow Record Editing |
+      | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---" without waiting for record
+    And I pause execution for "3" seconds
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I navigate to "Closeout" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PhasePendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PhasePendingTask---" without waiting for record
+    And I navigate to "Responsibilities" sub tab
+    Then I softly can see top right button "Edit" in page detail
+    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---" without waiting for record
+    And I wait for "2" seconds
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Rating is required to save.   |
+      | Comments is required to save. |
+    And I enter a review as "Passed"
+    When I click modal button "Save"
+    And I click on submit review
+    And I wait for "3" seconds
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Closeout" tab
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
+    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    When I click on "Complete Review" in the page details
+    Then I softly see field "Status" as "Reviewed"
+    Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:closeoutApproverTableId---" by clicking "New" :
+      | Name       | Closeout |
+      | Victor EXE | Step 1   |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    When I click on "Override" in the page details
+    Then I softly see field "Status" as "Overridden"
+    Then I softly see status in Progress-bar is "Overridden" and is "dark blue"
+    When I navigate to "Open  Items" sub tab
+    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:amendmentEGMSID}" inside table "---grantee_tableId:-:pendingAmendmentCloseoutTableId---"
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Closeout has been validated successfully. Please proceed. |
+    When I click on "Submit for Approval" in the page details
+    Then I see field "Status" as "Submitted for Approval"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Closeout" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PhasePendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PhasePendingTask---" without waiting for record
+    Then I see only the following ordered radio buttons in the approval decision :
+      | Approve | Forward | Send to Owner |
+    When I select radio button "Forward" in the approval decision
+    And I select user "David FO" in the approval decision
+    When I enter comment "Automation testing" in the approval decision
+    And I submit the approval in the approval decision without processing
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I navigate to "Closeout" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PhasePendingTask---" panel
+    Then I softly see value "Record Id" for title "EGMS ID" inside table "---grantee_tableId:-:PhasePendingTask---"
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PhasePendingTask---" without waiting for record
+    When I "Send to Owner" in the approval decision
+    Then I softly see field "Status" as "Created"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Closeout" tab
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
+    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    When I navigate to "Responsibilities" sub tab
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:closeoutApproverTableId---" by clicking "Edit" :
+      | Closeout | Name       |
+      | Step 1   | Victor EXE |
+    When I click on "Override" in the page details
+    Then I softly see field "Status" as "Overridden"
+    When I click on "Submit for Approval" in the page details
+    Then I see field "Status" as "Submitted for Approval"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Closeout" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PhasePendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PhasePendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Closeout" tab
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
+    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    Then I softly can see top right button "Submit to Grantor" in page detail
+    When I click on "Submit to Grantor" in the page details
+    Then I softly see "Submit to Grantor" opens in overLay window
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Submitted to Grantor On is required to save. |
+    When I enter values into fields
+      | Value | Field                 |
+      | 0     | SubmittedToGrantor__c |
+    And I click modal button "Save"
+    And I wait for "2" seconds
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I softly can see top right button "Complete Closeout" in page detail
+    When I click on "Complete Closeout" in the page details
+    And I click modal button "Save"
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Grantor Closeout Date is required to save. |
+    When I enter values into fields
+      | Value | Field                  |
+      | 0     | FederalCloseoutDate__c |
+    And I click modal button "Save"
+    And I wait for "2" seconds
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Completed"
+    Then I softly see status in Progress-bar is "Completed" and is "dark blue"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Completed" for title "New Value" inside field history table
+    Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
+    And I click on back arrow
+    When I navigate to "Overview" sub tab
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    Then I softly see field "Status" as "Closed/Completed"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Closed"
