@@ -7292,7 +7292,7 @@ Feature: Grantee Smoke scenarios
       | User       |
       | GRANTEE PO |
 
-  @480737 @ValidatewithPOprofileonClickeditactionotherattachmentformgetopen
+  @480737 @ValidatewithPOprofileonClickeditactionotherattachmentformgetopen @Grantee_Smoke1
   Scenario: Validate with PO profile on Click edit action other attachment form get open
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -7364,8 +7364,10 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly see value "Optional Other Attachment" for title "Classification" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I click on "Download" icon for "Optional Other Attachment" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I softly verify that the file "Automation.pdf" is downloaded
     And I close the tab
+    And I wait for "2" seconds
     And I click on "Delete" icon for "Optional Other Attachment" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---" without waiting for record
     Then I softly do not see value "Optional Other Attachment" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I click on "Save" in the page details
