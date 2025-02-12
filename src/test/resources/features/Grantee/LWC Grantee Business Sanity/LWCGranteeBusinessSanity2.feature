@@ -7210,7 +7210,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "CongressionalDistrict1__c"
+    And I enter value "123" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -7513,7 +7513,7 @@ Feature: Sanity scenarios
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "CongressionalDistrict1__c"
+    And I enter value "123" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -7597,7 +7597,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Revision In Progress"
     When I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "CongressionalDistrict1__c"
+    And I enter value "123" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
@@ -7658,7 +7658,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "CongressionalDistrict1__c"
+    And I enter value "123" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -7744,7 +7744,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "CongressionalDistrict1__c"
+    And I enter value "123" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -7844,7 +7844,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "CongressionalDistrict1__c"
+    And I enter value "123" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -7997,7 +7997,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "CongressionalDistrict1__c"
+    And I enter value "123" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -8011,15 +8011,15 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Validate" in page detail
     Then I softly can see top right button "Edit" in page detail
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Mandatory Budget Narrative Document" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Mandatory Budget Narrative" from computer
     When I click modal button "Close"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Optional Budget Narrative Document" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Optional Budget Narrative" from computer
     When I click modal button "Close"
-    Then I softly can see row level action button "Download" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    Then I softly can see row level action button "View" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    Then I softly can see row level action button "Edit" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    Then I softly can see row level action button "Delete" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see row level action button "Download" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see row level action button "View" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see row level action button "Edit" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see row level action button "Delete" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
@@ -8039,10 +8039,10 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    Then I softly cannot see row level action button "Edit" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    Then I softly cannot see row level action button "Delete" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    Then I softly can see row level action button "Download" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    Then I softly can see row level action button "View" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly cannot see row level action button "Edit" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly cannot see row level action button "Delete" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see row level action button "Download" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see row level action button "View" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Examples:
       | OwnerType  | NonOwner        |
       | GRANTEE PM | GRANTEE EXE     |
@@ -8073,7 +8073,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "CongressionalDistrict1__c"
+    And I enter value "123" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -8126,7 +8126,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "CongressionalDistrict1__c"
+    And I enter value "123" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -8140,7 +8140,7 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Validate" in page detail
     Then I softly can see top right button "Edit" in page detail
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Mandatory Budget Narrative Document" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Mandatory Budget Narrative" from computer
     When I click modal button "Close"
     And I close the tab
     When I navigate to "Responsibilities" sub tab
@@ -8178,10 +8178,10 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Edit" in the split screen page details
     Then I softly cannot see top right button "Validate" in the split screen page details
     Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    Then I softly can see row level action button "Download" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    Then I softly cannot see row level action button "Edit" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    Then I softly cannot see row level action button "Delete" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    Then I softly can see row level action button "View" against "Mandatory Budget Narrative Document" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see row level action button "Download" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly cannot see row level action button "Edit" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly cannot see row level action button "Delete" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see row level action button "View" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
 
   @481564 @481565 @481566 @481567 @481568 @VerifyEXEusershouldabletoviewaccessinallstateofApplicationforform @GranteeTBE
   Scenario Outline: Verify EXE user should able to view access in all  state of Application for form
@@ -8204,7 +8204,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "CongressionalDistrict1__c"
+    And I enter value "123" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -8457,7 +8457,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "CongressionalDistrict1__c"
+    And I enter value "123" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -8541,7 +8541,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "CongressionalDistrict1__c"
+    And I enter value "123" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -8612,7 +8612,7 @@ Feature: Sanity scenarios
     When I click on "Revise" in the page details
     Then I softly see field "Status" as "Revision In Progress"
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "CongressionalDistrict1__c"
+    And I enter value "123" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
@@ -8684,7 +8684,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I click on "Edit" in the page details
-    And I enter value "1st District" into field "CongressionalDistrict1__c"
+    And I enter value "123" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"

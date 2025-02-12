@@ -353,7 +353,7 @@ Feature: Grantee Forms Scenario
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I wait for "3" seconds
-    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative Document" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
@@ -1359,7 +1359,7 @@ Feature: Grantee Forms Scenario
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I wait for "3" seconds
-    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative Document" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
@@ -1676,7 +1676,7 @@ Feature: Grantee Forms Scenario
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I wait for "3" seconds
-    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative Document" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
