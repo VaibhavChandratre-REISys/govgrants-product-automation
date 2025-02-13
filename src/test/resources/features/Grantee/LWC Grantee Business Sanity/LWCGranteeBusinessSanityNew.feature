@@ -15883,7 +15883,7 @@ Feature: Sanity scenarios New
     Then I softly see field "Source Change Request" as "{SavedValue:AREGMSID}"
     Then I softly see field "Request Type" as "Change Request"
 
-  @443719 @482123 @442117 @477483 @477485 @477486 @477488 @477489 @482124 @482126 @482127 @VerifytheinternalOrganizationallsectionandfields @Grantee_Smoke
+  @443719 @442117 @477483 @477485 @477486 @477488 @477489 @482124 @482126 @482127 @VerifytheinternalOrganizationallsectionandfields @Grantee_Smoke
   Scenario Outline: Verify the internal Organization all section and fields
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
