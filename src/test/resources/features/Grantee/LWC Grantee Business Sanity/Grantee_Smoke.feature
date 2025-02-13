@@ -8164,6 +8164,8 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Monitoring" sub tab
+    And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:SpecialConditionTableId---"
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Interim Award Document" from computer
@@ -8171,7 +8173,24 @@ Feature: Grantee Smoke scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
-    And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
+    And I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I "Approve" in the approval decision
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -8236,7 +8255,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see snapshot with name containing "Complete Review.pdf" as name
     Then I softly can see top right button "View NOGA" in page detail
 
-  @490130 @ValidatePreAppVerifyabletocreatepreapplicationwithGrantsGovLeadPMProfile @Grantee_Smoke1 @testExecution
+  @490130 @ValidatePreAppVerifyabletocreatepreapplicationwithGrantsGovLeadPMProfile @Grantee_Smoke1
   Scenario: Validate able to create pre application with Grants.Gov Lead PM Profile
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -8265,7 +8284,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     Then I softly see field "Status" as "Created"
 
-  @490622 @ValidatethatPMuserseeConverttoOpportunitybuttononOppprotunitylayoutabletoconverttheleadtoopportunityagainorganizationswhohavequalifiedthelead @Grantee_Smoke1 @testExecution
+  @490622 @ValidatethatPMuserseeConverttoOpportunitybuttononOppprotunitylayoutabletoconverttheleadtoopportunityagainorganizationswhohavequalifiedthelead @Grantee_Smoke1
   Scenario: Validate that PM user see "Convert to Opportunity" button on Oppprotunity layout & able to convert the lead to opportunity again organizations who have qualified the lead
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
