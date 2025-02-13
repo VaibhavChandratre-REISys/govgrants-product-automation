@@ -1678,6 +1678,7 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Files" sub tab
     And I click on "Download" icon for "Automation.pdf" inside flex table with id "AwardGrantFiles" without waiting for record
     And I wait for "2" seconds
-    And I switch to tab number "2"
-    Then I softly verify that the file "Automation.pdf" is downloaded
+    And I switch to tab number "1"
+    And I download the file
+    Then I softly verify that the file "govgrant.pdf" is downloaded
     And I close the tab

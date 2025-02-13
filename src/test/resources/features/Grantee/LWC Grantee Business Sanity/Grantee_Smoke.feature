@@ -7292,7 +7292,7 @@ Feature: Grantee Smoke scenarios
       | User       |
       | GRANTEE PO |
 
-  @480737 @ValidatewithPOprofileonClickeditactionotherattachmentformgetopen @Grantee_Smoke1
+  @480737 @ValidatewithPOprofileonClickeditactionotherattachmentformgetopen @Grantee_Smoke1 @testExecution
   Scenario: Validate with PO profile on Click edit action other attachment form get open
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -7366,7 +7366,8 @@ Feature: Grantee Smoke scenarios
     And I click on "Download" icon for "Optional Other Attachment" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---" without waiting for record
     And I wait for "2" seconds
     And I switch to tab number "2"
-    Then I softly verify that the file "Automation.pdf" is downloaded
+    And I download the file
+    Then I softly verify that the file "govgrant.pdf" is downloaded
     And I close the tab
     And I wait for "2" seconds
     And I click on "Delete" icon for "Optional Other Attachment" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---" without waiting for record
@@ -7743,7 +7744,7 @@ Feature: Grantee Smoke scenarios
     Then I can see top right button "Revise" in page detail
     When I navigate to "History" sub tab
     And I save the value from row "1" for column name "Tracking Number" as "TrackingNumber" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
-    Then I softly see value "S2SReceived" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "S2SReceiving" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     When I click on "Check Status" in the page details
     And I save the value from row "1" for column name "Tracking Number" as "TrackingNumber" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
@@ -7752,7 +7753,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Revise" in the page details
     Then I softly see field "Status" as "Revision in Progress"
 
-  @481574 @ValidateProjectabstractsummaryPOusershouldabletoseethetrackingnumberaftersubmissiontograntsgovverifyrecorddecision @Grantee_Smoke1  @testExecution
+  @481574 @ValidateProjectabstractsummaryPOusershouldabletoseethetrackingnumberaftersubmissiontograntsgovverifyrecorddecision @Grantee_Smoke1
   Scenario: Validate Project abstract summary PO user should able to see the tracking number after submission to grants gov verify record decision
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -8165,6 +8166,10 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
+      | Title                            | Is Primary Program |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Monitoring" sub tab
     And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:SpecialConditionTableId---"
     When I navigate to "Files" sub tab
@@ -8174,7 +8179,7 @@ Feature: Grantee Smoke scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
