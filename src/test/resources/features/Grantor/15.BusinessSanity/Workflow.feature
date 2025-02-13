@@ -1643,7 +1643,6 @@ Feature: Validate all scenarios of every modules flow
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     When I navigate to "Amendments" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    And I halt execution
     When I click on "Submit to Grantor" in the page details
     And I wait for "5" seconds
     When I enter values into fields
@@ -1669,7 +1668,6 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
-    And I halt execution
     And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD"
     And I halt execution
 

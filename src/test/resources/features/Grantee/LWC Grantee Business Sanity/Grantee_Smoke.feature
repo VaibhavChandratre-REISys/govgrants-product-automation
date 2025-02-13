@@ -7713,7 +7713,7 @@ Feature: Grantee Smoke scenarios
     And I close the tab
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see value "100.00%" for title "Percentage" against the value "Project/Performance Site Location(s)" inside table "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see value "100.00%" for title "Percentage" against the value "Project/Performance Site Location(s)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
@@ -7777,6 +7777,7 @@ Feature: Grantee Smoke scenarios
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
     When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
@@ -7811,7 +7812,7 @@ Feature: Grantee Smoke scenarios
     And I close the tab
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see value "100.00%" for title "Percentage" against the value "Project/Performance Site Location(s)" inside table "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see value "100.00%" for title "Percentage" against the value "Project Abstract Summary" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
