@@ -7525,7 +7525,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "cross" symbol against the value "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I click on "View" icon for "Project/Performance Site Location(s)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
-    Then I see the header is "Other Attachment Form" in the page details
+    Then I see the header is "Project/Performance Site Location(s)" in the page details
     Then I softly see the field "Agency Owner :" as "Grants.gov" on forms
     Then I softly see the field "OMB Number :" as "4040-0010" on forms
     Then I softly see the field "Version :" as "4.0" on forms
@@ -7545,6 +7545,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see the following messages in the page details contains:
       | Please select atleast one Location as a Primary Address. |
     And I close the tab
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
