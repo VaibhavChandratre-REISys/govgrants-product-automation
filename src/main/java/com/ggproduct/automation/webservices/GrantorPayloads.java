@@ -3186,9 +3186,39 @@ public class GrantorPayloads {
                 return payloadForCreateProgramIncome(json);
             case "DAVID_FO_APPROVER":
                 return payloadForDavidFoApprover(json, module);
+            case "TWO_STEP_APPROVER":
+                return payloadForTwoStepApprover(json, module);
             default:
                 return json;
         }
+    }
+
+    private JsonObject payloadForTwoStepApprover(JsonObject json, String module) {
+        JsonObject preAPPData = json.getAsJsonArray("preAppAndAppData").get(0).getAsJsonObject();
+        JsonArray topLevelApprovers = new JsonArray();
+        JsonObject topLevelApprover = new JsonObject();
+        topLevelApprover.addProperty("name", ProjectWebServices.getIdOf("User", "Grantee PO"));
+        if(module.equalsIgnoreCase("Pre-application")){
+            topLevelApprover.addProperty("preApplication", "Step1");
+        }else{
+            topLevelApprover.addProperty("application", "Step1");
+        }
+        topLevelApprovers.add(topLevelApprover);
+
+        JsonObject topLevelApprover2 = new JsonObject();
+        topLevelApprover2.addProperty("name", ProjectWebServices.getIdOf("User", "Victor EXE"));
+        if(module.equalsIgnoreCase("Pre-application")){
+            topLevelApprover2.addProperty("preApplication", "Step2");
+        }else{
+            topLevelApprover2.addProperty("application", "Step2");
+        }
+        topLevelApprovers.add(topLevelApprover2);
+
+        preAPPData.add("approvers", topLevelApprovers);
+        JsonArray preAPPDataDataArray = new JsonArray();
+        preAPPDataDataArray.add(preAPPData);
+        json.add("preAppAndAppData", preAPPDataDataArray);
+        return json;
     }
 
     private JsonObject payloadForDavidFoApprover(JsonObject json, String module) {
