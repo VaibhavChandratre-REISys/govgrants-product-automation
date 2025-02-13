@@ -7365,8 +7365,9 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Optional Other Attachment" for title "Classification" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I click on "Download" icon for "Optional Other Attachment" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---" without waiting for record
     And I wait for "2" seconds
+    And I switch to tab number "2"
     Then I softly verify that the file "Automation.pdf" is downloaded
-    And I switch to parent tab
+    And I close the tab
     And I wait for "2" seconds
     And I click on "Delete" icon for "Optional Other Attachment" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---" without waiting for record
     Then I softly do not see value "Optional Other Attachment" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
