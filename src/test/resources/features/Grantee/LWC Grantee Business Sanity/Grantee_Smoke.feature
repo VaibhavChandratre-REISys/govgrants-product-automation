@@ -7704,6 +7704,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
     And I close the tab
+    When I click on "Edit" icon for "Project/Performance Site Location(s)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "100.00%" for title "Percentage" against the value "Project/Performance Site Location(s)" inside table "---grantee_tableId:-:projectLocationFormTableId---"
@@ -7790,6 +7797,13 @@ Feature: Grantee Smoke scenarios
     And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "Project_Abstract_Summary" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    When I click on "Edit" icon for "Project Abstract Summary" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
