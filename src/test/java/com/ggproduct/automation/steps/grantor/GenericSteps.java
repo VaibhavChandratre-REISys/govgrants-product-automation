@@ -288,12 +288,16 @@ public class GenericSteps {
         }
     }
 
-    @Then("^I can (softly see|see) modal button \"([^\"]*)\"$")
+    @Then("^I can (softly see|softly do not see|see|do not see) modal button \"([^\"]*)\"$")
     public void iCanSeeModalButton(String usage, String buttonName) {
-        if (usage.contains("softly")) {
+        if (usage.equalsIgnoreCase("softly")) {
             I.amPerforming().assertionsTo().assertThat(grantorProjectManager.isButtonDisplayedOnModal(buttonName)).isTrue();
-        } else {
+        } else if(usage.equalsIgnoreCase("see")) {
             Assert.assertTrue(grantorProjectManager.isButtonDisplayedOnModal(buttonName));
+        } else if(usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(grantorProjectManager.isButtonDisplayedOnModal(buttonName)).isFalse();
+        } else{
+            Assert.assertFalse(grantorProjectManager.isButtonDisplayedOnModal(buttonName));
         }
     }
 
