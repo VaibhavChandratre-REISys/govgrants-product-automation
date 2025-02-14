@@ -8345,7 +8345,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Converted to Opportunity"
     Then I cannot see top right button "Convert to Opportunity" in page detail
 
-  @480806 @ValidateBudgetInformationNonConstructionProgramthatPMuserseeCheckstatusbuttonabletosubmittograntsGov
+  @480806 @ValidateBudgetInformationNonConstructionProgramthatPMuserseeCheckstatusbuttonabletosubmittograntsGov @Grantee_Smoke1
   Scenario: Validate Budget Information Non Construction Program that PM user see Check status button & able to submit to grants.Gov
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySF424A}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269351" with properties "default"
