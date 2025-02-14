@@ -8408,9 +8408,6 @@ Feature: Grantee Smoke scenarios
       | (a) Grant Program                      | (b) First Future Funding Period | (c) Second Future Funding Period | (d) Third Future Funding Period | (e) Fourth Future Funding Period |
       | Automation Permanent Focus Area - BP01 | 1000                            | 1000                             | 1000                            | 1000                             |
     And I wait for "1" seconds
-    And I enter value "Automation Test" into field "DirectCharges__c"
-    And I enter value "Automation Test" into field "IndirectCharges__c"
-    And I enter value "Automation Test" into field "Remarks__c"
     And I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
@@ -8462,7 +8459,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @486450 @ValidateSF424PMusershouldabletosubmittheapplicationtograntsgovGrantsgovlead @Grantee_Smoke1 @testExecution
+  @486450 @ValidateSF424PMusershouldabletosubmittheapplicationtograntsgovGrantsgovlead @Grantee_Smoke1
   Scenario: Validate SF424 PM user should able to submit the application to grants gov Grants gov lead
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -8624,7 +8621,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "5. If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" page block displayed
     Then I softly see "Federal Department/Agency Information" page block displayed
     Then I softly see "Name and Address of Lobbying Registrant" page block displayed
-    Then I softly see "b. Individual Performing Services (including address if different from No. 10a)" page block displayed
+    Then I softly see "Individual Performing Services (including address if different from No. 10a)" page block displayed
     Then I softly see "Disclosure of Lobbying Activities" page block displayed
     Then I softly see field "1. Type of Federal Action" inside page block
     Then I softly see field "2. Status of Federal Action" inside page block
@@ -8642,13 +8639,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "State" inside "Name and Address of Reporting Entity" section
     Then I softly see field "Zip" inside "Name and Address of Reporting Entity" section
     Then I softly see field "Congressional District, if known" inside "Name and Address of Reporting Entity" section
-    Then I softly see field "Name" inside "5. If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
-    Then I softly see field "Street 1" inside "5. If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
-    Then I softly see field "Street 2" inside "5. If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
-    Then I softly see field "City" inside "5. If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
-    Then I softly see field "State" inside "5. If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
-    Then I softly see field "Zip" inside "5. If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
-    Then I softly see field "Congressional District, if known" inside "5. If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
+    Then I softly see field "Name" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
+    Then I softly see field "Street 1" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
+    Then I softly see field "Street 2" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
+    Then I softly see field "City" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
+    Then I softly see field "State" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
+    Then I softly see field "Zip" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
+    Then I softly see field "Congressional District, if known" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
     Then I softly see field "6. Federal Department/Agency" inside "Federal Department/Agency Information" section
     Then I softly see field "7. Federal Program Name/Description" inside "Federal Department/Agency Information" section
     Then I softly see field "Assistance Listing Number (CFDA Number), if applicable" inside "Federal Department/Agency Information" section
@@ -8664,16 +8661,16 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "City" inside "Name and Address of Lobbying Registrant" section
     Then I softly see field "State" inside "Name and Address of Lobbying Registrant" section
     Then I softly see field "Zip" inside "Name and Address of Lobbying Registrant" section
-    Then I softly see field "Prefix" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
-    Then I softly see field "First Name" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
-    Then I softly see field "Middle Name" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
-    Then I softly see field "Last Name" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
-    Then I softly see field "Suffix" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
-    Then I softly see field "Street 1" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
-    Then I softly see field "Street 2" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
-    Then I softly see field "City" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
-    Then I softly see field "State" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
-    Then I softly see field "Zip" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "Prefix" inside "Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "First Name" inside "Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "Middle Name" inside "Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "Last Name" inside "Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "Suffix" inside "Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "Street 1" inside "Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "Street 2" inside "Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "City" inside "Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "State" inside "Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "Zip" inside "Individual Performing Services (including address if different from No. 10a)" section
     Then I softly see field "Signature" inside "Disclosure of Lobbying Activities" section
     Then I softly see field "Prefix" inside "Disclosure of Lobbying Activities" section
     Then I softly see field "First Name" inside "Disclosure of Lobbying Activities" section
@@ -8689,6 +8686,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     When I click on "Edit" icon for "Disclosure of Lobbying Activities (SF-LLL)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     When I click on "Save" in the page details
@@ -9171,7 +9169,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I navigate to "Amendments" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
-    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -9203,7 +9201,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Accepted"
     And I click on "Amend Award" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
-    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -9380,7 +9378,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Submit for Approval" in page detail
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
-    Then I softly can see "Forms & Files" sub tab at view detail page
+    Then I softly can see "Forms and Files" sub tab at view detail page
     Then I softly can see "History" sub tab at view detail page
     Then I softly can see "Messages" sub tab at view detail page
     Then I softly see "Report Overview" page block displayed
@@ -9496,7 +9494,7 @@ Feature: Grantee Smoke scenarios
       | Victor EXE | Step 2           |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
-    When I navigate to "Forms & Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     Then I softly see "Forms" page block displayed
     Then I softly see "Financial Report Files" page block displayed
     Then I softly see "Notes" page block displayed
@@ -9750,7 +9748,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Convert to Opportunity" in the page details
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001269340" with properties "default"
-    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001269340" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001269340" with properties "default-Grantee PO user"
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
