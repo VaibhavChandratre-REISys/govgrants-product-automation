@@ -8345,7 +8345,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Converted to Opportunity"
     Then I cannot see top right button "Convert to Opportunity" in page detail
 
-  @480806 @ValidateBudgetInformationNonConstructionProgramthatPMuserseeCheckstatusbuttonabletosubmittograntsGov @Grantee_Smoke1 @testExecution
+  @480806 @ValidateBudgetInformationNonConstructionProgramthatPMuserseeCheckstatusbuttonabletosubmittograntsGov @Grantee_Smoke1
   Scenario: Validate Budget Information Non Construction Program that PM user see Check status button & able to submit to grants.Gov
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySF424A}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269351" with properties "default"
@@ -8408,7 +8408,6 @@ Feature: Grantee Smoke scenarios
       | (a) Grant Program                      | (b) First Future Funding Period | (c) Second Future Funding Period | (d) Third Future Funding Period | (e) Fourth Future Funding Period |
       | Automation Permanent Focus Area - BP01 | 1000                            | 1000                             | 1000                            | 1000                             |
     And I wait for "1" seconds
-    And I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
@@ -8452,7 +8451,7 @@ Feature: Grantee Smoke scenarios
     Then I can see top right button "Revise" in page detail
     When I navigate to "History" sub tab
     And I save the value from row "1" for column name "Tracking Number" as "TrackingNumber" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
-    Then I softly see value "S2SReceiving" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "S2SReceived" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     When I click on "Check Status" in the page details
     And I save the value from row "1" for column name "Tracking Number" as "TrackingNumber" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
@@ -8699,7 +8698,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "100.00%" for title "Percentage" against the value "Disclosure of Lobbying Activities (SF-LLL)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "Yes" for title "Validated" against the value "Disclosure of Lobbying Activities (SF-LLL)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
 
-  @486585 @ValidateBudgetRedirectionARPMusershouldabletoactivatenewawardthroughBRAR @Grantee_Smoke2 @testExecution
+  @486585 @ValidateBudgetRedirectionARPMusershouldabletoactivatenewawardthroughBRAR @Grantee_Smoke2
   Scenario Outline: Validate Budget Redirection AR- PM user should able to activate new award through BR AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<OwnerType>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -9298,7 +9297,7 @@ Feature: Grantee Smoke scenarios
       | OwnerType     | UserType   | emailIdTo                       | CreatedBy |
       | Sarah PM user | GRANTEE PM | victor.exeqagrantee@yopmail.com | Sarah PM  |
 
-  @485463 @ValidatePMuserFinancialreportOwnercanabletocreateAdhocFinancialReportabletosubmitFinancialReporttoGrantor @Grantee_Smoke2 @testExecution
+  @485463 @ValidatePMuserFinancialreportOwnercanabletocreateAdhocFinancialReportabletosubmitFinancialReporttoGrantor @Grantee_Smoke2
   Scenario: Validate PM user Financial report Owner can able to create Adhoc Financial Report  able to submit Financial Report to Grantor
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -9559,7 +9558,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Download As PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
-    When I navigate to "Forms & Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I see "Upload" button is disabled at modal under library
     When I upload file "AttachmentTesting.pdf" into library
@@ -9652,7 +9651,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Responsibilities" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportApproverTableId---"
-    When I navigate to "Forms & Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
@@ -9727,7 +9726,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see "Quickview" sub tab at view detail page
     And I navigate to "Field Audit" sub tab in split screen
     Then I softly can see "Field Audit" sub tab at view detail page
-    When I navigate to "Forms & Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
@@ -9735,7 +9734,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
-  @479035 @ValidatewithPOProfileOnceapprovedtheapplicationabletoseeSubmitgrantsGovButtononapplicationpagelayouttoprightcornerandabletocontinue @Grantee_Smoke2 @testExecution
+  @479035 @ValidatewithPOProfileOnceapprovedtheapplicationabletoseeSubmitgrantsGovButtononapplicationpagelayouttoprightcornerandabletocontinue @Grantee_Smoke2
   Scenario: Validate with PO Profile Once approved the application able to see Submit grants Gov Button on application page layout top right corner and able to continue
     Given I delete the grantee record "{grantee_testData:GrantsGovKeyContactMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269340" with properties "default-Grantee PO user"
@@ -9762,9 +9761,8 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
-    And I enter "SF424_FORM" values from "Application_Field_Values - backup.xlsx"
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Delinquent Federal Debt" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
