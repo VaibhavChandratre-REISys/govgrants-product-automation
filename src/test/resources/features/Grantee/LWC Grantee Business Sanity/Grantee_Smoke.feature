@@ -9904,7 +9904,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Convert to Opportunity" in the page details
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001269346" with properties "default"
-    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001269346" with properties "TWO_STEP_APPROVER-Grantee PO user"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001269346" with properties "default-Grantee PO user"
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -10100,7 +10100,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see the text containing "When filling out the data within this form, please adhere to the character limits for each field as specified within the information icon for the field."
     Then I softly can see "Form" sub tab at view detail page
     Then I softly see "Certification Regarding Lobbying" page block displayed
-    Then I softly see "Applicant's Organization" page block displayed
+    Then I softly see "Organization" page block displayed
     Then I softly see "Printed Name And Title Of Authorized Representative" page block displayed
     Then I softly see "Signature And Date" page block displayed
     Then I softly see the text containing " Required to Save | "
@@ -10108,15 +10108,15 @@ Feature: Grantee Smoke scenarios
     Then I softly see the text containing "Certification for Contracts, Grants, Loans, and Cooperative Agreements"
     Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "The undersigned certifies, to the best of his or her knowledge and belief, that:" on forms
     Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "(1) No Federal appropriated funds have been paid or will be paid, by or on behalf of the undersigned, to any person for influencing or attempting to influence an officer or employee of an agency, a Member of Congress, an officer or employee of Congress, or an employee of a Member of Congress in connection with the awarding of any Federal contract, the making of any Federal grant, the making of any Federal loan, the entering into of any cooperative agreement, and the extension, continuation, renewal, amendment, or modification of any Federal contract, grant, loan, or cooperative agreement." on forms
-    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "(2) If any funds other than Federal appropriated funds have been paid or will be paid to any person for influencing or attempting to influence an officer or employee of any agency, a Member of Congress, an officer or employee of Congress, or an employee of a Member of Congress in connection with this Federal contract, grant, loan, or cooperative agreement, the undersigned shall complete and submit Standard Form-LLL, ''Disclosure of Lobbying Activities,'' in accordance with its instructions." on forms
-    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "(3) The undersigned shall require that the language of this certification be included in the award documents for all subawards at all tiers (including subcontracts, subgrants, and contracts under grants, loans, and cooperative agreements) and that all subrecipients shall certify and disclose accordingly. This certification is a material representation of fact upon which reliance was placed when this transaction was made or entered into. Submission of this certification is a prerequisite for making or entering into this transaction imposed by section 1352, title 31, U.S. Code. Any person who fails to file the required certification shall be subject to a civil penalty of not less than $10,000 and not more than $100,000 for each such failure." on forms
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "(2) If any funds other than Federal appropriated funds have been paid or will be paid to any person for influencing or attempting to influence an officer or employee of any agency" on forms
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "(3) The undersigned shall require that the language of this certification be included in the award documents for all subawards at all tiers (including subcontracts, subgrants, and contracts under grants, loans, and cooperative agreements)" on forms
     Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "Statement for Loan Guarantees and Loan Insurance" on forms
     Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "The undersigned states, to the best of his or her knowledge and belief, that:" on forms
     Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "If any funds have been paid or will be paid to any person for influencing or attempting to influence an officer or employee of any agency, a Member of Congress, an officer or employee of Congress, or an employee of a Member of Congress in connection with this commitment providing for the United States to insure or guarantee a loan, the undersigned shall complete and submit Standard Form-LLL, ''Disclosure of Lobbying Activities,'' in accordance with its instructions. Submission of this statement is a prerequisite for making or entering into this transaction imposed by section 1352, title 31, U.S. Code. Any person who fails to file the required statement shall be subject to a civil penalty of not less than $10,000 and not more than $100,000 for each such failure." on forms
     Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "Statement for Loan Guarantees and Loan Insurance" on forms
-    Then I softly see field "APPLICANT'S ORGANIZATION" inside page block
-    Then I softly see asterisk mark on "APPLICANT'S ORGANIZATION"
-    When I hovering mouse on help text icon inside page block detail "APPLICANT'S ORGANIZATION"
+    Then I softly see field with quotes "APPLICANT'S ORGANIZATION" inside page block
+    Then I softly see asterisk mark on "ApplicantsOrganization__c"
+    When I hovering mouse on help text icon inside page block detail "ORGANIZATION"
     Then I softly see "This is the legal name of the organization that will undertake the assistance activity. This should normally be the name under which the organization has registered with the Business Partner Network. Max character limit for this field is 60." shown as help text
     Then I softly see field "Prefix" inside page block
     Then I softly do not see asterisk mark on "Prefix"
@@ -10284,6 +10284,19 @@ Feature: Grantee Smoke scenarios
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
     When I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I enter "SF424_FORM" values from "Application_Field_Values - backup.xlsx"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I close the tab
     Then I softly see value "Disclosure of Lobbying Activities (SF-LLL)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "Edit" icon for "Disclosure of Lobbying Activities (SF-LLL)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
@@ -10360,3 +10373,427 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see row level action button "Edit" against "Assurances for Non-Construction Programs (SF-424B)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on hyperlink containing value "Sarah PM"
     Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
+
+  @486506 @ValidateFDPOnonrecordownerusershouldabletoseetheapplicationissubmittedtoGrantorManuallead @testExecution
+  Scenario: Validate FD PO non record owner user should able to see the application is submitted to Grantor Manual lead
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I click on "Edit" in the page details
+    And I enter value "123" into field "CongressionalDistrict1__c"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - My Records"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    Then I softly do not see value "{SavedValue:appEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:ApplicationTableId---"
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:ApplicationTableId---"
+    Then I softly see "Application Title" in flex table header "---grantee_tableId:-:ApplicationTableId---"
+    Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:ApplicationTableId---"
+    Then I softly see "Application Due Date" in flex table header "---grantee_tableId:-:ApplicationTableId---"
+    Then I softly see "Status" in flex table header "---grantee_tableId:-:ApplicationTableId---"
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Setup" sub tab at view detail page
+    Then I softly can see "Budget" sub tab at view detail page
+    Then I softly can see "Responsibilities" sub tab at view detail page
+    Then I softly can see "Forms and Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    Then I softly see "Application Overview" page block displayed
+    Then I softly see "Opportunity Overview" page block displayed
+    Then I softly see "External Programs" page block displayed
+    Then I softly see "Contacts" page block displayed
+    Then I softly see "Project Abstract" page block displayed
+    Then I softly see "Primary Place of Performance" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I navigate to "Setup" sub tab
+    Then I softly see "Project Period" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I navigate to "Budget" sub tab
+    Then I softly see "Budget Overview" page block displayed
+    Then I softly see "Budget Level Information" page block displayed
+    Then I softly see "Budget Details" page block displayed
+    Then I softly see "Program Income" page block displayed
+    Then I softly see "Indirect Rates" page block displayed
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    And I navigate to "Checklist" sub tab
+    Then I softly see "Checklists" page block displayed
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see "Peer Reviewers" page block displayed
+    Then I softly see "Approvers" page block displayed
+    Then I softly see "Owner" page block displayed
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see "Application Files" page block displayed
+    Then I softly see "Notes" page block displayed
+    Then I softly see "All Forms" page block displayed
+    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
+      | Name     | Title               | Description      |
+      | David FO | Notes Record for FO | Automation Notes |
+    When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    When I navigate to "History" sub tab
+    Then I softly see "Approval History" page block displayed
+    Then I softly see "Snapshot History" page block displayed
+    And I navigate to "Messages" sub tab
+    Then I softly see "Messages" page block displayed
+    Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
+    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationPeerReview---" by clicking "New" :
+      | Reviewer Name      | Responsibility  | Description            | Due Date | Allow Record Editing |
+      | Danielle FD Garcia | Fiscal Reviewer | Automation Description | 5        | No                   |
+    And I click on "Send for Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:ApplicationPeerReview---" without waiting for record
+    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I navigate to "Setup" sub tab
+    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I navigate to "Budget" sub tab
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    When I navigate to "Forms and Files" sub tab
+    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
+      | Name     | Title               | Description      |
+      | David FO | Notes Record for FO | Automation Notes |
+    When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I navigate to "Messages" sub tab
+    Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
+    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:ApplicationPeerReview---" without waiting for record
+    And I enter a review as "Passed"
+    When I click modal button "Save"
+    And I click on submit review
+    And I wait for "2" seconds
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    Then I softly can see top right button "Complete Review" in page detail
+    And I click on "Complete Review" in the page details
+    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Reviewed"
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I navigate to "Setup" sub tab
+    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I navigate to "Budget" sub tab
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    When I navigate to "Forms and Files" sub tab
+    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
+      | Name     | Title               | Description      |
+      | David FO | Notes Record for FO | Automation Notes |
+    When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I navigate to "Messages" sub tab
+    Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
+    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    When I click on "Validate" in the page details
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Application has been validated successfully. |
+    And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I navigate to "Setup" sub tab
+    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I navigate to "Budget" sub tab
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    When I navigate to "Forms and Files" sub tab
+    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
+      | Name     | Title               | Description      |
+      | David FO | Notes Record for FO | Automation Notes |
+    When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I navigate to "Messages" sub tab
+    Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
+    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Submit to Grantor" in page detail
+    Then I softly see field "Status" as "Approved"
+    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I navigate to "Setup" sub tab
+    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I navigate to "Budget" sub tab
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    When I navigate to "Forms and Files" sub tab
+    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
+      | Name     | Title               | Description      |
+      | David FO | Notes Record for FO | Automation Notes |
+    When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I navigate to "Messages" sub tab
+    Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
+    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    Then I softly can see top right button "Submit To Grantor" in page detail
+    When I click on "Submit To Grantor" in the page details
+    When I enter values into fields
+      | Value | Field          |
+      | 0     | SubmittedOn__c |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Submitted to Grantor"
+    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I navigate to "Setup" sub tab
+    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I navigate to "Budget" sub tab
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    When I navigate to "Forms and Files" sub tab
+    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
+      | Name     | Title               | Description      |
+      | David FO | Notes Record for FO | Automation Notes |
+    When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I navigate to "Messages" sub tab
+    Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
+    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I can see top right button "Record Decision" in page detail
+    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I cannot see top right button "Record Decision" in page detail
+    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I navigate to "Setup" sub tab
+    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I navigate to "Budget" sub tab
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    When I navigate to "Forms and Files" sub tab
+    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
+      | Name     | Title               | Description      |
+      | David FO | Notes Record for FO | Automation Notes |
+    When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I navigate to "Messages" sub tab
+    Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
+    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    When I click on "Revise" in the page details
+    Then I softly see field "Status" as "Revision in Progress"
+    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Revision in Progress"
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I navigate to "Setup" sub tab
+    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I navigate to "Budget" sub tab
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    When I navigate to "Forms and Files" sub tab
+    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
+      | Name     | Title               | Description      |
+      | David FO | Notes Record for FO | Automation Notes |
+    When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I navigate to "Messages" sub tab
+    Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
