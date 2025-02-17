@@ -884,4 +884,9 @@ public final class GovGrantsAssertionSteps {
             I.amPerforming().assertionsTo().assertThat(ggAssertionObjects.isValuePresentInsidePicklistViewList(fieldValue, labelName)).isFalse();
         }
     }
+
+    @Then("^I (softly see|see|do not see|softly do not see) \"(.*?)\" page block displayed with quotes$")
+    public void iSoftlySeePageBlockDisplayedWithQuotes(String usage, String fieldLabel) {
+        ggAssertionObjects.assertPageBlockDisplayedWithQuotes(usage, fieldLabel);
+    }
 }

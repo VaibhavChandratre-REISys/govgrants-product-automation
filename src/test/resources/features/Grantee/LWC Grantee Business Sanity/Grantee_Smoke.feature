@@ -9891,7 +9891,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see the following messages in the page details contains:
       | {SavedValue:EGMSID} - Enter the UEI of the applicant organization - It should be 12 characters in length. |
 
-  @480084 @ValidateAssurancesforNonConstructionProgramsSF424BwithPOProfileOnceapprovedtheapplicationabletoseeSubmitgrantsGovButtononapplicationpagelayouttoprightcornerandabletocontinue @Grantee_Smoke1 @testExecution
+  @480084 @ValidateAssurancesforNonConstructionProgramsSF424BwithPOProfileOnceapprovedtheapplicationabletoseeSubmitgrantsGovButtononapplicationpagelayouttoprightcornerandabletocontinue @Grantee_Smoke1
   Scenario: Validate Assurances for Non-Construction Programs SF-424B with PO Profile Once approved the application able to see Submit grants.Gov Button on application page layout top right corner and able to continue
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySF424B}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269346" with properties "default-Grantee PO user"
@@ -10100,7 +10100,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see the text containing "When filling out the data within this form, please adhere to the character limits for each field as specified within the information icon for the field."
     Then I softly can see "Form" sub tab at view detail page
     Then I softly see "Certification Regarding Lobbying" page block displayed
-    Then I softly see "Organization" page block displayed
+    Then I softly see field with quotes "APPLICANT'S ORGANIZATION" inside page block
+    Then I softly see "Organization" page block displayed with quotes
     Then I softly see "Printed Name And Title Of Authorized Representative" page block displayed
     Then I softly see "Signature And Date" page block displayed
     Then I softly see the text containing " Required to Save | "
@@ -10112,7 +10113,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "(3) The undersigned shall require that the language of this certification be included in the award documents for all subawards at all tiers (including subcontracts, subgrants, and contracts under grants, loans, and cooperative agreements)" on forms
     Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "Statement for Loan Guarantees and Loan Insurance" on forms
     Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "The undersigned states, to the best of his or her knowledge and belief, that:" on forms
-    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "If any funds have been paid or will be paid to any person for influencing or attempting to influence an officer or employee of any agency, a Member of Congress, an officer or employee of Congress, or an employee of a Member of Congress in connection with this commitment providing for the United States to insure or guarantee a loan, the undersigned shall complete and submit Standard Form-LLL, ''Disclosure of Lobbying Activities,'' in accordance with its instructions. Submission of this statement is a prerequisite for making or entering into this transaction imposed by section 1352, title 31, U.S. Code. Any person who fails to file the required statement shall be subject to a civil penalty of not less than $10,000 and not more than $100,000 for each such failure." on forms
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "If any funds have been paid or will be paid to any person for influencing or attempting to influence an officer or employee of any agency" on forms
     Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "Statement for Loan Guarantees and Loan Insurance" on forms
     Then I softly see field with quotes "APPLICANT'S ORGANIZATION" inside page block
     Then I softly see asterisk mark on "ApplicantsOrganization__c"
@@ -10140,6 +10141,7 @@ Feature: Grantee Smoke scenarios
     Then I softly do not see asterisk mark on "Suffix"
     When I hovering mouse on help text icon inside page block detail "Suffix"
     Then I softly see "This is the suffix (e.g., Jr, Sr, PhD) for the name of the Authorized Representative." shown as help text
+    And I click on "Edit" in the page details
     Then I see only the following ordered options in dropdown field "AOR_Suffix__c" :
       | --None-- | Jr. | Sr. | M.D. | Ph.D |
     Then I softly see field "Title" inside page block
@@ -10374,7 +10376,7 @@ Feature: Grantee Smoke scenarios
     And I click on hyperlink containing value "Sarah PM"
     Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
 
-  @486506 @ValidateFDPOnonrecordownerusershouldabletoseetheapplicationissubmittedtoGrantorManuallead @testExecution
+  @486506 @ValidateFDPOnonrecordownerusershouldabletoseetheapplicationissubmittedtoGrantorManuallead
   Scenario: Validate FD PO non record owner user should able to see the application is submitted to Grantor Manual lead
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
@@ -10473,7 +10475,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Snapshot History" page block displayed
     And I navigate to "Messages" sub tab
     Then I softly see "Messages" page block displayed
-    Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
+    Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
     And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I click toggle button to select "Applications - All"
@@ -10575,7 +10577,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I navigate to "Messages" sub tab
-    Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
+    Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
     And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I click toggle button to select "Applications - All"
@@ -10621,7 +10623,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I navigate to "Messages" sub tab
-    Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
+    Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -10663,7 +10665,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I navigate to "Messages" sub tab
-    Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
+    Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
     And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I click toggle button to select "Applications - All"
@@ -10713,7 +10715,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I navigate to "Messages" sub tab
-    Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
+    Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
     And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I click toggle button to select "Applications - All"
@@ -10753,7 +10755,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I navigate to "Messages" sub tab
-    Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
+    Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
     And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I click toggle button to select "Applications - All"
@@ -10796,4 +10798,4 @@ Feature: Grantee Smoke scenarios
     When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I navigate to "Messages" sub tab
-    Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
+    Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"

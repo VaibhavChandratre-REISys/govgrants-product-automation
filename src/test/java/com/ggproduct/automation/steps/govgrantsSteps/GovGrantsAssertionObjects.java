@@ -4140,4 +4140,29 @@ public final class GovGrantsAssertionObjects {
         return flag;
     }
 
+    public void assertPageBlockDisplayedWithQuotes(String usage, String fieldLabel) {
+        String fieldLabel1 = fieldLabel.replaceAll("\\u00a0", "'");
+
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isPageBlockDisplayedWithQuotes(fieldLabel1));
+        }else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isPageBlockDisplayedWithQuotes(fieldLabel1)).isTrue();
+        }  else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isPageBlockDisplayedWithQuotes(fieldLabel1));
+        } else{
+            I.amPerforming().assertionsTo().assertThat(isPageBlockDisplayedWithQuotes(fieldLabel1)).isFalse();
+        }
+    }
+
+    private boolean isPageBlockDisplayedWithQuotes(String fieldLabel1) {
+        fieldLabel1 = fieldLabel1.trim();
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-page-block-section//span[contains(@class,'text-heading') and normalize-space(text())='" + fieldLabel1 + "'] | //c-page-block-section//span[normalize-space(text())='" + fieldLabel1 + "'] | //c-lwc-flex-table//span[contains(text(),'" + fieldLabel1 + "')] | //c-file-upload//a[contains(text(),'" + fieldLabel1 + "')] | //div[@id='WorkspaceFiles']//a[contains(text(),'" + fieldLabel1 + "')] | //c-page-block-section//span[contains(text(),'" + fieldLabel1 + "')]"))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
+    }
 }
