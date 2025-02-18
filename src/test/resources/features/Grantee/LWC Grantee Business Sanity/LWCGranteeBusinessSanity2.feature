@@ -6390,8 +6390,8 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @475743 @487225 @487226 @OpportunitiesNotconvertedGrantsgovVerifyasPMuservalidationisdisplayedonSaveforrequiredforsavefieldsand*isdisplayedforrequiredfields @GranteeTBE
-  Scenario Outline: Opportunities Not converted (Grants.gov ) - Verify as PM user,  validation is displayed on Save for required for save fields and * is displayed for required fields
+  @475743 @487225 @487226 @OpportunitiesNotconvertedGrantsgovVerifyasPMuservalidationisdisplayedonSaveforrequiredforsavefieldsandisdisplayedforrequiredfields @GranteeTBE
+  Scenario Outline: Opportunities Not converted (Grants.gov ) - Verify as PM user,  validation is displayed on Save for required for save fields and is displayed for required fields
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default-<UserName>"
     Given I login to "As a Grantee" app as "<UserType>" user
