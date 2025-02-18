@@ -6404,7 +6404,9 @@ Feature: Sanity scenarios
     And I click on "Edit" in the page details
     And I enter "Grantee_Opp_PreAppYes_Edition" values from "Announcement_Field_Values.xlsx"
     And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
+    And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
+    And I wait for "2" seconds
     When I save the field labeled "Application Due Date" as "ApplicationDueDate"
     And I enter value "{SavedValue:ApplicationDueDate}" into field "PreApplicationDueDate__c"
     And I navigate to "Evaluation" sub tab
@@ -6413,11 +6415,6 @@ Feature: Sanity scenarios
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:opportunityExternalProgramTableId---"
-    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:opportunityExternalProgramModalTableId---"
-    When I click modal button "Close"
-    And I wait for "3" seconds
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:opportunityApproverTableId---" by clicking "New" :
       | Name       | Opportunity |
@@ -6501,11 +6498,11 @@ Feature: Sanity scenarios
     Examples:
       | UserName        | OwnerType   | NonOwner        |
       | Sarah PM user   | GRANTEE PM  | GRANTEE PO      |
-#      | Grantee PO user | GRANTEE PO  | GRANTEE ADMIN1  |
-#      | Sarah PM user   | GRANTEE PM  | GRANTEE EXE     |
-#      | Victor EXE user | GRANTEE EXE | GRANTEE FO      |
-#      | Victor EXE user | GRANTEE EXE | GRANTEE FD      |
-#      | Sarah PM user   | GRANTEE PM  | GRANTEE AUDITOR |
+      | Grantee PO user | GRANTEE PO  | GRANTEE ADMIN1  |
+      | Sarah PM user   | GRANTEE PM  | GRANTEE EXE     |
+      | Victor EXE user | GRANTEE EXE | GRANTEE FO      |
+      | Victor EXE user | GRANTEE EXE | GRANTEE FD      |
+      | Sarah PM user   | GRANTEE PM  | GRANTEE AUDITOR |
 
   @482030 @GrantsgovlobbingformVerifyassignedreviewerEXEwitheditaccessasNocannotseeeditbuttonforGrantsgovlobbingformandcannoteditanydataontheform @GranteeTBE
   Scenario Outline: Grants.gov lobbing form - Verify assigned reviewer(EXE)  with edit access as No cannot see edit button for Grants.gov lobbing form and cannot edit any data on the form
