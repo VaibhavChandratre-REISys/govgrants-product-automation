@@ -19,7 +19,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @72340 @activateKPI @ProdSan2 @Nov @varerun
+  @72340 @activateKPI @ProdSan2 @remove @wip
   Scenario: Validate the activation of KPI and the status changes to Active
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -33,7 +33,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Activate" in the page details
 #    Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @72337 @activationOFFundingSource @ProdSan1 @varerun
+  @72337 @activationOFFundingSource @ProdSan1 @ps1
   Scenario: Validate the activation of Funding Source HappyPath and the status is Active
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -84,7 +84,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Back To Strategic Plan" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
-  @SubrecipientContactCreation @ProdSan2
+  @SubrecipientContactCreation @ProdSan2 @remove @wip
   Scenario: Subrecipient Contact Creation
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
@@ -188,7 +188,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @ExternalProgramActivation @ProdSan2
+  @ExternalProgramActivation @ProdSan2 @remove @wip
   Scenario: Validate External Program Activation
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -227,7 +227,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
 
-  @65077 @publishingCompetitiveAnnouncementCA @ProdSan2 @rerun @Nov
+  @65077 @publishingCompetitiveAnnouncementCA @ProdSan2 @remove @wip
   Scenario: Validate the activation of Competitive Announcement
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -493,7 +493,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
-  @72342 @publishingDirectedAnnouncement @ProdSan2 @ovrerun @Nov
+  @72342 @publishingDirectedAnnouncement @ProdSan2 @remove @wip
   Scenario: Validate the activation of Directed Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1166,7 +1166,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Accept" in the page details
     Then I see status in Progress-bar is "Accepted" and is "dark blue"
 
-  @72345 @submitApplication @ProdSan1 @varerun @Nov
+  @72345 @submitApplication @ProdSan1 @ps1
   Scenario: Validate once the application is submitted to Grantor and then status changes to Submitted
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1639,7 +1639,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @72348 @awardHappyPathStandAlone @ProdSan1 @ovrerun1
+  @72348 @awardHappyPathStandAlone @ProdSan1 @ps1
   Scenario: Validate the activation of subaward Happy path stand alone and status changes to Activated | Validate subaward Happy path stand alone
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -2172,7 +2172,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime award} | {SavedValue:Automation Runtime award} |
 
-  @72352 @progressReportHappyPath @ProdSan1 @Nov
+  @72352 @progressReportHappyPath @ProdSan1 @ps1
   Scenario: Validate once the Progress Report approval process is completed then the status changes to approved
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -2233,7 +2233,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     Then I see value "Approved" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressReport:-:internalProgressReportFlexTableId---"
 
-  @72353 @siteVisitAcceptAndClose @ProdSan1 @Rerun27
+  @72353 @siteVisitAcceptAndClose @ProdSan1 @ps1
   Scenario: Validate once the Award level Site Visit is clicked on Accept and Close butted then sttaus changes to closed
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -2681,7 +2681,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see field "Status" as "Amended"
     Then I see status in Progress-bar is "Amended" and is "dark blue"
 
-  @72359 @completeCloseout @ProdSan1 @Rerun27
+  @72359 @completeCloseout @ProdSan1 @ps1
   Scenario: Validate the Closeout is submitted for approval and the status changes to Submitted for Approval
     And I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -2799,7 +2799,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     Then I softly see field "Status" as "Completed"
 
-  @FundingChangeAmendmentRequest @ProdSan1 @Rerun13Sep
+  @FundingChangeAmendmentRequest @ProdSan1 @ps1
   Scenario Outline: validate the end to end flow for Funding change amendment request
     And I activated standalone subaward "Automation Runtime Award" with properties "<Properties>-Automation EXE user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "EXE" user
@@ -3056,7 +3056,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @SubrecipientBudgetRedirection @ProdSan1 @ovrerun1
+  @SubrecipientBudgetRedirection @ProdSan1 @ps1
   Scenario: Validate Subrecipient side Budget Redirection Amendment End to End flow
     And I activated standalone subaward "Automation Runtime Award" with properties "IS_BUILDUP_FUNCTIONALITY_YES" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -3302,7 +3302,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @FundingChangeandTermsandConditions @ProdSan4
+  @FundingChangeandTermsandConditions @ProdSan4 @remove @wip
   Scenario: Validate Funding Change and Terms & Conditions End to End flow
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_BUILDUP_YES-Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -3900,7 +3900,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see fields "AcknowledgeEquipment__c" is in edit mode
     Then I softly see fields "RequestFederalAgencyDispositionInstr__c" is in edit mode
 
-  @programRejection @ProdSan3 @Nov
+  @programRejection @ProdSan3 @remove @wip
   Scenario: Validate the Rejectionof Internal Program and redirecting to same page
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -4083,6 +4083,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Overview" sub tab
     And I save the field labeled "Subaward Title" as "Automation Runtime Direct Award"
     And I click on "Edit" in the page details
+    And I pause execution for "15" seconds
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -4206,7 +4207,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly see field "EGMS ID" as "{SavedValue:SitevVisitId}"
 
-  @DeskReviewOpenThroughManagementTabFromAward @ProdSan4
+  @DeskReviewOpenThroughManagementTabFromAward @ProdSan4 @remove @wip
   Scenario: Validate Desk Review Open Through Management Tab From Award
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
