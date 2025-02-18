@@ -10123,6 +10123,7 @@ Feature: Grantee Smoke scenarios
     Then I softly do not see asterisk mark on "Prefix"
     When I hovering mouse on help text icon inside page block detail "Prefix"
     Then I softly see "This is the prefix (e.g., Mr., Mrs., Rev.) for the name of the Authorized Representative." shown as help text
+    And I click on "Edit" in the page details
     Then I see only the following ordered options in dropdown field "AOR_Prefix__c" :
       | --None-- | Mr. | Mrs. | Miss | Ms. | Dr. | Rev. | Prof. |
     Then I softly see field "First Name" inside page block
@@ -10141,7 +10142,6 @@ Feature: Grantee Smoke scenarios
     Then I softly do not see asterisk mark on "Suffix"
     When I hovering mouse on help text icon inside page block detail "Suffix"
     Then I softly see "This is the suffix (e.g., Jr, Sr, PhD) for the name of the Authorized Representative." shown as help text
-    And I click on "Edit" in the page details
     Then I see only the following ordered options in dropdown field "AOR_Suffix__c" :
       | --None-- | Jr. | Sr. | M.D. | Ph.D |
     Then I softly see field "Title" inside page block
@@ -10372,7 +10372,7 @@ Feature: Grantee Smoke scenarios
     And I click modal button "Close"
     When I navigate to "Forms and Files" sub tab
     Then I softly cannot see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I softly cannot see row level action button "Edit" against "Assurances for Non-Construction Programs (SF-424B)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly cannot see row level action button "Edit" against "Disclosure of Lobbying Activities (SF-LLL)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on hyperlink containing value "Sarah PM"
     Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
 
