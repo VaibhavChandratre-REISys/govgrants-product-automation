@@ -3084,7 +3084,6 @@ Feature: Sanity scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
-    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -3094,6 +3093,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -3155,7 +3155,14 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
     And I close the tab
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
     And I refresh the page
+    And I wait for "2" seconds
     Then I softly see value "100.00%" for title "Percentage" against the value "Application for Federal Assistance (SF-424)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
 
   @485527 @485530 @485532 @485534 @485300 @FCAmdVerifythatPOuserseeIndirectRatesection&theirFieldsunderOverviewTabinFundingChangeAmendmentRequestlayout
@@ -6278,9 +6285,7 @@ Feature: Sanity scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
-    And I wait for "5" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
@@ -6289,16 +6294,14 @@ Feature: Sanity scenarios
       | Reviewer Name      | Role             | Description            | Due Date | Allow Record Editing |
       | Danielle FD Garcia | Program Reviewer | Automation Description | 5        | Yes                  |
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
-    And I pause execution for "2" seconds
     And I click on "Send for Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
-    And I pause execution for "3" seconds
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
-    And I click toggle button to select "Opportunities Not Converted to Application - My Records"
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
     And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
     Then I softly cannot see row level action button "Edit" against "{SavedValue:opportunityEGMSID}" in flex table with id "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
-    And I wait for "5" seconds
+    And I wait for "2" seconds
     And I navigate to "Opportunities" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -6311,17 +6314,16 @@ Feature: Sanity scenarios
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
-    And I wait for "3" seconds
     Then I softly see value "Submitted" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
     Then I softly cannot see row level action button "Enter Review" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
     Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
     When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
-    And I click toggle button to select "Opportunities Not Converted to Application - My Records"
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
     And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
     Then I softly can see row level action button "Edit" against "{SavedValue:opportunityEGMSID}" in flex table with id "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
-    And I wait for "5" seconds
+    And I wait for "2" seconds
     And I navigate to "Opportunities" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -6334,7 +6336,6 @@ Feature: Sanity scenarios
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
-    And I wait for "3" seconds
     Then I softly see value "Submitted" for title "Status" against the value "Danielle FD Garcia" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
     Then I softly cannot see row level action button "Enter Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
     Then I softly cannot see row level action button "Edit" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
