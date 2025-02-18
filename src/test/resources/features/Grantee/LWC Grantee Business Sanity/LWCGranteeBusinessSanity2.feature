@@ -6572,6 +6572,17 @@ Feature: Sanity scenarios
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
     And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
     And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
+    When I click modal button "Close"
     And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
     When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -6746,9 +6757,11 @@ Feature: Sanity scenarios
     Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I wait for "3" seconds
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" by clicking "Edit" :
-      | Title          | Title          | Classification  |
-      | Attachment.pdf | Automation.pdf | Notice of Award |
+    And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Notice of Award" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
     And I wait for "3" seconds
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
     And I click on "Delete" icon for "Notice of Award" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" without waiting for record
