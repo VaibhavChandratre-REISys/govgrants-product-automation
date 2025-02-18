@@ -6402,14 +6402,8 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
     And I click on "Edit" in the page details
-    And I refresh the page
-    And I wait for "3" seconds
     And I enter "Grantee_Opp_PreAppYes_Edition" values from "Announcement_Field_Values.xlsx"
     And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
-    When I click on "Save" in the page details
-    And I wait for "3" seconds
-    And I refresh the page
-    And I wait for "3" seconds
     When I navigate to "Overview" sub tab
     When I save the field labeled "Application Due Date" as "ApplicationDueDate"
     And I enter value "{SavedValue:ApplicationDueDate}" into field "PreApplicationDueDate__c"
