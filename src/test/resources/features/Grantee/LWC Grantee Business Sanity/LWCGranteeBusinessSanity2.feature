@@ -6407,7 +6407,7 @@ Feature: Sanity scenarios
     And I enter "Grantee_Opp_PreAppYes_Edition" values from "Announcement_Field_Values.xlsx"
     And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
     When I click on "Save" in the page details
-    And I wait for "5" seconds
+    And I wait for "3" seconds
     And I refresh the page
     And I wait for "3" seconds
     When I navigate to "Overview" sub tab
