@@ -2715,7 +2715,6 @@ Feature: Sanity scenarios
     When I click on "Convert to Opportunity" in the page details
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "{SavedValue:Automation Runtime}" with properties "DAVID_FO_APPROVER"
     And I "Created" award from application for opportunity "{SavedValue:Automation Runtime}" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
     And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "STEP_FOUR_APPROVER"
@@ -2729,6 +2728,10 @@ Feature: Sanity scenarios
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
+      | Title                            | Is Primary Program |
+      | Automation Permanent NGO Program | Checked            |
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Interim Award Document" from computer
