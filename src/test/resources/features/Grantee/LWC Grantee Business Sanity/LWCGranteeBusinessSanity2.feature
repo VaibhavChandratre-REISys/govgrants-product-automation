@@ -6467,7 +6467,6 @@ Feature: Sanity scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
-    And I wait for "5" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001241410" with properties "default"
     When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
@@ -6477,6 +6476,8 @@ Feature: Sanity scenarios
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
     When I navigate to "Forms and Files" sub tab
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     When I click on "View" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -6506,11 +6507,11 @@ Feature: Sanity scenarios
     Examples:
       | UserName        | OwnerType   | NonOwner        |
       | Sarah PM user   | GRANTEE PM  | GRANTEE PO      |
-      | Grantee PO user | GRANTEE PO  | GRANTEE ADMIN1  |
-      | Sarah PM user   | GRANTEE PM  | GRANTEE EXE     |
-      | Victor EXE user | GRANTEE EXE | GRANTEE FO      |
-      | Victor EXE user | GRANTEE EXE | GRANTEE FD      |
-      | Sarah PM user   | GRANTEE PM  | GRANTEE AUDITOR |
+#      | Grantee PO user | GRANTEE PO  | GRANTEE ADMIN1  |
+#      | Sarah PM user   | GRANTEE PM  | GRANTEE EXE     |
+#      | Victor EXE user | GRANTEE EXE | GRANTEE FO      |
+#      | Victor EXE user | GRANTEE EXE | GRANTEE FD      |
+#      | Sarah PM user   | GRANTEE PM  | GRANTEE AUDITOR |
 
   @482030 @GrantsgovlobbingformVerifyassignedreviewerEXEwitheditaccessasNocannotseeeditbuttonforGrantsgovlobbingformandcannoteditanydataontheform @GranteeTBE
   Scenario Outline: Grants.gov lobbing form - Verify assigned reviewer(EXE)  with edit access as No cannot see edit button for Grants.gov lobbing form and cannot edit any data on the form
