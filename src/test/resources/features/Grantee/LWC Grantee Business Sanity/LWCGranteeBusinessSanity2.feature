@@ -6759,6 +6759,7 @@ Feature: Sanity scenarios
     And I select Classification as "Notice of Award" at upload file modal
     When I click modal button "Save"
     And I click modal button "Close"
+    And I refresh the page
     And I wait for "3" seconds
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
     And I click on "Delete" icon for "Notice of Award" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" without waiting for record
