@@ -6585,11 +6585,15 @@ Feature: Sanity scenarios
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Overview" sub tab
     And I save the field labeled "Budget Period" as "BudgetPeriod"
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I wait for "2" seconds
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
