@@ -3105,16 +3105,19 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
+      | 1. Type of Submission is required to save.                                                                                                                      |
+      | 2. Type Of Application is required to save.                                                                                                                     |
       | a. Legal Name is required to save.                                                                                                                              |
       | c. UEI is required to save.                                                                                                                                     |
       | Street1 is required to save.                                                                                                                                    |
       | City is required to save.                                                                                                                                       |
+      | State is required to save.                                                                                                                                      |
       | Zip / Postal Code is required to save.                                                                                                                          |
       | First Name is required to save.                                                                                                                                 |
       | Last Name is required to save.                                                                                                                                  |
       | Telephone Number is required to save.                                                                                                                           |
       | Email is required to save.                                                                                                                                      |
-      | Other (specify) is required to save.                                                                                                                            |
+      | Type of Applicant 1: Select Applicant Type is required to save.                                                                                                 |
       | 10. Name of Federal Agency is required to save.                                                                                                                 |
       | 11. Assistance Listing Number (Catalog of Federal Domestic Assistance Number) is required to save.                                                              |
       | Assistance Listing Number (CFDA) Title is required to save.                                                                                                     |
@@ -3138,8 +3141,6 @@ Feature: Sanity scenarios
       | Title is required to save.                                                                                                                                      |
       | Telephone Number is required to save.                                                                                                                           |
       | Email is required to save.                                                                                                                                      |
-      | Signature of Authorized Representative is required to save.                                                                                                     |
-      | Date Signed is required to save.                                                                                                                                |
     When I click on "Cancel" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to cancel?" is displayed
     When I click modal button "OK"
