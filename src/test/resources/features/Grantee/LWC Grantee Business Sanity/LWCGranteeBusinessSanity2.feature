@@ -6408,6 +6408,7 @@ Feature: Sanity scenarios
     When I navigate to "Overview" sub tab
     And I wait for "2" seconds
     When I save the field labeled "Application Due Date" as "ApplicationDueDate"
+    And I click on "Edit" in the page details
     And I enter value "{SavedValue:ApplicationDueDate}" into field "PreApplicationDueDate__c"
     And I navigate to "Evaluation" sub tab
     And I enter value "Yes" into field "MaintenanceEffortRequire__c"
