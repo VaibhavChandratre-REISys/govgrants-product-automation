@@ -10136,7 +10136,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "This is the middle name of the Authorized Representative. Max character limit for this field is 25." shown as help text
     Then I softly see field "Last Name" inside page block
     Then I softly see asterisk mark on "Last Name"
-    When I hovering mouse on help text icon inside page block detail "Last Name"
+    When I hovering mouse on help text icon inside page block detail for invisible element "Last Name"
     Then I softly see "This is the last (family) name of the Authorized Representative signing this form. Max character limit for this field is 60." shown as help text
     Then I softly see field "Suffix" inside page block
     Then I softly do not see asterisk mark on "Suffix"
@@ -10154,7 +10154,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "It is the organization's responsibility to assure that only properly authorized individuals sign in this capacity and/or submit the application to Grants.gov. If this application is submitted through Grants.gov leave blank. If a hard copy is submitted, the AOR must sign this block." shown as help text
     Then I softly see field "DATE:" inside page block
     Then I softly do not see asterisk mark on "DATE:"
-    When I hovering mouse on help text icon inside page block detail "DATE:"
+    When I hovering mouse on help text icon inside page block detail for invisible element "DATE:"
     Then I softly see "If this application is submitted through Grants.gov, the system will generate this date. If submitting a hard copy, enter the date the AOR signed the application." shown as help text
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
@@ -10237,6 +10237,8 @@ Feature: Grantee Smoke scenarios
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I softly can see top right button "Submit To Grants.Gov" in page detail
+    When I click on "Submit To Grants.Gov" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
     When I click on "View" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
@@ -10244,6 +10246,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "SIGNATURE:" as "{SavedValue:SIGNATURE}"
     And I save the field labeled "DATE:" as "DATE"
     Then I softly see field "DATE:" as "{SavedValue:DATE}"
+    And I close the tab
     When I navigate to "History" sub tab
     And I save the value from row "1" for column name "Tracking Number" as "TrackingNumber" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "S2SReceived" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
