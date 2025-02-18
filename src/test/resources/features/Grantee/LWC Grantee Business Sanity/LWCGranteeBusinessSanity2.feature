@@ -6445,8 +6445,8 @@ Feature: Sanity scenarios
     Examples:
       | UserName   | UserType    |
       | Sarah PM   | GRANTEE PM  |
-#      | Victor EXE | GRANTEE EXE |
-#      | Grantee PO | GRANTEE PO  |
+      | Victor EXE | GRANTEE EXE |
+      | Grantee PO | GRANTEE PO  |
 
   @482022 @482023 @482024 @482025 @482026 @482027 @GrantsgovlobbingformVerifyPOuserNonOwnercannotaddeditdeletedatainGrantsgovlobbingformandcanonlyviewdataenteredbyownerintheform @GranteeTBE
   Scenario Outline: Grants.gov lobbing form -  Verify PO user (Non Owner) cannot add/edit/delete data in Grants.gov lobbing form and can only view data entered by owner in the form
