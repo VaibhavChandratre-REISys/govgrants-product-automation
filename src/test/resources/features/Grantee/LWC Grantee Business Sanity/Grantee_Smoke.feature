@@ -11947,9 +11947,10 @@ Feature: Grantee Smoke scenarios
     When I click modal button "Save"
     And I wait for "1" seconds
     When I click on "Save" in the page details
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:projectLocationFormTableId---"
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
-      | LC-000021 - The value of the field "Street 1" exceeds the maximum allowed limit of 55 characters. |
+      | {SavedValue:EGMSID} - The value of the field "Street 1" exceeds the maximum allowed limit of 55 characters. |
     And I close the tab
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Created"
