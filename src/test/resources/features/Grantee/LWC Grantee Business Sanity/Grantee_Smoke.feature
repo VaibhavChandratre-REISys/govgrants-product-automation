@@ -5977,7 +5977,7 @@ Feature: Grantee Smoke scenarios
       | userType   | attachment     | Notes        | userName | Title |
       | GRANTEE PM | Attachment.pdf | Notes Record | Sarah PM | Test  |
 
-  @443676 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts @Grantee_Smoke3
+  @443676 @495305 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts @Grantee_Smoke3 @Grantee_Smoke2
   Scenario Outline: Validate Non federal PO user should see all fields and section for non federal contact's
     When I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -6120,8 +6120,13 @@ Feature: Grantee Smoke scenarios
     Examples:
       | User       |
       | GRANTEE PM |
+      | GRANTEE PO    |
+      | GRANTEE EXE   |
+      | GRANTEE FO    |
+      | GRANTEE FD    |
+      | GRANTEE ADMIN |
 
-  @443672 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact @Grantee_Smoke1
+  @495304 @443672 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact @Grantee_Smoke1 @Grantee_Smoke2
   Scenario Outline: federal_ Verify user should see all fields and section for federal contact's
     When I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -6265,6 +6270,11 @@ Feature: Grantee Smoke scenarios
     Examples:
       | User       |
       | GRANTEE PM |
+      | GRANTEE PO    |
+      | GRANTEE EXE   |
+      | GRANTEE FO    |
+      | GRANTEE FD    |
+      | GRANTEE ADMIN |
 
   @442181 @ValidatePMusershouldabletosaveandcreateinternalcontact @Grantee_Smoke1
   Scenario Outline: Validate PM user should able to save and create internal contact
@@ -6436,7 +6446,7 @@ Feature: Grantee Smoke scenarios
       | userType   |
       | GRANTEE PM |
 
-  @440386 @ValidatePMusercancreateandActivateStrategicplan @Grantee_Smoke1
+  @440386 @476278 @ValidatePMusercancreateandActivateStrategicplan @Grantee_Smoke1 @Grantee_Smoke2
   Scenario Outline: Validate PM user can create and Activate Strategic plan
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
@@ -6606,8 +6616,9 @@ Feature: Grantee Smoke scenarios
     When I expand nested table containing column value "Automation Strategic Goal"
     Then I softly see value "Automation Strategic Objective" for title "Objective" inside table "---grantee_tableId:-:StrategicObjectivesChild---"
     Examples:
-      | userType   | emailIdFrom             | emailIdTo                       |
-      | GRANTEE PM | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com |
+      | userType    | emailIdFrom                     | emailIdTo                       |
+      | GRANTEE PM  | sarah.pm.23@yopmail.com         | victor.exeqagrantee@yopmail.com |
+      | GRANTEE EXE | victor.exeqagrantee@yopmail.com | sarah.pm.23@yopmail.com         |
 
   @440274 @ValidateFocusAreaWithEXEProfileAbletocreateActivateDeactivethefocusarea @Grantee_Smoke2
   Scenario: Validate Focus Area With EXE Profile Able to create Activate Deactive the focus area
@@ -11018,8 +11029,6 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Total Program Income Revenue this Budget Period" as "{SavedValue:TotalProgramIncomeRevenuethisBudgetPeriod}"
     When I save the field labeled "Total Leverage" as "TotalLeverage"
     Then I softly see field "Total Leverage" as "{SavedValue:TotalLeverage}"
-    Then I softly see value "$4,500.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-    Then I softly see value "$450.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$500.00" for title "Award Budget" against the value "Indirect costs" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Expenditures to Date" against the value "Indirect costs" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Carry-Forward" against the value "Indirect costs" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
@@ -11068,8 +11077,9 @@ Feature: Grantee Smoke scenarios
     When I save the field labeled "Total Project Cost" as "TotalProjectCost"
     Then I softly see field "Total Project Cost" as "{SavedValue:TotalProjectCost}"
     Given I expand nested table containing column value "BP01"
-    Then I softly see value "$4,500.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$4,500.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$450.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$5,150.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$500.00" for title "Awarded Budget" against the value "Indirect costs" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$50.00" for title "Cash Match" against the value "Indirect costs" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$0.00" for title "Other Leverage" against the value "Indirect costs" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
@@ -11089,7 +11099,7 @@ Feature: Grantee Smoke scenarios
       | User       |
       | GRANTEE PO |
 
-  @463520 @ValidateOtherTypeAREXEuserAROwnercanabletoSubmiARforApprovalApprovedfromassigned4stepapprovercandoSendtoOwnerForwardApproveactionsseeSubmittoGrantorbuttononceApprovedtheARRecord
+  @463520 @ValidateOtherTypeAREXEuserAROwnercanabletoSubmiARforApprovalApprovedfromassigned4stepapprovercandoSendtoOwnerForwardApproveactionsseeSubmittoGrantorbuttononceApprovedtheARRecord @Grantee_Smoke1
   Scenario: Validate Other Type AR-Verify EXE user AR Owner can able to Submit AR for Approval & Approved from assigned 4 step approver & can do Send to Owner Forward Approve actions see Submit to Grantor button once Approved the AR Record
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -11122,6 +11132,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
+    And I wait for "100" seconds
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -11191,3 +11202,162 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Overview" sub tab
     When I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
     Then I see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
+
+  @482429 @ValidateDirectGrantAwardPOuserPousershouldabletoActivatetheawadafteractivateawardverifythenewbuttoncloseoutAmendmentProgressReportFinancialReport @Grantee_Smoke1
+  Scenario: Validate Direct Grant Award PO user Verify Po user should able to Activate the award & after activate award verify the new button closeout Amendment Progress Report Financial Report
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Victor PO user"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    When I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Draft"
+    Then I softly cannot see "Closeout" sub tab at view detail page
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I navigate to "Management" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:ProgressReportTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly cannot see "Amendments" sub tab at view detail page
+    And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Closeout" sub tab
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I navigate to "Management" sub tab
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:ProgressReportTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
+
+  @494959 @ValidateAdminandPMusershouldabletocreateNonFederalOrgExternalOrg @Grantee_Smoke2
+  Scenario Outline: Validate Admin and PM user should able to create Non-Federal Org External Org
+    When I login to "As a Grantor" app as "<userType>" user
+    When I navigate to "Home" tab
+    And I navigate to "External" content inside "Organizations" subheader on left panel
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"
+    Examples:
+      | userType      |
+      | GRANTEE PM    |
+      | GRANTEE ADMIN |
+
+  @440272 @VerifyWithAdminProfileAbletocreateActivateDeactivethefocusarea @Grantee_Smoke2
+  Scenario: Verify With Admin Profile ,Able to create/Activate/Deactive  the focus area.
+    When I login to "As a Grantee" app as "GRANTEE ADMIN" user
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    When I enter in modal value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter in modal value "Automation Test Description" into field "Description__c"
+    When I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:focusAreaAddFilesTableId---"
+    When I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    Then I see "AttachmentTesting.pdf" has been added in "Focus Area Files" flex table
+    And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:focusAreaAddFilesTableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "supporting documents" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:focusAreaAddFilesTableId---"
+    Then I softly see value "supporting documents" for title "Classification" inside table "---grantee_tableId:-:focusAreaAddFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:focusAreaAddFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Attachment.pdf" has been added in "Focus Area Files" flex table
+    When I enter the following values into flex table with id "---grantee_tableId:-:focusAreaNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    When I enter the following values into flex table with id "---grantee_tableId:-:focusAreaNotesTableId---" by clicking "New" :
+      | Title         | Description       |
+      | Notes Record1 | Automation Notes1 |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:focusAreaNotesTableId---"
+    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:focusAreaNotesTableId---"
+    And I navigate to "Messages" sub tab
+    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    And I send the email under collab tab with following details:
+      | To                        | Subject            | Body            |
+      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
+    Then I softly see value "productqa@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    When I click on "Activate" in the page details
+    Then I see status in Progress-bar is "Active" and is "dark blue"
+    And I navigate to "History" sub tab
+    Then I softly see snapshot with name containing "Activate.pdf" as name
+    And I click on "Deactivate" in the page details
+    Then I see status in Progress-bar is "Closed" and is "dark blue"
+    Then I see field "Status" as "Inactive"
+    And I refresh the page
+    And I wait for "5" seconds
+    And I navigate to "History" sub tab
+    Then I softly see snapshot with name containing "Deactivate.pdf" as name
+
+  @495301 @Validatethepermissionsofinternalcontact @Grantee_Smoke2
+  Scenario Outline: Validate the permissions of internal contact
+    When I login to "As a Grantor" app as "<userType>" user
+    When I navigate to "Home" tab
+    And I navigate to "Internal" content inside "Contacts" subheader on left panel
+    And I click toggle button to select "All Contacts"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:InternalContacts---"
+    Then I softly see "Create Contact" opens in overLay window
+    And I click modal button "Save"
+    When I enter in modal value "Department of Product" into field "AccountId"
+    When I enter in modal value "Other" into field "Role__c"
+    When I enter in modal value "Automation Runtime" into field "FirstName"
+    And I enter in modal value "Contact" into field "LastName"
+    And I enter in modal value "8967894567" into field "Phone"
+    And I enter in modal value "9580378904" into field "MobilePhone"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
+    And I enter in modal value "VA Street" into field "MailingStreet"
+    And I enter in modal value "Jordan Road" into field "Address2__c"
+    And I enter in modal value "AK: Alaska" into field "State__c"
+    And I enter in modal value "123" into field "CongressionalDistrict__c"
+    And I enter in modal value "Calif" into field "MailingCity"
+    And I enter in modal value "USA" into field "MailingCountry"
+    And I enter in modal value "California" into field "County__c"
+    And I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
+    And I enter in modal value "12345" into field "MailingPostalCode"
+    And I click modal button "Save"
+    And I wait for "2" seconds
+    When I close "Create Contact" modal by clicking the top right x button
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---grantee_tableId:-:InternalContacts---" panel
+    Then I softly see value "{SavedValue:Automation Runtime} Contact" for title "Full Name" inside table "---grantee_tableId:-:InternalContacts---"
+    Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
+    When I click on "Edit" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---applicationReview:-:InternalContacts---"
+    And I enter in modal value "456879" into field "MailingPostalCode"
+    And I click modal button "Save"
+    Then I softly see field "Zip Code" as "456879"
+    And I wait for "2" seconds
+    And I click modal button "Close"
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---grantee_tableId:-:InternalContacts---" panel
+    When I click on "Delete" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---grantee_tableId:-:InternalContacts---"
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---grantee_tableId:-:InternalContacts---" panel
+    Then I softly do not see value "{SavedValue:Automation Runtime} Contact" for title "Full Name" inside table "---grantee_tableId:-:InternalContacts---"
+
+    Examples:
+      | userType      |
+      | GRANTEE ADMIN |
+      | GRANTEE EXE   |
