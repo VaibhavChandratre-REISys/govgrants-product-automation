@@ -11205,7 +11205,7 @@ Feature: Grantee Smoke scenarios
 
   @482429 @ValidateDirectGrantAwardPOuserPousershouldabletoActivatetheawadafteractivateawardverifythenewbuttoncloseoutAmendmentProgressReportFinancialReport @Grantee_Smoke1
   Scenario: Validate Direct Grant Award PO user Verify Po user should able to Activate the award & after activate award verify the new button closeout Amendment Progress Report Financial Report
-    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Victor PO user"
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
