@@ -11952,6 +11952,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see the following messages in the page details contains:
       | {SavedValue:EGMSID} - The value of the field "Street 1" exceeds the maximum allowed limit of 55 characters. |
     And I close the tab
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Created"
     Then I softly see the following messages in the page details contains:
