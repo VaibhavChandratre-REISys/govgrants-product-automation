@@ -46,7 +46,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I pause execution for "8" seconds
-    And I enter "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
+    And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1179,7 +1179,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Create Application" in the page details
     And I wait for "5" seconds
     And I click modal button "Save and Continue"
-    And I wait for "2" seconds
+    And I wait for "10" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
 #    And I navigate to "Overview" sub tab
 #    And I enter value "VA" into field "Addressline1__c"
@@ -1209,6 +1209,7 @@ Feature: Validate sanity testing of Complete Business Flow
 #    And I click on "Back" in the page details
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I pause execution for "7" seconds
     And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -1217,6 +1218,8 @@ Feature: Validate sanity testing of Complete Business Flow
 #    And I click on "Back" in the page details
 #    And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
+    And I wait for "3" seconds
+    And I refresh the page
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
 
