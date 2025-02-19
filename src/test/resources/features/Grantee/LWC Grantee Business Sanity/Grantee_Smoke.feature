@@ -11851,5 +11851,107 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
-
-
+  @483360 @ValidatePMuserseevalidationmessagesifusertrytosavetheinvaliddataonformandnotabletosubmitapplicationProjectPerformanceSiteLocations
+  Scenario: Validate PM user see validation messages if user try to save the invalid data on form and not able to submit application Project Performance Site Locations
+    Given I delete the grantee record "{grantee_testData:GrantsGovProjectPerformanceMandatory}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269345" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001269345" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001269345" with properties "TWO_STEP_APPROVER"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I click on "Edit" in the page details
+    And I enter value "123" into field "CongressionalDistrict1__c"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    Then I softly can see top right button "Cancel" in page detail
+    Then I softly can see top right button "Save" in page detail
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    Then I softly see value "Project/Performance Site Location(s)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see "check" symbol against the value "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "Edit" icon for "Project/Performance Site Location(s)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I see the header is "Project/Performance Site Location(s)" in the page details
+    And I click on top right button "Add" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    And I wait for "2" seconds
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Street 1 is required to save.                                         |
+      | City is required to save.                                             |
+      | State is required to save.                                            |
+      | ZIP / Postal Code is required to save.                                |
+      | Project/ Performance Site Congressional District is required to save. |
+    And I enter "Project_Perform_Site" values from "Application_Field_Values.xlsx"
+    And I enter value "{AUTOEnvData:300Char}" into field "AddressLine1__c"
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Street 1: data value too large (max length=255) |
+    And I enter value "Street1" into field "AddressLine1__c"
+    And I enter value "Mun123" into field "City__c"
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Please enter alphabetic character in the City field. |
+    And I enter value "Mumbai" into field "City__c"
+    And I enter value "test*-7899" into field "NineDigitZipCodeForForms__c"
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Please enter Zip code in the Zip + 4 codes format (e.g. 12345-1234) in the 'Zip / Postal code' field. |
+    And I enter value "7869057890" into field "NineDigitZipCodeForForms__c"
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Please enter Zip code in the Zip + 4 codes format (e.g. 12345-1234) in the 'Zip / Postal code' field. |
+    And I enter value "12345-1234" into field "NineDigitZipCodeForForms__c"
+    And I enter value "000" into field "GranteeFormsCongressionalDistrict__c"
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Please enter 5-digit value for Congressional District field e.g. CA-123 |
+    And I enter value "EW--67" into field "GranteeFormsCongressionalDistrict__c"
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Please enter 5-digit value for Congressional District field e.g. CA-123 |
+    And I enter value "555555" into field "GranteeFormsCongressionalDistrict__c"
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Please enter 5-digit value for Congressional District field e.g. CA-123 |
+    And I enter value "0000te" into field "GranteeFormsCongressionalDistrict__c"
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Please enter 5-digit value for Congressional District field e.g. CA-123 |
+    And I enter value "CR-849" into field "GranteeFormsCongressionalDistrict__c"
+    And I enter value "{AUTOEnvData:60Char}" into field "AddressLine1__c"
+    When I click modal button "Save"
+    And I wait for "1" seconds
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | LC-000021 - The value of the field "Street 1" exceeds the maximum allowed limit of 55 characters. |
+    And I close the tab
+    And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Created"
+    Then I softly see the following messages in the page details contains:
+      | Fill all the required data in the form before submitting. |
