@@ -11498,6 +11498,7 @@ Feature: Grantee Smoke scenarios
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
+    When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
     When I click modal button "Close"
@@ -11958,4 +11959,4 @@ Feature: Grantee Smoke scenarios
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Created"
     Then I softly see the following messages in the page details contains:
-      | Fill all the required data in the form before submitting. |
+      | Please validate the Forms by clicking validate button. |
