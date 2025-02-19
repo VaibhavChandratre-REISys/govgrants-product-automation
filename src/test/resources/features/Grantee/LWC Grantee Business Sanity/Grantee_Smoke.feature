@@ -11466,6 +11466,7 @@ Feature: Grantee Smoke scenarios
       | Proposed Name | Is Key Contact |
       | Victor EXE    | Unchecked      |
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Specify at least one Key Personnel for Key Personnel Change request. |
     When I click on "Delete" icon for "Victor EXE" inside flex table with id "---grantee_tableId:-:amendmentContactTableId---"
