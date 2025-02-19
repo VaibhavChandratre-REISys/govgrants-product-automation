@@ -11724,13 +11724,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
-      | To          | Subject            | Body            |
-      | <emailIdTo> | Automation Subject | Automation Body |
+      | To                              | Subject            | Body            |
+      | victor.exeqagrantee@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "sarah.pm.23@yopmail.com>" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "victor.exeqagrantee@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
