@@ -19,7 +19,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @72340 @activateKPI @ProdSan2 @remove @wip
+  @72340 @activateKPI @ProdSan2
   Scenario: Validate the activation of KPI and the status changes to Active
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -84,7 +84,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Back To Strategic Plan" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
-  @SubrecipientContactCreation @ProdSan2 @remove @wip
+  @SubrecipientContactCreation @ProdSan2
   Scenario: Subrecipient Contact Creation
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
@@ -188,7 +188,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @ExternalProgramActivation @ProdSan2 @remove @wip
+  @ExternalProgramActivation @ProdSan2
   Scenario: Validate External Program Activation
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -227,7 +227,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
 
-  @65077 @publishingCompetitiveAnnouncementCA @ProdSan2 @remove @wip
+  @65077 @publishingCompetitiveAnnouncementCA @ProdSan2
   Scenario: Validate the activation of Competitive Announcement
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -493,7 +493,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
-  @72342 @publishingDirectedAnnouncement @ProdSan2 @remove @wip
+  @72342 @publishingDirectedAnnouncement @ProdSan2
   Scenario: Validate the activation of Directed Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -2186,6 +2186,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:subrecipientPendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:subrecipientPendingTaskTableId---" without waiting for record
+    And I pause execution for "40" seconds
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
@@ -2208,6 +2209,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
+    And I pause execution for "10" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2339,6 +2341,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I softly can see top right button "Submit to Grantor" in page detail
     And I click on "Submit to Grantor" in the page details
+    And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3306,7 +3309,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @FundingChangeandTermsandConditions @ProdSan4 @remove @wip
+  @FundingChangeandTermsandConditions @ProdSan4
   Scenario: Validate Funding Change and Terms & Conditions End to End flow
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_BUILDUP_YES-Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -3805,7 +3808,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | "Federal share" in "2c. Reportable Residual Unused Supplies" is required, if "1c" is checked in 'Report' section.                               |
       | "Selling and handling allowance" in "2c. Reportable Residual Unused Supplies" is required, if "1c" is checked in 'Report' section.              |
 
-  @SF428_B_Dependent_fields @ProdSan3 @remove @wip
+  @SF428_B_Dependent_fields @ProdSan3
   Scenario:
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3904,7 +3907,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see fields "AcknowledgeEquipment__c" is in edit mode
     Then I softly see fields "RequestFederalAgencyDispositionInstr__c" is in edit mode
 
-  @programRejection @ProdSan3 @remove @wip
+  @programRejection @ProdSan3
   Scenario: Validate the Rejectionof Internal Program and redirecting to same page
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -4211,7 +4214,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly see field "EGMS ID" as "{SavedValue:SitevVisitId}"
 
-  @DeskReviewOpenThroughManagementTabFromAward @ProdSan4 @remove @wip
+  @DeskReviewOpenThroughManagementTabFromAward @ProdSan4
   Scenario: Validate Desk Review Open Through Management Tab From Award
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
