@@ -8075,7 +8075,6 @@ Feature: Sanity scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
-    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212745" with properties "default"
     When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
@@ -8099,12 +8098,9 @@ Feature: Sanity scenarios
     When I click on "SplitView" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Validate" in the split screen page details
-    And I click on "Edit" in the split screen page details
-    And I wait for "2" seconds
-    And I click on "Save" in the split screen page details
+    And I click on "Validate" in the split screen page details
     Then I softly see the following messages in the page details contains:
-      | Add the file for Mandatory Budget Narrative Document type. |
-    And I click on "Cancel" in the split screen page details
+      | Please upload exactly one 'Mandatory Budget Narrative'. |
     When I navigate to "Forms and Files" sub tab
     When I click on "View" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
@@ -8112,7 +8108,7 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Edit" in page detail
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
-      | Please upload the required attachments. |
+      | Please upload exactly one 'Mandatory Budget Narrative'. |
     Examples:
       | UserName        | OwnerType  |
       | Sarah PM user   | GRANTEE PM |
