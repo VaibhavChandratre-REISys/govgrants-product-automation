@@ -3702,11 +3702,22 @@ public class GrantorPayloads {
                 return payloadForAllSettingsNo(json);
             case "CASH_MATCH_NON_CASH_MATCH":
                 return payloadForCashMatchAndNonCashMatch(json);
+            case "NON_CONSTRUCTION":
+                return payloadForNonConstruction(json);
             case "USER":
                 return createStandaloneGranteeAwardUsingUser(json, user);
             default:
                 return json;
         }
+    }
+
+    private JsonObject payloadForNonConstruction(JsonObject json) {
+        JsonObject grants = json.getAsJsonArray("GrantAwardData").get(0).getAsJsonObject();
+        JsonArray pre = new JsonArray();
+        grants.addProperty("budgetType", "Non-Construction");
+        pre.add(grants);
+        json.add("GrantAwardData", pre);
+        return json;
     }
 
     private JsonObject payloadForCashMatchAndNonCashMatch(JsonObject json) {
