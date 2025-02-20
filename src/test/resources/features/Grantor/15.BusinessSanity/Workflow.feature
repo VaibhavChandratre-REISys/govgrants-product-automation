@@ -1596,28 +1596,28 @@ Feature: Validate all scenarios of every modules flow
 
   @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
   Scenario: Validate PM user should able to Create & Activate the KPI
-#    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
-#    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
-#    Given I login to "As a Grantee" app as "GRANTEE PM" user
-#    And I navigate to "Opportunities" tab
-#    When I navigate to "Qualified" content inside "Leads" subheader on left panel
-#    And I click toggle button to select "Qualified Leads - All"
-#    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
-#    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
-#    When I click on "Convert to Opportunity" in the page details
-#    And I wait for "3" seconds
-#    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
-#   And I halt execution
-#    And I wait for "2" seconds
-#    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I wait for "3" seconds
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I wait for "2" seconds
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I halt execution
 #    And I "Submitted for Approval" award from application for opportunity "{SavedValue:Automation Runtime}" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
 #    And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
 #    And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
 #    Adhoc Closeout API
 #    And I halt execution
-    And I "Created" standalone subaward "Automation Runtime Award" with properties "INDIRECT_COST_NO"
-    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
-    And I activate the award for title "{SavedValue:Automation Runtime Award}"
+#    And I "Created" standalone subaward "Automation Runtime Award" with properties "INDIRECT_COST_NO"
+#    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+#    And I activate the award for title "{SavedValue:Automation Runtime Award}"
 #    And I create adhoc closeout "{SavedValue:Automation Runtime Award}" for status "Completed" with properties "UPDATE_CLOSEOUT_TYPE"
 #    And I create schedule closeout "{SavedValue:Automation Runtime Award}" for status "Created" with properties "default"
 #    And I create schedule closeout "{SavedValue:Automation Runtime Award}" for status "Submitted to Grantor" with properties "default"

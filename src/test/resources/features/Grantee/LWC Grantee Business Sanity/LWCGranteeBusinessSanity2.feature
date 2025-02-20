@@ -7648,7 +7648,7 @@ Feature: Sanity scenarios
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @485374 @Sf-424VerifyAdminuserusershouldabletoseethelastmodifycolumnisupdateifonlyformiseditedbyanyuser @GranteeTBE
+  @485374 @Sf424VerifyAdminuserusershouldabletoseethelastmodifycolumnisupdateifonlyformiseditedbyanyuser @GranteeTBE
   Scenario Outline: Sf-424- Verify Admin user user should able  to see the last modify column is update if only form is edited by any user
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
@@ -7681,7 +7681,7 @@ Feature: Sanity scenarios
     And I click on "Edit" in the page details
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Delinquent Federal Debt" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     When I click on "Save" in the page details
@@ -7702,6 +7702,7 @@ Feature: Sanity scenarios
     And I switch to tab number "1"
     Then I softly see value "Delinquent Federal Debt" for title "Classification" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly do not see value "Areas Affected" for title "Classification" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
     When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -7718,6 +7719,7 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     Then I softly see value "Delinquent Federal Debt" for title "Classification" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly see value "Areas Affected" for title "Classification" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I close the tab
     When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -8022,7 +8024,7 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Validate" in page detail
     Then I softly can see top right button "Edit" in page detail
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Mandatory Budget Narrative" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative" from computer
     When I click modal button "Close"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Optional Budget Narrative" from computer
@@ -8059,10 +8061,10 @@ Feature: Sanity scenarios
     Examples:
       | OwnerType  | NonOwner        |
       | GRANTEE PM | GRANTEE EXE     |
-#      | GRANTEE PM | GRANTEE FD      |
-#      | GRANTEE PM | GRANTEE FO      |
-#      | GRANTEE PM | GRANTEE ADMIN1  |
-#      | GRANTEE PM | GRANTEE AUDITOR |
+      | GRANTEE PM | GRANTEE FD      |
+      | GRANTEE PM | GRANTEE FO      |
+      | GRANTEE PM | GRANTEE ADMIN1  |
+      | GRANTEE PM | GRANTEE AUDITOR |
 
   @477449 @477450 @BudgetNarrativeattachmentformVerifyvalidationdisplayedtoPMuseronBudgetNarrativeattachmentform @GranteeTBE
   Scenario Outline:Budget Narrative attachment form - Verify validation displayed to PM user on Budget Narrative attachment form
