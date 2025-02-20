@@ -12198,7 +12198,7 @@ Feature: Grantee Smoke scenarios
 
   @491697 @ValidatePMProfileimpactofdrawdownByAwardAwardwhichiscreatedthroughBudgetredirectionamendmentNonConstructionWithdrawdownWithSpent @Grantee_Smoke1 @testExecution
   Scenario: Validate PM Profile impact of drawdown By Award Award which is created through Budget redirection amendment Non Construction With drawdown With Spent
-    And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "NON_CONSTRUCTION"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     When I login to "As a Grantee" app as "GRANTEE PM" user
