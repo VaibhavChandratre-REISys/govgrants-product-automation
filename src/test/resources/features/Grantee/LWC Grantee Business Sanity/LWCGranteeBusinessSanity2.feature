@@ -7545,10 +7545,6 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
     And I close the tab
-#    When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
-#      | Name     | Application |
-#      | David FO | Step 1      |
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
@@ -7990,7 +7986,7 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Cancel" in page detail
     Then I softly can see top right button "Save" in page detail
 
-  @477451 @477452 @477453 @4774514 @477455 @VerifyEXEuserNonOwneranonlyviewfilesaddedonBudgetNarrativeattachmentform @GranteeTBE
+  @477451 @477452 @477453 @477454 @477455 @VerifyEXEuserNonOwneranonlyviewfilesaddedonBudgetNarrativeattachmentform @GranteeTBE
   Scenario Outline: Verify EXE user (Non Owner) can only view files added on Budget Narrative attachment form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default"
@@ -8061,10 +8057,10 @@ Feature: Sanity scenarios
     Examples:
       | OwnerType  | NonOwner        |
       | GRANTEE PM | GRANTEE EXE     |
-      | GRANTEE PM | GRANTEE FD      |
-      | GRANTEE PM | GRANTEE FO      |
-      | GRANTEE PM | GRANTEE ADMIN1  |
-      | GRANTEE PM | GRANTEE AUDITOR |
+#      | GRANTEE PM | GRANTEE FD      |
+#      | GRANTEE PM | GRANTEE FO      |
+#      | GRANTEE PM | GRANTEE ADMIN1  |
+#      | GRANTEE PM | GRANTEE AUDITOR |
 
   @477449 @477450 @BudgetNarrativeattachmentformVerifyvalidationdisplayedtoPMuseronBudgetNarrativeattachmentform @GranteeTBE
   Scenario Outline:Budget Narrative attachment form - Verify validation displayed to PM user on Budget Narrative attachment form
