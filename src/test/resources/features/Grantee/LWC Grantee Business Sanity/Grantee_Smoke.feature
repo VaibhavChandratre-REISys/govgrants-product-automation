@@ -12338,15 +12338,17 @@ Feature: Grantee Smoke scenarios
     When I enter in modal value "USA" into field "BillingCountry"
     When I enter in modal value "45623" into field "BillingPostalCode"
     And I click modal button "Save and Continue"
+    And I wait for "1" seconds
     And I click on "Save" in the page details
     And I navigate to "Overview" sub tab
+    And I wait for "2" seconds
     And I save the field labeled "Organization Name" as "OrganizationName"
     And I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     When I perform quick search for "{SavedValue:OrganizationName}" in "---grantee_tableId:-:nonFedOrgTableId---" panel
-    Then I softly see value "{SavedValue:OrganizationName}" for title "Title" inside table "---grantee_tableId:-:nonFedOrgTableId---"
+    Then I softly see value "{SavedValue:OrganizationName}" for title "Organization Name" inside table "---grantee_tableId:-:nonFedOrgTableId---"
     Then I can see row level action button "View" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -12355,7 +12357,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     When I perform quick search for "{SavedValue:OrganizationName}" in "---grantee_tableId:-:nonFedOrgTableId---" panel
-    Then I softly see value "{SavedValue:OrganizationName}" for title "Title" inside table "---grantee_tableId:-:nonFedOrgTableId---"
+    Then I softly see value "{SavedValue:OrganizationName}" for title "Organization Name" inside table "---grantee_tableId:-:nonFedOrgTableId---"
     Then I can see row level action button "View" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -12364,7 +12366,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     When I perform quick search for "{SavedValue:OrganizationName}" in "---grantee_tableId:-:nonFedOrgTableId---" panel
-    Then I softly see value "{SavedValue:OrganizationName}" for title "Title" inside table "---grantee_tableId:-:nonFedOrgTableId---"
+    Then I softly see value "{SavedValue:OrganizationName}" for title "Organization Name" inside table "---grantee_tableId:-:nonFedOrgTableId---"
     Then I can see row level action button "View" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -12373,7 +12375,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     When I perform quick search for "{SavedValue:OrganizationName}" in "---grantee_tableId:-:nonFedOrgTableId---" panel
-    Then I softly see value "{SavedValue:OrganizationName}" for title "Title" inside table "---grantee_tableId:-:nonFedOrgTableId---"
+    Then I softly see value "{SavedValue:OrganizationName}" for title "Organization Name" inside table "---grantee_tableId:-:nonFedOrgTableId---"
     Then I can see row level action button "View" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -12382,7 +12384,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     When I perform quick search for "{SavedValue:OrganizationName}" in "---grantee_tableId:-:nonFedOrgTableId---" panel
-    Then I softly see value "{SavedValue:OrganizationName}" for title "Title" inside table "---grantee_tableId:-:nonFedOrgTableId---"
+    Then I softly see value "{SavedValue:OrganizationName}" for title "Organization Name" inside table "---grantee_tableId:-:nonFedOrgTableId---"
     Then I can see row level action button "View" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
