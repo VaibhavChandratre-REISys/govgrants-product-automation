@@ -1679,7 +1679,6 @@ Feature: Validate sanity testing of Complete Business Flow
       | Budget Category | Award Amount | Cash Match | Non-Cash Match |
       | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
-    And I halt execution
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
