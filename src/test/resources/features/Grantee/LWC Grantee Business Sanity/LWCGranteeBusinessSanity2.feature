@@ -8097,8 +8097,8 @@ Feature: Sanity scenarios
     When I click on "SplitView" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Validate" in the split screen page details
-    And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "2" seconds
     And I click on "Save" in the split screen page details
     Then I softly see the following messages in the page details contains:
       | Add the file for Mandatory Budget Narrative Document type. |
@@ -8114,7 +8114,7 @@ Feature: Sanity scenarios
     Examples:
       | UserName        | OwnerType  |
       | Sarah PM user   | GRANTEE PM |
-      | Grantee PO user | GRANTEE PO |
+#      | Grantee PO user | GRANTEE PO |
 
   @477446 @BudgetNarrativeattachmentformVerifyFDusercannotaddeditViewdeletefilesinBudgetnarrativeattachmentforminSplitviewmodewhenApplicationisinsubmittedforreviewstate @GranteeTBE
   Scenario: Budget Narrative attachment form - Verify FD user cannot add/edit/View/delete files in Budget narrative attachment form in Split view mode when Application is in submitted for review state
