@@ -1615,7 +1615,7 @@ Feature: Validate all scenarios of every modules flow
 #    And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
 #    Adhoc Closeout API
 #    And I halt execution
-    And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "INDIRECT_COST_NO"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
 #    And I create adhoc closeout "{SavedValue:Automation Runtime Award}" for status "Completed" with properties "UPDATE_CLOSEOUT_TYPE"
@@ -1625,79 +1625,57 @@ Feature: Validate all scenarios of every modules flow
   #    And I "Submitted to Grantor" the "Progress Report" for title "Automation Runtime Award103116" with properties "default"
 #    And I Created the schedule "Progress Report" for title "{SavedValue:Automation Runtime Award}" with properties "default"
 #    And I update the schedule "Financial Report" in "Approved" state for title "Automation Runtime Award115221" with properties "FINAL_PROGRESS_YES"
-    And I "Approved" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    Then I softly see field "Status" as "Active"
-    Then I softly see status in Progress-bar is "Active" and is "dark blue"
-    And I save the field labeled "EGMS ID" as "GrantEGMSID"
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    Then I softly see field "Status" as "Activated"
-    And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    And I navigate to "Overview" sub tab
-    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
-    When I navigate to "Amendments" sub tab
-    And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    When I click on "Submit to Grantor" in the page details
-    And I wait for "5" seconds
-    When I enter values into fields
-      | Value | Field                 |
-      | 0     | SubmittedToGrantor__c |
-    And I click modal button "Save"
-    And I click modal button "Close"
-    Then I softly see field "Status" as "Submitted to Grantor"
-    Then I can see top right button "Record Decision" in page detail
-    Then I can see top right button "Revise Amendment" in page detail
-    When I click on "Record Decision" in the page details
-    When I enter values into fields
-      | Value                       | Field             |
-      | Accepted                    | Decision__c       |
-      | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
-      | Test                        | Comments__c       |
-    And I click modal button "Save"
-    And I click modal button "Close"
-    Then I softly see field "Status" as "Accepted"
-    And I click on "Amend Award" in the page details
-    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
-    When I click on "Activate Award" in the page details
-    Then I softly see field "Status" as "Activated"
-    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
-    And I save the field labeled "EGMS ID" as "AwardEGMSID1"
-    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD"
+#    And I "Approved" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
+#    When I login to "As a Grantee" app as "GRANTEE PM" user
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+#    And I click toggle button to select "Grants - All"
+#    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+#    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+#    Then I softly see field "Status" as "Active"
+#    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+#    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+#    When I navigate to "Awards" sub tab
+#    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+#    Then I softly see field "Status" as "Activated"
+#    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+#    And I navigate to "Overview" sub tab
+#    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+#    When I navigate to "Amendments" sub tab
+#    And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+#    When I click on "Submit to Grantor" in the page details
+#    And I wait for "5" seconds
+#    When I enter values into fields
+#      | Value | Field                 |
+#      | 0     | SubmittedToGrantor__c |
+#    And I click modal button "Save"
+#    And I click modal button "Close"
+#    Then I softly see field "Status" as "Submitted to Grantor"
+#    Then I can see top right button "Record Decision" in page detail
+#    Then I can see top right button "Revise Amendment" in page detail
+#    When I click on "Record Decision" in the page details
+#    When I enter values into fields
+#      | Value                       | Field             |
+#      | Accepted                    | Decision__c       |
+#      | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
+#      | Test                        | Comments__c       |
+#    And I click modal button "Save"
+#    And I click modal button "Close"
+#    Then I softly see field "Status" as "Accepted"
+#    And I click on "Amend Award" in the page details
+#    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+#    When I click on "Activate Award" in the page details
+#    Then I softly see field "Status" as "Activated"
+#    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+#    And I save the field labeled "EGMS ID" as "AwardEGMSID1"
+#    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD"
     And I halt execution
 
   @debugtest @debug
   Scenario:
-    Given I delete the grantee record "{grantee_testData:GrantsGovProjectPerformanceMandatory}"
-    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269345" with properties "default"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to "Opportunities" tab
-    When I navigate to "Qualified" content inside "Leads" subheader on left panel
-    And I click toggle button to select "Qualified Leads - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
-    When I click on "Convert to Opportunity" in the page details
-    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001269345" with properties "default"
-    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001269345" with properties "TWO_STEP_APPROVER"
-    When I navigate to "Applications" tab
-    And I navigate to "Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
-    And I click on "Edit" in the page details
-    And I enter value "123" into field "CongressionalDistrict1__c"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "appEGMSID"
-    When I navigate to "Forms and Files" sub tab
-    Then I softly see value "Project/Performance Site Location(s)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I softly see "check" symbol against the value "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    When I click on "Edit" icon for "Project/Performance Site Location(s)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1"
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Award__c/a1oKQ000000PXpyYAG/view"
+    And I halt execution
+    Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+
     And I halt execution
