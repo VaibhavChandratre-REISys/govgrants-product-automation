@@ -7122,7 +7122,6 @@ Feature: Sanity scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
-    And I wait for "5" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001241410" with properties "default"
     When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
@@ -7132,6 +7131,8 @@ Feature: Sanity scenarios
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationPeerReview---" by clicking "New" :
       | Reviewer Name | Responsibility  | Description            | Due Date | Allow Record Editing |
@@ -7150,7 +7151,6 @@ Feature: Sanity scenarios
     Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I wait for "3" seconds
     And I switch to tab number "1"
     Then I softly can see top right button "Validate" in page detail
     Then I softly can see top right button "Edit" in page detail
