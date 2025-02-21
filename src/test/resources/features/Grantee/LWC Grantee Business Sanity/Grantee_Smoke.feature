@@ -10513,6 +10513,7 @@ Feature: Grantee Smoke scenarios
       | Reviewer Name      | Responsibility  | Description            | Due Date | Allow Record Editing |
       | Danielle FD Garcia | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:ApplicationPeerReview---" without waiting for record
+    And I wait for "2" seconds
     And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I click toggle button to select "Applications - All"
