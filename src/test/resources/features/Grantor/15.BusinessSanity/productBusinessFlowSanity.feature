@@ -1333,7 +1333,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "10" seconds
     And I click on "Save" in the page details
     And I wait for "8" seconds
-    And I halt execution
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "15" seconds
