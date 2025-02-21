@@ -6526,6 +6526,8 @@ Feature: Sanity scenarios
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationPeerReview---" by clicking "New" :
       | Reviewer Name | Responsibility  | Description            | Due Date | Allow Record Editing |
