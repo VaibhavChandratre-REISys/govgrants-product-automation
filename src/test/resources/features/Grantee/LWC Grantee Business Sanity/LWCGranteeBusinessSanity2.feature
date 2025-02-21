@@ -7496,7 +7496,7 @@ Feature: Sanity scenarios
     Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I wait for "3" seconds
+    And I switch to tab number "1"
     Then I softly can see top right button "Validate" in page detail
     Then I softly can see top right button "Edit" in page detail
     Examples:
