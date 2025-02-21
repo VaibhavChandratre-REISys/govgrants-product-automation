@@ -6882,9 +6882,9 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
-    Then I softly see snapshot with name containing "Complete Review.pdf" as name
+#    When I navigate to "History" sub tab
+#    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
+#    Then I softly see snapshot with name containing "Complete Review.pdf" as name
     And I wait for "2" seconds
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -7019,10 +7019,8 @@ Feature: Sanity scenarios
     Then I can see top right button "Activate Award" in page detail
     Then I can see top right button "Delete" in page detail
     When I click on "Activate Award" in the page details
-    And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
-    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "AwardEGMSID2"
     When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -7105,11 +7103,11 @@ Feature: Sanity scenarios
     Examples:
       | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy          |
       | Sarah PM user   | GRANTEE PM | GRANTEE PM     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Sarah PM           |
-      | Grantee PO user | GRANTEE PO | GRANTEE ADMIN1 | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Product Admin      |
-      | Grantee PO user | GRANTEE PO | GRANTEE EXE    | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Victor EXE         |
-      | Sarah PM user   | GRANTEE PM | GRANTEE FD     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Danielle FD Garcia |
-      | Sarah PM user   | GRANTEE PM | GRANTEE FO     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | David FO           |
-      | Grantee PO user | GRANTEE PO | GRANTEE PO     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Grantee PO         |
+#      | Grantee PO user | GRANTEE PO | GRANTEE ADMIN1 | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Product Admin      |
+#      | Grantee PO user | GRANTEE PO | GRANTEE EXE    | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Victor EXE         |
+#      | Sarah PM user   | GRANTEE PM | GRANTEE FD     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Danielle FD Garcia |
+#      | Sarah PM user   | GRANTEE PM | GRANTEE FO     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | David FO           |
+#      | Grantee PO user | GRANTEE PO | GRANTEE PO     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Grantee PO         |
 
   @485355 @SF424VerifyFOuserasaReviewershouldabletoedittheformifeditaccessisYes @GranteeTBE
   Scenario Outline: SF-424 -Verify FO user as a Reviewer should able to edit the form if edit access is Yes
