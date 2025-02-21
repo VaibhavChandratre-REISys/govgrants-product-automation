@@ -210,7 +210,7 @@ Feature: Sanity scenarios
     When I "Reject" in the approval decision
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
-  @463559 @ValidateOpportunitiesNotconvertedmanualDavidFOuserReviewerNocanabletosubmitReview @GranteeTBE @GranteeTest
+  @463559 @ValidateOpportunitiesNotconvertedmanualDavidFOuserReviewerNocanabletosubmitReview @GranteeTBE
   Scenario: Validate Opportunities Not converted manual David FO user Reviewer No can able to submit Review
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
@@ -6245,7 +6245,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
-  @487233 @487234 @487235 @487236 @487237 @OpportunitiesNotconvertedGrantsgovVerifyEXEusercannotseeCreateApplicationbuttononApprovedOpportunity @GranteeTBE @GranteeTest
+  @487233 @487234 @487235 @487236 @487237 @OpportunitiesNotconvertedGrantsgovVerifyEXEusercannotseeCreateApplicationbuttononApprovedOpportunity @GranteeTBE
   Scenario Outline: Opportunities Not converted (Grants.gov) -  Verify EXE user cannot see Create Application button on Approved Opportunity
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default-<UserName>"
@@ -6371,7 +6371,6 @@ Feature: Sanity scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
-    And I wait for "5" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212745" with properties "default-Sarah PM"
     When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
@@ -6490,7 +6489,6 @@ Feature: Sanity scenarios
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     And I wait for "3" seconds
     When I click on "View" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I wait for "3" seconds
     And I switch to tab number "1"
     And I wait for "3" seconds
     Then I softly cannot see top right button "Validate" in page detail
@@ -6555,7 +6553,7 @@ Feature: Sanity scenarios
       | UserName      | UserType   |
       | Sarah PM user | GRANTEE PM |
 
-  @486513 @486518 @486535 @486536 @486538 @486539 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward @GranteeTBE
+  @486513 @486518 @486535 @486536 @486538 @486539 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward
   Scenario Outline: Other Type AR -Verify PM user should able to approved the AR & should able to create & activate new award
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
@@ -7103,11 +7101,11 @@ Feature: Sanity scenarios
     Examples:
       | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy          |
       | Sarah PM user   | GRANTEE PM | GRANTEE PM     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Sarah PM           |
-#      | Grantee PO user | GRANTEE PO | GRANTEE ADMIN1 | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Product Admin      |
-#      | Grantee PO user | GRANTEE PO | GRANTEE EXE    | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Victor EXE         |
-#      | Sarah PM user   | GRANTEE PM | GRANTEE FD     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Danielle FD Garcia |
-#      | Sarah PM user   | GRANTEE PM | GRANTEE FO     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | David FO           |
-#      | Grantee PO user | GRANTEE PO | GRANTEE PO     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Grantee PO         |
+      | Grantee PO user | GRANTEE PO | GRANTEE ADMIN1 | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Product Admin      |
+      | Grantee PO user | GRANTEE PO | GRANTEE EXE    | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Victor EXE         |
+      | Sarah PM user   | GRANTEE PM | GRANTEE FD     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Danielle FD Garcia |
+      | Sarah PM user   | GRANTEE PM | GRANTEE FO     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | David FO           |
+      | Grantee PO user | GRANTEE PO | GRANTEE PO     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Grantee PO         |
 
   @485355 @SF424VerifyFOuserasaReviewershouldabletoedittheformifeditaccessisYes @GranteeTBE
   Scenario Outline: SF-424 -Verify FO user as a Reviewer should able to edit the form if edit access is Yes
@@ -7197,7 +7195,6 @@ Feature: Sanity scenarios
     Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I wait for "3" seconds
     And I switch to tab number "1"
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
@@ -7205,7 +7202,7 @@ Feature: Sanity scenarios
       | UserName      | UserType   |
       | Sarah PM user | GRANTEE PM |
 
-  @482029 @GrantsgovlobbingformVerifyassignedreviewerFOwitheditaccessasYescanseeeditbuttonforGrantsgovlobbingformandcaneditallthedataontheformandvalidateitwhenapplicationisinSubmittedforreviewstate @GranteeTBE
+  @482029 @GrantsgovlobbingformVerifyassignedreviewerFOwitheditaccessasYescanseeeditbuttonforGrantsgovlobbingformandcaneditallthedataontheformandvalidateitwhenapplicationisinSubmittedforreviewstate
   Scenario Outline: Grants.gov lobbing form - Verify assigned reviewer(FO)  with edit access as Yes can see edit button for Grants.gov lobbing form and can edit all the data on the form and validate it when application is in Submitted for review state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumber}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001241410" with properties "default"
@@ -8118,7 +8115,7 @@ Feature: Sanity scenarios
       | Sarah PM user   | GRANTEE PM |
 #      | Grantee PO user | GRANTEE PO |
 
-  @477446 @BudgetNarrativeattachmentformVerifyFDusercannotaddeditViewdeletefilesinBudgetnarrativeattachmentforminSplitviewmodewhenApplicationisinsubmittedforreviewstate @GranteeTBE
+  @477446 @BudgetNarrativeattachmentformVerifyFDusercannotaddeditViewdeletefilesinBudgetnarrativeattachmentforminSplitviewmodewhenApplicationisinsubmittedforreviewstate
   Scenario: Budget Narrative attachment form - Verify FD user cannot add/edit/View/delete files in Budget narrative attachment form in Split view mode when Application is in submitted for review state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default"
@@ -8196,7 +8193,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Delete" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly can see row level action button "View" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
 
-  @481564 @481565 @481566 @481567 @481568 @VerifyEXEusershouldabletoviewaccessinallstateofApplicationforform @GranteeTBE
+  @481564 @481565 @481566 @481567 @481568 @VerifyEXEusershouldabletoviewaccessinallstateofApplicationforform
   Scenario Outline: Verify EXE user should able to view access in all  state of Application for form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -8449,7 +8446,7 @@ Feature: Sanity scenarios
       | GRANTEE PM | GRANTEE ADMIN1  |
       | GRANTEE PM | GRANTEE AUDITOR |
 
-  @481536 @VerifyFOuserasaReviewershouldabletoedittheformifeditaccessisYes @GranteeTBE
+  @481536 @VerifyFOuserasaReviewershouldabletoedittheformifeditaccessisYes
   Scenario Outline: Verify FO user as a Reviewer should able to edit the form if edit access is Yes
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -8533,7 +8530,7 @@ Feature: Sanity scenarios
       | UserType   |
       | GRANTEE PM |
 
-  @481537 @VerifyFDuserasaReviewershouldablenotedittheformifeditaccessisNo @GranteeTBE
+  @481537 @VerifyFDuserasaReviewershouldablenotedittheformifeditaccessisNo
   Scenario Outline: Verify FD user as a Reviewer should able not edit the form if edit access is No
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -8599,7 +8596,7 @@ Feature: Sanity scenarios
       | UserType   |
       | GRANTEE PM |
 
-  @481563 @VerifyPOUsershouldabletotoedittheforminRevisioninProgressstate @GranteeTBE
+  @481563 @VerifyPOUsershouldabletotoedittheforminRevisioninProgressstate
   Scenario: Verify PO User should able to to edit the form in Revision in Progress state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -8676,7 +8673,7 @@ Feature: Sanity scenarios
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @481571 @VerifyPMUsershouldabletosubmittheapplicationtograntsgovwithaddingrequiredfields&optionalfields @GranteeTBE
+  @481571 @VerifyPMUsershouldabletosubmittheapplicationtograntsgovwithaddingrequiredfields&optionalfields
   Scenario: Verify PM User should able to submit the application to grants.gov with adding  required fields & optional fields
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"

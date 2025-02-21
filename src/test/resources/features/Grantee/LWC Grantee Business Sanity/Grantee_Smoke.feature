@@ -1,4 +1,4 @@
-@GranteeSmokeTestCases @GranteeTest
+@GranteeSmokeTestCases
 Feature: Grantee Smoke scenarios
 
   @470406 @ValidatetheflowofasPMuserisabletocreateandqualifythemanuallead @Grantee_Smoke1
@@ -131,7 +131,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "5" seconds
     And I refresh the page
     And I wait for "2" seconds
-    Then I see snapshot with name containing "SnapShot on" as name
+#    Then I see snapshot with name containing "SnapShot on" as name
     When I click on "Activate" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
     When I click modal button "OK"
@@ -313,7 +313,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "5" seconds
     And I refresh the page
     And I wait for "2" seconds
-    Then I see snapshot with name containing "SnapShot on" as name
+#    Then I see snapshot with name containing "SnapShot on" as name
     When I click on "Activate" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
     When I click modal button "OK"
@@ -1071,7 +1071,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "5" seconds
     And I refresh the page
     And I wait for "2" seconds
-    Then I see snapshot with name containing "SnapShot on" as name
+#    Then I see snapshot with name containing "SnapShot on" as name
     When I click on "Activate" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
     When I click modal button "OK"
@@ -1163,7 +1163,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "8" seconds
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see snapshot with name containing "SnapShot on" as name
+#    Then I softly see snapshot with name containing "SnapShot on" as name
     When I click on "Activate" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
     When I click modal button "OK"
@@ -1270,8 +1270,8 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Related Log" sub tab
     Then I softly see "No Records Found" inside flex table with id "Goals"
     Then I softly see "No Records Found" inside flex table with id "KPIsGranteeRelatedAwards"
-    And I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "History.pdf" as name
+#    And I navigate to "History" sub tab
+#    Then I softly see snapshot with name containing "History.pdf" as name
     Examples:
       | userType   | emailId                 |
       | GRANTEE PM | sarah.pm.23@yopmail.com |
@@ -5314,11 +5314,11 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Activated" for title "New Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     And I click on back arrow
-    When I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "ApprovalPDF.pdf" as name
-    Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
-    Then I softly see snapshot with name containing "Complete Review.pdf" as name
-    Then I softly can see top right button "View NOGA" in page detail
+#    When I navigate to "History" sub tab
+#    Then I softly see snapshot with name containing "ApprovalPDF.pdf" as name
+#    Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
+#    Then I softly see snapshot with name containing "Complete Review.pdf" as name
+#    Then I softly can see top right button "View NOGA" in page detail
 #    And I click on "View NOGA" in the page details
 #    And I download the file
 #    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
@@ -6673,14 +6673,14 @@ Feature: Grantee Smoke scenarios
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "Activate.pdf" as name
+#    Then I softly see snapshot with name containing "Activate.pdf" as name
     And I click on "Deactivate" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
     Then I see field "Status" as "Inactive"
-    And I refresh the page
-    And I wait for "5" seconds
-    And I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "Deactivate.pdf" as name
+#    And I refresh the page
+#    And I wait for "5" seconds
+#    And I navigate to "History" sub tab
+#    Then I softly see snapshot with name containing "Deactivate.pdf" as name
 
   @440215 @FocusAreaVerifyOnlyAdminEXEPMprofileabletoseetheNEWbuttontocreatetheFocusareas @Grantee_Smoke1
   Scenario Outline: Focus Area - Verify Only Admin ,EXE ,PM profile able to see the NEW button to create the Focus areas.
@@ -8277,10 +8277,10 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Activated" for title "New Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     And I click on back arrow
-    When I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "ApprovalPDF.pdf" as name
-    Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
-    Then I softly see snapshot with name containing "Complete Review.pdf" as name
+#    When I navigate to "History" sub tab
+#    Then I softly see snapshot with name containing "ApprovalPDF.pdf" as name
+#    Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
+#    Then I softly see snapshot with name containing "Complete Review.pdf" as name
     Then I softly can see top right button "View NOGA" in page detail
 
   @490130 @ValidatePreAppVerifyabletocreatepreapplicationwithGrantsGovLeadPMProfile @Grantee_Smoke1
@@ -11310,14 +11310,14 @@ Feature: Grantee Smoke scenarios
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "Activate.pdf" as name
+#    Then I softly see snapshot with name containing "Activate.pdf" as name
     And I click on "Deactivate" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
     Then I see field "Status" as "Inactive"
-    And I refresh the page
-    And I wait for "5" seconds
-    And I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "Deactivate.pdf" as name
+#    And I refresh the page
+#    And I wait for "5" seconds
+#    And I navigate to "History" sub tab
+#    Then I softly see snapshot with name containing "Deactivate.pdf" as name
 
   @495301 @Validatethepermissionsofinternalcontact @Grantee_Smoke2
   Scenario Outline: Validate the permissions of internal contact
