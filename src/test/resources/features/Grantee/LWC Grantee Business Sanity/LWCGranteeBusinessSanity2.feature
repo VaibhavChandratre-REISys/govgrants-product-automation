@@ -7414,7 +7414,7 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     And I close the tab
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
