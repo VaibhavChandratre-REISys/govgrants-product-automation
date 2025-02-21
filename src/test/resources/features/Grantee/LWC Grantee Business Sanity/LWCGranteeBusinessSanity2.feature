@@ -7490,20 +7490,20 @@ Feature: Sanity scenarios
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I can see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
-    Then I softly can see top right button "Validate" in page detail
-    Then I softly can see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
     Examples:
       | UserName      | OwnerType  | UserType        |
       | Sarah PM user | GRANTEE PM | GRANTEE ADMIN1  |
-#      | Sarah PM user | GRANTEE PM | GRANTEE AUDITOR |
-#      | Sarah PM user | GRANTEE PM | GRANTEE FO      |
-#      | Sarah PM user | GRANTEE PM | GRANTEE FD      |
-#      | Sarah PM user | GRANTEE PM | GRANTEE EXE     |
+      | Sarah PM user | GRANTEE PM | GRANTEE AUDITOR |
+      | Sarah PM user | GRANTEE PM | GRANTEE FO      |
+      | Sarah PM user | GRANTEE PM | GRANTEE FD      |
+      | Sarah PM user | GRANTEE PM | GRANTEE EXE     |
 
   @485395 @Sf424PMuserisrejecttheapplicationthensubmittograntsgovbuttonisnotdisplay&verifytheeditaccess @GranteeTBE
   Scenario Outline: Sf-424- PM user is reject the application then submit to grants.gov button is not display & verify the edit access
@@ -7893,7 +7893,6 @@ Feature: Sanity scenarios
     Then I can see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I wait for "3" seconds
     And I switch to tab number "1"
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Validate" in page detail
