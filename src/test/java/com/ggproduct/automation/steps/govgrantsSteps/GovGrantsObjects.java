@@ -47,41 +47,32 @@ public final class GovGrantsObjects {
     protected void performQuickSearch(String tableIdForQsearch, String searchTermForQsearch) throws TestingBlazeCustomException {
         this.tableIdForQsearch = tableIdForQsearch;
         this.searchTermForQsearch = searchTermForQsearch;
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-            if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
-                govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch,
-                        govgrants.perform().pageDetails().idOfRecord);
-            } else {
-                govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch, this.searchTermForQsearch);
-            }
-        } else {
-            if (this.tableIdForQsearch.contains("PendingTasks") || this.tableIdForQsearch.contains("CompletedTasks")) {
-                boolean recordPresent = false;
-                int counter = 0;
-                while (!recordPresent && counter < 15) {
-                    if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//c-lwc-flex-table[@data-flextablename='" + this.tableIdForQsearch + "']//*[contains(text(),'Total Records:')]"))) {
-                        recordPresent = true;
-                        break;
-                    } else {
-                        if (this.tableIdForQsearch.contains("PendingTasks")) {
-                            I.amPerforming().browserOperationsTo().refreshPage();
-                            govgrants.perform().sideBar().clickSideBarContent("My Tasks", "Pending Tasks");
-                            I.amPerforming().waitFor().makeThreadSleep(9000);
-                        } else if (this.tableIdForQsearch.contains("CompletedTasks")) {
-                            I.amPerforming().browserOperationsTo().refreshPage();
-                            govgrants.perform().sideBar().clickSideBarContent("My Tasks", "Completed Tasks");
-                            I.amPerforming().waitFor().makeThreadSleep(9000);
-                        }
-                        counter++;
+        if (this.tableIdForQsearch.contains("PendingTasks") || this.tableIdForQsearch.contains("CompletedTasks")) {
+            boolean recordPresent = false;
+            int counter = 0;
+            while (!recordPresent && counter < 15) {
+                if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//c-lwc-flex-table[@data-flextablename='" + this.tableIdForQsearch + "']//*[contains(text(),'Total Records:')]"))) {
+                    recordPresent = true;
+                    break;
+                } else {
+                    if (this.tableIdForQsearch.contains("PendingTasks")) {
+                        I.amPerforming().browserOperationsTo().refreshPage();
+                        govgrants.perform().sideBar().clickSideBarContent("My Tasks", "Pending Tasks");
+                        I.amPerforming().waitFor().makeThreadSleep(9000);
+                    } else if (this.tableIdForQsearch.contains("CompletedTasks")) {
+                        I.amPerforming().browserOperationsTo().refreshPage();
+                        govgrants.perform().sideBar().clickSideBarContent("My Tasks", "Completed Tasks");
+                        I.amPerforming().waitFor().makeThreadSleep(9000);
                     }
+                    counter++;
                 }
             }
-            if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
-                govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
-                        govgrants.perform().pageDetails().idOfRecord);
-            } else {
-                govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch, this.searchTermForQsearch);
-            }
+        }
+        if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
+            govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
+                    govgrants.perform().pageDetails().idOfRecord);
+        } else {
+            govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch, this.searchTermForQsearch);
         }
     }
 
@@ -113,14 +104,8 @@ public final class GovGrantsObjects {
             govgrants.perform().mainPage().clickLoginDropDown();
             govgrants.perform().mainPage().clickLoginDropDownItems("Log Out");
         } else {
-            try {
-                I.amPerforming().waitFor().makeThreadSleep(1000);
-                govgrants.perform().mainPage().clickLoginDropDown();
-                govgrants.perform().mainPage().clickLoginDropDownItems("Logout");
-            } catch (Exception ex) {
-                I.amPerforming().waitFor().makeThreadSleep(1000);
-                I.amPerforming().click().withJavaScript(govgrants.perform().mainPage().getLoginDropDownItems("Logout"));
-            }
+            govgrants.perform().mainPage().clickLoginDropDown();
+            govgrants.perform().mainPage().clickLoginDropDownItems("Logout");
         }
     }
 
@@ -139,11 +124,7 @@ public final class GovGrantsObjects {
      * Click on Sub Tabs inside Grants and Announcements
      */
     protected void clickSubTab(String subTab) {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-            govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
-        } else {
-            govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
-        }
+        govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
     }
 
     /**
@@ -391,15 +372,45 @@ public final class GovGrantsObjects {
      *                 flex table then we can use this step...
      */
     public void uploadAttachmentInFlexTableFromComputer(Boolean withoutRandomNumber, String fileName, String fileType) {
-        /*By classificationType = By.xpath("//select[@title='Classification' or @name='Classification']");
-        By filePath = By.xpath("//label[contains(@id,'file')]/../input");
-        String defaultFilePath = System.getProperty("user.dir") + "/src/main/resources/";
-        I.amPerforming().dropDownSelection().from(classificationType).selectByValue(fileType);
-        I.amPerforming().textInput().in(filePath, defaultFilePath + fileName);
-        I.amPerforming().click().on(By.xpath("//button[text()='Upload']"));*/
-
         By classificationType = By.xpath("//select[@title='Classification' or @name='Classification']");
         By filePath = By.xpath("//label[contains(@id,'file')]/../input");
+        String defaultFilePath = System.getProperty("user.dir") + "/src/main/resources/";
+        String[] splitFileName = fileName.split("\\.");
+        String newFileName = withoutRandomNumber ? fileName : splitFileName[0] + I.amPerforming().addOnsTo().getStringRandomNumber() + "." + splitFileName[1];
+        try {
+            // renamed file with random number
+            if (!withoutRandomNumber) {
+                renameFile(defaultFilePath, fileName, newFileName);
+            }
+            I.amPerforming().waitFor().ElementToBePresent(classificationType,10);
+            I.amPerforming().dropDownSelection().from(classificationType).selectByValue(fileType);
+            I.amPerforming().waitFor().makeThreadSleep(5000);
+            I.amPerforming().textInput().in(filePath, defaultFilePath + newFileName);
+            I.amPerforming().click().withJavaScript(By.xpath("//button[text()='Upload']"));
+        } finally {
+            try {
+                I.amPerforming().waitFor().makeThreadSleep(5000);
+                if (!withoutRandomNumber) {
+                    // renaming back to the original file name
+                    renameFile(defaultFilePath, newFileName, fileName);
+                }
+            } catch (Exception ee) {
+                ee.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * @param fileName name of a file
+     * @param fileType type of file such as Other....
+     * @description description
+     * When we wants to add classification type and file on modal after clicking on Add Files top right button present in
+     * flex table then we can use this step...
+     */
+    public void uploadAttachmentInFlexTableFromComputerWithDescription(Boolean withoutRandomNumber, String fileName, String fileType, String Description) {
+        By classificationType = By.xpath("//select[@title='Classification' or @name='Classification']");
+        By filePath = By.xpath("//label[contains(@id,'file')]/../input");
+        By descript = By.xpath("//div[@id='WorkspaceFilesUpload']//textarea");
         String defaultFilePath = System.getProperty("user.dir") + "/src/main/resources/";
         String[] splitFileName = fileName.split("\\.");
         String newFileName = withoutRandomNumber ? fileName : splitFileName[0] + I.amPerforming().addOnsTo().getStringRandomNumber() + "." + splitFileName[1];
@@ -412,37 +423,7 @@ public final class GovGrantsObjects {
             I.amPerforming().dropDownSelection().from(classificationType).selectByValue(fileType);
             I.amPerforming().waitFor().makeThreadSleep(5000);
             I.amPerforming().textInput().in(filePath, defaultFilePath + newFileName);
-            I.amPerforming().click().withJavaScript(By.xpath("//button[text()='Upload']"));
-        } finally {
-            try {
-                I.amPerforming().waitFor().makeThreadSleep(10000);
-                if (!withoutRandomNumber) {
-                    // renaming back to the original file name
-                    renameFile(defaultFilePath, newFileName, fileName);
-                }
-            } catch (Exception ee) {
-                ee.printStackTrace();
-            }
-        }
-    }
-
-    public void uploadAttachmentInFlexTableFromComputerForLWC(Boolean withoutRandomNumber, String fileName, String fileType) {
-
-        By classificationType = By.xpath("//button[@title='Classification' or @name='Classification']");
-        By selectClassificationType = By.xpath("//span[normalize-space(text())='" + fileType + "']");
-        By filePath = By.xpath("//label[contains(@id,'file')]/../input");
-        String defaultFilePath = System.getProperty("user.dir") + "/src/main/resources/";
-        String[] splitFileName = fileName.split("\\.");
-        String newFileName = withoutRandomNumber ? fileName : splitFileName[0] + I.amPerforming().addOnsTo().getStringRandomNumber() + "." + splitFileName[1];
-        try {
-            // renamed file with random number
-            if (!withoutRandomNumber) {
-                renameFile(defaultFilePath, fileName, newFileName);
-            }
-            I.amPerforming().click().on(classificationType);
-            I.amPerforming().click().on(selectClassificationType);
-            I.amPerforming().waitFor().makeThreadSleep(5000);
-            I.amPerforming().textInput().in(filePath, defaultFilePath + newFileName);
+            I.amPerforming().textInput().in(descript, Description);
             I.amPerforming().click().withJavaScript(By.xpath("//button[text()='Upload']"));
         } finally {
             try {
@@ -529,18 +510,13 @@ public final class GovGrantsObjects {
      */
     protected void clickTableActionIconsForSpecificSubjectWithoutProcessing(String flextableId, String iconName,
                                                                             String... anycolumnvalue) {
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-            I.amPerforming().click().on(govgrants.perform().flexTable().getTableActionIcon(flextableId, iconName, anycolumnvalue));
-        } else {
             WebElement desiredAction = null;
             for (String uniqueColumnValue : anycolumnvalue) {
                 desiredAction = I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flextableId + "']//tbody/tr//*[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
                 I.amPerforming().scroll().toMoveToElement(desiredAction);
-                I.amPerforming().waitFor().makeThreadSleep(2000);
                 I.amPerforming().click().withJavaScript(desiredAction);
                 I.amPerforming().click().withJavaScript(govgrants.perform().flexTable().getTableActionIcon(flextableId, iconName, anycolumnvalue));
             }
-        }
     }
 
     /**
@@ -675,7 +651,7 @@ public final class GovGrantsObjects {
             By dropdownOptions = By.xpath("//div[@data-aura-class='forceSearchResultsFilters']//label[text()='Status']/..//div//div[@role='listbox']//span[@title='" + searchValue + "']");
             I.amPerforming().waitFor().ElementToBeVisible(dropdownOptions);
             I.amPerforming().click().on(dropdownOptions);
-        } else{
+        } else {
             WebElement valueName = I.amPerforming().getElementReference().of(By.xpath("//div[@data-aura-class='forceSearchResultsFilters']//label//*[text()='" + labelName + "']/../parent::div//input[@type='text']"));
             By buttonName = By.xpath("//div[@data-aura-class='forceSearchResultsFilters']//label//*[text()='" + labelName + "']/../parent::div/..//button[@title='Apply filter']");
             I.amPerforming().click().on(valueName);
@@ -694,10 +670,10 @@ public final class GovGrantsObjects {
     }
 
     public void toUpdateTitleAsOnUploadFileModal(String titleName) {
-       By title = By.xpath("//div[@id='WorkspaceFileEdit']//label[text()='Title']/..//div//input[@part='input']");
-       I.amPerforming().waitFor().ElementToBeVisible(title);
-       I.amPerforming().textInput().toClear(title);
-       I.amPerforming().textInput().in(title,titleName);
+        By title = By.xpath("//div[@id='WorkspaceFileEdit']//label[text()='Title']/..//div//input[@part='input']");
+        I.amPerforming().waitFor().ElementToBeVisible(title);
+        I.amPerforming().textInput().toClear(title);
+        I.amPerforming().textInput().in(title, titleName);
     }
 
     public void toClickOnNavigatorButtonInBottom(String buttonName) {

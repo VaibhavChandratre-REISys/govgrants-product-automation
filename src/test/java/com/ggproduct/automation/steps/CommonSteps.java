@@ -11,6 +11,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import jdk.jfr.Description;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 
 public class CommonSteps {
@@ -112,6 +113,43 @@ public class CommonSteps {
     @When("I {string} page block contaninig value {string}")
     public void iPageBlockContaninigValue(String actionIcon, String pageBlockTitle) {
         govgrants.perform().pageDetails().pageBlockExpandedOrCollapse(pageBlockTitle,actionIcon);
+    }
+
+
+    @When("I {string} left navigation contaninig value {string}")
+    public void iLeftNavigationContaninigValue(String actionIcon, String leftNavigationButton) {
+        govgrants.perform().pageDetails().leftNavigationContaninigValue(actionIcon,leftNavigationButton);
+    }
+
+    @And("^I delete the grantee record \"([^\"]*)\"$")
+    public void iDeleteTheRecord(String recordName) {
+        projectManager.deletionApiForGrantee(recordName);
+    }
+
+    @Then("^I (softly see|see) field with quotes \"(.*?)\" inside page block$")
+    public void iSoftlySeeFieldWithQuotesOtherInsidePageBlock(String shouldBeDisplayed, String fieldLabel) {
+        String fieldLabel1 = fieldLabel.replaceAll("\\u00a0", " ");
+        if (shouldBeDisplayed.contains("softly")) {
+            I.amPerforming().assertionsTo().assertThat("softly see".equalsIgnoreCase(shouldBeDisplayed)).isEqualTo(govgrants.perform().pageDetails().isElementPresentInsidePageBlockWithQuotes(fieldLabel1));
+        } else {
+            Assert.assertEquals("see".equalsIgnoreCase(shouldBeDisplayed), govgrants.perform().pageDetails().isElementPresentInsidePageBlockWithQuotes(fieldLabel1));
+        }
+    }
+
+    @Then("^I (softly see|softly do not see|see) notification \"([^\"]*)\" contains \"([^\"]*)\"$")
+    public void iSoftlySeeNotificationContains(String usage, String messageTitle, String messageValue) {
+        projectManager.assertNotificationValues(usage,messageTitle,messageValue);
+    }
+
+    @And("I click on {string} button for view files page")
+    public void iClickOnButtonForViewFilesPage(String buttonName) {
+        projectManager.clickOnButtonForViewFilesPage(buttonName);
+
+    }
+
+    @Then("^I (softly see|softly do not see|see|do not see) the field \"([^\"]*)\" as \"([^\"]*)\" on forms$")
+    public void iSoftlySeeTheFieldAs(String usage, String fieldLabel, String fieldValue) {
+        projectManager.assertFormsFields(usage, fieldLabel, fieldValue);
     }
 }
 

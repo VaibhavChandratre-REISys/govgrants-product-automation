@@ -90,10 +90,7 @@ public final class GovGrantsAssertionObjects {
      */
     private boolean isStatusPresentInHighlightPanel(String record, String status) {
         return I.amPerforming().checkToSee().isDisplayed(
-                By.xpath("//span[text()='" + record + "']"
-                        + "/../../../../../../../..//div//dt"
-                        + "/span[text()='Status']/../..//dd"
-                        + "//span[text()='" + status + "'] | //span[text()='" + record + "']/../..//dd//span//a[text()='" + status + "'] | //h2[normalize-space(text())='" + record + "']/parent::div/../..//c-page-block-section//*[text()='" + status + "'] | //c-page-block-section//label[normalize-space(text())='" + record + "']/..//*[text()='" + status + "'] | //span[text()='" + record + "']/ancestor::div/../..//c-page-block-section//*[text()='" + status + "'] | //span[text()='" + record + "']//following-sibling::div//lightning-formatted-text[text()='" + status + "'] | //label[text()='" + record + "']//parent::slot//a[text()='" + status + "']"), true);
+                By.xpath("//h2[normalize-space(text())='" + record + "']/parent::div/../..//c-page-block-section//*[text()='" + status + "'] | //c-page-block-section//label[normalize-space(text())='" + record + "']/..//*[text()='" + status + "'] | //span[text()='" + record + "']/ancestor::div/../..//c-page-block-section//*[text()='" + status + "'] | //span[text()='" + record + "']//following-sibling::div//lightning-formatted-text[text()='" + status + "'] | //label[text()='" + record + "']//parent::slot//a[text()='" + status + "']"), true);
     }
 
     /**
@@ -119,7 +116,6 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertValuesAreInFlexTable(String appName, String awardAmount, Boolean shouldBePresent, boolean isSoftly) {
         if (shouldBePresent != isValuesPresentInFlexTable(appName, awardAmount)) {
-            I.amPerforming().waitFor().makeThreadSleep(2000);
         }
 
         if (isSoftly) {
@@ -142,21 +138,6 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertValuesAreInFlexTableAgainstUniqueValue(String columnValue, String columnTitle,
                                                              String uniqueColumnValue, String flexTableDivId, Boolean checkifpresent, boolean isSoftly) {
-//        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-//            if (flexTableDivId.contains("GrantorProgressReportsInternal")) {
-//                flexTableDivId = "Progress Reports - Approved";
-//            } else if (flexTableDivId.contains("StrategicPlansGrantor")) {
-//                flexTableDivId = "Strategic Plans - All";
-//            }
-//            if (isSoftly) {
-//            I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
-//                    columnValue, columnTitle, uniqueColumnValue, flexTableDivId)).isEqualTo(checkifpresent);
-//        } else {
-//            Assert.assertEquals(checkifpresent,
-//                    govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
-//                            columnValue, columnTitle, uniqueColumnValue, flexTableDivId));
-//        }
-//        }else {
         if (isSoftly) {
             I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
                     columnValue, columnTitle, uniqueColumnValue, flexTableDivId)).isEqualTo(checkifpresent);
@@ -186,7 +167,6 @@ public final class GovGrantsAssertionObjects {
         }
         if (checkifpresent != govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
                 flexTableDivId)) {
-            I.amPerforming().waitFor().makeThreadSleep(1000);
         }
 
         if (isSoftly) {
@@ -233,11 +213,7 @@ public final class GovGrantsAssertionObjects {
         By desiredTextSelector = By.xpath("//*[normalize-space(text())='" + desiredText + "']");
         if (isContaining) {
             try {
-                desiredTextSelector = By.xpath("//div[@class='tab-inner-content']//span[contains(normalize-space(text()),'" + desiredText + "')] | //div[@class='slds-box slds-theme_default'] | //span[contains(normalize-space(text()),'" + desiredText + "')] | //*[contains(normalize-space(text()),'" + desiredText + "')] | //*//text()[contains(.,'" + desiredText + "')] | //*[contains(text(),'" + desiredText + "')] | //span[text()='" + desiredText + "']");
-                I.amPerforming().getElementReference().of(desiredTextSelector);
-            } catch (InvalidSelectorException e) {
-                /* Above provided xpath (I.e. //text()[contains(.,'" + desiredText + "')] ) is giving InvalidSelectorException, so handling it over here */
-                desiredTextSelector = By.xpath("//div[contains(@class,'panel-body')]//span[contains(.,'" + desiredText + "')] | //div[@class='tab-inner-content']//span[contains(normalize-space(text()),'" + desiredText + "')] | //*[contains(normalize-space(text()),'" + desiredText + "')] | //*[contains(text(),'" + desiredText + "')]");
+                desiredTextSelector = By.xpath("//div[@class='slds-box slds-theme_default'] | //span[contains(normalize-space(text()),'" + desiredText + "')] | //*[contains(normalize-space(text()),'" + desiredText + "')] | //*//text()[contains(.,'" + desiredText + "')] | //*[contains(text(),'" + desiredText + "')] | //span[text()='" + desiredText + "']");
                 I.amPerforming().getElementReference().of(desiredTextSelector);
             } catch (Exception e) {
                 /* Ignore Exception */
@@ -268,7 +244,7 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertOptionPresentInList(String usage, String option) {
         boolean checkoption = false;
-        if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//c-flex-layout-actions//div//a//span[text()='" + option + "']"))) {
+        if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//c-flex-layout-actions//div//a//span[text()='" + option + "'] | //lightning-menu-item[@title='" + option + "']"))) {
             checkoption = true;
         }
         if (usage.contains("not")) {
@@ -473,10 +449,6 @@ public final class GovGrantsAssertionObjects {
             } catch (Exception e) {
                 foundValue = null;
             }
-
-//            if (!fieldValue.equalsIgnoreCase(foundValue)) {
-//                I.amPerforming().browserOperationsTo().refreshPage();
-//            }
         }
 
         I.amPerforming().assertionsTo().assertThat(foundValue)
@@ -501,7 +473,7 @@ public final class GovGrantsAssertionObjects {
 
     public void verifyFieldAvailableOnModal(String field, String text) {
         try {
-            By fieldText = By.xpath("//div[@id='modaltemp']//div//span[contains(text(),'" + field + "')]//following::dd//span[contains(text(),'" + text + "')] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/..//lightning-base-combobox//span[text()='" + text + "']");
+            By fieldText = By.xpath("//div[contains(@class,'modal__container')]//label[text()='" + field + "']/..//lightning-base-combobox//span[text()='" + text + "'] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/parent::div//lightning-formatted-text[text()='" + text + "'] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/parent::div//a[text()='" + text + "']");
             I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(fieldText)).isTrue();
         } catch (Exception e) {
 
@@ -537,53 +509,76 @@ public final class GovGrantsAssertionObjects {
      * @modifier aashish.pardeshi
      */
     public void assertPageMessageValue(boolean contains, List<String> unsanitizedDesiredMessages, String isSoftly) {
-        By pageMessagesSelector = By.xpath("//div[@id='errorDiv']//li//descendant-or-self::*[text()]" // Page messages
-                + " | //div[contains(@class, 'alert') and @ng-repeat]" // First variant of flex table messages
-                + " | //div[contains(@class,'alertMessages')]//div[contains(@class,'alertMessage')]//span[@class='ng-binding']" // Second variant of flex table messages
-                + " | //div[contains(@class,'alert-danger')]" // get the alert danger message...
-                + " | //div//span[contains(@class,'dynamic-msg-box-margin')] | //c-flex-layout-page-messages//span[text()] | //span[contains(@class,'toastMessage')] | //div[@class='errorMsg']//span[@part='formatted-rich-text'] | //div[@class='successMsg']//span[@part='formatted-rich-text'] | //gnt-flex-layout-page-messages//span//lightning-formatted-text | //c-flex-layout-page-messages//span//lightning-formatted-text | //span[@class='toastMessage forceActionsText'] | //span[contains(@class,'changeOwnerErrorMessage')] | //flowruntime-error-content//lightning-formatted-rich-text//span"
-        );
+        By pageMessagesSelector = By.xpath("//c-flex-layout-page-messages//span[text()] | //span[contains(@class,'toastMessage')] | //div[@class='errorMsg']//span[@part='formatted-rich-text'] | //div[@class='successMsg']//span[@part='formatted-rich-text'] | //gnt-flex-layout-page-messages//span//lightning-formatted-text | //c-flex-layout-page-messages//span//lightning-formatted-text | //span[@class='toastMessage forceActionsText'] | //span[contains(@class,'changeOwnerErrorMessage')] | //flowruntime-error-content//lightning-formatted-rich-text//span | //div[@data-id='modalcontent1']//lightning-formatted-rich-text//span | //c-flex-layout-page-messages//lightning-formatted-rich-text//span");
 
         List<String> desiredMessages = unsanitizedDesiredMessages
                 .stream().map(str -> str.replaceAll("\uFFFD\\?", "\"")
                         .replaceAll("\u201C", "\"").replaceAll("\u201D", "\"")
                         .replaceAll("\u2018", "'").replaceAll("\u2019", "'")).collect(Collectors.toList());
 
+        // Perform actions based on the 'isSoftly' value
         if (isSoftly.contains("not")) {
             try {
-                // Must use WaitForElementToBePresent as this element never becomes visible, and thus it will always wait the full waitTime
-                govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
-                I.amPerforming().waitFor().ElementToBePresent(By.xpath("//script[contains(@src, 'PageMessages')]"), 5);
                 I.amPerforming().waitFor().ElementToBePresent(pageMessagesSelector, 2);
             } catch (Exception e) {
                 /* Ignore Exception */
             }
-            List<String> presentMessages = I.amPerforming().getElementReference().forListOfElements().of(pageMessagesSelector, contains)
-                    .stream().map(el -> el.getText().replaceAll("[\u201c\u201d]", "\"").replaceAll("[\u2018\u2019]", "'"))
-                    .collect(Collectors.toList());
-            boolean present = true;
-            for (int i = 0; i < desiredMessages.size(); i++) {
-                present = presentMessages.contains(desiredMessages.get(i));
-                if (present)
-                    break;
+
+            // Retry logic to avoid StaleElementReferenceException
+            List<String> presentMessages = null;
+            boolean retry = true;
+            int attempts = 3; // Retry up to 3 times
+            while (retry && attempts > 0) {
+                try {
+                    presentMessages = I.amPerforming().getElementReference().forListOfElements().of(pageMessagesSelector, contains)
+                            .stream().map(el -> el.getText().replaceAll("[\u201c\u201d]", "\"").replaceAll("[\u2018\u2019]", "'"))
+                            .collect(Collectors.toList());
+                    retry = false; // If successful, exit loop
+                } catch (StaleElementReferenceException e) {
+                    attempts--;
+                    if (attempts == 0) {
+                        throw e; // Rethrow if all retries fail
+                    }
+                    I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_CRITICAL, "Stale Element Exception : Retrying once again");
+                }
             }
-            I.amPerforming().assertionsTo().assertThat(present).isFalse();
+
+            // Check if present messages match desired messages
+            boolean present = false; // Start with false, meaning no match
+            for (int i = 0; i < desiredMessages.size(); i++) {
+                present = presentMessages.contains(desiredMessages.get(i)); // Check if any message matches
+                if (present) break; // Stop once a match is found
+            }
+            I.amPerforming().assertionsTo().assertThat(present).isFalse(); // Assert that no messages were present
         } else {
             try {
-                // Must use WaitForElementToBePresent as this element never becomes visible, and thus it will always wait the full waitTime
-                govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
-                I.amPerforming().waitFor().ElementToBePresent(By.xpath("//script[contains(@src, 'PageMessages')]"), 5);
                 I.amPerforming().waitFor().ElementToBePresent(pageMessagesSelector, 2);
             } catch (Exception e) {
                 /* Ignore Exception */
             }
 
-            Set<String> presentMessages = I.amPerforming().getElementReference().forListOfElements().of(pageMessagesSelector, contains)
-                    .stream().map(el -> el.getText().replaceAll("[\u201c\u201d]", "\"").replaceAll("[\u2018\u2019]", "'"))
-                    .collect(Collectors.toSet());
+            // Retry logic to avoid StaleElementReferenceException
+            Set<String> presentMessages = null;
+            boolean retry = true;
+            int attempts = 3; // Retry up to 3 times
+            while (retry && attempts > 0) {
+                try {
+                    presentMessages = I.amPerforming().getElementReference().forListOfElements().of(pageMessagesSelector, contains)
+                            .stream().map(el -> el.getText().replaceAll("[\u201c\u201d]", "\"").replaceAll("[\u2018\u2019]", "'"))
+                            .collect(Collectors.toSet());
+                    retry = false; // If successful, exit loop
+                } catch (StaleElementReferenceException e) {
+                    attempts--;
+                    if (attempts == 0) {
+                        throw e; // Rethrow if all retries fail
+                    }
+                    I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_CRITICAL, "Stale Element Exception : Retrying once again");
+                }
+            }
 
+            Set<String> finalPresentMessages = presentMessages;
             Set<String> missingMessages = desiredMessages.stream()
-                    .filter(desired -> presentMessages.stream()
+                    .filter(desired -> finalPresentMessages.stream()
                             .noneMatch(present -> contains ? present.contains(desired) : present.equalsIgnoreCase(desired)))
                     .collect(Collectors.toSet());
 
@@ -739,7 +734,7 @@ public final class GovGrantsAssertionObjects {
         try {
             By fieldWrapperLocator;
             if (responseType.equalsIgnoreCase("text")) {
-                fieldWrapperLocator = ByUsing.xpath("//div[@id='field" + fieldName + "' or @id='" + fieldName + "']//input[not(contains(@type,'hidden'))] | //div[@id='field" + fieldName + "' or @id='" + fieldName + "']//textarea | //div[@id='field" + fieldName + "' or @id='" + fieldName + "']//select | //div[@data-field_api_name='" + fieldName + "']//button[contains(@id,'combobox-button')]");
+                fieldWrapperLocator = ByUsing.xpath("//div[@data-field_api_name='" + fieldName + "']//button[contains(@id,'combobox-button')]");
                 String givenText = I.amPerforming().actionToGet().text(fieldWrapperLocator);
                 if (givenText.equals(text)) {
                     flag = true;
@@ -875,7 +870,6 @@ public final class GovGrantsAssertionObjects {
         if (uniqueColumnValue.equalsIgnoreCase("Record Id")) {
             columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
         }
-//            I.amPerforming().getElementReference().of(govgrants.perform().flexTable().getFlexTableColumn(columnValueUpdated));
         WebElement ClickSelector = I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//tbody/tr//*[text()='" + columnValueUpdated + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
         I.amPerforming().scroll().withMouseToElement(ClickSelector);
         I.amPerforming().click().withJavaScript(ClickSelector);
@@ -945,7 +939,7 @@ public final class GovGrantsAssertionObjects {
      * @modifier pooja.gundle -- added xpath
      */
     public void getSubTabsInsideMainDetailPage(String desiredSubTab, boolean assertCan, boolean isSoftly) {
-        By allSubTabsLocator = By.xpath("//div[@id='myTabs']//ul//li//a[@name] | //div[@class='layout']//ul//li//a[@data-label] | //div[@class='slds-tabs_default']//ul//li//a[@data-label]");
+        By allSubTabsLocator = By.xpath("//div[@class='layout']//ul//li//a[@data-label] | //div[@class='slds-tabs_default']//ul//li//a[@data-label]");
 
         List<String> allSubTabNames;
         try {
@@ -1117,28 +1111,15 @@ public final class GovGrantsAssertionObjects {
      * @modifier 2 meenakshi.jha added xpath for the field-name attribute (11/10/2020)
      */
     public void checkForDropdownOptions(boolean exactMatch, boolean checkOrder, String fieldApiName, List<String> expectedOptions) {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-            I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//button[@aria-haspopup='listbox'] | //label[text()='" + fieldApiName + "'] |//select[@name='" + fieldApiName + "']"));
-            By Options = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//lightning-base-combobox-item//span[@title] | //label[text()='" + fieldApiName + "']/parent::div//lightning-base-combobox-item |//select[@name='" + fieldApiName + "']/option");
-            List<String> actualOptions = I.amPerforming().getElementReference().forListOfElements().of(Options)
-                    .stream().map(Elements::getText).collect(Collectors.toList());
+        I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//button[@aria-haspopup='listbox'] | //label[text()='" + fieldApiName + "'] | //select[@name='" + fieldApiName + "']"));
+        By Options = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//lightning-base-combobox-item//span[@title] | //label[text()='" + fieldApiName + "']/parent::div//lightning-base-combobox-item | //select[@name='" + fieldApiName + "']//option");
+        List<String> actualOptions = I.amPerforming().getElementReference().forListOfElements().of(Options)
+                .stream().map(Elements::getText).collect(Collectors.toList());
 
-            compareLists(expectedOptions, actualOptions,
-                    "Verifying options of dropdown field with api name '" + fieldApiName + "'",
-                    exactMatch, checkOrder
-            );
-        } else {
-            List<String> actualOptions = I.amPerforming().dropDownSelection()
-                    .from(By.xpath("//div[" + I.amPerforming().sanityOfXpathTo().equals("@id", "field" + fieldApiName) + "]//select | //span[text()='" + fieldApiName + "']/../following-sibling::dd//select | //field[@field-name='" + fieldApiName + "']//select | //div[@id='" + fieldApiName + "']//select"))
-                    .getOptions().stream().map(WebElement::getText).collect(Collectors.toList());
-
-            compareLists(expectedOptions, actualOptions,
-                    "Verifying options of dropdown field with api name '" + fieldApiName + "'",
-                    exactMatch, checkOrder
-            );
-        }
-
-
+        compareLists(expectedOptions, actualOptions,
+                "Verifying options of dropdown field with api name '" + fieldApiName + "'",
+                exactMatch, checkOrder
+        );
     }
 
     /**
@@ -1407,7 +1388,14 @@ public final class GovGrantsAssertionObjects {
                                 .map(el -> el.getAttribute("title")).collect(Collectors.joining(" & ")));
                     } else {
                         // Add text of the cell to list
-                        rowValues.add(cell.getText());
+                        if (cell.getText().contains("*")) {// Exclude asterisks
+                            String cellText = cell.getText().trim();
+                            String newCell = cellText.split("\n")[1];
+                            rowValues.add(newCell);
+                        } else {
+                            rowValues.add(cell.getText());
+                        }
+//                        rowValues.add(cell.getText());
                     }
                 }
 
@@ -1845,7 +1833,7 @@ public final class GovGrantsAssertionObjects {
      * @modifier keerti.munde
      */
     private WebElement getPageBlockDetailsElement(String changedFieldName) {
-        return I.amPerforming().getElementReference().of(By.xpath("//span[contains(text(),'" + changedFieldName + "')] | //div//dl//span[contains(text(),'" + changedFieldName + "')] | //div[@id='" + changedFieldName + "'] | //span//b[text()='" + changedFieldName + "'] | //c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", changedFieldName) + "]"));
+        return I.amPerforming().getElementReference().of(By.xpath("//span[contains(text(),'" + changedFieldName + "')] | //c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", changedFieldName) + "]"));
     }
 
     /**
@@ -2168,7 +2156,7 @@ public final class GovGrantsAssertionObjects {
     private boolean isHyperTextDisplayed(String linkName) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//span[contains(text(),'" + linkName + "')]/ancestor::a |  //a[contains(text(),'" + linkName + "')]"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//label[contains(text(),'" + linkName + "')]//parent::div//a |//span[contains(text(),'" + linkName + "')]/ancestor::a | //a[contains(text(),'" + linkName + "')]"))) {
                 flag = true;
             }
         } catch (Exception e) {
@@ -2229,7 +2217,7 @@ public final class GovGrantsAssertionObjects {
     private Boolean seeBelowFieldsInPageBlock(String pageBlockName, List<String> fieldLabel) {
         boolean flag = false;
         try {
-            List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//h3//a[contains(text(),'" + pageBlockName + "')]/ancestor::div[@class='panel-heading']/following-sibling::div//dt | //h3[contains(text(),'" + pageBlockName + "')]/ancestor::div[@class='panel-heading']/following-sibling::div//dt | //span[contains(text(),'" + pageBlockName + "')]//parent::div/following-sibling::div//label"));
+            List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//span[contains(text(),'" + pageBlockName + "')]//parent::div/following-sibling::div//label"));
             List<String> fieldlist = new ArrayList<String>();
             for (int i = 0; i < elements.size(); i++) {
                 fieldlist.add(elements.get(i).getText().trim());
@@ -2286,7 +2274,7 @@ public final class GovGrantsAssertionObjects {
             if (I.amPerforming().checkToSee().isDisplayed(getOverLayTitle(titleName))) {
                 flag = true;
             }
-        } catch(Exception ignored){
+        } catch (Exception ignored) {
 
         }
         return flag;
@@ -2352,9 +2340,7 @@ public final class GovGrantsAssertionObjects {
     }
 
     private boolean isFieldsIsInEditModeAtPAgeDetails(String fieldApiName) {
-        By fieldsAtPageDetails = ByUsing.xpath("//div[@id='" + fieldApiName + "']//div[contains(@class,'field-value')]//label//following-sibling::span[1] " +
-                "| //*[@field-name='" + fieldApiName + "']//span[contains(@class,'requiredField h-line-left')]" +
-                "|//*[@id='" + fieldApiName + "'] " +
+        By fieldsAtPageDetails = ByUsing.xpath("//*[@id='" + fieldApiName + "'] " +
                 "| //lightning-input[contains(@id,'" + fieldApiName + "')]//input[not(@disabled)] " +
                 "| //div[contains(@class,'modal__content')]//div[@data-field_api_name='" + fieldApiName + "']//input[not(@disabled)] " +
                 "| //div[@data-field_api_name='" + fieldApiName + "']//input[not(@disabled)] " +
@@ -3127,7 +3113,7 @@ public final class GovGrantsAssertionObjects {
      */
     public boolean isSearchedValuePresentAutoSearchResult(String itemName) {
         boolean flag = false;
-        List<Elements> listViewOptions = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[contains(@class,'select2-search')]/following-sibling::ul//li//span|//div[contains(@class,'select2-search')]/following-sibling::ul//li | //div[contains(@id,'listbox-id')]//ul//li"));
+        List<Elements> listViewOptions = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[contains(@id,'listbox-id')]//ul//li"));
         for (Elements we : listViewOptions) {
             if (we.getText().contains(itemName) && we.getText().contentEquals(itemName)) {
                 flag = true;
@@ -3632,10 +3618,14 @@ public final class GovGrantsAssertionObjects {
      * @modifier richa sharma added the step to saas
      */
     public void assertToggleOptionDisplayed(String toggleOptions, String flexTableId, String usage) {
-        if (usage.equalsIgnoreCase("see")) {
+        if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isGivenToggleOptionPresent(toggleOptions, flexTableId)).isTrue();
-        } else if (usage.equalsIgnoreCase("do not see")) {
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
             I.amPerforming().assertionsTo().assertThat(isGivenToggleOptionPresent(toggleOptions, flexTableId)).isFalse();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isGivenToggleOptionPresent(toggleOptions, flexTableId));
+        } else {
+            Assert.assertFalse(isGivenToggleOptionPresent(toggleOptions, flexTableId));
         }
     }
 
@@ -3649,8 +3639,20 @@ public final class GovGrantsAssertionObjects {
      */
     private Boolean isGivenToggleOptionPresent(String toggleOptions, String flexTableId) {
         boolean flag = false;
+        if (toggleOptions.contains("Announcements") || toggleOptions.contains("Funding Decision Memos")) {
+            I.amPerforming().click().on(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']"));
+        } else if (toggleOptions.contains("External Funding Sources") || toggleOptions.contains("NGO Programs")) {
+            String toggleName1 = toggleOptions.split(" ")[1];
+            I.amPerforming().click().on(By.xpath("//span[contains(text(),'" + toggleName1 + "')]/ancestor::c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']"));
+        } else if (toggleOptions.contains("Subawards")) {
+            String toggleName1 = toggleOptions.split(" -")[0];
+            I.amPerforming().click().on(By.xpath("//span[contains(text(),'" + toggleName1 + "')]/ancestor::c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']"));
+        } else {
+            String toggleName = toggleOptions.split("-")[0];
+            I.amPerforming().click().on(By.xpath("//span[contains(text(),'" + toggleName + "')]/ancestor::c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']"));
+        }
         try {
-            if (I.amPerforming().checkToSee().IsElementPresentQuick(ByUsing.xpath("//div[@id='" + flexTableId + "']//*[@id='dropdownListView']//ul/li/a/span[contains(@class,'ng-binding') and text()='" + toggleOptions + "']")))
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(ByUsing.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//lightning-button-menu//div//a//span[text()='" + toggleOptions + "']")))
                 ;
             flag = true;
         } catch (org.openqa.selenium.NoSuchElementException e) {
@@ -3668,7 +3670,7 @@ public final class GovGrantsAssertionObjects {
     public boolean AssertTextinModal(String text) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(ByUsing.xpath("//*[contains(text(),'" + text + "')]")))) {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(ByUsing.xpath("//div[contains(@class,'slds-modal__container')]//*[contains(text(),'" + text + "')]")))) {
                 flag = true;
             }
         } catch (Exception e) {
@@ -3700,7 +3702,7 @@ public final class GovGrantsAssertionObjects {
      */
     private boolean isButtonPresent(String buttonLabel) {
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class, 'modal-content')]//button[text()='" + buttonLabel + "'] | //div[contains(@class, 'modal__footer')]//button[text()='" + buttonLabel + "']")))) {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class, 'modal__footer')]//button[text()='" + buttonLabel + "']")))) {
                 return true;
             }
         } catch (Exception e) {
@@ -3752,7 +3754,7 @@ public final class GovGrantsAssertionObjects {
 
     }
 
-    public void assertSectionsofGlobalSearchDisplayOrNot( String sectionName, String usage) {
+    public void assertSectionsofGlobalSearchDisplayOrNot(String sectionName, String usage) {
         if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isSectionsInGlobalSearchDisplay(sectionName)).isTrue();
         } else if (usage.equalsIgnoreCase("do not see")) {
@@ -3778,6 +3780,30 @@ public final class GovGrantsAssertionObjects {
         return false;
     }
 
+    public void assertButtonNameInsidePostDropdown(String usage, String buttonName) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isButtonNameInsidePostDropdown(buttonName)).isTrue();
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isButtonNameInsidePostDropdown(buttonName)).isFalse();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isButtonNameInsidePostDropdown(buttonName));
+        } else {
+            Assert.assertFalse(isButtonNameInsidePostDropdown(buttonName));
+        }
+    }
+
+    private boolean isButtonNameInsidePostDropdown(String buttonName) {
+        try {
+            I.amPerforming().click().on(By.xpath("//article//button[@aria-haspopup='true']"));
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//article//div//ul//li//span[text()='" + buttonName + "']")))) {
+                return true;
+            }
+        } catch (Exception e) {
+            //Handle exception to continue execution
+        }
+        return false;
+    }
+
     public void assertTopRecentRecordsDisplayInsideGlobalSearchBox(String number, String usage) {
         if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(Integer.parseInt(number)).isEqualTo(isTopRecentRecordsInGlobalSearchDisplay(number));
@@ -3791,7 +3817,7 @@ public final class GovGrantsAssertionObjects {
     }
 
     private int isTopRecentRecordsInGlobalSearchDisplay(String number) {
-        List<Elements> recentRecords = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@data-aura-class='forceSearchInputDesktop']//div[@role='listbox']//ul//li")).subList(0,5);
+        List<Elements> recentRecords = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@data-aura-class='forceSearchInputDesktop']//div[@role='listbox']//ul//li")).subList(0, 5);
         return recentRecords.size();
     }
 
@@ -3810,9 +3836,9 @@ public final class GovGrantsAssertionObjects {
     private boolean isDropDownOptionsInsideSectionofGlobalSearch(String options, String sectionName) {
         boolean flag = false;
         By globalDropdownSelector = By.xpath("//*[@data-value='Search: All']");
-        if(I.amPerforming().checkToSee().isDisplayed(globalDropdownSelector)){
+        if (I.amPerforming().checkToSee().isDisplayed(globalDropdownSelector)) {
             I.amPerforming().click().on(globalDropdownSelector);
-            List<Elements> elements= I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//ul[@aria-label='" + sectionName + "']//li"));
+            List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//ul[@aria-label='" + sectionName + "']//li"));
             for (Elements element : elements) {
                 if (element.getText().equals(options)) {
                     flag = true;
@@ -3827,10 +3853,10 @@ public final class GovGrantsAssertionObjects {
         if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isFieldInsideRefineByFilter(fieldName)).isTrue();
         } else if (usage.equalsIgnoreCase("see")) {
-           Assert.assertTrue(isFieldInsideRefineByFilter(fieldName));
+            Assert.assertTrue(isFieldInsideRefineByFilter(fieldName));
         } else if (usage.equalsIgnoreCase("do not see")) {
             I.amPerforming().assertionsTo().assertThat(isFieldInsideRefineByFilter(fieldName)).isFalse();
-        } else{
+        } else {
             Assert.assertFalse(isFieldInsideRefineByFilter(fieldName));
         }
     }
@@ -3855,7 +3881,7 @@ public final class GovGrantsAssertionObjects {
             Assert.assertTrue(isTheTextOnLeftNavigationForGlobalSearch(text));
         } else if (usage.equalsIgnoreCase("do not see")) {
             I.amPerforming().assertionsTo().assertThat(isTheTextOnLeftNavigationForGlobalSearch(text)).isFalse();
-        } else{
+        } else {
             Assert.assertFalse(isTheTextOnLeftNavigationForGlobalSearch(text));
         }
     }
@@ -3874,20 +3900,20 @@ public final class GovGrantsAssertionObjects {
 
     public void assertCountForModuleOnLeftNavigationForGlobalSearch(String usage, String countNumber, String moduleName) {
         if (usage.equalsIgnoreCase("softly see")) {
-            I.amPerforming().assertionsTo().assertThat(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber,moduleName)).isTrue();
+            I.amPerforming().assertionsTo().assertThat(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber, moduleName)).isTrue();
         } else if (usage.equalsIgnoreCase("see")) {
-            Assert.assertTrue(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber,moduleName));
+            Assert.assertTrue(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber, moduleName));
         } else if (usage.equalsIgnoreCase("do not see")) {
-            I.amPerforming().assertionsTo().assertThat(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber,moduleName)).isFalse();
-        } else{
-            Assert.assertFalse(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber,moduleName));
+            I.amPerforming().assertionsTo().assertThat(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber, moduleName)).isFalse();
+        } else {
+            Assert.assertFalse(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber, moduleName));
         }
     }
 
     private boolean isCountForModuleOnLeftNavigationForGlobalSearch(String countNumber, String moduleName) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'scopesBlock')]//*[normalize-space(text())='"  + moduleName + "']/ancestor::a//span//span[text()='" + countNumber + "']"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'scopesBlock')]//*[normalize-space(text())='" + moduleName + "']/ancestor::a//span//span[text()='" + countNumber + "']"))) {
                 flag = true;
             }
         } catch (org.openqa.selenium.NoSuchElementException e) {
@@ -3912,9 +3938,9 @@ public final class GovGrantsAssertionObjects {
     private boolean isOptionsInsideDropdown(String options, String dropDownName) {
         boolean flag = false;
         By globalDropdownSelector = By.xpath("//div[contains(@class,'sortMenuLink')]//button[text()='" + dropDownName + "']");
-        if(I.amPerforming().checkToSee().isDisplayed(globalDropdownSelector)){
+        if (I.amPerforming().checkToSee().isDisplayed(globalDropdownSelector)) {
             I.amPerforming().click().on(globalDropdownSelector);
-            List<Elements> elements= I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//div[contains(@class,'sortMenuLink')]//div//ul//li"));
+            List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//div[contains(@class,'sortMenuLink')]//div//ul//li"));
             for (Elements element : elements) {
                 if (element.getText().equals(options)) {
                     flag = true;
@@ -3928,14 +3954,14 @@ public final class GovGrantsAssertionObjects {
     public void assertClickOnModuleOnLeftNavigationForGlobalSearch(String usage, String names) {
         if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isClickOnModuleOnLeftNavigationForGlobalSearch(names)).isTrue();
-        }  else if (usage.equalsIgnoreCase("see")) {
+        } else if (usage.equalsIgnoreCase("see")) {
             Assert.assertTrue(isClickOnModuleOnLeftNavigationForGlobalSearch(names));
         }
     }
 
     private boolean isClickOnModuleOnLeftNavigationForGlobalSearch(String names) {
-       boolean flag = false;
-        WebElement element= I.amPerforming().getElementReference().of(ByUsing.xpath("//div[@class=' scopesBlock']//li//a[@title='" + names + "']"));
+        boolean flag = false;
+        WebElement element = I.amPerforming().getElementReference().of(ByUsing.xpath("//div[@class=' scopesBlock']//li//a[@title='" + names + "']"));
         if (I.amPerforming().checkToSee().isEnabled(element) && I.amPerforming().checkToSee().isDisplayed(element)) {
             I.amPerforming().click().on(element);
             flag = true;
@@ -3946,11 +3972,11 @@ public final class GovGrantsAssertionObjects {
     public void assertloginPageButtons(String usage, String buttonName) {
         if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isloginPageButtonsDisplay(buttonName)).isTrue();
-        }  else if (usage.equalsIgnoreCase("see")) {
+        } else if (usage.equalsIgnoreCase("see")) {
             Assert.assertTrue(isloginPageButtonsDisplay(buttonName));
         } else if (usage.equalsIgnoreCase("softly do not see")) {
             I.amPerforming().assertionsTo().assertThat(isloginPageButtonsDisplay(buttonName)).isFalse();
-        } else{
+        } else {
             Assert.assertFalse(isloginPageButtonsDisplay(buttonName));
         }
     }
@@ -3968,24 +3994,24 @@ public final class GovGrantsAssertionObjects {
 
     public void assertExpandAndCollapseButtonForHeader(String usage, String headerButtonName, String headerOrPage) {
         if (usage.equalsIgnoreCase("softly see")) {
-            I.amPerforming().assertionsTo().assertThat(isExpandCollapseButtonDisplay(headerButtonName,headerOrPage)).isTrue();
-        }  else if (usage.equalsIgnoreCase("see")) {
-            Assert.assertTrue(isExpandCollapseButtonDisplay(headerButtonName,headerOrPage));
+            I.amPerforming().assertionsTo().assertThat(isExpandCollapseButtonDisplay(headerButtonName, headerOrPage)).isTrue();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isExpandCollapseButtonDisplay(headerButtonName, headerOrPage));
         } else if (usage.equalsIgnoreCase("softly do not see")) {
-            I.amPerforming().assertionsTo().assertThat(isExpandCollapseButtonDisplay(headerButtonName,headerOrPage)).isFalse();
-        } else{
-            Assert.assertFalse(isExpandCollapseButtonDisplay(headerButtonName,headerOrPage));
+            I.amPerforming().assertionsTo().assertThat(isExpandCollapseButtonDisplay(headerButtonName, headerOrPage)).isFalse();
+        } else {
+            Assert.assertFalse(isExpandCollapseButtonDisplay(headerButtonName, headerOrPage));
         }
     }
 
     private boolean isExpandCollapseButtonDisplay(String headerButtonName, String headerOrPage) {
         boolean flag = false;
         try {
-            if(headerOrPage.equals("header")) {
+            if (headerOrPage.equals("header")) {
                 if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//button[@title='" + headerButtonName + "' and contains(@class,'btn-collapse-header')]"))) {
                     flag = true;
                 }
-            } else{
+            } else {
                 if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//button[@title='" + headerButtonName + "' and contains(@class,'resizebtn')] |//button[@title='" + headerButtonName + "' and contains(@class,'btn-collapse')] "))) {
                     flag = true;
                 }
@@ -4012,6 +4038,127 @@ public final class GovGrantsAssertionObjects {
         boolean flag = false;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@data-component-id='GNT_sideBarLwc']//button//span[text()='" + buttonName + "']"))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
+    }
+
+    public void assertResetButtonInsideFlextable(String usage, String buttonName, String tableId) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isResetButtonInsideFlextable(buttonName, tableId));
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isResetButtonInsideFlextable(buttonName, tableId));
+        } else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isResetButtonInsideFlextable(buttonName, tableId)).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isResetButtonInsideFlextable(buttonName, tableId)).isFalse();
+        }
+    }
+
+    private Boolean isResetButtonInsideFlextable(String buttonName, String tableId) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//button[contains(@title,'" + buttonName + "')]"))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
+    }
+
+    public void assertPostByUser(String usage, String message, String userName) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isPostByUser(message, userName));
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isPostByUser(message, userName));
+        } else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isPostByUser(message, userName)).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isPostByUser(message, userName)).isFalse();
+        }
+    }
+
+    private Boolean isPostByUser(String message, String userName) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@data-feed-type='Record']//article[contains(@aria-label,'" + userName + "')]//div[@class='feedBodyInner Desktop oneApp']//p//span[text()='" + message + "']"))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
+    }
+
+    public boolean isRecordPresentInTheSnapShot(String text) {
+        try {
+            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-snapshot-history//span[" + I.amPerforming().sanityOfXpathTo().contains("text()", text) + "]"));
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
+    public void assertValueForColumnInsideTableWithId(String usage, String sortOrder, String columnName, String tableId) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isValueForColumnInsideTableWithId(sortOrder, columnName, tableId));
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isValueForColumnInsideTableWithId(sortOrder, columnName, tableId));
+        } else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isValueForColumnInsideTableWithId(sortOrder, columnName, tableId)).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isValueForColumnInsideTableWithId(sortOrder, columnName, tableId)).isFalse();
+        }
+    }
+
+    private Boolean isValueForColumnInsideTableWithId(String sortOrder, String columnName, String tableId) {
+        boolean flag = false;
+        if (sortOrder.equals("Ascending")) {
+            try {
+                if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//table//th[@data-id='" + columnName + "']//lightning-icon[@title='" + sortOrder + "' and contains(@class,'showArrow')]"))) {
+                    flag = true;
+                }
+            } catch (Exception e) {
+            }
+        } else
+            try {
+                if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//table//th[@data-id='" + columnName + "']//lightning-icon[@title='" + sortOrder + "' and contains(@class,'showArrow')]"))) {
+                    flag = true;
+                }
+            } catch (Exception e) {
+            }
+        return flag;
+    }
+
+    public boolean isValuePresentInsidePicklistViewList(String fieldValue, String labelName) {
+        List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//label[text()='" + labelName + "']/..//ul//li"));
+        boolean flag = false;
+        for (int i = 0; i < elements.size(); i++) {
+            if (elements.get(i).getText().equals(fieldValue))
+                flag = true;
+        }
+        return flag;
+    }
+
+    public void assertPageBlockDisplayedWithQuotes(String usage, String fieldLabel) {
+        String fieldLabel1 = fieldLabel.replaceAll("\\u00a0", "'");
+
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isPageBlockDisplayedWithQuotes(fieldLabel1));
+        }else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isPageBlockDisplayedWithQuotes(fieldLabel1)).isTrue();
+        }  else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isPageBlockDisplayedWithQuotes(fieldLabel1));
+        } else{
+            I.amPerforming().assertionsTo().assertThat(isPageBlockDisplayedWithQuotes(fieldLabel1)).isFalse();
+        }
+    }
+
+    private boolean isPageBlockDisplayedWithQuotes(String fieldLabel1) {
+        fieldLabel1 = fieldLabel1.trim();
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-page-block-section//span[contains(@class,'text-heading') and normalize-space(text())='" + fieldLabel1 + "'] | //c-page-block-section//span[normalize-space(text())='" + fieldLabel1 + "'] | //c-lwc-flex-table//span[contains(text(),'" + fieldLabel1 + "')] | //c-file-upload//a[contains(text(),'" + fieldLabel1 + "')] | //div[@id='WorkspaceFiles']//a[contains(text(),'" + fieldLabel1 + "')] | //c-page-block-section//span[contains(text(),'" + fieldLabel1 + "')]"))) {
                 flag = true;
             }
         } catch (Exception e) {

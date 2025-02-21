@@ -48,17 +48,12 @@ public final class SideBar {
      * @author nauman.shahid
      */
     public void clickSideBarContent(String subHeaderName, String contentName) {
-        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
            handleSideBarContentExpanded(subHeaderName);
-           I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
-       }else{
-//           handleSideBarContentExpanded(subHeaderName);
           try {
-              I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
-          }catch(Exception e) {
-              I.amPerforming().click().withJavaScript(getSideBarContentLocator(subHeaderName, contentName));
+                  I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
+          } catch(Exception e) {
+                  I.amPerforming().click().withJavaScript(getSideBarContentLocator(subHeaderName, contentName));
           }
-       }
     }
 
     /**
@@ -156,17 +151,14 @@ public final class SideBar {
      * @modified john.phillips - 02/19/2019 - Added check to skip expansion if in San Diego
      */
     public void handleSideBarContentExpanded(String subHeader) {
-        String sideBarHeader = "//div[@id='sidebar-wrapper']//*[text()='" + subHeader + "']/ancestor::li[2]";
-        String sideBarSubHeader = "//div[@id='sidebar-wrapper']//*[text()='" + subHeader + "']/ancestor::li[1]";
-
-        if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath(sideBarHeader))
-                && !I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath(sideBarHeader + "[contains(@class, 'clicked')]"))) {
-            I.amPerforming().click().on(By.xpath(sideBarHeader + "/a"));
+        By sideBarHeader = By.xpath("//gnt-side-bar-lwc//section//button[@title='" + subHeader + "']/ancestor::ul//div[contains(@class,'summary1')]//button[@aria-expanded='false']");
+        By sideBarSubHeader = By.xpath("//gnt-side-bar-lwc//section//button[@title='" + subHeader + "' and @aria-expanded='false']");
+        I.amPerforming().waitFor().ElementToBePresent(By.xpath("//gnt-side-bar-lwc//section"));
+        if (I.amPerforming().checkToSee().IsElementPresentQuick(sideBarHeader)) {
+            I.amPerforming().click().on(sideBarHeader);
         }
-
-        if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath(sideBarSubHeader))
-                && !I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath(sideBarSubHeader + "[contains(@class,' clicked')]"))) {
-            I.amPerforming().click().on(By.xpath(sideBarSubHeader + "/a"));
+        if (I.amPerforming().checkToSee().IsElementPresentQuick(sideBarSubHeader)) {
+            I.amPerforming().click().on(sideBarSubHeader);
         }
     }
 
@@ -208,11 +200,6 @@ public final class SideBar {
      * @author nauman.shahid
      */
     public By getSideBarContentLocator(String subHeader, String subHeaderContent) {
-        return By.xpath("//div[contains(@class,'sidebar-wrapper')]//a/span[" + I.amPerforming().sanityOfXpathTo().equals("text()", subHeader) + "]/parent::a/parent::li[contains(@class,'subMenu') or contains(@class, componentTitle)]//li/a/span[" + I.amPerforming().sanityOfXpathTo().equals("text()", subHeaderContent) + "] " +
-                "| //div[contains(@class,'sidebar-wrapper')]//div[@class='panel-heading']//*[" + I.amPerforming().sanityOfXpathTo().contains("normalize-space()", subHeader) + "]//ancestor::div[contains(@class,'sidebar-panel-body') or contains(@class,'panel-sidebar')]//*//a[" + I.amPerforming().sanityOfXpathTo().equals("text()", subHeaderContent) + "] | //div[contains(@class,'sidebar slds-split-view_container slds-is-open open-panel')]//section//button[@title='" + subHeader +"']/parent::h2/parent::div/parent::section//a[text()='" + subHeaderContent +"']");
-    }
-
-    public By getSideBarContentLocatorForLwc(String subHeader, String subHeaderContent) {
         return By.xpath("//div[contains(@class,'sidebar slds-split-view_container slds-is-open open-panel')]//section//button[@title='" + subHeader +"']/parent::h2/parent::div/parent::section//a[text()='" + subHeaderContent +"']");
     }
 

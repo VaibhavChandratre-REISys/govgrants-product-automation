@@ -285,6 +285,31 @@ public final class JavaScript {
     }
 
     /**
+     * @return status of the page load like Completed , loading , Interactive
+     */
+    public String getPageLoadingStatus() {
+        JavascriptExecutor js = ((JavascriptExecutor) InstanceRecording.getInstance(DeviceBucket.class).getDriver());
+        String readyState = js.executeScript("return document.readyState").toString();
+
+        // Check the ready state of the page
+        if (readyState.equals("complete")) {
+            I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_INFO, "Page is fully loaded. " + readyState.toUpperCase());
+        } else {
+            I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_INFO, "Page is not fully loaded. Current state: " + readyState.toUpperCase());
+            while (!readyState.equals("complete")) {
+                readyState = js.executeScript("return document.readyState").toString();
+                try {
+                    Thread.sleep(1000); // Wait for 1 second before checking again
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_INFO, "Page is fully loaded. " + readyState.toUpperCase());
+        }
+        return readyState;
+    }
+
+    /**
      * move to any specific webelement
      *
      * @param element

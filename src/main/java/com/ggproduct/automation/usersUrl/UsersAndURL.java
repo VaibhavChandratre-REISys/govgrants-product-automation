@@ -154,6 +154,9 @@ public class UsersAndURL implements UsersController {
             case "SPI4":
                 password = "Security@2024";
                 break;
+            case "ADMIN":
+                password = "VaQa@2026";
+                break;
             default:
                 password = "VaDev@2028";
         }
@@ -242,7 +245,7 @@ public class UsersAndURL implements UsersController {
     }
     private String getQAEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "govgrantsautomation@yopmail.com.vaqaorg");
+        username.put("ADMIN", "productqa@yopmail.com");
         username.put("ADMIN1", "manu.admin@ggp.test8.vaqaorg");
         username.put("EXE", "test@gmaildemo.com.vaqaorg");
         username.put("PM", "donald_pm@ggp.test7.atm.vaqaorg");

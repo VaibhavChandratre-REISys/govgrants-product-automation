@@ -27,7 +27,7 @@ public final class GovGrantsAssertionSteps {
     @Then("^I (softly see|see) status in Progress-bar is \"([^\"]*)\" and is \"([^\"]*)\"$")
     public void assertStatusProgressBar(String usage, String status, String color) {
         govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
-        I.amPerforming().waitFor().makeThreadSleep(3000);
+        I.amPerforming().browserOperationsTo().CheckPageLoadingStatus();
         ggAssertionObjects.assertStatusProgressBar(
                 status,
                 color,
@@ -125,10 +125,10 @@ public final class GovGrantsAssertionSteps {
         );
     }
 
-    @Then("^I (softly see|see) field (matches exactly )?\"([^\"]*)\" as \"([^\"]*)\"$")
+    @Then("^I (softly see|softly do not see|see) field (matches exactly )?\"([^\"]*)\" as \"([^\"]*)\"$")
     public void assertFieldValue(String usage, String matchExact, String fieldName, String fieldValue) {
         govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
-        I.amPerforming().waitFor().makeThreadSleep(3000);
+        I.amPerforming().browserOperationsTo().CheckPageLoadingStatus();
         ggAssertionObjects.assertFieldValue(
                 fieldName,
                 matchExact != null,
@@ -151,7 +151,7 @@ public final class GovGrantsAssertionSteps {
         );
     }
 
-    @Then("^I (softly see|see|cannot see) the following messages? in the page details (contains)?:$")
+    @Then("^I (softly see|see|softly cannot see) the following messages? in the page details (contains)?:$")
     public void assertPageMessageValue(String usage, String contains, List<String> messages) {
         ggAssertionObjects.assertPageMessageValue(
                 contains != null,
@@ -183,7 +183,6 @@ public final class GovGrantsAssertionSteps {
     @Description("Tests for the presence of top right button on a table")
     @When("^I (softly can see|softly cannot see|can see|cannot see) top right button \"([^\"]*)\" in flex table with id \"([^\"]*)\"$")
     public void assertTopRightButtonInFlexTableById(String usage, String buttonName, String tableId) {
-//        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
         ggAssertionObjects.assertCanOrCannotSeeTopRightButtonInFlexTableById(
                 tableId,
                 buttonName,
@@ -196,7 +195,6 @@ public final class GovGrantsAssertionSteps {
     @Description("Tests for the presence of row level button on a table")
     @When("^I (softly can see|softly cannot see|can see|cannot see) row level action button \"([^\"]*)\" against \"([^\"]*)\" in flex table with id \"([^\"]*)\"$")
     public void assertRowLevelButtonInFlexTableById(String usage, String buttonName, String uniqueColumnValue, String tableId) {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             ggAssertionObjects.assertCanOrCannotSeeRowLevelButtonInFlexTableByIdForLWC(
                     tableId,
                     uniqueColumnValue,
@@ -205,15 +203,7 @@ public final class GovGrantsAssertionSteps {
                     usage.contains("softly")
             );
             I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
-        } else {
-            ggAssertionObjects.assertCanOrCannotSeeRowLevelButtonInFlexTableById(
-                    tableId,
-                    uniqueColumnValue,
-                    buttonName,
-                    ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
-                    usage.contains("softly")
-            );
-        }
+            I.amPerforming().waitFor().makeThreadSleep(500);
     }
 
 
@@ -432,13 +422,6 @@ public final class GovGrantsAssertionSteps {
     @Then("^I see the (header) is \"([^\"]*)\" in the page details$")
     @Then("^I see the (sub-header) is \"([^\"]*)\" in the page details$")
     public void validateOverviewHeader(String isHeader, String headerText) {
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-            By headerLocator = By.xpath(String.format("//div[contains(@class, 'overview-header') or contains(@class, 'overviewHeader')]//span[contains(@class, '%s')]",
-                    ("header".equalsIgnoreCase(isHeader) ? "customLabelstyle" : "overview-title")));
-            I.amPerforming().assertionsTo().assertThat(I.amPerforming().actionToGet().text(headerLocator))
-                    .as("Verifying overview header is as expected")
-                    .isEqualToNormalizingWhitespace(headerText);
-        } else {
             if ("header".equalsIgnoreCase(isHeader)) {
                 By headerLocator = By.xpath("//div[contains(@class,'page-header__col-title')]//h2[normalize-space(text())= '" + headerText + "']");
                 Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(headerLocator));
@@ -446,8 +429,6 @@ public final class GovGrantsAssertionSteps {
                 By headerLocator = By.xpath("//div[contains(@class,'page-header__name')]//span[contains(@title,'" + headerText + "') or contains(text(),'" + headerText + "')]");
                 Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(headerLocator));
             }
-
-        }
     }
 
     @Description("It will compare total records inside table with number of rows/records in table")
@@ -743,7 +724,7 @@ public final class GovGrantsAssertionSteps {
         ggAssertionObjects.isRecordDisplayedInExpectedColorAtCalendar(record, colorName);
     }
 
-    @Then("^I (see|do not see) toggle option \"([^\"]*)\" inside flex table id \"([^\"]*)\"$")
+    @Then("^I (softly see|see|do not see|softly do not see) toggle option \"([^\"]*)\" inside flex table id \"([^\"]*)\"$")
     public void iCannotSeeToggleOptionInsideFlexTableId(String usage, String toggleOptions, String flexTableId) {
         ggAssertionObjects.assertToggleOptionDisplayed(toggleOptions, flexTableId, usage);
     }
@@ -774,7 +755,7 @@ public final class GovGrantsAssertionSteps {
     private boolean topRightButtonVisibleOrNot(String buttonName, String tableId) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//div[@id='" + tableId + "']//span//button[@title='New' or text()='" + buttonName + "'] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//*[@title='" + buttonName + "' or text()='" + buttonName + "']")))) {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//*[@title='" + buttonName + "' or text()='" + buttonName + "']")))) {
                 flag = true;
             }
         } catch (Exception e) {
@@ -801,6 +782,11 @@ public final class GovGrantsAssertionSteps {
     @Then("^I (softly see|see|do not see|softly do not see) \"([^\"]*)\" section inside global search dropdown$")
     public void iSoftlySeeSectionsInsideGlobalSearchDropdown(String sectionName, String usage) {
         ggAssertionObjects.assertSectionsofGlobalSearchDisplayOrNot(usage, sectionName);
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) \"([^\"]*)\" button name inside post dropdown$")
+    public void iSeeButtonNameInsidePostDropdown(String buttonName, String usage) {
+        ggAssertionObjects.assertButtonNameInsidePostDropdown(usage, buttonName);
     }
 
     @Then("^I (softly see|see|do not see|softly do not see) recent \"([^\"]*)\" records in global search box$")
@@ -860,5 +846,47 @@ public final class GovGrantsAssertionSteps {
     @Then("^I (softly see|see|do not see|softly do not see) \"([^\"]*)\" button display on footer$")
     public void iSoftlySeeButtonDisplayOnFooter(String usage,String buttonName) {
         ggAssertionObjects.assertButtonDisplayOnFooter(usage,buttonName);
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) button \"([^\"]*)\" inside flextable \"([^\"]*)\"$")
+    public void iSoftlySeeButtonInsideFlextable(String usage,String buttonName, String tableId) {
+        ggAssertionObjects.assertResetButtonInsideFlextable(usage, buttonName, tableId);
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) post \"([^\"]*)\" by user \"([^\"]*)\"$")
+    public void iSoftlySeePostByUser(String usage,String message, String userName) {
+        ggAssertionObjects.assertPostByUser(usage,message,userName);
+    }
+
+    @Then("^I (softly see|see) \"([^\"]*)\" inside snapshot history$")
+    public void iSoftlySeeInsideSnapshotHistory(String usage, String text) {
+        if (usage.contains("softly")) {
+            I.amPerforming().assertionsTo().assertThat(ggAssertionObjects.isRecordPresentInTheSnapShot(text)).isTrue();
+        } else {
+            Assert.assertTrue(ggAssertionObjects.isRecordPresentInTheSnapShot(text));
+        }
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) sort order \"([^\"]*)\" for column \"([^\"]*)\" inside table with id \"([^\"]*)\"$")
+    public void iSoftlySeeSortValueForColumnInsideTableWithId(String usage,String sortOrder, String columnName, String tableId) {
+        ggAssertionObjects.assertValueForColumnInsideTableWithId(usage, sortOrder, columnName, tableId);
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) value \"([^\"]*)\" for the field \"([^\"]*)\" inside multipicklist view list$")
+    public void iSoftlySeeValueForTheFieldInsideMultipicklistViewList(String usage, String fieldValue, String labelName) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(ggAssertionObjects.isValuePresentInsidePicklistViewList(fieldValue, labelName));
+        }else if (usage.equalsIgnoreCase("softly see")) {
+           I.amPerforming().assertionsTo().assertThat(ggAssertionObjects.isValuePresentInsidePicklistViewList(fieldValue, labelName)).isTrue();
+        }  else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(ggAssertionObjects.isValuePresentInsidePicklistViewList(fieldValue, labelName));
+        } else{
+            I.amPerforming().assertionsTo().assertThat(ggAssertionObjects.isValuePresentInsidePicklistViewList(fieldValue, labelName)).isFalse();
+        }
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) \"(.*?)\" page block displayed with quotes$")
+    public void iSoftlySeePageBlockDisplayedWithQuotes(String usage, String fieldLabel) {
+        ggAssertionObjects.assertPageBlockDisplayedWithQuotes(usage, fieldLabel);
     }
 }

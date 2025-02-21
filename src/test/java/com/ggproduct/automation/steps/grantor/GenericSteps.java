@@ -243,7 +243,7 @@ public class GenericSteps {
 
             for (int i = 2; i < data.length; i++) {
                 int colLen = data[i].length;
-                govgrants.perform().mainPage().clickMainMenuBar(testDataMap.get("Navigation"));
+                govgrants.perform().mainPage().clickMainMenuBarForLwc(testDataMap.get("Navigation"));
                 govgrants.perform().sideBar().clickSideBarContent(testDataMap.get("subHeader"), testDataMap.get("subHeaderContent"));
                 govgrants.perform().flexTable().clickTableTopRightButton(testDataMap.get("FlexTableId"), testDataMap.get("PageDetailsButton"));
 
@@ -253,7 +253,7 @@ public class GenericSteps {
                     String value = data[i][j].trim();
 
                     if (subTab != null && !"None".equalsIgnoreCase(subTab) && !subTab.equalsIgnoreCase(currentSubTab)) {
-                        govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
+                        govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
                         currentSubTab = subTab;
                     }
                     govgrants.perform().inputForms().inputFormDataByFieldApiName(apiName, value, false);
@@ -288,12 +288,16 @@ public class GenericSteps {
         }
     }
 
-    @Then("^I can (softly see|see) modal button \"([^\"]*)\"$")
+    @Then("^I can (softly see|softly do not see|see|do not see) modal button \"([^\"]*)\"$")
     public void iCanSeeModalButton(String usage, String buttonName) {
-        if (usage.contains("softly")) {
+        if (usage.equalsIgnoreCase("softly")) {
             I.amPerforming().assertionsTo().assertThat(grantorProjectManager.isButtonDisplayedOnModal(buttonName)).isTrue();
-        } else {
+        } else if(usage.equalsIgnoreCase("see")) {
             Assert.assertTrue(grantorProjectManager.isButtonDisplayedOnModal(buttonName));
+        } else if(usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(grantorProjectManager.isButtonDisplayedOnModal(buttonName)).isFalse();
+        } else{
+            Assert.assertFalse(grantorProjectManager.isButtonDisplayedOnModal(buttonName));
         }
     }
 
@@ -521,14 +525,14 @@ public class GenericSteps {
 
     @And("I click on submit review")
     public void iClickOnSubmitReview() {
-        By submit_button = By.xpath("//div[@class='panel-footer']//div[@id='footerButtonsPanel']//*[text()='Submit Review' or @title='Submit Review'] | //div[contains(@class,'modal__container')]//*[text()='Submit Review' or @title='Submit Review']");
+        By submit_button = By.xpath("//div[contains(@class,'modal__container')]//*[text()='Submit Review' or @title='Submit Review']");
         I.amPerforming().click().on(submit_button);
     }
 
     @And("I click on Menu icon present on top right corner of the page")
     public void iClickOnMenuIconPresentOnTopRightCornerOfThePage() {
-        I.amPerforming().waitFor().makeThreadSleep(2000);
-        By menu = By.xpath("//*[contains(@class,'overview-header')]//*[@title='Menu' or (contains(@class,'menu') and (@class='bars'))] | //gnt-header-overview//lightning-button-menu//button");
+        By menu = By.xpath("//gnt-header-overview//lightning-button-menu//button");
+        I.amPerforming().waitFor().ElementToBeVisible(menu);
         I.amPerforming().click().withJavaScript(menu);
     }
 
