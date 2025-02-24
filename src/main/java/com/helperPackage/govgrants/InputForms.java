@@ -203,6 +203,7 @@ public final class InputForms {
         } else {
             fieldWrapperLocator = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']");
         }
+        I.amPerforming().waitFor().ElementToBePresent(fieldWrapperLocator);
         WebElement fieldWrapper = I.amPerforming().getElementReference().of(fieldWrapperLocator);
         handleClearingFormDataInputs(fieldWrapper);
     }

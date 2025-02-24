@@ -373,6 +373,7 @@ public final class GovGrantsObjects {
      */
     public void uploadAttachmentInFlexTableFromComputer(Boolean withoutRandomNumber, String fileName, String fileType) {
         By classificationType = By.xpath("//select[@title='Classification' or @name='Classification']");
+        By options = By.xpath("//select//option");
         By filePath = By.xpath("//label[contains(@id,'file')]/../input");
         String defaultFilePath = System.getProperty("user.dir") + "/src/main/resources/";
         String[] splitFileName = fileName.split("\\.");
@@ -383,6 +384,7 @@ public final class GovGrantsObjects {
                 renameFile(defaultFilePath, fileName, newFileName);
             }
             I.amPerforming().waitFor().ElementToBePresent(classificationType,10);
+            I.amPerforming().waitFor().ElementToBePresent(options,10);
             I.amPerforming().dropDownSelection().from(classificationType).selectByValue(fileType);
             I.amPerforming().waitFor().makeThreadSleep(5000);
             I.amPerforming().textInput().in(filePath, defaultFilePath + newFileName);
