@@ -50,7 +50,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Overview" sub tab
     Then I softly see field "Opportunity Title" as "{SavedValue:Automation Runtime Leads}"
     Then I softly see field "Opportunity Number" as "{SavedValue:Automation Runtime Opp No}"
-    Then I softly see field "Application Due Date" as "{Date:M/dd/yyyy::d+100}"
+    Then I softly see field "Application Due Date" as "{Date:M/d/yyyy::d+100}"
     Then I softly see field "Funding Organization" as "Department of Education"
     Then I softly see value "Individuals" for the field "Eligible Applicants" inside multipicklist view list
     Then I softly see value "For profit organizations other than small businesses" for the field "Eligible Applicants" inside multipicklist view list
@@ -232,7 +232,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Overview" sub tab
     Then I softly see field "Opportunity Title" as "{SavedValue:Automation Runtime Leads}"
     Then I softly see field "Opportunity Number" as "{SavedValue:Automation Runtime Opp No}"
-    Then I softly see field "Application Due Date" as "{Date:M/dd/yyyy::d+100}"
+    Then I softly see field "Application Due Date" as "{Date:M/d/yyyy::d+100}"
     Then I softly see field "Funding Organization" as "Department of Education"
     Then I softly see value "Individuals" for the field "Eligible Applicants" inside multipicklist view list
     Then I softly see value "For profit organizations other than small businesses" for the field "Eligible Applicants" inside multipicklist view list
@@ -990,7 +990,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Overview" sub tab
     Then I softly see field "Opportunity Title" as "{SavedValue:Automation Runtime Leads}"
     Then I softly see field "Opportunity Number" as "{SavedValue:Automation Runtime Opp No}"
-    Then I softly see field "Application Due Date" as "{Date:M/dd/yyyy::d+100}"
+    Then I softly see field "Application Due Date" as "{Date:M/d/yyyy::d+100}"
     Then I softly see field "Funding Organization" as "Department of Education"
     Then I softly see value "Individuals" for the field "Eligible Applicants" inside multipicklist view list
     Then I softly see value "For profit organizations other than small businesses" for the field "Eligible Applicants" inside multipicklist view list
@@ -7703,7 +7703,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see fields "IsPrimaryAddress__c" is in edit mode
     Then I softly see fields "SAMUEI__c" is in edit mode
     Then I softly see fields "AddressLine1__c" is in edit mode
-    Then I softly see fields "GranteeFormsAddressLine2__c" is in edit mode
+    Then I softly see fields "AddressLine2__c" is in edit mode
     Then I softly see fields "City__c" is in edit mode
     Then I softly see fields "County__c" is in edit mode
     Then I softly see fields "State__c" is in edit mode

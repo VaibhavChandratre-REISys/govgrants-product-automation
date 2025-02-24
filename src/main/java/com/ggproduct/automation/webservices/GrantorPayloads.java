@@ -4254,7 +4254,7 @@ public class GrantorPayloads {
         // Special Conditions
         JsonArray specialCondition = new JsonArray();
         JsonObject condition1 = new JsonObject();
-        condition1.addProperty("title", "Terms");
+        condition1.addProperty("title", "TermsAmendment");
         condition1.addProperty("description", "Automation Test");
         condition1.addProperty("sequence", 1);
         condition1.addProperty("EffectiveFromDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));

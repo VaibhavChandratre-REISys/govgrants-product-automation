@@ -121,7 +121,7 @@ public final class MainPage {
                 /* Ignore Exception */
             }
         }
-
+        I.amPerforming().browserOperationsTo().CheckPageLoadingStatus();
         if (I.amPerforming().checkToSee().IsElementPresentQuick(switchToLighteningButton)) {
             try {
                 I.amPerforming().click().on(switchToLighteningButton);
