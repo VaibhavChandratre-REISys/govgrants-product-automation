@@ -1323,7 +1323,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I complete filling in the Review form with recommendation "Recommended"
     And I wait for "3" seconds
     And I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
