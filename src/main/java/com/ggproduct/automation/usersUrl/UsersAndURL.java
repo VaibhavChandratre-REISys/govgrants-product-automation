@@ -108,7 +108,7 @@ public class UsersAndURL implements UsersController {
         String password;
         switch (userLevel.toUpperCase()) {
             default:
-                password = "Salesforce@2036";
+                password = "Salesforce@2038";
         }
         return password;
     }
@@ -238,19 +238,19 @@ public class UsersAndURL implements UsersController {
 
     private String getNYLwcEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "govgrantsautomation@yopmail.com.nysedgapan");
-        username.put("ADMIN1", "manu.admin@ggp.test8.nysedgapan");
-        username.put("EXE", "test@gmaildemo.com.nysedgapan");
-        username.put("PM", "donald_pm@ggp.test7.atm.nysedgapan");
-        username.put("FO", "auto.fm@auto.com.nysedgapan");
-        username.put("PO", "automationpo@yopmail.com.nysedgapan");
-        username.put("FD", "automationfd@yopmail.com.nysedgapan");
-        username.put("PM1", "pm1.automation@yopmail.com.nysedgapan");
-        username.put("EXE1", "exe1.automation@yopmail.com.nysedgapan");
-        username.put("PO1", "automationpo1@yopmail.com.nysedgapan");
-        username.put("FO1", "fo1.automation@yopmail.com.nysedgapan");
-        username.put("FD1", "automationfd1@yopmail.com.nysedgapan");
-        username.put("SPI3", "aspi3@grants.gov.nysedgapan");
+        username.put("ADMIN", "govgrantsautomation@yopmail.com.minigap");
+        username.put("ADMIN1", "manu.admin@ggp.test8.minigap");
+        username.put("EXE", "test@gmaildemo.com.minigap");
+        username.put("PM", "donald_pm@ggp.test7.atm.minigap");
+        username.put("FO", "auto.fm@auto.com.minigap");
+        username.put("PO", "automationpo@yopmail.com.minigap");
+        username.put("FD", "automationfd@yopmail.com.minigap");
+        username.put("PM1", "pm1.automation@yopmail.com.minigap");
+        username.put("EXE1", "exe1.automation@yopmail.com.minigap");
+        username.put("PO1", "automationpo1@yopmail.com.minigap");
+        username.put("FO1", "fo1.automation@yopmail.com.minigap");
+        username.put("FD1", "automationfd1@yopmail.com.minigap");
+        username.put("SPI3", "aspi3@grants.gov.minigap");
         username.put("SPA", "spaautomation12@yopmail.com.nysedgapan");
         username.put("SA", "asa@grants.gov.nysedgapan");
         username.put("IND", "ind12.automation@yopmail.com.nysedgapan");
