@@ -4347,7 +4347,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Adding file is required in "Files section" with classification "Environmental Compliance Requirements", if "Yes" option in "14h" is checked. |
       | Adding file is required in "Files section" with classification "NHPA", if "Yes" option in "14i" is checked.                                  |
 
-  @AwardWithFocusNo
+  @AwardWithFocusNo @ProdSan4
   Scenario: Award with focus area no
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
