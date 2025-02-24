@@ -11951,7 +11951,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see the following messages in the page details contains:
       | Please validate the Forms by clicking validate button. |
 
-  @491632 @ValidatePMProfileimpactofdrawdownByAwardonFundingchangeamendmentWithdrawdownWithSpent @Grantee_Smoke1 @testExecution
+  @491632 @ValidatePMProfileimpactofdrawdownByAwardonFundingchangeamendmentWithdrawdownWithSpent @Grantee_Smoke1
   Scenario: Validate PM Profile impact of drawdown By Award on  Funding change amendment With drawdown With Spent
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -12074,7 +12074,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "$3,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
-  @491664 @ValidatePMProfileimpactofdrawdownByAwardAwardwhichiscreatedthroughScopeofworkchangeamendmentWithdrawdownWithoutSpent @Grantee_Smoke1 @testExecution
+  @491664 @ValidatePMProfileimpactofdrawdownByAwardAwardwhichiscreatedthroughScopeofworkchangeamendmentWithdrawdownWithoutSpent @Grantee_Smoke1
   Scenario: Validate PM Profile  impact of drawdown By Award, Award which is created through Scope of work change amendment With drawdown Without Spent
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -12197,7 +12197,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "$3,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
-  @491697 @ValidatePMProfileimpactofdrawdownByAwardAwardwhichiscreatedthroughBudgetredirectionamendmentNonConstructionWithdrawdownWithSpent @Grantee_Smoke1 @testExecution
+  @491697 @ValidatePMProfileimpactofdrawdownByAwardAwardwhichiscreatedthroughBudgetredirectionamendmentNonConstructionWithdrawdownWithSpent @Grantee_Smoke1
   Scenario: Validate PM Profile impact of drawdown By Award Award which is created through Budget redirection amendment Non Construction With drawdown With Spent
     And I "Created" standalone subaward "Automation Runtime Award" with properties "NON_CONSTRUCTION"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
