@@ -3774,6 +3774,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter value "Checked" into field "AcquiredEquipment__c"
     When I enter value "Checked" into field "ResidualUnusedSupplies__c"
     When I enter value "Checked" into field "NoneoftheAbove__c"
+   And I halt execution
     And I clear the value from field "FederalAwardIdentifier__c"
     When I enter value "UnChecked" into field "RequestTransfertoAward__c"
     When I enter value "UnChecked" into field "RequestFederalAgency__c"
@@ -4316,6 +4317,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without Split
     And I switch to tab number "1"
+    And I click on "Edit" in the page details
     And I enter "SF429B_Form_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
     And I wait for "3" seconds
     When I click on "Save" in the page details

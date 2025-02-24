@@ -1671,11 +1671,16 @@ Feature: Validate all scenarios of every modules flow
 #    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD"
     And I halt execution
 
-  @debugtest
+  @debugtest @debug
   Scenario:
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Award__c/a1oKQ000000PXpyYAG/view"
+    Given I login to "As a Grantor" app as "PM" user
+    And I navigate to url "https://test8-internal--minigap.sandbox.lightning.force.com/lightning/r/Review__c/a3TKQ0000004G5Q2AU/view"
     And I halt execution
-    Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "5" seconds
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    Then I see that "Status" is in "Review Completed" status
     And I halt execution
