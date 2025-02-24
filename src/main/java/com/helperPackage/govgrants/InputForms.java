@@ -609,12 +609,10 @@ public final class InputForms {
     private void handleClearingFormDataInputs(WebElement fieldWrapper) {
         if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='text'] | .//textarea[not(@warningchar)]")).size() > 0) {
             handleClearingTextInput(fieldWrapper);
-
         }  else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//div[contains(@class,'text-area')] | .//div[contains(@class,'textarea')]//textarea")).size() > 0) {
             handleClearingRichTextAreaInput(fieldWrapper);
         } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='checkbox']")).size() > 0) {
             handleCheckBoxInput(fieldWrapper, "Unchecked");
-
         }  else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//ul//li[contains(@class,'listbox__item')]")).size() > 0) {
             handleClearingMultiSelectInputForLWC(fieldWrapper);
         } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//button[contains(@id,'combobox-button')]")).size() > 0) {
@@ -684,7 +682,7 @@ public final class InputForms {
      * @author john.phillips
      */
     private void handleClearingTextInput(WebElement fieldWrapper) {
-            String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
+            String field = fieldWrapper.toString().split("//")[1].split("\'")[1];
             if (field.contains("field")) {
                 String field1 = field.toString().split("field")[1];
                 if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]//div[@data-field_api_name='" + field1 + "']"))) {

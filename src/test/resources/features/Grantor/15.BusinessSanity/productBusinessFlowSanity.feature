@@ -3774,7 +3774,6 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter value "Checked" into field "AcquiredEquipment__c"
     When I enter value "Checked" into field "ResidualUnusedSupplies__c"
     When I enter value "Checked" into field "NoneoftheAbove__c"
-   And I halt execution
     And I clear the value from field "FederalAwardIdentifier__c"
     When I enter value "UnChecked" into field "RequestTransfertoAward__c"
     When I enter value "UnChecked" into field "RequestFederalAgency__c"
