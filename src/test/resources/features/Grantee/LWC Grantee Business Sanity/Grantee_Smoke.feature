@@ -12593,7 +12593,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Complete Review" in page detail
     When I navigate to "Responsibilities" sub tab
-    Then I softly can see row level action button "Resend for Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly can see row level action button "Resend for Review" against "Sarah PM" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
@@ -12646,7 +12646,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Cancel" in page detail
     And I enter "FederalFinancialReport_425" values from "Financial_Report_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I wait for "3" seconds
+    And I wait for "2" seconds
     And I click on "Edit" in the page details
     And I enter value "Automation for Execution" into field "Remark__c"
     And I click on "Cancel" in the page details
@@ -12655,17 +12655,16 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Edit" in page detail
     And I close the tab
     When I click on "View" icon for "Federal Financial Report (SF-425)" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    And I wait for "3" seconds
-    Then I softly see new tab is opened
     And I switch to tab number "1"
+    Then I softly see new tab is opened
     Then I softly can see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download As PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly see "Financial Information" page block displayed
     Then I softly see "Recipient Information" page block displayed
-    Then I softly see "10. Transactions" page block displayed
-    Then I softly see "11. Indirect Expense" page block displayed
+    Then I softly see "Transactions" page block displayed
+    Then I softly see "Indirect Expense" page block displayed
     Then I softly see "Remarks" page block displayed
     Then I softly see "Certification" page block displayed
     Then I softly see "Authorized Certifying Official" page block displayed
