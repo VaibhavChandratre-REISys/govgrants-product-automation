@@ -12656,6 +12656,7 @@ Feature: Grantee Smoke scenarios
     And I close the tab
     When I click on "View" icon for "Federal Financial Report (SF-425)" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I switch to tab number "1"
+    And I wait for "3" seconds
     Then I softly see new tab is opened
     Then I softly can see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
@@ -12687,6 +12688,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I see "Upload" button is disabled at modal under library
+    And I select Classification as "Financial Report" at upload file modal
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
     When I click modal button "Close"
@@ -13068,7 +13070,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:ProgressReports---"
     Then I softly can see row level action button "Edit" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
     Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-    Then I softly can see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:ProgressReports---"
     Then I softly see "Award EGMS ID" in flex table header "---grantee_tableId:-:ProgressReports---"
     Then I softly see "Grant Award Number" in flex table header "---grantee_tableId:-:ProgressReports---"
@@ -13081,7 +13083,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Status" in flex table header "---grantee_tableId:-:ProgressReports---"
     When I click on "View" icon for "{SavedValue:progressEGMSID}" inside table
     Then I softly see "Collapse" button for header
-    Then I see the header is "Performance Progress Report" in the page details
+    Then I see the header is "Progress Report" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     Then I softly see field "EGMS ID" as "{SavedValue:progressEGMSID}"
     Then I softly see field "Status" as "Created"
@@ -13305,9 +13307,9 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Preview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Edit" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     When I click on "Edit" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    And I switch to tab number "1"
     And I wait for "3" seconds
     Then I softly see new tab is opened
-    And I switch to tab number "1"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
     Then I softly see that "Funding Organization" rendered in view mode only
@@ -13374,12 +13376,12 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     Then I see "Upload" button is disabled at modal under library
+    And I select Classification as "Progress Report" at upload file modal
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
     When I click modal button "Close"
-    And I wait for "3" seconds
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
-    And I wait for "3" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I refresh the page
@@ -13715,7 +13717,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Status" in flex table header "---grantee_tableId:-:ProgressReports---"
     When I click on "View" icon for "{SavedValue:progressEGMSID}" inside table
     Then I softly see "Collapse" button for header
-    Then I see the header is "Performance Progress Report" in the page details
+    Then I see the header is "Progress Report" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     Then I softly see field "EGMS ID" as "{SavedValue:progressEGMSID}"
     Then I softly see field "Status" as "Created"
@@ -14008,12 +14010,12 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     Then I see "Upload" button is disabled at modal under library
+    And I select Classification as "Progress Report" at upload file modal
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
     When I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
-    And I wait for "3" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I refresh the page
