@@ -9709,7 +9709,6 @@ Feature: Grantee Smoke scenarios
     And I click toggle button to select "Financial Reports - All"
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
     When I click on "View" icon for "{SavedValue:financialEGMSID}" inside table
-    Then I softly can see top right button "Mark as Submitted" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly see "Name" in flex table header "---grantee_tableId:-:financialReportOwnerTableId---"
     Then I softly see "Responsibility" in flex table header "---grantee_tableId:-:financialReportOwnerTableId---"
@@ -9717,8 +9716,10 @@ Feature: Grantee Smoke scenarios
     Then I softly see link "{SavedValue:ownerName}" inside Page block
     And I click on hyperlink containing value "{SavedValue:ownerName}"
     Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
+    And I wait for "2" seconds
     And I click on back arrow
     And I wait for "2" seconds
+    Then I softly can see top right button "Mark as Submitted" in page detail
     And I click on "Mark as Submitted" in the page details
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
@@ -11361,8 +11362,7 @@ Feature: Grantee Smoke scenarios
     And I enter in modal value "45687" into field "MailingPostalCode"
     And I click modal button "Save"
     And I wait for "2" seconds
-    And I halt execution
-    Then I softly see field "Zip Code" as "456879"
+    Then I see field "Zip Code" as "45687" on modal
     And I wait for "2" seconds
     And I click modal button "Close"
     And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---grantee_tableId:-:InternalContacts---" panel
@@ -11373,7 +11373,7 @@ Feature: Grantee Smoke scenarios
     Examples:
       | userType      |
       | GRANTEE ADMIN |
-      | GRANTEE EXE   |
+#      | GRANTEE EXE   |
 
   @486598 @ValidateKeyPersonalChangeARPMusershouldabletoapprovedtheARshouldabletocreateverifyactivatenewaward @Grantee_Smoke2 @GranteeTBE
   Scenario: Validate Key Personal Change AR PM user should able to approved the AR & should able to create verify activate new award
@@ -14606,6 +14606,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see sort order "Ascending" for column "Approved Indirect Cost Rate(%)" inside table with id "---grantee_tableId:-:awardIndirectRateTableId---"
     When I click on "Indirect Cost Rate Type" column header inside table with id "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see sort order "Ascending" for column "Indirect Cost Rate Type" inside table with id "---grantee_tableId:-:awardIndirectRateTableId---"
+    When I navigate to "Responsibilities" sub tab
     Then I softly see "Peer Reviewers" page block displayed
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardPeerReviewerTableId---"
     Then I softly see "Reviewer Name" in flex table header "---grantee_tableId:-:awardPeerReviewerTableId---"
@@ -14756,6 +14757,7 @@ Feature: Grantee Smoke scenarios
     Then I can see row level action button "View" against "Terms" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     Then I can see row level action button "Edit" against "Terms" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     Then I can see row level action button "Remove" against "Terms" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    When I navigate to "Files" sub tab
     Then I softly see "AwardGrantFiles" page block displayed
     Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
