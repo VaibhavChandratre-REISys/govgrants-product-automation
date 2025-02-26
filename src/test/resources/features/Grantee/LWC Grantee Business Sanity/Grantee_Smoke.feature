@@ -11373,7 +11373,7 @@ Feature: Grantee Smoke scenarios
     Examples:
       | userType      |
       | GRANTEE ADMIN |
-#      | GRANTEE EXE   |
+      | GRANTEE EXE   |
 
   @486598 @ValidateKeyPersonalChangeARPMusershouldabletoapprovedtheARshouldabletocreateverifyactivatenewaward @Grantee_Smoke2 @GranteeTBE
   Scenario: Validate Key Personal Change AR PM user should able to approved the AR & should able to create verify activate new award
