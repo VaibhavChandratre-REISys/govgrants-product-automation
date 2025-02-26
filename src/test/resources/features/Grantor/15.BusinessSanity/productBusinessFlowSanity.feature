@@ -33,7 +33,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @72337 @activationOFFundingSource @ProdSan1 @testExecute
+  @72337 @activationOFFundingSource @ProdSan1
   Scenario: Validate the activation of Funding Source HappyPath and the status is Active
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -1164,7 +1164,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Accept" in the page details
     Then I see status in Progress-bar is "Accepted" and is "dark blue"
 
-  @72345 @submitApplication @ProdSan1 @testExecute
+  @72345 @submitApplication @ProdSan1
   Scenario: Validate once the application is submitted to Grantor and then status changes to Submitted
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -2164,7 +2164,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime award} | {SavedValue:Automation Runtime award} |
 
-  @72352 @progressReportHappyPath @ProdSan1 @testExecute
+  @72352 @progressReportHappyPath @ProdSan1
   Scenario: Validate once the Progress Report approval process is completed then the status changes to approved
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"

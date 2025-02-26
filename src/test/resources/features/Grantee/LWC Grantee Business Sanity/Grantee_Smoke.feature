@@ -14238,7 +14238,7 @@ Feature: Grantee Smoke scenarios
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "Sarah PM"
 
-  @491636 @ValidatePMProfileonamendedawardcreatedperiodicamendmentandcheckallawardWithDrawdownWithSpent @Grantee_Smoke1 @testExecution
+  @491636 @ValidatePMProfileonamendedawardcreatedperiodicamendmentandcheckallawardWithDrawdownWithSpent @Grantee_Smoke1
   Scenario: Validate PM Profile on amended award created periodic amendment and check all award With Drawdown With Spent
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -14364,7 +14364,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "$3,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
-  @482639 @ValidateTabsanddatadisplayedtoPMuseronawardrecordwhenallsettingsareYes @Grantee_Smoke1 @testExecution
+  @482639 @ValidateTabsanddatadisplayedtoPMuseronawardrecordwhenallsettingsareYes @Grantee_Smoke1
   Scenario: Validate Tabs and data displayed to PM user on award record when all settings are Yes
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -14609,6 +14609,9 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Responsibilities" sub tab
     Then I softly see "Peer Reviewers" page block displayed
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardPeerReviewerTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" by clicking "New" :
+      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
+      | David FO      | Fiscal Reviewer | Automation Description | 5        | No                   |
     Then I softly see "Reviewer Name" in flex table header "---grantee_tableId:-:awardPeerReviewerTableId---"
     Then I softly see "Role" in flex table header "---grantee_tableId:-:awardPeerReviewerTableId---"
     Then I softly see "Description" in flex table header "---grantee_tableId:-:awardPeerReviewerTableId---"
@@ -14756,7 +14759,7 @@ Feature: Grantee Smoke scenarios
     Then I see option "Download as PDF" present in parallel dropdown
     Then I can see row level action button "View" against "Terms" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     Then I can see row level action button "Edit" against "Terms" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I can see row level action button "Remove" against "Terms" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I can see row level action button "Delete" against "Terms" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     When I navigate to "Files" sub tab
     Then I softly see "AwardGrantFiles" page block displayed
     Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:awardAddFilesTableId---"
