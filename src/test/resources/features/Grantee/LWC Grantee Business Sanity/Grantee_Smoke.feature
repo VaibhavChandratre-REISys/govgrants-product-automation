@@ -14351,8 +14351,8 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Overview" sub tab
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    Then I softly see field "Status" as "Amended"
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
     When I navigate to "Actuals" sub tab
     Then I softly see field "Drawn to Date" as "$3,500"
     Then I softly see field "Current Balance" as "$3,500.00"
@@ -14426,7 +14426,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled " Internal Organization " as "InternalOrganization"
     Then I softly see link "{SavedValue:InternalOrganization}" inside Page block
     And I click on hyperlink containing value "{SavedValue:InternalOrganization}"
-    Then I see the header is " Internal Organization " in the page details
+    Then I see the header is "Internal Organization" in the page details
     Then I see the sub-header is "{SavedValue:InternalOrganization}" in the page details
     And I click on back arrow
     Then I softly see field "Application" inside page block
