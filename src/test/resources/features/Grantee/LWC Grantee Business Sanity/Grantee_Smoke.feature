@@ -14761,26 +14761,8 @@ Feature: Grantee Smoke scenarios
     Then I can see row level action button "Edit" against "Terms" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     Then I can see row level action button "Delete" against "Terms" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     When I navigate to "Files" sub tab
-    Then I softly see "AwardGrantFiles" page block displayed
+    Then I softly see "Award Files" page block displayed
     Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "Title" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "Classification" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "File Extension" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "Description" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "Classification" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "Classification" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    When I click on "Description" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see sort order "Ascending" for column "Description" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    When I click on "File Extension" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see sort order "Ascending" for column "File Extension" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    When I click on "Created Date" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see sort order "Ascending" for column "Created Date" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    When I click on parallel lines menu bar with data target value "Award Files"
-    Then I see option "Refresh" present in parallel dropdown
-    Then I see option "Download as PDF" present in parallel dropdown
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Interim Award Document" from computer
     When I click modal button "Close"
@@ -14789,20 +14771,43 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I softly see "Classification" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I softly see "File Extension" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I softly see "Description" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    When I click on "Classification" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I softly see sort order "Ascending" for column "Classification" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    When I click on "Description" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I softly see sort order "Ascending" for column "Description" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    When I click on "File Extension" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I softly see sort order "Ascending" for column "File Extension" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    When I click on "Created Date" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I softly see sort order "Ascending" for column "Created Date" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    When I click on parallel lines menu bar with data target value "Award Files"
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I softly see "Notes" page block displayed
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardsNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+    Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:awardsNotesTableId---"
     Then I softly see "Description" in flex table header "---grantee_tableId:-:awardsNotesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see "Created By" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "Created By" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "Created By" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    When I click on "Description" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see sort order "Ascending" for column "Description" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    When I click on "Created Date" column header inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I softly see sort order "Ascending" for column "Created Date" inside table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see "Created By" in flex table header "---grantee_tableId:-:awardsNotesTableId---"
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardsNotesTableId---"
+    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardsNotesTableId---"
+    When I click on "Created By" column header inside table with id "---grantee_tableId:-:awardsNotesTableId---"
+    Then I softly see sort order "Ascending" for column "Created By" inside table with id "---grantee_tableId:-:awardsNotesTableId---"
+    When I click on "Description" column header inside table with id "---grantee_tableId:-:awardsNotesTableId---"
+    Then I softly see sort order "Ascending" for column "Description" inside table with id "---grantee_tableId:-:awardsNotesTableId---"
+    When I click on "Created Date" column header inside table with id "---grantee_tableId:-:awardsNotesTableId---"
+    Then I softly see sort order "Ascending" for column "Created Date" inside table with id "---grantee_tableId:-:awardsNotesTableId---"
     When I click on parallel lines menu bar with data target value "Notes"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
