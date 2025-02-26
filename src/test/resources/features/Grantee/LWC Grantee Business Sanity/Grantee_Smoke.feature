@@ -14474,7 +14474,6 @@ Feature: Grantee Smoke scenarios
       | Contacts added successfully. |
     And I click modal button "Close"
     Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
-    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I can see top right button "New" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I softly see "Create Contact" opens in overLay window
