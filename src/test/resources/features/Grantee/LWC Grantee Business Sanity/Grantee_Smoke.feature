@@ -9671,8 +9671,8 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
-    Then I softly cannot see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
-    Then I softly can see row level action button "View" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     When I navigate to "Responsibilities" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportApproverTableId---"
@@ -12036,13 +12036,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     When I navigate to "Actuals" sub tab
-    Then I softly see field "Drawn to Date" as "$3,500"
-    Then I softly see field "Current Balance" as "$3,500.00"
-    Then I softly see field "Grant Balance" as "$96,500.00"
-    Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see field "Drawn to Date" as "$0"
+    Then I softly see field "Current Balance" as "$0.00"
+    Then I softly see field "Grant Balance" as "$100,000.00"
+    Then I softly see value "$0.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$0.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Given I expand nested table containing column value "Automation Permanent Focus Area"
     When I enter the following values into flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---" by clicking "New" :
       | Reference ID | Drawdown Date | Amount |
@@ -12058,13 +12058,13 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Delete" against "Focus5" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see field "Drawn to Date" as "$4,500"
-    Then I softly see field "Current Balance" as "$4,500.00"
-    Then I softly see field "Grant Balance" as "$95,500.00"
-    Then I softly see value "$3,500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$1,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$1,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see field "Drawn to Date" as "$1,000"
+    Then I softly see field "Current Balance" as "$1,000.00"
+    Then I softly see field "Grant Balance" as "$99,000.00"
+    Then I softly see value "$500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     When I navigate to "Overview" sub tab
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     When I navigate to "Awards" sub tab
@@ -14363,7 +14363,7 @@ Feature: Grantee Smoke scenarios
 #    Then I softly see value "$500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
   @482639 @ValidateTabsanddatadisplayedtoPMuseronawardrecordwhenallsettingsareYes @Grantee_Smoke1
-  Scenario: Validate Tabs and data displayed to PMuser on award record when all settings are Yes
+  Scenario: Validate Tabs and data displayed to PM user on award record when all settings are Yes
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
@@ -14392,3 +14392,59 @@ Feature: Grantee Smoke scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title                            | Is Primary Program |
       | Automation Permanent NGO Program | Checked            |
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Projections" sub tab at view detail page
+    Then I softly can see "Responsibilities" sub tab at view detail page
+    Then I softly can see "Management" sub tab at view detail page
+    Then I softly can see "Monitoring" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    Then I softly see "Details" page block displayed
+    Then I softly see field "Award Title" inside page block
+    Then I softly see field "Grant EGMS ID" inside page block
+    And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
+    Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    Then I see the header is "Grant" in the page details
+    And I click on back arrow
+    Then I softly see field "Amendment Number" inside page block
+    When I hovering mouse on help text icon inside page block detail "Amendment Number"
+    Then I softly see "Amendment number provided in NOA Document. Field should allow only numbers upto 4 digits" shown as help text
+    Then I softly see field "Award Issue Date" inside page block
+    Then I softly see field "Award Type" inside page block
+    Then I softly see field "Version Number" inside page block
+    When I hovering mouse on help text icon inside page block detail "Version Number"
+    Then I softly see "System generated number used to track changes to the award" shown as help text
+    Then I softly see field " Funding Organization " inside page block
+    And I save the field labeled " Funding Organization " as "FundingOrganization "
+    Then I softly see link "{SavedValue:FundingOrganization}" inside Page block
+    And I click on hyperlink containing value "{SavedValue:FundingOrganization}"
+    Then I see the header is "Federal Organization" in the page details
+    Then I see the sub-header is "{SavedValue:FundingOrganization}" in the page details
+    And I click on back arrow
+    And I save the field labeled " Internal Organization " as "InternalOrganization"
+    Then I softly see link "{SavedValue:InternalOrganization}" inside Page block
+    And I click on hyperlink containing value "{SavedValue:InternalOrganization}"
+    Then I see the header is " Internal Organization " in the page details
+    Then I see the sub-header is "{SavedValue:InternalOrganization}" in the page details
+    And I click on back arrow
+    Then I softly see field "Application" inside page block
+    Then I softly see field "Maintenance Of Effort Amount" inside page block
+    Then I softly see field "Maintenance of Effort Statutory Reference" inside page block
+    When I hovering mouse on help text icon inside page block detail "Maintenance of Effort Statutory Reference"
+    Then I softly see "URL of MOE" shown as help text
+    Then I softly see field "Terms and Conditions Link" inside page block
+    When I hovering mouse on help text icon inside page block detail "Terms and Conditions Link"
+    Then I softly see "Enter link to award terms and conditions as provided in award letter" shown as help text
+    Then I softly see field "Separate Attachment for Terms and Conditions?" inside page block
+    When I hovering mouse on help text icon inside page block detail "Separate Attachment for Terms and Conditions?"
+    Then I softly see "Terms & Conditions must be uploaded in the Files section." shown as help text
+    Then I softly see field "Funder Payment System" inside page block
+    When I hovering mouse on help text icon inside page block detail "Funder Payment System"
+    Then I softly see "The federal payment system providing the funds for the award." shown as help text
+    Then I softly see field "Funder Payment System Sub-Account Number" inside page block
+    Then I softly see "Description" page block displayed
+    Then I softly see field "Scope / Award Description" inside page block
+    Then I softly see "External Programs" page block displayed
+
