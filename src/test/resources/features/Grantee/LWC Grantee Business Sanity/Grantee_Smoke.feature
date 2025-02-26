@@ -9718,6 +9718,7 @@ Feature: Grantee Smoke scenarios
     And I click on hyperlink containing value "{SavedValue:ownerName}"
     Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
     And I click on back arrow
+    And I wait for "2" seconds
     And I click on "Mark as Submitted" in the page details
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
