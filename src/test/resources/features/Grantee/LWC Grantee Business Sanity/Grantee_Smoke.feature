@@ -11358,9 +11358,10 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
     Then I softly can see row level action button "Delete" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
     When I click on "Edit" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---grantee_tableId:-:InternalContacts---"
-    And I enter in modal value "456879" into field "MailingPostalCode"
+    And I enter in modal value "45687" into field "MailingPostalCode"
     And I click modal button "Save"
     And I wait for "2" seconds
+    And I halt execution
     Then I softly see field "Zip Code" as "456879"
     And I wait for "2" seconds
     And I click modal button "Close"
@@ -14592,7 +14593,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Effective until" in flex table header "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see "Approved Indirect Cost Rate(%)" in flex table header "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see "Indirect Cost Rate Type" in flex table header "---grantee_tableId:-:awardIndirectRateTableId---"
-    When I click on parallel lines menu bar with data target value "Indirect Cost Rate Type"
+    When I click on parallel lines menu bar with data target value "Indirect Rates"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     When I click on "Effective from" column header inside table with id "---grantee_tableId:-:awardIndirectRateTableId---"
