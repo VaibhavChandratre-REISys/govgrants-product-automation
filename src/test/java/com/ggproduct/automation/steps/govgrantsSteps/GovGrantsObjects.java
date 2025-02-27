@@ -681,4 +681,12 @@ public final class GovGrantsObjects {
     public void toClickOnNavigatorButtonInBottom(String buttonName) {
         I.amPerforming().click().on(By.xpath("//div[@data-component-id='GNT_sideBarLwc']//span[text()='" + buttonName + "']/parent::button[@type='button']"));
     }
+
+    public void toClickOnButtonForPage(String buttonName) {
+        I.amPerforming().click().on(By.xpath("//button[@title='" + buttonName + "' and contains(@class,'btn-collapse-header')]"));
+    }
+
+    public void toClickOnButtonOnHeader(String buttonName) {
+        I.amPerforming().click().on(By.xpath("//ul[@class='slds-global-actions']//button[contains(@class,'" + buttonName + "')]"));
+    }
 }

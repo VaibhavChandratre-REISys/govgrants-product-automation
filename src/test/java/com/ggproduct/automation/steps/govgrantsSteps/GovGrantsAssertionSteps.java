@@ -889,4 +889,10 @@ public final class GovGrantsAssertionSteps {
     public void iSoftlySeePageBlockDisplayedWithQuotes(String usage, String fieldLabel) {
         ggAssertionObjects.assertPageBlockDisplayedWithQuotes(usage, fieldLabel);
     }
+
+    @Then("^I (softly see|see|do not see|softly do not see) notification \"([^\"]*)\"$")
+    public void iSoftlySeeNotificationText(String usage, String text) {
+        ggAssertionObjects.assertotificationText(usage, text);
+
+    }
 }

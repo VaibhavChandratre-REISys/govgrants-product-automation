@@ -14843,3 +14843,174 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
+
+  @495308 @443894 @443895 @463566 @Validatethecommonfunctionalitylikefiledauditchatterglobalsearchnotification @Grantee_Smoke3
+  Scenario: Validate the common functionality like filed audit chatter global search notification
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Planning" tab
+    When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:KPITable---"
+    And I enter "Grantee_Creation" values from "KPI_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "KPIID"
+    When I click on "Activate" in the page details
+    Then I see status in Progress-bar is "Active" and is "dark blue"
+    Then I can see top right button "Deactivate" in page detail
+    Then I softly can see "Field Audit" sub tab at view detail page
+    Then I softly can see "Chatter" sub tab at view detail page
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Active" for title "New Value" inside field history table
+    Then I softly see value "Created" for title "Original Value" inside field history table
+    And I click on hyperlink containing value "Key Performance Indicators (KPI)s"
+    And I wait for "1" seconds
+    Then I see the header is "Key Performance Indicator" in the page details
+    And I navigate to "Chatter" sub tab in split screen
+    And I post the message "Automation Test1 Execution" inside chatter
+    Then I softly see post "Automation Test1 Execution" by user "Sarah PM"
+    #443895
+    And I click on "Collapse" button for header
+    Then I softly see "Expand" button for header
+    And I click on "Expand" button for header
+    Then I softly see "Collapse" button for header
+    And I click on "Collapse" button for page
+    Then I softly see "Expand" button for page
+    And I click on "Expand" button for page
+    Then I softly see "Collapse" button for page
+    Then I softly see "Resize" button for page
+    #447690
+    When I navigate to "Home" tab
+    And I select "Search: Key Performance Indicators (KPI)s" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:KPIID}"
+    Then I softly can see row level action button "Edit" against "{SavedValue:KPIID}" in global search with id "Key Performance Indicators (KPI)s"
+    Then I softly can see row level action button "Change Owner" against "{SavedValue:KPIID}" in global search with id "Key Performance Indicators (KPI)s"
+    And I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+    And I select "Search: Key Performance Indicators (KPI)s" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:KPIID}"
+    Then I softly cannot see row level action button "Change Owner" against "{SavedValue:KPIID}" in global search with id "Key Performance Indicators (KPI)s"
+    Then I softly can see row level action button "Edit" against "{SavedValue:KPIID}" in global search with id "Key Performance Indicators (KPI)s"
+    #463566
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I create opportunity with state "created" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I save the field labeled "FOA Lead" as "FOALead"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" by clicking "New" :
+      | Reviewer Name | Role            | Description | Due Date | Allow Record Editing |
+      | David FO      | Fiscal Reviewer | Test        | 5        | No                   |
+    And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
+    Then I softly see value "Sent for Review" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    Then I softly see value "{SavedValue:opportunityEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
+    And I click on "Notifications" button on header
+    Then I softly see notification "Review Opportunity #{SavedValue:opportunityEGMSID} Created for Lead #{SavedValue:FOALead}"
+
+  @443859 @443900 @ValidateonlyadminEXEandPMusershouldseenewbuttontocreateKPI @Grantee_Smoke2
+  Scenario Outline:Validate only admin, EXE and PM user should see new button to create KPI
+    When I login to "As a Grantee" app as "<userName>" user
+    And I navigate to "Planning" tab
+    When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:KPITable---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:KPITable---"
+    And I enter "Grantee_Creation" values from "KPI_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "KPIID"
+    When I click on "Activate" in the page details
+    Then I see status in Progress-bar is "Active" and is "dark blue"
+    #443900
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "AttachmentTesting.pdf" has been added in "KPI Files" flex table
+    And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Supporting Documents" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly see value "Supporting Documents" for title "Classification" inside table "---grantee_tableId:-:KPIFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Attachment.pdf" has been added in "KPI Files" flex table
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    And I upload attachment without random number "Attachment1.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Attachment1.pdf" has been added in "KPI Files" flex table
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    And I upload attachment without random number "sample.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "sample.pdf" has been added in "KPI Files" flex table
+    Then I softly can see row level action button "View" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "View" against "sample.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "Delete" against "sample.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "Edit" against "sample.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "Download" against "sample.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    And I click on "Delete" icon for "sample.pdf" inside flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly do not see value "sample.pdf" for title "Title" inside table "---grantee_tableId:-:KPIFilesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
+      | Title         | Description       |
+      | Notes Record1 | Automation Notes1 |
+    Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record2" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
+      | Title         | Description       |
+      | Notes Record2 | Automation Notes2 |
+    Then I softly can see row level action button "Delete" against "Notes Record2" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record2" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
+      | Title         | Description       |
+      | Notes Record3 | Automation Notes3 |
+    Then I softly can see row level action button "Delete" against "Notes Record3" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record3" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record2" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record3" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    And I click on "Delete" icon for "Notes Record3" inside flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly do not see value "Notes Record3" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "Edit" :
+      | Created By  | Title           | Description         |
+      | <notesUser> | Notes Record PM | Automation Notes PM |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+
+    Examples:
+      | userName      | notesUser  |
+      | GRANTEE ADMIN | Product QA |
+      | GRANTEE PM    | Sarah PM   |
+      | GRANTEE EXE   | Victor EXE |

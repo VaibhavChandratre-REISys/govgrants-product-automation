@@ -4165,4 +4165,27 @@ public final class GovGrantsAssertionObjects {
         }
         return flag;
     }
+
+    public void assertotificationText(String usage, String text) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isNotificationText(text));
+        }else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isNotificationText(text)).isTrue();
+        }  else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isNotificationText(text));
+        } else{
+            I.amPerforming().assertionsTo().assertThat(isNotificationText(text)).isFalse();
+        }
+    }
+
+    private Boolean isNotificationText(String text) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@class='notification-content']//span[text()='" + text + "']"))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
+    }
 }
