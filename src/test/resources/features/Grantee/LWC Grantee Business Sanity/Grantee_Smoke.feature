@@ -13125,8 +13125,10 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Final Report?" inside page block
     Then I softly see field "Submitted By" inside page block
     Then I softly see field "Submitted On" inside page block
-    Then I softly see field "Reporting Period Start Date" as "{SavedValue:BudgetPeriodStartDate}"
-    Then I softly see field "Reporting Period End Date" as "{SavedValue:BudgetPeriodEndDate}"
+    And I save the field labeled "Reporting Period Start Date" as "ReportingPeriodStartDate"
+    And I save the field labeled "Reporting Period End Date" as "ReportingPeriodEndDate"
+    Then I softly see field "Reporting Period Start Date" as "{SavedValue:ReportingPeriodStartDate}"
+    Then I softly see field "Reporting Period End Date" as "{SavedValue:ReportingPeriodEndDate}"
     Then I softly see field "Submitted By" as ""
     Then I softly see field "Submitted On" as ""
     And I save the field labeled "EGMS ID" as "progressEGMSID"
@@ -13404,6 +13406,9 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly see value "Progress Report" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
     And I click on "Download" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---" without waiting for record
+    And I wait for "2" seconds
+    And I download the file
+    And I wait for "4" seconds
     Then I softly verify that the file "Automation.pdf" is downloaded
     When I click on "Delete" icon for "Automation.pdf" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     And I wait for "2" seconds
@@ -13631,9 +13636,6 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    And I navigate to "Projections" sub tab
-    And I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
-    And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
     And I navigate to "Management" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     When I enter in modal "Grantee_Progress_Schedules" values from "Award_Field_Values.xlsx"
@@ -13762,8 +13764,10 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Final Report?" inside page block
     Then I softly see field "Submitted By" inside page block
     Then I softly see field "Submitted On" inside page block
-    Then I softly see field "Reporting Period Start Date" as "{SavedValue:BudgetPeriodStartDate}"
-    Then I softly see field "Reporting Period End Date" as "{SavedValue:BudgetPeriodEndDate}"
+    And I save the field labeled "Reporting Period Start Date" as "ReportingPeriodStartDate"
+    And I save the field labeled "Reporting Period End Date" as "ReportingPeriodEndDate"
+    Then I softly see field "Reporting Period Start Date" as "{SavedValue:ReportingPeriodStartDate}"
+    Then I softly see field "Reporting Period End Date" as "{SavedValue:ReportingPeriodEndDate}"
     Then I softly see field "Submitted By" as ""
     Then I softly see field "Submitted On" as ""
     And I save the field labeled "EGMS ID" as "progressEGMSID"
@@ -14041,6 +14045,9 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly see value "Progress Report" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
     And I click on "Download" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---" without waiting for record
+    And I wait for "2" seconds
+    And I download the file
+    And I wait for "4" seconds
     Then I softly verify that the file "Automation.pdf" is downloaded
     When I click on "Delete" icon for "Automation.pdf" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     And I wait for "2" seconds
