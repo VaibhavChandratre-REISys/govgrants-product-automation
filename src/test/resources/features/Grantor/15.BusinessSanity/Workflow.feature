@@ -1760,9 +1760,9 @@ Feature: Validate all scenarios of every modules flow
     When I complete filling in the Review form with recommendation "Recommended"
     And I wait for "3" seconds
     And I click on "Save" in the page details
-    And I wait for "4" seconds
+    And I wait for "7" seconds
     And I click on "Save" in the page details
-    And I wait for "4" seconds
+    And I wait for "5" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
