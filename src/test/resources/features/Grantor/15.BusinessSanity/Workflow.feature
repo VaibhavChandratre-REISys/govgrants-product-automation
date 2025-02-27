@@ -1670,15 +1670,15 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "Automation Test Check" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    And I click on "View" icon for "Automation Test Check" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I get the "EGMS ID"
     And I wait for "3" seconds
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I perform quick search for "Automation Test Check" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "Initiate Review Process" icon for "Automation Test Check" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I wait for "3" seconds
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
@@ -1689,13 +1689,13 @@ Feature: Validate all scenarios of every modules flow
       | Reviewer                 |
       | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
-    When I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:assignApplicationsTableId---" panel
-    And I check "{SavedValue:Automation Runtime Competitive Announcement}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I perform quick search for "Automation Test Check" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "Automation Test Check" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I close "Assign Applications" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
-    When I check "{SavedValue:Automation Runtime Competitive Announcement}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    When I check "Automation Test Check" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -1713,11 +1713,11 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "Automation Test Check" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "Automation Test Check" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
-    When I check "{SavedValue:Automation Runtime Competitive Announcement}" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "Automation Test Check" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
@@ -1731,7 +1731,7 @@ Feature: Validate all scenarios of every modules flow
       | {SavedValue:EXE Username} |
       | {SavedValue:FO Username}  |
       | {SavedValue:PM Username}  |
-    When I expand nested table containing column value "{SavedValue:Automation Runtime Competitive Announcement}"
+    When I expand nested table containing column value "Automation Test Check"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
@@ -1804,11 +1804,11 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "Automation Test Check" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "Automation Test Check" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    When I check "{SavedValue:Automation Runtime Competitive Announcement}" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "Automation Test Check" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
@@ -1819,13 +1819,13 @@ Feature: Validate all scenarios of every modules flow
       | Reviewer                 |
       | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
-    When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
-    And I check "{SavedValue:Automation Runtime Competitive Announcement}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I perform quick search for "Automation Test Check" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "Automation Test Check" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
-    When I check "{SavedValue:Automation Runtime Competitive Announcement}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    When I check "Automation Test Check" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -1847,11 +1847,11 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I wait for "2" seconds
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "Automation Test Check" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "Automation Test Check" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    When I check "{SavedValue:Automation Runtime Competitive Announcement}" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "Automation Test Check" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     When I click on "Funding Decision Memo" in the page details
