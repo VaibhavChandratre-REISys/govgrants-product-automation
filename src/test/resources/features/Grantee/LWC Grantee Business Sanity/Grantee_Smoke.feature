@@ -14966,14 +14966,18 @@ Feature: Grantee Smoke scenarios
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "sample.pdf" has been added in "KPI Files" flex table
-    Then I softly can see row level action button "View" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
-    Then I softly can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
-    Then I softly can see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
-    Then I softly can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "View" against "Automation.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "Delete" against "Automation.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "Edit" against "Automation.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "Download" against "Automation.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
-    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "Download" against "Attachment1.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "View" against "Attachment1.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "Delete" against "Attachment1.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "Edit" against "Attachment1.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly can see row level action button "Download" against "Attachment1.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     Then I softly can see row level action button "View" against "sample.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     Then I softly can see row level action button "Delete" against "sample.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     Then I softly can see row level action button "Edit" against "sample.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
@@ -15016,11 +15020,3 @@ Feature: Grantee Smoke scenarios
       | GRANTEE ADMIN | Product QA |
       | GRANTEE PM    | Sarah PM   |
       | GRANTEE EXE   | Victor EXE |
-
-  @495295 @444494 @ValidateAuditorprofileuserhavingonlyviewonlyaccess @Grantee_Smoke3
-  Scenario: Validate Auditor FO, FD profile user having only view only access
-    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
-    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
-    And I activate the award for title "{SavedValue:Automation Runtime award}"
-    And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
