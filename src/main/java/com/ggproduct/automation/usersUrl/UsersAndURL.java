@@ -119,13 +119,13 @@ public class UsersAndURL implements UsersController {
                 password = "VAQA@2024";
                 break;
             case "EXE":
-                password = "Security@2024";
+                password = "Security@2025";
                 break;
             case "EXE1":
                 password = "Security@2025";
                 break;
             case "FO":
-                password = "Security@2024";
+                password = "Security@2025";
                 break;
             case "FO1":
                 password = "Security@2024";
@@ -143,7 +143,7 @@ public class UsersAndURL implements UsersController {
                 password = "Security@2024";
                 break;
             case "PM":
-                password = "Security@2024";
+                password = "Security@2025";
                 break;
             case "PM1":
                 password = "Security@2024";
@@ -151,11 +151,11 @@ public class UsersAndURL implements UsersController {
             case "AUDITOR":
                 password = "Security@2024";
                 break;
-            case "SPI4":
-                password = "Security@2024";
+            case "SPI3":
+                password = "Security@2025";
                 break;
             case "ADMIN":
-                password = "VaQa@2026";
+                password = "Security@2025";
                 break;
             default:
                 password = "VaDev@2028";
