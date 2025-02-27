@@ -1613,7 +1613,6 @@ Feature: Validate all scenarios of every modules flow
 #    Then I softly see "GAN Terms and Conditions" has been added in "Announcement Files" flex table
 #    And I click on "Submit For Approval" in the page details
 #    Then I softly see field "Status" as "Submitted for Approval"
-#    And I halt execution
 #    And I "Approve" in the approval decision
 #    Then I softly see field "Status" as "Approved"
 #    And I click on "Publish" in the page details
@@ -1699,7 +1698,6 @@ Feature: Validate all scenarios of every modules flow
     When I check "{SavedValue:Automation Runtime Competitive Announcement}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
-    And I halt execution
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1767,7 +1765,9 @@ Feature: Validate all scenarios of every modules flow
     When I complete filling in the Review form with recommendation "Recommended"
     And I wait for "3" seconds
     And I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I wait for "4" seconds
+    And I click on "Save" in the page details
+    And I wait for "4" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
@@ -1796,6 +1796,8 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
+    And I wait for "5" seconds
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
