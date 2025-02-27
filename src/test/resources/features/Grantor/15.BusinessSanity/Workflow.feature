@@ -1678,7 +1678,8 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "Automation Test Check" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "Initiate Review Process" icon for "Automation Test Check" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+#    When I click on "Initiate Review Process" icon for "Automation Test Check" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    When I click on "View" icon for "Automation Test Check" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I wait for "3" seconds
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
