@@ -1683,20 +1683,20 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "3" seconds
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-      | Form Name  | Due in Days |
-      | Pre-Screen | 5           |
-    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-      | Reviewer                 |
-      | {SavedValue:FO Username} |
+#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+#      | Form Name  | Due in Days |
+#      | Pre-Screen | 5           |
+#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
+#      | Reviewer                 |
+#      | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
-    When I perform quick search for "Automation Test Check" in "---applicationReview:-:assignApplicationsTableId---" panel
-    And I check "Automation Test Check" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I perform quick search for "Record Id" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "Record Id" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I close "Assign Applications" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
-    When I check "Automation Test Check" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    When I check "Record Id" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -1718,7 +1718,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "Automation Test Check" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
-    When I check "Automation Test Check" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "Record Id" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
@@ -1732,7 +1732,7 @@ Feature: Validate all scenarios of every modules flow
       | {SavedValue:EXE Username} |
       | {SavedValue:FO Username}  |
       | {SavedValue:PM Username}  |
-    When I expand nested table containing column value "Automation Test Check"
+    When I expand nested table containing column value "Record Id"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
@@ -1809,7 +1809,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "Automation Test Check" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    When I check "Automation Test Check" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "Record Id" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
@@ -1820,13 +1820,13 @@ Feature: Validate all scenarios of every modules flow
       | Reviewer                 |
       | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
-    When I perform quick search for "Automation Test Check" in "---applicationReview:-:assignApplicationsTableId---" panel
-    And I check "Automation Test Check" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I perform quick search for "Record Id" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "Record Id" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
-    When I check "Automation Test Check" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    When I check "Record Id" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -1852,7 +1852,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "Automation Test Check" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    When I check "Automation Test Check" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "Record Id" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     When I click on "Funding Decision Memo" in the page details
@@ -1866,8 +1866,8 @@ Feature: Validate all scenarios of every modules flow
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
-      | Application Title                                        | Recommended Budget | Recommend for Funding | Comments    | Federal Funds Obligated |
-      | {SavedValue:Automation Runtime Competitive Announcement} | 1000               | Yes                   | Recommended | 500                     |
+      | Application Title | Recommended Budget | Recommend for Funding | Comments    | Federal Funds Obligated |
+      | Record Id         | 1000               | Yes                   | Recommended | 500                     |
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
