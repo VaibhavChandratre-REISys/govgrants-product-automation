@@ -14918,7 +14918,7 @@ Feature: Grantee Smoke scenarios
     And I click on "Notifications" button on header
     Then I softly see notification "Review Opportunity #{SavedValue:opportunityEGMSID} Created for Lead #{SavedValue:FOALead}"
 
-  @443859 @443900 @ValidateonlyadminEXEandPMusershouldseenewbuttontocreateKPI @Grantee_Smoke2
+  @495297 @443859 @443900 @ValidateonlyadminEXEandPMusershouldseenewbuttontocreateKPI @Grantee_Smoke2
   Scenario Outline:Validate only admin, EXE and PM user should see new button to create KPI
     When I login to "As a Grantee" app as "<userName>" user
     And I navigate to "Planning" tab
