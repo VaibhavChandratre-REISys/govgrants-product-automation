@@ -1640,7 +1640,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
-    When I click on "Add Line Items" icon for "Administrative Costs" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
+    When I click on "Add Line Item Details" icon for "Administrative Costs" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "Edit" :
       | Title                | Budgeted Expense |
       | Administrative Costs | 1000             |
