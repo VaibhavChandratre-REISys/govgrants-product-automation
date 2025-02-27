@@ -1089,7 +1089,7 @@ public final class InputForms {
     }
 
     private int checkInputAreaPresentReviewFormForLwc(String title, int qNumber) {
-        return I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input"), false).size();
+        return I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input[not(@placeholder='Enter a percentage')]"), false).size();
     }
 
     private By getTextAreaReviewForm(String title, int qNumber) {
@@ -1103,7 +1103,7 @@ public final class InputForms {
     }
 
     private By getInputAreaReviewFormForLwc(String title, int qNumber) {
-        return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input");
+        return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input[not(@placeholder='Enter a percentage')]");
     }
 
     private int checkTextInputScorePresentReviewForm(String title, int qNumber) {
@@ -1133,7 +1133,7 @@ public final class InputForms {
     }
 
     private int checkTextInputPercentPresentReviewFormForLwc(String title, int qNumber) {
-        return I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input[@placeholder='Enter a Percentage']"), false).size();
+        return I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input[@placeholder='Enter a percentage']"), false).size();
     }
 
     private By getTextInputPercentReviewForm(String title, int qNumber) {
@@ -1143,7 +1143,7 @@ public final class InputForms {
     }
 
     private By getTextInputPercentReviewFormForLwc(String title, int qNumber) {
-        return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input[@placeholder='Enter a Percentage']");
+        return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input[@placeholder='Enter a percentage']");
     }
 
     /**
