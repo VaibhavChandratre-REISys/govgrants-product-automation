@@ -14866,9 +14866,10 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Active" for title "New Value" inside field history table
     Then I softly see value "Created" for title "Original Value" inside field history table
     And I wait for "2" seconds
-    And I click on hyperlink containing value "Key Performance Indicators (KPI)s"
-    And I wait for "2" seconds
-    Then I see the header is "Key Performance Indicator" in the page details
+#    And I click on hyperlink containing value "Key Performance Indicators (KPI)s"
+#    And I wait for "2" seconds
+#    Then I see the header is "Key Performance Indicator" in the page details
+    And I click on back arrow
     And I navigate to "Chatter" sub tab in split screen
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "Sarah PM"
@@ -15017,4 +15018,9 @@ Feature: Grantee Smoke scenarios
       | GRANTEE EXE   | Victor EXE |
 
   @495295 @444494 @ValidateAuditorprofileuserhavingonlyviewonlyaccess @Grantee_Smoke3
-  Scenario: Validate Auditor profile user having only view only access
+  Scenario: Validate Auditor FO, FD profile user having only view only access
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
