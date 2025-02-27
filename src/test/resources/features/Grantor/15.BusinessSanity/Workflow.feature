@@ -1684,7 +1684,7 @@ Feature: Validate all scenarios of every modules flow
 #      | Reviewer                 |
 #      | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
-    When I perform quick search for " {SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I close "Assign Applications" modal by clicking the top right x button
