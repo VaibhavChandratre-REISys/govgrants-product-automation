@@ -1198,7 +1198,7 @@ public final class GovGrantsSteps {
         govgrants.perform().pageDetails().getNotificationIcon();
     }
 
-    @And("^I click on \"([^\"]*)\" button for (page|header)$")
+    @And("I click on {string} button for page")
     public void iClickOnButtonForPage(String buttonName) {
         ggObjects.toClickOnButtonForPage(buttonName);
     }

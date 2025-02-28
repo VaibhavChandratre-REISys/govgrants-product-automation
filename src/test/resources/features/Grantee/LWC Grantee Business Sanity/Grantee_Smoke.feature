@@ -14874,9 +14874,9 @@ Feature: Grantee Smoke scenarios
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "Sarah PM"
     #443895
-    And I click on "Collapse" button for header
+    And I click on "Collapse" button on header
     Then I softly see "Expand" button for header
-    And I click on "Expand" button for header
+    And I click on "Expand" button on header
     Then I softly see "Collapse" button for header
     And I click on "Collapse" button for page
     Then I softly see "Expand" button for page
