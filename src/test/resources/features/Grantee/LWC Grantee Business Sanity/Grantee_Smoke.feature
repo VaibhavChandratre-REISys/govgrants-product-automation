@@ -14896,6 +14896,7 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see row level action button "Change Owner" against "{SavedValue:KPIID}" in global search with id "Key Performance Indicators (KPI)s"
     Then I softly can see row level action button "Edit" against "{SavedValue:KPIID}" in global search with id "Key Performance Indicators (KPI)s"
     #463566
+    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
