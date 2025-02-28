@@ -1625,17 +1625,17 @@ Feature: Validate all scenarios of every modules flow
 #    When I click on "Interested" in the page details
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
-#    And I navigate to "Opportunities" tab
-#    When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
-#    And I click toggle button to select "Opportunities Converted to Application - All"
-#    When I perform quick search for "Automation Permanent Test" in "---applicationIntake:-:convertedToApplicationTableID---" panel
-#    Then I softly see value "Automation Permanent Test" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
-#    And I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     And I navigate to "Opportunities" tab
-    When I navigate to "Open Opportunities" content inside "Opportunities" subheader on left panel
-    And I perform quick search for "Automation Permanent Test" in "---applicationReview:-:reviewsTableId---" panel
-    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:reviewsTableId---"
-    When I click on "Interested" in the page details
+    When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
+    And I click toggle button to select "Opportunities Converted to Application - All"
+    When I perform quick search for "Automation Permanent Test" in "---applicationIntake:-:convertedToApplicationTableID---" panel
+    Then I softly see value "Automation Permanent Test" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
+    And I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
+#    And I navigate to "Opportunities" tab
+#    When I navigate to "Open Opportunities" content inside "Opportunities" subheader on left panel
+#    And I perform quick search for "Automation Permanent Test" in "---applicationReview:-:reviewsTableId---" panel
+#    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:reviewsTableId---"
+#    When I click on "Interested" in the page details
     When I click on "Create Application" in the page details
     And I wait for "3" seconds
     And I enter value "New" into field "Priority_VA__c"
@@ -1677,11 +1677,12 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "Automation Permanent Test" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "Initiate Review Process" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-#    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+#    When I click on "Initiate Review Process" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I wait for "3" seconds
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -1721,6 +1722,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
       | Program Review    | 5           |
@@ -1814,6 +1816,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
       | Management Review | 5           |
