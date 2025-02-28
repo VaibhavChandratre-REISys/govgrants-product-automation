@@ -1633,8 +1633,8 @@ Feature: Validate all scenarios of every modules flow
 #    And I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     And I navigate to "Opportunities" tab
     When I navigate to "Open Opportunities" content inside "Opportunities" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:reviewsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
+    And I perform quick search for "Automation Permanent Test" in "---applicationReview:-:reviewsTableId---" panel
+    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Interested" in the page details
     When I click on "Create Application" in the page details
     And I wait for "3" seconds
