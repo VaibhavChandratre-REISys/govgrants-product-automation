@@ -14994,7 +14994,7 @@ Feature: Grantee Smoke scenarios
       | Title         | Description       |
       | Notes Record1 | Automation Notes1 |
     Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
-    Then I softly can see row level action button "Edit" against "Notes Record2" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record2 | Automation Notes2 |
@@ -15014,7 +15014,7 @@ Feature: Grantee Smoke scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "Edit" :
       | Created By  | Title           | Description         |
       | <notesUser> | Notes Record PM | Automation Notes PM |
-    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record PM" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
 
     Examples:
       | userName      | notesUser  |
