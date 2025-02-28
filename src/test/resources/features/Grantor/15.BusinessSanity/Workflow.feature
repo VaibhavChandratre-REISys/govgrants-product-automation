@@ -1788,12 +1788,14 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
-    And I wait for "6" seconds
+    And I wait for "7" seconds
+    And I click on "Save" in the page details
+    And I wait for "5" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
-    When I click on "Submit" in the page details
-    And I wait for "5" seconds
+#    When I click on "Submit" in the page details
+#    And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Applications" tab
