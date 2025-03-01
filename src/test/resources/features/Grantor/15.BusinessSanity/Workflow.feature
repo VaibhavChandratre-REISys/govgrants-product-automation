@@ -1674,12 +1674,8 @@ Feature: Validate all scenarios of every modules flow
   @debugtest @debug
   Scenario:
     Given I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/ProgressReports__c/a3CKQ000000DZDI2A4/view"
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/MasterKPI__c/a2oDX000001J6QLYA0/view"
     And I halt execution
-    When I navigate to "Forms and Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
-    Then I see "Upload" button is disabled at modal under library
-    And I select Classification as "Financial Report" at upload file modal
-    When I upload file "AttachmentTesting.pdf" into library
-    Then I do not see "Upload" button is disabled at modal under library
+    And I click on "Collapse" button on header
+    And I click on "Collapse" button for page
     And I halt execution

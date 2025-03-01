@@ -683,10 +683,10 @@ public final class GovGrantsObjects {
     }
 
     public void toClickOnButtonForPage(String buttonName) {
-        I.amPerforming().click().on(By.xpath("//button[@title='" + buttonName + "' and contains(@class,'btn-collapse-header')]"));
+        I.amPerforming().click().withJavaScript(By.xpath("//div[@class='resizeable-container']//button[@title='" + buttonName + "']"));
     }
 
     public void toClickOnButtonOnHeader(String buttonName) {
-        I.amPerforming().click().on(By.xpath("//ul[@class='slds-global-actions']//button[contains(@class,'" + buttonName + "')]"));
+        I.amPerforming().click().withJavaScript(By.xpath("//button[@title='" + buttonName + "' and contains(@class,'btn-collapse-header')]"));
     }
 }

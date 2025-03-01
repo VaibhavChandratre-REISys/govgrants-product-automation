@@ -14866,9 +14866,9 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Active" for title "New Value" inside field history table
     Then I softly see value "Created" for title "Original Value" inside field history table
     And I wait for "2" seconds
-#    And I click on hyperlink containing value "Key Performance Indicators (KPI)s"
-#    And I wait for "2" seconds
-#    Then I see the header is "Key Performance Indicator" in the page details
+    And I click on hyperlink containing value "Key Performance Indicators (KPI)s"
+    And I wait for "2" seconds
+    Then I see the header is "Key Performance Indicator" in the page details
     And I click on back arrow
     And I navigate to "Chatter" sub tab in split screen
     And I post the message "Automation Test1 Execution" inside chatter
