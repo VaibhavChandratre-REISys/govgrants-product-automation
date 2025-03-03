@@ -15374,6 +15374,7 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
     And I save the field labeled "EGMS ID" as "financialEGMSID"
     When I navigate to "Responsibilities" sub tab
+    And I halt execution
     Then I softly see value "NA" for title "Financial Report" against the value "Danielle FD Garcia" inside table "---grantee_tableId:-:financialReportApproverTableId---"
     Then I softly see value "Step 2" for title "Financial Report" against the value "Sarah PM" inside table "---grantee_tableId:-:financialReportApproverTableId---"
     Then I softly see value "Step 3" for title "Financial Report" against the value "Victor EXE" inside table "---grantee_tableId:-:financialReportApproverTableId---"

@@ -3915,7 +3915,7 @@ public class GrantorPayloads {
             case "FINAL_PROGRESS_YES":
                 return updatePogressYes(defaultJson);
             case "NA_APPROVER":
-                return updateNoApprover(defaultJson, status, type, title);
+                return updateNoApprover(defaultJson, title, type, status);
             default:
                 return defaultJson;
         }
