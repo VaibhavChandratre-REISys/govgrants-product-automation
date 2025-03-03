@@ -15502,7 +15502,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see that "Acknowledgement:" rendered in view mode only
     Then I softly see that "Submitted By:" rendered in view mode only
     Then I softly see that "Submitted On:" rendered in view mode only
-    And I click on back arrow
+    And I close the tab
     When I navigate to "Overview" sub tab
     And I save the field labeled "Award ID" as "AwardID"
     Then I softly see field "Award ID" inside page block
