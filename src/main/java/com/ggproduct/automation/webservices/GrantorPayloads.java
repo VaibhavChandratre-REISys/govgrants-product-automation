@@ -3914,7 +3914,7 @@ public class GrantorPayloads {
         switch (filter) {
             case "FINAL_PROGRESS_YES":
                 return updatePogressYes(defaultJson);
-            case "NO_APPROVER":
+            case "NA_APPROVER":
                 return updateNoApprover(defaultJson, status, type, title);
             default:
                 return defaultJson;
@@ -3939,6 +3939,13 @@ public class GrantorPayloads {
         progressReportDetails.addProperty("SubmittedtoGrantor", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(1, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         progressReportDetails.addProperty("isCreatedOrApprovedProgressReport", status);
         progressReportDetails.addProperty("isFinalReport", false);
+
+        JsonArray approvers = new JsonArray();
+        JsonObject approver = new JsonObject();
+        approver.addProperty("name", ProjectWebServices.getIdOf("User", "Victor EXE"));
+        approver.addProperty("progressreport", "NA");
+        approvers.add(approver);
+        progressReportDetails.add("approvers", approvers);
 
         // Creating the progress report data array and adding the progress report object
         JsonArray progressReportDataArray = new JsonArray();

@@ -15155,8 +15155,10 @@ Feature: Grantee Smoke scenarios
     And I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
-      | Attachments - You cannot add more than 15 Attachments to the form. Please remove extra files.         |
-      | Attachments - 3 duplicate file title(s) found: 'File name'. Please ensure all file titles are unique. |
+      | You cannot add more than 15 Attachments to the form. Please remove extra files.                                |
+      | 3 duplicate file title(s) found: Financial_Report_Field_Values.xlsx. Please ensure all file titles are unique. |
+      | 2 duplicate file title(s) found: Attachment.pdf. Please ensure all file titles are unique.                     |
+      | 2 duplicate file title(s) found: FocusArea_Field_Values.xlsx. Please ensure all file titles are unique.        |
     When I click on "Delete" icon for "Field_Values.xlsx" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I wait for "2" seconds
     When I click on "Delete" icon for "FocusArea_Field_Values.xlsx" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
@@ -15366,8 +15368,8 @@ Feature: Grantee Smoke scenarios
       | David FO | Step 2          |
       | Sarah PM | Step 3          |
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    And I "Created" the "Financial Report" for title "{SavedValue:Automation Runtime Award}" with properties "NO_APPROVER"
-    And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime Award}" with properties "NO_APPROVER"
+    And I "Created" the "Financial Report" for title "{SavedValue:Automation Runtime Award}" with properties "NA_APPROVER"
+    And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime Award}" with properties "NA_APPROVER"
     And I navigate to "Management" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
     And I save the field labeled "EGMS ID" as "financialEGMSID"
@@ -15437,7 +15439,7 @@ Feature: Grantee Smoke scenarios
     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Management" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
     And I save the field labeled "EGMS ID" as "progressEGMSID"
@@ -15606,6 +15608,7 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
