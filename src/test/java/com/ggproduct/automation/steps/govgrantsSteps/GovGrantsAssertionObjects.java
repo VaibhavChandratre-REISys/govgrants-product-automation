@@ -649,7 +649,7 @@ public final class GovGrantsAssertionObjects {
             I.amPerforming().waitFor().ElementListToBePresent(By.xpath("//c-flex-layout-quick-view//lightning-button//button[@title='" + buttonName + "'] | //lightning-button-menu[contains(@class,'" + buttonName + "')]"));
         } catch (Exception e) {
             try {
-                I.amPerforming().click().on(By.xpath("//c-flex-layout-quick-view//lightning-button-menu//button[contains(@class,'slds-button_last')]"));
+                I.amPerforming().click().on(By.xpath("//c-flex-layout-quick-view//lightning-button-menu//button[contains(@class,'slds-button_last')] | //c-flex-layout-quick-view//lightning-button-menu//button[@part='button button-icon']"));
                 I.amPerforming().waitFor().ElementListToBePresent(By.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
             } catch (Exception e1) {
             }

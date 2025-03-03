@@ -15460,7 +15460,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Splitview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Preview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     When I click on "Splitview" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see top right button "Edit" in the split screen page details
+    Then I softly cannot see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Download As PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:progressReportFileTableId---"
@@ -15472,13 +15472,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see link "{SavedValue:Award}" inside Page block
     And I click on hyperlink containing value "{SavedValue:Award}"
     Then I see the header is "Award" in the page details
-    Then I see the sub-header is "{SavedValue:{SavedValue:Automation Runtime award}}" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     And I click on back arrow
     And I save the field labeled "Progress Report" as "ProgressReport"
     Then I softly see link "{SavedValue:ProgressReport}" inside Page block
     And I click on hyperlink containing value "{SavedValue:ProgressReport}"
     Then I see the header is "Progress Report" in the page details
-    Then I see the sub-header is "{SavedValue:{SavedValue:Automation Runtime award}}" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     And I close the tab
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
@@ -15545,7 +15545,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Splitview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Preview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     When I click on "Splitview" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see top right button "Edit" in the split screen page details
+    Then I softly cannot see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Download As PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:progressReportFileTableId---"
@@ -15557,13 +15557,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see link "{SavedValue:Award}" inside Page block
     And I click on hyperlink containing value "{SavedValue:Award}"
     Then I see the header is "Award" in the page details
-    Then I see the sub-header is "{SavedValue:{SavedValue:Automation Runtime award}}" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     And I click on back arrow
     And I save the field labeled "Progress Report" as "ProgressReport"
     Then I softly see link "{SavedValue:ProgressReport}" inside Page block
     And I click on hyperlink containing value "{SavedValue:ProgressReport}"
     Then I see the header is "Progress Report" in the page details
-    Then I see the sub-header is "{SavedValue:{SavedValue:Automation Runtime award}}" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     And I close the tab
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
