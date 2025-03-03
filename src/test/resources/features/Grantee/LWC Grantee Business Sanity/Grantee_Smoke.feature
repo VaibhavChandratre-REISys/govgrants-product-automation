@@ -15415,12 +15415,23 @@ Feature: Grantee Smoke scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "Edit" :
       | Name     | Progress Report |
       | David FO | Step 2          |
-    Then I softly see "You cannot specify the same step for multiple users for Progress Report." inside flex table with id "---progressReport:-:approversTableId---"
+    Then I softly see the following messages in the page details contains:
+      | You cannot specify the same step for multiple users for Progress Report. |
     And I refresh the page
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "Edit" :
       | Name     | Progress Report |
       | Sarah PM | Step 1          |
+    When I navigate to "Forms and Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Progress Report" from computer
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    When I navigate to "Performance" sub tab
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:KPIOnProgressReport---" by clicking "Edit" :
+      | EGMS ID                | Reported Value | Reported Value As Of |
+      | Automation Runtime KPI | 10             | 1                    |
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
 
@@ -15476,10 +15487,10 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "Progress Report" as "ProgressReport"
     Then I softly see link "{SavedValue:ProgressReport}" inside Page block
     And I click on hyperlink containing value "{SavedValue:ProgressReport}"
-    And I switch to tab number "1"
     Then I see the header is "Progress Report" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
-    And I close the tab
+    When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    And I switch to tab number "2"
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly see "Performance Progress Reports" page block displayed
