@@ -15389,7 +15389,7 @@ Feature: Grantee Smoke scenarios
     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Management" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
     And I save the field labeled "EGMS ID" as "progressEGMSID"
@@ -15472,9 +15472,11 @@ Feature: Grantee Smoke scenarios
     Then I see the header is "Award" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     And I click on back arrow
+    And I wait for "2" seconds
     And I save the field labeled "Progress Report" as "ProgressReport"
     Then I softly see link "{SavedValue:ProgressReport}" inside Page block
     And I click on hyperlink containing value "{SavedValue:ProgressReport}"
+    And I switch to tab number "1"
     Then I see the header is "Progress Report" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     And I close the tab
@@ -15522,7 +15524,7 @@ Feature: Grantee Smoke scenarios
     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Management" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
     And I save the field labeled "EGMS ID" as "progressEGMSID"
@@ -15557,9 +15559,11 @@ Feature: Grantee Smoke scenarios
     Then I see the header is "Award" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     And I click on back arrow
+    And I wait for "2" seconds
     And I save the field labeled "Progress Report" as "ProgressReport"
     Then I softly see link "{SavedValue:ProgressReport}" inside Page block
     And I click on hyperlink containing value "{SavedValue:ProgressReport}"
+    And I switch to tab number "1"
     Then I see the header is "Progress Report" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     And I close the tab
