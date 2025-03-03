@@ -15023,7 +15023,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE EXE   | Victor EXE |
 
 
-  @477571 @ValidateAttachmentsformPMusercanaddfilesinAttachmentsforminViewmodeandsuccessfullysubmitapplicationtograntsgov @Grantee_Smoke1 @testExecution
+  @477571 @ValidateAttachmentsformPMusercanaddfilesinAttachmentsforminViewmodeandsuccessfullysubmitapplicationtograntsgov @Grantee_Smoke1
   Scenario: Validate Attachments form PM user can add files in Attachments form in View mode and successfully submit application to grants gov
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatoryAttachments}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001271853" with properties "default"
