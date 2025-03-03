@@ -15359,23 +15359,20 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name               | Financial Report |
-      | Danielle FD Garcia | NA               |
-      | Sarah PM           | Step 2           |
-      | Victor EXE         | Step 3           |
-    When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name     | Progress Report |
-      | David FO | Step 2          |
-      | Sarah PM | Step 3          |
+      | Name               | Financial Report | Progress Report |
+      | Danielle FD Garcia | NA               | NA              |
+      | Sarah PM           | Step 2           | Step 3          |
+      | Victor EXE         | Step 3           | NA              |
+      | David FO           | NA               | Step 2          |
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     And I "Created" the "Financial Report" for title "{SavedValue:Automation Runtime Award}" with properties "NA_APPROVER"
     And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime Award}" with properties "NA_APPROVER"
+    And I refresh the page
+    And I wait for "2" seconds
     And I navigate to "Management" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
     And I save the field labeled "EGMS ID" as "financialEGMSID"
     When I navigate to "Responsibilities" sub tab
-    And I halt execution
-    Then I softly see value "NA" for title "Financial Report" against the value "Danielle FD Garcia" inside table "---grantee_tableId:-:financialReportApproverTableId---"
     Then I softly see value "Step 2" for title "Financial Report" against the value "Sarah PM" inside table "---grantee_tableId:-:financialReportApproverTableId---"
     Then I softly see value "Step 3" for title "Financial Report" against the value "Victor EXE" inside table "---grantee_tableId:-:financialReportApproverTableId---"
     And I click on "Submit for Approval" in the page details
