@@ -15493,7 +15493,7 @@ Feature: Grantee Smoke scenarios
     And I switch to tab number "2"
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
-    Then I softly see "Performance Progress Reports" page block displayed
+    Then I softly see "Progress Report Overview" page block displayed
     Then I softly see "Performance Narrative" page block displayed
     Then I softly see "Key Accomplishments" page block displayed
     Then I softly see "Lessons Learned" page block displayed
@@ -15502,7 +15502,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see that "Acknowledgement:" rendered in view mode only
     Then I softly see that "Submitted By:" rendered in view mode only
     Then I softly see that "Submitted On:" rendered in view mode only
-    And I close the tab
+    And I click on back arrow
     When I navigate to "Overview" sub tab
     And I save the field labeled "Award ID" as "AwardID"
     Then I softly see field "Award ID" inside page block
@@ -15525,9 +15525,9 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Submit for Approval" in page detail
     When I navigate to "Performance" sub tab
-    Then I softly see field "Key Accomplishments" inside page block
-    Then I softly see field "Obstacles" inside page block
-    Then I softly see field "Plans" inside page block
+    Then I softly see value "Key Accomplishments" for the field "Automation Test Key Accomplishments"
+    Then I softly see value "Obstacles" for the field "Automation Test Obstacles"
+    Then I softly see value "Plans" for the field "Automation Test Plans"
     And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -15560,7 +15560,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Download As PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:progressReportFileTableId---"
-    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
     When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I switch to tab number "1"
     Then I see the header is "Performance Progress Report" in the page details
@@ -15580,7 +15580,7 @@ Feature: Grantee Smoke scenarios
     And I switch to tab number "2"
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
-    Then I softly see "Performance Progress Reports" page block displayed
+    Then I softly see "Progress Report Overview" page block displayed
     Then I softly see "Performance Narrative" page block displayed
     Then I softly see "Key Accomplishments" page block displayed
     Then I softly see "Lessons Learned" page block displayed
@@ -15589,7 +15589,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see that "Acknowledgement:" rendered in view mode only
     Then I softly see that "Submitted By:" rendered in view mode only
     Then I softly see that "Submitted On:" rendered in view mode only
-    And I close the tab
+    And I click on back arrow
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I save the field labeled "Award ID" as "AwardID"
     Then I softly see field "Award ID" inside page block
@@ -15612,9 +15613,9 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Submit for Approval" in page detail
     When I navigate to "Performance" sub tab
-    Then I softly see field "Key Accomplishments" inside page block
-    Then I softly see field "Obstacles" inside page block
-    Then I softly see field "Plans" inside page block
+    Then I softly see value "Key Accomplishments" for the field "Automation Test Key Accomplishments"
+    Then I softly see value "Obstacles" for the field "Automation Test Obstacles"
+    Then I softly see value "Plans" for the field "Automation Test Plans"
 
   @487738 @ValidatePrgressReportthatAuditoruserdonotseeEditactionvalidationifReportStartDateEndDateCreationDateDueDateareremoveduserclicksonSavebuttononawardlayout @Grantee_Smoke3 @testExecution
   Scenario: Validate Prgress Report that Auditor user do not see Edit action & validation if Report Start Date End Date Creation Date Due Date are removed & user clicks on Save button on award layout

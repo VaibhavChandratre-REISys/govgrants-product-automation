@@ -195,7 +195,7 @@ public class ProjectManager extends ProjectWebServices {
     private boolean assertFieldValuewithLabel(String labelName, String labelValue) {
         boolean flag = true;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//lightning-formatted-rich-text//span[contains(text(),'" + labelName + "')]/../parent::div//lightning-output-field//p[text()='" + labelValue + "'] |//lightning-formatted-rich-text//span[contains(text(),'" + labelName + "')]/../parent::div//lightning-formatted-text[text()='" + labelValue + "']")))
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//lightning-formatted-rich-text//span[contains(text(),'" + labelName + "')]/../parent::div//lightning-output-field//p[text()='" + labelValue + "'] |//lightning-formatted-rich-text//span[contains(text(),'" + labelName + "')]/../parent::div//lightning-formatted-text[text()='" + labelValue + "'] | //lightning-formatted-rich-text//span[contains(text(),'" + labelName + "')]/../parent::div//lightning-formatted-rich-text//span[text()='" + labelValue + "']")))
                 flag = true;
         } catch (Exception e) {
             flag = false;
