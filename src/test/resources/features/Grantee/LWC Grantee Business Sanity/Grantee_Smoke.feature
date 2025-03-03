@@ -15574,10 +15574,10 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "Progress Report" as "ProgressReport"
     Then I softly see link "{SavedValue:ProgressReport}" inside Page block
     And I click on hyperlink containing value "{SavedValue:ProgressReport}"
-    And I switch to tab number "1"
     Then I see the header is "Progress Report" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
-    And I close the tab
+    When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    And I switch to tab number "2"
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly see "Performance Progress Reports" page block displayed
