@@ -15269,7 +15269,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @444516 @ValidateEXEuserprogressreportrecordownercanseeAdhocprogressreportscanbecreatedonlyforactiveawardsseerequiredtoSavevalidationsondetailspagelayoutwhenRequiredfieldskeptblankothervalidationsonValidatebuttondeletePR @Grantee_Smoke1 @testExecution
+  @444516 @ValidateEXEuserprogressreportrecordownercanseeAdhocprogressreportscanbecreatedonlyforactiveawardsseerequiredtoSavevalidationsondetailspagelayoutwhenRequiredfieldskeptblankothervalidationsonValidatebuttondeletePR @Grantee_Smoke1
   Scenario: Validate EXE user (progress report record owner)can see Ad hoc progress reports can be created only for active awards & see required to Save validations on details page layout when Required fields kept blank & other validations on Validate button& delete PR
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
