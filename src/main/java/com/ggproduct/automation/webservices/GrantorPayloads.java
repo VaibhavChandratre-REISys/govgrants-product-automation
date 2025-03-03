@@ -3914,9 +3914,39 @@ public class GrantorPayloads {
         switch (filter) {
             case "FINAL_PROGRESS_YES":
                 return updatePogressYes(defaultJson);
+            case "NO_APPROVER":
+                return updateNoApprover(defaultJson, status, type, title);
             default:
                 return defaultJson;
         }
+    }
+
+    private JsonObject updateNoApprover(JsonObject defaultJson, String title, String type, String status) {
+        JsonObject progressReportDetails = new JsonObject();
+
+        // Basic progress report details
+        progressReportDetails.addProperty("AwardTitle", title);
+        if(type.equalsIgnoreCase("Progress Report")) {
+            progressReportDetails.addProperty("ReportType", "Program");
+        }else{
+            progressReportDetails.addProperty("ReportType", "Fiscal");
+        }
+        progressReportDetails.addProperty("OwnerID", ProjectWebServices.getIdOf("User", "Sarah PM"));
+        progressReportDetails.addProperty("ReportDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        progressReportDetails.addProperty("KeyAccomplishments", "Automation Test Key Accomplishments");
+        progressReportDetails.addProperty("Obstacles", "Automation Test Obstacles");
+        progressReportDetails.addProperty("Plans", "Automation Test Plans");
+        progressReportDetails.addProperty("SubmittedtoGrantor", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(1, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        progressReportDetails.addProperty("isCreatedOrApprovedProgressReport", status);
+        progressReportDetails.addProperty("isFinalReport", false);
+
+        // Creating the progress report data array and adding the progress report object
+        JsonArray progressReportDataArray = new JsonArray();
+        progressReportDataArray.add(progressReportDetails);
+
+        defaultJson.add("progressReportData", progressReportDataArray);
+
+        return defaultJson;
     }
 
     private JsonObject defaultCreateTheProgressReportCreatedAndApproved(String status, String type, String title) {
