@@ -470,16 +470,6 @@ public final class GovGrantsAssertionObjects {
            Then, once framework fixes the issue we can remove the second xpath option.
     ******************************************************************************************* */
 
-
-    public void verifyFieldAvailableOnModal(String field, String text) {
-        try {
-            By fieldText = By.xpath("//div[contains(@class,'modal__container')]//label[text()='" + field + "']/..//lightning-base-combobox//span[text()='" + text + "'] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/parent::div//lightning-formatted-text[text()='" + text + "'] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/parent::div//a[text()='" + text + "']");
-            I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(fieldText)).isTrue();
-        } catch (Exception e) {
-
-        }
-    }
-
     /**
      * Asserts the value of a field on the page.
      * Waits for the field to be present, but not for the right value to be present.
@@ -2617,7 +2607,6 @@ public final class GovGrantsAssertionObjects {
         boolean flag = false;
         try {
             if (isModal) {
-                I.amPerforming().waitFor().ElementToBePresent(ByUsing.xpath("//button[text()='" + buttonName + "' and @disabled='true'] | //button[text()='" + buttonName + "' and @aria-disabled='true']"));
                 if (I.amPerforming().checkToSee().isDisplayed(ByUsing.xpath("//button[text()='" + buttonName + "' and @disabled='true'] | //button[text()='" + buttonName + "' and @aria-disabled='true']"))) {
                     flag = true;
                 }
@@ -4183,6 +4172,29 @@ public final class GovGrantsAssertionObjects {
         boolean flag = false;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@class='notification-content']//span[text()='" + text + "']"))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
+    }
+
+    public void assertFieldAvailableOnModal(String usage, String field, String text) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isFieldAvailableOnModal(field,text));
+        }else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isFieldAvailableOnModal(field,text)).isTrue();
+        }  else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isFieldAvailableOnModal(field,text));
+        } else{
+            I.amPerforming().assertionsTo().assertThat(isFieldAvailableOnModal(field,text)).isFalse();
+        }
+    }
+
+    private Boolean isFieldAvailableOnModal(String field, String text) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//label[text()='" + field + "']/parent::div//lightning-formatted-text[text()='" + text + "'] |//div[contains(@class,'modal__container')]//label[text()='" + field + "']/..//lightning-base-combobox//span[text()='" + text + "'] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/parent::div//a[text()='" + text + "']"))) {
                 flag = true;
             }
         } catch (Exception e) {

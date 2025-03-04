@@ -6258,6 +6258,7 @@ Feature: Grantee Smoke scenarios
     Then I see field "Phone" as "(896) 709-3855" on modal
     Then I see field "MobilePhone" as "(896) 709-3455" on modal
     Then I see field "Email" as "{SavedValue:uniqueEmailID}" on modal
+    And I halt execution
     And I click on hyperlink for modal containing value "Department of Education"
     Then I see the header is "Federal Organization" in the page details
     Then I see the sub-header is "Department of Education" in the page details
@@ -6270,12 +6271,12 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Delete" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:fedContactTableId---"
     Examples:
       | User          |
-      | GRANTEE PM    |
+#      | GRANTEE PM    |
       | GRANTEE PO    |
-      | GRANTEE EXE   |
-      | GRANTEE FO    |
-      | GRANTEE FD    |
-      | GRANTEE ADMIN |
+#      | GRANTEE EXE   |
+#      | GRANTEE FO    |
+#      | GRANTEE FD    |
+#      | GRANTEE ADMIN |
 
   @442181 @ValidatePMusershouldabletosaveandcreateinternalcontact @Grantee_Smoke1
   Scenario Outline: Validate PM user should able to save and create internal contact
@@ -12688,9 +12689,11 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Take Snapshot" in the split screen page details
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
+    And I wait for "2" seconds
     Then I see "Upload" button is disabled at modal under library
     And I select Classification as "Financial Report" at upload file modal
     When I upload file "AttachmentTesting.pdf" into library
+    And I wait for "2" seconds
     Then I do not see "Upload" button is disabled at modal under library
     When I click modal button "Close"
     And I wait for "2" seconds

@@ -137,9 +137,9 @@ public final class GovGrantsAssertionSteps {
         );
     }
 
-    @Then("I see field {string} as {string} on modal")
-    public void iSeeFieldAsOnModal(String field, String text) {
-        ggAssertionObjects.verifyFieldAvailableOnModal(field, text);
+    @Then("^I (softly see|softly do not see|see|do not see) field \"([^\"]*)\" as \"([^\"]*)\" on modal$")
+    public void iSeeFieldAsOnModal(String usage, String field, String text) {
+        ggAssertionObjects.assertFieldAvailableOnModal(usage, field, text);
     }
 
     @Then("^I see the field (labeled|containing) \"([^\"]*)\" as \"([^\"]*)\"$")

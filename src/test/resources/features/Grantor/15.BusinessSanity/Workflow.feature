@@ -1616,7 +1616,7 @@ Feature: Validate all scenarios of every modules flow
 #    Adhoc Closeout API
 #    And I halt execution
 #    And I "Created" standalone subaward "Automation Runtime Award" with properties "INDIRECT_COST_NO"
-#    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
 #    And I activate the award for title "{SavedValue:Automation Runtime Award}"
 #    And I create adhoc closeout "{SavedValue:Automation Runtime Award}" for status "Completed" with properties "UPDATE_CLOSEOUT_TYPE"
 #    And I create schedule closeout "{SavedValue:Automation Runtime Award}" for status "Created" with properties "default"
