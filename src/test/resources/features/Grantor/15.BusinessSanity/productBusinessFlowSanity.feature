@@ -2217,6 +2217,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
+    And I pause execution for "60" seconds
     When I click on "Submit to Grantor" in the page details
     And I pause execution for "10" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -2718,6 +2719,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I navigate to "Responsibilities" sub tab
+    And I pause execution for "7" seconds
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                      | Closeout |
       | {SavedValue:EXE Username} | NA       |
@@ -3673,6 +3675,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+    And I wait for "5" seconds
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -3719,6 +3722,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     #When I get the "EGMS ID"
     #And I save the field labeled "EGMS ID" as "progID"
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "progID"
+    And I wait for "7" seconds
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -4041,9 +4047,11 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I pause execution for "7" seconds
     And I click on "Edit" in the page details
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+    And I pause execution for "7" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -4053,17 +4061,19 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I refresh the page
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
+    And I refresh the page
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
-    And I wait for "2" seconds
+    And I wait for "20" seconds
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -4292,6 +4302,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I wait for "2" seconds
+    And I refresh the page
     When I navigate to "Forms and Files" sub tab
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
@@ -4315,6 +4326,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | The amount cannot be less than zero. |
     And I close the tab
     #SF-428-A Blank value validation check
+    And I refresh the page
     When I navigate to "Forms and Files" sub tab
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "Edit" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
@@ -4336,12 +4348,15 @@ Feature: Validate sanity testing of Complete Business Flow
       | If year is selected, report type As of Year is required. |
     And I close the tab
     #SF429B form negative values entered validation check
+    And I refresh the page
     When I navigate to "Forms and Files" sub tab
     And I wait for "2" seconds
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without Split
     And I switch to tab number "1"
+    And I wait for "20" seconds
+    When I click on "Edit" in the page details
     And I enter "SF429B_Form_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
     And I wait for "3" seconds
     When I click on "Save" in the page details
