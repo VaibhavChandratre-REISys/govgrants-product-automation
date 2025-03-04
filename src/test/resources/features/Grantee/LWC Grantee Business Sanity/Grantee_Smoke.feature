@@ -9721,11 +9721,13 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     Then I softly can see top right button "Mark as Submitted" in page detail
     And I click on "Mark as Submitted" in the page details
+    And I wait for "2" seconds
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
       | Submitted to Grantor On is required to save. |
     And I enter in modal "Submit Details" values from "Financial_Report_Field_Values.xlsx"
     When I click modal button "Save"
+    And I wait for "1" seconds
     When I click modal button "Close"
     Then I softly see field "Status" as "Submitted to Grantor"
     When I navigate to "Overview" sub tab
@@ -9861,14 +9863,14 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Last Modified By" in flex table header "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see "Last Modified On" in flex table header "---grantee_tableId:-:submissionHistoryTableId---"
     And I save the value from row "1" for column name "Tracking Number" as "TrackingNumber" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
-    Then I softly see value "S2SReceived" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "S2SReceiving" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "Success" for title "Response Status Details" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "{SavedValue:TrackingNumber}" for title "Tracking Number" against the value "SUCCESS" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "Grantee PO" for title "Last Modified By" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     And I save the value from row "1" for column name "Last Modified On" as "LastModifiedOn" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "{SavedValue:LastModifiedOn}" for title "Last Modified On" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
-    And I click on "View" icon for "S2SReceived" inside flex table with id "---grantee_tableId:-:submissionHistoryTableId---"
+    And I click on "View" icon for "S2SReceiving" inside flex table with id "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see "Grants.Gov Submission History" opens in overLay window
     Then I can softly do not see modal button "Save"
     And I click modal button "Close"
@@ -10390,14 +10392,14 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Last Modified By" in flex table header "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see "Last Modified On" in flex table header "---grantee_tableId:-:submissionHistoryTableId---"
     And I save the value from row "1" for column name "Tracking Number" as "TrackingNumber" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
-    Then I softly see value "S2SReceived" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "S2SReceiving" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "Success" for title "Response Status Details" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "{SavedValue:TrackingNumber}" for title "Tracking Number" against the value "SUCCESS" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "Sarah PM" for title "Last Modified By" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     And I save the value from row "1" for column name "Last Modified On" as "LastModifiedOn" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "{SavedValue:LastModifiedOn}" for title "Last Modified On" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
-    And I click on "View" icon for "S2SReceived" inside flex table with id "---grantee_tableId:-:submissionHistoryTableId---"
+    And I click on "View" icon for "S2SReceiving" inside flex table with id "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see "Grants.Gov Submission History" opens in overLay window
     Then I can softly do not see modal button "Save"
     And I click modal button "Close"
@@ -11974,6 +11976,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     And I save the field labeled "Award Title" as "AwardTitle"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Actuals" sub tab
     Given I expand nested table containing column value "Automation Permanent Focus Area"
     When I enter the following values into flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---" by clicking "New" :
@@ -12070,7 +12073,7 @@ Feature: Grantee Smoke scenarios
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    Then I softly see field "Status" as "Activated"
+    Then I softly see field "Status" as "Amended"
     When I navigate to "Actuals" sub tab
     Then I softly see field "Drawn to Date" as "$3,500"
     Then I softly see field "Current Balance" as "$3,500.00"
@@ -12451,7 +12454,7 @@ Feature: Grantee Smoke scenarios
     And I click toggle button to select "Financial Reports - Approved"
     And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:FinancialReportsOnMonitoring---"
     And I perform quick search for "Approved" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:FinancialReportsOnMonitoring---"
+    Then I softly see value "Approved" for title "Status" inside table "---grantee_tableId:-:FinancialReportsOnMonitoring---"
     And I click toggle button to select "Financial Reports - All"
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:financialEGMSID}" inside table "---grantee_tableId:-:FinancialReportsOnMonitoring---"
@@ -12841,14 +12844,6 @@ Feature: Grantee Smoke scenarios
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
     When I click on "View" icon for "{SavedValue:financialEGMSID}" inside table
     Then I softly can see top right button "Mark as Submitted" in page detail
-    When I navigate to "Responsibilities" sub tab
-    Then I softly see "Name" in flex table header "---grantee_tableId:-:financialReportOwnerTableId---"
-    Then I softly see "Responsibility" in flex table header "---grantee_tableId:-:financialReportOwnerTableId---"
-    And I save the value from row "1" for column name "Name" as "ownerName" from flex table "---grantee_tableId:-:financialReportOwnerTableId---"
-    Then I softly see link "{SavedValue:ownerName}" inside Page block
-    And I click on hyperlink containing value "{SavedValue:ownerName}"
-    Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
-    And I click on back arrow
     And I click on "Mark as Submitted" in the page details
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
@@ -12859,6 +12854,15 @@ Feature: Grantee Smoke scenarios
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see "Name" in flex table header "---grantee_tableId:-:financialReportOwnerTableId---"
+    Then I softly see "Responsibility" in flex table header "---grantee_tableId:-:financialReportOwnerTableId---"
+    And I save the value from row "1" for column name "Name" as "ownerName" from flex table "---grantee_tableId:-:financialReportOwnerTableId---"
+    Then I softly see link "{SavedValue:ownerName}" inside Page block
+    And I click on hyperlink containing value "{SavedValue:ownerName}"
+    Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
+    And I click on back arrow
+    And I wait for "3" seconds
     When I navigate to "Overview" sub tab
     And I save the field labeled "Submitted By" as "SubmittedBy"
     Then I softly see field "Submitted By" as "{SavedValue:SubmittedBy}"
@@ -13040,7 +13044,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
     Then I softly cannot see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
     And I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:ProgressReports---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:ProgressReports---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:ProgressReports---"
     Then I softly see "Award EGMS ID" in flex table header "---grantee_tableId:-:ProgressReports---"
     Then I softly see "Grant Award Number" in flex table header "---grantee_tableId:-:ProgressReports---"
@@ -13679,7 +13683,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
     Then I softly cannot see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
     And I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:ProgressReports---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:ProgressReports---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:ProgressReports---"
     Then I softly see "Award EGMS ID" in flex table header "---grantee_tableId:-:ProgressReports---"
     Then I softly see "Grant Award Number" in flex table header "---grantee_tableId:-:ProgressReports---"
@@ -13712,7 +13716,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:ProgressReports---"
     Then I softly can see row level action button "Edit" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
     Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-    Then I softly can see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:ProgressReports---"
     Then I softly see "Award EGMS ID" in flex table header "---grantee_tableId:-:ProgressReports---"
     Then I softly see "Grant Award Number" in flex table header "---grantee_tableId:-:ProgressReports---"

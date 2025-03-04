@@ -2617,6 +2617,7 @@ public final class GovGrantsAssertionObjects {
         boolean flag = false;
         try {
             if (isModal) {
+                I.amPerforming().waitFor().ElementToBePresent(ByUsing.xpath("//button[text()='" + buttonName + "' and @disabled='true'] | //button[text()='" + buttonName + "' and @aria-disabled='true']"));
                 if (I.amPerforming().checkToSee().isDisplayed(ByUsing.xpath("//button[text()='" + buttonName + "' and @disabled='true'] | //button[text()='" + buttonName + "' and @aria-disabled='true']"))) {
                     flag = true;
                 }
