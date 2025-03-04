@@ -1327,12 +1327,14 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
+   And I halt execution
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I wait for "10" seconds
     And I click on "Save" in the page details
     And I wait for "8" seconds
+   And I halt execution
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "15" seconds
@@ -3185,6 +3187,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I clear in modal the value from table field "NonCashMatch__c"
     And I click on top right button "Save" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     And I wait for "5" seconds
+    And I halt execution
     Then I softly see value "$0.00" for title "Award Amount" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly see value "$0.00" for title "Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly see value "$0.00" for title "Non-Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"

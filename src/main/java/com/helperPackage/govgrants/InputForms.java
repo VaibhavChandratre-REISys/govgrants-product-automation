@@ -282,7 +282,7 @@ public final class InputForms {
             for (int j = 1; j <= getcountForRowsReviewFormForLwc(getTitlesInFormForLwc().get(i)); j++) {
                 if (checkTextInputPercentPresentReviewFormForLwc(getTitlesInFormForLwc().get(i), j) > 0) {
                     I.amPerforming().textInput().toClear(getTextInputPercentReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
-                    I.amPerforming().textInput().in(getTextInputPercentReviewFormForLwc(getTitlesInFormForLwc().get(i), j), "3");
+                    I.amPerforming().textInput().in(getTextInputPercentReviewFormForLwc(getTitlesInFormForLwc().get(i), j), "25");
                 }
             }
         }
@@ -1088,7 +1088,7 @@ public final class InputForms {
     }
 
     private int checkInputAreaPresentReviewFormForLwc(String title, int qNumber) {
-        return I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input"), false).size();
+        return I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input[not(@placeholder='Enter a percentage')]"), false).size();
     }
 
     private By getTextAreaReviewForm(String title, int qNumber) {
@@ -1102,7 +1102,7 @@ public final class InputForms {
     }
 
     private By getInputAreaReviewFormForLwc(String title, int qNumber) {
-        return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input");
+        return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input[not(@placeholder='Enter a percentage')]");
     }
 
     private int checkTextInputScorePresentReviewForm(String title, int qNumber) {
