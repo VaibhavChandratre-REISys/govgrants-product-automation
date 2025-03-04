@@ -26,9 +26,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
     And I click on top right button "New" in flex table with id "---keyperformanceindicator:-:kpiTableId---"
-    And I enter "Creation" values from "KPI_Field_Values.xlsx"
+    And I enter in modal "Grantee_Creation" values from "KPI_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I wait for "60" seconds
+    And I wait for "5" seconds
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
 #    Then I see status in Progress-bar is "Active" and is "dark blue"
@@ -1694,6 +1694,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click modal button "Save"
     Then I refresh the page
     When I navigate to "Overview" sub tab
+    And I pause execution for "5" seconds
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
@@ -1740,6 +1741,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
+    And I refresh the page
+    And I click toggle button to select "Grants - All"
+    And I pause execution for "20" seconds
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
     When I navigate to "Subawards" sub tab
