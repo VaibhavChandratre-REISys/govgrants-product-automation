@@ -15345,7 +15345,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Management" sub tab
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
 
-  @497752 @ValidateProgressReporttheapproverstepsforprogressreportverifythevalidation @Grantee_Smoke2 @testExecution
+  @497752 @ValidateProgressReporttheapproverstepsforprogressreportverifythevalidation @Grantee_Smoke2
   Scenario: Validate Progress Report the approver steps for progress report & verify the validation
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -15435,7 +15435,7 @@ Feature: Grantee Smoke scenarios
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @495295 @444494 @ValidateAuditorprofileuserhavingonlyviewonlyaccess @Grantee_Smoke3 @testExecution
+  @495295 @444494 @ValidateAuditorprofileuserhavingonlyviewonlyaccess @Grantee_Smoke3
   Scenario: Validate Auditor profile user having only view only access
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -15560,7 +15560,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Download As PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:progressReportFileTableId---"
-    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
     When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I switch to tab number "3"
     Then I see the header is "Performance Progress Report" in the page details
@@ -15616,7 +15616,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see that "Submitted By:" rendered in view mode only
     Then I softly see that "Submitted On:" rendered in view mode only
 
-  @487738 @ValidatePrgressReportthatAuditoruserdonotseeEditactionvalidationifReportStartDateEndDateCreationDateDueDateareremoveduserclicksonSavebuttononawardlayout @Grantee_Smoke3 @testExecution
+  @487738 @ValidatePrgressReportthatAuditoruserdonotseeEditactionvalidationifReportStartDateEndDateCreationDateDueDateareremoveduserclicksonSavebuttononawardlayout @Grantee_Smoke3
   Scenario: Validate Prgress Report that Auditor user do not see Edit action & validation if Report Start Date End Date Creation Date Due Date are removed & user clicks on Save button on award layout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
