@@ -251,12 +251,12 @@ public class UsersAndURL implements UsersController {
         username.put("FO1", "fo1.automation@yopmail.com.minigap");
         username.put("FD1", "automationfd1@yopmail.com.minigap");
         username.put("SPI3", "aspi3@grants.gov.minigap");
-        username.put("SPA", "spaautomation12@yopmail.com.nysedgapan");
+        username.put("SPA", "spaautomation12@yopmail.com.minigap");
         username.put("SA", "asa@grants.gov.minigap");
         username.put("IND", "ind12.automation@yopmail.com.nysedgapan");
-        username.put("AUDITOR", "automationauditor@yopmail.com.nysedgapan");
+        username.put("AUDITOR", "automationauditor@yopmail.com.minigap");
         username.put("SME", "sme11@yopmail.com");
-        username.put("SPI4", "spi4@yopmail.com.nysedgapan");
+        username.put("SPI4", "spi4@yopmail.com.minigap");
         username.put("SARAH PM", "sarah.pm@ggp.test8.nysedgapan");
 
         if (userLevel.toUpperCase() != null) {
