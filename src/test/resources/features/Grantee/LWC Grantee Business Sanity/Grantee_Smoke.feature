@@ -6256,9 +6256,8 @@ Feature: Grantee Smoke scenarios
     Then I see field "First Name" as "Automation1" on modal
     Then I see field "Last Name" as "Execution1" on modal
     Then I see field "Phone" as "(896) 709-3855" on modal
-    Then I see field "MobilePhone" as "(896) 709-3455" on modal
+    Then I see field "Mobile Phone" as "(896) 709-3455" on modal
     Then I see field "Email" as " {SavedValue:uniqueEmailID}" on modal
-    And I halt execution
     And I click on hyperlink for modal containing value "Department of Education"
     Then I see the header is "Federal Organization" in the page details
     Then I see the sub-header is "Department of Education" in the page details
@@ -6271,12 +6270,12 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Delete" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:fedContactTableId---"
     Examples:
       | User          |
-#      | GRANTEE PM    |
+      | GRANTEE PM    |
       | GRANTEE PO    |
-#      | GRANTEE EXE   |
-#      | GRANTEE FO    |
-#      | GRANTEE FD    |
-#      | GRANTEE ADMIN |
+      | GRANTEE EXE   |
+      | GRANTEE FO    |
+      | GRANTEE FD    |
+      | GRANTEE ADMIN |
 
   @442181 @ValidatePMusershouldabletosaveandcreateinternalcontact @Grantee_Smoke1
   Scenario Outline: Validate PM user should able to save and create internal contact
@@ -12863,7 +12862,8 @@ Feature: Grantee Smoke scenarios
     And I save the value from row "1" for column name "Name" as "ownerName" from flex table "---grantee_tableId:-:financialReportOwnerTableId---"
     Then I softly see link "{SavedValue:ownerName}" inside Page block
     And I click on hyperlink containing value "{SavedValue:ownerName}"
-    Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
+    And I wait for "3" seconds
+    Then I softly see the text containing "grantee.po@yopmail.com.qagrnteatm"
     And I click on back arrow
     And I wait for "3" seconds
     When I navigate to "Overview" sub tab

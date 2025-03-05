@@ -43,7 +43,7 @@ public class RegistrationSteps {
     public void generateAndSaveRandomDigits(String usage, String fieldKey) {
         String randomNumbers = String.valueOf(I.amPerforming().addOnsTo().getRandomNumber()).substring(0, 5);
         if (usage.equalsIgnoreCase("EmailID"))
-            I.amPerforming().propertiesFileOperationsTo().saveValue(fieldKey, ("AutomationRuntime" + randomNumbers + "@yopmail.com"));
+            I.amPerforming().propertiesFileOperationsTo().saveValue(fieldKey, ("automationruntime" + randomNumbers + "@yopmail.com"));
         else if (usage.equalsIgnoreCase("EIN") || usage.equalsIgnoreCase("SSN")) {
             String randomEmail = randomNumbers + randomNumbers.substring(0, 4);
             I.amPerforming().propertiesFileOperationsTo().saveValue(fieldKey, randomEmail);

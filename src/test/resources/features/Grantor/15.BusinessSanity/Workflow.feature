@@ -1671,11 +1671,21 @@ Feature: Validate all scenarios of every modules flow
 #    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD"
     And I halt execution
 
-  @debugtest @debug
+  @debugtest
   Scenario:
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/MasterKPI__c/a2oDX000001J6QLYA0/view"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/ProgressReports__c/a3CKQ000000DZNc2AO/view"
     And I halt execution
-    And I click on "Collapse" button on header
-    And I click on "Collapse" button for page
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see "Name" in flex table header "---grantee_tableId:-:financialReportOwnerTableId---"
+    Then I softly see "Responsibility" in flex table header "---grantee_tableId:-:financialReportOwnerTableId---"
+    And I save the value from row "1" for column name "Name" as "ownerName" from flex table "---grantee_tableId:-:financialReportOwnerTableId---"
+    Then I softly see link "{SavedValue:ownerName}" inside Page block
+    And I click on hyperlink containing value "{SavedValue:ownerName}"
+    And I wait for "3" seconds
+    Then I softly see the text containing "grantee.po@yopmail.com.qagrnteatm"
+    And I click on back arrow
+    And I wait for "3" seconds
+    When I navigate to "Overview" sub tab
     And I halt execution
