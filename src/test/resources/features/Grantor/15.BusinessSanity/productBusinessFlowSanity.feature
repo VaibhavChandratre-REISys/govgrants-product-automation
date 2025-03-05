@@ -1262,9 +1262,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
-    And I wait for "5" seconds
     And I click on "Save" in the page details
-    And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
@@ -1311,7 +1309,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click modal button "Close"
     And I refresh the page
-    And I wait for "4" seconds
+    And I wait for "2" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -1322,12 +1320,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
-    And I wait for "3" seconds
     And I click on "Save" in the page details
-    And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1337,10 +1332,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
-    And I wait for "5" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1350,10 +1343,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
-    And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1391,10 +1382,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
-    And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1424,13 +1413,11 @@ Feature: Validate sanity testing of Complete Business Flow
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                     | FDM |
-      | {SavedValue:FO Username} | NA  |
-    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                     | FDM    |
       | {SavedValue:FO Username} | Step 1 |
     And I click on "Submit for Approval" in the page details
     And I get the "EGMS ID"
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

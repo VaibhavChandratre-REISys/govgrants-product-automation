@@ -6237,11 +6237,11 @@ Feature: Grantee Smoke scenarios
     When I enter in modal value "USA" into field "MailingCountry"
     When I click modal button "Save"
     Then I see field "Title" as "{SavedValue:Automation Runtime}" on modal
-    Then I see field "FirstName" as "Automation" on modal
-    Then I see field "LastName" as "Execution" on modal
+    Then I see field "First Name" as "Automation" on modal
+    Then I see field "Last Name" as "Execution" on modal
     Then I see field "Phone" as "(896) 709-3844" on modal
-    Then I see field "MobilePhone" as "(896) 709-3440" on modal
-    Then I see field "Email" as "{SavedValue:uniqueEmailID}" on modal
+    Then I see field "Mobile Phone" as "(896) 709-3440" on modal
+    Then I see field "Email" as " {SavedValue:uniqueEmailID}" on modal
     And I click on top right button "Edit" in flex table with id "---grantee_tableId:-:fedContactTableId---"
     When I enter in modal value "Automation Runtime Test" into field "Title"
     When I enter in modal value "Automation1" into field "FirstName"
@@ -6253,11 +6253,11 @@ Feature: Grantee Smoke scenarios
     When I click modal button "Save"
     And I save the field labeled "Title" as "Title" on modal
     Then I see field "Title" as "{SavedValue:Automation Runtime Test}" on modal
-    Then I see field "FirstName" as "Automation1" on modal
-    Then I see field "LastName" as "Execution1" on modal
+    Then I see field "First Name" as "Automation1" on modal
+    Then I see field "Last Name" as "Execution1" on modal
     Then I see field "Phone" as "(896) 709-3855" on modal
     Then I see field "MobilePhone" as "(896) 709-3455" on modal
-    Then I see field "Email" as "{SavedValue:uniqueEmailID}" on modal
+    Then I see field "Email" as " {SavedValue:uniqueEmailID}" on modal
     And I halt execution
     And I click on hyperlink for modal containing value "Department of Education"
     Then I see the header is "Federal Organization" in the page details
