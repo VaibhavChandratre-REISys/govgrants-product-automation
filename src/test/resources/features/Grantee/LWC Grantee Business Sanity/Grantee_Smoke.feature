@@ -10409,7 +10409,7 @@ Feature: Grantee Smoke scenarios
     And I click on hyperlink containing value "Sarah PM"
     Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
 
-  @486506 @ValidateFDPOnonrecordownerusershouldabletoseetheapplicationissubmittedtoGrantorManuallead
+  @486506 @ValidateFDPOnonrecordownerusershouldabletoseetheapplicationissubmittedtoGrantorManuallead @Grantee_Smoke3
   Scenario: Validate FD PO non record owner user should able to see the application is submitted to Grantor Manual lead
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
@@ -11851,7 +11851,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
-  @483360 @ValidatePMuserseevalidationmessagesifusertrytosavetheinvaliddataonformandnotabletosubmitapplicationProjectPerformanceSiteLocations
+  @483360 @ValidatePMuserseevalidationmessagesifusertrytosavetheinvaliddataonformandnotabletosubmitapplicationProjectPerformanceSiteLocations @Grantee_Smoke2
   Scenario: Validate PM user see validation messages if user try to save the invalid data on form and not able to submit application Project Performance Site Locations
     Given I delete the grantee record "{grantee_testData:GrantsGovProjectPerformanceMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269345" with properties "default"
@@ -13388,6 +13388,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Reviewed"
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    And I wait for "3" seconds
     Then I see "Upload" button is disabled at modal under library
     And I select Classification as "Progress Report" at upload file modal
     When I upload file "AttachmentTesting.pdf" into library
