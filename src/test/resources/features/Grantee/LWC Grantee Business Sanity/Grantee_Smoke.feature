@@ -12749,6 +12749,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Email Subject" in flex table header "CommunicationHistory"
     Then I softly see "Preview" in flex table header "CommunicationHistory"
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    And I wait for "1" seconds
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
