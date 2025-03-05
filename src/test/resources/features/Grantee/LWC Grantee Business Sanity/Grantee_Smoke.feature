@@ -14027,6 +14027,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Reviewed"
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    And I wait for "3" seconds
     Then I see "Upload" button is disabled at modal under library
     And I select Classification as "Progress Report" at upload file modal
     When I upload file "AttachmentTesting.pdf" into library
@@ -14104,6 +14105,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Email Subject" in flex table header "CommunicationHistory"
     Then I softly see "Preview" in flex table header "CommunicationHistory"
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    And I wait for "2" seconds
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
@@ -14207,8 +14209,10 @@ Feature: Grantee Smoke scenarios
     And I save the value from row "1" for column name "Name" as "ownerName" from flex table "---grantee_tableId:-:financialReportOwnerTableId---"
     Then I softly see link "{SavedValue:ownerName}" inside Page block
     And I click on hyperlink containing value "{SavedValue:ownerName}"
+    And I wait for "3" seconds
     Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
     And I click on back arrow
+    And I wait for "1" seconds
     And I click on "Mark as Submitted" in the page details
     And I wait for "2" seconds
     And I click modal button "Save"
@@ -15495,6 +15499,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "Progress Report" as "ProgressReport"
     Then I softly see link "{SavedValue:ProgressReport}" inside Page block
     And I click on hyperlink containing value "{SavedValue:ProgressReport}"
+    And I switch to tab number "2"
     Then I see the header is "Progress Report" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     When I navigate to "Overview" sub tab
@@ -15524,7 +15529,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Plans" for the field "Automation Test Plans"
     When I navigate to "Forms and Files" sub tab
     When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    And I switch to tab number "2"
+    And I switch to tab number "3"
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly see "Progress Report Overview" page block displayed
@@ -15570,7 +15575,7 @@ Feature: Grantee Smoke scenarios
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
     When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    And I switch to tab number "3"
+    And I switch to tab number "4"
     Then I see the header is "Performance Progress Report" in the page details
     And I save the field labeled "Award" as "Award"
     Then I softly see link "{SavedValue:Award}" inside Page block
@@ -15582,6 +15587,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "Progress Report" as "ProgressReport"
     Then I softly see link "{SavedValue:ProgressReport}" inside Page block
     And I click on hyperlink containing value "{SavedValue:ProgressReport}"
+    And I switch to tab number "5"
     Then I see the header is "Progress Report" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     When I navigate to "Overview" sub tab
@@ -15611,7 +15617,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Plans" for the field "Automation Test Plans"
     When I navigate to "Forms and Files" sub tab
     When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    And I switch to tab number "4"
+    And I switch to tab number "6"
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly see "Progress Report Overview" page block displayed
