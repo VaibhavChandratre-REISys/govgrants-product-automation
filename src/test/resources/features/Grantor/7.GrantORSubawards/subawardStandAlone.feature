@@ -3113,13 +3113,13 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Closed"
     Then I softly see value "Closed/Completed" for title "Status" inside table "---subAwardStandAlone:-:activeGrantsTableId---"
-#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - Closed"
-#    And I pause execution for "10" seconds
-#    When I perform quick search for "{AUTOEnvData:AutomationClosedSubAward}" in "---subAwardFromFDM:-:RecipientGrantsTableIdSPA---" panel
-#    Then I softly see value "Closed/Completed" for title "Status" inside table "---subAwardFromFDM:-:RecipientGrantsTableIdSPA---"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Closed"
+    And I pause execution for "10" seconds
+    When I perform quick search for "{AUTOEnvData:AutomationClosedSubAward}" in "---subAwardFromFDM:-:RecipientGrantsTableIdSPA---" panel
+    Then I softly see value "Closed/Completed" for title "Status" inside table "---subAwardFromFDM:-:RecipientGrantsTableIdSPA---"
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
