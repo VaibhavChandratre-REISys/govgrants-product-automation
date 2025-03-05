@@ -1739,6 +1739,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
+    And I navigate to "Applications" tab
+    And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
     And I refresh the page
