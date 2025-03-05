@@ -3649,7 +3649,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @SF429-B_FillFullForm @ProdSan3 @Nov
+  @SF429-B_FillFullForm @ProdSan3 @m3
   Scenario: Validate SF429-B_Fill Full Form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3702,7 +3702,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @SF428_B_Form_Fill @ProdSan3 @Nov
+  @SF428_B_Form_Fill @ProdSan3 @m3
   Scenario: Validate SPI user can able to save & validate form after entering correct & valid data on all fields present on SF-428-B form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3748,7 +3748,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @SF428_B_ErrorValidation @ProdSan3 @Sanity @varerun
+  @SF428_B_ErrorValidation @ProdSan3 @Sanity @varerun @m3
   Scenario:
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
