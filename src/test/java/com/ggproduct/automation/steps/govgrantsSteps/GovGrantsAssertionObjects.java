@@ -2606,6 +2606,7 @@ public final class GovGrantsAssertionObjects {
     private boolean isButtonDisabledAtModalOrLayout(String buttonName, Boolean isModal) {
         boolean flag = false;
         try {
+            I.amPerforming().waitFor().ElementToDisappear(By.xpath("//lightning-spinner[@class='slds-spinner_container']//div[@part='spinner']"));
             if (isModal) {
                 if (I.amPerforming().checkToSee().isDisplayed(ByUsing.xpath("//button[text()='" + buttonName + "' and @disabled='true'] | //button[text()='" + buttonName + "' and @aria-disabled='true']"))) {
                     flag = true;
