@@ -1796,7 +1796,6 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
-    And I click on "Save" in the page details
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
