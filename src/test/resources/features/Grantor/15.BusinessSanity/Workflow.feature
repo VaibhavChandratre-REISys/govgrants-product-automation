@@ -1638,7 +1638,7 @@ Feature: Validate all scenarios of every modules flow
 #    When I click on "Interested" in the page details
     When I click on "Create Application" in the page details
     And I wait for "3" seconds
-    And I enter value "New" into field "Priority_VA__c"
+#    And I enter value "New" into field "Priority_VA__c"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
