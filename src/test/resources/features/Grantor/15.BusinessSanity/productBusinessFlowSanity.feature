@@ -3649,7 +3649,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @SF429-B_FillFullForm @ProdSan3 @m3
+  @SF429-B_FillFullForm @ProdSan3
   Scenario: Validate SF429-B_Fill Full Form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3748,7 +3748,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @SF428_B_ErrorValidation @ProdSan3 @Sanity @varerun @m3
+  @SF428_B_ErrorValidation @ProdSan3 @Sanity @varerun
   Scenario:
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3818,7 +3818,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | "Federal share" in "2c. Reportable Residual Unused Supplies" is required, if "1c" is checked in 'Report' section.                               |
       | "Selling and handling allowance" in "2c. Reportable Residual Unused Supplies" is required, if "1c" is checked in 'Report' section.              |
 
-  @SF428_B_Dependent_fields @ProdSan3
+  @SF428_B_Dependent_fields @ProdSan3 @m3
   Scenario:
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
