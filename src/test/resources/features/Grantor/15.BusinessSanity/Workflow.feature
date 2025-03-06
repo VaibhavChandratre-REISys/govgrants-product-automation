@@ -1594,11 +1594,19 @@ Feature: Validate all scenarios of every modules flow
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
+    And I wait for "3" seconds
+    And I save the value from row "1" for column name "Start Date" as "StartDate" from flex table "---announcement:-:budgetPeriodTableId---"
+    And I save the value from row "1" for column name "End Date" as "EndDate" from flex table "---announcement:-:budgetPeriodTableId---"
     And I navigate to "Setup" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---announcement:-:announcementPaymentScheduleTableId---" without waiting for record
+    And I enter in modal value "{SavedValue:startdate}" into field "CalReportingStartDate__c"
+    And I enter in modal value "{SavedValue:EndDate}" into field "CalReportingEndDate__c"
     And I enter in modal value "Monthly" into field "Frequency__c"
+    And I enter in modal value "Calendar" into field "ScheduleBase__c"
     And I click modal button "Save"
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---announcement:-:announcementProgressScheduleTableId---" without waiting for record
+    And I enter in modal value "{SavedValue:startdate}" into field "CalReportingStartDate__c"
+    And I enter in modal value "{SavedValue:EndDate}" into field "CalReportingEndDate__c"
     And I enter in modal value "Monthly" into field "Frequency__c"
     And I enter in modal value "Calendar" into field "ScheduleBase__c"
     And I click modal button "Save"
