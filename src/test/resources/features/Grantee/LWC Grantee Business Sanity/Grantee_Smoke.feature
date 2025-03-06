@@ -12901,7 +12901,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Edit" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I navigate to "Chatter" sub tab in split screen
     And I post the message "Automation Test1 Execution" inside chatter
-    Then I softly see post "Automation Test1 Execution" by user "Sarah PM"
+    Then I softly see post "Automation Test1 Execution" by user "Grantee PO"
     When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
@@ -12937,19 +12937,9 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "View" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I softly can see row level action button "Download" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I softly cannot see row level action button "Edit" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
-      | Title                   | Description      |
-      | Notes Record by Auditor | Automation Notes |
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
-    Then I softly see value "Notes Record by Auditor" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
-    Then I softly can see row level action button "Delete" against "Notes Record by Auditor" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
-    Then I softly can see row level action button "Edit" against "Notes Record by Auditor" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
-    When I click on "Delete" icon for "Notes Record by Auditor" inside flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
 
   @494967 @ValidateAdminPMPOFOFDEXEAuditorusershouldnotabletocreateFederalOrgExternalOrg @Grantee_Smoke3
   Scenario Outline: Validate Admin/PM/PO/FO/FD/EXE/Auditor user should not able to create Federal Org External Org
@@ -13387,8 +13377,9 @@ Feature: Grantee Smoke scenarios
     And I click on hyperlink containing value "{SavedValue:progressEGMSID}"
     Then I softly see field "Status" as "Reviewed"
     When I navigate to "Forms and Files" sub tab
-    And I refresh the page
     And I wait for "3" seconds
+    And I refresh the page
+    And I wait for "7" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     And I wait for "7" seconds
     And I select Classification as "Progress Report" at upload file modal
