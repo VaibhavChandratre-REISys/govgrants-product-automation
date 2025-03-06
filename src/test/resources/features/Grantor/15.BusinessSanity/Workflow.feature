@@ -1655,8 +1655,8 @@ Feature: Validate all scenarios of every modules flow
     When I expand nested table containing column value "BP01"
     When I click on "Add Line Item Details" icon for "Administrative Costs" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "Edit" :
-      | Title                | Budgeted Expense |
-      | Administrative Costs | 1000             |
+      | Title                | Budgeted Expense | Cash Match | Non-Cash Match |
+      | Administrative Costs | 1000             | 100        | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
       | Name                       | Is Key Contact |
