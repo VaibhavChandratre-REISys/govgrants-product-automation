@@ -999,7 +999,7 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
- @65681 @65683 @verifyTermsAndConditions  @buglogged142219  @LWC-Bug-415720
+  @65681 @65683 @verifyTermsAndConditions  @buglogged142219  @LWC-Bug-415720
   Scenario: Verify Award owner can Associate Terms and Conditions on Subaward Terms Tab | Verify Associated Mandatory Terms and Conditions are not Editable by award owner on Subaward
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1688,7 +1688,7 @@ Feature: Validate all scenarios of grants and award without background
     And I get the "EGMS ID"
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
- @69899 @verifyBudgetPeriodNotGreaterThanStartDate  @smoke
+  @69899 @verifyBudgetPeriodNotGreaterThanStartDate  @smoke
   Scenario: To verify that system throws validation message when a user entered start date as grater than budget period start date.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2235,18 +2235,18 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
-     | Name                       | Project Role             | Is Key Personnel |
-     | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+      | Name                       | Project Role             | Is Key Personnel |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:PM Username}  | Step 1 |
+      | Name                     | Award  |
+      | {SavedValue:PM Username} | Step 1 |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 2 |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:FO Username}  | Step 3 |
+      | Name                     | Award  |
+      | {SavedValue:FO Username} | Step 3 |
     And I refresh the page
     And I wait for "2" seconds
     When I get the "EGMS ID"
@@ -2754,7 +2754,7 @@ Feature: Validate all scenarios of grants and award without background
       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
- @66938 @doNotSeeSubawardButtonAfterRejectingByEXE  @smoke @buglogged125748
+  @66938 @doNotSeeSubawardButtonAfterRejectingByEXE  @smoke @buglogged125748
   Scenario Outline: To Validate that if FDM is rejected by EXE user, subaward button in Action column cannot be seen for the Application. in Recommended Application table.
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -2762,8 +2762,8 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-   And I perform quick search for "<Application Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-   When I click on "View" icon for "<Application Name>" inside table
+    And I perform quick search for "<Application Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    When I click on "View" icon for "<Application Name>" inside table
     And I get the "EGMS ID"
     And I wait for "5" seconds
     When I navigate to "Applications" tab
@@ -2773,6 +2773,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -2809,7 +2810,8 @@ Feature: Validate all scenarios of grants and award without background
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
-    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "3" seconds
@@ -2881,7 +2883,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
-   And I wait for "2" seconds
+    And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -7489,7 +7491,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation EXE" for title "Name" inside table "---closeout:-:closeoutOwnerTableId---"
 
- @224420 @sprint-12-US-226646  @reassignment
+  @224420 @sprint-12-US-226646  @reassignment
   Scenario: Validate Reassignment Task all simultaneous reassignment task ownership should reassigned to new owner
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -10702,7 +10704,7 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
- @274116 @sprint-23-US-273843
+  @274116 @sprint-23-US-273843
   Scenario:Verify PM user can not see a Focus area with zero value for New Obligation and Cumulative Obligation column on the award created from FDM
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -10812,16 +10814,16 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Quickview" sub tab in split screen
     And I wait for "2" seconds
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-   And I switch to tab number "1"
+    And I switch to tab number "1"
     And I wait for "3" seconds
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-   And I click on "Save" in the page details
-   And I close the tab
+    And I click on "Save" in the page details
+    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-   And I click on "Save" in the page details
-   And I close the tab
+    And I click on "Save" in the page details
+    And I close the tab
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -10831,7 +10833,7 @@ Feature: Validate all scenarios of grants and award without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I wait for "5" seconds
-   And I created approved FDM on application "{SavedValue:Automation Runtime Announcement}"
+    And I created approved FDM on application "{SavedValue:Automation Runtime Announcement}"
     And I wait for "3" seconds
     Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime Announcement}" and properties "Automation PM user"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal

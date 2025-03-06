@@ -22,6 +22,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -58,7 +59,8 @@ Feature: Validate all scenarios in the Application Review
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
-    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     And I refresh the page
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
@@ -125,6 +127,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -160,7 +163,8 @@ Feature: Validate all scenarios in the Application Review
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
-    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -325,9 +329,9 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value                       | Field                 |
-      | AuGr                        | GrantCode__c          |
-      | Automation Test Description | Justification__c      |
+      | Value                       | Field            |
+      | AuGr                        | GrantCode__c     |
+      | Automation Test Description | Justification__c |
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
     And I edit the following rows inline in flex table with id "---applicationReview:-:recommendedTableId---" by clicking "Edit" :
@@ -338,8 +342,8 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see that "Recommended" has been added in flextable with Id "---applicationReview:-:recommendedTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardFromFDM:-:fdmApproverTableId---" by clicking "New" :
-      | Name                      | FDM    |
-      | {SavedValue:EXE Username} | NA     |
+      | Name                      | FDM |
+      | {SavedValue:EXE Username} | NA  |
     When I enter the following values into flex table with id "---subAwardFromFDM:-:fdmApproverTableId---" by clicking "New" :
       | Name                      | FDM    |
       | {SavedValue:EXE Username} | Step 1 |
@@ -411,6 +415,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -764,7 +769,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
- @79201 @79204 @numberOfreviewersAndDeleteReviewers
+  @79201 @79204 @numberOfreviewersAndDeleteReviewers
   Scenario Outline: To verify user,able to set the maximum number of reviewers for each application in prescreening review step
   | To verify that,user able to delete Reviewers in prescreening review step in related log tab of Appliction phase
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -794,7 +799,7 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "{SavedValue:FO Username}" for title "Reviewer" inside table "---applicationReview:-:reviewersTableId---"
     And I click on "Remove" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     And I wait for "2" seconds
-   Then I softly see the following messages in the page details contains:
+    Then I softly see the following messages in the page details contains:
       | Record removed successfully. |
     Then I softly do not see value "{SavedValue:FO Username}" for title "Reviewers" inside table "---applicationReview:-:reviewersTableId---"
     Examples:
@@ -883,6 +888,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -918,7 +924,8 @@ Feature: Validate all scenarios in the Application Review
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
-    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -1068,6 +1075,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     And I get the "Announcement EGMS ID"
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
@@ -1114,7 +1122,8 @@ Feature: Validate all scenarios in the Application Review
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
-    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -1273,6 +1282,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     And I get the "Announcement EGMS ID"
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
@@ -1316,7 +1326,8 @@ Feature: Validate all scenarios in the Application Review
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
-    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -1473,8 +1484,8 @@ Feature: Validate all scenarios in the Application Review
     And I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "SME Review" inside flex table with id "---announcement:-:reviewStepTableId---"
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
-      | Form Name      | Due in Days |Minimum # of Reviews Required |
-      | Program Review | 7           |  1                            |
+      | Form Name      | Due in Days | Minimum # of Reviews Required |
+      | Program Review | 7           | 1                             |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     Then I softly see value "7" for title "Due in Days" inside table "---applicationReview:-:reviewStepFormId---"
@@ -1988,6 +1999,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -2061,6 +2073,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     And I get the "Announcement EGMS ID"
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
@@ -2120,6 +2133,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -2164,6 +2178,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -2284,6 +2299,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -2322,6 +2338,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -2459,8 +2476,8 @@ Feature: Validate all scenarios in the Application Review
     And I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value                       | Field                 |
-      | Automation Test Description | Justification__c      |
+      | Value                       | Field            |
+      | Automation Test Description | Justification__c |
     And I click on "Save" in the page details
     Then I see the following messages in the page details :
       | Subaward Abbreviation is required to save under Funding Decision Memo. |
@@ -2486,6 +2503,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -2522,6 +2540,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -2709,6 +2728,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -2746,6 +2766,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -2903,6 +2924,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -2939,6 +2961,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    And I wait for "2" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -3107,6 +3130,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -3288,6 +3312,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -3324,7 +3349,7 @@ Feature: Validate all scenarios in the Application Review
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
-    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
@@ -3592,6 +3617,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -3823,9 +3849,9 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value                       | Field                 |
-      | AuGr                        | GrantCode__c          |
-      | Automation Test Description | Justification__c      |
+      | Value                       | Field            |
+      | AuGr                        | GrantCode__c     |
+      | Automation Test Description | Justification__c |
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
@@ -3874,6 +3900,7 @@ Feature: Validate all scenarios in the Application Review
     And I wait for "2" seconds
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -3915,6 +3942,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -3949,6 +3977,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds

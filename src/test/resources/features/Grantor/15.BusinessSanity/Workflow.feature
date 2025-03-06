@@ -865,6 +865,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -895,7 +896,8 @@ Feature: Validate all scenarios of every modules flow
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
-    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -1671,21 +1673,13 @@ Feature: Validate all scenarios of every modules flow
 #    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD"
     And I halt execution
 
-  @debugtest
+  @debugtest @debug
   Scenario:
-    Given I login to "As a Grantee" app as "GRANTEE PO" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/ProgressReports__c/a3CKQ000000DZNc2AO/view"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/ProgressReports__c/a3CKQ000000DZOp2AO/view"
     And I halt execution
-    Then I softly see field "Status" as "Submitted to Grantor"
-    When I navigate to "Responsibilities" sub tab
-    Then I softly see "Name" in flex table header "---grantee_tableId:-:financialReportOwnerTableId---"
-    Then I softly see "Responsibility" in flex table header "---grantee_tableId:-:financialReportOwnerTableId---"
-    And I save the value from row "1" for column name "Name" as "ownerName" from flex table "---grantee_tableId:-:financialReportOwnerTableId---"
-    Then I softly see link "{SavedValue:ownerName}" inside Page block
-    And I click on hyperlink containing value "{SavedValue:ownerName}"
+    When I navigate to "Forms and Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     And I wait for "3" seconds
-    Then I softly see the text containing "grantee.po@yopmail.com.qagrnteatm"
-    And I click on back arrow
-    And I wait for "3" seconds
-    When I navigate to "Overview" sub tab
+    Then I see "Upload" button is disabled at modal under library
     And I halt execution

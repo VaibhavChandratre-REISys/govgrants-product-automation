@@ -19,6 +19,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -114,6 +115,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -162,6 +164,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     Then I softly see that "Review Declined" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I expand nested table containing column value "<Application Name>"
     And I hovering mouse on table id "---applicationReview:-:reviewFormsTableId---" with table row level icon "Automation EXE: Review Declined" for column value "Automation EXE: Review Declined"
@@ -269,6 +272,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -469,6 +473,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -762,6 +767,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days | Minimum # of Reviews Required | Required? |
       | Pre-Screen | 5           | 1                             | Checked   |
@@ -798,6 +804,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    And I wait for "2" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I save the value from row "1" for column name "Score" as "Score" from flex table "---applicationReview:-:appreviewsTableId---"
     When I expand nested table containing column value "<Application Name>"
@@ -952,6 +959,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I click on "Undo" icon for "Automation FO" inside flex table with id "---applicationReview:-:appreviewsTableId---"
     Then I softly see that "Status" is in "Sent for Review" status
@@ -970,6 +978,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "3" seconds
     When I save the value from row "1" for column name "Score" as "ScoreUpdated" from flex table "---applicationReview:-:appreviewsTableId---"
@@ -1001,6 +1010,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -1069,6 +1079,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -1119,6 +1130,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly can see row level action button "Undo" against "Automation FO1" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -1129,6 +1141,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly cannot see row level action button "Undo" against "Automation FO1" in flex table with id "---applicationReview:-:appreviewsTableId---"
 
@@ -1154,6 +1167,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -1320,6 +1334,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -1487,6 +1502,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -1524,6 +1540,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly can see row level action button "Undo" against "Automation FO" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I click on "View" icon for "Automation FO" inside flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -1539,6 +1556,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly cannot see row level action button "Undo" against "Automation FO" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I click on "View" icon for "Automation FO" inside flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -1567,6 +1585,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -1755,6 +1774,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -1797,6 +1817,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly can see row level action button "Undo" against "Automation FO" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I click on "View" icon for "Automation FO" inside flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -1821,6 +1842,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly cannot see row level action button "Undo" against "Automation FO" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I click on "View" icon for "Automation FO" inside flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -1848,6 +1870,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -2130,6 +2153,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -2173,6 +2197,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    And I wait for "2" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I save the value from row "1" for column name "Score" as "Score" from flex table "---applicationReview:-:appreviewsTableId---"
     When I expand nested table containing column value "<Application Name>"
@@ -2358,6 +2383,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    And I wait for "2" seconds
     #279704
     When I save the value from row "1" for column name "Average Weighted Score" as "UpdatedAverageScore" from flex table "---applicationReview:-:appTableId---"
     Then I softly see value "{SavedValue:AverageScore}" is "Less Than" value "{SavedValue:UpdatedAverageScore}"
@@ -2385,6 +2411,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -2683,6 +2710,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -2942,6 +2970,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -2976,6 +3005,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly can see row level action button "Undo" against "{SavedValue:PM Username}" in flex table with id "---applicationReview:-:appreviewsTableId---"
 
@@ -2993,6 +3023,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     And I save the link value from row "1" for column name "EGMS ID" as "AppEgmdId" from flex table "---applicationReview:-:applicationAssignTableId---"
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
@@ -3030,6 +3061,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    And I wait for "2" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -3193,6 +3225,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     Then I cannot see row level action button "Undo" against "Automation FO" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I click on "View" icon for "Automation FO" inside flex table with id "---applicationReview:-:appreviewsTableId---"
     Then I cannot see top right button "Undo" in page detail
@@ -3219,6 +3252,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "{SavedValue:Automation Runtime FDM Announcement}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -3319,6 +3353,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     And I save the link value from row "1" for column name "EGMS ID" as "AppEgmdId" from flex table "---applicationReview:-:applicationAssignTableId---"
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
@@ -3358,6 +3393,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    And I wait for "2" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -3524,6 +3560,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     And I save the link value from row "1" for column name "EGMS ID" as "AppEgmdId" from flex table "---applicationReview:-:applicationAssignTableId---"
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -3711,6 +3748,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -4083,9 +4121,10 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-      | Form Name  |  Due in Days |
-      | Pre-Screen |  5           |
+      | Form Name  | Due in Days |
+      | Pre-Screen | 5           |
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
       | Reviewer                  |
       | {SavedValue:EXE Username} |
@@ -4124,6 +4163,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     Then I softly see that "Review Declined" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly cannot see row level action button "Undo" against "Review Declined" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I click on "View" icon for "Review Declined" inside flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -4152,6 +4192,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details

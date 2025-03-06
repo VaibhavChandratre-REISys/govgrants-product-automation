@@ -2832,7 +2832,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | SPI3 | {SavedValue:SPI3 Username} |
       | SPA  | {SavedValue:SPA Username}  |
 
- @222695 @VerifyBudgetsummarybyfocusareasectionshouldbehiddenonpreappiffocusareasetasNoonAnnbutstilltheoptionBudgetsummarybyfocusareaonpreappnegotiation @sprint-10-US-221062  @Allocation
+  @222695 @VerifyBudgetsummarybyfocusareasectionshouldbehiddenonpreappiffocusareasetasNoonAnnbutstilltheoptionBudgetsummarybyfocusareaonpreappnegotiation @sprint-10-US-221062  @Allocation
   Scenario: Verify 'Budget summary by focus area' section should be hidden on pre-app if focus area set as 'No' on Ann but still the option 'Budget summary by focus area' on pre-app negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APP_YES_NEGO_YES_FOCUS_AREA_NO"
     When I am on "SUBPORTAL" portal
@@ -3723,7 +3723,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Budget" sub tab
     Then I softly see field "Allocation Amount" as "$5,000"
 
- @276440 @ValidateFormulaByapplicantFocusAreaFAYESsubrecipientusercandownloadpdfforNotyetQualifiedopportunity @Sprint-23-US-275864  @Allocation
+  @276440 @ValidateFormulaByapplicantFocusAreaFAYESsubrecipientusercandownloadpdfforNotyetQualifiedopportunity @Sprint-23-US-275864  @Allocation
   Scenario: Validate Formula By applicant & Focus Area FA YES subrecipient user can download pdf for Not yet Qualified opportunity
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -3755,7 +3755,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see "Opportunity Files" on page "5" of "govgrant" pdf file
     Then I softly see "Notes" on page "6" of "govgrant" pdf file
 
- @276406  @Sprint-23-US-275864  @Allocation
+  @276406  @Sprint-23-US-275864  @Allocation
   Scenario: Validate Formula By applicant FA No subrecipient user can download pdf for Qualified opportunity
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     Given I am on "SUBPORTAL" portal
@@ -3788,7 +3788,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see "Opportunity Files" on page "5" of "govgrant" pdf file
     Then I softly see "Notes" on page "5" of "govgrant" pdf file
 
- @276407 @ValidateCheckfieldsandDownloadasPDFforOppConvertedtoapplication @Sprint-23-US-275864  @Allocation
+  @276407 @ValidateCheckfieldsandDownloadasPDFforOppConvertedtoapplication @Sprint-23-US-275864  @Allocation
   Scenario: Validate Check fields and Download as PDF for Opp Converted to application
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -3816,8 +3816,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I select "Download as PDF" from dropdown
     And I pause execution for "3" seconds
     And I download the file
-   And I pause execution for "3" seconds
-   Then I softly see following details in "govgrant" pdf file:
+    And I pause execution for "3" seconds
+    Then I softly see following details in "govgrant" pdf file:
       | Detail                 | Page Number |
       | {SavedValue:annEgmsId} | 1           |
     Then I softly see following details in "govgrant" pdf file:
@@ -4073,6 +4073,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Related Log" sub tab
     And I pause execution for "2" seconds
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     And I pause execution for "2" seconds
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"

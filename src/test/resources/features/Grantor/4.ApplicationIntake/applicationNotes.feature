@@ -321,7 +321,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
 
-  @228689 @ValidatePMPOEXEFOFDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinNegotiationInitiatedstate @Sprint-12-US-226970 @Notes 
+  @228689 @ValidatePMPOEXEFOFDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinNegotiationInitiatedstate @Sprint-12-US-226970 @Notes
   Scenario: Validate PM PO EXE FO FD user should be able to Add notes but Edit Delete their own notes on application is in Negotiation Initiated state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -333,6 +333,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"
@@ -448,7 +449,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
 
-  @228691 @ValidatePMPOEXEFDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinNegotiationsubmittedstate @Sprint-12-US-226970 @Notes 
+  @228691 @ValidatePMPOEXEFDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinNegotiationsubmittedstate @Sprint-12-US-226970 @Notes
   Scenario: Validate PM PO EXE FD user should be able to Add notes but EditDelete their own notes on application is in Negotiation submitted state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -460,6 +461,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"
@@ -770,6 +772,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"
@@ -901,7 +904,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
 
-  @218704 @218705 @ValidateSPISPAusercanaddeditdeletenotesonapplicationincreatedStatus @Sprint-09-US-204865 @Notes 
+  @218704 @218705 @ValidateSPISPAusercanaddeditdeletenotesonapplicationincreatedStatus @Sprint-09-US-204865 @Notes
   Scenario: Validate SPI SPA user can add edit delete notes on application in created Status
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1057,6 +1060,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationReview:-:appTableId---" panel
     And I check "{SavedValue:Automation Runtime Announcement Application Intake}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Reject" in flex table with id "---applicationReview:-:appTableId---"
@@ -1243,6 +1247,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"
@@ -1574,7 +1579,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     Then I softly do not see value "Notes Record Of SPA Test User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
 
-  @218849 @218865 @ValidateSPISPAusercanaddnotesinApplicationinhisNegotiationinitiatedsate @Sprint-09-US-204865 @Notes 
+  @218849 @218865 @ValidateSPISPAusercanaddnotesinApplicationinhisNegotiationinitiatedsate @Sprint-09-US-204865 @Notes
   Scenario: Validate SPI SPA user can add notes in Application in his Negotiation initiated sate
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -1586,6 +1591,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"
@@ -1671,7 +1677,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     Then I softly do not see value "Notes Record Of SPI User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
 
-  @218864 @ValidateSPAusercantaddnotesbuteditdeletehisnotesonapplicationcreatedbySPIuserwhenitsstatusisnegotiationinitiated @Sprint-09-US-204865 @Notes 
+  @218864 @ValidateSPAusercantaddnotesbuteditdeletehisnotesonapplicationcreatedbySPIuserwhenitsstatusisnegotiationinitiated @Sprint-09-US-204865 @Notes
   Scenario: Validate SPA user cant add notes but edit delete his notes on application created by SPI user when its status is negotiation initiated
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1740,6 +1746,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
     And I wait for "2" seconds
@@ -1851,6 +1858,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"

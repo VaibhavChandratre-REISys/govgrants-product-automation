@@ -2063,7 +2063,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly can see top right button "Add Files" in flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
     Then I softly can see top right button "New" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-   @194693 @ValidatePMuserIcanseemyownpendingtasksinMyTasksectionandcanreassignownershiptaskstotargeuser @sprint-4  @reassignment @taskreassign
+  @194693 @ValidatePMuserIcanseemyownpendingtasksinMyTasksectionandcanreassignownershiptaskstotargeuser @sprint-4  @reassignment @taskreassign
   Scenario: Validate PM user I can see my own pending tasks in 'My Task' section and can reassign ownership tasks to target user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -5516,6 +5516,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -5547,6 +5548,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -6661,6 +6663,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"

@@ -1273,7 +1273,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
-    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -2718,7 +2719,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     Then I softly see field "Status" as "Completed"
 
- @CompletedSchedulesCloseout @ProdSan2
+  @CompletedSchedulesCloseout @ProdSan2
   Scenario: Validate Complete Scheduled Closeout End to End flow
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
@@ -2927,7 +2928,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
 
-@ScopeOfWorkChangeAmendmentRequest @ProdSan2
+  @ScopeOfWorkChangeAmendmentRequest @ProdSan2
   Scenario Outline: Validate end to end flow for scope of work change amendment request
     Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     And I login to "As a Grantor" app as "PM" user
@@ -3714,7 +3715,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
- @SF428_B_ErrorValidation @ProdSan3
+  @SF428_B_ErrorValidation @ProdSan3
   Scenario:
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
