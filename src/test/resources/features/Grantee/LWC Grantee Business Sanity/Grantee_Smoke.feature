@@ -13387,8 +13387,10 @@ Feature: Grantee Smoke scenarios
     And I click on hyperlink containing value "{SavedValue:progressEGMSID}"
     Then I softly see field "Status" as "Reviewed"
     When I navigate to "Forms and Files" sub tab
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
-    And I wait for "4" seconds
+    And I wait for "7" seconds
     And I select Classification as "Progress Report" at upload file modal
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library

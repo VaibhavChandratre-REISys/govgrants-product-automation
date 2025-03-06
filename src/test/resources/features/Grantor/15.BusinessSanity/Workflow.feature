@@ -1676,10 +1676,12 @@ Feature: Validate all scenarios of every modules flow
   @debugtest @debug
   Scenario:
     Given I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/ProgressReports__c/a3CKQ000000DZOp2AO/view"
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/ProgressReports__c/a3CKQ000000DZPY2A4/view"
     And I halt execution
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
-    And I wait for "3" seconds
-    Then I see "Upload" button is disabled at modal under library
+    And I wait for "4" seconds
+    And I select Classification as "Progress Report" at upload file modal
+    When I upload file "AttachmentTesting.pdf" into library
+    Then I do not see "Upload" button is disabled at modal under library
     And I halt execution
