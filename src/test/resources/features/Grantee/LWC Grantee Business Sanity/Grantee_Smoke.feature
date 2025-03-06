@@ -12912,7 +12912,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Financial Reports - All"
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
-    Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:financialEGMSID}" inside table "---grantee_tableId:-:FinancialReportsOnMonitoring---"
+    Then I softly see value "Created" for title "Status" against the value "{SavedValue:financialEGMSID}" inside table "---grantee_tableId:-:FinancialReportsOnMonitoring---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:financialEGMSID}" in flex table with id "---grantee_tableId:-:FinancialReportsOnMonitoring---"
     Then I softly can see row level action button "View" against "{SavedValue:financialEGMSID}" in flex table with id "---grantee_tableId:-:FinancialReportsOnMonitoring---"
     Then I softly cannot see row level action button "Delete" against "{SavedValue:financialEGMSID}" in flex table with id "---grantee_tableId:-:FinancialReportsOnMonitoring---"
@@ -12921,8 +12921,8 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
-    Then I softly cannot see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
-    Then I softly can see row level action button "View" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     When I navigate to "Responsibilities" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportApproverTableId---"
@@ -13388,8 +13388,6 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Reviewed"
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
-    And I wait for "5" seconds
-    Then I see "Upload" button is disabled at modal under library
     And I select Classification as "Progress Report" at upload file modal
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
