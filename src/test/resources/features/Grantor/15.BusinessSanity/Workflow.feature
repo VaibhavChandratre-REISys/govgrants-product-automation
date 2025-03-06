@@ -1545,92 +1545,92 @@ Feature: Validate all scenarios of every modules flow
 
   @createdDataForBulkData
   Scenario: create bulk data creation
-#    When I login to "As a Grantor" app as "PM" user
-#    And I navigate to "Announcements" tab
-#    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-#    And I click toggle button to select "Draft Competitive Announcements"
-#    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-#    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
-#    And I click modal button "Continue"
-#    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
-#    And I click modal button "Save and Continue"
-#    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
-#    And I click on "Save" in the page details
-#    And I get the "EGMS ID"
-#    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-#    And I navigate to "Overview" sub tab
-#    And I save the field labeled "Announcement Name" as "Automation Runtime Competitive Announcement"
-#    When I navigate to "Financials" sub tab
-#    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-#    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
-#    When I close "Associate Funding Accounts" modal by clicking the top right x button
-#    And I refresh the page
-#    When I navigate to "Financials" sub tab
-#    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
-#      | Funding Account             | Commitment |
-#      | {SavedValue:fundingAccount} | 2000       |
-#    When I navigate to "Overview" sub tab
-#    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-#    When I click "Associate" after selection of "{SavedValue:PM1 Username}" in the table "---announcement:-:annoucementContactTableId---"
-#    And I click modal button "Close"
-#    And I wait for "2" seconds
-#    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
-#      | Name           | Title           |
-#      | Automation PM1 | Program Manager |
-#    When I navigate to "Financials" sub tab
-#    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-#    And I refresh the page
-#    And I wait for "3" seconds
-#    When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-#      | Name                     | Announcement |
-#      | {SavedValue:PM Username} | Step 1       |
-#    And I click on "Edit" in the page details
-#    When I navigate to "Financials" sub tab
-#    And I enter value "Justified" into field "Justification__c"
-#    And I click on "Save" in the page details
-#    When I get the "EGMS ID"
-#    When I navigate to "Financials" sub tab
-#    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
-#      | Budget Period Name | Start Date | End Date |
-#      | BP01               | 50         | 150      |
-#    And I navigate to "Setup" sub tab
-#    And I click on "Edit" icon for "Payment Request" inside flex table with id "---announcement:-:announcementPaymentScheduleTableId---" without waiting for record
-#    And I enter in modal value "Monthly" into field "Frequency__c"
-#    And I click modal button "Save"
-#    And I click on "Edit" icon for "Progress Report" inside flex table with id "---announcement:-:announcementProgressScheduleTableId---" without waiting for record
-#    And I enter in modal value "Monthly" into field "Frequency__c"
-#    And I enter in modal value "Calendar" into field "ScheduleBase__c"
-#    And I click modal button "Save"
-#    And I navigate to "Files" sub tab
-#    And I click on top right button "Add Files" in flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
-#    And I wait for "5" seconds
-#    And I upload attachment "AttachmentTesting.pdf" of type "GAN Terms and Conditions" from computer
-#    And I wait for "2" seconds
-#    And I click modal button "Close"
-#    And I refresh the page
-#    And I wait for "2" seconds
-#    Then I softly see "GAN Terms and Conditions" has been added in "Announcement Files" flex table
-#    And I click on "Submit For Approval" in the page details
-#    Then I softly see field "Status" as "Submitted for Approval"
-#    And I "Approve" in the approval decision
-#    Then I softly see field "Status" as "Approved"
-#    And I click on "Publish" in the page details
-#    Then I softly see field "Status" as "Published"
-#    And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-#    And I navigate to "Opportunities" tab
-#    When I navigate to "Open Opportunities" content inside "Opportunities" subheader on left panel
-#    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:reviewsTableId---" panel
-#    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
-#    When I click on "Interested" in the page details
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Competitive Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Announcement Name" as "Automation Runtime Competitive Announcement"
+    When I navigate to "Financials" sub tab
+    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I refresh the page
+    When I navigate to "Financials" sub tab
+    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Commitment |
+      | {SavedValue:fundingAccount} | 2000       |
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
+    When I click "Associate" after selection of "{SavedValue:PM1 Username}" in the table "---announcement:-:annoucementContactTableId---"
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
+      | Name           | Title           |
+      | Automation PM1 | Program Manager |
+    When I navigate to "Financials" sub tab
+    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    And I refresh the page
+    And I wait for "3" seconds
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name                     | Announcement |
+      | {SavedValue:PM Username} | Step 1       |
+    And I click on "Edit" in the page details
+    When I navigate to "Financials" sub tab
+    And I enter value "Justified" into field "Justification__c"
+    And I click on "Save" in the page details
+    When I get the "EGMS ID"
+    When I navigate to "Financials" sub tab
+    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 50         | 150      |
+    And I navigate to "Setup" sub tab
+    And I click on "Edit" icon for "Payment Request" inside flex table with id "---announcement:-:announcementPaymentScheduleTableId---" without waiting for record
+    And I enter in modal value "Monthly" into field "Frequency__c"
+    And I click modal button "Save"
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---announcement:-:announcementProgressScheduleTableId---" without waiting for record
+    And I enter in modal value "Monthly" into field "Frequency__c"
+    And I enter in modal value "Calendar" into field "ScheduleBase__c"
+    And I click modal button "Save"
+    And I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
+    And I wait for "5" seconds
+    And I upload attachment "AttachmentTesting.pdf" of type "GAN Terms and Conditions" from computer
+    And I wait for "2" seconds
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see "GAN Terms and Conditions" has been added in "Announcement Files" flex table
+    And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    And I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
+    And I click on "Publish" in the page details
+    Then I softly see field "Status" as "Published"
+    And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
-    When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
-    And I click toggle button to select "Opportunities Converted to Application - All"
-    When I perform quick search for "Automation Permanent Test" in "---applicationIntake:-:convertedToApplicationTableID---" panel
-    Then I softly see value "Automation Permanent Test" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
-    And I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
+    When I navigate to "Open Opportunities" content inside "Opportunities" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:reviewsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
+    When I click on "Interested" in the page details
+#    Given I am on "SUBPORTAL" portal
+#    When I login to "Grants Portal" app as "SPI3" user
+#    And I navigate to "Opportunities" tab
+#    When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
+#    And I click toggle button to select "Opportunities Converted to Application - All"
+#    When I perform quick search for "Automation Permanent Test" in "---applicationIntake:-:convertedToApplicationTableID---" panel
+#    Then I softly see value "Automation Permanent Test" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
+#    And I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
 #    And I navigate to "Opportunities" tab
 #    When I navigate to "Open Opportunities" content inside "Opportunities" subheader on left panel
 #    And I perform quick search for "Automation Permanent Test" in "---applicationReview:-:reviewsTableId---" panel
@@ -1677,8 +1677,8 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "Automation Permanent Test" in "---applicationReview:-:announcementListTableId---" panel
-#    When I click on "Initiate Review Process" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    When I click on "Initiate Review Process" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+#    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I wait for "3" seconds
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
@@ -1754,7 +1754,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click modal button "Close"
     And I refresh the page
-    And I wait for "4" seconds
+    And I wait for "2" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -1765,14 +1765,9 @@ Feature: Validate all scenarios of every modules flow
     And I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
-    And I wait for "3" seconds
     And I click on "Save" in the page details
-    And I wait for "7" seconds
-    And I click on "Save" in the page details
-    And I wait for "5" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1782,10 +1777,8 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
-    And I wait for "5" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1795,14 +1788,9 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
-    And I wait for "7" seconds
     And I click on "Save" in the page details
-    And I wait for "5" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
-#    When I click on "Submit" in the page details
-#    And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1841,16 +1829,12 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
-    And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Applications" tab
-    And I wait for "1" seconds
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I wait for "2" seconds
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "Automation Permanent Test" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---"
@@ -1872,13 +1856,14 @@ Feature: Validate all scenarios of every modules flow
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title      | Recommended Budget | Recommend for Funding | Comments    | Federal Funds Obligated |
       | {SavedValue:appEGMSID} | 1000               | Yes                   | Recommended | 500                     |
-    And I refresh the page
+#    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                     | FDM    |
       | {SavedValue:FO Username} | Step 1 |
     And I click on "Submit for Approval" in the page details
     And I get the "EGMS ID"
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
