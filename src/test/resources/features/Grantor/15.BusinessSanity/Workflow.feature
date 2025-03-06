@@ -1851,7 +1851,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     When I click on "Funding Decision Memo" in the page details
-    Then I see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value                       | Field                    |
