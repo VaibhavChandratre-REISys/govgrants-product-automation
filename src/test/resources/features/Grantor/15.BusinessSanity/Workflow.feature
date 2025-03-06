@@ -1949,7 +1949,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
-    And I wait for "6" seconds
+    And I wait for "2" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -2144,7 +2144,6 @@ Feature: Validate all scenarios of every modules flow
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
-    And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -2297,9 +2296,8 @@ Feature: Validate all scenarios of every modules flow
     And I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
-    When I complete filling in the Review form with recommendation "Recommended"
+    When I complete filling in the Review form with recommendation "Not Recommended"
     And I click on "Save" in the page details
-    And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
