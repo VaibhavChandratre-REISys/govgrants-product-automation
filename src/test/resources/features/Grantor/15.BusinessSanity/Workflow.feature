@@ -1684,8 +1684,8 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "Automation Permanent Test" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "Initiate Review Process" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
 #    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I wait for "3" seconds
     And I navigate to "Related Log" sub tab
@@ -1722,8 +1722,8 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "Automation Permanent Test" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -1804,8 +1804,8 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "Automation Permanent Test" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -1844,8 +1844,8 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "Automation Permanent Test" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
