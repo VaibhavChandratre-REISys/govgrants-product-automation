@@ -2792,7 +2792,7 @@ Feature: Validate all scenarios of every modules flow
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
-    When I click on "Send to Subrecipient" in the page details
+    When I click on "Send to Grantee" in the page details
     Then I softly see field "Status" as "Negotiation Initiated"
 
   @CreateBulkDataNegotiationCompleted
@@ -3029,7 +3029,7 @@ Feature: Validate all scenarios of every modules flow
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "negoEGMSID"
-    When I click on "Send to Subrecipient" in the page details
+    When I click on "Send to Grantee" in the page details
     Then I softly see field "Status" as "Negotiation Initiated"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -3038,9 +3038,8 @@ Feature: Validate all scenarios of every modules flow
     And I click on "Start" icon for "{SavedValue:negoEGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
-    When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
+    When I enter value "Automation Negotiation Initiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
-    Then I softly can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Negotiation Submitted"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -3048,7 +3047,6 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:negoEGMSID}" in "---negotiation:-:phasePendingTasksTableId---" panel
     And I click on "Start" icon for "{SavedValue:negoEGMSID}" inside flex table with id "---negotiation:-:phasePendingTasksTableId---"
-    Then I softly can see top right button "Complete Negotiation" in page detail
     When I click on "Complete Negotiation" in the page details
     Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
-    Then I softly can see top right button "Create Subaward" in page detail
+    Then I softly can see top right button "Create Award" in page detail
