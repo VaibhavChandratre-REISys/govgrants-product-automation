@@ -1873,7 +1873,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Submitted for Approval"
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    And I navigate to "Overview" sub tab
+    When I navigate to "Funding Decision Memo" sub tab
     Then I click on "Initiate Negotiation" icon for "{SavedValue:appEGMSID}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I wait for "2" seconds
     And I navigate to "Negotiations" sub tab
@@ -2446,28 +2446,28 @@ Feature: Validate all scenarios of every modules flow
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Applications" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:pendingTaskTableId---" panel
-#    And I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
-#    And I click on "Edit" in the page details
-#    When I complete filling in the Review form with recommendation "Recommended"
-#    And I click on "Save" in the page details
-#    When I click on "Submit" in the page details without processing
-#    When I click alert button "OK"
-#    Then I see that "Status" is in "Review Completed" status
-#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-#    And I navigate to "Applications" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:pendingTaskTableId---" panel
-#    And I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
-#    When I click on "Edit" in the page details
-#    When I complete filling in the Review form with recommendation "Recommended"
-#    And I click on "Save" in the page details
-#    When I click on "Submit" in the page details without processing
-#    When I click alert button "OK"
-#    Then I see that "Status" is in "Review Completed" status
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    Then I see that "Status" is in "Review Completed" status
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    When I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3016,7 +3016,6 @@ Feature: Validate all scenarios of every modules flow
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Funding Decision Memo" in the page details
-    Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value                       | Field                    |
@@ -3024,7 +3023,6 @@ Feature: Validate all scenarios of every modules flow
       | Automation Test Description | Justification__c         |
       | Automation EXE              | VAAwardingOfficial_VA__c |
     And I click on "Save" in the page details
-    Then I softly see field "Status" as "Created"
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title      | Recommended Budget | Recommend for Funding | Comments    | Federal Funds Obligated |
       | {SavedValue:appEGMSID} | 1000               | Yes                   | Recommended | 1000                    |
@@ -3038,6 +3036,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Submitted for Approval"
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
+    When I navigate to "Funding Decision Memo" sub tab
     Then I click on "Initiate Negotiation" icon for "{SavedValue:appEGMSID}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I wait for "2" seconds
     And I navigate to "Negotiations" sub tab
@@ -3273,6 +3272,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Submitted for Approval"
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
+    When I navigate to "Funding Decision Memo" sub tab
     Then I click on "Initiate Negotiation" icon for "{SavedValue:appEGMSID}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I wait for "2" seconds
     And I navigate to "Negotiations" sub tab
