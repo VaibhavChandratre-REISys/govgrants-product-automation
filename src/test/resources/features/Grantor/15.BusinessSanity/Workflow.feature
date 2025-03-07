@@ -1559,7 +1559,7 @@ Feature: Validate all scenarios of every modules flow
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I navigate to "Overview" sub tab
-    And I save the field labeled "Announcement Name" as "Automation Bulk Data"
+#    And I save the field labeled "Announcement Name" as "{AUTOEnvData:BulkDataAnnouncementName}"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
@@ -1628,8 +1628,8 @@ Feature: Validate all scenarios of every modules flow
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Open Opportunities" content inside "Opportunities" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Bulk Data}" in "---applicationReview:-:reviewsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Bulk Data}" inside flex table with id "---applicationReview:-:reviewsTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:reviewsTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Interested" in the page details
 #    Given I am on "SUBPORTAL" portal
 #    When I login to "Grants Portal" app as "SPI3" user
@@ -1684,8 +1684,8 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Bulk Data}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "Initiate Review Process" icon for "{SavedValue:Automation Bulk Data}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "Initiate Review Process" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
 #    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I wait for "3" seconds
     And I navigate to "Related Log" sub tab
@@ -1722,8 +1722,8 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Bulk Data}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Bulk Data}" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -1803,8 +1803,8 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Bulk Data}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Bulk Data}" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -1843,8 +1843,8 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Bulk Data}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Bulk Data}" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -1910,12 +1910,10 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Opportunities Converted to Application - All"
-    When I perform quick search for "Automation Runtime Competitive Announcement1369681077" in "---applicationIntake:-:convertedToApplicationTableID---" panel
-    Then I softly see value "Automation Runtime Competitive Announcement1369681077" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
-    And I click on "View" icon for "Automation Runtime Competitive Announcement1369681077" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
+    When I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
+    And I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     When I click on "Create Application" in the page details
     And I wait for "3" seconds
-#    And I enter value "New" into field "Priority_VA__c"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -1942,19 +1940,12 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "Automation Runtime Competitive Announcement1369681077" in "---applicationReview:-:announcementListTableId---" panel
-#    When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-    When I click on "View" icon for "Automation Runtime Competitive Announcement1369681077" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I wait for "3" seconds
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-#      | Form Name  | Due in Days |
-#      | Pre-Screen | 5           |
-#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-#      | Reviewer                 |
-#      | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -1980,8 +1971,8 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "Automation Runtime Competitive Announcement1369681077" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "Automation Runtime Competitive Announcement1369681077" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -1989,16 +1980,6 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-#      | Form Name         | Due in Days |
-#      | Program Review    | 5           |
-#      | Fiscal Review     | 5           |
-#      | Compliance Review | 5           |
-#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-#      | Reviewer                  |
-#      | {SavedValue:EXE Username} |
-#      | {SavedValue:FO Username}  |
-#      | {SavedValue:PM Username}  |
     When I expand nested table containing column value "{SavedValue:appEGMSID}"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
@@ -2061,8 +2042,8 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "Automation Runtime Competitive Announcement1369681077" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "Automation Runtime Competitive Announcement1369681077" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -2070,12 +2051,6 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-#      | Form Name         | Due in Days |
-#      | Management Review | 5           |
-#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-#      | Reviewer                 |
-#      | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -2101,29 +2076,16 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "Automation Runtime Competitive Announcement1369681077" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "Automation Runtime Competitive Announcement1369681077" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Funding Decision Memo" in the page details
-#    And I click on "Edit" in the page details
-#    When I enter values into fields
-#      | Value                       | Field                    |
-#      | AuGr                        | GrantCode__c             |
-#      | Automation Test Description | Justification__c         |
-#      | Automation EXE              | VAAwardingOfficial_VA__c |
-#    And I click on "Save" in the page details
-#    Then I softly see field "Status" as "Created"
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title      | Recommended Budget | Recommend for Funding | Comments    | Federal Funds Obligated |
       | {SavedValue:appEGMSID} | 1000               | Yes                   | Recommended | 1000                    |
-#    And I refresh the page
-#    When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-#      | Name                     | FDM    |
-#      | {SavedValue:PM Username} | Step 1 |
     And I click on "Submit for Approval" in the page details
     And I get the "EGMS ID"
     Then I softly see field "Status" as "Submitted for Approval"
@@ -2138,12 +2100,10 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Opportunities Converted to Application - All"
-    When I perform quick search for "Automation Permanent Test" in "---applicationIntake:-:convertedToApplicationTableID---" panel
-    Then I softly see value "Automation Permanent Test" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
-    And I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
+    When I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
+    And I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     When I click on "Create Application" in the page details
     And I wait for "3" seconds
-#    And I enter value "New" into field "Priority_VA__c"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -2170,9 +2130,8 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-#    When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I wait for "3" seconds
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
@@ -2208,8 +2167,8 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -2217,16 +2176,6 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-#      | Form Name         | Due in Days |
-#      | Program Review    | 5           |
-#      | Fiscal Review     | 5           |
-#      | Compliance Review | 5           |
-#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-#      | Reviewer                  |
-#      | {SavedValue:EXE Username} |
-#      | {SavedValue:FO Username}  |
-#      | {SavedValue:PM Username}  |
     When I expand nested table containing column value "{SavedValue:appEGMSID}"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
@@ -2289,8 +2238,8 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -2298,12 +2247,6 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-#      | Form Name         | Due in Days |
-#      | Management Review | 5           |
-#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-#      | Reviewer                 |
-#      | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -2333,12 +2276,10 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Opportunities Converted to Application - All"
-    When I perform quick search for "Automation Permanent Test" in "---applicationIntake:-:convertedToApplicationTableID---" panel
-    Then I softly see value "Automation Permanent Test" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
-    And I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
+    When I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
+    And I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     When I click on "Create Application" in the page details
     And I wait for "3" seconds
-#    And I enter value "New" into field "Priority_VA__c"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -2365,19 +2306,12 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-#    When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I wait for "3" seconds
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-#      | Form Name  | Due in Days |
-#      | Pre-Screen | 5           |
-#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-#      | Reviewer                 |
-#      | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -2402,8 +2336,8 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -2411,16 +2345,6 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-#      | Form Name         | Due in Days |
-#      | Program Review    | 5           |
-#      | Fiscal Review     | 5           |
-#      | Compliance Review | 5           |
-#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-#      | Reviewer                  |
-#      | {SavedValue:EXE Username} |
-#      | {SavedValue:FO Username}  |
-#      | {SavedValue:PM Username}  |
     When I expand nested table containing column value "{SavedValue:appEGMSID}"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
@@ -2487,12 +2411,10 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Opportunities Converted to Application - All"
-    When I perform quick search for "Automation Permanent Test" in "---applicationIntake:-:convertedToApplicationTableID---" panel
-    Then I softly see value "Automation Permanent Test" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
-    And I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
+    When I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
+    And I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     When I click on "Create Application" in the page details
     And I wait for "3" seconds
-#    And I enter value "New" into field "Priority_VA__c"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -2519,19 +2441,12 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-#    When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I wait for "3" seconds
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-#      | Form Name  | Due in Days |
-#      | Pre-Screen | 5           |
-#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-#      | Reviewer                 |
-#      | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -2561,12 +2476,10 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Opportunities Converted to Application - All"
-    When I perform quick search for "Automation Permanent Test" in "---applicationIntake:-:convertedToApplicationTableID---" panel
-    Then I softly see value "Automation Permanent Test" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
-    And I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
+    When I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
+    And I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     When I click on "Create Application" in the page details
     And I wait for "3" seconds
-#    And I enter value "New" into field "Priority_VA__c"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -2593,19 +2506,12 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-#    When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I wait for "3" seconds
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-#      | Form Name  | Due in Days |
-#      | Pre-Screen | 5           |
-#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-#      | Reviewer                 |
-#      | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -2624,15 +2530,15 @@ Feature: Validate all scenarios of every modules flow
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
-    And I wait for "6" seconds
+    And I wait for "2" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -2640,16 +2546,6 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-#      | Form Name         | Due in Days |
-#      | Program Review    | 5           |
-#      | Fiscal Review     | 5           |
-#      | Compliance Review | 5           |
-#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-#      | Reviewer                  |
-#      | {SavedValue:EXE Username} |
-#      | {SavedValue:FO Username}  |
-#      | {SavedValue:PM Username}  |
     When I expand nested table containing column value "{SavedValue:appEGMSID}"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
@@ -2712,8 +2608,8 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -2721,12 +2617,6 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-#      | Form Name         | Due in Days |
-#      | Management Review | 5           |
-#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-#      | Reviewer                 |
-#      | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -2752,8 +2642,8 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -2768,12 +2658,10 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Opportunities Converted to Application - All"
-    When I perform quick search for "Automation Permanent Test" in "---applicationIntake:-:convertedToApplicationTableID---" panel
-    Then I softly see value "Automation Permanent Test" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
-    And I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
+    When I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
+    And I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     When I click on "Create Application" in the page details
     And I wait for "3" seconds
-#    And I enter value "New" into field "Priority_VA__c"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -2800,9 +2688,8 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-#    When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I wait for "3" seconds
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
@@ -2818,12 +2705,10 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Opportunities Converted to Application - All"
-    When I perform quick search for "Automation Permanent Test" in "---applicationIntake:-:convertedToApplicationTableID---" panel
-    Then I softly see value "Automation Permanent Test" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
-    And I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
+    When I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
+    And I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     When I click on "Create Application" in the page details
     And I wait for "3" seconds
-#    And I enter value "New" into field "Priority_VA__c"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -2850,19 +2735,12 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-#    When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I wait for "3" seconds
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-#      | Form Name  | Due in Days |
-#      | Pre-Screen | 5           |
-#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-#      | Reviewer                 |
-#      | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -2888,8 +2766,8 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -2897,16 +2775,6 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-#      | Form Name         | Due in Days |
-#      | Program Review    | 5           |
-#      | Fiscal Review     | 5           |
-#      | Compliance Review | 5           |
-#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-#      | Reviewer                  |
-#      | {SavedValue:EXE Username} |
-#      | {SavedValue:FO Username}  |
-#      | {SavedValue:PM Username}  |
     When I expand nested table containing column value "{SavedValue:appEGMSID}"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
@@ -2969,8 +2837,8 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -2978,12 +2846,6 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-#      | Form Name         | Due in Days |
-#      | Management Review | 5           |
-#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-#      | Reviewer                 |
-#      | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -3009,29 +2871,16 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Funding Decision Memo" in the page details
-    And I click on "Edit" in the page details
-    When I enter values into fields
-      | Value                       | Field                    |
-      | AuGr                        | GrantCode__c             |
-      | Automation Test Description | Justification__c         |
-      | Automation EXE              | VAAwardingOfficial_VA__c |
-    And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title      | Recommended Budget | Recommend for Funding | Comments    | Federal Funds Obligated |
       | {SavedValue:appEGMSID} | 1000               | Yes                   | Recommended | 1000                    |
-#    And I refresh the page
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                     | FDM    |
-      | {SavedValue:PM Username} | Step 1 |
-    And I click on "Submit for Approval" in the page details
     And I get the "EGMS ID"
     Then I softly see field "Status" as "Submitted for Approval"
     When I "Approve" in the approval decision
@@ -3053,12 +2902,10 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Opportunities Converted to Application - All"
-    When I perform quick search for "Automation Runtime Competitive Announcement1369681077" in "---applicationIntake:-:convertedToApplicationTableID---" panel
-    Then I softly see value "Automation Runtime Competitive Announcement1369681077" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
-    And I click on "View" icon for "Automation Runtime Competitive Announcement1369681077" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
+    When I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
+    And I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     When I click on "Create Application" in the page details
     And I wait for "3" seconds
-#    And I enter value "New" into field "Priority_VA__c"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -3085,19 +2932,12 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "Automation Runtime Competitive Announcement1369681077" in "---applicationReview:-:announcementListTableId---" panel
-#    When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-    When I click on "View" icon for "Automation Runtime Competitive Announcement1369681077" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I wait for "3" seconds
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-#      | Form Name  | Due in Days |
-#      | Pre-Screen | 5           |
-#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-#      | Reviewer                 |
-#      | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -3116,15 +2956,15 @@ Feature: Validate all scenarios of every modules flow
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
-    And I wait for "6" seconds
+    And I wait for "2" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "Automation Runtime Competitive Announcement1369681077" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "Automation Runtime Competitive Announcement1369681077" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -3132,16 +2972,6 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-#      | Form Name         | Due in Days |
-#      | Program Review    | 5           |
-#      | Fiscal Review     | 5           |
-#      | Compliance Review | 5           |
-#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-#      | Reviewer                  |
-#      | {SavedValue:EXE Username} |
-#      | {SavedValue:FO Username}  |
-#      | {SavedValue:PM Username}  |
     When I expand nested table containing column value "{SavedValue:appEGMSID}"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
@@ -3204,8 +3034,8 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "Automation Runtime Competitive Announcement1369681077" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "Automation Runtime Competitive Announcement1369681077" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -3213,12 +3043,6 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-#      | Form Name         | Due in Days |
-#      | Management Review | 5           |
-#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-#      | Reviewer                 |
-#      | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -3244,29 +3068,16 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "Automation Runtime Competitive Announcement1369681077" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "Automation Runtime Competitive Announcement1369681077" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Funding Decision Memo" in the page details
-#    And I click on "Edit" in the page details
-#    When I enter values into fields
-#      | Value                       | Field                    |
-#      | AuGr                        | GrantCode__c             |
-#      | Automation Test Description | Justification__c         |
-#      | Automation EXE              | VAAwardingOfficial_VA__c |
-#    And I click on "Save" in the page details
-#    Then I softly see field "Status" as "Created"
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title      | Recommended Budget | Recommend for Funding | Comments    | Federal Funds Obligated |
       | {SavedValue:appEGMSID} | 1000               | Yes                   | Recommended | 1000                    |
-#    And I refresh the page
-#    When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-#      | Name                     | FDM    |
-#      | {SavedValue:PM Username} | Step 1 |
     And I click on "Submit for Approval" in the page details
     And I get the "EGMS ID"
     Then I softly see field "Status" as "Submitted for Approval"
@@ -3299,5 +3110,5 @@ Feature: Validate all scenarios of every modules flow
     And I perform quick search for "{SavedValue:negoEGMSID}" in "---negotiation:-:phasePendingTasksTableId---" panel
     And I click on "Start" icon for "{SavedValue:negoEGMSID}" inside flex table with id "---negotiation:-:phasePendingTasksTableId---"
     When I click on "Complete Negotiation" in the page details
-    Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
+    Then I softly see field "Status" as "Reviewed"
     Then I softly can see top right button "Create Award" in page detail
