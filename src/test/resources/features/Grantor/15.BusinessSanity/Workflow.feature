@@ -1873,35 +1873,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Submitted for Approval"
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I navigate to "Funding Decision Memo" sub tab
-    Then I click on "Initiate Negotiation" icon for "{SavedValue:appEGMSID}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
-    And I wait for "2" seconds
-    And I navigate to "Negotiations" sub tab
-    When I clear the value from field "ApplicationSectionsForRevision__c"
-    When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "negoEGMSID"
-    When I click on "Send to Grantee" in the page details
-    Then I softly see field "Status" as "Negotiation Initiated"
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:negoEGMSID}" in "---negotiation:-:homePendingTasks---" panel
-    And I click on "Start" icon for "{SavedValue:negoEGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    And I click on "Edit" in the page details
-    And I navigate to "Negotiations" sub tab
-    When I enter value "Automation Negotiation Initiation" into field "ApplicantResponse__c"
-    When I click on "Save" in the page details
-    When I click on "Submit to Grantor" in the page details
-    Then I softly see field "Status" as "Negotiation Submitted"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Applications" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:negoEGMSID}" in "---negotiation:-:phasePendingTasksTableId---" panel
-    And I click on "Start" icon for "{SavedValue:negoEGMSID}" inside flex table with id "---negotiation:-:phasePendingTasksTableId---"
-    When I click on "Complete Negotiation" in the page details
-    Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
-    Then I softly can see top right button "Create Award" in page detail
+   
 
   @CreateBulkDataApprovedFDM
   Scenario:
@@ -1953,6 +1925,7 @@ Feature: Validate all scenarios of every modules flow
     When I close "Assign Applications" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -1975,11 +1948,13 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I expand nested table containing column value "{SavedValue:appEGMSID}"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
@@ -2002,6 +1977,7 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2046,6 +2022,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -2058,6 +2035,7 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2080,9 +2058,11 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Funding Decision Memo" in the page details
+    When I perform quick search for "{SavedValue:appEGMSID}" in "FundingDecisionMemoApplications" panel
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title      | Recommended Budget | Recommend for Funding | Comments    | Federal Funds Obligated |
       | {SavedValue:appEGMSID} | 1000               | Yes                   | Recommended | 1000                    |
@@ -2136,12 +2116,6 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "2" seconds
-    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-      | Form Name  | Due in Days |
-      | Pre-Screen | 5           |
-    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-      | Reviewer                 |
-      | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -2149,6 +2123,7 @@ Feature: Validate all scenarios of every modules flow
     When I close "Assign Applications" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2171,11 +2146,13 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I expand nested table containing column value "{SavedValue:appEGMSID}"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
@@ -2198,6 +2175,7 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2242,6 +2220,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -2254,6 +2233,7 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2319,6 +2299,7 @@ Feature: Validate all scenarios of every modules flow
     When I close "Assign Applications" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2340,11 +2321,13 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I expand nested table containing column value "{SavedValue:appEGMSID}"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
@@ -2367,6 +2350,7 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2454,6 +2438,7 @@ Feature: Validate all scenarios of every modules flow
     When I close "Assign Applications" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2465,7 +2450,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Not Recommended"
     And I click on "Save" in the page details
-    And I wait for "6" seconds
+    And I wait for "2" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -2476,11 +2461,13 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I expand nested table containing column value "{SavedValue:appEGMSID}"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
@@ -2503,6 +2490,7 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2547,6 +2535,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -2559,6 +2548,7 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2581,12 +2571,14 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Funding Decision Memo" in the page details
     And I wait for "3" seconds
     And I navigate to "Funding Decision Memo" sub tab
-    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:recommendedTableId---" panel
+    And I edit the following rows inline in flex table with id "---applicationReview:-:recommendedTableId---" by clicking "Edit" :
       | Application Title      | Recommended Budget | Recommend for Funding | Comments        | Federal Funds Obligated |
       | {SavedValue:appEGMSID} | 1000               | No                    | Non Recommended | 1000                    |
     Then I softly see value "{SavedValue:appEGMSID}" for title "EGMS ID" inside table "---subAwardFromFDM:-:fdmNonRecommendedTableId---"
@@ -2641,6 +2633,7 @@ Feature: Validate all scenarios of every modules flow
     When I close "Assign Applications" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2663,11 +2656,13 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I expand nested table containing column value "{SavedValue:appEGMSID}"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
@@ -2690,6 +2685,7 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2734,6 +2730,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -2746,6 +2743,7 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2768,6 +2766,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -2816,6 +2815,7 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Reject" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see value "Rejected" for title "Decision Status" against the value "{SavedValue:appEGMSID}" inside table "---applicationReview:-:appTableId---"
@@ -2870,6 +2870,7 @@ Feature: Validate all scenarios of every modules flow
     When I close "Assign Applications" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2892,11 +2893,13 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I expand nested table containing column value "{SavedValue:appEGMSID}"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
@@ -2919,6 +2922,7 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2963,6 +2967,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -2975,6 +2980,7 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2997,10 +3003,12 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Funding Decision Memo" in the page details
-    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:recommendedTableId---" panel
+    And I edit the following rows inline in flex table with id "---applicationReview:-:recommendedTableId---" by clicking "Edit" :
       | Application Title      | Recommended Budget | Recommend for Funding | Comments    | Federal Funds Obligated |
       | {SavedValue:appEGMSID} | 1000               | Yes                   | Recommended | 1000                    |
     And I get the "EGMS ID"
@@ -3008,6 +3016,7 @@ Feature: Validate all scenarios of every modules flow
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     When I navigate to "Funding Decision Memo" sub tab
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---subAwardFromFDM:-:recommendedAppTableId---" panel
     Then I click on "Initiate Negotiation" icon for "{SavedValue:appEGMSID}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I wait for "2" seconds
     And I navigate to "Negotiations" sub tab
@@ -3067,6 +3076,7 @@ Feature: Validate all scenarios of every modules flow
     When I close "Assign Applications" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -3089,11 +3099,13 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I expand nested table containing column value "{SavedValue:appEGMSID}"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
@@ -3116,6 +3128,7 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -3160,6 +3173,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
@@ -3172,6 +3186,7 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -3194,10 +3209,12 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Funding Decision Memo" in the page details
-    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---subAwardFromFDM:-:recommendedAppTableId---" panel
+    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" by clicking "Edit" :
       | Application Title      | Recommended Budget | Recommend for Funding | Comments    | Federal Funds Obligated |
       | {SavedValue:appEGMSID} | 1000               | Yes                   | Recommended | 1000                    |
     And I click on "Submit for Approval" in the page details
