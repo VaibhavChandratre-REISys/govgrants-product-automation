@@ -1904,7 +1904,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly can see top right button "Create Award" in page detail
 
   @CreateBulkDataApprovedFDM
-    Scenario:
+  Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
@@ -2586,6 +2586,9 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Funding Decision Memo" in the page details
     And I wait for "3" seconds
     And I navigate to "Funding Decision Memo" sub tab
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
+      | Application Title      | Recommended Budget | Recommend for Funding | Comments        | Federal Funds Obligated |
+      | {SavedValue:appEGMSID} | 1000               | No                    | Non Recommended | 1000                    |
     Then I softly see value "{SavedValue:appEGMSID}" for title "EGMS ID" inside table "---subAwardFromFDM:-:fdmNonRecommendedTableId---"
 
   @CreatedBulkDataPromotedToFDM
