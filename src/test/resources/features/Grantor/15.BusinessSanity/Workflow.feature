@@ -1873,7 +1873,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Submitted for Approval"
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-   
+
 
   @CreateBulkDataApprovedFDM
   Scenario:
@@ -2581,6 +2581,7 @@ Feature: Validate all scenarios of every modules flow
     And I edit the following rows inline in flex table with id "---applicationReview:-:recommendedTableId---" by clicking "Edit" :
       | Application Title      | Recommended Budget | Recommend for Funding | Comments        | Federal Funds Obligated |
       | {SavedValue:appEGMSID} | 1000               | No                    | Non Recommended | 1000                    |
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---subAwardFromFDM:-:fdmNonRecommendedTableId---" panel
     Then I softly see value "{SavedValue:appEGMSID}" for title "EGMS ID" inside table "---subAwardFromFDM:-:fdmNonRecommendedTableId---"
 
   @CreatedBulkDataPromotedToFDM
