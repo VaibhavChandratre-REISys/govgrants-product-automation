@@ -1631,22 +1631,8 @@ Feature: Validate all scenarios of every modules flow
     And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:reviewsTableId---" panel
     When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Interested" in the page details
-#    Given I am on "SUBPORTAL" portal
-#    When I login to "Grants Portal" app as "SPI3" user
-#    And I navigate to "Opportunities" tab
-#    When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
-#    And I click toggle button to select "Opportunities Converted to Application - All"
-#    When I perform quick search for "Automation Permanent Test" in "---applicationIntake:-:convertedToApplicationTableID---" panel
-#    Then I softly see value "Automation Permanent Test" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
-#    And I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
-#    And I navigate to "Opportunities" tab
-#    When I navigate to "Open Opportunities" content inside "Opportunities" subheader on left panel
-#    And I perform quick search for "Automation Permanent Test" in "---applicationReview:-:reviewsTableId---" panel
-#    When I click on "View" icon for "Automation Permanent Test" inside flex table with id "---applicationReview:-:reviewsTableId---"
-#    When I click on "Interested" in the page details
     When I click on "Create Application" in the page details
     And I wait for "3" seconds
-#    And I enter value "New" into field "Priority_VA__c"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
