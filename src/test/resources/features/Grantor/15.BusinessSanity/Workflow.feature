@@ -2059,7 +2059,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Approved"
 
 
-  @CreatedBulkDataMnangementReviewCompleted
+  @CreatedBulkDataMnangementReviewCompleted @BulkExecution
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -2235,7 +2235,7 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
 
-  @CreateBulkDataFiscalReviewCompleted
+  @CreateBulkDataFiscalReviewCompleted @BulkExecution
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -2374,7 +2374,7 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
 
-  @CreateBulkDataPreScreenCompletedNotRecommended
+  @CreateBulkDataPreScreenCompletedNotRecommended @BulkExecution
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -2570,7 +2570,7 @@ Feature: Validate all scenarios of every modules flow
     When I perform quick search for "{SavedValue:appEGMSID}" in "---subAwardFromFDM:-:fdmNonRecommendedTableId---" panel
     Then I softly see value "{SavedValue:appEGMSID}" for title "EGMS ID" inside table "---subAwardFromFDM:-:fdmNonRecommendedTableId---"
 
-  @CreatedBulkDataPromotedToFDM
+  @CreatedBulkDataPromotedToFDM @BulkExecution
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -2807,7 +2807,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "Reject" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see value "Rejected" for title "Decision Status" against the value "{SavedValue:appEGMSID}" inside table "---applicationReview:-:appTableId---"
 
-  @CreateBulkDataNegotiationInitiated
+  @CreateBulkDataNegotiationInitiated @BulkExecution
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -3013,7 +3013,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Send to Grantee" in the page details
     Then I softly see field "Status" as "Negotiation Initiated"
 
-  @CreateBulkDataNegotiationCompleted
+  @CreateBulkDataNegotiationCompleted @BulkExecution
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
