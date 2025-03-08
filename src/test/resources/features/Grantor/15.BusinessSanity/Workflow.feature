@@ -2069,7 +2069,7 @@ Feature: Validate all scenarios of every modules flow
     When I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     And I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     When I click on "Create Application" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -2245,7 +2245,7 @@ Feature: Validate all scenarios of every modules flow
     When I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     And I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     When I click on "Create Application" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -2384,7 +2384,7 @@ Feature: Validate all scenarios of every modules flow
     When I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     And I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     When I click on "Create Application" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -2580,7 +2580,7 @@ Feature: Validate all scenarios of every modules flow
     When I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     And I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     When I click on "Create Application" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -2817,7 +2817,7 @@ Feature: Validate all scenarios of every modules flow
     When I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     And I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     When I click on "Create Application" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -3023,7 +3023,7 @@ Feature: Validate all scenarios of every modules flow
     When I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     And I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     When I click on "Create Application" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
