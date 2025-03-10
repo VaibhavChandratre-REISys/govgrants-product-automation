@@ -13679,7 +13679,7 @@ Feature: Sanity scenarios New
       | GRANTEE AUDITOR |
       | GRANTEE ADMIN1  |
 
-  @487040 @487061 @487062 @487063 @487064 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @Grantee_Smoke @GranteeTBE
+  @487040 @487061 @487062 @487063 @487064 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @P1_Grantee
   Scenario Outline: Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -14042,7 +14042,7 @@ Feature: Sanity scenarios New
       | GRANTEE ADMIN1 |
       | GRANTEE FO     |
 
-  @486596 @486597 @BudgetRedirectARPmusershouldabletoseethevalidation @Grantee_Smoke 
+  @486596 @486597 @BudgetRedirectARPmusershouldabletoseethevalidation @P2_Grantee
   Scenario Outline: Budget Redirect AR-Pm user should able to see the validation
     And I "Submitted for Approval" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
