@@ -110,7 +110,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I softly see value "New" for title "Status" inside table "---home:-:subrecipientContactTableId---"
 
-  @72341 @programActivation @ProdSan1 @Rerun13Sep
+  @72341 @programActivation @ProdSan1 @84ps1
   Scenario: Validate the activation of Internal Program and the status changes to Active
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1166,7 +1166,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Accept" in the page details
     Then I see status in Progress-bar is "Accepted" and is "dark blue"
 
-  @72345 @submitApplication @ProdSan1 @ps1
+  @72345 @submitApplication @ProdSan1 @84ps1
   Scenario: Validate once the application is submitted to Grantor and then status changes to Submitted
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1446,7 +1446,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @72347 @negotiationComplete @ProdSan1 @ovrerun1
+  @72347 @negotiationComplete @ProdSan1 @84ps1
   Scenario: Validate once the Negotiation Request is completed then the record owner can view the record under Completed Negotiations
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1642,7 +1642,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @72348 @awardHappyPathStandAlone @ProdSan1 @ps1
+  @72348 @awardHappyPathStandAlone @ProdSan1 @84ps1
   Scenario: Validate the activation of subaward Happy path stand alone and status changes to Activated | Validate subaward Happy path stand alone
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3072,7 +3072,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @SubrecipientBudgetRedirection @ProdSan1
+  @SubrecipientBudgetRedirection @ProdSan1 @84ps1
   Scenario: Validate Subrecipient side Budget Redirection Amendment End to End flow
     And I activated standalone subaward "Automation Runtime Award" with properties "IS_BUILDUP_FUNCTIONALITY_YES" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -3703,7 +3703,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @SF428_B_Form_Fill @ProdSan3 @m3
+  @SF428_B_Form_Fill @ProdSan3
   Scenario: Validate SPI user can able to save & validate form after entering correct & valid data on all fields present on SF-428-B form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3749,7 +3749,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @SF428_B_ErrorValidation @ProdSan3 @Sanity @varerun @m3
+  @SF428_B_ErrorValidation @ProdSan3 @Sanity @varerun
   Scenario:
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3819,7 +3819,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | "Federal share" in "2c. Reportable Residual Unused Supplies" is required, if "1c" is checked in 'Report' section.                               |
       | "Selling and handling allowance" in "2c. Reportable Residual Unused Supplies" is required, if "1c" is checked in 'Report' section.              |
 
-  @SF428_B_Dependent_fields @ProdSan3 @m3
+  @SF428_B_Dependent_fields @ProdSan3
   Scenario:
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -4180,7 +4180,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "5" seconds
     Then I softly see field "Status" as "Created"
 
-  @SitevisitOpenThroughManagementTabFromAward @ProdSan4 @m4
+  @SitevisitOpenThroughManagementTabFromAward @ProdSan4
   Scenario: Validate Sitevisit Open Through Management Tab From Award
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -4229,7 +4229,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly see field "EGMS ID" as "{SavedValue:SitevVisitId}"
 
-  @DeskReviewOpenThroughManagementTabFromAward @ProdSan4 @m4
+  @DeskReviewOpenThroughManagementTabFromAward @ProdSan4
   Scenario: Validate Desk Review Open Through Management Tab From Award
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -4277,7 +4277,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly see field "EGMS ID" as "{SavedValue:DeskReview}"
 
-  @SF425FormsNegativeValidationCheckAndSF428ABlankvalueValidationCheckAlsoSF429Bformnegativevaluesenteredvalidationcheck @ProdSan4 @m4
+  @SF425FormsNegativeValidationCheckAndSF428ABlankvalueValidationCheckAlsoSF429Bformnegativevaluesenteredvalidationcheck @ProdSan4
   Scenario: SF425 Forms Negative Validation Check and SF 428 A Blank value Validation Check also SF429B form negative values entered validation check
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
