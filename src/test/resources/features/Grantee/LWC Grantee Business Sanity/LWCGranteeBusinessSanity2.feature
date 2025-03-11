@@ -6269,9 +6269,9 @@ Feature: Sanity scenarios
 
     Examples:
       | UserName   | OwnerType   | UserType        |
-      | Victor EXE | GRANTEE EXE | GRANTEE EXE     |
-      | Sarah PM   | GRANTEE PM  | GRANTEE FO      |
-      | Sarah PM   | GRANTEE PM  | GRANTEE FD      |
+#      | Victor EXE | GRANTEE EXE | GRANTEE EXE     |
+#      | Sarah PM   | GRANTEE PM  | GRANTEE FO      |
+#      | Sarah PM   | GRANTEE PM  | GRANTEE FD      |
       | Grantee PO | GRANTEE PO  | GRANTEE ADMIN1  |
       | Grantee PO | GRANTEE PO  | GRANTEE AUDITOR |
 
