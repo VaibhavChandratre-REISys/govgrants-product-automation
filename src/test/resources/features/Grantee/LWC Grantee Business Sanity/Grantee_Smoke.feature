@@ -2353,6 +2353,9 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "$200.00" for title "Other Leverage" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$2,400.00" for title "Total Project Cost" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+    Then I softly see value "$200.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+    Then I softly see value "Automation Test" for title "Program Income Justification" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+    Then I softly see value "$0.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea2}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
     Then I softly see value "{SavedValue:FocusArea2}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
     Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see value "{SavedValue:Effectivefrom}" for title "Effective from" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
@@ -7170,6 +7173,9 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "$200.00" for title "Other Leverage" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$2,400.00" for title "Total Project Cost" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+    Then I softly see value "$200.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+    Then I softly see value "Automation Test" for title "Program Income Justification" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+    Then I softly see value "$0.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea2}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
     Then I softly see value "{SavedValue:FocusArea2}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
     Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see value "{SavedValue:Effectivefrom}" for title "Effective from" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
@@ -11216,16 +11222,26 @@ Feature: Grantee Smoke scenarios
     When I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
     Then I see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
 
-  @482429 @ValidateDirectGrantAwardPOuserPousershouldabletoActivatetheawadafteractivateawardverifythenewbuttoncloseoutAmendmentProgressReportFinancialReport @Grantee_Smoke1
+  @482429 @ValidateDirectGrantAwardPOuserPousershouldabletoActivatetheawadafteractivateawardverifythenewbuttoncloseoutAmendmentProgressReportFinancialReport @Grantee_Smoke1 @GRegression1
   Scenario: Validate Direct Grant Award PO user Verify Po user should able to Activate the award & after activate award verify the new button closeout Amendment Progress Report Financial Report
-    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
-    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PO" user
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I "Created" award from application for opportunity "{SavedValue:Automation Runtime}" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     Then I softly see field "Status" as "Draft"
     Then I softly cannot see "Closeout" sub tab at view detail page
     When I navigate to "Awards" sub tab
@@ -11234,12 +11250,12 @@ Feature: Grantee Smoke scenarios
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:ProgressReportTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I softly cannot see "Amendments" sub tab at view detail page
-    And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     Then I softly see field "Status" as "Active"
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
