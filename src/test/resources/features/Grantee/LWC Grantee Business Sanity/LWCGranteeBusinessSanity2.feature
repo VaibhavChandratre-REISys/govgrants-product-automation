@@ -8059,10 +8059,10 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "View" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Examples:
       | OwnerType  | NonOwner        |
-#      | GRANTEE PM | GRANTEE EXE     |
-#      | GRANTEE PM | GRANTEE FD      |
-#      | GRANTEE PM | GRANTEE FO      |
-#      | GRANTEE PM | GRANTEE ADMIN1  |
+      | GRANTEE PM | GRANTEE EXE     |
+      | GRANTEE PM | GRANTEE FD      |
+      | GRANTEE PM | GRANTEE FO      |
+      | GRANTEE PM | GRANTEE ADMIN1  |
       | GRANTEE PM | GRANTEE AUDITOR |
 
   @477449 @477450 @BudgetNarrativeattachmentformVerifyvalidationdisplayedtoPMuseronBudgetNarrativeattachmentform @P2_Grantee
