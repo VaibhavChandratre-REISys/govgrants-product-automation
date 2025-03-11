@@ -1,4 +1,4 @@
-@grantAndAward @grantor-regression @grantor-parallel-regression @regression @AwardExecutionStandAalone
+@grantAndAward @grantor-regression @grantor-parallel-regression @regression @GrantExecution
 Feature: Validate all scenarios in the Stand Alone Award and Grant
 
   Background: Create Award
