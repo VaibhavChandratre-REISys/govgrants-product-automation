@@ -257,7 +257,7 @@ public class UsersAndURL implements UsersController {
         username.put("AUDITOR", "automationauditor@yopmail.com.minigap");
         username.put("SME", "sme11@yopmail.com");
         username.put("SPI4", "spi4@yopmail.com.minigap");
-        username.put("SARAH PM", "sarah.pm@ggp.test8.nysedgapan");
+        username.put("SARAH PM", "sarah.pm.23@yopmail.com");
 
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());
