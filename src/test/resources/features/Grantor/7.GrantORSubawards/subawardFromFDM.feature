@@ -1019,7 +1019,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @67557 @PRFrequencyNotEnterAndSubmitForApprove
+  @67557 @PRFrequencyNotEnterAndSubmitForApprove @TBExecution
   Scenario Outline: To validate that if frequency column is not set in the payment requests schedule Table  by the Grantor (Internal user pm profile ) and Submit for approval button is clicked the validation message must appear.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -1276,7 +1276,7 @@ Feature: Validate all scenarios in the award created from FDM
     And I save the field labeled "Program ID" as "ProgramID"
     And I save the field labeled "KPIs Required?" as "KPI"
     And I save the field labeled "Program Income Allowed?" as "PIA"
-    And I save the field labeled "Focus Area Required?" as "FAR"
+    And I save the field labeled "Focus Areas Required?" as "FAR"
     And I save the field labeled "Estimated Project Period Start Date" as "PPSD"
     And I save the field labeled "Estimated Project Period End Date" as "PPED"
     And I save the field labeled "Created By" as "CreatedBy"

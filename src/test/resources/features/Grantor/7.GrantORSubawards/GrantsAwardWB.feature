@@ -2758,7 +2758,7 @@ Feature: Validate all scenarios of grants and award without background
       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @66938 @doNotSeeSubawardButtonAfterRejectingByEXE  @smoke @buglogged125748
+  @66938 @doNotSeeSubawardButtonAfterRejectingByEXE  @smoke
   Scenario Outline: To Validate that if FDM is rejected by EXE user, subaward button in Action column cannot be seen for the Application. in Recommended Application table.
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -3006,6 +3006,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click toggle button to select "All Funding Decision Memos (FDM)"
     When I perform quick search for "Record Id" in "---subAwardFromFDM:-:fdmTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
+    And I navigate to "Funding Decision Memo" sub tab
     Then I softly cannot see row level action button "Create Subaward" against "<Application Name>" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
     Examples:
       | Announcement Name                                               | Application Name                                                |
