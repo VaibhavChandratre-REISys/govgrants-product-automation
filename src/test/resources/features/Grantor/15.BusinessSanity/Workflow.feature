@@ -2998,6 +2998,7 @@ Feature: Validate all scenarios of every modules flow
     And I edit the following rows inline in flex table with id "---applicationReview:-:recommendedTableId---" by clicking "Edit" :
       | Application Title      | Recommended Budget | Recommend for Funding | Comments    | Federal Funds Obligated |
       | {SavedValue:appEGMSID} | 1000               | Yes                   | Recommended | 1000                    |
+    And I click on "Submit for Approval" in the page details
     And I get the "EGMS ID"
     Then I softly see field "Status" as "Submitted for Approval"
     When I "Approve" in the approval decision
