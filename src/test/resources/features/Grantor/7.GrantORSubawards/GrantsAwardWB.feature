@@ -2367,6 +2367,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
+    And I perform quick search for "<Award Name>" in "---paymentRequest:-:recipientsSubawardTableId---" panel
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -2467,6 +2468,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Closed"
+    When I perform quick search for "{SavedValue:CloseoutID}" in "---subAwardFromFDM:-:grantsTableId---" panel
     Then I softly see value "Closed/Compeleted" for title "Status" inside table "---subAwardFromFDM:-:grantsTableId---"
     Then I softly do not see value "Activated" for title "Status" inside table "---subAwardFromFDM:-:grantsTableId---"
     Examples:
