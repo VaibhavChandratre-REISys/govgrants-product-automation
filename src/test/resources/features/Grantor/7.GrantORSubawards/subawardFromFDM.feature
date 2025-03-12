@@ -1276,7 +1276,7 @@ Feature: Validate all scenarios in the award created from FDM
     And I save the field labeled "Program ID" as "ProgramID"
     And I save the field labeled "KPIs Required?" as "KPI"
     And I save the field labeled "Program Income Allowed?" as "PIA"
-    And I save the field labeled "Focus Areas Required?" as "FAR"
+    And I save the field labeled "Focus Area Required?" as "FAR"
     And I save the field labeled "Estimated Project Period Start Date" as "PPSD"
     And I save the field labeled "Estimated Project Period End Date" as "PPED"
     And I save the field labeled "Created By" as "CreatedBy"
