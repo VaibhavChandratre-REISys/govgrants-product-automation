@@ -230,6 +230,7 @@ Feature: Validate all scenarios of grants and award without background
     And I save the value from row "1" for column name "Title" as "NonMandatoryT_C" from flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" icon for "{SavedValue:NonMandatoryT_C}" inside flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---" without waiting for record
+    And I wait for "2" seconds
     And I enter value "2" into field "Sequence__c"
     And I enter value "2" into field "Description__c"
     And I click modal button "Save"
@@ -4959,8 +4960,6 @@ Feature: Validate all scenarios of grants and award without background
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
     And I "Reject" in the approval decision
-    And I refresh the page
-    And I wait for "5" seconds
     Then I softly see field "Status" as "Rejected"
     And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
     And I pause execution for "180" seconds
