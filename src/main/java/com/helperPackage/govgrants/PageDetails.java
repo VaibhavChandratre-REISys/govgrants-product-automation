@@ -577,7 +577,7 @@ public final class PageDetails {
         if (fieldLabel.contains("'"))
             element = "//div[contains(@class,'modal__container')]//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
         else
-            element = "//div[contains(@class,'modal__container')]//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
+            element = "//div[contains(@class,'modal__container')]//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "] | //div[@id='WorkspaceFiles']//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
 
         try {
             I.amPerforming().getElementReference().of(ByUsing.xpath(element));
