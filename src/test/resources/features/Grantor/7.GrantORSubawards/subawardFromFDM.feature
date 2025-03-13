@@ -80,8 +80,8 @@ Feature: Validate all scenarios in the award created from FDM
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Title                      | Project Role   | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Fiscal Contact | Checked          |
+      | Title                      | Project Role   |
+      | {SavedValue:SPI3 Username} | Fiscal Contact |
     When I navigate to "Budget" sub tab
     Given I edit the following rows inline in flex table with id "---subAwardFromFDM:-:AwardFundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
