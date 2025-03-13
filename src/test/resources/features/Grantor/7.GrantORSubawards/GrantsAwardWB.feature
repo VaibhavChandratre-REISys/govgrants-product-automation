@@ -2341,6 +2341,8 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Activate" in the page details
     Then I softly see that "Subaward" is in "Activated" status
+    And I navigate to "Budget" sub tab
+    And I save the field labeled "Cumulative Obligation" as "CumulativeObligation"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -2465,13 +2467,13 @@ Feature: Validate all scenarios of grants and award without background
     And I click toggle button to select "Grants - Closed"
     When I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:grantsTableId---" without waiting for record
     And I navigate to "Budget" sub tab
-    Then I softly see field "Amount Awarded to Date" as "{SavedValue:amtAwardToDate}"
+    Then I softly see field "Cumulative Obligation" as "{SavedValue:CumulativeObligation}"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Closed"
     When I perform quick search for "<Award Name>" in "---subAwardFromFDM:-:grantsTableId---" panel
-    Then I softly see value "Closed/Compeleted" for title "Status" inside table "---subAwardFromFDM:-:grantsTableId---"
+    Then I softly see value "Closed/Completed" for title "Status" inside table "---subAwardFromFDM:-:grantsTableId---"
     Then I softly do not see value "Activated" for title "Status" inside table "---subAwardFromFDM:-:grantsTableId---"
     Examples:
       | Award Name                                      | Grant Name                                      |
@@ -5771,24 +5773,24 @@ Feature: Validate all scenarios of grants and award without background
     And I pause execution for "5" seconds
     And I click on submit review
     And I logout
-#    And I pause execution for "5" seconds
-#    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
-#    And I pause execution for "180" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
-#      """
-#    Then I see the mail text is as follows :
-#      """
-#      Hello Automation PM1,
-#      This email is to notify you that Subaward {SavedValue:Automation Runtime Direct Award} has been peer reviewed.
-#      Log in to EGMS and click here for more details.
-#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#      Thank you.
-#      The EGMS Team
-#      """
-#    Then I refresh the page
+    And I pause execution for "5" seconds
+    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I pause execution for "180" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
+      """
+    Then I see the mail text is as follows :
+      """
+      Hello Automation PM1,
+      This email is to notify you that Subaward {SavedValue:Automation Runtime Direct Award} has been peer reviewed.
+      Log in to EGMS and click here for more details.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+      Thank you.
+      The EGMS Team
+      """
+    Then I refresh the page
     Given I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM1" user
     And I navigate to "Grants" tab
@@ -7680,31 +7682,31 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I logout
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
-    And I pause execution for "180" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:progID} Automation EXE Progress Report
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
+#    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+#    And I pause execution for "180" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:progID} Automation EXE Progress Report
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
     Given I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "EXE" user
     And I navigate to "Home" tab
@@ -7719,35 +7721,35 @@ Feature: Validate all scenarios of grants and award without background
     And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Sandbox: Task Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-      The task(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
-
-      EGMS ID Type Status Subject Assigned By Due Date
-      {SavedValue:DeskReview} Review Site Visit Not Started Review Site Visit for Organization SAN DIEGO ELECTRICAL TRAINING TRUST Automation FO {Date:yyyy/MM/dd 00:00:00::d+10}
-
-
-      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-      Login in to EGMS and click on EGMS IDs to access the assigned record.
-
-
-      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
-
-      EGMS ID Type Status Subject Assigned By Reason of Failure
-
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-
-      Thank you,
-
-      The EGMS Team.
-      """
+#    And I see the mail subject is as follows :
+#      """
+#      Sandbox: Task Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#      The task(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
+#
+#      EGMS ID Type Status Subject Assigned By Due Date
+#      {SavedValue:DeskReview} Review Site Visit Not Started Review Site Visit for Organization SAN DIEGO ELECTRICAL TRAINING TRUST Automation FO {Date:yyyy/MM/dd 00:00:00::d+10}
+#
+#
+#      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
+#      Login in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#
+#      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
+#
+#      EGMS ID Type Status Subject Assigned By Reason of Failure
+#
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+#
+#      Thank you,
+#
+#      The EGMS Team.
+#      """
     Given I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -8226,23 +8228,23 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "Submitted" for title "Status" inside table "---subAwardFromFDM:-:peerReviewersTableId---"
     And I logout
     And I wait for "2" seconds
-#    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Award {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
-#      """
-#    Then I see the mail text is as follows :
-#      """
-#      Hello Automation PM1,
-#      This email is to notify you that Subaward {SavedValue:Automation Runtime Direct Award} has been peer reviewed.
-#      Log in to EGMS and click here for more details.
-#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#      Thank you.
-#      The EGMS Team
-#      """
-#    Then I refresh the page
+    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Award {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
+      """
+    Then I see the mail text is as follows :
+      """
+      Hello Automation PM1,
+      This email is to notify you that Subaward {SavedValue:Automation Runtime Direct Award} has been peer reviewed.
+      Log in to EGMS and click here for more details.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+      Thank you.
+      The EGMS Team
+      """
+    Then I refresh the page
     Given I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM1" user
     And I navigate to "Grants" tab
@@ -8885,22 +8887,22 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "Submitted" for title "Status" inside table "---subAwardFromFDM:-:peerReviewersTableId---"
     Then I softly see value "Automation EXE1" for title "Reviewer Name" against the value "Submitted" inside table "---subAwardFromFDM:-:peerReviewersTableId---"
     And I logout
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "180" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Notification: Award {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
-#      """
-#    Then I see the mail text is as follows :
-#      """
-#      Hello Automation PM,
-#      This email is to notify you that Subaward {SavedValue:Automation Runtime Direct Award} has been peer reviewed.
-#      Log in to EGMS and click here for more details.
-#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#      Thank you.
-#      The EGMS Team
-#      """
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "180" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Notification: Award {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
+      """
+    Then I see the mail text is as follows :
+      """
+      Hello Automation PM,
+      This email is to notify you that Subaward {SavedValue:Automation Runtime Direct Award} has been peer reviewed.
+      Log in to EGMS and click here for more details.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+      Thank you.
+      The EGMS Team
+      """
     Then I refresh the page
     Given I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "EXE" user

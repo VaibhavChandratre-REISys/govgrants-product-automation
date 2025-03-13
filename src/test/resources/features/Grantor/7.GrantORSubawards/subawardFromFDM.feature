@@ -18,7 +18,7 @@ Feature: Validate all scenarios in the award created from FDM
     When I click on "Save" in the page details
     And I get the "EGMS ID"
 
- @67486 @67485 @totalObligation
+  @67486 @67485 @totalObligation
   Scenario: To validate that total obligation in the Financial table of funding account page navigated through the Funding account hyperlink present on the Subaward page of Grantor (Internal PM ) is the Sum of Pre-encumbrance, Encumbrance and the Spent value
     And I navigate to "Budget" sub tab
     And I click on hyperlink containing value "{SavedValue:fundingAccount}"
@@ -80,8 +80,8 @@ Feature: Validate all scenarios in the award created from FDM
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Title                      | Project Role   |
-      | {SavedValue:SPI3 Username} | Fiscal Contact |
+      | Title                      | Project Role             |
+      | {SavedValue:SPI3 Username} | Project Director/Manager |
     When I navigate to "Budget" sub tab
     Given I edit the following rows inline in flex table with id "---subAwardFromFDM:-:AwardFundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
@@ -1138,13 +1138,13 @@ Feature: Validate all scenarios in the award created from FDM
   Scenario: Verify Approvers added at announcement is same on subaward when grant which is created with application
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
+      | Name                     | Award  |
       | {SavedValue:PM Username} | Step 1 |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 2 |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
+      | Name                     | Award  |
       | {SavedValue:FO Username} | Step 3 |
     Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---subAwardStandAlone:-:awardApproversTableId---"
     Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---subAwardStandAlone:-:awardApproversTableId---"
