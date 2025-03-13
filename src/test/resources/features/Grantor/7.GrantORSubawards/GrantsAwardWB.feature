@@ -5719,7 +5719,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "NA" for title "Award" against the value "Automation PM1" inside table "---subAwardStandAlone:-:awardApproversTableId---"
     Then I softly see value "Step 2" for title "Amendment Request" against the value "Automation FO" inside table "---subAwardStandAlone:-:awardApproversTableId---"
 
-  @223179  @sprint-12-US-226646  @reassignment @TBExecution
+  @223179  @sprint-12-US-226646  @reassignment
   Scenario: Validate email should get generate for reassign owner (reverse reassignment) of award after peer reviewer submit his review to award owner after ownership reassignment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -7483,7 +7483,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation EXE" for title "Name" inside table "---closeout:-:closeoutOwnerTableId---"
 
-  @224420 @sprint-12-US-226646  @reassignment @TBExecution
+  @224420 @sprint-12-US-226646  @reassignment
   Scenario: Validate Reassignment Task all simultaneous reassignment task ownership should reassigned to new owner
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -7718,9 +7718,9 @@ Feature: Validate all scenarios of grants and award without background
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:DeskReview}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
-    And I pause execution for "180" seconds
-    Then I refresh the page
+#    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+#    And I pause execution for "180" seconds
+#    Then I refresh the page
 #    And I see the mail subject is as follows :
 #      """
 #      Sandbox: Task Reassignment Report
@@ -8170,7 +8170,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM1" for title "Reviewer Name" against the value "Fiscal Reviewer" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
 
-  @204896  @sprint-11-US-224734  @reassignment @FieldHistoryExclude @TBExecution
+  @204896  @sprint-11-US-224734  @reassignment @FieldHistoryExclude
   Scenario: Validate Award new award owner will receive email for submitted review by reviewer after change the award ownership
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -8837,7 +8837,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @204884  @sprint-11-US-218319  @reassignment @TBExecution
+  @204884  @sprint-11-US-218319  @reassignment
   Scenario: Validate Award EXE as peer reviewer he can reassign his review task to other EXE user and new reviewer can complete review
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
