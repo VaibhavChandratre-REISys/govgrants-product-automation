@@ -3701,7 +3701,7 @@ public class GrantorPayloads {
             case "ALL_SETTING_NO":
                 return payloadForAllSettingsNo(json);
             case "CASH_MATCH_NON_CASH_MATCH":
-                return payloadForCashMatchAndNonCashMatch(json);
+                return payloadForCashMatchAndNonCashMatch(json, grantTitle, state);
             case "NON_CASH_MATCH":
                 return payloadForNonCashMatch(json);
             case "NON_CONSTRUCTION":
@@ -3731,12 +3731,49 @@ public class GrantorPayloads {
         return json;
     }
 
-    private JsonObject payloadForCashMatchAndNonCashMatch(JsonObject json) {
-        JsonObject grants = json.getAsJsonArray("GrantAwardData").get(0).getAsJsonObject();
-        JsonArray pre = new JsonArray();
-        grants.addProperty("costSharing", "Cash and Non-Cash Match");
-        pre.add(grants);
-        json.add("GrantAwardData", pre);
+    private JsonObject payloadForCashMatchAndNonCashMatch(JsonObject json, String grantTitle, String state) {
+        JsonObject grantDetails = json.getAsJsonArray("GrantAwardData").get(0).getAsJsonObject();
+        grantDetails.addProperty("isDirectGrant", true);
+        grantDetails.addProperty("grantTitle", grantTitle);
+        grantDetails.addProperty("grantAbbreviation", "GA");
+        grantDetails.addProperty("grantNumber", "GT1234");
+        grantDetails.addProperty("projectPeriodStartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        grantDetails.addProperty("projectPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        grantDetails.addProperty("budgetType", "Construction");
+        grantDetails.addProperty("fundingOrganization", ProjectWebServices.getIdOf("Account", "Department of Education"));
+        grantDetails.addProperty("InternalOrganization", ProjectWebServices.getIdOf("Account", "Department of Product"));
+        grantDetails.addProperty("allowIndirectCosts", "Yes");
+        grantDetails.addProperty("GrantDescription", "Automation Test");
+        grantDetails.addProperty("totalAnticipatedAmount", 100000);
+        grantDetails.addProperty("grantType", "Project Grant");
+        grantDetails.addProperty("maintenanceOfEffortRequired", "Yes");
+        grantDetails.addProperty("matchRequired", "Yes");
+        grantDetails.addProperty("costSharing", "Cash and Non-Cash Match");
+        grantDetails.addProperty("requiredMatchPercentage", 10);
+        grantDetails.addProperty("isLeverageAllowed", "Yes");
+        grantDetails.addProperty("BudgetCloseoutrequestRequired", "Yes");
+        grantDetails.addProperty("programIncomeAllowed", "Yes");
+        grantDetails.addProperty("ueiNumber", ProjectWebServices.getIdOf("DUNS__c", "YRNMVN96JC17"));
+        grantDetails.addProperty("ownerId", ProjectWebServices.getIdOf("User", "Sarah PM"));
+        grantDetails.addProperty("grantAwardDescription", "Automation Test");
+        grantDetails.addProperty("AwardIssueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(0, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        grantDetails.addProperty("AmendmentNumber", 10);
+        grantDetails.addProperty("MaintenanceOfEffortAmount", 100);
+        grantDetails.addProperty("TermsandConditionsLink", "www.google.com");
+        grantDetails.addProperty("MaintenanceOfEffortStatutoryReference", "www.google.com");
+        grantDetails.addProperty("FunderPaymentSystem", "spaceX");
+        grantDetails.addProperty("FunderPaymentAccountNumber", "ABC12121");
+        grantDetails.addProperty("BudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        grantDetails.addProperty("MaximumIndirectCostRate", 10);
+        grantDetails.addProperty("ProgramIncome", "Additive");
+        grantDetails.addProperty("CongressionalDistrict", "123");
+        grantDetails.addProperty("AwdStatusSubmittedOrApproved", state);
+
+        // Creating the final JSON object
+        JsonArray grantDataArray = new JsonArray();
+        grantDataArray.add(grantDetails);
+        json.add("GrantAwardData", grantDataArray);
+
         return json;
     }
 
