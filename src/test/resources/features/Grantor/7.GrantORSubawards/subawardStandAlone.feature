@@ -28,6 +28,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
   Scenario Outline: Associate a Key Contact
     And I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---"
+    And I perform quick search for "<Contact>" in "---subAwardStandAlone:-:keyContactsTableId---" panel
     And I check "All" boxes in flex table with id "---subAwardStandAlone:-:keyContactsTableId---"
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:keyContactsTableId---"
     And I refresh the page
@@ -35,10 +36,9 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Name                       | Project Role             | Is Key Personnel |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
       | Automation SPA             | Other                    |                  |
-    #Bug410727
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
-    Then I softly see that "Automation SPA" has been added in flextable with Id "---subAwardStandAlone:-:associatedContactsTableId---"
+    Then I softly see that "<Contact>" has been added in flextable with Id "---subAwardStandAlone:-:associatedContactsTableId---"
     Examples:
       | Contact        |
       | Automation SPA |
@@ -1444,7 +1444,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66087 @UnableToActivateSubAwardIfRiskAssesmentApprovePMHasNotApprovedIt @TBExecution
+  @66087 @UnableToActivateSubAwardIfRiskAssesmentApprovePMHasNotApprovedIt
   Scenario Outline: To validate that if risk assessment record is not approved by the approver (PM Profile) Subaward (PM) is not able to Activate Subaward and validation error appears
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2887,7 +2887,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I pause execution for "3" seconds
     Then I see total records count "Total Records: 2" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @58823 @AwardOwnerCancreateRAAnyTimeBeforeActivatingAward @TBExecution
+  @58823 @AwardOwnerCancreateRAAnyTimeBeforeActivatingAward
   Scenario Outline: Validate when the Award is in Submitted for Approval and the Award Owner can still create the Risk Assessment any time before Activating the Award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -4310,7 +4310,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65970 @validateSendBackTOpmbyFO @TBExecution
+  @65970 @validateSendBackTOpmbyFO
   Scenario Outline: To verify that after Fiscal Approver (David FO Profile) clicks on the Send back radio button the progress bar changes from “Submitted for Approval” to “created”
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5178,7 +5178,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @68606 @verifyUserCanSeeAwardAsCompletedStatusInCompletedTableTask @TBExecution
+  @68606 @verifyUserCanSeeAwardAsCompletedStatusInCompletedTableTask
   Scenario Outline: Validate that after Subaward is Sent to the Subrecipient it appears in the Pending task of SPI/SPA user and on acceptance of subaward by SPI user it appears in the Completed task of all.
   | SPI and SPA user can see subaward in completed status in Completed task table
     And I click on "Edit" in the page details
@@ -6476,7 +6476,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @349938 @VerifyPMusershouldseeBudgetedamountreadonlycolumnincreatedSenttoSrbeforeaapproval @sprint-15-US @TBExecution
+  @349938 @VerifyPMusershouldseeBudgetedamountreadonlycolumnincreatedSenttoSrbeforeaapproval @sprint-15-US
   Scenario: Verify PM user should see 'Budgeted amount' read only column in created, Sent to S/r before a approval
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"
