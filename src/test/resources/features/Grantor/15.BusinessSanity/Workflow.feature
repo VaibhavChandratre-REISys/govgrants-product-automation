@@ -2374,6 +2374,72 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
 
+  @CreateBulkDataPreScreenReviewCompleted
+    Scenario:
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
+    And I click toggle button to select "Opportunities Converted to Application - All"
+    When I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
+    And I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
+    When I click on "Create Application" in the page details
+    And I wait for "5" seconds
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    When I enter "Edition" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    When I expand nested table containing column value "BP01"
+    When I click on "Add Line Item Details" icon for "Administrative Costs" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
+    And I edit the following rows inline in flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "Edit" :
+      | Title                | Budgeted Expense | Cash Match | Non-Cash Match |
+      | Administrative Costs | 1000             | 100        | 100            |
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
+    When I navigate to "KPIs" sub tab
+    When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
+      | EGMS ID                  | Target |
+      | Automation Permanent KPI | 10     |
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I click on "Submit Application" in the page details
+    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "{AUTOEnvData:BulkDataAnnouncementName}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:BulkDataAnnouncementName}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I wait for "3" seconds
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
+    And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I close "Assign Applications" modal by clicking the top right x button
+    And I refresh the page
+    And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
+    When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "2" seconds
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    Then I see that "Status" is in "Review Completed" status
+
   @CreateBulkDataPreScreenCompletedNotRecommended @BulkExecution
   Scenario:
     Given I am on "SUBPORTAL" portal
