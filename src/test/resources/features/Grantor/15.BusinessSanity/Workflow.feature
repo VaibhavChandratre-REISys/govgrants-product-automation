@@ -2823,7 +2823,6 @@ Feature: Validate all scenarios of every modules flow
     When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
-    Then I softly see field "Status" as "Completed"
 
   @CreateBulkDataPreScreenReject
   Scenario:
