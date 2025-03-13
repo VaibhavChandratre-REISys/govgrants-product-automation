@@ -2413,7 +2413,8 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-    When I close "{SavedValue:EGMSID}" modal by clicking the top right x button
+    When I click modal button "Close"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "DynamicUser" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
