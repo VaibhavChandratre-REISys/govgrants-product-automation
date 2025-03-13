@@ -3702,6 +3702,8 @@ public class GrantorPayloads {
                 return payloadForAllSettingsNo(json);
             case "CASH_MATCH_NON_CASH_MATCH":
                 return payloadForCashMatchAndNonCashMatch(json);
+            case "NON_CASH_MATCH":
+                return payloadForNonCashMatch(json);
             case "NON_CONSTRUCTION":
                 return payloadForNonConstruction(json);
             case "USER":
@@ -3709,6 +3711,15 @@ public class GrantorPayloads {
             default:
                 return json;
         }
+    }
+
+    private JsonObject payloadForNonCashMatch(JsonObject json) {
+        JsonObject grants = json.getAsJsonArray("GrantAwardData").get(0).getAsJsonObject();
+        JsonArray pre = new JsonArray();
+        grants.addProperty("costSharing", "Non-Cash Match");
+        pre.add(grants);
+        json.add("GrantAwardData", pre);
+        return json;
     }
 
     private JsonObject payloadForNonConstruction(JsonObject json) {
