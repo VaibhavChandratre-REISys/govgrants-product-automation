@@ -10180,7 +10180,6 @@ Feature: Sanity scenarios
     And I click on "Edit" in the page details
     And I enter value "Cash and Non-Cash Match" into field "CostSharing__c"
     And I click on "Save" in the page details
-    And I halt execution
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
