@@ -10141,12 +10141,13 @@ Feature: Sanity scenarios
     And I save the field labeled "Grant Number" as "GrantNumber"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name      | Role            | Description            | Due Date | Allow Record Editing |
       | Danielle FD Garcia | Fiscal Reviewer | Automation Description | 5        | Yes                  |
     Then I softly can see row level action button "Send for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
-    Then I softly can see top right button "Complete Review" in page detail
+    Then I softly cannot see top right button "Complete Review" in page detail
     When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
