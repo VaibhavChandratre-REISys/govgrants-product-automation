@@ -10277,10 +10277,10 @@ Feature: Sanity scenarios
 #    And I wait for "6" seconds
 #    Then I softly see "Report Non Cash Match" on page "1" of "govgrants" pdf file
     Examples:
-      | userType    | userName   |
-      | GRANTEE PM  | Sarah PM   |
-      | GRANTEE EXE | Victor EXE |
-      | GRANTEE PO  | Grantee PO |
+      | userType    | userName        |
+      | GRANTEE PM  | Sarah PM user   |
+      | GRANTEE EXE | Victor EXE user |
+      | GRANTEE PO  | Grantee PO user |
 
   @477320 @477322 @477321 @477323 @ValidateFinancialreportschedulesvalidationsdisplayedtoPMuseronEditFinancialreportschedulemodalwhenawardisinCreatedSubmittedforreviewReviewedActivatedstate
   Scenario Outline: Validate Financial report schedules validations displayed to PM user on Edit Financial report schedule modal when award is in Created, Submitted for review, Reviewed, Activated state
