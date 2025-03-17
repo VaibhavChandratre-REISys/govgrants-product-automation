@@ -99,7 +99,7 @@ public class UsersAndURL implements UsersController {
                 password = "Salesforce@2038";
                 break;
             default:
-                password = "Salesforce@2037";
+                password = "Salesforce@2039";
         }
         return password;
     }
@@ -107,6 +107,9 @@ public class UsersAndURL implements UsersController {
     private String getNYLwcEnvironmentPassword(String userLevel) {
         String password;
         switch (userLevel.toUpperCase()) {
+            case "ADMIN":
+                password = "Salesforce@2039";
+                break;
             default:
                 password = "Salesforce@2038";
         }
