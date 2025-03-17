@@ -561,6 +561,7 @@ public final class GovGrantsSteps {
     @Description("click top right button after reaching to page detail inside Split screen")
     @When("^I click on \"([^\"]*)\" in the split screen page details$")
     public void clickPageButtonInsideSplitScreen(String buttonName) {
+        I.amPerforming().waitFor().makeThreadSleep(1000);
         govgrants.perform().pageDetails().clickAnyTopRightButtonInsideSplitScreen(buttonName);
         govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
     }
