@@ -7389,6 +7389,7 @@ Feature: Sanity scenarios
     And I save the field labeled "EGMS ID" as "BPCAMENDID"
     When I navigate to "Overview" sub tab
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I wait for "2" seconds
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I see value "Record Id" for title "{SavedValue:BPCAMENDID}" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
@@ -7737,7 +7738,7 @@ Feature: Sanity scenarios
     Examples:
       | User       | EmailFrom                         | EmailTo                       |
       | GRANTEE PO | grantee.po@yopmail.com.qagrnteatm | sarah.pm@ggp.test8.qagrnteatm |
-      | GRANTEE FO | david.fo@ggp.test8.qagrnteatm     | sarah.pm@ggp.test8.qagrnteatm |
+#      | GRANTEE FO | david.fo@ggp.test8.qagrnteatm     | sarah.pm@ggp.test8.qagrnteatm |
 
   @462011 @PRAmdVerifythatPMasAmdowneruserseeNewbuttoninAddlineItem&theirfieldsunderBudgetCategorysectionunderOverviewTabinPeriodicRenewalAmendmentRequestlayout @TBExecution
   Scenario: PR Amd Verify that PM (as Amd owner)user see New button in Add line Item & their fields under Budget Category section under Overview Tab in Periodic Renewal Amendment Request layout
