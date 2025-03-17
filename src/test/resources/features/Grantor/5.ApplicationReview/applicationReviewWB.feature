@@ -432,7 +432,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            |
       | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @35301 @verifyInitiateReviewProcessButton @TestExecution
+  @35301 @verifyInitiateReviewProcessButton
   Scenario Outline: Validate owner should be able to see Initiate Review Process button
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -707,7 +707,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80256 @81349 @81348 @verifyStatusOfApplicationAtManagementReview @TestExecution
+  @80256 @81349 @81348 @verifyStatusOfApplicationAtManagementReview
   Scenario Outline: validate status of application is Review Completed once review form is submitted for management review
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime Announcement for Application}" on announcement "{SavedValue:Automation Runtime Announcement for Application}" with properties "default"
@@ -958,7 +958,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            | Application Name                                             |
       | {SavedValue:Automation Runtime Announcement for Application} | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @80518 @verifyStatusOfSMEReviewInCompletedTasks @TestExecution
+  @80518 @verifyStatusOfSMEReviewInCompletedTasks
   Scenario Outline: validate status of SME Review is Completed inside completed tasks once review form is submitted for SME review with expected user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1914,7 +1914,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @81589 @80904 @verifyCreateSubAwardThroughRecommendedApplication @TestExecution
+  @81589 @80904 @verifyCreateSubAwardThroughRecommendedApplication
   Scenario Outline: validate user is able to create sub award through recommended Application
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1948,7 +1948,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @80258 @ValidateFDMShouldNotGetEditedAfterSubmissionByOwner @TestExecution
+  @80258 @ValidateFDMShouldNotGetEditedAfterSubmissionByOwner
   Scenario Outline: Validate user is not able to edit the FDM once it is submitted for approval
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -2196,7 +2196,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80509 @80510 @verifyPromoteToFDMButtonOnApplicationPhase @TestExecution
+  @80509 @80510 @verifyPromoteToFDMButtonOnApplicationPhase
   Scenario Outline: Verify user is able to see Promote to FDM button after rejection of application
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -14087,7 +14087,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @225602  @sprint-11-US-203558  @Allocation @TestExecution
+  @225602  @sprint-11-US-203558  @Allocation
   Scenario Outline: EXE User user see the validation when the budgeted Amount is not equal to the Allocation amount when user tried to promote the application to the next step for customized review step.
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab

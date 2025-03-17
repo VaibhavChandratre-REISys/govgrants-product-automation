@@ -92,6 +92,9 @@ public class UsersAndURL implements UsersController {
     private String getProLwcEnvironmentPassword(String userLevel) {
         String password;
         switch (userLevel.toUpperCase()) {
+            case "PM":
+                password = "Salesforce@2040";
+                break;
             default:
                 password = "Salesforce@2039";
         }
