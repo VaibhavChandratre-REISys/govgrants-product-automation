@@ -7388,8 +7388,8 @@ Feature: Sanity scenarios
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "BPCAMENDID"
     When I navigate to "Overview" sub tab
-    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I wait for "2" seconds
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I see value "Record Id" for title "{SavedValue:BPCAMENDID}" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
@@ -7749,8 +7749,8 @@ Feature: Sanity scenarios
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Overview" sub tab
@@ -7854,7 +7854,7 @@ Feature: Sanity scenarios
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Overview" sub tab
@@ -8082,7 +8082,7 @@ Feature: Sanity scenarios
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Created"
@@ -8128,7 +8128,7 @@ Feature: Sanity scenarios
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Created"
@@ -8509,8 +8509,9 @@ Feature: Sanity scenarios
     When I save the field labeled "Description of Other Changes" as "Description1"
     When I save the field labeled "Justification for Purpose and Summary" as "Description2"
     When I save the field labeled "If Other amendment type, explain" as "Description3"
+    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
     When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:amendmentAssociateContactTableId---"
-    And I wait for "3" seconds
+    And I wait for "2" seconds
     And I click modal button "Close"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentContactTableId---" by clicking "Edit" :
       | Proposed Name | Project Role    | Is Key Contact |
@@ -11074,7 +11075,7 @@ Feature: Sanity scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
     When I click "Associate" after selection of "Automation Runtime KPI2" in the table "---grantee_tableId:-:selectAmendmentKPITableId---"
     Then I softly see the following messages in the page details contains:
-      | KPIs added succesfully. |
+      | KPIs added successfully. |
     And I click modal button "Close"
     And I save the value from row "1" for column name "Title" as "KPITitle" from flex table "---grantee_tableId:-:amendmentKPITableId---"
     Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:amendmentKPITableId---"
