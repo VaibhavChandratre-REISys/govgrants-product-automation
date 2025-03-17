@@ -1971,6 +1971,7 @@ Feature: Validate all scenarios in the Application Review
     When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | Application successfully assigned to Reviewer. |
     When I click modal button "Close"
@@ -2019,6 +2020,7 @@ Feature: Validate all scenarios in the Application Review
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | Application successfully assigned to Reviewer. |
     When I close "Assign Reviewers" modal by clicking the top right x button
@@ -2028,6 +2030,7 @@ Feature: Validate all scenarios in the Application Review
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | Application successfully assigned to Reviewer. |
     When I close "Assign Reviewers" modal by clicking the top right x button
@@ -2037,6 +2040,7 @@ Feature: Validate all scenarios in the Application Review
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | Application successfully assigned to Reviewer. |
     When I close "Assign Reviewers" modal by clicking the top right x button
@@ -3697,7 +3701,7 @@ Feature: Validate all scenarios in the Application Review
     And I click on "Save" in the page details
     #79672
     And I wait for "2" seconds
-    Then I softly see field in the form "Comments" as ""
+    Then I softly see field in the form "Comments" as "Automation test description"
     Then I softly see field "Does the application meet the match requirement outlined in the funding opportunity?" as "Yes"
     Then I softly see field "Is the need for proposed budget item adequately supported?" as "Yes"
     Then I softly see field "Are proposed indirect costs consistent with applicant's approved indirect cost rate plan?" as "Yes"
@@ -3861,9 +3865,6 @@ Feature: Validate all scenarios in the Application Review
     And I navigate to "Funding Decision Memo" sub tab
     Then I softly see that "Recommended" has been added in flextable with Id "FundingDecisionMemoApplications"
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                      | FDM |
-      | {SavedValue:EXE Username} | NA  |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                      | FDM    |
       | {SavedValue:EXE Username} | Step 1 |

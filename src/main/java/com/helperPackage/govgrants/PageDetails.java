@@ -117,7 +117,7 @@ public final class PageDetails {
     public void clickAnyTopRightButtonInsideSplitScreen(String buttonName) {
         By topRightButton = By.xpath("//c-flex-layout-quick-view//lightning-button//button[@title='" + buttonName + "'] | //lightning-button-menu[contains(@class,'" + buttonName + "')]");
         try {
-            I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
+            I.amPerforming().waitFor().ElementToBePresent(topRightButton);
             I.amPerforming().click().withJavaScript(topRightButton);
             govgrants.perform().modal().acceptPopUp();
         } catch (Exception ex) {

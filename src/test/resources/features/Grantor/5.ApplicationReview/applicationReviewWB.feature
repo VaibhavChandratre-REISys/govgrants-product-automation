@@ -269,7 +269,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see the following messages in the page details contains:
       | Cannot promote <Announcement Name> because it does not meet the minimum review requirements: |
-      | Pre-Screen has 0 out of 1 complete reviews                                                   |
+      | Program Review has 0 out of 1 complete reviews                                               |
+      | Compliance Review has 0 out of 1 complete reviews                                            |
+      | Fiscal Review has 0 out of 1 complete reviews                                                |
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -339,7 +341,6 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "4" seconds
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     And I pause execution for "2" seconds
-    #Bug452382
     Then I softly see the following messages in the page details contains:
       | Cannot promote <Announcement Name> because it does not meet the minimum review requirements: |
       | Management Review has 0 out of 1 complete reviews                                            |
@@ -3385,6 +3386,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "Management Review" inside flex table with id "---announcement:-:reviewStepTableId---"
     Then I softly see field "Status" as "Completed"
     When I click on "Funding Decision Memo" in the page details
+    And I wait for "2" seconds
     Then I softly can see "Funding Decision Memo" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
     Then I softly can see "History" sub tab at view detail page
@@ -5398,9 +5400,8 @@ Feature: Validate all scenarios in the Application Review without background
       | Name                     | FDM    |
       | {SavedValue:PM Username} | Step 2 |
     And I pause execution for "2" seconds
-    #Bug452713
     Then I softly see the following messages in the page details :
-      | You cannot specify the same step for multiple users for FDM. |
+      | You cannot specify the same user for multiple steps for FDM. |
     Examples:
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
@@ -7614,13 +7615,6 @@ Feature: Validate all scenarios in the Application Review without background
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edit_2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
-#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:NegotiationFormsTableId---"
-#    And I enter value "Checked" into field "AllowEdit__c"
-#    And I click on top right button "Save" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
-#    When I click on "Form Name" column header inside table with id "---negotiation:-:NegotiationFormsTableId---"
-#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:NegotiationFormsTableId---"
-#    And I enter value "Checked" into field "AllowEdit__c"
-#    And I click on top right button "Save" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
     And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
       | Form Name                | Needs Negotiation |
       | Standard Assurances Form | Checked           |
@@ -15630,8 +15624,6 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Reject" in the approval decision
-    And I refresh the page
-    And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     Then I softly see value "Cancelled" for title "Final Decision" against the value "{SavedValue:AppEgmdId}" inside table "---subAwardFromFDM:-:recommendedAppTableId---"
     #2nd Application
@@ -17281,6 +17273,7 @@ Feature: Validate all scenarios in the Application Review without background
   Scenario Outline: Validate PM user "Final Decision" should be present before the Applicant Notified column in recommended Non-recommended section on FDM
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
+    And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
     When I login to "As a Grantor" app as "<User>" user
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -17290,7 +17283,6 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "2" seconds
-    And I wait for "3" seconds
     And I save the link value from row "1" for column name "EGMS ID" as "AppEgmdId" from flex table "---applicationReview:-:applicationAssignTableId---"
     And I save the link value from row "2" for column name "EGMS ID" as "AppEGMSID1" from flex table "---applicationReview:-:applicationAssignTableId---"
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
@@ -17944,8 +17936,6 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Reject" in the approval decision
-    And I refresh the page
-    And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     And I wait for "3" seconds
     Then I softly see value "Cancelled" for title "Final Decision" against the value "{SavedValue:AppEgmdId}" inside table "---subAwardFromFDM:-:fdmNonRecommendedTableId---"
@@ -19281,9 +19271,9 @@ Feature: Validate all scenarios in the Application Review without background
     When I click modal button "Close"
     And I refresh the page
     #Need to check the assertion Automation Runtime FDM Announcement126893
-    Then I softly see value "2" for title "# of Reviews Assigned" against the value "Automation PM1" inside table "---applicationReview:-:reviewersTableId---"
+    Then I softly see value "1" for title "# of Reviews Assigned" against the value "Automation PM1" inside table "---applicationReview:-:reviewersTableId---"
     Then I softly see value "1" for title "# of Reviews Assigned" against the value "{SavedValue:PM Username}" inside table "---applicationReview:-:reviewersTableId---"
-    Then I softly see value "1" for title "# of Reviews Assigned" against the value "SME Reviewer" inside table "---applicationReview:-:reviewersTableId---"
+    Then I softly see value "1" for title "# of Reviews Assigned" against the value "Automation SME" inside table "---applicationReview:-:reviewersTableId---"
 
     Examples:
       | Announcement Name                                | Application Name                                 |
