@@ -951,7 +951,7 @@ public final class GovGrantsSteps {
     }
 
     @Description("To click on any hyperlink with value or id inside page details")
-    @And("^I click (in table|on) (subaward dashboard|hyperlink|link name|hyperlink for global search|hyperlink for modal|hyperlink for console) containing value \"([^\"]*)\"$")
+    @And("^I click (in table|on) (subaward dashboard|hyperlink|link name|hyperlink for global search|hyperlink for modal|hyperlink for invisible fields) containing value \"([^\"]*)\"$")
     public void iClickOnHyperlinkContainingValue(String check, String usage, String linkName) {
         govgrants.perform().pageDetails().clickOnLink(check.contains("table"), usage, linkName);
     }
