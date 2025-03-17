@@ -3870,14 +3870,13 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I pause execution for "5" seconds
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Quickview" sub tab in split screen
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
@@ -3928,10 +3927,9 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
-    And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3940,10 +3938,9 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
-    And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3952,10 +3949,9 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
-    And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -3987,10 +3983,9 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
-    And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
