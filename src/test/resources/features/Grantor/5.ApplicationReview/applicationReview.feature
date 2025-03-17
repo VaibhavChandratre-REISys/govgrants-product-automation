@@ -806,7 +806,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79206 @pdfForReviewSteps
+  @79206 @pdfForReviewSteps @TestExecution
   Scenario Outline: To verify user able to download pdf for Review Steps section in related log tab of Apllication phase.
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1264,7 +1264,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79960 @79961 @verifyingCompletedTaskForPrescreenManagementReview
+  @79960 @79961 @verifyingCompletedTaskForPrescreenManagementReview @TestExecution
   Scenario Outline: To verify the tasks will be displayed on completed tasks for the reviewer, when reviewer submit Reviews form successfully,for prescreen review step in  Application phase
   | To verify the tasks will be displayed on completed tasks for the reviewer, when reviewer submit Reviews form successfully,for management review step in  Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -3299,7 +3299,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80049 @verifyEnteringOfJustificationForFDM
+  @80049 @verifyEnteringOfJustificationForFDM @TestExecution
   Scenario Outline: validate user is able to enter justification for FDM
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
