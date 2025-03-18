@@ -7772,7 +7772,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Original Budget Details" against "Construction" in flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---"
     When I click on "Original Budget Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     Then I softly see value "Construction" for title "Title" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see value "The narrative" for title "Narrative" inside table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see value "Test Build-up" for title "Narrative" inside table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
@@ -7790,7 +7790,7 @@ Feature: Sanity scenarios
     Then I softly see "Previous Project Cost" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see value "Construction" for title "Title" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
-    Then I softly see value "The narrative" for title "Narrative" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see value "Test Build-up" for title "Narrative" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see value "$5,000.00" for title "Prior Awarded Budget" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see value "$5,000.00" for title "Awarded Budget" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see value "$500.00" for title "Cash Match" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
@@ -7814,6 +7814,7 @@ Feature: Sanity scenarios
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
+    And I wait for "1" seconds
     When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     And I navigate to "Overview" sub tab
@@ -7821,7 +7822,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Original Budget Details" against "Construction" in flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---"
     When I click on "Original Budget Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     Then I softly see value "Construction" for title "Title" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see value "The narrative" for title "Narrative" inside table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see value "Test Build-up" for title "Narrative" inside table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
@@ -7839,7 +7840,7 @@ Feature: Sanity scenarios
     Then I softly see "Previous Project Cost" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see value "Construction" for title "Title" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
-    Then I softly see value "The narrative" for title "Narrative" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see value "Test Build-up" for title "Narrative" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see value "$5,000.00" for title "Prior Awarded Budget" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see value "$5,000.00" for title "Awarded Budget" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see value "$500.00" for title "Cash Match" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
@@ -8136,8 +8137,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    Then I softly see field "Status" as "Created"
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     Then I softly see field "Status" as "Activated"
     And I navigate to "Projections" sub tab
