@@ -11175,8 +11175,9 @@ Feature: Sanity scenarios
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - My Records"
+    And I wait for "3" seconds
     When I perform quick search for "{SavedValue:AmendEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly do not see value "{SavedValue:AmendEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:AmendmentTableId---"
+    Then I see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
     And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
