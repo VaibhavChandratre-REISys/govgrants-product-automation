@@ -19,7 +19,7 @@ import java.util.List;
 
 public final class PageDetails {
     private final By textInsideHelpText = By.xpath(
-            "//span[@role='tooltip']//span | //lightning-primitive-bubble[@role='tooltip']//div//div");
+            "//span[@role='tooltip']//span | //lightning-primitive-bubble[@role='tooltip']//div//div | //i[@class='fa fa-ban']/parent::a");
     public String idOfRecord = null;
 
     /**

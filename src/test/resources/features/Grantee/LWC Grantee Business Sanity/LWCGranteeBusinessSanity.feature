@@ -8533,7 +8533,7 @@ Feature: Sanity scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
     When I click "Associate" after selection of "Automation Runtime KPI2" in the table "---grantee_tableId:-:selectAmendmentKPITableId---"
     Then I softly see the following messages in the page details contains:
-      | KPIs added succesfully. |
+      | KPIs added successfully. |
     And I click modal button "Close"
     And I save the value from row "1" for column name "Title" as "KPITitle" from flex table "---grantee_tableId:-:amendmentKPITableId---"
     Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:amendmentKPITableId---"
