@@ -828,7 +828,7 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see "Pre-Screen Review" on page "1" of "govgrants" pdf file
     Then I softly see "SME Review" on page "1" of "govgrants" pdf file
     Then I softly see "Management" on page "1" of "govgrants" pdf file
-    Then I softly see "Review" on page "1" of "govgrants" pdf file
+    Then I softly see "Review Steps" on page "1" of "govgrants" pdf file
     Examples:
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |

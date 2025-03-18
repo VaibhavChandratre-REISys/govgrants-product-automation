@@ -3881,7 +3881,6 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I click on "Edit" in the split screen page details
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -3898,7 +3897,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I softly see value "Resubmitted" for title "Decision Status" against the value "{SavedValue:AppEGMSID}" inside table "---applicationReview:-:reSubmittedAppTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
-    And I pause execution for "3" seconds
+    And I pause execution for "2" seconds
     And I click on "Next Review Step" in the page details
     And I click on "Assign" icon for "{SavedValue:PM Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "Program Review" in "---applicationReview:-:assignApplicationsTableId---" panel
@@ -3914,9 +3913,9 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I perform quick search for "Compliance Review" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    And I pause execution for "5" seconds
-    And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
+    And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
