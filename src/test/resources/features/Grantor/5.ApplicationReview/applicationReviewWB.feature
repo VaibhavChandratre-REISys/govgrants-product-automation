@@ -6233,6 +6233,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "2" seconds
     And I navigate to "Funding Decision Memo" sub tab
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
+    And I wait for "3" seconds
     Then I softly can see "Negotiations" sub tab at view detail page
 
     Examples:

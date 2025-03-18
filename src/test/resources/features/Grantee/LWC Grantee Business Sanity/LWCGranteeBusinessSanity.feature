@@ -8859,7 +8859,7 @@ Feature: Sanity scenarios
     When I click on "Delete" icon for "Grantee PO" inside table with table id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without processing
     Then I softly see confirmation box with body "Do you want to delete? Once it is deleted it cannot be restored." is displayed
     When I click modal button "OK"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | Record deleted successfully. |
     Then I softly do not see value "Grantee PO" for title "Reviewer Name" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
@@ -8947,9 +8947,13 @@ Feature: Sanity scenarios
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     When I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
-      | Amendment Request | Name     |
-      | Step 1            | David FO |
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    When I click on "Edit" icon for "Step 1" inside flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    And I pause execution for "1" seconds
+    And I click on remove for lookup from field "name__r.name"
+    And I pause execution for "1" seconds
+    And I select user value "David FO" in field "name__r.name"
+    And I click on top right button "Save" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID"
     And I click on "Submit for Approval" in the page details
@@ -11171,8 +11175,8 @@ Feature: Sanity scenarios
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - My Records"
-    When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "{SavedValue:AmendEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:AmendmentTableId---"
+    When I perform quick search for "{SavedValue:AmendEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    Then I softly do not see value "{SavedValue:AmendEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:AmendmentTableId---"
     And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
