@@ -7814,7 +7814,7 @@ Feature: Sanity scenarios
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
-    And I wait for "1" seconds
+    And I wait for "2" seconds
     When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     And I navigate to "Overview" sub tab
@@ -8759,9 +8759,13 @@ Feature: Sanity scenarios
     When I enter value "2000" into field "RequestedChangeInBudget__c"
     When I click on "Save" in the page details
     Then I softly see value "{SavedValue:ContactName}" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"
+    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
+    When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:amendmentAssociateContactTableId---"
+    And I click modal button "Close"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentContactTableId---" by clicking "Edit" :
-      | Name       | Project Role | Is Key Contact |
-      | Victor EXE | --None--     | Unchecked      |
+      | Name       |  Is Key Contact |
+      | Victor EXE |  Unchecked      |
     And I click on "Edit" in the page details
     Then I softly see fields "GeneralConditionChanged__c" is in edit mode
     And I enter value "Checked" into field "GeneralConditionChanged__c"
