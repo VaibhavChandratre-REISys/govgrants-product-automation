@@ -7644,6 +7644,7 @@ Feature: Sanity scenarios
     Then I softly see value "<EmailTo>" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
+    When I click on "Subject" column header inside table with id "CommunicationHistory"
     Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:amendmentMessageTableID---"
     Then I softly see top right button "Advance Filter" inside flex table "---grantee_tableId:-:amendmentMessageTableID---"
     Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:amendmentMessageTableID---"
@@ -7651,6 +7652,7 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
+    And I wait for "2" seconds
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -7815,6 +7817,7 @@ Feature: Sanity scenarios
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
     And I wait for "3" seconds
+    And I halt execution
     When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     And I navigate to "Overview" sub tab
@@ -8142,7 +8145,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Activated"
     And I navigate to "Projections" sub tab
     Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see "Other Levearage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     When I save the field labeled "Total Match Amount Required" as "TotalMatchAmountRequired"
     Then I softly see field "Total Match Amount Required" as "{SavedValue:TotalMatchAmountRequired}"
     Then I softly see "Program Income" page block displayed
