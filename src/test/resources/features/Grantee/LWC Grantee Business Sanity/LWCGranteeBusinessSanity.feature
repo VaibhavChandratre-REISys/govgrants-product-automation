@@ -7348,7 +7348,6 @@ Feature: Sanity scenarios
   Scenario Outline: Verify FO user as (AR Owner) can able to create Budget Period Change AR on active Award & Not Accept AR by Grantor & not able to see Amend Award button in Not Accepted state of BPC AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
-    And I activate the award for title "{SavedValue:Automation Runtime Award}"
     Given I login to "As a Grantee" app as "<User>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -7358,12 +7357,20 @@ Feature: Sanity scenarios
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I save the field labeled "Grant Number" as "GrantNumber"
     When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Interim Award Document" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "AttachmentTesting.pdf" has been added in "Award Files" flex table
+    And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    And I refresh the page
     And I navigate to "Overview" sub tab
     And I save the field labeled "Budget Period" as "BudgetPeriod"
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    And I save the field labeled "Grant Award Number" as "GrantNumber"
+    And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
@@ -7677,7 +7684,6 @@ Feature: Sanity scenarios
     And I enter value "110" into field "ApprovedIndirectCostRate__c"
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
-      #bug 482502
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Maximum Indirect Cost Rate cannot be greater than 100% |
     And I click on "Edit" in the page details
@@ -7737,8 +7743,8 @@ Feature: Sanity scenarios
     Then I softly do not see "Grantor Decision History" page block displayed
     Examples:
       | User       | EmailFrom                         | EmailTo                       |
-      | GRANTEE PO | grantee.po@yopmail.com.qagrnteatm | sarah.pm@ggp.test8.qagrnteatm |
-#      | GRANTEE FO | david.fo@ggp.test8.qagrnteatm     | sarah.pm@ggp.test8.qagrnteatm |
+      | GRANTEE PO | govgrantsuat@yopmail.com | pm.automation@yopmail.com |
+#      | GRANTEE FO | david.fo@yopmail.com     | pm.automation@yopmail.com |
 
   @462011 @PRAmdVerifythatPMasAmdowneruserseeNewbuttoninAddlineItem&theirfieldsunderBudgetCategorysectionunderOverviewTabinPeriodicRenewalAmendmentRequestlayout @TBExecution
   Scenario: PR Amd Verify that PM (as Amd owner)user see New button in Add line Item & their fields under Budget Category section under Overview Tab in Periodic Renewal Amendment Request layout
