@@ -595,7 +595,7 @@ public class GenericSteps {
             I.amPerforming().click().withJavaScript(textbox);
             if (I.amPerforming().checkToSee().isElementDisplayed(SearchValue)) {
                 I.amPerforming().scroll().toMoveToElement(SearchValue);
-                I.amPerforming().click().withJavaScript(SearchValue);
+                I.amPerforming().click().on(SearchValue);
             }
         } else if (usage.equalsIgnoreCase("users")) {
             By textbox = ByUsing.xpath("//div[contains(@class,'" + arg1 + "')]//input[@placeholder='Search Users...']");
@@ -607,7 +607,7 @@ public class GenericSteps {
             I.amPerforming().click().withJavaScript(textbox);
             if (I.amPerforming().checkToSee().isElementDisplayed(SearchValue)) {
                 I.amPerforming().scroll().toMoveToElement(SearchValue);
-                I.amPerforming().click().withJavaScript(SearchValue);
+                I.amPerforming().click().on(SearchValue);
             }
         } else if (usage.equalsIgnoreCase("dropdown")) {
             By Ddown = ByUsing.xpath("//c-fieldlwc[@data-fieldapiname='" + arg1 + "']//div[@part='input-container']/input[@placeholder='Select an Option']");

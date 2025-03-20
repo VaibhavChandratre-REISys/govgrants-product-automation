@@ -1673,23 +1673,16 @@ Feature: Validate all scenarios of every modules flow
 #    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD"
     And I halt execution
 
-  @debugtest
+  @debugtest @debug
   Scenario:
-    And I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
-    And I navigate to "Grants" tab
-    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I wait for "2" seconds 
-    And I click toggle button to select "Subawards  - All"
-    And I perform quick search for "AD-GA-1299" in "---progressReport:-:recipientAwardsTableId---" panel
-    And I wait for "1" seconds
-    When I click on "View" icon for "AD-GA-1299" inside flex table with id "---progressReport:-:recipientAwardsTableId---" without waiting for record
-    Given I navigate to "Management" sub tab
-    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
-    And I wait for "5" seconds
-    When I enter "Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I enter value "Automation Test" into field "Justification__c"
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I see field "Budget Redirection Threshold" as "15.00%"
+    When I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/AmendmentRequest__c/a1YKQ000000L26p2AC/view"
+    And I halt execution
+    When I navigate to "Responsibilities" sub tab
+    When I click on "Edit" icon for "Step 1" inside flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    And I pause execution for "1" seconds
+    And I click on remove for lookup from field "name__r.name"
+    And I pause execution for "1" seconds
+    And I select user value "David FO" in field "name__r.name"
+    And I click on top right button "Save" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    And I halt execution

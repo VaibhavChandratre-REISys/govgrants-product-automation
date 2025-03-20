@@ -7748,7 +7748,7 @@ Feature: Sanity scenarios
       | GRANTEE PO | govgrantsuat@yopmail.com | pm.automation@yopmail.com |
       | GRANTEE FO | david.fo@yopmail.com     | pm.automation@yopmail.com |
 
-  @462011 @PRAmdVerifythatPMasAmdowneruserseeNewbuttoninAddlineItem&theirfieldsunderBudgetCategorysectionunderOverviewTabinPeriodicRenewalAmendmentRequestlayout @debug
+  @462011 @PRAmdVerifythatPMasAmdowneruserseeNewbuttoninAddlineItem&theirfieldsunderBudgetCategorysectionunderOverviewTabinPeriodicRenewalAmendmentRequestlayout
   Scenario: PR Amd Verify that PM (as Amd owner)user see New button in Add line Item & their fields under Budget Category section under Overview Tab in Periodic Renewal Amendment Request layout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
