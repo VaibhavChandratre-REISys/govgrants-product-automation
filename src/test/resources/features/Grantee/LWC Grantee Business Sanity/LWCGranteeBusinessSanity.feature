@@ -8953,10 +8953,11 @@ Feature: Sanity scenarios
     When I click on "Edit" icon for "Step 1" inside flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     And I pause execution for "1" seconds
     And I click on remove for lookup from field "name__r.name"
-    And I pause execution for "1" seconds
+    And I pause execution for "2" seconds
     And I select user value "David FO" in field "name__r.name"
-    And I pause execution for "1" seconds
+    And I pause execution for "2" seconds
     And I click on top right button "Save" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    And I pause execution for "2" seconds
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID"
     And I click on "Submit for Approval" in the page details
