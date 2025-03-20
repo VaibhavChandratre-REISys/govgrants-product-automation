@@ -461,13 +461,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -730,13 +730,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -1061,13 +1061,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -1327,13 +1327,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -1706,13 +1706,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -1992,13 +1992,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -2300,13 +2300,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -3199,13 +3199,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -3441,13 +3441,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -3727,13 +3727,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -3952,13 +3952,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -4283,13 +4283,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on "Edit" in the page details
     And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
@@ -4378,9 +4378,9 @@ Feature: Sanity scenarios
     Then I see option "Download As PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    Then I softly can see row level action button "View" against "Open Data Framework" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    Then I softly cannot see row level action button "Edit" against "Open Data Framework" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    Then I softly cannot see row level action button "Remove" against "Open Data Framework" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
+    Then I softly can see row level action button "View" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
+    Then I softly cannot see row level action button "Edit" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
+    Then I softly cannot see row level action button "Remove" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
@@ -4462,13 +4462,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -4691,13 +4691,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -4868,13 +4868,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -5098,13 +5098,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -5281,13 +5281,13 @@ Feature: Sanity scenarios
     And I save the value from row "1" for column name "Project Role" as "ProjectRole" from flex table "---grantee_tableId:-:awardContactTableId---"
     And I save the value from row "1" for column name "Is Key Contact" as "IsKeyContact" from flex table "---grantee_tableId:-:awardContactTableId---"
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -5576,13 +5576,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -5799,13 +5799,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -5962,13 +5962,13 @@ Feature: Sanity scenarios
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
-      | Open Data Framework | Checked            |
+      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
