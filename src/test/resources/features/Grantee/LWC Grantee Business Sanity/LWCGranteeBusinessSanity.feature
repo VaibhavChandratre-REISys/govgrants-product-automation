@@ -8701,11 +8701,11 @@ Feature: Sanity scenarios
     Examples:
       | UserName   | User       | NonOwner        |
       | Grantee PO | GRANTEE PO | GRANTEE AUDITOR |
-#      | Sarah PM   | GRANTEE PM | GRANTEE PO      |
-#      | Grantee PO | GRANTEE PO | GRANTEE PM      |
-#      | Grantee PO | GRANTEE PO | GRANTEE EXE     |
-#      | Grantee PO | GRANTEE PO | GRANTEE FO      |
-#      | Grantee PO | GRANTEE PO | GRANTEE FD      |
+      | Sarah PM   | GRANTEE PM | GRANTEE PO      |
+      | Grantee PO | GRANTEE PO | GRANTEE PM      |
+      | Grantee PO | GRANTEE PO | GRANTEE EXE     |
+      | Grantee PO | GRANTEE PO | GRANTEE FO      |
+      | Grantee PO | GRANTEE PO | GRANTEE FD      |
 
   @476994 @477128 @477129 @477130 @477131 @477132 @CombinationofamendmentVerifyPMusercanseevalidationsoncombinationofamendment
   Scenario Outline:Combination of amendment : Verify PM user can see validations on combination of amendment
@@ -8800,11 +8800,11 @@ Feature: Sanity scenarios
     Examples:
       | User          |
       | GRANTEE PM    |
-#      | GRANTEE PO    |
-#      | GRANTEE EXE   |
-#      | GRANTEE FO    |
-#      | GRANTEE FD    |
-#      | GRANTEE ADMIN |
+      | GRANTEE PO    |
+      | GRANTEE EXE   |
+      | GRANTEE FO    |
+      | GRANTEE FD    |
+      | GRANTEE ADMIN |
 
   @464036 @ValidateAmeliaFDuserReviewerYescanabletosubmitReview&ReviewcompletebyAROwneronclickofCompeleteReviewbuttononBPCAR
   Scenario: Validate Amelia FD user Reviewer Yes can able to submit Review & Review complete by AR Owner on click of Compelete Review button on BPC AR
@@ -8955,6 +8955,7 @@ Feature: Sanity scenarios
     And I click on remove for lookup from field "name__r.name"
     And I pause execution for "1" seconds
     And I select user value "David FO" in field "name__r.name"
+    And I pause execution for "1" seconds
     And I click on top right button "Save" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID"
