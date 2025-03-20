@@ -7746,9 +7746,9 @@ Feature: Sanity scenarios
     Examples:
       | User       | EmailFrom                         | EmailTo                       |
       | GRANTEE PO | govgrantsuat@yopmail.com | pm.automation@yopmail.com |
-#      | GRANTEE FO | david.fo@yopmail.com     | pm.automation@yopmail.com |
+      | GRANTEE FO | david.fo@yopmail.com     | pm.automation@yopmail.com |
 
-  @462011 @PRAmdVerifythatPMasAmdowneruserseeNewbuttoninAddlineItem&theirfieldsunderBudgetCategorysectionunderOverviewTabinPeriodicRenewalAmendmentRequestlayout
+  @462011 @PRAmdVerifythatPMasAmdowneruserseeNewbuttoninAddlineItem&theirfieldsunderBudgetCategorysectionunderOverviewTabinPeriodicRenewalAmendmentRequestlayout @debug
   Scenario: PR Amd Verify that PM (as Amd owner)user see New button in Add line Item & their fields under Budget Category section under Overview Tab in Periodic Renewal Amendment Request layout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -7769,6 +7769,7 @@ Feature: Sanity scenarios
     And I click modal button "Save and Continue"
     And I enter "Grantee_PeriodicRenewal_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "PeriodicID"
     And I navigate to "Overview" sub tab
     Then I softly can see row level action button "Add Line Items" against "Construction" in flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly can see row level action button "Original Budget Details" against "Construction" in flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---"
@@ -7816,10 +7817,8 @@ Feature: Sanity scenarios
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
-    And I wait for "3" seconds
-    And I halt execution
-    When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:PeriodicID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    And I click on "View" icon for "{SavedValue:PeriodicID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     And I navigate to "Overview" sub tab
     Then I softly can see row level action button "Add Line Items" against "Construction" in flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly can see row level action button "Original Budget Details" against "Construction" in flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---"

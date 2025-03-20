@@ -3620,7 +3620,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65680 @65687 @addNewTermsAndConditionsAndValidateNoEditActionForIt @debug
+  @65680 @65687 @addNewTermsAndConditionsAndValidateNoEditActionForIt
   Scenario: Verify award owner can add new Terms and Conditions on subaward Terms Tab |
   |Verify New added Terms and Conditions are Editable by award owner on Subaward.|
     And I navigate to "Terms" sub tab

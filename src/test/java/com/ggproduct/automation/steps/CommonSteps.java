@@ -92,7 +92,7 @@ public class CommonSteps {
     }
     @And("I click on remove for lookup from field \"([^\"]*)\"$")
     public void iRemovelookupvalue(String fieldApiName) {
-        I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//div[contains(@class,'pillDiv slds-show')]//*[@title='Remove selected option']"));
+        I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//div[contains(@class,'pillDiv slds-show')]//*[@title='Remove selected option'] | //c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//div[contains(@class,'pillDiv slds-show')]//*[@title='Remove selected option']"));
     }
 
     @Then("I (softly see|do not see) value \"([^\"]*)\" for the field \"([^\"]*)\"$")
