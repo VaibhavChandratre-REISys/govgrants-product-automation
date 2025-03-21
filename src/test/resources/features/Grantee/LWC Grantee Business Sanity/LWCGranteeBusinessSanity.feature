@@ -1,7 +1,7 @@
 @GranteeSanityBusinessFlow
 Feature: Sanity scenarios
 
-  @445207 @ValidateEXEuserFinancialreportOwnercanabletocreateAdhocFinancialReport&abletosubmitFinancialReporttoGrantor
+  @445207 @ValidateEXEuserFinancialreportOwnercanabletocreateAdhocFinancialReport&abletosubmitFinancialReporttoGrantor @TBExecution
   Scenario: Validate EXE user Financial report Owner can able to create Adhoc Financial Report & able to submit Financial Report to Grantor
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -429,7 +429,7 @@ Feature: Sanity scenarios
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
-  @443849 @476570 @476571 @443839 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject
+  @443849 @476570 @476571 @443839 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject @TBExecution
   Scenario Outline: Award - Verify with EXE Profile ,If in direct grant keep setting NO then able to complete the approval process for Forward /send to owner/Reject
     And I "Created" standalone subaward "Automation Runtime award" with properties "ALL_SETTING_NO-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -586,7 +586,7 @@ Feature: Sanity scenarios
       | Sarah PM user   | GRANTEE PM  | Victor EXE  | GRANTEE EXE | Sarah PM   |
       | Grantee PO user | GRANTEE PO  | David FO    | GRANTEE FO  | GRANTEE PO |
 
-  @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell
+  @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell @TBExecution
   Scenario: Award - Verify with PM Profile ,After activate the award able to see the Actual Tab in pending Closeout ,closed and amended state as well
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -679,7 +679,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Closed"
     Then I softly can see "Actuals" sub tab at view detail page
 
-  @449394 @VerifytheNotAccepetedfunctionofbudgetRedirectionAmendment
+  @449394 @VerifytheNotAccepetedfunctionofbudgetRedirectionAmendment @TBExecution
   Scenario: Verify the  Not Accepeted function of budget Redirection Amendment
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -735,7 +735,7 @@ Feature: Sanity scenarios
     And I softly can see row level action button "{SavedValue:BDRAMENDID}" against "Not Accepted" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I softly can see top right button "New" in page detail
 
-  @447979 @SOWamendmentVerifyuserislandondetailedpageofamendmentrequestaftersavethedataonmodal
+  @447979 @SOWamendmentVerifyuserislandondetailedpageofamendmentrequestaftersavethedataonmodal @TBExecution
   Scenario: SOW amendment - Verify user is land on detailed page of amendment request after save the data on modal
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -871,7 +871,7 @@ Feature: Sanity scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
 
-  @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR
+  @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR @TBExecution
   Scenario: Verify PM user as (AR Owner same as Award Owner) can able to create budget Redirection AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant (Flow AR)
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -1787,7 +1787,7 @@ Feature: Sanity scenarios
       | GRANTEE FO  |
       | GRANTEE PM  |
 
-  @444513 @ValidateEXEuserProgressreportOwnercanabltocreateAdhocProgressReportabletosubmitProgressReporttoGrantor
+  @444513 @ValidateEXEuserProgressreportOwnercanabltocreateAdhocProgressReportabletosubmitProgressReporttoGrantor @TBExecution
   Scenario: Validate EXE user (Progress report Owner)can able to create Adhoc Progress Report & able to submit Progress Report to Grantor
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -2380,7 +2380,7 @@ Feature: Sanity scenarios
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "Victor EXE"
 
-  @445208 @ValidatePMuserAwardOwnercanabletocreateSceduledFinancialReport&abletosubmitFinancialReporttoGrantor
+  @445208 @ValidatePMuserAwardOwnercanabletocreateSceduledFinancialReport&abletosubmitFinancialReporttoGrantor @TBExecution
   Scenario: Validate PM user Award Owner can able to create Sceduled Financial Report & able to submit Financial Report to Grantor
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -3136,7 +3136,7 @@ Feature: Sanity scenarios
       | GRANTEE PO    | 123456789123 |
       | GRANTEE ADMIN | 123456789012 |
 
-  @443858 @ValidateAwardsplconwithPMProfileIfSpecialConditionisaddedtheninawardspecialconditionmoduleafterexpandtheawardabletoseespecialconditionrecord
+  @443858 @ValidateAwardsplconwithPMProfileIfSpecialConditionisaddedtheninawardspecialconditionmoduleafterexpandtheawardabletoseespecialconditionrecord @TBExecution
   Scenario: Validate Award spl con with PM Profile ,If Special Condition is added then in  award special condition module after expand the award able to see special condition record
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"

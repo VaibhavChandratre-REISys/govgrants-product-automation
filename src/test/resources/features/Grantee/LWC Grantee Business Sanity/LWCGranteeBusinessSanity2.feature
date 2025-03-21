@@ -8193,8 +8193,8 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Delete" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly can see row level action button "View" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
 
-  @481564 @481565 @481566 @481567 @481568 @VerifyEXEusershouldabletoviewaccessinallstateofApplicationforform
-  Scenario Outline: Verify EXE user should able to view access in all  state of Application for form
+  @481564 @481565 @481566 @481567 @481568 @VerifyEXEusershouldabletoviewaccessinallstateofApplicationforform @GRegression4
+  Scenario Outline: Verify EXE user should able to view access in all state of Application for form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
     Given I login to "As a Grantee" app as "<OwnerType>" user
@@ -8441,12 +8441,12 @@ Feature: Sanity scenarios
     Examples:
       | OwnerType  | UserType        |
       | GRANTEE PM | GRANTEE EXE     |
-#      | GRANTEE PM | GRANTEE FO      |
-#      | GRANTEE PM | GRANTEE FD      |
-#      | GRANTEE PM | GRANTEE ADMIN1  |
-#      | GRANTEE PM | GRANTEE AUDITOR |
+      | GRANTEE PM | GRANTEE FO      |
+      | GRANTEE PM | GRANTEE FD      |
+      | GRANTEE PM | GRANTEE ADMIN1  |
+      | GRANTEE PM | GRANTEE AUDITOR |
 
-  @481536 @VerifyFOuserasaReviewershouldabletoedittheformifeditaccessisYes
+  @481536 @VerifyFOuserasaReviewershouldabletoedittheformifeditaccessisYes @GRegression2
   Scenario Outline: Verify FO user as a Reviewer should able to edit the form if edit access is Yes
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -8530,7 +8530,7 @@ Feature: Sanity scenarios
       | UserType   |
       | GRANTEE PM |
 
-  @481537 @VerifyFDuserasaReviewershouldablenotedittheformifeditaccessisNo
+  @481537 @VerifyFDuserasaReviewershouldablenotedittheformifeditaccessisNo @GRegression4
   Scenario Outline: Verify FD user as a Reviewer should able not edit the form if edit access is No
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -8596,7 +8596,7 @@ Feature: Sanity scenarios
       | UserType   |
       | GRANTEE PM |
 
-  @481563 @VerifyPOUsershouldabletotoedittheforminRevisioninProgressstate 
+  @481563 @VerifyPOUsershouldabletotoedittheforminRevisioninProgressstate @GRegression4
   Scenario: Verify PO User should able to to edit the form in Revision in Progress state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -8672,7 +8672,7 @@ Feature: Sanity scenarios
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @481571 @VerifyPMUsershouldabletosubmittheapplicationtograntsgovwithaddingrequiredfields&optionalfields
+  @481571 @VerifyPMUsershouldabletosubmittheapplicationtograntsgovwithaddingrequiredfields&optionalfields @GRegression2
   Scenario: Verify PM User should able to submit the application to grants.gov with adding  required fields & optional fields
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
