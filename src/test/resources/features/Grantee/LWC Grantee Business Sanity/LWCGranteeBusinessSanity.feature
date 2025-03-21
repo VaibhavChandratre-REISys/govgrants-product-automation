@@ -8707,7 +8707,7 @@ Feature: Sanity scenarios
       | Grantee PO | GRANTEE PO | GRANTEE FO      |
       | Grantee PO | GRANTEE PO | GRANTEE FD      |
 
-  @476994 @477128 @477129 @477130 @477131 @477132 @CombinationofamendmentVerifyPMusercanseevalidationsoncombinationofamendment
+  @476994 @477128 @477129 @477130 @477131 @477132 @CombinationofamendmentVerifyPMusercanseevalidationsoncombinationofamendment @GRegression3 @GRegression1
   Scenario Outline:Combination of amendment : Verify PM user can see validations on combination of amendment
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -8806,7 +8806,7 @@ Feature: Sanity scenarios
       | GRANTEE FD    |
       | GRANTEE ADMIN |
 
-  @464036 @ValidateAmeliaFDuserReviewerYescanabletosubmitReview&ReviewcompletebyAROwneronclickofCompeleteReviewbuttononBPCAR
+  @464036 @ValidateAmeliaFDuserReviewerYescanabletosubmitReview&ReviewcompletebyAROwneronclickofCompeleteReviewbuttononBPCAR @GRegression4
   Scenario: Validate Amelia FD user Reviewer Yes can able to submit Review & Review complete by AR Owner on click of Compelete Review button on BPC AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -9465,7 +9465,7 @@ Feature: Sanity scenarios
       | GRANTEE AUDITOR |
       | GRANTEE PO      |
 
-  @443818 @ValidateAwardwithnonownerPMProfileonawardpagelayoutunabletoseeEditandSubmitforapprovalbutton
+  @443818 @ValidateAwardwithnonownerPMProfileonawardpagelayoutunabletoseeEditandSubmitforapprovalbutton @GRegression1
   Scenario: Validate Award with non owner (PM Profile) on award page layout unable to see Edit and Submit for approval button
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PM" user
@@ -9479,7 +9479,7 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Submit for Approval" in page detail
 
-  @443822 @ValidateAwardwithEXEprofileIfinDirectgrantselectNOforProgramIncomeAllowed?AndAllowIndirectCosts?fieldTheninawardunabletoseetheSectionsforthatfield
+  @443822 @ValidateAwardwithEXEprofileIfinDirectgrantselectNOforProgramIncomeAllowed?AndAllowIndirectCosts?fieldTheninawardunabletoseetheSectionsforthatfield @GRegression1
   Scenario: Validate Award with EXE profile If in Direct grant select NO for Program Income Allowed? And Allow Indirect Costs? field Then in award unable to see the Sections for that field
     And I "Created" standalone subaward "Automation Runtime Award" with properties "ALL_SETTING_NO-Victor EXE user"
     When I login to "As a Grantee" app as "GRANTEE EXE" user
