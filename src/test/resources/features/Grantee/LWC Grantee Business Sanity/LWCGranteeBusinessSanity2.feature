@@ -8736,7 +8736,7 @@ Feature: Sanity scenarios
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @445795 @validateStrategicPlan @validateexeasnonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenstrategicplanisinactivestate @PMexecute
+  @445795 @validateStrategicPlan @validateexeasnonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenstrategicplanisinactivestate
   Scenario: Verify EXE as Non owner user cannot edit any data on Strategic plan record created by PM user when SP is in Active state
     Given I login to "As a Grantee" app as "GRANTEE PM1" user
     And I navigate to "Planning" tab
@@ -8834,7 +8834,7 @@ Feature: Sanity scenarios
     When I click on "Deactivate" in the page details
     Then I softly see field "Status" as "Inactive"
 
-  @440213 @validatewithpmprofileonlydraftstatusrecordabletodeletebyrecordowneronly  @PMexecute
+  @440213 @validatewithpmprofileonlydraftstatusrecordabletodeletebyrecordowneronly @RunbyPM
   Scenario: Validate Focus Area With PM Profile only draft status record able to delete by record owner only
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     When I navigate to "Planning" tab
@@ -8900,7 +8900,7 @@ Feature: Sanity scenarios
 #    Then I do not see value "{SavedValue:FocusAreaEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GranteeProjectTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
 
-  @476591 @validateAdminusercandeactivateactivestrategicplancreatedbyEXEuserfromsameinternalorganization  @PMexecute
+  @476591 @validateAdminusercandeactivateactivestrategicplancreatedbyEXEuserfromsameinternalorganization
   Scenario: Validate Admin user can Deactivate active Strategic plan created by EXE user from same internal organization
     Given I login to "As a Grantee" app as "GRANTEE EXE1" user
     And I navigate to "Planning" tab
@@ -8979,7 +8979,7 @@ Feature: Sanity scenarios
     When I click modal button "OK"
     Then I softly see field "Status" as "Inactive"
 
-  @476618 @validatepmusercandeactivateactivestrategicplancreatedbyadminuserfromsameinternalorganization  @PMexecute
+  @476618 @validatepmusercandeactivateactivestrategicplancreatedbyadminuserfromsameinternalorganization
   Scenario: Validate PM user can Deactivate active Strategic plan created by Admin user from same internal organization
     Given I login to "As a Grantee" app as "GRANTEE ADMIN2" user
     And I navigate to "Planning" tab
@@ -9058,7 +9058,7 @@ Feature: Sanity scenarios
     When I click modal button "OK"
     Then I softly see field "Status" as "Inactive"
 
-  @459775 @validateinnotessectionaddbuttonisreplacewithnewwhilecreatingnewfocusarea  @PMexecute
+  @459775 @validateinnotessectionaddbuttonisreplacewithnewwhilecreatingnewfocusarea  @RunbyPM
   Scenario: Validate In Notes section "Add" button is replace with "New" while creating new focus area.
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
@@ -9074,9 +9074,9 @@ Feature: Sanity scenarios
     And I wait for "1" seconds
     Then I can see top right button "New" in flex table with id "---grantee_tableId:-:FocusareaNotesTableId"
 
-    @459803 @validatefornotesectionaddisreplacewithnewbutton
+    @459803 @validatefornotesectionaddisreplacewithnewbutton  @RunbyPM
     Scenario: Validate for Note section "Add" is Replace with "New" button.
-      When I login to "As a Grantee" app as "GRANTEE PM" user
+      Given I login to "As a Grantee" app as "GRANTEE PM" user
       And I navigate to "Grants" tab
       When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
       And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
@@ -9091,9 +9091,9 @@ Feature: Sanity scenarios
       And I wait for "1" seconds
       Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
 
-  @459814 @validatefornotesectionaddisreplacewithnewbuttononaward
+  @459814 @validatefornotesectionaddisreplacewithnewbuttononaward @RunbyPM
   Scenario: Validate for Note section "Add" is Replace with "New" button on award
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
@@ -9109,4 +9109,4 @@ Feature: Sanity scenarios
     When I wait for "2" seconds
     When I navigate to "Files" sub tab
     And I wait for "1" seconds
-    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:AwardNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"

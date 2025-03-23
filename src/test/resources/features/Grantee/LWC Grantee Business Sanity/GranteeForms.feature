@@ -2738,7 +2738,7 @@ Feature: Grantee Forms Scenario
     Then I cannot see top right button "Edit" in the split screen page details
     Then I cannot see top right button "Validate" in the split screen page details
 
-  @483677 @ValidateAssurancesforNonConstructionProgramsSF424BwithPOProfileseevalidationisgeneratedonsavebuttonafterenteringincorrectdataortrytosaveformwithoutenteringfieldvaluesinallfieldsonSF-424Bform @Grantee_Smoke1  @PMexecute
+  @483677 @ValidateAssurancesforNonConstructionProgramsSF424BwithPOProfileseevalidationisgeneratedonsavebuttonafterenteringincorrectdataortrytosaveformwithoutenteringfieldvaluesinallfieldsonSF-424Bform @Grantee_Smoke1 @RunbyPM
   Scenario: Validate Assurances for Non-Construction Programs SF-424B with PO Profile see validation is generated on save button after entering incorrect data or try to save form without entering filed values in all fields on SF-424 B form
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySF424B}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269346" with properties "default-Grantee PO user"
@@ -2786,20 +2786,24 @@ Feature: Grantee Forms Scenario
     Then I softly see field "SIGNATURE OF AUTHORIZED CERTIFYING OFFICIAL:" inside page block
     Then I softly do not see asterisk mark on "SIGNATURE OF AUTHORIZED CERTIFYING OFFICIAL:"
     When I hovering mouse on help text icon inside page block detail "SIGNATURE OF AUTHORIZED CERTIFYING OFFICIAL:"
+    When I wait for "2" seconds
     Then I softly see "Completed on submission to Grants.gov." shown as help text
     Then I softly see field "TITLE" inside page block
     Then I softly see asterisk mark on "TITLE"
     When I hovering mouse on help text icon inside page block detail "TITLE"
+    When I wait for "2" seconds
     Then I softly see "Enter the title of the official certifying that the applicant organization will comply with the requirements set forth in this assurance form. This field is required. Max character limit for this field is 45." shown as help text
     Then I softly see "Applicant Organization" page block displayed
     Then I softly see field "APPLICANT ORGANIZATION:" inside page block
     Then I softly do not see asterisk mark on "APPLICANT ORGANIZATION:"
     When I hovering mouse on help text icon inside page block detail "APPLICANT ORGANIZATION:"
+    When I wait for "2" seconds
     Then I softly see "Enter the name of the applicant organization. This field is required." shown as help text
     Then I softly see "Submitted Date" page block displayed
     Then I softly see field "DATE SUBMITTED:" inside page block
     Then I softly do not see asterisk mark on "DATE SUBMITTED:"
     When I hovering mouse on help text icon inside page block detail "DATE SUBMITTED:"
+    When I wait for "2" seconds
     Then I softly see "Completed on submission to Grants.gov." shown as help text
     When I click on "Edit" in the page details
     And I wait for "3" seconds
