@@ -8735,3 +8735,340 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Submit To Grants.Gov" in page detail
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
+
+  @445795 @validateStrategicPlan @validateexeasnonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenstrategicplanisinactivestate
+  Scenario: Verify EXE as Non owner user cannot edit any data on Strategic plan record created by PM user when SP is in Active state
+    Given I login to "As a Grantee" app as "GRANTEE PM1" user
+    And I navigate to "Planning" tab
+    When I navigate to "{grantee_sidebar:StrategicPlanLinkName}" content inside "{grantee_sidebar:SetUpSubheaderName}" subheader on left panel
+    And I click on top right button "New" in flex table with id "{grantee_tableId:StrategicPlans}"
+    And I enter value "Automation Runtime Strategic" into field "StrategyTitle__c"
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    When I enter value "Automation Test Description" into field "StrategyDescription__c"
+    And I click on "Save" in the page details
+    And I wait for "1" seconds
+    And I navigate to "Overview" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
+    When I enter in modal value "Automation Strategic Goal" into field "StrategyTitle__c"
+    When I click modal button "Save and Continue"
+    When I enter value "Automation Test Description" into field "StrategyDescription__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Description" as "Automation Test Description" in "Details" pageblock
+    When I click on top right button "New" in flex table with id "---grantee_tableId:-:Objectives---"
+    When I enter in modal value "Automation Strategic Objective" into field "StrategyTitle__c"
+    When I click modal button "Save and Continue"
+    When I enter value "Automation Test Description" into field "StrategyDescription__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Activities" as "Automation Test Description"
+    When I navigate to "Related Log" sub tab
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:strategicObjectivesKPITableId---"
+    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see that "Automation Runtime KPI" has been added in flextable with Id "---grantee_tableId:-:strategicObjectivesKPITableId---"
+    Then I softly see field "Status" as "Draft"
+    And I save the field labeled "Strategic Plan" as "StrategicPlan"
+    And I click on hyperlink containing value "{SavedValue:StrategicPlan}"
+    When I navigate to "Related Log" sub tab
+    Then I softly see that "Automation Runtime KPI" has been added in flextable with Id "---grantee_tableId:-:strategicPlanKPITableId---"
+    Then I softly see field "Status" as "Draft"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I wait for "2" seconds
+    When I click on "Activate" in the page details without processing
+    And I wait for "2" seconds
+    Then I softly see confirmation box with body "You will not be able to edit the Strategic Plan once it is active. Are you sure you want to continue?" is displayed
+    And I wait for "2" seconds
+    When I click modal button "OK"
+    Then I softly see field "Status" as "Active"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
+
+    When I re-login to "As a Grantee" app as "GRANTEE EXE1" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Strategic Plans - Active"
+    When I wait for "1" seconds
+    And I perform quick search for "{SavedValue:StrategicPlan}" in "---grantee_tableId:-:StrategicPlans---" panel
+    Then I softly see value "{SavedValue:StrategicPlan}" for title "EGMS ID" inside table "---grantee_tableId:-:StrategicPlans---"
+    When I expand nested table containing column value "{SavedValue:StrategicPlan}"
+    Then I softly see value "Automation Strategic Goal" for title "Strategic Goal" inside table "---grantee_tableId:-:StrategicGoalsChild---"
+    When I expand nested table containing column value "Automation Strategic Goal"
+    Then I softly see value "Automation Strategic Objective" for title "Objective" inside table "---grantee_tableId:-:StrategicObjectivesChild---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:StrategicPlan}" in flex table with id "---grantee_tableId:-:StrategicPlans---"
+    Then I can see row level action button "View" against "{SavedValue:StrategicPlan}" in flex table with id "---grantee_tableId:-:StrategicPlans---"
+    And I click on "View" icon for "{SavedValue:StrategicPlan}" inside table
+    Then I cannot see top right button "Edit" in page detail
+    And I navigate to "Overview" sub tab
+    Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
+    And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:StrategicGoalsandObjective---"
+    Then I can see row level action button "View" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
+    When I expand nested table containing column value "{SavedValue:Title}"
+    Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:StrategicObjectivesChild---"
+    And I save the value from row "1" for column name "Objective" as "Objective1" from flex table "---grantee_tableId:-:StrategicObjectivesChild---"
+    Then I can see row level action button "View" against "{SavedValue:Objective1}" in flex table with id "---grantee_tableId:-:StrategicObjectivesChild---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:Objective1}" in flex table with id "---grantee_tableId:-:StrategicObjectivesChild---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:Objective1}" in flex table with id "---grantee_tableId:-:StrategicObjectivesChild---"
+    When I navigate to "Related Log" sub tab
+    Then  I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:strategicPlanKPITableId---"
+    And I save the value from row "1" for column name "Title" as "Title2" from flex table "---grantee_tableId:-:strategicPlanKPITableId---"
+    Then I softly see that "{SavedValue:Title2}" has been added in flextable with Id "---grantee_tableId:-:strategicPlanKPITableId---"
+    Then I can see row level action button "View" against "{SavedValue:Title2}" in flex table with id "---grantee_tableId:-:strategicPlanKPITableId---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:Title2}" in flex table with id "---grantee_tableId:-:strategicPlanKPITableId---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:Title2}" in flex table with id "---grantee_tableId:-:strategicPlanKPITableId---"
+    And I navigate to "Files" sub tab
+    Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
+    Then  I can see top right button "New" in flex table with id "---grantee_tableId:-:strategicPlansNotesTableId---"
+    When I click on parallel lines menu bar with data target value "Strategic Plan Files"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+#    Step to deactivate Strategic plan
+    When I wait for "1" seconds
+    And I click on hyperlink containing value "{SavedValue:StrategicPlan}"
+    And I wait for "2" seconds
+    When I click on "Deactivate" in the page details
+    Then I softly see field "Status" as "Inactive"
+
+  @440213 @validatewithpmprofileonlydraftstatusrecordabletodeletebyrecordowneronly
+  Scenario: Validate Focus Area With PM Profile only draft status record able to delete by record owner only
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    When I enter in modal value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter in modal value "Automation Test Description" into field "Description__c"
+    When I click modal button "Save and Continue"
+    And I wait for "3" seconds
+    And I click on "Save" in the page details
+    Then I softly see field "Status" as "Draft"
+    And I save the field labeled "EGMS ID" as "FocusAreaEGMSID"
+    And I wait for "2" seconds
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    When I click toggle button to select "Focus Areas - Draft"
+    When I perform quick search for "{SavedValue:FocusAreaEGMSID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I softly can see row level action button "Delete" against "{SavedValue:FocusAreaEGMSID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    When I click toggle button to select "Focus Areas - Draft"
+    And I perform quick search for "{SavedValue:FocusAreaEGMSID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I cannot see row level action button "Delete" against "{SavedValue:FocusAreaEGMSID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    When I click toggle button to select "Focus Areas - Draft"
+    And I perform quick search for "{SavedValue:FocusAreaEGMSID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I cannot see row level action button "Delete" against "{SavedValue:FocusAreaEGMSID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    When I click toggle button to select "Focus Areas - Draft"
+    And I perform quick search for "{SavedValue:FocusAreaEGMSID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I cannot see row level action button "Delete" against "{SavedValue:FocusAreaEGMSID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    When I click toggle button to select "Focus Areas - Draft"
+    And I perform quick search for "{SavedValue:FocusAreaEGMSID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I cannot see row level action button "Delete" against "{SavedValue:FocusAreaEGMSID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    When I click toggle button to select "Focus Areas - Draft"
+    And I perform quick search for "{SavedValue:FocusAreaEGMSID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I cannot see row level action button "Delete" against "{SavedValue:FocusAreaEGMSID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    When I click toggle button to select "Focus Areas - Draft"
+    And I perform quick search for "{SavedValue:FocusAreaEGMSID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I cannot see row level action button "Delete" against "{SavedValue:FocusAreaEGMSID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    When I click toggle button to select "Focus Areas - Draft"
+    And I perform quick search for "{SavedValue:FocusAreaEGMSID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I can see row level action button "Delete" against "{SavedValue:FocusAreaEGMSID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    And I click on "Delete" icon for "{SavedValue:FocusAreaEGMSID}" inside flex table with id "---grantee_tableId:-:GranteeProjectTableId---" without waiting for record
+    And I perform quick search for "{SavedValue:FocusAreaEGMSID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I do not see value "{SavedValue:FocusAreaEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GranteeProjectTableId---"
+
+  @476591 @validateAdminusercandeactivateactivestrategicplancreatedbyEXEuserfromsameinternalorganization
+  Scenario: Validate Admin user can Deactivate active Strategic plan created by EXE user from same internal organization
+    Given I login to "As a Grantee" app as "GRANTEE EXE1" user
+    And I navigate to "Planning" tab
+    When I navigate to "{grantee_sidebar:StrategicPlanLinkName}" content inside "{grantee_sidebar:SetUpSubheaderName}" subheader on left panel
+    And I click on top right button "New" in flex table with id "{grantee_tableId:StrategicPlans}"
+    And I enter value "Automation Runtime Strategic" into field "StrategyTitle__c"
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    When I enter value "Automation Test Description" into field "StrategyDescription__c"
+    And I click on "Save" in the page details
+    And I wait for "1" seconds
+    And I navigate to "Overview" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
+    When I enter in modal value "Automation Strategic Goal" into field "StrategyTitle__c"
+    When I click modal button "Save and Continue"
+    When I enter value "Automation Test Description" into field "StrategyDescription__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Description" as "Automation Test Description" in "Details" pageblock
+    And I navigate to "Overview" sub tab
+    When I click on top right button "New" in flex table with id "---grantee_tableId:-:Objectives---"
+    When I enter in modal value "Automation Strategic Objective" into field "StrategyTitle__c"
+    When I click modal button "Save and Continue"
+    When I enter value "Automation Test Description" into field "StrategyDescription__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Activities" as "Automation Test Description"
+    When I navigate to "Related Log" sub tab
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:strategicObjectivesKPITableId---"
+    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see that "Automation Runtime KPI" has been added in flextable with Id "---grantee_tableId:-:strategicObjectivesKPITableId---"
+    Then I softly see field "Status" as "Draft"
+    And I save the field labeled "Strategic Plan" as "StrategicPlan"
+    And I click on hyperlink containing value "{SavedValue:StrategicPlan}"
+    When I navigate to "Related Log" sub tab
+    Then I softly see that "Automation Runtime KPI" has been added in flextable with Id "---grantee_tableId:-:strategicPlanKPITableId---"
+    Then I softly see field "Status" as "Draft"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I navigate to "Planning" tab
+    When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Strategic Plans - Draft"
+    And I perform quick search for "{SavedValue:StrategicPlan}" in "---grantee_tableId:-:StrategicPlans---" panel
+    Then I softly see value "{SavedValue:StrategicPlan}" for title "EGMS ID" inside table "---grantee_tableId:-:StrategicPlans---"
+    When I expand nested table containing column value "{SavedValue:StrategicPlan}"
+    Then I softly see value "Automation Strategic Goal" for title "Strategic Goal" inside table "---grantee_tableId:-:StrategicGoalsChild---"
+    When I expand nested table containing column value "Automation Strategic Goal"
+    Then I softly see value "Automation Strategic Objective" for title "Objective" inside table "---grantee_tableId:-:StrategicObjectivesChild---"
+    When I click on "View" icon for "{SavedValue:StrategicPlan}" inside flex table with id "---grantee_tableId:-:StrategicPlans---"
+    And I wait for "2" seconds
+    When I click on "Activate" in the page details without processing
+    And I wait for "2" seconds
+    Then I softly see confirmation box with body "You will not be able to edit the Strategic Plan once it is active. Are you sure you want to continue?" is displayed
+    And I wait for "2" seconds
+    When I click modal button "OK"
+    Then I softly see field "Status" as "Active"
+    Then I see status in Progress-bar is "Active" and is "Dark Blue"
+    When I re-login to "As a Grantee" app as "GRANTEE ADMIN2" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Strategic Plans - Active"
+    And I perform quick search for "{SavedValue:StrategicPlan}" in "---grantee_tableId:-:StrategicPlans---" panel
+    Then I softly see value "{SavedValue:StrategicPlan}" for title "EGMS ID" inside table "---grantee_tableId:-:StrategicPlans---"
+    When I expand nested table containing column value "{SavedValue:StrategicPlan}"
+    Then I softly see value "Automation Strategic Goal" for title "Strategic Goal" inside table "---grantee_tableId:-:StrategicGoalsChild---"
+    When I expand nested table containing column value "Automation Strategic Goal"
+    Then I softly see value "Automation Strategic Objective" for title "Objective" inside table "---grantee_tableId:-:StrategicObjectivesChild---"
+    When I click on "View" icon for "{SavedValue:StrategicPlan}" inside flex table with id "---grantee_tableId:-:StrategicPlans---"
+    And I wait for "2" seconds
+    When I click on "Deactivate" in the page details without processing
+    And I wait for "2" seconds
+    Then I softly see confirmation box with body "Are you sure, you want to deactivate?" is displayed
+    And I wait for "2" seconds
+    When I click modal button "OK"
+    Then I softly see field "Status" as "Inactive"
+
+  @476618 @validatepmusercandeactivateactivestrategicplancreatedbyadminuserfromsameinternalorganization
+  Scenario: Validate PM user can Deactivate active Strategic plan created by Admin user from same internal organization
+    Given I login to "As a Grantee" app as "GRANTEE ADMIN2" user
+    And I navigate to "Planning" tab
+    When I navigate to "{grantee_sidebar:StrategicPlanLinkName}" content inside "{grantee_sidebar:SetUpSubheaderName}" subheader on left panel
+    And I click on top right button "New" in flex table with id "{grantee_tableId:StrategicPlans}"
+    And I enter value "Automation Runtime Strategic" into field "StrategyTitle__c"
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    When I enter value "Automation Test Description" into field "StrategyDescription__c"
+    And I click on "Save" in the page details
+    And I wait for "1" seconds
+    And I navigate to "Overview" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
+    When I enter in modal value "Automation Strategic Goal" into field "StrategyTitle__c"
+    When I click modal button "Save and Continue"
+    When I enter value "Automation Test Description" into field "StrategyDescription__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Description" as "Automation Test Description" in "Details" pageblock
+    And I navigate to "Overview" sub tab
+    When I click on top right button "New" in flex table with id "---grantee_tableId:-:Objectives---"
+    When I enter in modal value "Automation Strategic Objective" into field "StrategyTitle__c"
+    When I click modal button "Save and Continue"
+    When I enter value "Automation Test Description" into field "StrategyDescription__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Activities" as "Automation Test Description"
+    When I navigate to "Related Log" sub tab
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:strategicObjectivesKPITableId---"
+    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see that "Automation Runtime KPI" has been added in flextable with Id "---grantee_tableId:-:strategicObjectivesKPITableId---"
+    Then I softly see field "Status" as "Draft"
+    And I save the field labeled "Strategic Plan" as "StrategicPlan"
+    And I click on hyperlink containing value "{SavedValue:StrategicPlan}"
+    When I navigate to "Related Log" sub tab
+    Then I softly see that "Automation Runtime KPI" has been added in flextable with Id "---grantee_tableId:-:strategicPlanKPITableId---"
+    Then I softly see field "Status" as "Draft"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I navigate to "Planning" tab
+    When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Strategic Plans - Draft"
+    And I perform quick search for "{SavedValue:StrategicPlan}" in "---grantee_tableId:-:StrategicPlans---" panel
+    Then I softly see value "{SavedValue:StrategicPlan}" for title "EGMS ID" inside table "---grantee_tableId:-:StrategicPlans---"
+    When I expand nested table containing column value "{SavedValue:StrategicPlan}"
+    Then I softly see value "Automation Strategic Goal" for title "Strategic Goal" inside table "---grantee_tableId:-:StrategicGoalsChild---"
+    When I expand nested table containing column value "Automation Strategic Goal"
+    Then I softly see value "Automation Strategic Objective" for title "Objective" inside table "---grantee_tableId:-:StrategicObjectivesChild---"
+    When I click on "View" icon for "{SavedValue:StrategicPlan}" inside flex table with id "---grantee_tableId:-:StrategicPlans---"
+    And I wait for "2" seconds
+    When I click on "Activate" in the page details without processing
+    And I wait for "2" seconds
+    Then I softly see confirmation box with body "You will not be able to edit the Strategic Plan once it is active. Are you sure you want to continue?" is displayed
+    And I wait for "2" seconds
+    When I click modal button "OK"
+    Then I softly see field "Status" as "Active"
+    Then I see status in Progress-bar is "Active" and is "Dark Blue"
+    When I re-login to "As a Grantee" app as "GRANTEE PM1" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Strategic Plans - Active"
+    And I perform quick search for "{SavedValue:StrategicPlan}" in "---grantee_tableId:-:StrategicPlans---" panel
+    Then I softly see value "{SavedValue:StrategicPlan}" for title "EGMS ID" inside table "---grantee_tableId:-:StrategicPlans---"
+    When I expand nested table containing column value "{SavedValue:StrategicPlan}"
+    Then I softly see value "Automation Strategic Goal" for title "Strategic Goal" inside table "---grantee_tableId:-:StrategicGoalsChild---"
+    When I expand nested table containing column value "Automation Strategic Goal"
+    Then I softly see value "Automation Strategic Objective" for title "Objective" inside table "---grantee_tableId:-:StrategicObjectivesChild---"
+    When I click on "View" icon for "{SavedValue:StrategicPlan}" inside flex table with id "---grantee_tableId:-:StrategicPlans---"
+    And I wait for "2" seconds
+    When I click on "Deactivate" in the page details without processing
+    And I wait for "2" seconds
+    Then I softly see confirmation box with body "Are you sure, you want to deactivate?" is displayed
+    And I wait for "2" seconds
+    When I click modal button "OK"
+    Then I softly see field "Status" as "Inactive"
+
+  @459775 @validateinnotessectionaddbuttonisreplacewithnewwhilecreatingnewfocusarea
+  Scenario: Validate In Notes section "Add" button is replace with "New" while creating new focus area.
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    And I enter value "Automation Runtime Focus Area" into field "Title__c"
+    And I enter value "Automation Description" into field "Description__c"
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    And I wait for "3" seconds
+    When I navigate to "Files" sub tab
+    And I wait for "1" seconds
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:focusAreaNotesTableId---"

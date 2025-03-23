@@ -134,19 +134,37 @@ public class UsersAndURL implements UsersController {
             case "GRANTEE PM":
                 password = "Grantee@2030";
                 break;
+            case "GRANTEE PM1":
+                password = "Grantee@2030";
+                break;
+            case "GRANTEE ADMIN2":
+                password = "Grantee@2030";
+                break;
             case "GRANTEE EXE":
+                password = "Grantee@2030";
+                break;
+            case "GRANTEE EXE1":
                 password = "Grantee@2030";
                 break;
             case "GRANTEE FO":
                 password = "Grantee@2030";
                 break;
+            case "GRANTEE FO1":
+                password = "Grantee@2030";
+                break;
             case "GRANTEE FD":
+                password = "Grantee@2030";
+                break;
+            case "GRANTEE FD1":
                 password = "Grantee@2030";
                 break;
             case "GRANTEE AUDITOR":
                 password = "Grantee@2028";
                 break;
             case "GRANTEE PO":
+                password = "Grantee@2031";
+                break;
+            case "GRANTEE PO1":
                 password = "Grantee@2031";
                 break;
             default:
@@ -288,11 +306,17 @@ public class UsersAndURL implements UsersController {
 
         username.put("GRANTEE ADMIN", "product.qa@ggp.test8.qagrnteatm");
         username.put("GRANTEE ADMIN1", "qa.admin@ggp.test8.qagrnteatm");
+        username.put("GRANTEE ADMIN2", "adminautotest@yopmail.com.qagrnteatm");
         username.put("GRANTEE PM", "sarah.pm@ggp.test8.qagrnteatm");
+        username.put("GRANTEE PM1", "donald_pm@ggp.test7.atm.qagrnteatm");
         username.put("GRANTEE EXE", "victor.exe@ggp.test8.qagrnteatm");
+        username.put("GRANTEE EXE1", "exe1.automation@yopmail.com.qagrnteatm");
         username.put("GRANTEE FO", "david.fo@ggp.test8.qagrnteatm");
+        username.put("GRANTEE FO1", "fo1.automation@yopmail.com.qagrnteatm");
         username.put("GRANTEE FD", "danielle.garcia@ggp.test8.qagrnteatm");
+        username.put("GRANTEE FD1", "automationfd1@yopmail.com.qagrnteatm");
         username.put("GRANTEE PO", "grantee.po@yopmail.com.qagrnteatm");
+        username.put("GRANTEE PO1", "automationpo1@yopmail.com.qagrnteatm");
         username.put("GRANTEE AUDITOR", "automationauditor@yopmail.com.qagrnteatm");
 
         if (userLevel.toUpperCase() != null) {

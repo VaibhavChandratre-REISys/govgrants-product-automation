@@ -1254,7 +1254,7 @@ Feature: Grantee Forms Scenario
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
     And I enter "Grantee_Leads_CAS-HHS0001212704" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
+      And I click modal button "Save and Continue"
     And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I Update for setting as grantsgov lead with opportunity number "{grantee_testData:GrantsgovOpportunityNumberProjectnarrativeForm}"
@@ -2737,3 +2737,85 @@ Feature: Grantee Forms Scenario
     And I click on "Splitview" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I cannot see top right button "Edit" in the split screen page details
     Then I cannot see top right button "Validate" in the split screen page details
+
+  @483677 @ValidateAssurancesforNonConstructionProgramsSF424BwithPOProfileseevalidationisgeneratedonsavebuttonafterenteringincorrectdataortrytosaveformwithoutenteringfieldvaluesinallfieldsonSF-424Bform @Grantee_Smoke1 @testExecution
+  Scenario: Validate Assurances for Non-Construction Programs SF-424B with PO Profile see validation is generated on save button after entering incorrect data or try to save form without entering filed values in all fields on SF-424 B form
+    Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySF424B}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269346" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001269346" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001269346" with properties "TWO_STEP_APPROVER-Grantee PO user"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I click on "Edit" in the page details
+    And I enter value "123" into field "CongressionalDistrict1__c"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Assurances for Non-Construction Programs (SF-424B)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see "check" symbol against the value "Assurances for Non-Construction Programs (SF-424B)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Assurances for Non-Construction Programs (SF-424B)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Validate" in page detail
+    And I click on Menu icon present on top right corner of the page
+    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Take Snapshot" present in parallel dropdown
+    Then I see the header is "Assurances for Non-Construction Programs (SF-424B)" in the page details
+    Then I softly see the field "Agency Owner :" as "Grants.gov" on forms
+    Then I softly see the field "OMB Number :" as "4040-0007" on forms
+    Then I softly see the field "Version :" as "1.1" on forms
+    Then I softly see the field "OMB Expiration Date :" as "02/28/2025" on forms
+    Then I softly see the text containing "When filling out the data within this form, please adhere to the character limits for each field as specified within the information icon for the field."
+    Then I softly see the text containing " Required to Save | "
+    Then I softly see the text containing " Required to Submit"
+    Then I softly can see "Form" sub tab at view detail page
+    Then I softly see "Assurances for Non-Construction Programs (SF-424B)" page block displayed
+    Then I softly see "Authorized Certifying Official Information" page block displayed
+    Then I softly see field "SIGNATURE OF AUTHORIZED CERTIFYING OFFICIAL:" inside page block
+    Then I softly do not see asterisk mark on "SIGNATURE OF AUTHORIZED CERTIFYING OFFICIAL:"
+    When I hovering mouse on help text icon inside page block detail "SIGNATURE OF AUTHORIZED CERTIFYING OFFICIAL:"
+    Then I softly see "Completed on submission to Grants.gov." shown as help text
+    Then I softly see field "TITLE" inside page block
+    Then I softly see asterisk mark on "TITLE"
+    When I hovering mouse on help text icon inside page block detail "TITLE"
+    Then I softly see "Enter the title of the official certifying that the applicant organization will comply with the requirements set forth in this assurance form. This field is required. Max character limit for this field is 45." shown as help text
+    Then I softly see "Applicant Organization" page block displayed
+    Then I softly see field "APPLICANT ORGANIZATION:" inside page block
+    Then I softly do not see asterisk mark on "APPLICANT ORGANIZATION:"
+    When I hovering mouse on help text icon inside page block detail "APPLICANT ORGANIZATION:"
+    Then I softly see "Enter the name of the applicant organization. This field is required." shown as help text
+    Then I softly see "Submitted Date" page block displayed
+    Then I softly see field "DATE SUBMITTED:" inside page block
+    Then I softly do not see asterisk mark on "DATE SUBMITTED:"
+    When I hovering mouse on help text icon inside page block detail "DATE SUBMITTED:"
+    Then I softly see "Completed on submission to Grants.gov." shown as help text
+    When I click on "Edit" in the page details
+    And I wait for "3" seconds
+    And I click on "Save" in the page details
+    And I wait for "1" seconds
+    Then I softly see the following messages in the page details contains:
+      | TITLE is required to save. |
+    And I enter value "This is test record for automation check max field value error" into field "AOR_Title__c"
+    And I click on "Save" in the page details
+    And I wait for "3" seconds
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | The value of the field "TITLE" exceeds the maximum allowed limit of 45 characters. |
+    When I click on "Edit" in the page details
+    And I enter value "This is test record for automation 1234567899" into field "AOR_Title__c"
+    And I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |

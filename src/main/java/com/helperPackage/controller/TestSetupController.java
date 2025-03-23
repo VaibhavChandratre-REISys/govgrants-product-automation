@@ -68,7 +68,7 @@ public final class TestSetupController {
         ScenarioController.setScenario(scenario);
 
         if ("true".equalsIgnoreCase(System.getProperty("recordVideo"))) {
-            ScreenCapture.startRecordVideo();
+            //ScreenCapture.startRecordVideo();
         }
         if ("true".equalsIgnoreCase(System.getProperty("docker"))) {
             DockerController.startDocker();
@@ -179,7 +179,7 @@ public final class TestSetupController {
      */
     private void browserWrapUp() throws IOException {
         if ("true".equalsIgnoreCase(System.getProperty("recordVideo"))) {
-            ScreenCapture.stopRecordVideo();
+            //ScreenCapture.stopRecordVideo();
         }
 
         if ((ScenarioController.getScenario().isFailed()) || ("true".equalsIgnoreCase(System.getProperty("enableScreenShotsForAll")))) {
