@@ -9127,7 +9127,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
 
-  @459818 @validatefornotesectionaddisreplacewithnewbuttononcloseout @RunbyPM
+  @459818 @validatefornotesectionaddisreplacewithnewbuttononcloseout
   Scenario: Validate for Note section "Add" is Replace with "New" button on closeout
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -9142,14 +9142,6 @@ Feature: Sanity scenarios
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I save the field labeled "Grant Number" as "GrantNumber"
     And I save the field labeled "Project Period Start Date" as "PPST"
-#    When I navigate to "Awards" sub tab
-#    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-#    Then I softly see field "Status" as "Activated"
-#    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
-#    And I save the field labeled "EGMS ID" as "AwardEGMSID"
-#    When I navigate to "Overview" sub tab
-#    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    When I wait for "2" seconds
     When I navigate to "Closeout" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"

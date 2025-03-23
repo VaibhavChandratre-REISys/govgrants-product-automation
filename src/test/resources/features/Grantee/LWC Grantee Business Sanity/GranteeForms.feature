@@ -2825,7 +2825,7 @@ Feature: Grantee Forms Scenario
       | Form Validated Successfully. |
 
 
-  @500110 @validatetheheaderonkeycontactform  @RunbyPM
+  @500110 @validatetheheaderonkeycontactform
   Scenario: Validate the header on Key Contact using PM profile
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
