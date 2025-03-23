@@ -8736,7 +8736,7 @@ Feature: Sanity scenarios
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @445795 @validateStrategicPlan @validateexeasnonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenstrategicplanisinactivestate
+  @445795 @validateStrategicPlan @validateexeasnonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenstrategicplanisinactivestate @PMexecute
   Scenario: Verify EXE as Non owner user cannot edit any data on Strategic plan record created by PM user when SP is in Active state
     Given I login to "As a Grantee" app as "GRANTEE PM1" user
     And I navigate to "Planning" tab
@@ -8834,7 +8834,7 @@ Feature: Sanity scenarios
     When I click on "Deactivate" in the page details
     Then I softly see field "Status" as "Inactive"
 
-  @440213 @validatewithpmprofileonlydraftstatusrecordabletodeletebyrecordowneronly
+  @440213 @validatewithpmprofileonlydraftstatusrecordabletodeletebyrecordowneronly  @PMexecute
   Scenario: Validate Focus Area With PM Profile only draft status record able to delete by record owner only
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     When I navigate to "Planning" tab
@@ -8899,7 +8899,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:FocusAreaEGMSID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
     Then I do not see value "{SavedValue:FocusAreaEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GranteeProjectTableId---"
 
-  @476591 @validateAdminusercandeactivateactivestrategicplancreatedbyEXEuserfromsameinternalorganization
+  @476591 @validateAdminusercandeactivateactivestrategicplancreatedbyEXEuserfromsameinternalorganization  @PMexecute
   Scenario: Validate Admin user can Deactivate active Strategic plan created by EXE user from same internal organization
     Given I login to "As a Grantee" app as "GRANTEE EXE1" user
     And I navigate to "Planning" tab
@@ -8978,7 +8978,7 @@ Feature: Sanity scenarios
     When I click modal button "OK"
     Then I softly see field "Status" as "Inactive"
 
-  @476618 @validatepmusercandeactivateactivestrategicplancreatedbyadminuserfromsameinternalorganization
+  @476618 @validatepmusercandeactivateactivestrategicplancreatedbyadminuserfromsameinternalorganization  @PMexecute
   Scenario: Validate PM user can Deactivate active Strategic plan created by Admin user from same internal organization
     Given I login to "As a Grantee" app as "GRANTEE ADMIN2" user
     And I navigate to "Planning" tab
@@ -9057,7 +9057,7 @@ Feature: Sanity scenarios
     When I click modal button "OK"
     Then I softly see field "Status" as "Inactive"
 
-  @459775 @validateinnotessectionaddbuttonisreplacewithnewwhilecreatingnewfocusarea
+  @459775 @validateinnotessectionaddbuttonisreplacewithnewwhilecreatingnewfocusarea  @PMexecute
   Scenario: Validate In Notes section "Add" button is replace with "New" while creating new focus area.
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab

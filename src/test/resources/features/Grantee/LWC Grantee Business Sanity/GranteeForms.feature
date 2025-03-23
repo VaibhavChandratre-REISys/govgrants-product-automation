@@ -2738,7 +2738,7 @@ Feature: Grantee Forms Scenario
     Then I cannot see top right button "Edit" in the split screen page details
     Then I cannot see top right button "Validate" in the split screen page details
 
-  @483677 @ValidateAssurancesforNonConstructionProgramsSF424BwithPOProfileseevalidationisgeneratedonsavebuttonafterenteringincorrectdataortrytosaveformwithoutenteringfieldvaluesinallfieldsonSF-424Bform @Grantee_Smoke1 @testExecution
+  @483677 @ValidateAssurancesforNonConstructionProgramsSF424BwithPOProfileseevalidationisgeneratedonsavebuttonafterenteringincorrectdataortrytosaveformwithoutenteringfieldvaluesinallfieldsonSF-424Bform @Grantee_Smoke1  @PMexecute
   Scenario: Validate Assurances for Non-Construction Programs SF-424B with PO Profile see validation is generated on save button after entering incorrect data or try to save form without entering filed values in all fields on SF-424 B form
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySF424B}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269346" with properties "default-Grantee PO user"
