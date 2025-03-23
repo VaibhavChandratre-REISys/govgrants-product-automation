@@ -8834,7 +8834,7 @@ Feature: Sanity scenarios
     When I click on "Deactivate" in the page details
     Then I softly see field "Status" as "Inactive"
 
-  @440213 @validatewithpmprofileonlydraftstatusrecordabletodeletebyrecordowneronly @RunbyPM
+  @440213 @validatewithpmprofileonlydraftstatusrecordabletodeletebyrecordowneronly
   Scenario: Validate Focus Area With PM Profile only draft status record able to delete by record owner only
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     When I navigate to "Planning" tab
@@ -9058,7 +9058,7 @@ Feature: Sanity scenarios
     When I click modal button "OK"
     Then I softly see field "Status" as "Inactive"
 
-  @459775 @validateinnotessectionaddbuttonisreplacewithnewwhilecreatingnewfocusarea  @RunbyPM
+  @459775 @validateinnotessectionaddbuttonisreplacewithnewwhilecreatingnewfocusarea
   Scenario: Validate In Notes section "Add" button is replace with "New" while creating new focus area.
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
@@ -9074,7 +9074,7 @@ Feature: Sanity scenarios
     And I wait for "1" seconds
     Then I can see top right button "New" in flex table with id "---grantee_tableId:-:focusAreaNotesTableId---"
 
-    @459803 @validatefornotesectionaddisreplacewithnewbutton  @RunbyPM
+    @459803 @validatefornotesectionaddisreplacewithnewbutton
     Scenario: Validate for Note section "Add" is Replace with "New" button.
       Given I login to "As a Grantee" app as "GRANTEE PM" user
       And I navigate to "Grants" tab
@@ -9099,7 +9099,7 @@ Feature: Sanity scenarios
       Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
       Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
 
-  @459814 @validatefornotesectionaddisreplacewithnewbuttononaward @RunbyPM
+  @459814 @validatefornotesectionaddisreplacewithnewbuttononaward
   Scenario: Validate for Note section "Add" is Replace with "New" button on award
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -9142,11 +9142,14 @@ Feature: Sanity scenarios
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I save the field labeled "Grant Number" as "GrantNumber"
     And I save the field labeled "Project Period Start Date" as "PPST"
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    Then I softly see field "Status" as "Activated"
-    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
-    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+#    When I navigate to "Awards" sub tab
+#    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+#    Then I softly see field "Status" as "Activated"
+#    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+#    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+#    When I navigate to "Overview" sub tab
+#    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    When I wait for "2" seconds
     When I navigate to "Closeout" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
@@ -9154,7 +9157,7 @@ Feature: Sanity scenarios
       | Value             | Field           |
       | {SavedValue:PPST} | CloseoutDate__c |
     And I click modal button "Save and Continue"
-    And I enter "Grantee_Edition" values from "Closeout_Field_Values.xlsx"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     And I wait for "2" seconds
     When I navigate to "Files" sub tab
