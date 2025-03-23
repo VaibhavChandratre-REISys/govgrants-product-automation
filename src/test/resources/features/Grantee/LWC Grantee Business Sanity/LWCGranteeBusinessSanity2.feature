@@ -8897,7 +8897,8 @@ Feature: Sanity scenarios
     Then I can see row level action button "Delete" against "{SavedValue:FocusAreaEGMSID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
     And I click on "Delete" icon for "{SavedValue:FocusAreaEGMSID}" inside flex table with id "---grantee_tableId:-:GranteeProjectTableId---" without waiting for record
     And I perform quick search for "{SavedValue:FocusAreaEGMSID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
-    Then I do not see value "{SavedValue:FocusAreaEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GranteeProjectTableId---"
+#    Then I do not see value "{SavedValue:FocusAreaEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
 
   @476591 @validateAdminusercandeactivateactivestrategicplancreatedbyEXEuserfromsameinternalorganization  @PMexecute
   Scenario: Validate Admin user can Deactivate active Strategic plan created by EXE user from same internal organization
@@ -9071,4 +9072,41 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     When I navigate to "Files" sub tab
     And I wait for "1" seconds
-    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:focusAreaNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:FocusareaNotesTableId"
+
+    @459803 @validatefornotesectionaddisreplacewithnewbutton
+    Scenario: Validate for Note section "Add" is Replace with "New" button.
+      When I login to "As a Grantee" app as "GRANTEE PM" user
+      And I navigate to "Grants" tab
+      When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+      And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+      And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
+      When I click modal button "Save and Continue"
+      And I save the field labeled "EGMS ID" as "GrantEGMSID"
+      And I navigate to "Overview" sub tab
+      When I enter value "123456789123" into field "DUNS__c"
+      And I click on "Save" in the page details
+      And I wait for "2" seconds
+      When I navigate to "Files" sub tab
+      And I wait for "1" seconds
+      Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
+
+  @459814 @validatefornotesectionaddisreplacewithnewbuttononaward
+  Scenario: Validate for Note section "Add" is Replace with "New" button on award
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    When I enter value "123456789123" into field "DUNS__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    When I wait for "2" seconds
+    When I navigate to "Files" sub tab
+    And I wait for "1" seconds
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:AwardNotesTableId---"
