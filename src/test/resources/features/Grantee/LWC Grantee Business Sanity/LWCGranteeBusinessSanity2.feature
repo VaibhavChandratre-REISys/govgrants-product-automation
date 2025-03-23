@@ -9072,7 +9072,7 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     When I navigate to "Files" sub tab
     And I wait for "1" seconds
-    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:FocusareaNotesTableId"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:focusAreaNotesTableId---"
 
     @459803 @validatefornotesectionaddisreplacewithnewbutton  @RunbyPM
     Scenario: Validate for Note section "Add" is Replace with "New" button.
@@ -9090,6 +9090,14 @@ Feature: Sanity scenarios
       When I navigate to "Files" sub tab
       And I wait for "1" seconds
       Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
+      When I enter the following values into flex table with id "---grantee_tableId:-:grantNotesTableId---" by clicking "New" :
+        | Title         | Description      |
+        | Notes Record1 | Automation Notes |
+      Then I softly see the following messages in the page details contains:
+        | Saved Successfully! |
+      Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:grantNotesTableId---"
+      Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
+      Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
 
   @459814 @validatefornotesectionaddisreplacewithnewbuttononaward @RunbyPM
   Scenario: Validate for Note section "Add" is Replace with "New" button on award
@@ -9110,3 +9118,53 @@ Feature: Sanity scenarios
     When I navigate to "Files" sub tab
     And I wait for "1" seconds
     Then I can see top right button "New" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "New" :
+      | Title         | Description      |
+      | Notes Record1 | Automation Notes |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:awardsNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+
+  @459818 @validatefornotesectionaddisreplacewithnewbuttononcloseout @RunbyPM
+  Scenario: Validate for Note section "Add" is Replace with "New" button on closeout
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    And I save the field labeled "Project Period Start Date" as "PPST"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    When I navigate to "Closeout" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
+    When I enter values into fields
+      | Value             | Field           |
+      | {SavedValue:PPST} | CloseoutDate__c |
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Closeout_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I navigate to "Files" sub tab
+    And I wait for "1" seconds
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:closeoutNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:closeoutNotesTableId---" by clicking "New" :
+      | Title         | Description      |
+      | Notes Record1 | Automation Notes |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:closeoutNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:closeoutNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:closeoutNotesTableId---"

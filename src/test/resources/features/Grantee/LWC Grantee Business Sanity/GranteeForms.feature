@@ -2738,7 +2738,7 @@ Feature: Grantee Forms Scenario
     Then I cannot see top right button "Edit" in the split screen page details
     Then I cannot see top right button "Validate" in the split screen page details
 
-  @483677 @ValidateAssurancesforNonConstructionProgramsSF424BwithPOProfileseevalidationisgeneratedonsavebuttonafterenteringincorrectdataortrytosaveformwithoutenteringfieldvaluesinallfieldsonSF-424Bform @Grantee_Smoke1 @RunbyPM
+  @483677 @ValidateAssurancesforNonConstructionProgramsSF424BwithPOProfileseevalidationisgeneratedonsavebuttonafterenteringincorrectdataortrytosaveformwithoutenteringfieldvaluesinallfieldsonSF-424Bform @Grantee_Smoke1
   Scenario: Validate Assurances for Non-Construction Programs SF-424B with PO Profile see validation is generated on save button after entering incorrect data or try to save form without entering filed values in all fields on SF-424 B form
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySF424B}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269346" with properties "default-Grantee PO user"
@@ -2823,3 +2823,46 @@ Feature: Grantee Forms Scenario
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
+
+
+  @500110 @validatetheheaderonkeycontactform  @RunbyPM
+  Scenario: Validate the header on Key Contact using PM profile
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I wait for "5" seconds
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I click on "Edit" in the page details
+    And I enter value "123" into field "CongressionalDistrict1__c"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    And I click on "View" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Validate" in page detail
+    And I click on Menu icon present on top right corner of the page
+    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Take Snapshot" present in parallel dropdown
+    Then I see the header is "Key Contacts" in the page details
+    Then I softly see the field "Agency Owner :" as "Grants.gov" on forms
+    Then I softly see the field "OMB Number :" as "4040-0010" on forms
+    Then I softly see the field "Version :" as "2.0" on forms
+    Then I softly see the field "OMB Expiration Date :" as "12/31/2026" on forms
+    Then I softly see the text containing "When filling out the data within this form, please adhere to the character limits for each field as specified within the information icon for the field."
