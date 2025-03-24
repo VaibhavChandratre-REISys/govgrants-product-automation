@@ -5080,9 +5080,31 @@ public class GrantorPayloads {
                 return payloadForNonCashMatchBudget(json);
             case "STEP_THREE_APPROVER":
                 return payloadForGranteeStepThreeApproverApprover(json);
+            case "STEP_TWO_AMENDMENT":
+                return payloadForGranteeStepTwoForAmendment(json);
             default:
                 return json;
         }
+    }
+
+    private JsonObject payloadForGranteeStepTwoForAmendment(JsonObject json) {
+        JsonObject preAPPData = json.getAsJsonArray("GrantAwardData").get(0).getAsJsonObject();
+        JsonArray topLevelApprovers = new JsonArray();
+        JsonObject topLevelApprover = new JsonObject();
+        topLevelApprover.addProperty("name", ProjectWebServices.getIdOf("User", "Sarah PM"));
+        topLevelApprover.addProperty("amendmentRequest", "Step1");
+        topLevelApprovers.add(topLevelApprover);
+
+        JsonObject topLevelApprover1 = new JsonObject();
+        topLevelApprover1.addProperty("name", ProjectWebServices.getIdOf("User", "Victor EXE"));
+        topLevelApprover1.addProperty("amendmentRequest", "Step2");
+        topLevelApprovers.add(topLevelApprover1);
+
+        preAPPData.add("approvers", topLevelApprovers);
+        JsonArray preAPPDataDataArray = new JsonArray();
+        preAPPDataDataArray.add(preAPPData);
+        json.add("GrantAwardData", preAPPDataDataArray);
+        return json;
     }
 
     private JsonObject payloadForGranteeStepThreeApproverApprover(JsonObject json) {
