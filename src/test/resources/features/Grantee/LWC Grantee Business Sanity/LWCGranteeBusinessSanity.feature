@@ -926,7 +926,9 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
     When I navigate to "Overview" sub tab
-    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I wait for "3" seconds
+    And I click on hyperlink for invisible fields containing value "{SavedValue:AwardEGMSID}"
+    And I wait for "3" seconds
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I see value "{SavedValue:BDRAMENDID}" for title "EGMS ID" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
