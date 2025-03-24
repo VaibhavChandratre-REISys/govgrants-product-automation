@@ -208,8 +208,8 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Edit" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     When I click on "Edit" icon for "Federal Financial Report (SF-425)" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly see new tab is opened
     And I switch to tab number "1"
+    Then I softly see new tab is opened
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
     And I enter "FederalFinancialReport_425" values from "Financial_Report_Field_Values.xlsx"
@@ -223,8 +223,8 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Edit" in page detail
     And I close the tab
     When I click on "View" icon for "Federal Financial Report (SF-425)" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly see new tab is opened
     And I switch to tab number "1"
+    Then I softly see new tab is opened
     Then I softly can see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download As PDF" present in parallel dropdown
@@ -255,6 +255,7 @@ Feature: Sanity scenarios
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I see "Upload" button is disabled at modal under library
+    And I select Classification as "Financial Report" at upload file modal
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
     When I click modal button "Close"
@@ -640,6 +641,7 @@ Feature: Sanity scenarios
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I softly can see "Actuals" sub tab at view detail page
     And I create adhoc closeout "{SavedValue:Automation Runtime Award}" for status "Approved" with properties "default"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
@@ -665,9 +667,8 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I click on "Complete Closeout" in the page details
-    When I enter values into fields
-      | Value | Field                  |
-      | 0     | FederalCloseoutDate__c |
+    And I wait for "2" seconds
+    When I enter in modal value "0" into field "FederalCloseoutDate__c"
     And I click modal button "Save"
     And I click modal button "Close"
     Then I softly see field "Status" as "Completed"
@@ -678,7 +679,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Closed"
     Then I softly can see "Actuals" sub tab at view detail page
 
-  @449394 @VerifytheNotAccepetedfunctionofbudgetRedirectionAmendment @TBExecution
+  @449394 @VerifytheNotAccepetedfunctionofbudgetRedirectionAmendment @GRegression3
   Scenario: Verify the  Not Accepeted function of budget Redirection Amendment
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -699,6 +700,7 @@ Feature: Sanity scenarios
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Amendments" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I save the field labeled "EGMS ID" as "BDRAMENDID"
     When I click on "Submit to Grantor" in the page details
     When I enter values into fields
       | Value | Field                 |
@@ -722,7 +724,7 @@ Feature: Sanity scenarios
     And I click modal button "Close"
     Then I softly see field "Status" as "Not Accepted"
     Then I softly cannot see top right button "Edit" in page detail
-    And I wait for "5" seconds
+    And I wait for "4" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -731,7 +733,7 @@ Feature: Sanity scenarios
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     When I navigate to "Amendments" sub tab
-    And I softly can see row level action button "{SavedValue:BDRAMENDID}" against "Not Accepted" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    Then I softly can see row level action button "{SavedValue:BDRAMENDID}" against "Not Accepted" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I softly can see top right button "New" in page detail
 
   @447979 @SOWamendmentVerifyuserislandondetailedpageofamendmentrequestaftersavethedataonmodal @TBExecution
