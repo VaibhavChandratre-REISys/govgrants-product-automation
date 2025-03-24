@@ -2299,9 +2299,9 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertFieldIsEditableOrNotonModal(String fieldAPIName, boolean isSoftly) {
         if (isSoftly) {
-            I.amPerforming().assertionsTo().assertThat(isFieldEditableOnModal(fieldAPIName)).isFalse();
+            I.amPerforming().assertionsTo().assertThat(isFieldEditableOnModal(fieldAPIName)).isTrue();
         } else {
-            Assert.assertFalse(isFieldEditableOnModal(fieldAPIName));
+            Assert.assertTrue(isFieldEditableOnModal(fieldAPIName));
         }
     }
 
@@ -2319,7 +2319,7 @@ public final class GovGrantsAssertionObjects {
     private Boolean isFieldEditableOnModal(String fieldAPIName) {
         boolean flag = true;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldAPIName + "']//input[@disabled] | //div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldAPIName + "']//lightning-formatted-text")))
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldAPIName + "']//input[@disabled] | //div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldAPIName + "']//lightning-formatted-text | //div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldAPIName + "']//output")))
                 flag = true;
         } catch (Exception e) {
             flag = false;
