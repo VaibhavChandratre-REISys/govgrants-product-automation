@@ -1675,14 +1675,12 @@ Feature: Validate all scenarios of every modules flow
 
   @debugtest
   Scenario:
-    When I login to "As a Grantee" app as "GRANTEE PO" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/AmendmentRequest__c/a1YKQ000000L26p2AC/view"
+    When I login to "As a Grantee" app as "GRANTEE FO" user
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/AmendmentRequest__c/a1YKQ000000L2E52AK/view"
     And I halt execution
-    When I navigate to "Responsibilities" sub tab
-    When I click on "Edit" icon for "Step 1" inside flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
-    And I pause execution for "1" seconds
-    And I click on remove for lookup from field "name__r.name"
-    And I pause execution for "1" seconds
-    And I select user value "David FO" in field "name__r.name"
-    And I click on top right button "Save" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    When I select radio button "Approve" in the approval decision
+    And I submit the approval in the approval decision
+    And I wait for "4" seconds
+    Then I see the following messages in the page details contains:
+      | Comments are required. |
     And I halt execution
