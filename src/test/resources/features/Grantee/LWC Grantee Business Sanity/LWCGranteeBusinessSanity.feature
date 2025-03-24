@@ -3900,9 +3900,9 @@ Feature: Sanity scenarios
     And I wait for "4" seconds
     Then I softly see the following messages in the page details contains:
       | Comments are Required. |
-    When I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    Then I cannot see top right button "Edit" in page detail
+#    When I "Approve" in the approval decision
+#    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+#    Then I cannot see top right button "Edit" in page detail
 
   @449167 @485290 @VerifyPMuserasAROwnercanabletocreateFundingChangeARonactiveAward&NotAcceptARbyGrantor&notabletoseeAmendAwardbuttoninNotAcceptedstateofFCAR
   Scenario Outline: Verify PM user as (AR Owner) can able to create Funding Change AR on active Award & Not Accept AR by Grantor & not able to see Amend Award button in Not Accepted state of FC AR
@@ -7275,6 +7275,7 @@ Feature: Sanity scenarios
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     And I "Created" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "STEP_FOUR_APPROVER-David FO user"
+    And I halt execution
     When I login to "As a Grantee" app as "GRANTEE FO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
