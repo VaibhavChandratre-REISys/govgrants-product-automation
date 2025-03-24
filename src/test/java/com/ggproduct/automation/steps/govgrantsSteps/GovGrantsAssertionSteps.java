@@ -530,6 +530,12 @@ public final class GovGrantsAssertionSteps {
         ggAssertionObjects.assertFieldIsEditableOrNot(fieldAPIName, usage.contains("softly"));
     }
 
+
+    @Then("^I (softly see|see) field on modal \"([^\"]*)\" is not editable$")
+    public void iSeeFieldOnModalIsNotEditable(String usage, String fieldAPIName) {
+        ggAssertionObjects.assertFieldIsEditableOrNotonModal(fieldAPIName, usage.contains("softly"));
+    }
+
     @Then("^I (see|do not see|softly see|softly do not see) (fields|Date Box) \"([^\"]*)\" is in edit mode$")
     public void assertEditModeOfFields(String usage, String fields, String text) {
         ggAssertionObjects.assertEditModeOfPageDetailsFields(usage, fields, text);

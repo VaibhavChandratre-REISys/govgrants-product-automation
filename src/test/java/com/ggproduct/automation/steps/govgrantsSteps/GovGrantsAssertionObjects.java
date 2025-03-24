@@ -2290,10 +2290,36 @@ public final class GovGrantsAssertionObjects {
         }
     }
 
+    /**
+     * validate if fields is in edit mode is displayed at modal details
+     *
+     * @param fieldAPIName
+     * @param isSoftly
+     * @author saranjit.modak
+     */
+    public void assertFieldIsEditableOrNotonModal(String fieldAPIName, boolean isSoftly) {
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(isFieldEditableOnModal(fieldAPIName)).isFalse();
+        } else {
+            Assert.assertFalse(isFieldEditableOnModal(fieldAPIName));
+        }
+    }
+
     private Boolean isFieldEditable(String fieldAPIName) {
         boolean flag = true;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@data-field_api_name='" + fieldAPIName + "']//input[@disabled] | //div[@data-field_api_name='" + fieldAPIName + "']//lightning-formatted-text")))
+                flag = true;
+        } catch (Exception e) {
+            flag = false;
+        }
+        return flag;
+    }
+
+    private Boolean isFieldEditableOnModal(String fieldAPIName) {
+        boolean flag = true;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldAPIName + "']//input[@disabled] | //div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldAPIName + "']//lightning-formatted-text")))
                 flag = true;
         } catch (Exception e) {
             flag = false;
