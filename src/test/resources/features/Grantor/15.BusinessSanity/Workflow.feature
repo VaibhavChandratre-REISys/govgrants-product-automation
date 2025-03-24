@@ -1673,7 +1673,7 @@ Feature: Validate all scenarios of every modules flow
 #    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD"
     And I halt execution
 
-  @debugtest @debug
+  @debugtest
   Scenario:
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/AmendmentRequest__c/a1YKQ000000L26p2AC/view"

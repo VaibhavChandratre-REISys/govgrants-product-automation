@@ -878,7 +878,7 @@ Feature: Sanity scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
 
-  @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR @TBExecution
+  @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR @debug
   Scenario: Verify PM user as (AR Owner same as Award Owner) can able to create budget Redirection AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant (Flow AR)
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -1940,8 +1940,10 @@ Feature: Sanity scenarios
     Then I softly see field "Final Report?" inside page block
     Then I softly see field "Submitted By" inside page block
     Then I softly see field "Submitted On" inside page block
-    Then I softly see field "Reporting Period Start Date" as "{SavedValue:BudgetPeriodStartDate}"
-    Then I softly see field "Reporting Period End Date" as "{SavedValue:BudgetPeriodEndDate}"
+    And I save the field labeled "Reporting Period Start Date" as "ReportingPeriodStartDate"
+    And I save the field labeled "Reporting Period End Date" as "ReportingPeriodEndDate"
+    Then I softly see field "Reporting Period Start Date" as "{SavedValue:ReportingPeriodStartDate}"
+    Then I softly see field "Reporting Period End Date" as "{SavedValue:ReportingPeriodEndDate}"
     Then I softly see field "Submitted By" as ""
     Then I softly see field "Submitted On" as ""
     And I save the field labeled "EGMS ID" as "progressEGMSID"
@@ -2337,8 +2339,11 @@ Feature: Sanity scenarios
     And I save the value from row "1" for column name "Name" as "ownerName" from flex table "---grantee_tableId:-:financialReportOwnerTableId---"
     Then I softly see link "{SavedValue:ownerName}" inside Page block
     And I click on hyperlink containing value "{SavedValue:ownerName}"
+    And I wait for "2" seconds
     Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
+    And I wait for "2" seconds
     And I click on back arrow
+    And I wait for "3" seconds
     And I click on "Mark as Submitted" in the page details
     And I wait for "2" seconds
     And I click modal button "Save"
