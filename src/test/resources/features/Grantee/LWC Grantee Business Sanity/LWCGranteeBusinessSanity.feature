@@ -3897,7 +3897,7 @@ Feature: Sanity scenarios
       | Please select appropriate action before submitting. |
     When I select radio button "Approve" in the approval decision
     And I submit the approval in the approval decision
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     Then I softly see the following messages in the page details contains:
       | Comments are Required. |
     When I "Approve" in the approval decision
