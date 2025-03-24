@@ -3865,7 +3865,7 @@ Feature: Sanity scenarios
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
     When I "Send to Owner" in the approval decision
-    And I wait for "30" seconds
+    And I wait for "120" seconds
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see field "Status" as "Created"
