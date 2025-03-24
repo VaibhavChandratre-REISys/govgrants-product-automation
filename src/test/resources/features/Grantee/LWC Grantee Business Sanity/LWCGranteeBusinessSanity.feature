@@ -751,11 +751,14 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Active"
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
     And I save the field labeled "Project Period Start Date" as "PPST"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
     Then I softly can see "Actuals" sub tab at view detail page
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Title" as "AwardTitle"
@@ -815,7 +818,7 @@ Feature: Sanity scenarios
     When I "Expanded" page block contaninig value "Details"
     Then I softly see fields "Grant__c" is visible
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I hovering mouse on help text icon inside page block detail "Grant Number"
     Then I softly see "Grant Identification Number given by the Awarding Agency. Field should allow only numbers upto 25 digits" shown as help text
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
