@@ -71,7 +71,7 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Submit for Approval" in page detail
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
-    Then I softly can see "Forms & Files" sub tab at view detail page
+    Then I softly can see "Forms and Files" sub tab at view detail page
     Then I softly can see "History" sub tab at view detail page
     Then I softly can see "Messages" sub tab at view detail page
     Then I softly see "Report Overview" page block displayed
@@ -187,7 +187,7 @@ Feature: Sanity scenarios
       | Sarah PM | Step 2           |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
-    When I navigate to "Forms & Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     Then I softly see "Forms" page block displayed
     Then I softly see "Financial Report Files" page block displayed
     Then I softly see "Notes" page block displayed
@@ -231,8 +231,8 @@ Feature: Sanity scenarios
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly see "Financial Information" page block displayed
     Then I softly see "Recipient Information" page block displayed
-    Then I softly see "10. Transactions" page block displayed
-    Then I softly see "11. Indirect Expense" page block displayed
+    Then I softly see "Transactions" page block displayed
+    Then I softly see "Indirect Expense" page block displayed
     Then I softly see "Remarks" page block displayed
     Then I softly see "Certification" page block displayed
     Then I softly see "Authorized Certifying Official" page block displayed
@@ -252,7 +252,7 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Download As PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
-    When I navigate to "Forms & Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I see "Upload" button is disabled at modal under library
     When I upload file "AttachmentTesting.pdf" into library
@@ -322,7 +322,6 @@ Feature: Sanity scenarios
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
-#    Bug -463671
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | The Report has been validated successfully. |
@@ -346,7 +345,7 @@ Feature: Sanity scenarios
     When I navigate to "Responsibilities" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportApproverTableId---"
-    When I navigate to "Forms & Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
@@ -421,7 +420,7 @@ Feature: Sanity scenarios
     Then I softly can see "Quickview" sub tab at view detail page
     And I navigate to "Field Audit" sub tab in split screen
     Then I softly can see "Field Audit" sub tab at view detail page
-    When I navigate to "Forms & Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
@@ -1907,7 +1906,7 @@ Feature: Sanity scenarios
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Performance" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
-    Then I softly can see "Forms & Files" sub tab at view detail page
+    Then I softly can see "Forms and Files" sub tab at view detail page
     Then I softly can see "History" sub tab at view detail page
     Then I softly can see "Messages" sub tab at view detail page
     Then I softly see "Report Overview" page block displayed
@@ -2084,7 +2083,7 @@ Feature: Sanity scenarios
       | Sarah PM | Step 2          |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
-    When I navigate to "Forms & Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     Then I softly see "Forms" page block displayed
     Then I softly see "Progress Report Files" page block displayed
     Then I softly see "Notes" page block displayed
@@ -2171,7 +2170,7 @@ Feature: Sanity scenarios
     And I click on back arrow
     And I click on hyperlink containing value "{SavedValue:progressEGMSID}"
     Then I softly see field "Status" as "Reviewed"
-    When I navigate to "Forms & Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     Then I see "Upload" button is disabled at modal under library
     When I upload file "AttachmentTesting.pdf" into library
@@ -2288,7 +2287,7 @@ Feature: Sanity scenarios
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:progressReportApprovers---"
     Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:progressReportApprovers---"
     Then I softly cannot see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:progressReportApprovers---"
-    When I navigate to "Forms & Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "View" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Splitview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Preview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
@@ -2371,7 +2370,7 @@ Feature: Sanity scenarios
     Then I softly can see "Quickview" sub tab at view detail page
     And I navigate to "Field Audit" sub tab in split screen
     Then I softly can see "Field Audit" sub tab at view detail page
-    When I navigate to "Forms & Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "View" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Splitview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Preview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
@@ -2478,7 +2477,7 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Submit for Approval" in page detail
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
-    Then I softly can see "Forms & Files" sub tab at view detail page
+    Then I softly can see "Forms and Files" sub tab at view detail page
     Then I softly can see "History" sub tab at view detail page
     Then I softly can see "Messages" sub tab at view detail page
     Then I softly see "Report Overview" page block displayed
@@ -2601,7 +2600,7 @@ Feature: Sanity scenarios
       | Victor EXE | Step 2           |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
-    When I navigate to "Forms & Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     Then I softly see "Forms" page block displayed
     Then I softly see "Financial Report Files" page block displayed
     Then I softly see "Notes" page block displayed
@@ -2667,7 +2666,7 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Download As PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
-    When I navigate to "Forms & Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I see "Upload" button is disabled at modal under library
     When I upload file "AttachmentTesting.pdf" into library
@@ -2764,7 +2763,7 @@ Feature: Sanity scenarios
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportApproverTableId---"
     Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:financialReportApproverTableId---"
     Then I softly cannot see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:financialReportApproverTableId---"
-    When I navigate to "Forms & Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
@@ -2843,7 +2842,7 @@ Feature: Sanity scenarios
     Then I softly can see "Quickview" sub tab at view detail page
     And I navigate to "Field Audit" sub tab in split screen
     Then I softly can see "Field Audit" sub tab at view detail page
-    When I navigate to "Forms & Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
@@ -3136,7 +3135,7 @@ Feature: Sanity scenarios
       | GRANTEE PO    | 123456789123 |
       | GRANTEE ADMIN | 123456789012 |
 
-  @443858 @ValidateAwardsplconwithPMProfileIfSpecialConditionisaddedtheninawardspecialconditionmoduleafterexpandtheawardabletoseespecialconditionrecord @TBExecution
+  @443858 @ValidateAwardsplconwithPMProfileIfSpecialConditionisaddedtheninawardspecialconditionmoduleafterexpandtheawardabletoseespecialconditionrecord @GRegression2
   Scenario: Validate Award spl con with PM Profile ,If Special Condition is added then in  award special condition module after expand the award able to see special condition record
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
