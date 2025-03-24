@@ -5088,22 +5088,23 @@ public class GrantorPayloads {
     }
 
     private JsonObject payloadForGranteeStepTwoForAmendment(JsonObject json) {
-        JsonObject preAPPData = json.getAsJsonArray("GrantAwardData").get(0).getAsJsonObject();
+        JsonObject preAPPData = json.getAsJsonArray("AwardChildData").get(0).getAsJsonObject();
         JsonArray topLevelApprovers = new JsonArray();
         JsonObject topLevelApprover = new JsonObject();
         topLevelApprover.addProperty("name", ProjectWebServices.getIdOf("User", "Sarah PM"));
-        topLevelApprover.addProperty("amendmentRequest", "Step1");
+        topLevelApprover.addProperty("Award", "Step1");
+        topLevelApprover.addProperty("AmendmentRequest", "Step1");
         topLevelApprovers.add(topLevelApprover);
 
         JsonObject topLevelApprover1 = new JsonObject();
         topLevelApprover1.addProperty("name", ProjectWebServices.getIdOf("User", "Victor EXE"));
-        topLevelApprover1.addProperty("amendmentRequest", "Step2");
+        topLevelApprover1.addProperty("AmendmentRequest", "Step2");
         topLevelApprovers.add(topLevelApprover1);
 
         preAPPData.add("approvers", topLevelApprovers);
         JsonArray preAPPDataDataArray = new JsonArray();
         preAPPDataDataArray.add(preAPPData);
-        json.add("GrantAwardData", preAPPDataDataArray);
+        json.add("AwardChildData", preAPPDataDataArray);
         return json;
     }
 
