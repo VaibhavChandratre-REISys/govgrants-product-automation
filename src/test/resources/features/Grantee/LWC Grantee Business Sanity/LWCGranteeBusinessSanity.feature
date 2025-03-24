@@ -3788,6 +3788,7 @@ Feature: Sanity scenarios
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "SOWEGMSID"
     When I navigate to "Responsibilities" sub tab
     Then I softly see "Amendment Request" in flex table header "---grantee_tableId:-:AmendmentApproverRolesTableId---"
@@ -3803,16 +3804,16 @@ Feature: Sanity scenarios
       | Amendment Request |
       | Step 3            |
     Then I softly see the following messages in the page details contains:
-      | Required Fields Missing |
+      | Required fields missing |
     And I refresh the page
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
       | Name     | Amendment Request |
       | Sarah PM | Step 2            |
     Then I softly see the following messages in the page details contains:
       | You cannot specify the same step for multiple users for Amendment Request |
     And I refresh the page
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
       | Name     | Amendment Request |
       | Sarah PM | NA                |
@@ -7160,7 +7161,7 @@ Feature: Sanity scenarios
       | Overview Tab - At least one Focus Area's Start Date should match the Budget Period Start Date and one Focus Area's End Date should match the Proposed Budget Period End Date. |
       | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected.      |
 
-  @471682 @VerifyFOuserAROwnercanabletoSubmitARforApproval&Approvedfromassigned4stepapprover&candoSendtoOwnerForwardApproveactions&seeSubmittoGrantorbuttononceApprovedtheBPCARRecord
+  @471682 @VerifyFOuserAROwnercanabletoSubmitARforApproval&Approvedfromassigned4stepapprover&candoSendtoOwnerForwardApproveactions&seeSubmittoGrantorbuttononceApprovedtheBPCARRecord @GRegression3
   Scenario:Verify FO user (AR Owner) can able to Submit AR for Approval & Approved from assigned 4 step approver & can do Send to Owner/ Forward/ Approve actions & see 'Submit to Grantor' button once Approved the BPC AR Record
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
