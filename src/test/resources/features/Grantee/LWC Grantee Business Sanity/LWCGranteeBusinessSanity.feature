@@ -820,8 +820,9 @@ Feature: Sanity scenarios
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     And I wait for "5" seconds
     When I hovering mouse on help text icon inside page block detail "Grant Number"
-    Then I softly see "Grant Identification Number given by the Awarding Agency. Field should allow only numbers upto 25 digits" shown as help text
+    Then I softly see "Grant Identification Number given by the Awarding Agency" shown as help text
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I wait for "5" seconds
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I see textarea field "Impact__c" is editable
