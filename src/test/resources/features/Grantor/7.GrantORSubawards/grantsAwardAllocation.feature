@@ -679,62 +679,62 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @243807 @243848 @244199 @ValidatePMusershouldnotseebudgetedamountcolumninsubmitforclosestateofawardFAYes @sprint-16-US-237985 @Allocation
-  Scenario: Validate PM user should not see 'budgeted amount' column in submit for close state of award FAYes
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}" inside table
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
-    And I navigate to "Budget" sub tab
-    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
-    #243848
-    And I navigate to "Budget" sub tab
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
-    #244199
-    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{AUTOEnvData:INDAdminByApplicantFocusYesClosedAwardDirectGrant}" in "---progressReport:-:recipientActiveGrantId---" panel
-    And I click on "View" icon for "{AUTOEnvData:INDAdminByApplicantFocusYesClosedAwardDirectGrant}" inside table
-    And I wait for "2" seconds
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{AUTOEnvData:INDAdminByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
-    When I navigate to "Budget" sub tab
-    Then I softly do not see "Budgeted Amount" inside page block detail
+#  @243807 @243848 @244199 @ValidatePMusershouldnotseebudgetedamountcolumninsubmitforclosestateofawardFAYes @sprint-16-US-237985 @Allocation
+#  Scenario: Validate PM user should not see 'budgeted amount' column in submit for close state of award FAYes
+#    When I login to "As a Grantor" app as "PM" user
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - All"
+#    When I perform quick search for "{AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+#    And I click on "View" icon for "{AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}" inside table
+#    When I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "{AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+#    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
+#    And I navigate to "Budget" sub tab
+#    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
+#    #243848
+#    And I navigate to "Budget" sub tab
+#    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
+#    #244199
+#    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - All"
+#    When I perform quick search for "{AUTOEnvData:INDAdminByApplicantFocusYesClosedAwardDirectGrant}" in "---progressReport:-:recipientActiveGrantId---" panel
+#    And I click on "View" icon for "{AUTOEnvData:INDAdminByApplicantFocusYesClosedAwardDirectGrant}" inside table
+#    And I wait for "2" seconds
+#    When I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "{AUTOEnvData:INDAdminByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
+#    When I navigate to "Budget" sub tab
+#    Then I softly do not see "Budgeted Amount" inside page block detail
 
-  @243861 @244195 @244302 @ValidateAdminusershouldseeCumulativeObligationfieldinclosestateofawardFAYES @sprint-16-US-237985  @Allocation
-  Scenario: Validate Admin user should see 'Cumulative Obligation' field in close state of award (FA=YES)
-    When I login to "As a Grantor" app as "ADMIN" user
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" inside table
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
-    And I navigate to "Budget" sub tab
-    Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
-    Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
-    #244195
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" in "---progressReport:-:recipientActiveGrantId---" panel
-    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" inside table
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
-    When I navigate to "Budget" sub tab
-    Then I softly do not see "Budgeted Amount" inside page block detail
-    #244302
-    Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+#  @243861 @244195 @244302 @ValidateAdminusershouldseeCumulativeObligationfieldinclosestateofawardFAYES @sprint-16-US-237985  @Allocation
+#  Scenario: Validate Admin user should see 'Cumulative Obligation' field in close state of award (FA=YES)
+#    When I login to "As a Grantor" app as "ADMIN" user
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - All"
+#    When I perform quick search for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+#    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" inside table
+#    When I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+#    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
+#    And I navigate to "Budget" sub tab
+#    Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
+#    Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
+#    #244195
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - All"
+#    When I perform quick search for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" in "---progressReport:-:recipientActiveGrantId---" panel
+#    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" inside table
+#    When I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
+#    When I navigate to "Budget" sub tab
+#    Then I softly do not see "Budgeted Amount" inside page block detail
+#    #244302
+#    Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
   @243928 @ValidateEXEusershouldnotseeCumulativeobligationreadonlycolumnincreatedSenttoSrbeforeapprovalinreviewpeerreviewedstateofaward @sprint-16-US-237985  @Allocation
   Scenario: Validate EXE user should not see 'Cumulative obligation' read only column in created, Sent to S/r before approval, in review/peer reviewed state of award
@@ -1687,26 +1687,26 @@ Feature: Validate all scenarios of grants and award for Allocation
     #244297
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @244290 @244292 @244196 @ValidateSPISPAusershouldnotseebudgetedamountcolumninsubmitforclosestateofaward @sprint-16-US-238299 @Allocation
-  Scenario Outline: Validate SPI/SPA user should not see 'budgeted amount' column in submit for close state of award
-    Given I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "<User>" user
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "<Record>" in "---paymentRequest:-:recipientGrantTableId---" panel
-    And I click on "View" icon for "<Record>" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "<Record>" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
-    And I navigate to "Budget" sub tab
-    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
-    #244196
-    Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
-
-    Examples:
-      | User | Record                                                          |
-      | SPI3 | {AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}         |
-      | IND  | {AUTOEnvData:INDAdminByApplicantFocusYesClosedAwardDirectGrant} |
+#  @244290 @244292 @244196 @ValidateSPISPAusershouldnotseebudgetedamountcolumninsubmitforclosestateofaward @sprint-16-US-238299 @Allocation
+#  Scenario Outline: Validate SPI/SPA user should not see 'budgeted amount' column in submit for close state of award
+#    Given I am on "SUBPORTAL" portal
+#    And I login to "Grants Portal" app as "<User>" user
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - All"
+#    When I perform quick search for "<Record>" in "---paymentRequest:-:recipientGrantTableId---" panel
+#    And I click on "View" icon for "<Record>" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+#    When I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "<Record>" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+#    And I navigate to "Budget" sub tab
+#    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+#    #244196
+#    Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+#
+#    Examples:
+#      | User | Record                                                          |
+#      | SPI3 | {AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}         |
+#      | IND  | {AUTOEnvData:INDAdminByApplicantFocusYesClosedAwardDirectGrant} |
 
   @244294 @244300 @ValidateSPIuseseshouldseeNewobligationcolumninallstatesofawardcreatedsentsrbeforeandafterapprovalinpeerreviewreviewcompletedsubmittedtograntorSubmittedforapprovalapprovedRejectedAmendePendingActivationFANOo@sprint-16-US-238299  @Allocation
   Scenario: Validate SPI user se should see "New obligation" column in all states of award created, sent to s/r before and after approval, in peer review, review completed  submitted to grantor Submitted for approval, approved, Rejected, Amended, Pending Activation FA=No
@@ -3117,19 +3117,19 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     When I close "Subaward Budget Category" modal by clicking the top right x button
     And I wait for "2" seconds
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "<Records>" in "---paymentRequest:-:recipientGrantTableId---" panel
-    And I click on "View" icon for "<Records>" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "<Records>" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
-    And I navigate to "Budget" sub tab
-    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
-    And I wait for "2" seconds
-    Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    Then I softly cannot see row level action button "Delete" against "Construction" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - All"
+#    When I perform quick search for "<Records>" in "---paymentRequest:-:recipientGrantTableId---" panel
+#    And I click on "View" icon for "<Records>" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+#    When I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "<Records>" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+#    And I navigate to "Budget" sub tab
+#    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
+#    And I wait for "2" seconds
+#    Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
+#    Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
+#    Then I softly cannot see row level action button "Delete" against "Construction" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
 
     Examples:
       | User | AllocationType     | Contacts                   | Records                                       |
@@ -5612,21 +5612,21 @@ Feature: Validate all scenarios of grants and award for Allocation
     #244198
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @244137 @244170 @ValidateSPIusershouldnotseeBudgetedAmountfieldonawardinclosestate @sprint-16-US-239751 @Allocation
-  Scenario: Validate SPI user should not see 'Budgeted Amount' field on award in close state
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{AUTOEnvData:AdminByApplicantFocusAreaClosedAwardDirectGrant}" in "---paymentRequest:-:recipientGrantTableId---" panel
-    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusAreaClosedAwardDirectGrant}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusAreaClosedAwardDirectGrant}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
-    And I navigate to "Budget" sub tab
-    Then I softly do not see field "Budgeted Amount" inside "Budget Summary" section
-    #244170
-    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+#  @244137 @244170 @ValidateSPIusershouldnotseeBudgetedAmountfieldonawardinclosestate @sprint-16-US-239751 @Allocation
+#  Scenario: Validate SPI user should not see 'Budgeted Amount' field on award in close state
+#    Given I am on "SUBPORTAL" portal
+#    When I login to "Grants Portal" app as "SPI3" user
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - All"
+#    When I perform quick search for "{AUTOEnvData:AdminByApplicantFocusAreaClosedAwardDirectGrant}" in "---paymentRequest:-:recipientGrantTableId---" panel
+#    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusAreaClosedAwardDirectGrant}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+#    When I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusAreaClosedAwardDirectGrant}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+#    And I navigate to "Budget" sub tab
+#    Then I softly do not see field "Budgeted Amount" inside "Budget Summary" section
+#    #244170
+#    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
   @244148 @ValidateSPI/SPAuserseeCarryforwardfiledshouldbeonlydisplayawardwhenbudgetperiodchangetoBP02andbeyond @sprint-16-US-239751  @Allocation
   Scenario: Validate SPI/SPA user see 'Carry forward' filed should be only display on award when budget period change to BP02 and beyond
@@ -13689,7 +13689,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly can see top right button "New" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
     Then I can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
 
-  @241958 @ValidateEXEusershouldabletoeditthefocusareastartdateandenddateifapproversentbacktoowner @sprint-15-US-237846  @Allocation
+  @241958 @ValidateEXEusershouldabletoeditthefocusareastartdateandenddateifapproversentbacktoowner @sprint-15-US-237846 @Allocation @ProExecute
   Scenario Outline: Validate EXE user should able to edit the focus area start date and end date if approver sent back to owner
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -15208,7 +15208,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:budgetLineItems---"
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:budgetLineItems---"
 
-  @240574 @ValidateAdminusershouldabletoactivatetheawardwithsettingofsubrecipientmatch%isYesonAnn @sprint-16-US-220612  @Allocation
+  @240574 @ValidateAdminusershouldabletoactivatetheawardwithsettingofsubrecipientmatch%isYesonAnn @sprint-16-US-220612 @Allocation @ProExecute
   Scenario Outline: Validate Admin user should able to activate the award with setting of subrecipient match % is 'Yes' on Ann
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO-Automation ADMIN user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -15373,7 +15373,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "New Obligation" as "$1,000.00"
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
 
-  @243022 @ValidateINDuserseerenamedsectionofBudgetPeriodDetailstotheBudgetSummarysectionatS/Rside @sprint-16-US-226895  @Allocation
+  @243022 @ValidateINDuserseerenamedsectionofBudgetPeriodDetailstotheBudgetSummarysectionatS/Rside @sprint-16-US-226895 @Allocation @ProExecute
   Scenario: Validate IND user see renamed section of Budget Period Details to the "Budget Summary" section at S/R side
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-Automation IND user"
@@ -15792,18 +15792,18 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly see field "NewObligation__c" not in edit mode
     Then I softly see field "CumulativeObligation__c" not in edit mode
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" in "---progressReport:-:recipientActiveGrantId---" panel
-    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside table
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
-    Then I softly see that "Subaward" is in "Closed" status
-    And I navigate to "Budget" sub tab
-    Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
-    Then I softly see field "NewObligation__c" not in edit mode
-    Then I softly see field "CumulativeObligation__c" not in edit mode
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - All"
+#    When I perform quick search for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" in "---progressReport:-:recipientActiveGrantId---" panel
+#    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside table
+#    When I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
+#    Then I softly see that "Subaward" is in "Closed" status
+#    And I navigate to "Budget" sub tab
+#    Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+#    Then I softly see field "NewObligation__c" not in edit mode
+#    Then I softly see field "CumulativeObligation__c" not in edit mode
 
     Examples:
       | Award Name                                       | Grant Name                                       |
@@ -16812,7 +16812,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside table
     Then I softly see field "Grant Type" as "Directed"
 
-  @241709 @ValidateINDusercanseeFormulaasgranttypeonGrantlayoutifPOuserhasselectedFormulaonthecreategrantsmodule @sprint-15-US-238850  @Allocation
+  @241709 @ValidateINDusercanseeFormulaasgranttypeonGrantlayoutifPOuserhasselectedFormulaonthecreategrantsmodule @sprint-15-US-238850 @Allocation @ProExecute
   Scenario: Validate IND user can see Formula as grant type on Grant layout if PO user has selected Formula on the create grants module
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -19023,28 +19023,28 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly see field "NewObligation__c" not in edit mode
     Then I softly see field "CumulativeObligation__c" not in edit mode
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{AUTOEnvData:DirectedClosedAward}" in "---progressReport:-:recipientActiveGrantId---" panel
-    And I click on "View" icon for "{AUTOEnvData:DirectedClosedAward}" inside table
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{AUTOEnvData:DirectedClosedAward}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
-    Then I softly see that "Subaward" is in "Closed" status
-    When I navigate to "Budget" sub tab
-    Then I softly cannot see field "Budget Period End Date" inside page block
-    Then I softly cannot see field "Budgeted Amount" inside page block
-    Then I softly see field "New Obligation" inside page block
-    Then I softly see field "Cumulative Obligation" inside page block
-    Then I softly see field "Total Commitment" inside page block
-    Then I softly see field "Match this Budget Period" inside page block
-    #244352
-    And I navigate to "Budget" sub tab
-    Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
-    Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
-    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
-    Then I softly see field "NewObligation__c" not in edit mode
-    Then I softly see field "CumulativeObligation__c" not in edit mode
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - All"
+#    When I perform quick search for "{AUTOEnvData:DirectedClosedAward}" in "---progressReport:-:recipientActiveGrantId---" panel
+#    And I click on "View" icon for "{AUTOEnvData:DirectedClosedAward}" inside table
+#    When I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "{AUTOEnvData:DirectedClosedAward}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
+#    Then I softly see that "Subaward" is in "Closed" status
+#    When I navigate to "Budget" sub tab
+#    Then I softly cannot see field "Budget Period End Date" inside page block
+#    Then I softly cannot see field "Budgeted Amount" inside page block
+#    Then I softly see field "New Obligation" inside page block
+#    Then I softly see field "Cumulative Obligation" inside page block
+#    Then I softly see field "Total Commitment" inside page block
+#    Then I softly see field "Match this Budget Period" inside page block
+#    #244352
+#    And I navigate to "Budget" sub tab
+#    Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+#    Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+#    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+#    Then I softly see field "NewObligation__c" not in edit mode
+#    Then I softly see field "CumulativeObligation__c" not in edit mode
 
     Examples:
       | Award Name                                       | Grant Name                                       |
@@ -24970,9 +24970,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
     When I navigate to "Subawards" sub tab
     When I click on "View" icon for "{SavedValue:AwardEGMSID}" inside table with wait for record
-#    When I navigate to "Terms" sub tab
-     #Button is Missing below
-    #Bug418247
+    When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"

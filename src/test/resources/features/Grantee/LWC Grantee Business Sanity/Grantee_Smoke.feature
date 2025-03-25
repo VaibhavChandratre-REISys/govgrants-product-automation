@@ -11226,7 +11226,7 @@ Feature: Grantee Smoke scenarios
     When I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
     Then I see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
 
-  @482429 @ValidateDirectGrantAwardPOuserPousershouldabletoActivatetheawadafteractivateawardverifythenewbuttoncloseoutAmendmentProgressReportFinancialReport @Grantee_Smoke1 @GRegression1
+  @482429 @ValidateDirectGrantAwardPOuserPousershouldabletoActivatetheawadafteractivateawardverifythenewbuttoncloseoutAmendmentProgressReportFinancialReport @Grantee_Smoke1
   Scenario: Validate Direct Grant Award PO user Verify Po user should able to Activate the award & after activate award verify the new button closeout Amendment Progress Report Financial Report
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     Given I login to "As a Grantee" app as "GRANTEE PO" user

@@ -4298,7 +4298,7 @@ Feature: Sanity scenarios New
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
-      | Title               | Is Primary Program |
+      | Title                            | Is Primary Program |
       | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
@@ -4776,7 +4776,7 @@ Feature: Sanity scenarios New
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
-      | Title               | Is Primary Program |
+      | Title                            | Is Primary Program |
       | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
@@ -5294,7 +5294,7 @@ Feature: Sanity scenarios New
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
-      | Title               | Is Primary Program |
+      | Title                            | Is Primary Program |
       | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
@@ -5754,7 +5754,7 @@ Feature: Sanity scenarios New
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
-      | Title               | Is Primary Program |
+      | Title                            | Is Primary Program |
       | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
@@ -6340,7 +6340,7 @@ Feature: Sanity scenarios New
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
-      | Title               | Is Primary Program |
+      | Title                            | Is Primary Program |
       | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
@@ -6475,7 +6475,7 @@ Feature: Sanity scenarios New
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
-      | Title               | Is Primary Program |
+      | Title                            | Is Primary Program |
       | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
@@ -6598,7 +6598,7 @@ Feature: Sanity scenarios New
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
-      | Title               | Is Primary Program |
+      | Title                            | Is Primary Program |
       | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
@@ -6769,7 +6769,7 @@ Feature: Sanity scenarios New
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
-      | Title               | Is Primary Program |
+      | Title                            | Is Primary Program |
       | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
@@ -6954,7 +6954,7 @@ Feature: Sanity scenarios New
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
-      | Title               | Is Primary Program |
+      | Title                            | Is Primary Program |
       | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
@@ -8517,7 +8517,7 @@ Feature: Sanity scenarios New
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
-      | Title               | Is Primary Program |
+      | Title                            | Is Primary Program |
       | Automation Permanent NGO Program | Checked            |
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
@@ -15948,3 +15948,54 @@ Feature: Sanity scenarios New
       | GRANTEE FO    | David FO           | Notes Record FO    | Notes Record FO1    |
       | GRANTEE FD    | Danielle FD Garcia | Notes Record FD    | Notes Record FD1    |
       | GRANTEE ADMIN | Product QA         | Notes Record ADMIN | Notes Record ADMIN1 |
+
+  @484041 @ValidateFrommAppGPCloseoutWithPMProfileOncecreatetheadhoccloseoutNewbuttonofcloseoutgetdisable @GRegression3
+  Scenario: Validate Fromm App_GP Closeout With PM Profile Once create the adhoc closeout New button of closeout get disable
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    Then I softly see field "Status" as "Active"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Project Period Start Date" as "PPST"
+    When I navigate to "Closeout" sub tab
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
+    When I enter values into fields
+      | Value             | Field           |
+      | {SavedValue:PPST} | CloseoutDate__c |
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Closeout_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "closeoutID"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Closeout" sub tab
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I can see row level action button "View" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I can see row level action button "Edit" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"

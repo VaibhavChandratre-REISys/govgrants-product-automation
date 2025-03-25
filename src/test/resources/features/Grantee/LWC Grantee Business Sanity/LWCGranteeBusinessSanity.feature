@@ -3407,7 +3407,7 @@ Feature: Sanity scenarios
     And I click on "Edit" in the page details
     Then I softly see fields "TotalObligatedAmount__c" is in edit mode
     Then I softly see that "Award Amount to Date" rendered in view mode only
-    Then I softly see that "Expenditures to Date" rendered in view mode only
+    Then I softly see that "Spent to Date" rendered in view mode only
     Then I softly see that "Remaining Budget" rendered in view mode only
     Then I softly see that "Budgeted Match" rendered in view mode only
     Then I softly see that "Remaining Match" rendered in view mode only
