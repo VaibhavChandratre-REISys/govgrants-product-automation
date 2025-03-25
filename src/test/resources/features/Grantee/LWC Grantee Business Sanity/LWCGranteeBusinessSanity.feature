@@ -3360,7 +3360,7 @@ Feature: Sanity scenarios
     Then I softly see "Create Grant" opens in overLay window
     Then I softly cannot see field "Is Budget Period Closeout Request Required?" inside page block
 
-  @443804 @ValidateGrantWithEXEProfileGrantisinCreatedDraftstate
+  @443804 @ValidateGrantWithEXEProfileGrantisinCreatedDraftstate @GRegression3
   Scenario: Validate Grant With EXE Profile Grant is in Created Draft state
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -6015,7 +6015,7 @@ Feature: Sanity scenarios
   @449404 @476541 @VerifyusershouldabletocorrectvaluesinnewactivatedAward
   Scenario: Verify user should able to correct values in new activated Award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "ALL_SETTING_NO-Victor EXE user"
-    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "THREE_FOCUS_WITH_BUDGET"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -6105,8 +6105,7 @@ Feature: Sanity scenarios
     When I close "Add Line Items" modal by clicking the top right x button
     Then I softly see value "$5,000.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
-    And I wait for "3" seconds
-    Then I softly see field "Status" as "Submitted for Approval"
+    Then I see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab

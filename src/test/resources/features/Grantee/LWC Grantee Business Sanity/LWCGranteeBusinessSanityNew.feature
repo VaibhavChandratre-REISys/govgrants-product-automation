@@ -11415,7 +11415,7 @@ Feature: Sanity scenarios New
       | GRANTEE ADMIN   |
       | GRANTEE PO      |
 
-  @443840 @443848 @443844 @443847 @ValidatewithPMProfileIfindirectgrantkeepsettingYESthenInApprovedActivestateabletoseetheaccessofsection
+  @443840 @443848 @443844 @443847 @ValidatewithPMProfileIfindirectgrantkeepsettingYESthenInApprovedActivestateabletoseetheaccessofsection @GRegression3
   Scenario: Validate with PM Profile in direct grant keep setting YES then In Approved Active state able to see the access of section
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab

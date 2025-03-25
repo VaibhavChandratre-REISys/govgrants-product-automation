@@ -5066,6 +5066,8 @@ public class GrantorPayloads {
         switch (filter) {
             case "SECOND_FOCUS_WITH_BUDGET":
                 return payloadForSecondFocusWithBudget(json);
+            case "THREE_FOCUS_WITH_BUDGET":
+                return payloadForThreeFocusWithBudget(json);
             case "PROGRESS_FINANCIAL_SCHEDULES":
                 return payloadForProgressAndFinancialSchedulesDate(json);
             case "SPECIAL_CONDITIONS_NO":
@@ -5085,6 +5087,72 @@ public class GrantorPayloads {
             default:
                 return json;
         }
+    }
+
+    private JsonObject payloadForThreeFocusWithBudget(JsonObject json) {
+        JsonObject grantAwardData = json.getAsJsonArray("AwardChildData").get(0).getAsJsonObject();
+
+        JsonArray focusAreas = new JsonArray();
+        JsonObject focusArea1 = new JsonObject();
+        focusArea1.addProperty("Title", "Automation Permanent Focus Area");
+        focusArea1.addProperty("StartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        focusArea1.addProperty("EndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        focusAreas.add(focusArea1);
+        grantAwardData.add("focusAreas", focusAreas);
+
+        JsonArray buildUpItems = new JsonArray();
+        JsonObject buildUpItem = new JsonObject();
+        buildUpItem.addProperty("BudgetCategory", "Construction");
+        buildUpItem.addProperty("Title", "Construction");
+        buildUpItem.addProperty("Narrative", "Test Build-up");
+        buildUpItem.addProperty("awardBudget", 5000);
+        buildUpItem.addProperty("CashMatch", 500);
+        buildUpItem.addProperty("OtherLeverage", 200);
+        buildUpItem.addProperty("ServiceAreaName", "Automation Permanent Focus Area");
+        buildUpItems.add(buildUpItem);
+        grantAwardData.add("buildUpItems", buildUpItems);
+
+        JsonObject focusArea2 = new JsonObject();
+        focusArea2.addProperty("Title","Automation Permanent Focus Area2");
+        focusArea2.addProperty("StartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        focusArea2.addProperty("EndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        focusAreas.add(focusArea2);
+        grantAwardData.add("focusAreas", focusAreas);
+
+        // Adding build-up items
+        JsonObject buildUpItem1 = new JsonObject();
+        buildUpItem1.addProperty("BudgetCategory", "Construction");
+        buildUpItem1.addProperty("Title", "Construction");
+        buildUpItem1.addProperty("Narrative", "Test Build-up");
+        buildUpItem1.addProperty("awardBudget", 5000);
+        buildUpItem1.addProperty("CashMatch", 500);
+        buildUpItem1.addProperty("OtherLeverage", 200);
+        buildUpItem1.addProperty("ServiceAreaName", "Automation Permanent Focus Area2");
+        buildUpItems.add(buildUpItem1);
+
+        JsonObject focusArea3 = new JsonObject();
+        focusArea3.addProperty("Title","Test Focus Area1");
+        focusArea3.addProperty("StartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        focusArea3.addProperty("EndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        focusAreas.add(focusArea3);
+        grantAwardData.add("focusAreas", focusAreas);
+
+        // Adding build-up items
+        JsonObject buildUpItem2 = new JsonObject();
+        buildUpItem2.addProperty("BudgetCategory", "Construction");
+        buildUpItem2.addProperty("Title", "Construction");
+        buildUpItem2.addProperty("Narrative", "Test Build-up");
+        buildUpItem2.addProperty("awardBudget", 5000);
+        buildUpItem2.addProperty("CashMatch", 500);
+        buildUpItem2.addProperty("OtherLeverage", 200);
+        buildUpItem2.addProperty("ServiceAreaName", "Test Focus Area1");
+        buildUpItems.add(buildUpItem2);
+        grantAwardData.add("buildUpItems", buildUpItems);
+
+        JsonArray grantAwardDataArray = new JsonArray();
+        grantAwardDataArray.add(grantAwardData);
+        json.add("AwardChildData", grantAwardDataArray);
+        return json;
     }
 
     private JsonObject payloadForGranteeStepTwoForAmendment(JsonObject json) {
