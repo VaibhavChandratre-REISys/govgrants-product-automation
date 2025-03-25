@@ -879,7 +879,7 @@ Feature: Sanity scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
 
-  @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR
+  @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR @GRegression3
   Scenario: Verify PM user as (AR Owner same as Award Owner) can able to create budget Redirection AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant (Flow AR)
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -1289,19 +1289,18 @@ Feature: Sanity scenarios
     And I click on "Amend Award" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I click on "Activate Award" in the page details
-    And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
     And I wait for "5" seconds
     And I navigate to "Grants" tab
-    And I select "Awards" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:AwardEGMSID1}"
-    Then I softly can see row level action button "Edit" against "{SavedValue:AwardEGMSID1}" in global search with id "Awards"
-    Then I softly cannot see row level action button "Change Owner" against "{SavedValue:AwardEGMSID1}" in global search with id "Awards"
-    Then I softly cannot see row level action button "Delete" against "{SavedValue:AwardEGMSID1}" in global search with id "Awards"
-    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID1}" in global search with id "Awards"
-    Then I softly see field "Status" as "Activated"
+    And I select "Search: Amendment Requests" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:BDRAMENDID}"
+    Then I softly can see row level action button "Edit" against "{SavedValue:BDRAMENDID}" in global search with id "Amendment Requests"
+    Then I softly can see row level action button "Change Owner" against "{SavedValue:BDRAMENDID}" in global search with id "Amendment Requests"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:BDRAMENDID}" in global search with id "Amendment Requests"
+    And I click on row level action button "Edit" against "{SavedValue:BDRAMENDID}" in global search with id "Amendment Requests"
+    Then I softly see field "Status" as "Accepted"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
@@ -9293,7 +9292,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:focusEGMSID}" inside table
     Then I cannot see top right button "Deactivate" in page detail
 
-  @476625 @476626 @476627 @476628 @476629 @476630 @476631 @ValidateFederalprogramPMusercanviewFederalProgram
+  @476625 @476626 @476627 @476628 @476629 @476630 @476631 @ValidateFederalprogramPMusercanviewFederalProgram @GRegression3
   Scenario Outline: Validate Federal program PM/Po/EXE/FO/FD/ADMIN/AUD user can view Federal Program
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
