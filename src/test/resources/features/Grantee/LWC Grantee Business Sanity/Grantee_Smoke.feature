@@ -2136,7 +2136,7 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Amended"
 
-  @476988 @CombinationofamendmentVerifyPMusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @Grantee_Smoke1
+  @476988 @CombinationofamendmentVerifyPMusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @Grantee_Smoke1 @GRegression1
   Scenario Outline:Combination of amendment : Verify PM user can create combination of amendment using following combinations and activate new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -2861,7 +2861,7 @@ Feature: Grantee Smoke scenarios
       | User        |
       | GRANTEE EXE |
 
-  @470843 @PRamdVerifytheimpactonGrants&AwardafterPeriodicRenewalAmendmentRequestisAccepted&creatednewaward @Grantee_Smoke1 @GranteeTBE
+  @470843 @PRamdVerifytheimpactonGrants&AwardafterPeriodicRenewalAmendmentRequestisAccepted&creatednewaward @Grantee_Smoke1 @GRegression1
   Scenario:PR amd the impact on Grants & Award after Periodic Renewal Amendment Request is Accepted & created new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -3332,7 +3332,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Monitoring" sub tab
     Then I softly do not see value "{SavedValue:AmendTermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
 
-  @463431 @PreAppVerifyWithPOprofileAbletoaddpeerreviewerwithAllowrecordEditingYes @Grantee_Smoke1
+  @463431 @PreAppVerifyWithPOprofileAbletoaddpeerreviewerwithAllowrecordEditingYes @Grantee_Smoke1 @GRegression1
   Scenario:PreApp - Verify With PO profile , Able to add peer reviewer with Allow record Editing - Yes.
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     Given I login to "As a Grantee" app as "GRANTEE PO" user
@@ -3479,7 +3479,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     Then I softly see field "Status" as "Created"
 
-  @449166 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant @Grantee_Smoke1 @GranteeTBE
+  @449166 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant @Grantee_Smoke1 @GRegression1
   Scenario Outline: Verify PM user as (AR Owner same as Award Owner) can able to create Funding Change AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -6956,7 +6956,7 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Closed"
 
-  @476989 @CombinationofamendmentVerifyPOusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @Grantee_Smoke3 @GranteeTBE
+  @476989 @CombinationofamendmentVerifyPOusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @Grantee_Smoke3 @GRegression1
   Scenario Outline:Combination of amendment : Verify PO user can create combination of amendment using following combinations and activate new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -8324,7 +8324,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     Then I softly see field "Status" as "Created"
 
-  @490622 @ValidatethatPMuserseeConverttoOpportunitybuttononOppprotunitylayoutabletoconverttheleadtoopportunityagainorganizationswhohavequalifiedthelead @Grantee_Smoke1
+  @490622 @ValidatethatPMuserseeConverttoOpportunitybuttononOppprotunitylayoutabletoconverttheleadtoopportunityagainorganizationswhohavequalifiedthelead @Grantee_Smoke1 @GRegression1
   Scenario: Validate that PM user see "Convert to Opportunity" button on Oppprotunity layout & able to convert the lead to opportunity again organizations who have qualified the lead
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
@@ -14396,7 +14396,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "$3,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
-  @482639 @ValidateTabsanddatadisplayedtoPMuseronawardrecordwhenallsettingsareYes @Grantee_Smoke1
+  @482639 @ValidateTabsanddatadisplayedtoPMuseronawardrecordwhenallsettingsareYes @Grantee_Smoke1 @GRegression1
   Scenario: Validate Tabs and data displayed to PM user on award record when all settings are Yes
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -15294,7 +15294,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @444516 @ValidateEXEuserprogressreportrecordownercanseeAdhocprogressreportscanbecreatedonlyforactiveawardsseerequiredtoSavevalidationsondetailspagelayoutwhenRequiredfieldskeptblankothervalidationsonValidatebuttondeletePR @Grantee_Smoke1
+  @444516 @ValidateEXEuserprogressreportrecordownercanseeAdhocprogressreportscanbecreatedonlyforactiveawardsseerequiredtoSavevalidationsondetailspagelayoutwhenRequiredfieldskeptblankothervalidationsonValidatebuttondeletePR @Grantee_Smoke1 @GRegression1
   Scenario: Validate EXE user (progress report record owner)can see Ad hoc progress reports can be created only for active awards & see required to Save validations on details page layout when Required fields kept blank & other validations on Validate button& delete PR
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -15460,7 +15460,7 @@ Feature: Grantee Smoke scenarios
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @495295 @444494 @ValidateAuditorprofileuserhavingonlyviewonlyaccess @Grantee_Smoke3
+  @495295 @444494 @ValidateAuditorprofileuserhavingonlyviewonlyaccess @Grantee_Smoke3 @GRegression1
   Scenario: Validate Auditor profile user having only view only access
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
