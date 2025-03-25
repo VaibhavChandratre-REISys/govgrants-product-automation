@@ -2266,7 +2266,7 @@ Feature: Sanity scenarios
     And I click modal button "Close"
     Then I softly see field "Status" as "Accepted"
 
-  @482861 @VerifyEXEuserAROwnercanabletoRejecttheCarryForwardAmendmentRequestfromApprovalProcess
+  @482861 @VerifyEXEuserAROwnercanabletoRejecttheCarryForwardAmendmentRequestfromApprovalProcess @GRegression3
   Scenario:Verify EXE user (AR Owner) can able to Reject the Carry Forward Amendment Request from Approval Process
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -3969,7 +3969,7 @@ Feature: Sanity scenarios
       | GRANTEE FO |
       | GRANTEE FD |
 
-  @482627 @482628 @482629 @482630 @482631 @VerifyPOuserNonownercanviewawarddetailspagebutcannotseeeditactiononaward
+  @482627 @482628 @482629 @482630 @482631 @VerifyPOuserNonownercanviewawarddetailspagebutcannotseeeditactiononaward @GRegression3
   Scenario Outline:Verify PO user(Non owner) can view award details page but cannot see edit action on award
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<OwnerName>"
     Given I login to "As a Grantee" app as "<OwnerType>" user
