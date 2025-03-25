@@ -3471,8 +3471,7 @@ Feature: Sanity scenarios
     And I navigate to "Monitoring" sub tab
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:grantGoalsTableId---"
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:grantKPITableId---"
-    And I navigate to "Closeout" sub tab
-    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly cannot see "Closeout" sub tab at view detail page
 
   @443802 @ValidateGrantwithnonownerabletoseeonlyviewaction
   Scenario: Validate Grant with non owner able to see only view action
