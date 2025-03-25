@@ -883,21 +883,26 @@ Feature: Sanity scenarios
   Scenario: Verify PM user as (AR Owner same as Award Owner) can able to create budget Redirection AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant (Flow AR)
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "SECOND_FOCUS_WITH_BUDGET"
-    And I activate the award for title "{SavedValue:Automation Runtime award}"
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    Then I softly see field "Status" as "Active"
-    Then I softly see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I save the field labeled "Grant Number" as "GrantNumber"
     When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    Then I softly see field "Status" as "Activated"
-    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Attachment.pdf" has been added in "Award Files" flex table
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
@@ -1125,13 +1130,13 @@ Feature: Sanity scenarios
     Then I softly see "File Extension" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see "Description" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see value "Interim Award Document" for title "Classification" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I see "Attachment.pdf" has been added in "Amendment Files" flex table
+    Then I see "Other" has been added in "Amendment Files" flex table
     Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
@@ -1140,12 +1145,10 @@ Feature: Sanity scenarios
 #    And I wait for "2" seconds
 #    And I download the file
 #    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+#    And I switch to parent tab
     And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I wait for "5" seconds
-    Then I softly see "View" opens in overLay window
-    And I click modal button "Close"
-    And I wait for "3" seconds
+    Then I softly see the image "Attachment.pdf" in page detail
+    And I click on "Close" button for view files page
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Notice of Award" at upload file modal
@@ -6144,7 +6147,6 @@ Feature: Sanity scenarios
     Then I see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I see value "Test Focus Area1" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
-    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     And I wait for "2" seconds
     Then I softly see value "$4,500.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
