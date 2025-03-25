@@ -526,7 +526,7 @@ Feature: Sanity scenarios
     When I click modal button "Save"
     And I click modal button "Close"
     And I refresh the page
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see value "Interim Award Document" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardsNotesTableId---"
