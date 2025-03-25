@@ -5884,7 +5884,7 @@ Feature: Sanity scenarios
       | Overview Tab - Money cannot be moved across the Focus Areas during a Budget Redirection request.       |
       | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero. |
 
-  @449402 @VerifyUserwillactivatethenewawardfromNonOwnerAwardOwner
+  @449402 @VerifyUserwillactivatethenewawardfromNonOwnerAwardOwner @GRegression3
   Scenario: Verify User will activate the new award from Non Owner Award Owner
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
