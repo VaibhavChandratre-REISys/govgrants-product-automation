@@ -2484,7 +2484,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 
- @286507  @sprint-1-US-295145  @Undo @bug-414554
+ @286507  @sprint-1-US-295145  @Undo @bug-414554 @ProExecute
   Scenario: Verify user see all tables display correctly in downloaded PDF for award in rejected state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -2577,9 +2577,7 @@ Feature: Validate all scenarios of grants and award with undo
     And I wait for "7" seconds
     Then I see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
-    And I click on Menu icon present on top right corner of the page
-    And I pause execution for "3" seconds
-    And I select "Download as PDF" from dropdown
+    And I click on "Download As PDF" in the page details
     And I pause execution for "3" seconds
     And I download the file
     Then I softly see "{SavedValue:AwardEGMSID}" on page "1" of "govgrant" pdf file
@@ -2596,5 +2594,3 @@ Feature: Validate all scenarios of grants and award with undo
     And I switch to parent tab
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Subaward_Submit_for_Approval.pdf" as name
-
-
