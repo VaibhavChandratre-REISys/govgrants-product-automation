@@ -6013,7 +6013,7 @@ Feature: Sanity scenarios
     Then I softly see value "$450.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$5,150.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
 
-  @449404 @476541 @VerifyusershouldabletocorrectvaluesinnewactivatedAward
+  @449404 @476541 @VerifyusershouldabletocorrectvaluesinnewactivatedAward @GRegression3
   Scenario: Verify user should able to correct values in new activated Award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "ALL_SETTING_NO-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "THREE_FOCUS_WITH_BUDGET"
