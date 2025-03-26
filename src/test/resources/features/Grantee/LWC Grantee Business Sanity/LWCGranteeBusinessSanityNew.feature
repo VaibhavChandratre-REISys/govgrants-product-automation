@@ -15921,12 +15921,15 @@ Feature: Sanity scenarios New
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I wait for "2" seconds
+    And I submit the approval in the approval decision without processing
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Please select appropriate action before submitting. |
     When I select radio button "Approve" in the approval decision
     And I submit the approval in the approval decision
     And I wait for "2" seconds
-    Then I see the following messages in the page details contains:
+    Then I softly see the following messages in the page details contains:
       | Comments are required. |
     When I "Approve" in the approval decision
     And I wait for "2" seconds
@@ -16118,12 +16121,15 @@ Feature: Sanity scenarios New
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I wait for "2" seconds
+    And I submit the approval in the approval decision without processing
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Please select appropriate action before submitting. |
     When I select radio button "Approve" in the approval decision
     And I submit the approval in the approval decision
     And I wait for "2" seconds
-    Then I see the following messages in the page details contains:
+    Then I softly see the following messages in the page details contains:
       | Comments are required. |
     When I "Approve" in the approval decision
     And I wait for "2" seconds
@@ -16228,11 +16234,12 @@ Feature: Sanity scenarios New
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
-    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default-Victor EXE user"
     And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
     And I wait for "2" seconds
     And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime Opportunity}" with properties "NA_APPROVER_EXE_OWNER"
+    And I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -16246,6 +16253,7 @@ Feature: Sanity scenarios New
     Then I softly can see row level action button "Delete" against "Created" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
     And I save the field labeled "EGMS ID" as "progressEGMSID"
+    And I halt execution
     And I wait for "3" seconds
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
@@ -16254,5 +16262,17 @@ Feature: Sanity scenarios New
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:ProgressReports---"
     Then I softly can see row level action button "Edit" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
     Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-    Then I softly cannot see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-    And I halt execution
+    Then I softly can see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    When I click on "View" icon for "{SavedValue:progressEGMSID}" inside table
+    When I click on "Edit" in the page details
+    Then I softly see fields "ReportingPeriodStartDate__c" is in edit mode
+    Then I softly see fields "ReportingPeriodEndDate__c" is in edit mode
+    Then I softly see fields "ReportDueDate__c" is in edit mode
+    Then I softly see fields "IsFinalReport__c" is in edit mode
+    And I click on "Save" in the page details
+    And I wait for "1" seconds
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+
