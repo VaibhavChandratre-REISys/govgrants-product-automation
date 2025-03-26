@@ -15910,10 +15910,10 @@ Feature: Sanity scenarios New
     Then I softly see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
     And I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
-    And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
-    When I click toggle button to select "Progress Reports - All"
-    When I perform quick search for "{SavedValue:progressEGMSID}" in "---auditor:-:progressreportTableId---" panel
-    When I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---auditor:-:progressreportTableId---"
+    When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Progress Reports - All"
+    When I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
+    When I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:ProgressReports---"
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
@@ -15987,10 +15987,10 @@ Feature: Sanity scenarios New
     Then I softly do not see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
     And I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
-    And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
-    When I click toggle button to select "Progress Reports - All"
-    When I perform quick search for "{SavedValue:progressEGMSID}" in "---auditor:-:progressreportTableId---" panel
-    When I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---auditor:-:progressreportTableId---"
+    When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Progress Reports - All"
+    When I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
+    When I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:ProgressReports---"
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
@@ -16107,10 +16107,10 @@ Feature: Sanity scenarios New
     Then I softly see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
     And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
-    And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
-    When I click toggle button to select "Progress Reports - All"
-    When I perform quick search for "{SavedValue:progressEGMSID}" in "---auditor:-:progressreportTableId---" panel
-    When I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---auditor:-:progressreportTableId---"
+    When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Progress Reports - All"
+    When I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
+    When I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:ProgressReports---"
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
@@ -16184,10 +16184,10 @@ Feature: Sanity scenarios New
     Then I softly do not see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
     And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
-    And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
-    When I click toggle button to select "Progress Reports - All"
-    When I perform quick search for "{SavedValue:progressEGMSID}" in "---auditor:-:progressreportTableId---" panel
-    When I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---auditor:-:progressreportTableId---"
+    When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Progress Reports - All"
+    When I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
+    When I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:ProgressReports---"
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
@@ -16213,3 +16213,46 @@ Feature: Sanity scenarios New
     Then I softly see field "Submitted By" as "{SavedValue:SubmittedBy}"
     And I save the field labeled "Submitted On" as "SubmittedOn"
     Then I softly see field "Submitted On" as "{SavedValue:SubmittedOn}"
+
+  @484537 @ValidateFromAppEXEuserprogressreportrecordownercaneditthefieldsonAdhocprogressreportisinCreatedsubmittedforreviewreviewedstates @GRegression1
+  Scenario: Validate From App EXE user progress report record owner can edit the fields on Adhoc progress report is in Created submitted for review reviewed states
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
+    And I wait for "2" seconds
+    And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime Opportunity}" with properties "NA_APPROVER_EXE_OWNER"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I navigate to "Management" sub tab
+    Then I softly can see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    Then I softly can see row level action button "Delete" against "Created" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    And I save the field labeled "EGMS ID" as "progressEGMSID"
+    And I wait for "3" seconds
+    And I navigate to "Monitoring" tab
+    When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Progress Reports - All"
+    And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
+    Then I softly see value "Created" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:ProgressReports---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    And I halt execution
