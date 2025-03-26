@@ -125,7 +125,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I see the following messages in the page details contains:
       | Budget Tab - Total Commitment Amount must be equal to or greater than the Cumulative Obligation in the Budget Summary section. |
 
-  @243751 @243803 @243844 @243851 @243856 @243937 @ValidatePOusershouldnoteditTotalCommitmentfieldonawardinsenttosubmittedtoapprovalApprovedSenttosrafterapprovalactivatedAmendedorPendingActivation @sprint-16-US-237985  @Allocation
+  @243751 @243803 @243844 @243851 @243856 @243937 @ValidatePOusershouldnoteditTotalCommitmentfieldonawardinsenttosubmittedtoapprovalApprovedSenttosrafterapprovalactivatedAmendedorPendingActivation @sprint-16-US-237985  @Allocation @ProExecute
   Scenario: Validate PO user should not edit 'Total Commitment' field on award in sent to submitted to approval, Approved, Sent to S/r after approval, activated, Amended or Pending Activation
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -5628,7 +5628,7 @@ Feature: Validate all scenarios of grants and award for Allocation
 #    #244170
 #    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @244148 @ValidateSPI/SPAuserseeCarryforwardfiledshouldbeonlydisplayawardwhenbudgetperiodchangetoBP02andbeyond @sprint-16-US-239751  @Allocation
+  @244148 @ValidateSPI/SPAuserseeCarryforwardfiledshouldbeonlydisplayawardwhenbudgetperiodchangetoBP02andbeyond @sprint-16-US-239751  @Allocation @ProExecute
   Scenario: Validate SPI/SPA user see 'Carry forward' filed should be only display on award when budget period change to BP02 and beyond
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -6038,7 +6038,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #244186
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @244235 @244246 @244875 @244107 @ValidateSPISPAuserseevalidationmessageifawardamountisnotequaltotheNewObligation @sprint-16-US-239751  @Allocation
+  @244235 @244246 @244875 @244107 @ValidateSPISPAuserseevalidationmessageifawardamountisnotequaltotheNewObligation @sprint-16-US-239751  @Allocation @ProExecute
   Scenario: Validation SPI/SPA user see validation message if award amount is not equal to the New Obligation
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -6808,7 +6808,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | SPI3 | default                   |
       | IND  | SUBRECIPIENT_ORG_IND_USER |
 
-  @248574 @248757 @ValidateSPISPAusershouldnotabletoseeRemainingBudgetfieldongrant @sprint-17-US-238309  @Allocation
+  @248574 @248757 @ValidateSPISPAusershouldnotabletoseeRemainingBudgetfieldongrant @sprint-17-US-238309  @Allocation @ProExecute
   Scenario: Validate SPI/SPA user should not able to see "Remaining Budget" field on grant
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -7594,7 +7594,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
     Then I softly see value "{SavedValue:CumuObligation}" is "Equals to" the value "{SavedValue:CumuObligation1}"
 
-  @248506 @ValidateDirectAnnAuditorusershouldhasviewaccessoftheCumulativeObligationfieldTotalCommitmentfield&EstimatedFundingfieldunderbudgetsummarysectiononGrantlayoutisinActivestate @sprint-17-US-246018  @Allocation
+  @248506 @ValidateDirectAnnAuditorusershouldhasviewaccessoftheCumulativeObligationfieldTotalCommitmentfield&EstimatedFundingfieldunderbudgetsummarysectiononGrantlayoutisinActivestate @sprint-17-US-246018  @Allocation @ProExecute
   Scenario: Validate Direct Ann Auditor user should has view access of the Cumulative Obligation field & Total Commitment field & Estimated Funding field under budget summary section on Grant layout is in Active state
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Directed"
     And I login to "As a Grantor" app as "PM" user
@@ -7619,7 +7619,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see that "Cumulative Obligation" rendered in view mode only
     Then I softly see that "Total Commitment" rendered in view mode only
 
-  @249513 @249550 @ValidateCompAnnPMusershouldseeCumulativeObligationTotalCommitmentfieldsareblankunderBudgetSummarysectionofBudgettabisinTerminatestateonGrantlayout @sprint-17-US-246018  @Allocation
+  @249513 @249550 @ValidateCompAnnPMusershouldseeCumulativeObligationTotalCommitmentfieldsareblankunderBudgetSummarysectionofBudgettabisinTerminatestateonGrantlayout @sprint-17-US-246018  @Allocation @ProExecute
   Scenario: Validate Comp Ann PM user should see Cumulative Obligation & Total Commitment fields are blank under Budget Summary section of Budget tab is in Terminate state on Grant layout
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -10575,7 +10575,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Budget Period Number" as "BP02"
     Then I softly see "Carry-Forward" inside page block detail
 
-  @243972 @243973 @243974 @ValidateCompetetiveThatBudgetSummarybyfocusareawillbevisibletoEXEuserIfFocusAreaisyes @sprint-16-US-238128  @Allocation
+  @243972 @243973 @243974 @ValidateCompetetiveThatBudgetSummarybyfocusareawillbevisibletoEXEuserIfFocusAreaisyes @sprint-16-US-238128  @Allocation @ProExecute
   Scenario: Validate Competetive That Budget Summary by focus area will be visible to <ExE> user If Focus Area is yes
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -11178,7 +11178,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
 
-  @245585 @ValidateDirectedthatPMUsercannotaddnegativevalueinSubawardbudgetDetailssectionwhenrecordisincreatedstate @sprint-16-US-238128  @Allocation
+  @245585 @ValidateDirectedthatPMUsercannotaddnegativevalueinSubawardbudgetDetailssectionwhenrecordisincreatedstate @sprint-16-US-238128  @Allocation @ProExecute
   Scenario: Validate Directed that <PM > User can not add negative value in Subaward budget Details section when record is in created state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -11869,7 +11869,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" inside "Budget Summary" section
 
-  @245228 @ValidateDirectedThatBudgetSummarybyfocusareawillbevisibletoSPAuserIfFocusAreaisyes @sprint-16-US-242771  @Allocation
+  @245228 @ValidateDirectedThatBudgetSummarybyfocusareawillbevisibletoSPAuserIfFocusAreaisyes @sprint-16-US-242771  @Allocation @ProExecute
   Scenario Outline: Validate Directed That Budget Summary by focus area will be visible to <SPA> user If Focus Area is yes
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -11944,7 +11944,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | grantEdition           |
       | Grant_Edition_Directed |
 
-  @239510 @239514 @239519 @ValidatePMuserseesectionnameofBudgetPeriodDetailsshouldrenamewithBudgetSummarysectiononaward @sprint-15-US-237846  @Allocation
+  @239510 @239514 @239519 @ValidatePMuserseesectionnameofBudgetPeriodDetailsshouldrenamewithBudgetSummarysectiononaward @sprint-15-US-237846  @Allocation @ProExecute
   Scenario: Validate PM user see section name of Budget Period Details should rename with "Budget Summary" section on award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -11978,7 +11978,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see that "Total Commitment" rendered in view mode only
     Then I softly see that "Budgeted Amount" rendered in view mode only
 
-  @239539 @239541 @ValidatePOuserseeBudgetedAmountfiledshouldbedisplayinsteadofTotalSubawardAmountthisBudgetPeriodfiledonawardinbudgetsummarysection @sprint-15-US-237846  @Allocation
+  @239539 @239541 @ValidatePOuserseeBudgetedAmountfiledshouldbedisplayinsteadofTotalSubawardAmountthisBudgetPeriodfiledonawardinbudgetsummarysection @sprint-15-US-237846  @Allocation @ProExecute
   Scenario: Validate PO user see 'Budgeted Amount' filed should be display instead of 'Total Subaward Amount this Budget Period' filed on award in budget summary section
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA-Automation PO user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -12008,7 +12008,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
     Then I softly see "Total amount committed through this and prior awards in this Budget period" shown as help text
 
-  @239547 @239563 @ValidatePMuserseevalidationmessageshouldbedisplayiftheTotalEncumbrancevaluenotequaltototalawardamountintheawardgridonawardwhilesubmittheawardforapproval @sprint-15-US-237846  @Allocation
+  @239547 @239563 @ValidatePMuserseevalidationmessageshouldbedisplayiftheTotalEncumbrancevaluenotequaltototalawardamountintheawardgridonawardwhilesubmittheawardforapproval @sprint-15-US-237846  @Allocation @ProExecute
   Scenario: Validate PM user see validation message should be display if the Total Encumbrance value not equal to total award amount in the award grid on award while submit the award for approval
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -12235,7 +12235,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @239577 @239596 @ValidatePOusercannotAddandremoveFocusAreainbudgetsummaryfocusareasectiononaward @sprint-15-US-237846  @Allocation
+  @239577 @239596 @ValidatePOusercannotAddandremoveFocusAreainbudgetsummaryfocusareasectiononaward @sprint-15-US-237846  @Allocation @ProExecute
   Scenario: Validate PO user cannot Add and remove Focus Area in budget summary focus area section on award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA-Automation PO user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -14084,7 +14084,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | BY_APPLICANT               |
       | BY_APPLICANT_FOCUS_AREA_NO |
 
-  @240302 @240307 @240317 @ValidatevalidatiomessageshouldbedisplayiftheTotalEncumbrancevaluenotequaltototalawardamountintheawardgridonawardwhilesubmittheawardforapproval @sprint-16-US-220612  @Allocation
+  @240302 @240307 @240317 @ValidatevalidatiomessageshouldbedisplayiftheTotalEncumbrancevaluenotequaltototalawardamountintheawardgridonawardwhilesubmittheawardforapproval @sprint-16-US-220612  @Allocation @ProExecute
   Scenario: Validate validation message should be display if the Total Encumbrance value not equal to total award amount in the award grid on award while submit the award for approval
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -22761,7 +22761,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Total Commitment" inside page block
     Then I softly see field "Match this Budget Period" inside page block
 
-  @243816 @243819 @244245 @ValidateCompAnnPMuserseeCarryforwardfieldwithzerovalueshouldbeonlydisplayonawardunderBudgetSummarysectionwhenbudgetperiodchangetoBP02andbeyond @sprint-16-US-226122  @Allocation
+  @243816 @243819 @244245 @ValidateCompAnnPMuserseeCarryforwardfieldwithzerovalueshouldbeonlydisplayonawardunderBudgetSummarysectionwhenbudgetperiodchangetoBP02andbeyond @sprint-16-US-226122  @Allocation @ProExecute
   Scenario: Validate Comp Ann PM user see 'Carry forward' field with zero value should be only display on award under Budget Summary section when budget period change to BP02 and beyond
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -23310,7 +23310,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation SPI3 user | SPI3  |
       | Automation IND user  | IND   |
 
-  @246079 @ValidateAdminusershouldnotacceptnegativevalueinencumbranceandnewobligationfiledonaward @sprint-16-US-238049  @Allocation
+  @246079 @ValidateAdminusershouldnotacceptnegativevalueinencumbranceandnewobligationfiledonaward @sprint-16-US-238049  @Allocation @ProExecute
   Scenario: Validate Admin user should not accept negative value in encumbrance and new obligation filed on award
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -23398,7 +23398,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see the following messages in the page details contains:
       | The Total Commitment cannot be less than zero. |
 
-  @268454 @268455 @268456 @270275 @ValidateAdminusercanseeFieldHistoryismaintainedforNewObligationField @sprint-21-US-265545 @Allocation @FieldHistoryExclude
+  @268454 @268455 @268456 @270275 @ValidateAdminusercanseeFieldHistoryismaintainedforNewObligationField @sprint-21-US-265545 @Allocation @FieldHistoryExclude @ProExecute
   Scenario: Validate Admin user can see Field History is maintained for New Obligation Field
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -23460,7 +23460,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     Then I softly can see top right button "Revise Estimated Funding" in page detail
 
-  @269836 @269840 @ValidateAdminUserWillseeProposedEstimatedFundingfieldismandatoryfield @sprint-21-US-265547 @Allocation
+  @269836 @269840 @ValidateAdminUserWillseeProposedEstimatedFundingfieldismandatoryfield @sprint-21-US-265547 @Allocation @ProExecute
   Scenario: Validate Admin User Will see Proposed Estimated Funding field is mandatory field
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "ADMIN" user
@@ -23504,7 +23504,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see field "Estimated Funding" as "$2,000.00"
 
-  @269842 @270487 @ValidatePOuserwillseeCumulativeObligationasreadOnlyFieldandValuesandvalueswillpopulatefromActivegrant @sprint-21-US-265547  @Allocation
+  @269842 @270487 @ValidatePOuserwillseeCumulativeObligationasreadOnlyFieldandValuesandvalueswillpopulatefromActivegrant @sprint-21-US-265547  @Allocation @ProExecute
   Scenario: Validate PO user will see Cumulative Obligation as read Only Field and Values and values will populate from Active grant
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PO" user
@@ -23552,7 +23552,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see field "Estimated Funding" as "$2,000.00"
 
-  @270802 @ValidateARisinProgressValueofProposedEstimatedfundingwillbecomparedwiththevalueofcumulativeobligationatthatmomentonGrant @sprint-21-US-265547  @Allocation
+  @270802 @ValidateARisinProgressValueofProposedEstimatedfundingwillbecomparedwiththevalueofcumulativeobligationatthatmomentonGrant @sprint-21-US-265547  @Allocation @ProExecute
   Scenario: Validate AR is in Progress Value of Proposed Estimated funding will be compared with the value of cumulative obligation at that moment on Grant
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user

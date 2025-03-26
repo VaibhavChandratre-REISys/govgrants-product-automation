@@ -430,7 +430,7 @@ Feature: Sanity scenarios
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
-  @443849 @476570 @476571 @443839 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject @GRegression1 @TBExecution
+  @443849 @476570 @476571 @443839 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject @GRegression1
   Scenario Outline: Award - Verify with EXE Profile ,If in direct grant keep setting NO then able to complete the approval process for Forward /send to owner/Reject
     And I "Created" standalone subaward "Automation Runtime award" with properties "ALL_SETTING_NO-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -585,7 +585,7 @@ Feature: Sanity scenarios
       | userName        | User        | ForwardUser | User1       | Approval   |
       | Victor EXE user | GRANTEE EXE | Sarah PM    | GRANTEE PM  | Victor EXE |
       | Sarah PM user   | GRANTEE PM  | Victor EXE  | GRANTEE EXE | Sarah PM   |
-      | Grantee PO user | GRANTEE PO  | David FO    | GRANTEE FO  | GRANTEE PO |
+      | Grantee PO user | GRANTEE PO  | David FO    | GRANTEE FO  | Grantee PO |
 
   @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell @GRegression2
   Scenario: Award - Verify with PM Profile ,After activate the award able to see the Actual Tab in pending Closeout ,closed and amended state as well
@@ -680,7 +680,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Closed"
     Then I softly can see "Actuals" sub tab at view detail page
 
-  @449394 @VerifytheNotAccepetedfunctionofbudgetRedirectionAmendment @GRegression1 @TBExecution
+  @449394 @VerifytheNotAccepetedfunctionofbudgetRedirectionAmendment @GRegression1
   Scenario: Verify the  Not Accepeted function of budget Redirection Amendment
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -10096,7 +10096,7 @@ Feature: Sanity scenarios
     And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:specialConditionsChildTableId---"
 
-  @443824 @476551 @476550 @ValidateAwardWithPMProfileProgramincomeRevenuebyFocusareaandDrawdownByGrantAwardTasksectionInActualTabofAwardPagelayout @GRegression1 @TBExecution
+  @443824 @476551 @476550 @ValidateAwardWithPMProfileProgramincomeRevenuebyFocusareaandDrawdownByGrantAwardTasksectionInActualTabofAwardPagelayout @GRegression1
   Scenario Outline: Validate Award With PM Profile Program income Revenue by Focus area  and Drawdown By Grant Award Task section In Actual Tab of Award Page layout
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -11028,7 +11028,7 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | The time between Schedule Start Date and Schedule End Date must be greater than or equal to 28 days if Monthly frequency is selected. |
 
-  @443846 @ValidateAwardwithPMprofileoncereviewerFDSubmitthereviewawardownerabletocompletethereview @GRegression1 @TBExecution
+  @443846 @ValidateAwardwithPMprofileoncereviewerFDSubmitthereviewawardownerabletocompletethereview @GRegression1
   Scenario: Validate Award with PM profile, once reviewer (FD) Submit the review award owner able to complete the review
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -11079,7 +11079,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Send for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
     Then I softly cannot see row level action button "Resend for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
 
-  @471961 @471962 @CombinationofamendmentVerifyAmeliaFDuserReviewerYescanabletosubmitReview&ReviewcompletebyamendmentrequestOwneronclickofCompeleteReviewbuttononamendmentrequest @GRegression1 @TBExecution
+  @471961 @471962 @CombinationofamendmentVerifyAmeliaFDuserReviewerYescanabletosubmitReview&ReviewcompletebyamendmentrequestOwneronclickofCompeleteReviewbuttononamendmentrequest @GRegression1
   Scenario:Combination of amendment -  Verify Amelia FD user (Reviewer= Yes)can able to submit Review & Review complete by amendment request Owner on click of Compelete Review button on amendment request
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
