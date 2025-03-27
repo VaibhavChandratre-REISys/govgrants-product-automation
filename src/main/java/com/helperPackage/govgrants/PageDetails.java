@@ -473,7 +473,7 @@ public final class PageDetails {
         By fieldLabelLocator = null;
             fieldLabelLocator = By.xpath(String.format(""
                                     // This option should work in all situations, if using the latest version of GovGrants
-                                    + "//div[@class='slds-modal__container']//div//label[contains(@class,'label') and %s]",
+                                    + "//div[contains(@class,'modal__container')]//div//label[contains(@class,'label') and %s]",
                             matchLabelExactly
                                     ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
                                     : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
