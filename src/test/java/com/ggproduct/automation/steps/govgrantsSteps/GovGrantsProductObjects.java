@@ -260,7 +260,7 @@ public final class GovGrantsProductObjects {
         titleName = titleName.trim();
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@class='slds-modal__container']//c-page-block-section//span[contains(@class,'text-heading') and normalize-space(text())='" + titleName + "'] | //div[@class='slds-modal__container']//c-page-block-section//span[normalize-space(text())='" + titleName + "'] | //div[@class='slds-modal__container']//c-lwc-flex-table//span[contains(text(),'" + titleName + "')]"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//c-page-block-section//span[contains(@class,'text-heading') and normalize-space(text())='" + titleName + "'] | //div[contains(@class,'modal__container')]//c-page-block-section//span[normalize-space(text())='" + titleName + "'] | //div[contains(@class,'modal__container')]//c-lwc-flex-table//span[contains(text(),'" + titleName + "')]"))) {
                 flag = true;
             }
         } catch (Exception e) {
