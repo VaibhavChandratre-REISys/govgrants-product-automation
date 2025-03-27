@@ -8785,7 +8785,6 @@ Feature: Sanity scenarios
     When I click modal button "OK"
     Then I softly see field "Status" as "Active"
     Then I see status in Progress-bar is "Active" and is "dark blue"
-
     When I re-login to "As a Grantee" app as "GRANTEE EXE1" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
@@ -8827,7 +8826,6 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-#    Step to deactivate Strategic plan
     When I wait for "1" seconds
     And I click on hyperlink containing value "{SavedValue:StrategicPlan}"
     And I wait for "2" seconds
@@ -8897,7 +8895,6 @@ Feature: Sanity scenarios
     Then I can see row level action button "Delete" against "{SavedValue:FocusAreaEGMSID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
     And I click on "Delete" icon for "{SavedValue:FocusAreaEGMSID}" inside flex table with id "---grantee_tableId:-:GranteeProjectTableId---" without waiting for record
     And I perform quick search for "{SavedValue:FocusAreaEGMSID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
-#    Then I do not see value "{SavedValue:FocusAreaEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GranteeProjectTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
 
   @476591 @validateAdminusercandeactivateactivestrategicplancreatedbyEXEuserfromsameinternalorganization
