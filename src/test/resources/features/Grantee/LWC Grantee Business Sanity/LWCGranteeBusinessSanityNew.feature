@@ -15831,7 +15831,7 @@ Feature: Sanity scenarios New
     And I navigate to "Closeout" tab
     Then I do not see "Budget Period Closeouts" inside "Closeouts" is displayed
 
-  @487107 @ValidateEXEuserPRownercanabletoSubmitProgressReportforApprovalApprovedfromassigned4stepapprovercandoSendtoOwnerForwardApprovedactionsseeMarkasSubmittedbuttononceApprovedthePR&seevalidationsonmodal @GRegression1 @TBExecution
+  @487107 @ValidateEXEuserPRownercanabletoSubmitProgressReportforApprovalApprovedfromassigned4stepapprovercandoSendtoOwnerForwardApprovedactionsseeMarkasSubmittedbuttononceApprovedthePR&seevalidationsonmodal @GRegression1
   Scenario: Validate EXE user PR owner can able to Submit Progress Report for Approval & Approved from assigned 4 step approver & can do Send to Owner Forward Approved actions & see Mark as Submitted button once Approved the PR see validations on modal
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -16020,7 +16020,7 @@ Feature: Sanity scenarios New
     And I save the field labeled "Submitted On" as "SubmittedOn"
     Then I softly see field "Submitted On" as "{SavedValue:SubmittedOn}"
 
-  @484558 @ValidateFromAppEXEuserPRownercanabletoSubmitProgressReportforApprovalApprovedfromassigned4stepapprovercandoSendtoOwnerForwardApprovedactionsseeMarkasSubmittedbuttononceApprovedthePRseevalidationsonmodal @GRegression1 @TBExecution
+  @484558 @ValidateFromAppEXEuserPRownercanabletoSubmitProgressReportforApprovalApprovedfromassigned4stepapprovercandoSendtoOwnerForwardApprovedactionsseeMarkasSubmittedbuttononceApprovedthePRseevalidationsonmodal @GRegression1
   Scenario: Validate From App EXE user PR owner can able to Submit Progress Report for Approval & Approved from assigned 4 step approver & can do Send to Owner Forward Approved actions  see Mark as Submitted button once Approved the PR & see validations on modal
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"

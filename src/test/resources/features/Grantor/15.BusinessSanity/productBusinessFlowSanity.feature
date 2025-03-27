@@ -1431,7 +1431,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @72347 @negotiationComplete @ProdSan1
+  @72347 @negotiationComplete @ProdSan1 @TBExecution
   Scenario: Validate once the Negotiation Request is completed then the record owner can view the record under Completed Negotiations
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2090,7 +2090,7 @@ Feature: Validate sanity testing of Complete Business Flow
 #   To Do:- Remove the refresh step once bug resolve for refresh behavior
     Then I softly see field "Status" as "Paid"
 
-  @72351 @scheduledReimbursementPaymentRequestHappyPath @ProdSan1
+  @72351 @scheduledReimbursementPaymentRequestHappyPath @ProdSan1 @TBExecution
   Scenario Outline: Validate the Scheduled Payment Request happy path and the status changes to 'Paid' and is green
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
@@ -3040,7 +3040,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @SubrecipientBudgetRedirection @ProdSan1
+  @SubrecipientBudgetRedirection @ProdSan1 @TBExecution
   Scenario: Validate Subrecipient side Budget Redirection Amendment End to End flow
     And I activated standalone subaward "Automation Runtime Award" with properties "IS_BUILDUP_FUNCTIONALITY_YES" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
