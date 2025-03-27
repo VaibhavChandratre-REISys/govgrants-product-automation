@@ -869,9 +869,28 @@ public final class FlexTable implements FlexTableComponent {
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='checkbox']")).size() > 0) {
                 handleCheckBoxInput(fieldWrapper, fieldValue);
                 break;
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//lightning-icon[@icon-name='utility:new_window']")).size() > 0) {
+                HandleTextArea(fieldWrapper, fieldValue);
+                break;
             }
             postTestTime = System.nanoTime();
         }
+    }
+
+    /**
+     * @param fieldWrapper
+     * @param fieldValue
+     * @author Dilip.Hatagale
+     */
+    private void HandleTextArea(WebElement fieldWrapper, String fieldValue) {
+        By editForMoreButton = By.xpath("//lightning-icon[@icon-name='utility:new_window']");
+        By richTextArea = By.xpath("//div[@part='modal-body']//textarea[@part='textarea'] |//div[@part='rich-text-editor']//div[contains(@class,'rich-text-area')]");
+        By saveButtonOnModal = By.xpath("//div[@class='confirm-modal']//button[@title='Save' or text()='Save']");
+        I.amPerforming().click().withJavaScript(editForMoreButton);
+        I.amPerforming().click().withJavaScript(richTextArea);
+        I.amPerforming().textInput().toClear(richTextArea);
+        I.amPerforming().textInput().in(richTextArea, fieldValue);
+        I.amPerforming().click().withJavaScript(saveButtonOnModal);
     }
 
     /**
