@@ -67,6 +67,8 @@ public class UsersAndURL implements UsersController {
             userName = getProLwcEnvironmentUser(setUpUserLevel(userLevel));
         }else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("NYLWC"))) {
             userName = getNYLwcEnvironmentUser(setUpUserLevel(userLevel));
+        }else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("WASHINGTON"))) {
+            userName = getWashingtonEnvironmentUser(setUpUserLevel(userLevel));
         }else {
             userName = getAUTOEnvironmentUser(setUpUserLevel(userLevel));
         }
@@ -84,7 +86,9 @@ public class UsersAndURL implements UsersController {
             password = getProLwcEnvironmentPassword(setUpUserLevel(userLevel));
         } else if (EnvironmentFactory.getEnvironmentName().contains("NYLWC")) {
             password = getNYLwcEnvironmentPassword(setUpUserLevel(userLevel));
-        } else
+        }else if (EnvironmentFactory.getEnvironmentName().contains("WASHINGTON")) {
+            password = getWashingtonEnvironmentPassword(setUpUserLevel(userLevel));
+        }else
             password = getAUTOEnvironmentPassword(setUpUserLevel(userLevel));
         return password;
     }
@@ -109,6 +113,15 @@ public class UsersAndURL implements UsersController {
                 break;
             default:
                 password = "Salesforce@2038";
+        }
+        return password;
+    }
+
+    private String getWashingtonEnvironmentPassword(String userLevel) {
+        String password;
+        switch (userLevel.toUpperCase()) {
+            default:
+                password = "Salesforce@2025";
         }
         return password;
     }
@@ -276,6 +289,36 @@ public class UsersAndURL implements UsersController {
         username.put("SME", "sme11@yopmail.com");
         username.put("SPI4", "spi4@yopmail.com.minigap");
         username.put("SARAH PM", "sarah.pm.23@yopmail.com");
+
+        if (userLevel.toUpperCase() != null) {
+            return username.get(userLevel.toUpperCase());
+        } else {
+            return username.get("ADMIN");
+        }
+    }
+
+    private String getWashingtonEnvironmentUser(String userLevel) {
+        Map<String, String> username = new HashMap<>();
+        username.put("ADMIN", "govgrantsautomation@yopmail.com.gtrwhcagap");
+        username.put("ADMIN1", "manu.admin@ggp.test8.gtrwhcagap");
+        username.put("EXE", "test@gmaildemo.com.gtrwhcagap");
+        username.put("PM", "donald_pm@ggp.test7.atm.gtrwhcagap");
+        username.put("FO", "auto.fm@auto.com.gtrwhcagap");
+        username.put("PO", "automationpo@yopmail.com.gtrwhcagap");
+        username.put("FD", "automationfd@yopmail.com.gtrwhcagap");
+        username.put("PM1", "pm1.automation@yopmail.com.gtrwhcagap");
+        username.put("EXE1", "exe1.automation@yopmail.com.gtrwhcagap");
+        username.put("PO1", "automationpo1@yopmail.com.gtrwhcagap");
+        username.put("FO1", "fo1.automation@yopmail.com.gtrwhcagap");
+        username.put("FD1", "automationfd1@yopmail.com.gtrwhcagap");
+        username.put("SPI3", "aspi3@grants.gov.gtrwhcagap");
+        username.put("SPA", "spaautomation12@yopmail.com.gtrwhcagap");
+        username.put("SA", "asa@grants.gov.gtrwhcagap");
+        username.put("IND", "ind12.automation@yopmail.com.gtrwhcagap");
+        username.put("AUDITOR", "automationauditor@yopmail.com.gtrwhcagap");
+        username.put("SME", "sme11@yopmail.com.gtrwhcagap");
+        username.put("SPI4", "spi4@yopmail.com.gtrwhcagap");
+        username.put("SARAH PM", "sarah.pm@ggp.test8.gtrwhcagap");
 
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());

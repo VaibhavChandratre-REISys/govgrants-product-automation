@@ -16253,7 +16253,6 @@ Feature: Sanity scenarios New
     Then I softly can see row level action button "Delete" against "Created" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
     And I save the field labeled "EGMS ID" as "progressEGMSID"
-    And I halt execution
     And I wait for "3" seconds
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
@@ -16273,6 +16272,368 @@ Feature: Sanity scenarios New
     And I wait for "1" seconds
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly cannot see row level action button "Remove" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    When I click modal button "Close"
+    And I wait for "3" seconds
+    Then I softly can see row level action button "Remove" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "View" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---" by clicking "Edit" :
+      | Name     | Is Key Contact | Project Role |
+      | Sarah PM | Checked        | Other        |
+    Then I softly cannot see row level action button "Remove" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "View" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    When I navigate to "Performance" sub tab
+    And I click on "Edit" in the page details
+    Then I softly see fields "KeyAccomplishments__c" is in edit mode
+    Then I softly see fields "Obstacles__c" is in edit mode
+    Then I softly see fields "Plans__c" is in edit mode
+    And I click on "Save" in the page details
+    And I wait for "1" seconds
+    Then I softly can see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KPIOnProgressReport---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
+      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
+      | Grantee PO    | Fiscal Reviewer | Automation Description | 5        | No                   |
+    Then I softly can see row level action button "Edit" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly can see row level action button "Delete" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly can see row level action button "Send for Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
+      | Name     | Progress Report |
+      | David FO | Step 1          |
+    Then I softly can see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:progressReportApprovers---"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly can see row level action button "View" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Splitview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Preview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Edit" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    When I click on "Edit" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    And I switch to tab number "1"
+    And I enter "Grantee_PSR_form" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I close the tab
+    And I wait for "2" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Progress Report" from computer
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    When I click on "Delete" icon for "Attachment.pdf" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Progress Report" from computer
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    When I click on "Delete" icon for "Notes Record" inside flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    When I navigate to "Responsibilities" sub tab
+    And I click on "Send for Review" icon for "Grantee PO" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    When I click on "Edit" in the page details
+    Then I softly see fields "ReportingPeriodStartDate__c" is in edit mode
+    Then I softly see fields "ReportingPeriodEndDate__c" is in edit mode
+    Then I softly see fields "ReportDueDate__c" is in edit mode
+    Then I softly see fields "IsFinalReport__c" is in edit mode
+    And I click on "Save" in the page details
+    And I wait for "1" seconds
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly cannot see row level action button "Remove" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    When I click modal button "Close"
+    And I wait for "3" seconds
+    Then I softly can see row level action button "Remove" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "View" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---" by clicking "Edit" :
+      | Name     | Is Key Contact | Project Role |
+      | David FO | Checked        | Other        |
+    Then I softly cannot see row level action button "Remove" against "David FOM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "View" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    When I navigate to "Performance" sub tab
+    And I click on "Edit" in the page details
+    Then I softly see fields "KeyAccomplishments__c" is in edit mode
+    Then I softly see fields "Obstacles__c" is in edit mode
+    Then I softly see fields "Plans__c" is in edit mode
+    And I click on "Save" in the page details
+    And I wait for "1" seconds
+    Then I softly can see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KPIOnProgressReport---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Edit" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Delete" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Send for Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
+      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
+      | Sarah PM      | Fiscal Reviewer | Automation Description | 5        | No                   |
+    Then I softly can see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly can see row level action button "Delete" against "Sarah PM" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly can see row level action button "Send for Review" against "Sarah PM" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
+      | Name       | Progress Report |
+      | Victor EXE | Step 2          |
+    Then I softly can see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:progressReportApprovers---"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly can see row level action button "View" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Splitview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Preview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Edit" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    When I click on "Edit" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    And I switch to tab number "1"
+    And I enter "Grantee_PSR_form" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I close the tab
+    And I wait for "2" seconds
+    Then I softly see value "Progress Report" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "Delete" against "Progress Report" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "Download" against "Progress Report" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Other" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    When I click on "Delete" icon for "Other" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly do not see value "Other" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
+      | Title         | Description      |
+      | Notes Record1 | Automation Notes |
+    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    When I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly do not see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
+      | Title         | Description      |
+      | Notes Record1 | Automation Notes |
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I navigate to "Responsibilities" sub tab
+    Then I softly can see top right button "Edit" in page detail
+    When I click on "Enter Review" icon for "Grantee PO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
+    And I enter a review as "Passed"
+    When I click modal button "Save"
+    And I click on submit review
+    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Progress Reports - All"
+    When I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
+    When I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:ProgressReports---"
+    When I click on "Complete Review" in the page details
+    Then I softly see field "Status" as "Reviewed"
+    When I click on "Edit" in the page details
+    Then I softly see fields "ReportingPeriodStartDate__c" is in edit mode
+    Then I softly see fields "ReportingPeriodEndDate__c" is in edit mode
+    Then I softly see fields "ReportDueDate__c" is in edit mode
+    Then I softly see fields "IsFinalReport__c" is in edit mode
+    And I click on "Save" in the page details
+    And I wait for "1" seconds
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly cannot see row level action button "Remove" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly cannot see row level action button "Remove" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "View" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    When I click "Associate" after selection of "Danielle FD Garcia" in the table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    When I click modal button "Close"
+    And I wait for "3" seconds
+    Then I softly can see row level action button "Remove" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "Edit" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "View" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---" by clicking "Edit" :
+      | Name               | Is Key Contact | Project Role |
+      | Danielle FD Garcia | Checked        | Other        |
+    Then I softly cannot see row level action button "Remove" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "Edit" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "View" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    When I navigate to "Performance" sub tab
+    And I click on "Edit" in the page details
+    Then I softly see fields "KeyAccomplishments__c" is in edit mode
+    Then I softly see fields "Obstacles__c" is in edit mode
+    Then I softly see fields "Plans__c" is in edit mode
+    And I click on "Save" in the page details
+    And I wait for "1" seconds
+    Then I softly can see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KPIOnProgressReport---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Edit" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Delete" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Send for Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Delete" against "Sarah PM" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Send for Review" against "Sarah PM" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
+      | Name               | Progress Report |
+      | Danielle FD Garcia | Step 3          |
+    Then I softly can see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:progressReportApprovers---"
+    Then I softly can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:progressReportApprovers---"
+    Then I softly can see row level action button "Edit" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:progressReportApprovers---"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly can see row level action button "View" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Splitview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Preview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Edit" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    When I click on "Edit" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    And I switch to tab number "1"
+    And I enter "Grantee_PSR_form" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I close the tab
+    And I wait for "2" seconds
+    Then I softly see value "Progress Report" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "Delete" against "Progress Report" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "Download" against "Progress Report" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Other" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    When I click on "Delete" icon for "Other" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly do not see value "Other" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
+      | Title         | Description      |
+      | Notes Record1 | Automation Notes |
+    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    When I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly do not see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
 
+  @484556 @ValidateFromAppEXEuserprogressreportrecordownercanseeAdhocPRcanbecreatedforactiveawardsseerequiredtoSavevalidationsondetailspagelayoutwhenRequiredfieldskeptblankothervalidationsonValidatebuttondeletePR @GRegression1
+  Scenario: Validate From App EXE user (progress report record owner)can see Ad hoc PR can be created only for active awards & see required to Save validations on details page layout when Required fields kept blank & other validations on Validate button& delete PR
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default-Victor EXE user"
+    And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
+    And I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    And I enter in modal value "1" into field "ReportDueDate__c"
+    And I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details contains:
+      | The Reporting Due Date cannot be before the Reporting Period End Date |
+    And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I click on "Validate" in the page details
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Forms and Files Tab - Attach Progress Report document.       |
+      | Performance Tab: Provide 'Reported Value As Of' for the KPI. |
+      | Responsibilities - At least one approver is required.        |
+    And I save the field labeled "Reporting Period Start Date" as "ReportingPeriodStartDate"
+    And I save the field labeled "Reporting Period End Date" as "ReportingPeriodEndDate"
+    And I save the field labeled "Report Due Date" as "ReportDueDate"
+    And I save the field labeled "EGMS ID" as "progressEGMSID"
+    And I click on "Edit" in the page details
+    And I clear the value from field "ReportingPeriodStartDate__c"
+    And I clear the value from field "ReportingPeriodEndDate__c"
+    And I clear the value from field "ReportDueDate__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Reporting Period Start Date is required to save under Overview. |
+      | Reporting Period End Date is required to save under Overview.   |
+      | Report Due Date is required to save under Overview.             |
+    And I navigate to "Monitoring" tab
+    When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Progress Reports - My Records"
+    And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
+    Then I softly see value "Created" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:ProgressReports---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    When I click on "Delete" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:ProgressReports---"
+    And I wait for "1" seconds
+    And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:ProgressReports---"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Management" sub tab
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:grantProgressReportTableId---"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I navigate to "Management" sub tab
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"

@@ -172,6 +172,9 @@ public class ProjectWebServices {
         else if (EnvironmentFactory.getEnvironmentName().contains("NYLWC"))
             defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG90D5vR7Utjboc8b3nxgWl_TIAtGV_TgV2OQsaOZNGnhetFSjnMGSvL67KfRN99.Z0ne32YZHHlzdyCb_a&client_secret=F1F4C218C1E6AB1ECA2DD46CDCFB204D66FCEFA2DB939003C5C4B207DAF0A736&username=govgrantsautomation@yopmail.com.minigap&password=Salesforce@2039";
 
+        else if (EnvironmentFactory.getEnvironmentName().contains("WASHINGTON"))
+            defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG90D5vR7Utjboc8b3nxgWl_TIAtGV_TgV2OQsaOZNGnhetFSjnMGSvL67KfRN99.Z0ne32YZHHlzdyCb_a&client_secret=F1F4C218C1E6AB1ECA2DD46CDCFB204D66FCEFA2DB939003C5C4B207DAF0A736&username=govgrantsautomation@yopmail.com.gtrwhcagap&password=Salesforce@2025";
+
         System.out.println(defaultEndPointGetToken);
         return defaultEndPointGetToken;
     }
