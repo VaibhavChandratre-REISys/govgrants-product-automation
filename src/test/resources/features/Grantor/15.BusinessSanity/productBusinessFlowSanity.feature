@@ -1041,7 +1041,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I softly see field "Status" as "Published"
 
-  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2
+  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2 @TBExecution
   Scenario: Validate the activation of Formula By Applicant Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -2986,7 +2986,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Amendment Award} | {SavedValue:Automation Runtime Amendment Award} |
 
-  @SubrecipientKeyPersonnelChangeAmendmentRequest @ProdSan2
+  @SubrecipientKeyPersonnelChangeAmendmentRequest @ProdSan2 @TBExecution
   Scenario: Validate end to end flow for key personnel change amendment request
     Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3469,7 +3469,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @CarryForwardAmendmentRequest @ProdSan2
+  @CarryForwardAmendmentRequest @ProdSan2 @TBExecution
   Scenario: Validate Carry Forward Amendment Request End to End flow
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -3670,7 +3670,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @SF428_B_Form_Fill @ProdSan3 @TBExecution
+  @SF428_B_Form_Fill @ProdSan3
   Scenario: Validate SPI user can able to save & validate form after entering correct & valid data on all fields present on SF-428-B form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3836,7 +3836,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see field "(iii) Other (Provide detail in Block 3 or attach request)" inside page block
     Then I softly see that "Federal Award Identifier" rendered in view mode only
 
-  @SF428_B_dependentField_2 @ProdSan3 @TBExecution
+  @SF428_B_dependentField_2 @ProdSan3
   Scenario:
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3884,7 +3884,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see fields "AcknowledgeEquipment__c" is in edit mode
     Then I softly see fields "RequestFederalAgencyDispositionInstr__c" is in edit mode
 
-  @programRejection @ProdSan3 @TBExecution
+  @programRejection @ProdSan3
   Scenario: Validate the Rejectionof Internal Program and redirecting to same page
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
