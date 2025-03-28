@@ -8210,10 +8210,6 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    And I navigate to "Overview" sub tab
-#    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
-#      | Title                            | Is Primary Program |
-#      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Monitoring" sub tab
     And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:SpecialConditionTableId---"
     When I navigate to "Files" sub tab
@@ -14433,9 +14429,6 @@ Feature: Grantee Smoke scenarios
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
-      | Title                            | Is Primary Program |
-      | Automation Permanent NGO Program | Checked            |
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Projections" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
