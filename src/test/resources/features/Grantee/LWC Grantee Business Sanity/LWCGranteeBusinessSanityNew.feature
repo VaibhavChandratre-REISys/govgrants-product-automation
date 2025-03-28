@@ -13759,7 +13759,7 @@ Feature: Sanity scenarios New
     Then I softly see value "$50.00" for title "Cash Match" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$0.00" for title "Other Leverage" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$550.00" for title "Total Project Cost" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
-#   Commented below stes due to bug US:- 474392 once resolved remove comments
+#   Commented below steps due to bug US:- 474392 once resolved remove comments
 #    Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
 #    Then I softly see value "$200.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
 #    Then I softly see value "Automation Test" for title "Program Income Justification" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
