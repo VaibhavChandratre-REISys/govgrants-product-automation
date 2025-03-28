@@ -13851,8 +13851,8 @@ Feature: Sanity scenarios New
     Examples:
       | User           |
       | GRANTEE EXE    |
-#      | GRANTEE PM     |
-#      | GRANTEE PO     |
+      | GRANTEE PM     |
+      | GRANTEE PO     |
       | GRANTEE ADMIN1 |
       | GRANTEE FO     |
 

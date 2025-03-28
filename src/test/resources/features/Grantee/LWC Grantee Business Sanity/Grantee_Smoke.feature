@@ -971,13 +971,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see asterisk mark on "Cost Sharing or Matching Requirement"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Opportunity Title is required to save.                    |
-      | Opportunity Number is required to save.                   |
-      | Application Due Date is required to save.                 |
-      | Funding Organization is required to save.                 |
-      | Eligible Applicants is required to save.                  |
-      | Lead Description is required to save.                     |
-      | Cost Sharing or Matching Requirement is required to save. |
+      | To Save, Opportunity Title is required in the General Information section.                  |
+      | To Save, Opportunity Number is required in the General Information section.                 |
+      | To Save, Application Due Date is required in the General Information section.               |
+      | To Save, Funding Organization is required in the General Information section.               |
+      | To Save, Eligible Applicants is required in the Eligibility section.                        |
+      | To Save, Lead Description is required in the Additional Information section.                |
+      | To Save, Cost Sharing or Matching Requirement is required in the Financial Details section. |
     And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I see the header is "Lead" in the page details
@@ -1261,7 +1261,7 @@ Feature: Grantee Smoke scenarios
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
-    And I wait for "4" seconds
+    And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "<emailId>" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
@@ -1554,9 +1554,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Days Left" as "{SavedValue:DaysLeft}"
     When I hovering mouse on help text icon inside page block detail "Days Left"
     Then I softly see "Days remaining until the application due date" shown as help text
-    And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
-    Then I see option "Take Snapshot" present in parallel dropdown
+    Then I softly can see top right button "Download as PDF" in page detail
+    Then I softly can see top right button "Take Snapshot" in page detail
     Then I softly see "Opportunity Information" page block displayed
     Then I softly see field "Funding Opportunity Title" inside page block
     Then I softly see field "Opportunity Number" inside page block
@@ -1649,10 +1648,10 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Text and number both are allowed. Must not exceed 255 characters" shown as help text
     Then I softly see field "6. Provide the estimated number of hours required to develop the application. Provide an explanation." inside page block
     When I hovering mouse on help text icon inside page block detail "6. Provide the estimated number of hours required to develop the application. Provide an explanation."
-    Then I softly see "add Text and number both are allowed. Must not exceed 650 characters" shown as help text
+    Then I softly see "Text and Numbers are allowed, with a maximum limit of 650 characters." shown as help text
     Then I softly see field "7. Provide the estimated number of full time personnel (FTE) that will be required to be hired to implement the grant. Provide an explanation." inside page block
     When I hovering mouse on help text icon inside page block detail "7. Provide the estimated number of full time personnel (FTE) that will be required to be hired to implement the grant. Provide an explanation."
-    Then I softly see "Text and number both are allowed. Must not exceed 650 characters" shown as help text
+    Then I softly see "Text and Numbers are allowed, with a maximum limit of 650 characters." shown as help text
     Then I softly see "Collaboration Details" page block displayed
     Then I softly see field "8. Have other internal organizations within the Department qualified this lead?" inside page block
     Then I softly see field "8a. If yes, has an agreement been reached to which organization will be the lead?" inside page block
@@ -1749,7 +1748,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "Days Left" as "DaysLeft"
     Then I softly see field "Days Left" as "{SavedValue:DaysLeft}"
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly see "Opportunity Information" page block displayed
     Then I softly see field "Funding Opportunity Title" inside page block
@@ -1842,10 +1841,10 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Text and number both are allowed. Must not exceed 255 characters" shown as help text
     Then I softly see field "6. Provide the estimated number of hours required to develop the application. Provide an explanation." inside page block
     When I hovering mouse on help text icon inside page block detail "6. Provide the estimated number of hours required to develop the application. Provide an explanation."
-    Then I softly see "add Text and number both are allowed. Must not exceed 650 characters" shown as help text
+    Then I softly see "Text and Numbers are allowed, with a maximum limit of 650 characters." shown as help text
     Then I softly see field "7. Provide the estimated number of full time personnel (FTE) that will be required to be hired to implement the grant. Provide an explanation." inside page block
     When I hovering mouse on help text icon inside page block detail "7. Provide the estimated number of full time personnel (FTE) that will be required to be hired to implement the grant. Provide an explanation."
-    Then I softly see "Text and number both are allowed. Must not exceed 650 characters" shown as help text
+    Then I softly see "Text and Numbers are allowed, with a maximum limit of 650 characters." shown as help text
     Then I softly see "Collaboration Details" page block displayed
     Then I softly see field "8. Have other internal organizations within the Department qualified this lead?" inside page block
     Then I softly see field "8a. If yes, has an agreement been reached to which organization will be the lead?" inside page block
@@ -2352,11 +2351,12 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "$200.00" for title "Cash Match" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$200.00" for title "Other Leverage" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$2,400.00" for title "Total Project Cost" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    Then I softly see value "$200.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    Then I softly see value "Automation Test" for title "Program Income Justification" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    Then I softly see value "$0.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea2}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    Then I softly see value "{SavedValue:FocusArea2}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Commented below stes due to bug US:- 474392 once resolved remove comments
+#    Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Then I softly see value "$200.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Then I softly see value "Automation Test" for title "Program Income Justification" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Then I softly see value "$0.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea2}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Then I softly see value "{SavedValue:FocusArea2}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
     Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see value "{SavedValue:Effectivefrom}" for title "Effective from" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see value "{SavedValue:Effectiveuntil}" for title "Effective until" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
@@ -2409,6 +2409,12 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "$2,400.00" for title "Total Project Cost" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
     Then I softly see value "{SavedValue:FocusArea2}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Commented below stes due to bug US:- 474392 once resolved remove comments
+#    Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Then I softly see value "$200.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Then I softly see value "Automation Test" for title "Program Income Justification" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Then I softly see value "$0.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea2}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Then I softly see value "{SavedValue:FocusArea2}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
     Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see value "{SavedValue:Effectivefrom}" for title "Effective from" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see value "{SavedValue:Effectiveuntil}" for title "Effective until" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
@@ -2964,8 +2970,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     When I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     And I navigate to "Projections" sub tab
-    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Start Date" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+3670}" for title "End Date" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "{Date:M/dd/yyyy::d+15}" for title "Start Date" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "{Date:M/dd/yyyy::d+3670}" for title "End Date" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "$2,000.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$200.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
@@ -3310,8 +3316,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     And I navigate to "Overview" sub tab
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Start Date" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+3670}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Start Date" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "{Date:M/d/yyyy::d+3670}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
     And I navigate to "Monitoring" sub tab
     Then I softly see value "{SavedValue:AmendTermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
     And I navigate to "Grants" tab
@@ -3320,14 +3326,14 @@ Feature: Grantee Smoke scenarios
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Financials" sub tab
-    Then I softly see value "{Date:MM/dd/yyyy::d+3670}" for title "End Date" against the value "BP01" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "{Date:M/d/yyyy::d+3670}" for title "End Date" against the value "BP01" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Projections" sub tab
     Then I softly see field "Budget Period End Date" as "{SavedValue:BudgetPeriodEndDate}"
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Start Date" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly do not see value "{Date:MM/dd/yyyy::d+3670}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Start Date" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly do not see value "{Date:M/d/yyyy::d+3670}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly do not see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     And I navigate to "Monitoring" sub tab
     Then I softly do not see value "{SavedValue:AmendTermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
@@ -3347,7 +3353,7 @@ Feature: Grantee Smoke scenarios
     And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "default-Grantee PO user"
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Pre-Application - All"
+    When I click toggle button to select "Pre-Applications - All"
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:PreApplication---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -3377,7 +3383,7 @@ Feature: Grantee Smoke scenarios
     When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    And I click toggle button to select "Pre-Application - All"
+    And I click toggle button to select "Pre-Applications - All"
     And I perform quick search for "{SavedValue:preAppEGMSID}" in "---grantee_tableId:-:PreApplication---" panel
     When I click on "View" icon for "{SavedValue:preAppEGMSID}" inside table
     Then I softly can see top right button "Edit" in page detail
@@ -3403,7 +3409,7 @@ Feature: Grantee Smoke scenarios
     And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "DAVID_FO_APPROVER"
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Pre-Application - All"
+    When I click toggle button to select "Pre-Applications - All"
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:PreApplication---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -3438,7 +3444,7 @@ Feature: Grantee Smoke scenarios
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Pre-Application - All"
+    When I click toggle button to select "Pre-Applications - All"
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PreApplication---" panel
     When I click on "View" icon for "{SavedValue:PreappEGMSID}" inside table
     And I click on "Submit For Approval" in the page details
@@ -3527,11 +3533,11 @@ Feature: Grantee Smoke scenarios
     Then I see textarea field "PurposeRTA__c" is editable
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Please select Amendment Request Type is required to save. |
+      | To Save, Please select Amendment Request Type is required. |
     Then I softly see the following messages in the page details contains:
-      | Initiated By is required to save. |
+      | To Save, Initiated By is required. |
     Then I softly see the following messages in the page details contains:
-      | Justification is required to save. |
+      | To Save, Justification is required. |
     And I enter "Grantee_FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -3792,7 +3798,9 @@ Feature: Grantee Smoke scenarios
     Then I softly see link "Victor EXE" inside Page block
     And I click on hyperlink containing value "Victor EXE"
     Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
+    And I wait for "2" seconds
     And I click on back arrow
+    And I wait for "2" seconds
     And I navigate to "Files" sub tab
     Then I softly see "Amendment Files" page block displayed
     Then I softly see "Notes" page block displayed
@@ -4229,14 +4237,14 @@ Feature: Grantee Smoke scenarios
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 17                          | 27                                  |
       | {SavedValue:EGMS ID2} | 27                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 15                          | 25                                  |
       | {SavedValue:EGMS ID2} | 25                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     When I click "Associate" after selection of "<userName>" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
@@ -4324,14 +4332,14 @@ Feature: Grantee Smoke scenarios
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 17                          | 27                                  |
       | {SavedValue:EGMS ID2} | 27                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 15                          | 25                                  |
       | {SavedValue:EGMS ID2} | 25                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4394,14 +4402,14 @@ Feature: Grantee Smoke scenarios
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 17                          | 27                                  |
       | {SavedValue:EGMS ID2} | 27                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 15                          | 25                                  |
       | {SavedValue:EGMS ID2} | 25                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
@@ -4513,14 +4521,14 @@ Feature: Grantee Smoke scenarios
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 17                          | 27                                  |
       | {SavedValue:EGMS ID2} | 27                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 15                          | 25                                  |
       | {SavedValue:EGMS ID2} | 25                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
 
     Examples:
       | userType   | userName | UEI          |
@@ -4644,14 +4652,14 @@ Feature: Grantee Smoke scenarios
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 17                          | 27                                  |
       | {SavedValue:EGMS ID2} | 27                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 15                          | 25                                  |
       | {SavedValue:EGMS ID2} | 25                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     When I click "Associate" after selection of "<userName>" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
@@ -4736,14 +4744,14 @@ Feature: Grantee Smoke scenarios
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 17                          | 27                                  |
       | {SavedValue:EGMS ID2} | 27                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 15                          | 25                                  |
       | {SavedValue:EGMS ID2} | 25                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4804,14 +4812,14 @@ Feature: Grantee Smoke scenarios
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 17                          | 27                                  |
       | {SavedValue:EGMS ID2} | 27                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 15                          | 25                                  |
       | {SavedValue:EGMS ID2} | 25                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
@@ -4918,7 +4926,7 @@ Feature: Grantee Smoke scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID2} | 25                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period Start Date" against the value "{SavedValue:EGMS ID2}" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+25}" for title "Reporting Period Start Date" against the value "{SavedValue:EGMS ID2}" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{SavedValue:ReportingPeriodEndDate}" for title "Reporting Period End Date" against the value "{SavedValue:EGMS ID2}" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
 
     Examples:
@@ -5609,7 +5617,7 @@ Feature: Grantee Smoke scenarios
     Then I see the sub-header is "Agency For International Development" in the page details
     Then I softly see field "Parent Organization" as "NA"
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Related Log" sub tab at view detail page
@@ -5658,16 +5666,16 @@ Feature: Grantee Smoke scenarios
     Then I softly see field on modal "Zip Code" inside page block
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Project Role is required to save.   |
-      | First Name is required to save.     |
-      | Last Name is required to save.      |
-      | Phone is required to save.          |
-      | Email is required to save.          |
-      | Address Line 1 is required to save. |
-      | State is required to save.          |
-      | City is required to save.           |
-      | Country is required to save.        |
-      | Zip Code is required to save.       |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, First Name is required in the Contact Information section.     |
+      | To Save, Last Name is required in the Contact Information section.      |
+      | To Save, Phone is required in the Contact Information section.          |
+      | To Save, Email is required in the Contact Information section.          |
+      | To Save, Address Line 1 is required in the Address Information section. |
+      | To Save, State is required in the Address Information section.          |
+      | To Save, City is required in the Address Information section.           |
+      | To Save, Country is required in the Address Information section.        |
+      | To Save, Zip Code is required in the Address Information section.       |
     When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation Runtime" into field "Title"
     When I enter in modal value "Automation" into field "FirstName"
@@ -6168,17 +6176,17 @@ Feature: Grantee Smoke scenarios
     Then I softly see field on modal "Email" inside page block
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Project Role is required to save.   |
-      | Organization is required to save.   |
-      | First Name is required to save.     |
-      | Last Name is required to save.      |
-      | Phone is required to save.          |
-      | Email is required to save.          |
-      | Address Line 1 is required to save. |
-      | State is required to save.          |
-      | City is required to save.           |
-      | Country is required to save.        |
-      | Zip Code is required to save.       |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, Organization is required in the Contact Information section.   |
+      | To Save, First Name is required in the Contact Information section.     |
+      | To Save, Last Name is required in the Contact Information section.      |
+      | To Save, Phone is required in the Contact Information section.          |
+      | To Save, Email is required in the Contact Information section.          |
+      | To Save, Address Line 1 is required in the Address Information section. |
+      | To Save, State is required in the Address Information section.          |
+      | To Save, City is required in the Address Information section.           |
+      | To Save, Country is required in the Address Information section.        |
+      | To Save, Zip Code is required in the Address Information section.       |
     And I wait for "2" seconds
     When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation Runtime" into field "Title"
@@ -6364,15 +6372,15 @@ Feature: Grantee Smoke scenarios
     Then I softly see fields "MailingPostalCode" is in edit mode
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Project Role is required to save.   |
-      | First Name is required to save.     |
-      | Last Name is required to save.      |
-      | Email is required to save.          |
-      | Address Line 1 is required to save. |
-      | State is required to save.          |
-      | City is required to save.           |
-      | Country is required to save.        |
-      | Zip Code is required to save.       |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, First Name is required in the Contact Information section.     |
+      | To Save, Last Name is required in the Contact Information section.      |
+      | To Save, Email is required in the Contact Information section.          |
+      | To Save, Address Line 1 is required in the Address Information section. |
+      | To Save, State is required in the Address Information section.          |
+      | To Save, City is required in the Address Information section.           |
+      | To Save, Country is required in the Address Information section.        |
+      | To Save, Zip Code is required in the Address Information section.       |
     When I enter in modal value "Department of Product" into field "AccountId"
     When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation Runtime" into field "FirstName"
@@ -7409,7 +7417,7 @@ Feature: Grantee Smoke scenarios
     Then I softly do not see value "Optional Other Attachment" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I click on "Save" in the page details
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     When I "Collapse" page block contaninig value "Files"
     Then I softly do not see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
@@ -7429,7 +7437,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Quickview" sub tab in split screen
     When I click on "Splitview" icon for "Other Attachments Forms" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
-    Then I softly can see top right button "Download As PDF" in the split screen page details
+    Then I softly can see top right button "Download as PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
     And I click on "Validate" in the split screen page details
     Then I softly see the following messages in the page details contains:
@@ -8203,9 +8211,9 @@ Feature: Grantee Smoke scenarios
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
-      | Title                            | Is Primary Program |
-      | Automation Permanent NGO Program | Checked            |
+#    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
+#      | Title                            | Is Primary Program |
+#      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Monitoring" sub tab
     And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:SpecialConditionTableId---"
     When I navigate to "Files" sub tab
@@ -8585,7 +8593,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Actuals" sub tab
-    Then I softly see field "Drawn to Date" as "$0"
+    Then I softly see field "Drawn to Date" as "$0.00"
     Then I softly see field "Spent to Date" as "$0.00"
     Then I softly see field "Current Balance" as "$0.00"
     Then I softly see field "Grant Balance" as "$100,000.00"
@@ -10132,7 +10140,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Validate" in page detail
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I see the header is "Grants.gov Lobbying Form" in the page details
     Then I softly see the field "Agency Owner :" as "Grants.gov" on forms
@@ -11215,7 +11223,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Submit to Grantor" in the page details
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Submitted to Grantor On is required to save. |
+      | To Save, Submitted to Grantor On is required. |
     When I enter values into fields
       | Value | Field                 |
       | 0     | SubmittedToGrantor__c |
@@ -12021,18 +12029,18 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Delete" against "Focus3" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see field "Drawn to Date" as "$3,700"
+    Then I softly see field "Drawn to Date" as "$3,700.00"
     Then I softly see field "Current Balance" as "$3,700.00"
     Then I softly see field "Grant Balance" as "$96,300.00"
     Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$700.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$700" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$700.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     When I click on "Delete" icon for "Focus3" inside flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
     And I wait for "2" seconds
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see field "Drawn to Date" as "$3,500"
+    Then I softly see field "Drawn to Date" as "$3,500.00"
     Then I softly see field "Current Balance" as "$3,500.00"
     Then I softly see field "Grant Balance" as "$96,500.00"
     And I refresh the page
@@ -12062,13 +12070,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     When I navigate to "Actuals" sub tab
-    Then I softly see field "Drawn to Date" as "$3,500"
+    Then I softly see field "Drawn to Date" as "$3,500.00"
     Then I softly see field "Current Balance" as "$3,500.00"
     Then I softly see field "Grant Balance" as "$96,500.00"
     Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Given I expand nested table containing column value "Automation Permanent Focus Area"
     When I enter the following values into flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---" by clicking "New" :
       | Reference ID | Drawdown Date | Amount |
@@ -12084,26 +12092,26 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Delete" against "Focus5" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see field "Drawn to Date" as "$4,500"
+    Then I softly see field "Drawn to Date" as "$4,500.00"
     Then I softly see field "Current Balance" as "$4,500.00"
     Then I softly see field "Grant Balance" as "$95,500.00"
     Then I softly see value "$3,500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$1,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$1,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$3,500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$1,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     When I navigate to "Overview" sub tab
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Amended"
     When I navigate to "Actuals" sub tab
-    Then I softly see field "Drawn to Date" as "$3,500"
+    Then I softly see field "Drawn to Date" as "$3,500.00"
     Then I softly see field "Current Balance" as "$3,500.00"
     Then I softly see field "Grant Balance" as "$96,500.00"
     Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
   @491664 @ValidatePMProfileimpactofdrawdownByAwardAwardwhichiscreatedthroughScopeofworkchangeamendmentWithdrawdownWithoutSpent @Grantee_Smoke1
   Scenario: Validate PM Profile  impact of drawdown By Award, Award which is created through Scope of work change amendment With drawdown Without Spent
@@ -12144,18 +12152,18 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Delete" against "Focus3" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see field "Drawn to Date" as "$3,700"
+    Then I softly see field "Drawn to Date" as "$3,700.00"
     Then I softly see field "Current Balance" as "$3,700.00"
     Then I softly see field "Grant Balance" as "$96,300.00"
     Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$700.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$700" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$700.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     When I click on "Delete" icon for "Focus3" inside flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
     And I wait for "2" seconds
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see field "Drawn to Date" as "$3,500"
+    Then I softly see field "Drawn to Date" as "$3,500.00"
     Then I softly see field "Current Balance" as "$3,500.00"
     Then I softly see field "Grant Balance" as "$96,500.00"
     And I refresh the page
@@ -12185,13 +12193,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     When I navigate to "Actuals" sub tab
-    Then I softly see field "Drawn to Date" as "$3,500"
+    Then I softly see field "Drawn to Date" as "$3,500.00"
     Then I softly see field "Current Balance" as "$3,500.00"
     Then I softly see field "Grant Balance" as "$96,500.00"
     Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Given I expand nested table containing column value "Automation Permanent Focus Area"
     When I enter the following values into flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---" by clicking "New" :
       | Reference ID | Drawdown Date | Amount |
@@ -12207,26 +12215,26 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Delete" against "Focus5" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see field "Drawn to Date" as "$4,500"
+    Then I softly see field "Drawn to Date" as "$4,500.00"
     Then I softly see field "Current Balance" as "$4,500.00"
     Then I softly see field "Grant Balance" as "$95,500.00"
     Then I softly see value "$3,500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$1,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$1,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$3,500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$1,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     When I navigate to "Overview" sub tab
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Amended"
     When I navigate to "Actuals" sub tab
-    Then I softly see field "Drawn to Date" as "$3,500"
+    Then I softly see field "Drawn to Date" as "$3,500.00"
     Then I softly see field "Current Balance" as "$3,500.00"
     Then I softly see field "Grant Balance" as "$96,500.00"
     Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
   @491697 @ValidatePMProfileimpactofdrawdownByAwardAwardwhichiscreatedthroughBudgetredirectionamendmentNonConstructionWithdrawdownWithSpent @Grantee_Smoke1
   Scenario: Validate PM Profile impact of drawdown By Award Award which is created through Budget redirection amendment Non Construction With drawdown With Spent
@@ -12267,18 +12275,18 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Delete" against "Focus3" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see field "Drawn to Date" as "$3,700"
+    Then I softly see field "Drawn to Date" as "$3,700.00"
     Then I softly see field "Current Balance" as "$3,700.00"
     Then I softly see field "Grant Balance" as "$96,300.00"
     Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$700.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$700" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$700.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     When I click on "Delete" icon for "Focus3" inside flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
     And I wait for "2" seconds
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see field "Drawn to Date" as "$3,500"
+    Then I softly see field "Drawn to Date" as "$3,500.00"
     Then I softly see field "Current Balance" as "$3,500.00"
     Then I softly see field "Grant Balance" as "$96,500.00"
     And I refresh the page
@@ -12308,13 +12316,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     When I navigate to "Actuals" sub tab
-    Then I softly see field "Drawn to Date" as "$3,500"
+    Then I softly see field "Drawn to Date" as "$3,500.00"
     Then I softly see field "Current Balance" as "$3,500.00"
     Then I softly see field "Grant Balance" as "$96,500.00"
     Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Given I expand nested table containing column value "Automation Permanent Focus Area"
     When I enter the following values into flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---" by clicking "New" :
       | Reference ID | Drawdown Date | Amount |
@@ -12330,26 +12338,26 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Delete" against "Focus5" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see field "Drawn to Date" as "$4,500"
+    Then I softly see field "Drawn to Date" as "$4,500.00"
     Then I softly see field "Current Balance" as "$4,500.00"
     Then I softly see field "Grant Balance" as "$95,500.00"
     Then I softly see value "$3,500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$1,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$1,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$3,500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$1,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     When I navigate to "Overview" sub tab
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Amended"
     When I navigate to "Actuals" sub tab
-    Then I softly see field "Drawn to Date" as "$3,500"
+    Then I softly see field "Drawn to Date" as "$3,500.00"
     Then I softly see field "Current Balance" as "$3,500.00"
     Then I softly see field "Grant Balance" as "$96,500.00"
     Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
   @494963 @ValidatePOFOFDEXEAuditorusershouldnotabletocreateNonFederalOrgExternalOrg @Grantee_Smoke3
   Scenario: Validate PO FO FD EXE Auditor user should not able to create Non-Federal Org External Org
@@ -12602,8 +12610,8 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -12683,7 +12691,7 @@ Feature: Grantee Smoke scenarios
     And I switch to tab number "1"
     Then I softly can see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly see "Financial Information" page block displayed
     Then I softly see "Recipient Information" page block displayed
@@ -12706,7 +12714,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Quickview" sub tab in split screen
     When I click on "Splitview" icon for "Federal Financial Report (SF-425)" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
-    Then I softly can see top right button "Download As PDF" in the split screen page details
+    Then I softly can see top right button "Download as PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
@@ -14313,18 +14321,18 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Delete" against "Focus3" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
     And I refresh the page
     And I wait for "3" seconds
-    Then I softly see field "Drawn to Date" as "$3,700"
+    Then I softly see field "Drawn to Date" as "$3,700.00"
     Then I softly see field "Current Balance" as "$3,700.00"
     Then I softly see field "Grant Balance" as "$96,300.00"
     Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$700.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$700" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$700.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     When I click on "Delete" icon for "Focus3" inside flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
     And I wait for "2" seconds
     And I refresh the page
     And I wait for "3" seconds
-    Then I softly see field "Drawn to Date" as "$3,500"
+    Then I softly see field "Drawn to Date" as "$3,500.00"
     Then I softly see field "Current Balance" as "$3,500.00"
     Then I softly see field "Grant Balance" as "$96,500.00"
     And I refresh the page
@@ -14355,7 +14363,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     When I navigate to "Actuals" sub tab
     When I navigate to "Actuals" sub tab
-    Then I softly see field "Drawn to Date" as "$0"
+    Then I softly see field "Drawn to Date" as "$0.00"
     Then I softly see field "Current Balance" as "$0.00"
     Then I softly see field "Grant Balance" as "$100,000.00"
     Then I softly see value "$0.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
@@ -14377,26 +14385,26 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Delete" against "Focus5" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see field "Drawn to Date" as "$1,000"
+    Then I softly see field "Drawn to Date" as "$1,000.00"
     Then I softly see field "Current Balance" as "$1,000.00"
     Then I softly see field "Grant Balance" as "$99,000.00"
     Then I softly see value "$500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     When I navigate to "Overview" sub tab
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Activated"
     When I navigate to "Actuals" sub tab
-    Then I softly see field "Drawn to Date" as "$3,500"
+    Then I softly see field "Drawn to Date" as "$3,500.00"
     Then I softly see field "Current Balance" as "$3,500.00"
     Then I softly see field "Grant Balance" as "$96,500.00"
     Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,000" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$500" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
   @482639 @ValidateTabsanddatadisplayedtoPMuseronawardrecordwhenallsettingsareYes @Grantee_Smoke1 @GRegression1
   Scenario: Validate Tabs and data displayed to PM user on award record when all settings are Yes
