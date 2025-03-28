@@ -31,13 +31,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see asterisk mark on "Cost Sharing or Matching Requirement"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Opportunity Title is required to save.                    |
-      | Opportunity Number is required to save.                   |
-      | Application Due Date is required to save.                 |
-      | Funding Organization is required to save.                 |
-      | Eligible Applicants is required to save.                  |
-      | Lead Description is required to save.                     |
-      | Cost Sharing or Matching Requirement is required to save. |
+      | To Save, Opportunity Title is required in the General Information section.                  |
+      | To Save, Opportunity Number is required in the General Information section.                 |
+      | To Save, Application Due Date is required in the General Information section.               |
+      | To Save, Funding Organization is required in the General Information section.               |
+      | To Save, Eligible Applicants is required in the Eligibility section.                        |
+      | To Save, Lead Description is required in the Additional Information section.                |
+      | To Save, Cost Sharing or Matching Requirement is required in the Financial Details section. |
     And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I see the header is "Lead" in the page details
@@ -8734,7 +8734,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "100.00%" for title "Percentage" against the value "Disclosure of Lobbying Activities (SF-LLL)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "Yes" for title "Validated" against the value "Disclosure of Lobbying Activities (SF-LLL)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
 
-  @486585 @ValidateBudgetRedirectionARPMusershouldabletoactivatenewawardthroughBRAR @Grantee_Smoke2 @GranteeTBE
+  @486585 @ValidateBudgetRedirectionARPMusershouldabletoactivatenewawardthroughBRAR @Grantee_Smoke2
   Scenario Outline: Validate Budget Redirection AR- PM user should able to activate new award through BR AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<OwnerType>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -9333,7 +9333,7 @@ Feature: Grantee Smoke scenarios
       | OwnerType     | UserType   | emailIdTo                       | CreatedBy |
       | Sarah PM user | GRANTEE PM | victor.exeqagrantee@yopmail.com | Sarah PM  |
 
-  @485463 @ValidatePMuserFinancialreportOwnercanabletocreateAdhocFinancialReportabletosubmitFinancialReporttoGrantor @Grantee_Smoke2 @GranteeTBE
+  @485463 @ValidatePMuserFinancialreportOwnercanabletocreateAdhocFinancialReportabletosubmitFinancialReporttoGrantor @Grantee_Smoke2
   Scenario: Validate PM user Financial report Owner can able to create Adhoc Financial Report  able to submit Financial Report to Grantor
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -9775,7 +9775,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
-  @479035 @ValidatewithPOProfileOnceapprovedtheapplicationabletoseeSubmitgrantsGovButtononapplicationpagelayouttoprightcornerandabletocontinue @Grantee_Smoke2 @GranteeTBE
+  @479035 @ValidatewithPOProfileOnceapprovedtheapplicationabletoseeSubmitgrantsGovButtononapplicationpagelayouttoprightcornerandabletocontinue @Grantee_Smoke2
   Scenario: Validate with PO Profile Once approved the application able to see Submit grants Gov Button on application page layout top right corner and able to continue
     Given I delete the grantee record "{grantee_testData:GrantsGovKeyContactMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269340" with properties "default-Grantee PO user"
@@ -10053,7 +10053,7 @@ Feature: Grantee Smoke scenarios
     And I click on hyperlink containing value "Grantee PO"
     Then I softly see the text containing "grantee.po@yopmail.com.qagrnteatm"
 
-  @482033 @ValidateGrantsgovlobbingformMandatoryPMusercansuccessfullysubmitheformtoGrantsgovafterenteringvaliddatainGrantsgovlobbingform @Grantee_Smoke1 @GranteeTBE
+  @482033 @ValidateGrantsgovlobbingformMandatoryPMusercansuccessfullysubmitheformtoGrantsgovafterenteringvaliddatainGrantsgovlobbingform @Grantee_Smoke1
   Scenario: Validate Grants gov lobbing form Mandatory PM user can successfully submit the form to Grants.gov after entering valid data in Grants gov lobbing form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default"
@@ -11348,7 +11348,7 @@ Feature: Grantee Smoke scenarios
 #    And I navigate to "History" sub tab
 #    Then I softly see snapshot with name containing "Deactivate.pdf" as name
 
-  @495301 @Validatethepermissionsofinternalcontact @Grantee_Smoke2 @GranteeTBE
+  @495301 @Validatethepermissionsofinternalcontact @Grantee_Smoke2
   Scenario Outline: Validate the permissions of internal contact
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -11399,7 +11399,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE ADMIN |
       | GRANTEE EXE   |
 
-  @486598 @ValidateKeyPersonalChangeARPMusershouldabletoapprovedtheARshouldabletocreateverifyactivatenewaward @Grantee_Smoke2 @GranteeTBE
+  @486598 @ValidateKeyPersonalChangeARPMusershouldabletoapprovedtheARshouldabletocreateverifyactivatenewaward @Grantee_Smoke2
   Scenario: Validate Key Personal Change AR PM user should able to approved the AR & should able to create verify activate new award
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
