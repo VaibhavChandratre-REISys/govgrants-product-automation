@@ -760,7 +760,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     Then I softly see status in Progress-bar is "Published" and is "dark blue"
 
-  @72343_1 @publishingFormulaAnnouncementByApplicantFocusArea @ProdSan2 @84ps2
+  @72343_1 @publishingFormulaAnnouncementByApplicantFocusArea @ProdSan2 @841
   Scenario: Validate the activation of Formula By Applicant Focus Area Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1446,7 +1446,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @72347 @negotiationComplete @ProdSan1 @84ps1
+  @72347 @negotiationComplete @ProdSan1 @84p1
   Scenario: Validate once the Negotiation Request is completed then the record owner can view the record under Completed Negotiations
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1495,7 +1495,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Negotiations" content inside "Application Reviews" subheader on left panel
     Then I can see row level action button "View" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---negotiation:-:negotiationCompletedTaskTableId---"
 
-  @38224 @awardHappyPathFromFDM @ProdSan2 @ovrerun @84ps2
+  @38224 @awardHappyPathFromFDM @ProdSan2 @ovrerun @841
   Scenario Outline: Validate  the activation of subaward from FDM happy path and the status changes to Activated
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1853,7 +1853,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @72361 @activeOrgRiskAssessment @ProdSan2 @84ps2
+  @72361 @activeOrgRiskAssessment @ProdSan2 @841
   Scenario: Validate the Activation of Org Risk Assessment and the status changes to Active
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 #    Given I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
@@ -2815,7 +2815,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     Then I softly see field "Status" as "Completed"
 
-  @FundingChangeAmendmentRequest @ProdSan1
+  @FundingChangeAmendmentRequest @ProdSan1 @84p1
   Scenario Outline: validate the end to end flow for Funding change amendment request
     And I activated standalone subaward "Automation Runtime Award" with properties "<Properties>-Automation EXE user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "EXE" user
@@ -3018,7 +3018,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Amendment Award} | {SavedValue:Automation Runtime Amendment Award} |
 
-  @SubrecipientKeyPersonnelChangeAmendmentRequest @ProdSan2 @Nov @84ps2
+  @SubrecipientKeyPersonnelChangeAmendmentRequest @ProdSan2 @Nov @841
   Scenario: Validate end to end flow for key personnel change amendment request
     Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3141,7 +3141,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @ValidatedDetailBudgetYesScenarioInAward @ProdSan2 @84ps2
+  @ValidatedDetailBudgetYesScenarioInAward @ProdSan2 @841
   Scenario: Validate Detail Budget Yes Scenario In Award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
