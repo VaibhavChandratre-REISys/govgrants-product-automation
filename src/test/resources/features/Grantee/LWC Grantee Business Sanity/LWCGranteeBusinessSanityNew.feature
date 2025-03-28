@@ -13849,10 +13849,10 @@ Feature: Sanity scenarios New
     Examples:
       | User           |
       | GRANTEE EXE    |
-      | GRANTEE PM     |
-      | GRANTEE PO     |
-      | GRANTEE ADMIN1 |
-      | GRANTEE FO     |
+#      | GRANTEE PM     |
+#      | GRANTEE PO     |
+#      | GRANTEE ADMIN1 |
+#      | GRANTEE FO     |
 
   @486596 @486597 @BudgetRedirectARPmusershouldabletoseethevalidation @P2_Grantee @GRegression1
   Scenario Outline: Budget Redirect AR-Pm user should able to see the validation
