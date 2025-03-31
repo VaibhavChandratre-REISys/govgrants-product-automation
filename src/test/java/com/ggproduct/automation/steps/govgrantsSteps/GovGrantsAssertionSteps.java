@@ -423,7 +423,7 @@ public final class GovGrantsAssertionSteps {
     @Then("^I see the (sub-header) is \"([^\"]*)\" in the page details$")
     public void validateOverviewHeader(String isHeader, String headerText) {
             if ("header".equalsIgnoreCase(isHeader)) {
-                By headerLocator = By.xpath("//div[contains(@class,'page-header__col-title')]//h2[normalize-space(text())= '" + headerText + "']");
+                By headerLocator = By.xpath("//div[contains(@class,'page-header__col-title')]//h2[normalize-space(text())= '" + headerText + "'] | //div[contains(@class,'page-header')]//h1[text()='" + headerText + "']");
                 Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(headerLocator));
             } else {
                 By headerLocator = By.xpath("//div[contains(@class,'page-header__name')]//span[contains(@title,'" + headerText + "') or contains(text(),'" + headerText + "')]");

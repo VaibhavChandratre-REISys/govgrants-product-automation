@@ -5780,7 +5780,7 @@ Feature: Grantee Smoke scenarios
       | userType   | attachment     | Notes        |
       | GRANTEE PM | Attachment.pdf | Notes for PM |
 
-  @443755 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @Grantee_Smoke3
+  @443755 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @Grantee_Smoke3 @TBExecution1
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -14880,7 +14880,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
 
-  @495308 @443894 @443895 @463566 @Validatethecommonfunctionalitylikefiledauditchatterglobalsearchnotification @Grantee_Smoke3
+  @495308 @443894 @443895 @463566 @Validatethecommonfunctionalitylikefiledauditchatterglobalsearchnotification @Grantee_Smoke3 @TBExecution1
   Scenario: Validate the common functionality like filed audit chatter global search notification
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
@@ -15471,7 +15471,7 @@ Feature: Grantee Smoke scenarios
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @495295 @444494 @ValidateAuditorprofileuserhavingonlyviewonlyaccess @Grantee_Smoke3 @GRegression1
+  @495295 @444494 @ValidateAuditorprofileuserhavingonlyviewonlyaccess @Grantee_Smoke3 @GRegression1 @TBExecution1
   Scenario: Validate Auditor profile user having only view only access
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -15553,7 +15553,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Plans" for the field "Automation Test Plans"
     When I navigate to "Forms and Files" sub tab
     When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    And I switch to tab number "3"
+    And I switch to tab number "2"
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly see "Progress Report Overview" page block displayed
@@ -15599,7 +15599,7 @@ Feature: Grantee Smoke scenarios
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
     When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    And I switch to tab number "4"
+    And I switch to tab number "3"
     Then I see the header is "Performance Progress Report" in the page details
     And I save the field labeled "Award" as "Award"
     Then I softly see link "{SavedValue:Award}" inside Page block
@@ -15611,7 +15611,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "Progress Report" as "ProgressReport"
     Then I softly see link "{SavedValue:ProgressReport}" inside Page block
     And I click on hyperlink containing value "{SavedValue:ProgressReport}"
-    And I switch to tab number "5"
+    And I switch to tab number "4"
     Then I see the header is "Progress Report" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     When I navigate to "Overview" sub tab
@@ -15641,7 +15641,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Plans" for the field "Automation Test Plans"
     When I navigate to "Forms and Files" sub tab
     When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    And I switch to tab number "6"
+    And I switch to tab number "5"
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly see "Progress Report Overview" page block displayed
