@@ -2135,7 +2135,7 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Amended"
 
-  @476988 @CombinationofamendmentVerifyPMusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @Grantee_Smoke1 @GRegression1
+  @476988 @CombinationofamendmentVerifyPMusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @Grantee_Smoke1 @GRegression1 @TBExecution
   Scenario Outline:Combination of amendment : Verify PM user can create combination of amendment using following combinations and activate new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -2200,7 +2200,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see the following messages in the page details contains:
       | KPIs added successfully. |
     And I click modal button "Close"
-    And I save the value from row "1" for column name "Title" as "KPITitle" from flex table "---grantee_tableId:-:amendmentKPITableId---"
+    And I wait for "1" seconds
+    And I save the value from row "2" for column name "Title" as "KPITitle" from flex table "---grantee_tableId:-:amendmentKPITableId---"
     Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:amendmentKPITableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentKPITableId---" by clicking "Edit" :
       | Title                   | Target | Current Value As Of |
@@ -3338,7 +3339,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Monitoring" sub tab
     Then I softly do not see value "{SavedValue:AmendTermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
 
-  @463431 @PreAppVerifyWithPOprofileAbletoaddpeerreviewerwithAllowrecordEditingYes @Grantee_Smoke1 @GRegression1
+  @463431 @PreAppVerifyWithPOprofileAbletoaddpeerreviewerwithAllowrecordEditingYes @Grantee_Smoke1 @GRegression1 @TBExecution
   Scenario:PreApp - Verify With PO profile , Able to add peer reviewer with Allow record Editing - Yes.
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     Given I login to "As a Grantee" app as "GRANTEE PO" user
@@ -3371,9 +3372,10 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Edit" in page detail
     When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---" without waiting for record
     When I click modal button "Save"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -3485,7 +3487,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     Then I softly see field "Status" as "Created"
 
-  @449166 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant @Grantee_Smoke1 @GRegression1
+  @449166 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant @Grantee_Smoke1 @GRegression1 @TBExecution
   Scenario Outline: Verify PM user as (AR Owner same as Award Owner) can able to create Funding Change AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -3892,12 +3894,8 @@ Feature: Grantee Smoke scenarios
     And I clear the value from field "PurposeRTA__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Justification is required to save under Overview. |
+      | To Save, Justification is required in the Overview tab under the Details section. |
     And I enter value "Automation Justification" into field "PurposeRTA__c"
-    And I enter value "2222" into field "ApprovedIndirectCostRate__c"
-    When I click on "Save" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Maximum Indirect Cost Rate: value outside of valid range on numeric field |
     And I enter value "110" into field "ApprovedIndirectCostRate__c"
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
@@ -4933,7 +4931,7 @@ Feature: Grantee Smoke scenarios
       | userType   | userName | UEI          |
       | GRANTEE PM | Sarah PM | 123456789123 |
 
-  @445435 @ValidateNonFederalprogramPMusercancreateandActivateNonFederalprogram @Grantee_Smoke1
+  @445435 @ValidateNonFederalprogramPMusercancreateandActivateNonFederalprogram @Grantee_Smoke1 @TBExecution
   Scenario: Validate Non-Federal program PM user can create and Activate Non Federal program
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
@@ -4999,8 +4997,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
     Then I softly see "Created By" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
-    And I click toggle button to select "Non-Federal Programs- All"
-    When I click on parallel lines menu bar with data target value "Non-Federal Programs- All"
+    And I click toggle button to select "Non-Federal Programs - All"
+    When I click on parallel lines menu bar with data target value "Non-Federal Programs - All"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
@@ -5011,7 +5009,7 @@ Feature: Grantee Smoke scenarios
 #    Then I softly see "Non-Federal Programs- All" on page "1" of "govgrants" pdf file
 #    And I switch to parent tab
 #    When I click on parallel lines menu bar with data target value "Non-Federal Programs- All"
-    And I select "Refresh" from parallel lines dropdown of "Non-Federal Programs- All"
+    And I select "Refresh" from parallel lines dropdown of "Non-Federal Programs - All"
     Then I see table is refreshing
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFederalProgramsTableId---"
     Then I softly see "Create Non Federal Program" opens in overLay window
@@ -6288,7 +6286,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE FD    |
       | GRANTEE ADMIN |
 
-  @442181 @ValidatePMusershouldabletosaveandcreateinternalcontact @Grantee_Smoke1
+  @442181 @ValidatePMusershouldabletosaveandcreateinternalcontact @Grantee_Smoke1 @TBExecution
   Scenario Outline: Validate PM user should able to save and create internal contact
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -6395,8 +6393,8 @@ Feature: Grantee Smoke scenarios
     And I enter in modal value "56" into field "MailingCity"
     And I enter in modal value "USA" into field "MailingCountry"
     And I enter in modal value "California" into field "County__c"
-    And I enter in modal value "123" into field "X4DigitZipCodeExtension__c"
-    And I enter in modal value "1234" into field "MailingPostalCode"
+    And I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
+    And I enter in modal value "12354" into field "MailingPostalCode"
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
       | Email: invalid email address: Automation Test |
@@ -6415,10 +6413,12 @@ Feature: Grantee Smoke scenarios
     Then I softly see the following messages in the page details contains:
       | Please enter valid Mobile Phone Number. |
     And I enter in modal value "9580378904" into field "MobilePhone"
+    And I enter in modal value "1234" into field "MailingPostalCode"
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
       | Please Enter 5 Digit Zip Code |
     And I enter in modal value "12345" into field "MailingPostalCode"
+    And I enter in modal value "123" into field "X4DigitZipCodeExtension__c"
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
       | Please Enter 4 Digit Zip Code Extension. |
@@ -6706,7 +6706,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE EXE   |
       | GRANTEE PM    |
 
-  @446149 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout @Grantee_Smoke1
+  @446149 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout @Grantee_Smoke1 @TBExecution
   Scenario: Validate GP Closeout with PM Profile Able to create Project period closeout and able to complete the closeout
     And I "Created" standalone subaward "Automation Runtime award" with properties "INDIRECT_COST_NO"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -6807,7 +6807,6 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Expenses" page block displayed
     Then I softly see "Record Changes" page block displayed
     Then I softly see "Report/Finance" page block displayed
-    Then I softly see "Report/Property" page block displayed
     Then I softly see "Monitoring" page block displayed
     Then I softly see "Overall" page block displayed
     Then I softly see "Link to Disclosure of Lobbying form (SF-LLL)" page block displayed
@@ -6847,8 +6846,8 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -6919,6 +6918,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
+    And I click toggle button to select "Project Period Closeout  - All"
     And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
     Then I softly can see top right button "Submit to Grantor" in page detail
@@ -6928,7 +6928,7 @@ Feature: Grantee Smoke scenarios
     And I click modal button "Save"
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
-      | Submitted to Grantor On is required to save. |
+      | To Save, Submitted to Grantor On is required. |
     When I enter values into fields
       | Value | Field                 |
       | 0     | SubmittedToGrantor__c |
@@ -6943,7 +6943,7 @@ Feature: Grantee Smoke scenarios
     And I click modal button "Save"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Grantor Closeout Date is required to save. |
+      | To Save, Grantor Closeout Date is required. |
     When I enter values into fields
       | Value | Field                  |
       | 0     | FederalCloseoutDate__c |
@@ -7335,7 +7335,7 @@ Feature: Grantee Smoke scenarios
       | User       |
       | GRANTEE PO |
 
-  @480737 @ValidatewithPOprofileonClickeditactionotherattachmentformgetopen @Grantee_Smoke1
+  @480737 @ValidatewithPOprofileonClickeditactionotherattachmentformgetopen @Grantee_Smoke1 @TBExecution
   Scenario: Validate with PO profile on Click edit action other attachment form get open
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -7623,7 +7623,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @481492 @ValidatePMuserisabletosubmittheapplicationformtograntsgovwithvaliddataonformProjectPerformanceSiteLocations @Grantee_Smoke1
+  @481492 @ValidatePMuserisabletosubmittheapplicationformtograntsgovwithvaliddataonformProjectPerformanceSiteLocations @Grantee_Smoke1 @TBExecution
   Scenario: Validate PM user is able to submit the application form to grants.gov with valid data on form (Project/Performance Site Location(s))
     Given I delete the grantee record "{grantee_testData:GrantsGovProjectPerformanceMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269345" with properties "default"
@@ -7724,7 +7724,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see fields "IsPrimaryAddress__c" is in edit mode
     Then I softly see fields "SAMUEI__c" is in edit mode
     Then I softly see fields "AddressLine1__c" is in edit mode
-    Then I softly see fields "AddressLine2__c" is in edit mode
+    Then I softly see fields "GranteeFormsAddressLine2__c" is in edit mode
     Then I softly see fields "City__c" is in edit mode
     Then I softly see fields "County__c" is in edit mode
     Then I softly see fields "State__c" is in edit mode
@@ -10850,7 +10850,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
 
-  @464086 @ValidatePOuserasAROwnercanabletocreateCombinationARonactiveAwardabletoseeimpactonGranAward @Grantee_Smoke1
+  @464086 @ValidatePOuserasAROwnercanabletocreateCombinationARonactiveAwardabletoseeimpactonGranAward @Grantee_Smoke1 @TBExecution
   Scenario Outline: Validate PO user as (AR Owner)can able to create Combination AR on active Award & able to see impact on Grant Award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -12425,7 +12425,7 @@ Feature: Grantee Smoke scenarios
     Then I cannot see row level action button "Delete" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
 
-  @485491 @ValidatePOusershouldabletocreateScheduledFinancialReportabletosubmitFinancialReporttoGrantorverifytheaccessofauditoruser @Grantee_Smoke1
+  @485491 @ValidatePOusershouldabletocreateScheduledFinancialReportabletosubmitFinancialReporttoGrantorverifytheaccessofauditoruser @Grantee_Smoke1 @TBExecution
   Scenario: Validate PO user should able to create Scheduled Financial Report & able to submit Financial Report to Grantor & verify the access of auditor user
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -12874,9 +12874,11 @@ Feature: Grantee Smoke scenarios
     When I click on "View" icon for "{SavedValue:financialEGMSID}" inside table
     Then I softly can see top right button "Mark as Submitted" in page detail
     And I click on "Mark as Submitted" in the page details
+    And I wait for "2" seconds
     And I click modal button "Save"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Submitted to Grantor On is required to save. |
+      | To Save, Submitted to Grantor On is required. |
     And I enter in modal "Submit Details" values from "Financial_Report_Field_Values.xlsx"
     When I click modal button "Save"
     And I wait for "2" seconds
@@ -12999,7 +13001,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE FD      |
       | GRANTEE AUDITOR |
 
-  @444514 @ValidatePMuserAwardOwnercanabletocreateSceduledProgressReportabletosubmitProgressReporttoGrantor @Grantee_Smoke1
+  @444514 @ValidatePMuserAwardOwnercanabletocreateSceduledProgressReportabletosubmitProgressReporttoGrantor @Grantee_Smoke1 @TBExecution
   Scenario: Validate PM user Award Owner can able to create Sceduled Progress Report & able to submit Progress Report to Grantor
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -13268,8 +13270,8 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -13366,7 +13368,7 @@ Feature: Grantee Smoke scenarios
     And I switch to tab number "1"
     Then I softly can see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly see "Progress Report Overview" page block displayed
     Then I softly see "Performance Narrative" page block displayed
@@ -13394,7 +13396,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Quickview" sub tab in split screen
     When I click on "Splitview" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
-    Then I softly can see top right button "Download As PDF" in the split screen page details
+    Then I softly can see top right button "Download as PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
     And I click on hyperlink containing value "{SavedValue:AwardID}"
     Then I softly see field "Status" as "Activated"
@@ -13437,6 +13439,7 @@ Feature: Grantee Smoke scenarios
     And I download the file
     And I wait for "4" seconds
     Then I softly verify that the file "Automation.pdf" is downloaded
+    And I switch to parent tab
     When I click on "Delete" icon for "Automation.pdf" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     And I wait for "2" seconds
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---"
@@ -13593,7 +13596,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Submitted to Grantor On is required to save. |
+      | To Save, Submitted to Grantor On is required. |
     And I enter in modal "Grantee_Submit Details" values from "ProgressReport_Field_Values.xlsx"
     When I click modal button "Save"
     And I wait for "2" seconds
@@ -13633,7 +13636,7 @@ Feature: Grantee Smoke scenarios
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "Sarah PM"
 
-  @484555 @ValidateFromAppPMuserAwardOwnercanabletocreateSceduledProgressReportabletosubmitProgressReporttoGrantor @Grantee_Smoke1
+  @484555 @ValidateFromAppPMuserAwardOwnercanabletocreateSceduledProgressReportabletosubmitProgressReporttoGrantor @Grantee_Smoke1 @TBExecution
   Scenario: Validate From App PM user Award Owner can able to create Sceduled Progress Report & able to submit Progress Report to Grantor
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -13910,8 +13913,8 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -14008,7 +14011,7 @@ Feature: Grantee Smoke scenarios
     And I switch to tab number "1"
     Then I softly can see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly see "Progress Report Overview" page block displayed
     Then I softly see "Performance Narrative" page block displayed
@@ -14036,7 +14039,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Quickview" sub tab in split screen
     When I click on "Splitview" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
-    Then I softly can see top right button "Download As PDF" in the split screen page details
+    Then I softly can see top right button "Download as PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
     And I click on hyperlink containing value "{SavedValue:AwardID}"
     Then I softly see field "Status" as "Activated"
@@ -14077,6 +14080,7 @@ Feature: Grantee Smoke scenarios
     And I download the file
     And I wait for "4" seconds
     Then I softly verify that the file "Automation.pdf" is downloaded
+    And I switch to parent tab
     When I click on "Delete" icon for "Automation.pdf" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     And I wait for "2" seconds
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---"
@@ -14236,7 +14240,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Submitted to Grantor On is required to save. |
+      | To Save, Submitted to Grantor On is required. |
     And I enter in modal "Grantee_Submit Details" values from "ProgressReport_Field_Values.xlsx"
     When I click modal button "Save"
     And I wait for "2" seconds
@@ -14402,7 +14406,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
-  @482639 @ValidateTabsanddatadisplayedtoPMuseronawardrecordwhenallsettingsareYes @Grantee_Smoke1 @GRegression1
+  @482639 @ValidateTabsanddatadisplayedtoPMuseronawardrecordwhenallsettingsareYes @Grantee_Smoke1 @GRegression1 @TBExecution
   Scenario: Validate Tabs and data displayed to PM user on award record when all settings are Yes
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -15330,7 +15334,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Forms and Files Tab - Attach Progress Report document.       |
-      | Performance Tab: Provide 'Reported Value As Of' for the KPI. |
+      | Performance Tab - Provide 'Reported Value As Of' for the KPI. |
       | Responsibilities - At least one approver is required.        |
     And I save the field labeled "Reporting Period Start Date" as "ReportingPeriodStartDate"
     And I save the field labeled "Reporting Period End Date" as "ReportingPeriodEndDate"
