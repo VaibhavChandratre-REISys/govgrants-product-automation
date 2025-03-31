@@ -365,7 +365,7 @@ Feature: Grantee Smoke scenarios
       | User       |
       | GRANTEE PO |
 
-  @488703 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads @Grantee_Smoke3
+  @488703 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads @Grantee_Smoke3 @TBExecution1
   Scenario Outline: Verify As FO user should not see new button for not yet qualify lead and edit access on not yet qualify leads
     Given I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Opportunities" tab
@@ -387,6 +387,7 @@ Feature: Grantee Smoke scenarios
     When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Leads Not Yet Qualified - All"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
     When I perform quick search for "{SavedValue:LeadsEGMSID}" in "---grantee_tableId:-:LeadsNotYetQualified---" panel
     And I click on "View" icon for "{SavedValue:LeadsEGMSID}" inside flex table with id "---grantee_tableId:-:LeadsNotYetQualified---" without waiting for record
@@ -1348,7 +1349,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @476282 @VerifyPOusershouldabletoseethevalidationmessagesandrejecttheSOWamendmentrequest @Grantee_Smoke3
+  @476282 @VerifyPOusershouldabletoseethevalidationmessagesandrejecttheSOWamendmentrequest @Grantee_Smoke3 @TBExecution1
   Scenario Outline: Verify PO user should able to see the validation messages and reject the SOW amendment request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -1368,9 +1369,9 @@ Feature: Grantee Smoke scenarios
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Please select Amendment Request Type is required to save. |
-      | Initiated By is required to save.                         |
-      | Justification is required to save.                        |
+      | To Save, Please select Amendment Request Type is required. |
+      | To Save, Initiated By is required.                         |
+      | To Save, Justification is required.                        |
     And I enter "Grantee_ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -1385,11 +1386,11 @@ Feature: Grantee Smoke scenarios
     And I clear the value from field "Country__c"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Address line 1 is required to save under Overview. |
-      | City is required to save under Overview.           |
-      | State is required to save under Overview.          |
-      | Zip Code is required to save under Overview.       |
-      | Country is required to save under Overview.        |
+      | To Save, Address line 1 is required in the Overview tab under the Place of Performance section. |
+      | To Save, City is required in the Overview tab under the Place of Performance section.           |
+      | To Save, State is required in the Overview tab under the Place of Performance section.          |
+      | To Save, Zip Code is required in the Overview tab under the Place of Performance section.       |
+      | To Save, Country is required in the Overview tab under the Place of Performance section.        |
     And I enter value "Automation Award" into field "GrantAwardName__c"
     And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     And I enter value "Street4" into field "Addressline1__c"
@@ -1454,10 +1455,10 @@ Feature: Grantee Smoke scenarios
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Title is required to save.               |
-      | Description is required to save.         |
-      | Effective From Date is required to save. |
-      | Effective To Date is required to save.   |
+      | To Save, Title is required in the Information section.               |
+      | To Save, Description is required in the Information section.         |
+      | To Save, Effective From Date is required in the Effective Dates section. |
+      | To Save, Effective To Date is required in the Effective Dates section.   |
     When I enter in modal value "Terms1" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
     When I enter in modal value "1" into field "Sequence__c"
@@ -5779,7 +5780,7 @@ Feature: Grantee Smoke scenarios
       | userType   | attachment     | Notes        |
       | GRANTEE PM | Attachment.pdf | Notes for PM |
 
-  @443755 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @Grantee_Smoke3
+  @443755 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @Grantee_Smoke3 @TBExecution1
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -5809,10 +5810,12 @@ Feature: Grantee Smoke scenarios
     When I enter in modal value "vegas" into field "County__c"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | City is required to save.     |
-      | State is required to save.    |
-      | Country is required to save.  |
-      | Zip Code is required to save. |
+      | To Save, City is required.     |
+      | To Save, State is required.    |
+      | To Save, Country is required.  |
+      | To Save, Zip Code is required. |
+      | To Save, Organization Name is required. |
+      | To Save, Non-Federal Organization Type is required. |
     And I wait for "2" seconds
     When I enter in modal value "Automation Runtime Organization" into field "Name"
     When I enter in modal value "NGO" into field "NonFederalOrganizationType__c"
@@ -5828,7 +5831,7 @@ Feature: Grantee Smoke scenarios
     Then I see the sub-header is "Automation Runtime Organization" in the page details
     Then I softly see field "Parent Organization" as "NA"
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Related Log" sub tab at view detail page
@@ -5987,7 +5990,7 @@ Feature: Grantee Smoke scenarios
       | userType   | attachment     | Notes        | userName | Title |
       | GRANTEE PM | Attachment.pdf | Notes Record | Sarah PM | Test  |
 
-  @443676 @495305 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts @Grantee_Smoke3 @Grantee_Smoke2
+  @443676 @495305 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts @Grantee_Smoke3 @Grantee_Smoke2 @TBExecution1
   Scenario Outline: Validate Non federal PO user should see all fields and section for non federal contact's
     When I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -6024,17 +6027,17 @@ Feature: Grantee Smoke scenarios
     Then I softly see field on modal "Email" inside page block
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Organization is required to save.   |
-      | Project Role is required to save.   |
-      | First Name is required to save.     |
-      | Last Name is required to save.      |
-      | Phone is required to save.          |
-      | Email is required to save.          |
-      | Address Line 1 is required to save. |
-      | State is required to save.          |
-      | City is required to save.           |
-      | Country is required to save.        |
-      | Zip Code is required to save.       |
+      | To Save, Organization is required in the Contact Information section.   |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, First Name is required in the Contact Information section.     |
+      | To Save, Last Name is required in the Contact Information section.      |
+      | To Save, Phone is required in the Contact Information section.          |
+      | To Save, Email is required in the Contact Information section.          |
+      | To Save, Address Line 1 is required in the Address Information section. |
+      | To Save, State is required in the Address Information section.          |
+      | To Save, City is required in the Address Information section.           |
+      | To Save, Country is required in the Address Information section.        |
+      | To Save, Zip Code is required in the Address Information section.       |
     And I wait for "2" seconds
     When I enter in modal value "Automation Runtime" into field "Title"
     When I enter in modal value "Test With Automation PM" into field "AccountId"
@@ -6964,7 +6967,7 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Closed"
 
-  @476989 @CombinationofamendmentVerifyPOusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @Grantee_Smoke3 @GRegression1
+  @476989 @CombinationofamendmentVerifyPOusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @Grantee_Smoke3 @GRegression1 @TBExecution1
   Scenario Outline:Combination of amendment : Verify PO user can create combination of amendment using following combinations and activate new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -9896,7 +9899,7 @@ Feature: Grantee Smoke scenarios
     And I click on hyperlink containing value "Grantee PO"
     Then I softly see the text containing "grantee.po@yopmail.com.qagrnteatm"
 
-  @493585 @ValidatePMusershouldnotabletovalidateformwithincorrectUEIIfenterlessthan12digitUEI @Grantee_Smoke3
+  @493585 @ValidatePMusershouldnotabletovalidateformwithincorrectUEIIfenterlessthan12digitUEI @Grantee_Smoke3 @TBExecution1
   Scenario: Validate PM user should not able to validate form with incorrect UEI  If enter less than 12 digit UEI
     Given I delete the grantee record "{grantee_testData:GrantsGovProjectPerformanceMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269345" with properties "default"
@@ -10425,7 +10428,7 @@ Feature: Grantee Smoke scenarios
     And I click on hyperlink containing value "Sarah PM"
     Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
 
-  @486506 @ValidateFDPOnonrecordownerusershouldabletoseetheapplicationissubmittedtoGrantorManuallead @Grantee_Smoke3
+  @486506 @ValidateFDPOnonrecordownerusershouldabletoseetheapplicationissubmittedtoGrantorManuallead @Grantee_Smoke3 @TBExecution1
   Scenario: Validate FD PO non record owner user should able to see the application is submitted to Grantor Manual lead
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
@@ -12355,7 +12358,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
-  @494963 @ValidatePOFOFDEXEAuditorusershouldnotabletocreateNonFederalOrgExternalOrg @Grantee_Smoke3
+  @494963 @ValidatePOFOFDEXEAuditorusershouldnotabletocreateNonFederalOrgExternalOrg @Grantee_Smoke3 @TBExecution1
   Scenario: Validate PO FO FD EXE Auditor user should not able to create Non-Federal Org External Org
     When I login to "As a Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
@@ -12376,6 +12379,7 @@ Feature: Grantee Smoke scenarios
     And I click modal button "Save and Continue"
     And I wait for "1" seconds
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I navigate to "Overview" sub tab
     And I wait for "2" seconds
     And I save the field labeled "Organization Name" as "OrganizationName"
@@ -14876,7 +14880,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
 
-  @495308 @443894 @443895 @463566 @Validatethecommonfunctionalitylikefiledauditchatterglobalsearchnotification @Grantee_Smoke3
+  @495308 @443894 @443895 @463566 @Validatethecommonfunctionalitylikefiledauditchatterglobalsearchnotification @Grantee_Smoke3 @TBExecution1
   Scenario: Validate the common functionality like filed audit chatter global search notification
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
@@ -15467,7 +15471,7 @@ Feature: Grantee Smoke scenarios
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @495295 @444494 @ValidateAuditorprofileuserhavingonlyviewonlyaccess @Grantee_Smoke3 @GRegression1
+  @495295 @444494 @ValidateAuditorprofileuserhavingonlyviewonlyaccess @Grantee_Smoke3 @GRegression1 @TBExecution1
   Scenario: Validate Auditor profile user having only view only access
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -15502,7 +15506,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Preview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     When I click on "Splitview" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly cannot see top right button "Edit" in the split screen page details
-    Then I softly can see top right button "Download As PDF" in the split screen page details
+    Then I softly can see top right button "Download as PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
@@ -15519,7 +15523,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "Progress Report" as "ProgressReport"
     Then I softly see link "{SavedValue:ProgressReport}" inside Page block
     And I click on hyperlink containing value "{SavedValue:ProgressReport}"
-    And I switch to tab number "2"
+    And I switch to tab number "1"
     Then I see the header is "Progress Report" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     When I navigate to "Overview" sub tab
