@@ -13600,10 +13600,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see link "{SavedValue:ownerName}" inside Page block
     And I click on hyperlink containing value "{SavedValue:ownerName}"
     Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
+    And I wait for "2" seconds
     And I click on back arrow
+    And I wait for "2" seconds
     And I click on "Mark as Submitted" in the page details
     And I wait for "2" seconds
     And I click modal button "Save"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | To Save, Submitted to Grantor On is required. |
     And I enter in modal "Grantee_Submit Details" values from "ProgressReport_Field_Values.xlsx"
