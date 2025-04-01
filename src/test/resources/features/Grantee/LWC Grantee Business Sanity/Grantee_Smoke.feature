@@ -6925,8 +6925,8 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
     And I click toggle button to select "Project Period Closeout - All"
-    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
-    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:ProjectPeriodCloseout---" panel
+    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:ProjectPeriodCloseout---"
     Then I softly can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
     Then I softly see "Submit to Grantor" opens in overLay window
@@ -14963,7 +14963,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     Then I softly see value "{SavedValue:opportunityEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
-    And I click on "Notifications" button on header
+    And I click on "notifications" button on header
     Then I softly see notification "Review Opportunity #{SavedValue:opportunityEGMSID} Created for Lead #{SavedValue:FOALead}"
 
   @495297 @443859 @443900 @ValidateonlyadminEXEandPMusershouldseenewbuttontocreateKPI @Grantee_Smoke2
@@ -15532,6 +15532,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "Progress Report" as "ProgressReport"
     Then I softly see link "{SavedValue:ProgressReport}" inside Page block
     And I click on hyperlink for invisible fields containing value "{SavedValue:ProgressReport}"
+    And I halt execution
     And I switch to tab number "2"
     Then I see the header is "Progress Report" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
