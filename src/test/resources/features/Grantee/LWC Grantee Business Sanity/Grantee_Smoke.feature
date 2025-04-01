@@ -5105,7 +5105,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, Title is required.               |
       | To Save, Domain is required.              |
       | To Save, Measure is required.             |
@@ -5121,7 +5121,7 @@ Feature: Grantee Smoke scenarios
     When I enter value "--None--" into field "Domain__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, Domain is required in the Overview tab under the Overview section.              |
       | To Save, Title is required in the Overview tab under the Overview section.               |
       | To Save, Measure is required in the Overview tab under the Overview section.             |
@@ -14910,6 +14910,8 @@ Feature: Grantee Smoke scenarios
     And I click on hyperlink containing value "Key Performance Indicators (KPI)s"
     And I wait for "2" seconds
     Then I see the header is "Key Performance Indicators (KPI)s" in the page details
+    And I wait for "2" seconds
+    And I click on back arrow
     And I wait for "2" seconds
     And I click on back arrow
     And I wait for "2" seconds

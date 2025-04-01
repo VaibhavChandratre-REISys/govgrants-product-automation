@@ -687,6 +687,6 @@ public final class GovGrantsObjects {
     }
 
     public void toClickOnButtonOnHeader(String buttonName) {
-        I.amPerforming().click().withJavaScript(By.xpath("//button[@title='" + buttonName + "' and contains(@class,'btn-collapse-header')]"));
+        I.amPerforming().click().withJavaScript(By.xpath("//button[contains(@class,'" + buttonName + "')] | //button[@title='" + buttonName + "' and contains(@class,'btn-collapse-header')]"));
     }
 }
