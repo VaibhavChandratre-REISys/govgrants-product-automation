@@ -183,7 +183,7 @@ Feature: Grantee Smoke scenarios
       | User       |
       | GRANTEE PM |
 
-  @482113 @ValidatetheflowofasPMuserisabletocreateandqualifythemanuallead @Grantee_Smoke2 @TBExecution2
+  @482113 @ValidatetheflowofasPMuserisabletocreateandqualifythemanuallead @Grantee_Smoke2
   Scenario Outline: Validate the flow of as PM/PO user is able to create and qualify the manual lead
     Given I login to "As a Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
@@ -5102,7 +5102,9 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:KPITable---"
+    And I wait for "2" seconds
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | To Save, Title is required.               |
       | To Save, Domain is required.              |
@@ -6635,7 +6637,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE PM  | sarah.pm.23@yopmail.com         | victor.exeqagrantee@yopmail.com |
       | GRANTEE EXE | victor.exeqagrantee@yopmail.com | sarah.pm.23@yopmail.com         |
 
-  @440274 @ValidateFocusAreaWithEXEProfileAbletocreateActivateDeactivethefocusarea @Grantee_Smoke2 @TBExecution2
+  @440274 @ValidateFocusAreaWithEXEProfileAbletocreateActivateDeactivethefocusarea @Grantee_Smoke2
   Scenario: Validate Focus Area With EXE Profile Able to create Activate Deactive the focus area
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     When I navigate to "Planning" tab
@@ -6922,7 +6924,7 @@ Feature: Grantee Smoke scenarios
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
-    And I click toggle button to select "Project Period Closeout  - All"
+    And I click toggle button to select "Project Period Closeout - All"
     And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
     Then I softly can see top right button "Submit to Grantor" in page detail
@@ -7627,7 +7629,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @481492 @ValidatePMuserisabletosubmittheapplicationformtograntsgovwithvaliddataonformProjectPerformanceSiteLocations @Grantee_Smoke1 @TBExecution
+  @481492 @ValidatePMuserisabletosubmittheapplicationformtograntsgovwithvaliddataonformProjectPerformanceSiteLocations @Grantee_Smoke1
   Scenario: Validate PM user is able to submit the application form to grants.gov with valid data on form (Project/Performance Site Location(s))
     Given I delete the grantee record "{grantee_testData:GrantsGovProjectPerformanceMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269345" with properties "default"
@@ -8742,7 +8744,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "100.00%" for title "Percentage" against the value "Disclosure of Lobbying Activities (SF-LLL)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "Yes" for title "Validated" against the value "Disclosure of Lobbying Activities (SF-LLL)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
 
-  @486585 @ValidateBudgetRedirectionARPMusershouldabletoactivatenewawardthroughBRAR @Grantee_Smoke2 @TBExecution2
+  @486585 @ValidateBudgetRedirectionARPMusershouldabletoactivatenewawardthroughBRAR @Grantee_Smoke2
   Scenario Outline: Validate Budget Redirection AR- PM user should able to activate new award through BR AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<OwnerType>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -10971,6 +10973,7 @@ Feature: Grantee Smoke scenarios
       | Sarah PM | Step 1            |
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    And I wait for "4" seconds
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
     When I click modal button "Close"
     Then I see "Terms and Conditions" has been added in "Amendment Files" flex table
@@ -14907,7 +14910,9 @@ Feature: Grantee Smoke scenarios
     And I click on hyperlink containing value "Key Performance Indicators (KPI)s"
     And I wait for "2" seconds
     Then I see the header is "Key Performance Indicators (KPI)s" in the page details
+    And I wait for "2" seconds
     And I click on back arrow
+    And I wait for "2" seconds
     And I navigate to "Chatter" sub tab in split screen
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "Sarah PM"
@@ -15383,7 +15388,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Management" sub tab
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
 
-  @497752 @ValidateProgressReporttheapproverstepsforprogressreportverifythevalidation @Grantee_Smoke2 @TBExecution2
+  @497752 @ValidateProgressReporttheapproverstepsforprogressreportverifythevalidation @Grantee_Smoke2
   Scenario: Validate Progress Report the approver steps for progress report & verify the validation
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -15524,7 +15529,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     And I save the field labeled "Progress Report" as "ProgressReport"
     Then I softly see link "{SavedValue:ProgressReport}" inside Page block
-    And I click on hyperlink containing value "{SavedValue:ProgressReport}"
+    And I click on hyperlink for invisible fields containing value "{SavedValue:ProgressReport}"
     And I switch to tab number "2"
     Then I see the header is "Progress Report" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
@@ -15612,7 +15617,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     And I save the field labeled "Progress Report" as "ProgressReport"
     Then I softly see link "{SavedValue:ProgressReport}" inside Page block
-    And I click on hyperlink containing value "{SavedValue:ProgressReport}"
+    And I click on hyperlink for invisible fields containing value "{SavedValue:ProgressReport}"
     And I switch to tab number "4"
     Then I see the header is "Progress Report" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
