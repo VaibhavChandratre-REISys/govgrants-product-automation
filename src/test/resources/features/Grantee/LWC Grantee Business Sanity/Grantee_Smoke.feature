@@ -15532,8 +15532,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "Progress Report" as "ProgressReport"
     Then I softly see link "{SavedValue:ProgressReport}" inside Page block
     And I click on hyperlink for invisible fields containing value "{SavedValue:ProgressReport}"
-    And I halt execution
-    And I switch to tab number "2"
+#    And I switch to tab number "2"
     Then I see the header is "Progress Report" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     When I navigate to "Overview" sub tab
@@ -15563,7 +15562,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Plans" for the field "Automation Test Plans"
     When I navigate to "Forms and Files" sub tab
     When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    And I switch to tab number "3"
+    And I switch to tab number "2"
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly see "Progress Report Overview" page block displayed
@@ -15621,7 +15620,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "Progress Report" as "ProgressReport"
     Then I softly see link "{SavedValue:ProgressReport}" inside Page block
     And I click on hyperlink for invisible fields containing value "{SavedValue:ProgressReport}"
-    And I switch to tab number "4"
+#    And I switch to tab number "4"
     Then I see the header is "Progress Report" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     When I navigate to "Overview" sub tab
@@ -15651,7 +15650,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Plans" for the field "Automation Test Plans"
     When I navigate to "Forms and Files" sub tab
     When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    And I switch to tab number "5"
+    And I switch to tab number "4"
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly see "Progress Report Overview" page block displayed
