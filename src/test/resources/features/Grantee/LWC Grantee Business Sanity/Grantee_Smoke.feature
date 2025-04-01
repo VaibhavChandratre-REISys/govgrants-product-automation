@@ -5780,7 +5780,7 @@ Feature: Grantee Smoke scenarios
       | userType   | attachment     | Notes        |
       | GRANTEE PM | Attachment.pdf | Notes for PM |
 
-  @443755 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @Grantee_Smoke3 @TBExecution1
+  @443755 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @Grantee_Smoke3
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -14906,7 +14906,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     And I click on hyperlink containing value "Key Performance Indicators (KPI)s"
     And I wait for "2" seconds
-    Then I see the header is "Key Performance Indicator" in the page details
+    Then I see the header is "Key Performance Indicators (KPI)s" in the page details
     And I click on back arrow
     And I navigate to "Chatter" sub tab in split screen
     And I post the message "Automation Test1 Execution" inside chatter
@@ -15525,7 +15525,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "Progress Report" as "ProgressReport"
     Then I softly see link "{SavedValue:ProgressReport}" inside Page block
     And I click on hyperlink containing value "{SavedValue:ProgressReport}"
-    And I switch to tab number "1"
+    And I switch to tab number "2"
     Then I see the header is "Progress Report" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     When I navigate to "Overview" sub tab
@@ -15555,7 +15555,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Plans" for the field "Automation Test Plans"
     When I navigate to "Forms and Files" sub tab
     When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    And I switch to tab number "2"
+    And I switch to tab number "3"
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly see "Progress Report Overview" page block displayed
@@ -15596,7 +15596,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Preview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     When I click on "Splitview" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly cannot see top right button "Edit" in the split screen page details
-    Then I softly can see top right button "Download As PDF" in the split screen page details
+    Then I softly can see top right button "Download as PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
