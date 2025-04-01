@@ -6711,7 +6711,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE EXE   |
       | GRANTEE PM    |
 
-  @446149 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout @Grantee_Smoke1 @TBExecution
+  @446149 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout @Grantee_Smoke1
   Scenario: Validate GP Closeout with PM Profile Able to create Project period closeout and able to complete the closeout
     And I "Created" standalone subaward "Automation Runtime award" with properties "INDIRECT_COST_NO"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -9504,8 +9504,8 @@ Feature: Grantee Smoke scenarios
     When I click on "Enter Review" icon for "Grantee PO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -9579,7 +9579,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see new tab is opened
     Then I softly can see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly see "Financial Information" page block displayed
     Then I softly see "Recipient Information" page block displayed
@@ -9602,7 +9602,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Quickview" sub tab in split screen
     When I click on "Splitview" icon for "Federal Financial Report (SF-425)" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
-    Then I softly can see top right button "Download As PDF" in the split screen page details
+    Then I softly can see top right button "Download as PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
@@ -9746,7 +9746,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Submitted to Grantor On is required to save. |
+      | To Save, Submitted to Grantor On is required. |
     And I enter in modal "Submit Details" values from "Financial_Report_Field_Values.xlsx"
     When I click modal button "Save"
     And I wait for "1" seconds
@@ -9785,7 +9785,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
-  @479035 @ValidatewithPOProfileOnceapprovedtheapplicationabletoseeSubmitgrantsGovButtononapplicationpagelayouttoprightcornerandabletocontinue @Grantee_Smoke2 @TBExecution2
+  @479035 @ValidatewithPOProfileOnceapprovedtheapplicationabletoseeSubmitgrantsGovButtononapplicationpagelayouttoprightcornerandabletocontinue @Grantee_Smoke2
   Scenario: Validate with PO Profile Once approved the application able to see Submit grants Gov Button on application page layout top right corner and able to continue
     Given I delete the grantee record "{grantee_testData:GrantsGovKeyContactMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269340" with properties "default-Grantee PO user"
@@ -10856,7 +10856,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
 
-  @464086 @ValidatePOuserasAROwnercanabletocreateCombinationARonactiveAwardabletoseeimpactonGranAward @Grantee_Smoke1 @TBExecution
+  @464086 @ValidatePOuserasAROwnercanabletocreateCombinationARonactiveAwardabletoseeimpactonGranAward @Grantee_Smoke1
   Scenario Outline: Validate PO user as (AR Owner)can able to create Combination AR on active Award & able to see impact on Grant Award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -11411,7 +11411,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE ADMIN |
       | GRANTEE EXE   |
 
-  @486598 @ValidateKeyPersonalChangeARPMusershouldabletoapprovedtheARshouldabletocreateverifyactivatenewaward @Grantee_Smoke2 @TBExecution2
+  @486598 @ValidateKeyPersonalChangeARPMusershouldabletoapprovedtheARshouldabletocreateverifyactivatenewaward @Grantee_Smoke2
   Scenario: Validate Key Personal Change AR PM user should able to approved the AR & should able to create verify activate new award
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -11885,7 +11885,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
-  @483360 @ValidatePMuserseevalidationmessagesifusertrytosavetheinvaliddataonformandnotabletosubmitapplicationProjectPerformanceSiteLocations @Grantee_Smoke2 @TBExecution2
+  @483360 @ValidatePMuserseevalidationmessagesifusertrytosavetheinvaliddataonformandnotabletosubmitapplicationProjectPerformanceSiteLocations @Grantee_Smoke2
   Scenario: Validate PM user see validation messages if user try to save the invalid data on form and not able to submit application Project Performance Site Locations
     Given I delete the grantee record "{grantee_testData:GrantsGovProjectPerformanceMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269345" with properties "default"
@@ -12434,7 +12434,7 @@ Feature: Grantee Smoke scenarios
     Then I cannot see row level action button "Delete" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
 
-  @485491 @ValidatePOusershouldabletocreateScheduledFinancialReportabletosubmitFinancialReporttoGrantorverifytheaccessofauditoruser @Grantee_Smoke1 @TBExecution
+  @485491 @ValidatePOusershouldabletocreateScheduledFinancialReportabletosubmitFinancialReporttoGrantorverifytheaccessofauditoruser @Grantee_Smoke1
   Scenario: Validate PO user should able to create Scheduled Financial Report & able to submit Financial Report to Grantor & verify the access of auditor user
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -13010,7 +13010,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE FD      |
       | GRANTEE AUDITOR |
 
-  @444514 @ValidatePMuserAwardOwnercanabletocreateSceduledProgressReportabletosubmitProgressReporttoGrantor @Grantee_Smoke1 @TBExecution
+  @444514 @ValidatePMuserAwardOwnercanabletocreateSceduledProgressReportabletosubmitProgressReporttoGrantor @Grantee_Smoke1
   Scenario: Validate PM user Award Owner can able to create Sceduled Progress Report & able to submit Progress Report to Grantor
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -14888,7 +14888,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
 
-  @495308 @443894 @443895 @463566 @Validatethecommonfunctionalitylikefiledauditchatterglobalsearchnotification @Grantee_Smoke3 @TBExecution1
+  @495308 @443894 @443895 @463566 @Validatethecommonfunctionalitylikefiledauditchatterglobalsearchnotification @Grantee_Smoke3
   Scenario: Validate the common functionality like filed audit chatter global search notification
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
@@ -15483,7 +15483,7 @@ Feature: Grantee Smoke scenarios
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @495295 @444494 @ValidateAuditorprofileuserhavingonlyviewonlyaccess @Grantee_Smoke3 @GRegression1 @TBExecution1
+  @495295 @444494 @ValidateAuditorprofileuserhavingonlyviewonlyaccess @Grantee_Smoke3 @GRegression1
   Scenario: Validate Auditor profile user having only view only access
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
