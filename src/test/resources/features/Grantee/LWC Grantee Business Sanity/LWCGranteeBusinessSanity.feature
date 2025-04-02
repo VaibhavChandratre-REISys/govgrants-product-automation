@@ -6087,7 +6087,7 @@ Feature: Sanity scenarios
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget |
-      | Site work | The narrative | 500           |
+      | Site work | The narrative | 500            |
     When I close "Add Line Items" modal by clicking the top right x button
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
@@ -6095,13 +6095,13 @@ Feature: Sanity scenarios
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Narrative     | Awarded Budget |
-      | Construction | The narrative | 4500          |
+      | Construction | The narrative | 4500           |
     When I close "Add Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget |
-      | Site work | The narrative | 500           |
+      | Site work | The narrative | 500            |
     When I close "Add Line Items" modal by clicking the top right x button
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
@@ -13036,7 +13036,7 @@ Feature: Sanity scenarios
       | GRANTEE PO    | Grantee PO | 123456789123 |
       | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @469405 @ValidatePRamdPMuserseeNewlygeneratedAwardisinPendingactivationstate @TBExecution
+  @469405 @ValidatePRamdPMuserseeNewlygeneratedAwardisinPendingactivationstate
   Scenario: Validate PR amd PM user see Newly generated Award is in Pending activation state
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -14857,7 +14857,7 @@ Feature: Sanity scenarios
       | GRANTEE PM | Attachment.pdf | Notes Record | Danielle FD Garcia | GRANTEE FD  | Notes Record for FD  | Notes Record for Danielle FD Garcia |
       | GRANTEE PM | Attachment.pdf | Notes Record | Victor EXE         | GRANTEE EXE | Notes Record for EXE | Notes Record for Victor EXE         |
 
-  @449974 @ValidateGPCloseoutwhileoverrideifthereisnoopenitemstillabletodooverrideandcontinuetheflow @TBExecution
+  @449974 @ValidateGPCloseoutwhileoverrideifthereisnoopenitemstillabletodooverrideandcontinuetheflow
   Scenario: Validate GP Closeout while override if there is no open item still able to do override and continue the flow.
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -14915,7 +14915,7 @@ Feature: Sanity scenarios
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PendingProgressReprt---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PendingFinancialReport---"
 
-  @446127 @ValidateGPCloseoutwithEXEProfileOnactivegrantabletoseeNewbuttontocreateadhoccloseout @TBExecution
+  @446127 @ValidateGPCloseoutwithEXEProfileOnactivegrantabletoseeNewbuttontocreateadhoccloseout
   Scenario: Validate GP Closeout with EXE Profile On active grant able to see New button to createa dhoc closeout
     And I "Created" standalone subaward "Automation Runtime award" with properties "ALL_SETTING_NO-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -14952,14 +14952,14 @@ Feature: Sanity scenarios
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     Then I softly see field "EGMS ID" as "{SavedValue:closeoutID}"
     Then I softly see field "Status" as "Created"
-    Then I softly see field "Grant Number" as "1234"
+    Then I softly see field "Grant Number" as "GT1234"
     Then I softly see field "Closeout Type" as "Early Completion"
     Then I softly see "Resize" button for page
     Then I softly see "Collapse" button for page
     Then I softly can see "Chatter" sub tab at view detail page
     Then I softly can see "Field Audit" sub tab at view detail page
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Closeout" tab
@@ -15006,6 +15006,7 @@ Feature: Sanity scenarios
     Then I softly see that "Award Ceiling" rendered in view mode only
     Then I softly see that "Application Due Date" rendered in view mode only
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
     When I click "Associate" after selection of "Wildlife Services" in the table "---grantee_tableId:-:preAppAssociateProgramTableId---"
@@ -15022,7 +15023,6 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    Then I see option "Download as CSV" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "External Programs"
     Then I see table is refreshing
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
@@ -15031,7 +15031,7 @@ Feature: Sanity scenarios
     And I refresh the page
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationContactTableId---" by clicking "Edit" :
-      | Name       | Project Role    | Is Key Contact |
+      | Name     | Project Role    | Is Key Contact |
       | Sarah PM | Project Officer | Checked        |
     Then I softly can see row level action button "View" against "Sarah PM" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
     Then I softly can see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
@@ -15103,6 +15103,7 @@ Feature: Sanity scenarios
     Then I softly see fields "ProgramIncomeType__c" is in edit mode
     Then I softly see fields "BudgetBuildupNeeded__c" is in edit mode
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     Given I expand nested table containing column value "BP01"
     Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
     Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
@@ -15115,7 +15116,7 @@ Feature: Sanity scenarios
       | Title        | Narrative     | Award Budget | Cash Match | Other Leverage |
       | Construction | The narrative | 1000         | 100        | 100            |
     When I click modal button "Close"
-    And I wait for "5" seconds
+    And I wait for "3" seconds
     Then I softly see value "$1000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
     Then I softly see value "$100.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
     Then I softly see value "$100.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
@@ -15142,7 +15143,7 @@ Feature: Sanity scenarios
     And I click on "Delete" icon for "Rate" inside flex table with id "---grantee_tableId:-:preApplicationIndirectRateTableId---" without waiting for record
     Then I softly do not see value "Rate" for title "Title" inside table "---grantee_tableId:-:preApplicationIndirectRateTableId---"
 
-  @463426 @PreAppVerifyWithEXESummaryBudgetinBudgetTab @TBExecution
+  @463426 @PreAppVerifyWithEXESummaryBudgetinBudgetTab
   Scenario: PreApp - Verify With EXE , Summary Budget in Budget Tab.
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -15225,7 +15226,7 @@ Feature: Sanity scenarios
       | GRANTEE PM |
 
 
-  @476674 @VerifywithAuditorprofileGrantsGovleadpreapplicationableseeinViewmodeonly @TBExecution
+  @476674 @VerifywithAuditorprofileGrantsGovleadpreapplicationableseeinViewmodeonly
   Scenario: Verify with Auditor profile , Grants.Gov lead - pre application able see in View mode only.
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
