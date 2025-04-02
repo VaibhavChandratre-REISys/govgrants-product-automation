@@ -1673,14 +1673,11 @@ Feature: Validate all scenarios of every modules flow
 #    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD"
     And I halt execution
 
-  @debugtest
+  @debugtest @debug
   Scenario:
-    When I login to "As a Grantee" app as "GRANTEE FO" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/AmendmentRequest__c/a1YKQ000000L2E52AK/view"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Announcement__c/a1bDa000001pyGzIAI/view"
     And I halt execution
-    When I select radio button "Approve" in the approval decision
-    And I submit the approval in the approval decision
-    And I wait for "4" seconds
-    Then I see the following messages in the page details contains:
-      | Comments are required. |
+    When I hovering mouse on help text icon inside page block detail for invisible element "Program Income Treatment Type"
+    Then I softly see "• Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. • Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based. • Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
     And I halt execution
