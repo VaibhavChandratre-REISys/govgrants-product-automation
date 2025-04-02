@@ -16016,7 +16016,7 @@ Feature: Sanity scenarios New
     And I click modal button "Save"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Submitted to Grantor On is required to save. |
+      | To Save, Submitted to Grantor On is required. |
     And I enter in modal "Grantee_Submit Details" values from "ProgressReport_Field_Values.xlsx"
     When I click modal button "Save"
     And I wait for "1" seconds
