@@ -7250,7 +7250,7 @@ Feature: Sanity scenarios New
     Then I softly see field "Is Program Income Allowed?" inside page block
     Then I softly see field "Program Income Treatment Type" inside page block
     When I hovering mouse on help text icon inside page block detail for invisible element "Program Income Treatment Type"
-    Then I softly see "•Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. •Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based.  •Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
+    Then I softly see "• Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. • Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based. • Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
     Then I softly see field "Are Indirect Costs Allowed?" inside page block
     Then I softly see field "Is Leverage Allowed?" inside page block
     Then I softly see "System Information" page block displayed
@@ -10907,7 +10907,7 @@ Feature: Sanity scenarios New
     Then I softly see field "Is Program Income Allowed?" inside page block
     Then I softly see field "Program Income Treatment Type" inside page block
     When I hovering mouse on help text icon inside page block detail for invisible element "Program Income Treatment Type"
-    Then I softly see "•Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. •Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based.  •Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
+    Then I softly see "• Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. • Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based. • Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
     Then I softly see field "Are Indirect Costs Allowed?" inside page block
     Then I softly see field "Maximum Indirect Cost Rate" inside page block
     Then I softly see field "Rate for Organization Use" inside page block
@@ -11112,7 +11112,7 @@ Feature: Sanity scenarios New
     Then I softly see field "Is Program Income Allowed?" inside page block
     Then I softly see field "Program Income Treatment Type" inside page block
     When I hovering mouse on help text icon inside page block detail for invisible element "Program Income Treatment Type"
-    Then I softly see "•Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. •Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based.  •Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
+    Then I softly see "• Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. • Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based. • Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
     Then I softly see field "Are Indirect Costs Allowed?" inside page block
     Then I softly see field "Is Leverage Allowed?" inside page block
     Then I softly see "System Information" page block displayed

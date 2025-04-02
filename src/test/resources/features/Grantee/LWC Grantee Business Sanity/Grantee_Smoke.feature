@@ -1804,7 +1804,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Is Program Income Allowed?" inside page block
     Then I softly see field "Program Income Treatment Type" inside page block
     When I hovering mouse on help text icon inside page block detail for invisible element "Program Income Treatment Type"
-    Then I softly see "•Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. •Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based.  •Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
+    Then I softly see "• Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. • Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based. • Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
     Then I softly see field "Are Indirect Costs Allowed?" inside page block
     Then I softly see field "Maximum Indirect Cost Rate" inside page block
     Then I softly see field "Rate for Organization Use" inside page block
@@ -5095,7 +5095,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Active" for title "New Value" inside field history table
     And I softly see value "Created" for title "Original Value" inside field history table
 
-  @443880 @ValidatePMusershouldabletoseevalidationmessagesforrequiredtosavefiledonKPI @Grantee_Smoke2 @TBExecution2
+  @443880 @ValidatePMusershouldabletoseevalidationmessagesforrequiredtosavefiledonKPI @Grantee_Smoke2
   Scenario Outline: Validate PM user should able to see validation messages for required to save filed on KPI
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
@@ -9343,7 +9343,7 @@ Feature: Grantee Smoke scenarios
       | OwnerType     | UserType   | emailIdTo                       | CreatedBy |
       | Sarah PM user | GRANTEE PM | victor.exeqagrantee@yopmail.com | Sarah PM  |
 
-  @485463 @ValidatePMuserFinancialreportOwnercanabletocreateAdhocFinancialReportabletosubmitFinancialReporttoGrantor @Grantee_Smoke2 @TBExecution2
+  @485463 @ValidatePMuserFinancialreportOwnercanabletocreateAdhocFinancialReportabletosubmitFinancialReporttoGrantor @Grantee_Smoke2
   Scenario: Validate PM user Financial report Owner can able to create Adhoc Financial Report  able to submit Financial Report to Grantor
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -11298,7 +11298,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE PM    |
       | GRANTEE ADMIN |
 
-  @440272 @VerifyWithAdminProfileAbletocreateActivateDeactivethefocusarea @Grantee_Smoke2 @TBExecution2
+  @440272 @VerifyWithAdminProfileAbletocreateActivateDeactivethefocusarea @Grantee_Smoke2
   Scenario: Verify With Admin Profile ,Able to create/Activate/Deactive  the focus area.
     When I login to "As a Grantee" app as "GRANTEE ADMIN" user
     When I navigate to "Planning" tab
