@@ -15005,6 +15005,8 @@ Feature: Sanity scenarios
     Then I softly see that "Pre-Application Due Date" rendered in view mode only
     Then I softly see that "Award Ceiling" rendered in view mode only
     Then I softly see that "Application Due Date" rendered in view mode only
+    And I navigate to "Budget" sub tab
+    And I enter value "Additive" into field "ProgramIncomeType__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
@@ -15298,7 +15300,7 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationProgramIncomeTableId---"
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationIndirectRateTableId---"
     And I navigate to "Chatter" sub tab in split screen
-    Then I softly see post "Automation Test" by user "Sarah PM"
+    Then I softly see post "Automation Test1 Execution" by user "Sarah PM"
     When I navigate to "Responsibilities" sub tab
     Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---"
     Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---"
