@@ -15120,17 +15120,18 @@ Feature: Sanity scenarios
       | Construction | The narrative | 1000         | 100        | 100            |
     When I click modal button "Close"
     And I wait for "3" seconds
-    Then I softly see value "$1000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
-    Then I softly see value "$100.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "$6,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "$600.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
     Then I softly see value "$100.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
-    Then I softly see value "$1200.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "$7,200.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see total records count "Total Records: 24" in flex table "---grantee_tableId:-:preAppBudgetDetailTableId---"
     When I navigate to "Setup" sub tab
     #463424
     Given I expand nested table containing column value "BP01"
     And I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---" without waiting for record
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:preAppcationBudgetTableId---"
     And I navigate to "Budget" sub tab
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see total records count "Total Records: 12" in flex table "---grantee_tableId:-:preAppBudgetDetailTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationProgramIncomeTableId---" by clicking "Edit" :
       | Focus Area Name                 | Projected Program Income ($) | Program Income Details |
       | Automation Permanent Focus Area | 1000                         | Automation Test        |
