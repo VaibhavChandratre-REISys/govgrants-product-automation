@@ -15167,7 +15167,7 @@ Feature: Sanity scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---" without waiting for record
     And I navigate to "Budget" sub tab
-    And I click on "Save" in the page details
+    And I click on "Edit" in the page details
     And I enter value "Additive" into field "ProgramIncomeType__c"
     And I click on "Save" in the page details
     Given I expand nested table containing column value "BP01"
