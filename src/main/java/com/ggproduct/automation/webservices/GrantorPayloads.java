@@ -3060,9 +3060,21 @@ public class GrantorPayloads {
                 return updatePreApplicationAsYesForOpportunity(defaultJson);
             case "PRE_APP_YES_NO_CONST_NO_SETTING":
                 return updatePreApplicationAsYesWithNoConstructionForOpportunity(defaultJson);
+            case "PRE_APP_YES_NGO_BUDGET_TYPE":
+                return updatePreApplicationAsYesWithNGOBudgetType(defaultJson);
             default:
                 return defaultJson;
         }
+    }
+
+    private JsonObject updatePreApplicationAsYesWithNGOBudgetType(JsonObject defaultJson) {
+        JsonObject pre_application = defaultJson.getAsJsonArray("OpportunityData").get(0).getAsJsonObject();
+        JsonArray pre = new JsonArray();
+        pre_application.addProperty("isPreApplicationRequired", "Yes");
+        pre_application.addProperty("budgetType", "NGO");
+        pre.add(pre_application);
+        defaultJson.add("OpportunityData", pre);
+        return defaultJson;
     }
 
     private JsonObject defaultCreatedOrApprovedOpportunity(String state, String oppoNo) {
@@ -3184,6 +3196,8 @@ public class GrantorPayloads {
         switch (filter) {
             case "PROGRAM_INCOME_DEDUCTIVE":
                 return payloadForCreateProgramIncome(json);
+            case "SUMMARY_BUDGET":
+                return payloadForSummaryBudget(json);
             case "DAVID_FO_APPROVER":
                 return payloadForDavidFoApprover(json, module);
             case "TWO_STEP_APPROVER":
@@ -3191,6 +3205,15 @@ public class GrantorPayloads {
             default:
                 return json;
         }
+    }
+
+    private JsonObject payloadForSummaryBudget(JsonObject json) {
+        JsonObject pre_application = json.getAsJsonArray("preAppAndAppData").get(0).getAsJsonObject();
+        JsonArray pre = new JsonArray();
+        pre_application.addProperty("BudgetLevel", "Summary Budget");
+        pre.add(pre_application);
+        json.add("preAppAndAppData", pre);
+        return json;
     }
 
     private JsonObject payloadForTwoStepApprover(JsonObject json, String module) {

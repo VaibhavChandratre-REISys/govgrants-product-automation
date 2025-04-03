@@ -15159,8 +15159,22 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "PRE_APPLICATION_YES"
-    And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "PRE_APP_YES_NGO_BUDGET_TYPE"
+    And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "SUMMARY_BUDGET"
+    And I navigate to "Applications" tab
+    When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Pre-Applications - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---" without waiting for record
+    And I navigate to "Budget" sub tab
+    And I click on "Save" in the page details
+    And I enter value "Additive" into field "ProgramIncomeType__c"
+    And I click on "Save" in the page details
+    Given I expand nested table containing column value "BP01"
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationFocusAreaTableId---" by clicking "Edit" :
+      | Focus Area Title                | Budget Request |
+      | Automation Permanent Focus Area | 5000           |
+    Then I softly see value "$5,000.00" for title "Budget Request" inside table "---grantee_tableId:-:preApplicationFocusAreaTableId---"
     And I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
@@ -15196,8 +15210,8 @@ Feature: Sanity scenarios
     Given I expand nested table containing column value "BP01"
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:preAppcationBudgetTableId---"
     And I navigate to "Budget" sub tab
-    And I save the field labeled "Total Budget Request" as "TotalBudgetRequest"
-    Then I softly see field "Total Budget Request" as "{SavedValue:TotalBudgetRequest}"
+    And I wait for "2" seconds
+    Then I softly see field "Total Budget Request" as "$5,000.00"
     And I save the field labeled "Maintenance of Effort Required?" as "MaintenanceofEffortRequired?"
     Then I softly see field "Maintenance of Effort Required?" as "{SavedValue:MaintenanceofEffortRequired?}"
     And I save the field labeled "Are Indirect Costs Allowed?" as "AreIndirectCostsAllowed?"
@@ -15211,6 +15225,9 @@ Feature: Sanity scenarios
     Then I softly do not see "Cash Match" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
     Then I softly do not see "Other Leverage" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
     Then I softly do not see "Total Project Cost" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "$5,000.00" for title "Budget Request" inside table "---grantee_tableId:-:preApplicationFocusAreaTableId---"
+    When I navigate to "Setup" sub tab
+    Given I expand nested table containing column value "BP01"
     Then I cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preApplicationFocusAreaTableId---"
     Then I cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preApplicationFocusAreaTableId---"
     Then I cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preApplicationFocusAreaTableId---"
