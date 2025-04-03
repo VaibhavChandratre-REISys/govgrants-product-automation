@@ -15009,6 +15009,7 @@ Feature: Sanity scenarios
     And I enter value "Additive" into field "ProgramIncomeType__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
+    And I navigate to "Overview" sub tab
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
     When I click "Associate" after selection of "Wildlife Services" in the table "---grantee_tableId:-:preAppAssociateProgramTableId---"
