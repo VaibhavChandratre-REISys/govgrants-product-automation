@@ -23928,9 +23928,10 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     When I navigate to "Actuals" sub tab
+    And I wait for "2" seconds
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationAward1"
-    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I click on hyperlink for invisible fields containing value "{SavedValue:GrantEGMSID}"
     And I wait for "4" seconds
     When I navigate to "Actuals" sub tab
     Then I softly see "Cumulative Obligation" inside page block detail
