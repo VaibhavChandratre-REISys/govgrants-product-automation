@@ -12069,7 +12069,7 @@ Feature: Validate all scenarios of grants and award for Allocation
 
   @239560 @239938 @239939 @ValidatePMuserseeCarryforwardfiledshouldbeonlydisplayonawardwhenbudgetperiodchangetoBP02andbeyond @sprint-15-US-237846  @Allocation @ProExecute
   Scenario Outline: Validate PM user see 'Carry forward' filed should be only display on award when budget period change to BP02 and beyond
-    And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
+    And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "<filter>"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-<User>"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime FDM Announcement}"
@@ -12149,9 +12149,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Budget Period Number" as "BP02"
     Then I softly do not see "Carry-Forward" inside page block detail
     Examples:
-      | User                 | User1 |
-      | Automation SPI3 user | SPI3  |
-      | Automation IND user  | IND   |
+      | User                 | User1 | filter                                        |
+      | Automation SPI3 user | SPI3  | BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO    |
+      | Automation IND user  | IND   | INVITED_APP_IND_ORG_BY_APP_FOCUS_AREA_RISK_NO |
 
   @239574 @ValidatefocusareawithzeroallocationamountshouldnotbecopiedonawardfromApplication @sprint-15-US-237846 @Allocation @ProExecute
   Scenario: Validate focus area with zero allocation amount should not be copied on award from Application
@@ -23223,8 +23223,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name              | Amendment Request |
-      | Automation ADMIN  | Step 1            |
+      | Name             | Amendment Request |
+      | Automation ADMIN | Step 1            |
     And I click on "Send to Subrecipient" in the page details
     Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     When I re-login to "Grants Portal" app as "<User1>" user on "SUBPORTAL" portal
@@ -24629,8 +24629,11 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PayreqId"
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I wait for "2" seconds
     And I click toggle button to select "Grants - Active"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
