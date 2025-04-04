@@ -10598,6 +10598,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     Then I softly can see page block "Budget Summary by Focus Area"
     #243973
     And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---" without waiting for record
@@ -23437,15 +23438,15 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "New Obligation" for title "Field" inside field history table
-    Then I softly see value "$1,000.00" for title "New Value" inside field history table
-    Then I softly see value "$0.00" for title "Original Value" inside field history table
+    Then I softly see value "$1,000" for title "New Value" inside field history table
+    Then I softly see value "$0" for title "Original Value" inside field history table
     #268455
     Then I softly see value "Total Commitment" for title "Field" inside field history table
-    Then I softly see value "$2,000.00" for title "New Value" inside field history table
+    Then I softly see value "$2,000" for title "New Value" inside field history table
     #268456
     Then I softly see value "Cumulative Obligation" for title "Field" inside field history table
-    Then I softly see value "$1,000.00" for title "New Value" against the value "Cumulative Obligation" inside field history table
-    Then I softly see value "$0.00" for title "Original Value" against the value "Cumulative Obligation" inside field history table
+    Then I softly see value "$1,000" for title "New Value" against the value "Cumulative Obligation" inside field history table
+    Then I softly see value "$0" for title "Original Value" against the value "Cumulative Obligation" inside field history table
     And I click on back arrow
     #270275
     And I click on "Submit for Approval" in the page details
@@ -23479,7 +23480,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "Proposed Estimated Funding" inside page block detail
     When I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Proposed Estimated Funding is required to save. |
+      | To Save, Proposed Estimated Funding is required. |
     #269840
     And I enter in modal value "500" into field "ProposedEstimatedFunding__c"
     When I click modal button "Save and Continue"
