@@ -8806,7 +8806,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #248428
     When I navigate to "Actuals" sub tab
     And I wait for "2" seconds
-    Then I softly see "Payments Summary" page block displayed
+    Then I softly see "Payment Summary" page block displayed
     Then I softly do not see "Budget Periods section" page block displayed
     #248440
     Then I softly see "Budget period Number" in flex table header "---subAwardStandAlone:-:subrecipientGrantActualSummaryBudgetTableId---"
@@ -8870,7 +8870,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "Awarded Budget" in flex table header "---subAwardStandAlone:-:subrecipientGrantBudgetTableId---"
     #248425
     When I navigate to "Actuals" sub tab
-    Then I softly see "Payments Summary" page block displayed
+    Then I softly see "Payment Summary" page block displayed
     Then I softly do not see "Budget Periods section" page block displayed
     #248439,248441
     Then I softly see "Budget period Number" in flex table header "---subAwardStandAlone:-:subrecipientGrantActualSummaryBudgetTableId---"
