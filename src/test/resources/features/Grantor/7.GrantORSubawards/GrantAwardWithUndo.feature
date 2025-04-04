@@ -2577,7 +2577,7 @@ Feature: Validate all scenarios of grants and award with undo
     And I wait for "7" seconds
     Then I see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
-    And I click on "Download As PDF" in the page details
+    And I click on "Download as PDF" in the page details
     And I pause execution for "3" seconds
     And I download the file
     Then I softly see "{SavedValue:AwardEGMSID}" on page "1" of "govgrant" pdf file
