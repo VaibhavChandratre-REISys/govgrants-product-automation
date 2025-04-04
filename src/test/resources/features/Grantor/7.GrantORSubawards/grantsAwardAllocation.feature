@@ -8099,7 +8099,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see field "Estimated Funding" inside "Budget Summary" section
     Given I activated standalone subaward "Automation Runtime Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Directed"
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I wait for "2" seconds
     And I click toggle button to select "Grants - All"
     And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---paymentRequest:-:recipientGrantTableId---" panel
@@ -12129,6 +12131,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on "Activate" in the page details
     And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
     And I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     Then I softly see field "Budget Period Number" as "BP02"
     Then I softly see "Carry-Forward" inside page block detail
     #239938,239939
@@ -12142,6 +12145,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:ActivatedSubAwardId}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     When I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     Then I softly see field "Budget Period Number" as "BP02"
     Then I softly do not see "Carry-Forward" inside page block detail
     Examples:
