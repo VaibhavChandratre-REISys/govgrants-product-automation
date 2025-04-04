@@ -7064,6 +7064,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     Then I softly can see page block "Budget Summary By Focus Area"
     #248569
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
@@ -7073,6 +7074,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     And I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     Then I softly can see page block "Budget Summary By Focus Area"
 
   @247413 @248371 @248573 @ValidateCompPMusershouldnotseebudgetsummarybyfocusareasectiononGrantunderbudgettabwhenselectAllocationTypeisNAFocusAreaisNOwhilecreatingDirectGrant @sprint-17-US-246018  @Allocation
@@ -7606,6 +7608,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     Then I softly can see page block "Budget Summary By Focus Area"
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -8802,6 +8805,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "Awarded Budget" in flex table header "---subAwardStandAlone:-:subrecipientGrantBudgetTableId---"
     #248428
     When I navigate to "Actuals" sub tab
+    And I wait for "2" seconds
     Then I softly see "Payments Summary" page block displayed
     Then I softly do not see "Budget Periods section" page block displayed
     #248440
@@ -8852,6 +8856,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:TotalCommitment2}"
     #248392,248395
     When I navigate to "Actuals" sub tab
+    And I wait for "2" seconds
     Then I softly see "Payment Summary" page block displayed
     Then I softly do not see "Actuals" page block displayed
     #248400,248404
@@ -11942,6 +11947,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     Then I softly can see page block "Budget Summary by Focus Area"
     Examples:
       | grantEdition           |
