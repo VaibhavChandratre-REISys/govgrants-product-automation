@@ -23213,7 +23213,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name              | Amendment Request |
-      | Automation ADMIN1 | Step 1            |
+      | Automation ADMIN  | Step 1            |
     And I click on "Send to Subrecipient" in the page details
     Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     When I re-login to "Grants Portal" app as "<User1>" user on "SUBPORTAL" portal
