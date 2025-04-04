@@ -2587,6 +2587,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Budget Category | Award Amount | Cash Match | Non-Cash Match |
       | Construction    | 800          | 100        | 100            |
     When I click on "Accept" in the page details
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount must be equal to the New Obligation in the budget summary section. |
 
@@ -8097,6 +8098,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
