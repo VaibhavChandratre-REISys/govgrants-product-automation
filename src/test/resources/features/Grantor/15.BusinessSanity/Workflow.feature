@@ -1675,27 +1675,15 @@ Feature: Validate all scenarios of every modules flow
 
   @debugtest @debug
   Scenario:
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "Automation Runtime FDM Announcement89170" in "---paymentRequest:-:recipientGrantTableId---" panel
-    And I click on "View" icon for "Automation Runtime FDM Announcement89170" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "AD--3310" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
-    When I navigate to "Budget" sub tab
-    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
-    Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "Automation Runtime FDM Announcement89170" in "---paymentRequest:-:recipientGrantTableId---" panel
-    And I click on "View" icon for "Automation Runtime FDM Announcement89170" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "Amended" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
-    Then I see that "Subaward" is in "Amended" status
-    When I navigate to "Budget" sub tab
-    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
-    Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Closeout__c/a23DV000005gt6rYAA/view"
+    And I wait for "15" seconds
+    And I click on hyperlink containing value "GT-1234-00747"
+    And I wait for "4" seconds
+    And I halt execution
+    When I navigate to "Actuals" sub tab
+    Then I softly see "Cumulative Obligation" inside page block detail
+    Then I softly do not see "Awarded Amount" inside page block detail
+    Then I softly see field "Cumulative Obligation" as "$1,000.00"
+    And I save the field labeled "Cumulative Obligation" as "CumulativeObligation"
+    Then I softly see value "{SavedValue:CumulativeObligationAward1}" is "Equals to" the value "{SavedValue:CumulativeObligation}"
