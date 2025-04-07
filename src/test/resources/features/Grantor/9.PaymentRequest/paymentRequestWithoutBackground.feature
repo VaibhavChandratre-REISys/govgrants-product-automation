@@ -6107,38 +6107,38 @@ Feature: Payment Request scenarios without background
     Then I softly see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I logout
     And I wait for "2" seconds
-#    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Owner Reassignment Report
-#      """
-#    Then I see the mail text is as follows :
-#      """
-#      Hello,
-#
-#      The task(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
-#
-#      EGMS ID Type Status Subject Assigned By Due Date
-#
-#
-#      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-#      Login in to EGMS and click on EGMS IDs to access the assigned record.
-#
-#
-#      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
-#
-#      EGMS ID Type Status Subject Assigned By Reason of Failure
-#      {SavedValue:PayreqId} Approve Payment Request Not Started Approve Payment Request #{SavedValue:PayreqId} for Subaward #{SavedValue:AwardEGMSID} Automation EXE You cannot specify the same user for multiple steps for Reimbursement
-#
-#
-#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-#
-#      Thank you,
-#
-#      The EGMS Team.
-#      """
+    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Owner Reassignment Report
+      """
+    Then I see the mail text is as follows :
+      """
+      Hello,
+
+      The task(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
+
+      EGMS ID Type Status Subject Assigned By Due Date
+
+
+      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
+      Login in to EGMS and click on EGMS IDs to access the assigned record.
+
+
+      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
+
+      EGMS ID Type Status Subject Assigned By Reason of Failure
+      {SavedValue:PayreqId} Approve Payment Request Not Started Approve Payment Request #{SavedValue:PayreqId} for Subaward #{SavedValue:AwardEGMSID} Automation EXE You cannot specify the same user for multiple steps for Reimbursement
+
+
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+
+      Thank you,
+
+      The EGMS Team.
+      """
     Given I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     And I navigate to "Monitoring" tab
