@@ -355,6 +355,7 @@ Feature: Payment Request scenarios without background
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
+    And I wait for "2" seconds
     Then I see that "Automation" has been added in flextable with Id "---paymentRequest:-:checklistTableId---"
     Examples:
       | Award Name                            | Grant Name                            |
@@ -2880,6 +2881,7 @@ Feature: Payment Request scenarios without background
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     And I enter value "Automation EXE" in reassign lookup
+    And I pause execution for "2" seconds
     Then I softly do not see "Automation EXE" inside auto search result
 
   @197364 @ValidateusercannotreassignownershiptasktothenewuserwithSameprofileanddifferentorganization @sprint-4  @reassignment
@@ -3499,7 +3501,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     And I wait for "10" seconds
-    When I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    When I click on hyperlink for invisible fields containing value "{SavedValue:AwardEGMSID}"
     And I wait for "5" seconds
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
@@ -5355,8 +5357,10 @@ Feature: Payment Request scenarios without background
     And I save the field labeled "EGMS ID" as "PayreqId"
     And I wait for "5" seconds
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Bulk award}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Bulk award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
@@ -5372,8 +5376,10 @@ Feature: Payment Request scenarios without background
     And I save the field labeled "EGMS ID" as "PayreqId1"
     And I wait for "5" seconds
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Bulk award}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Bulk award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
@@ -5389,8 +5395,10 @@ Feature: Payment Request scenarios without background
     And I save the field labeled "EGMS ID" as "PayreqId2"
     And I wait for "5" seconds
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Bulk award}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Bulk award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
@@ -5406,8 +5414,10 @@ Feature: Payment Request scenarios without background
     And I save the field labeled "EGMS ID" as "PayreqId3"
     And I wait for "5" seconds
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Bulk award}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Bulk award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
@@ -5429,8 +5439,10 @@ Feature: Payment Request scenarios without background
     And I click on "Submit to Grantor" in the page details
     And I wait for "5" seconds
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Bulk award}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Bulk award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
@@ -5452,8 +5464,10 @@ Feature: Payment Request scenarios without background
     And I click on "Submit to Grantor" in the page details
     And I wait for "5" seconds
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Bulk award}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Bulk award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
@@ -5475,8 +5489,10 @@ Feature: Payment Request scenarios without background
     And I click on "Submit to Grantor" in the page details
     And I wait for "5" seconds
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Bulk award}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Bulk award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
@@ -6380,8 +6396,10 @@ Feature: Payment Request scenarios without background
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Bulk award}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Bulk award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
@@ -6402,8 +6420,10 @@ Feature: Payment Request scenarios without background
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Bulk award}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Bulk award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
@@ -6424,8 +6444,10 @@ Feature: Payment Request scenarios without background
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Bulk award}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Bulk award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
@@ -6446,8 +6468,10 @@ Feature: Payment Request scenarios without background
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Bulk award}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Bulk award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
@@ -6468,8 +6492,10 @@ Feature: Payment Request scenarios without background
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Bulk award}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Bulk award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
@@ -7004,6 +7030,7 @@ Feature: Payment Request scenarios without background
       | BP01               | 50         | 150      |
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
+    Then I see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
