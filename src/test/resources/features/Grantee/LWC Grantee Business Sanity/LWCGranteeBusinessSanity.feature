@@ -1,7 +1,7 @@
 @GranteeSanityBusinessFlow
 Feature: Sanity scenarios
 
-  @445207 @ValidateEXEuserFinancialreportOwnercanabletocreateAdhocFinancialReport&abletosubmitFinancialReporttoGrantor @GRegression2
+  @445207 @ValidateEXEuserFinancialreportOwnercanabletocreateAdhocFinancialReport&abletosubmitFinancialReporttoGrantor @GRegression2 @GranteeTBE
   Scenario: Validate EXE user Financial report Owner can able to create Adhoc Financial Report & able to submit Financial Report to Grantor
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -430,7 +430,7 @@ Feature: Sanity scenarios
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
-  @443849 @476570 @476571 @443839 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject @GRegression1
+  @443849 @476570 @476571 @443839 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject @GRegression1 @GranteeTBE
   Scenario Outline: Award - Verify with EXE Profile ,If in direct grant keep setting NO then able to complete the approval process for Forward /send to owner/Reject
     And I "Created" standalone subaward "Automation Runtime award" with properties "ALL_SETTING_NO-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -587,7 +587,7 @@ Feature: Sanity scenarios
       | Sarah PM user   | GRANTEE PM  | Victor EXE  | GRANTEE EXE | Sarah PM   |
       | Grantee PO user | GRANTEE PO  | David FO    | GRANTEE FO  | Grantee PO |
 
-  @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell @GRegression2
+  @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell @GRegression2 @GranteeTBE
   Scenario: Award - Verify with PM Profile ,After activate the award able to see the Actual Tab in pending Closeout ,closed and amended state as well
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -680,7 +680,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Closed"
     Then I softly can see "Actuals" sub tab at view detail page
 
-  @449394 @VerifytheNotAccepetedfunctionofbudgetRedirectionAmendment @GRegression1
+  @449394 @VerifytheNotAccepetedfunctionofbudgetRedirectionAmendment @GRegression1 @GranteeTBE
   Scenario: Verify the  Not Accepeted function of budget Redirection Amendment
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -879,7 +879,7 @@ Feature: Sanity scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
 
-  @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR @GRegression1
+  @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR @GRegression1 @GranteeTBE
   Scenario: Verify PM user as (AR Owner same as Award Owner) can able to create budget Redirection AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant (Flow AR)
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -1802,7 +1802,7 @@ Feature: Sanity scenarios
       | GRANTEE FO  |
       | GRANTEE PM  |
 
-  @444513 @ValidateEXEuserProgressreportOwnercanabltocreateAdhocProgressReportabletosubmitProgressReporttoGrantor @GRegression2
+  @444513 @ValidateEXEuserProgressreportOwnercanabltocreateAdhocProgressReportabletosubmitProgressReporttoGrantor @GRegression2 @GranteeTBE
   Scenario: Validate EXE user (Progress report Owner)can able to create Adhoc Progress Report & able to submit Progress Report to Grantor
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -2398,7 +2398,7 @@ Feature: Sanity scenarios
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "Victor EXE"
 
-  @445208 @ValidatePMuserAwardOwnercanabletocreateSceduledFinancialReport&abletosubmitFinancialReporttoGrantor @GRegression4
+  @445208 @ValidatePMuserAwardOwnercanabletocreateSceduledFinancialReport&abletosubmitFinancialReporttoGrantor @GRegression4 @GranteeTBE
   Scenario: Validate PM user Award Owner can able to create Sceduled Financial Report & able to submit Financial Report to Grantor
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -3150,7 +3150,7 @@ Feature: Sanity scenarios
       | GRANTEE PO    | 123456789123 |
       | GRANTEE ADMIN | 123456789012 |
 
-  @443858 @ValidateAwardsplconwithPMProfileIfSpecialConditionisaddedtheninawardspecialconditionmoduleafterexpandtheawardabletoseespecialconditionrecord @GRegression2
+  @443858 @ValidateAwardsplconwithPMProfileIfSpecialConditionisaddedtheninawardspecialconditionmoduleafterexpandtheawardabletoseespecialconditionrecord @GRegression2 @GranteeTBE
   Scenario: Validate Award spl con with PM Profile ,If Special Condition is added then in  award special condition module after expand the award able to see special condition record
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -3177,7 +3177,7 @@ Feature: Sanity scenarios
     And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
     Then I softly see value "{SavedValue:TermsTitle}" for title "Title" inside table "---grantee_tableId:-:specialConditionsChildTableId---"
 
-  @443857 @ValidateAwardsplconwithEXEProfileIfSpecialConditionisnotaddedtheninawardspecialconditionmoduleafterexpandtheawardunabletoseeanyrecord @P3_Grantee @GRegression1
+  @443857 @ValidateAwardsplconwithEXEProfileIfSpecialConditionisnotaddedtheninawardspecialconditionmoduleafterexpandtheawardunabletoseeanyrecord @P3_Grantee @GRegression1 @GranteeTBE
   Scenario: Validate Award spl con with EXE Profile If Special Condition is not added then in award special condition module after expand the award unable to see any record
     And I "Created" standalone subaward "Automation Runtime award" with properties "ALL_SETTING_NO-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "SPECIAL_CONDITIONS_NO"
@@ -3362,7 +3362,7 @@ Feature: Sanity scenarios
     Then I softly see "Create Grant" opens in overLay window
     Then I softly cannot see field "Is Budget Period Closeout Request Required?" inside page block
 
-  @443804 @ValidateGrantWithEXEProfileGrantisinCreatedDraftstate @GRegression1
+  @443804 @ValidateGrantWithEXEProfileGrantisinCreatedDraftstate @GRegression1 @GranteeTBE
   Scenario: Validate Grant With EXE Profile Grant is in Created Draft state
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -3758,7 +3758,7 @@ Feature: Sanity scenarios
     Then I softly see "Award Amount To Date" in flex table header "---grantee_tableId:-:awardTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:awardTableId---"
 
-  @447987 @VerifyPMusershouldabletosubmitandapprovedsenttoownerforwardApprovedtheSOWchangeamendmentrequest @GRegression4
+  @447987 @VerifyPMusershouldabletosubmitandapprovedsenttoownerforwardApprovedtheSOWchangeamendmentrequest @GRegression4 @GranteeTBE
   Scenario: Verify PM user should able to submit and approved/sent to owner/forward/Approved the SOW change amendment request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -5883,7 +5883,7 @@ Feature: Sanity scenarios
       | Overview Tab - Money cannot be moved across the Focus Areas during a Budget Redirection request.       |
       | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero. |
 
-  @449402 @VerifyUserwillactivatethenewawardfromNonOwnerAwardOwner @GRegression1
+  @449402 @VerifyUserwillactivatethenewawardfromNonOwnerAwardOwner @GRegression1 @GranteeTBE
   Scenario: Verify User will activate the new award from Non Owner Award Owner
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -6012,7 +6012,7 @@ Feature: Sanity scenarios
     Then I softly see value "$450.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$5,150.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
 
-  @449404 @476541 @VerifyusershouldabletocorrectvaluesinnewactivatedAward @GRegression1
+  @449404 @476541 @VerifyusershouldabletocorrectvaluesinnewactivatedAward @GRegression1 @GranteeTBE
   Scenario: Verify user should able to correct values in new activated Award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "ALL_SETTING_NO-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "THREE_FOCUS_WITH_BUDGET"
@@ -6530,7 +6530,7 @@ Feature: Sanity scenarios
     When I navigate to "Files" sub tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
 
-  @443834 @AwardVerifywithPMprofileCloseoutTabofAwardPagelayout @P2_Grantee
+  @443834 @AwardVerifywithPMprofileCloseoutTabofAwardPagelayout @P2_Grantee @GranteeTBE
   Scenario: Award - Verify with PM profile Closeout  Tab of Award Page layout.
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -6664,7 +6664,7 @@ Feature: Sanity scenarios
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "ApprovalPDF.pdf" as name
 
-  @463295 @PRAmdVerifythatPMasAmdowneruserseevalidationonSubmitforApprovalbuttononPeriodicRenewalAmendmentRequestlayout @P2_Grantee @GRegression1
+  @463295 @PRAmdVerifythatPMasAmdowneruserseevalidationonSubmitforApprovalbuttononPeriodicRenewalAmendmentRequestlayout @P2_Grantee @GRegression1 @GranteeTBE
   Scenario: PR Amd that PM (as Amd owner)user see validation on Submit for Approval button on Periodic Renewal Amendment Request layout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -7032,7 +7032,7 @@ Feature: Sanity scenarios
       | Grantee PO | GRANTEE PO  |
       | Victor EXE | GRANTEE EXE |
 
-  @462448 @VerifyPOuserPRAROwnercanabletoseeValidationonSaveSubmitforApproval&ValidatebuttonsonPRARwhenRequiredtosave @P2_Grantee @GRegression1
+  @462448 @VerifyPOuserPRAROwnercanabletoseeValidationonSaveSubmitforApproval&ValidatebuttonsonPRARwhenRequiredtosave @P2_Grantee @GRegression1 @GranteeTBE
   Scenario: Verify PO user (PR AR Owner) can able to see Validation on Save, Submit for Approval & Validate buttons on PR AR when Required to save & Required to submit fields are not entered
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -7098,7 +7098,7 @@ Feature: Sanity scenarios
       | Overview Tab - At least one Focus Area's Start Date should match the Budget Period Start Date and one Focus Area's End Date should match the Proposed Budget Period End Date. |
       | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected.      |
 
-  @464038 @VerifyPOuserBPCAROwnercanabletoseeValidationonSaveSubmitforApprovalbuttonsonBPCARwhenRequiredtosave&Requiredtosubmitfieldsarenotentered @P2_Grantee @GRegression1
+  @464038 @VerifyPOuserBPCAROwnercanabletoseeValidationonSaveSubmitforApprovalbuttonsonBPCARwhenRequiredtosave&Requiredtosubmitfieldsarenotentered @P2_Grantee @GRegression1 @GranteeTBE
   Scenario:Verify PO user (BPC AR Owner) can able to see Validation on Save, Submit for Approval buttons on BPC AR when Required to save & Required to submit fields are not entered
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -7163,7 +7163,7 @@ Feature: Sanity scenarios
       | Overview Tab - At least one Focus Area's Start Date should match the Budget Period Start Date and one Focus Area's End Date should match the Proposed Budget Period End Date. |
       | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected.      |
 
-  @471682 @VerifyFOuserAROwnercanabletoSubmitARforApproval&Approvedfromassigned4stepapprover&candoSendtoOwnerForwardApproveactions&seeSubmittoGrantorbuttononceApprovedtheBPCARRecord @GRegression3
+  @471682 @VerifyFOuserAROwnercanabletoSubmitARforApproval&Approvedfromassigned4stepapprover&candoSendtoOwnerForwardApproveactions&seeSubmittoGrantorbuttononceApprovedtheBPCARRecord @GRegression3 @GranteeTBE
   Scenario:Verify FO user (AR Owner) can able to Submit AR for Approval & Approved from assigned 4 step approver & can do Send to Owner/ Forward/ Approve actions & see 'Submit to Grantor' button once Approved the BPC AR Record
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -7266,7 +7266,7 @@ Feature: Sanity scenarios
     When I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
     Then I see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
 
-  @462444 @VerifyPOuserAROwnercanabletoSubmitARforApproval&Approvedfromassigned4stepapprover&candoSendtoOwnerPOrwardApproveactions&seeSubmittoGrantorbuttononceApprovedthePRARRecord @GRegression3
+  @462444 @VerifyPOuserAROwnercanabletoSubmitARforApproval&Approvedfromassigned4stepapprover&candoSendtoOwnerPOrwardApproveactions&seeSubmittoGrantorbuttononceApprovedthePRARRecord @GRegression3 @GranteeTBE
   Scenario:Verify PO user (AR Owner) can able to Submit AR for Approval & Approved from assigned 4 step approver & can do Send to Owner/ POrward/ Approve actions & see 'Submit to Grantor' button once Approved the PR AR Record
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -7382,7 +7382,7 @@ Feature: Sanity scenarios
     When I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
     Then I see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
 
-  @464051 @464085 @VerifyFOuserasAROwnercanabletocreatBudgetPeriodChangeARonactiveAward&NotAcceptARbyGrantor&notabletoseeAmendAwardbuttoninNotAcceptedstateofBPCAR @GRegression4
+  @464051 @464085 @VerifyFOuserasAROwnercanabletocreatBudgetPeriodChangeARonactiveAward&NotAcceptARbyGrantor&notabletoseeAmendAwardbuttoninNotAcceptedstateofBPCAR @GRegression4 @GranteeTBE
   Scenario Outline: Verify FO user as (AR Owner) can able to create Budget Period Change AR on active Award & Not Accept AR by Grantor & not able to see Amend Award button in Not Accepted state of BPC AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -7786,7 +7786,7 @@ Feature: Sanity scenarios
       | GRANTEE PO | govgrantsuat@yopmail.com | pm.automation@yopmail.com |
       | GRANTEE FO | david.fo@yopmail.com     | pm.automation@yopmail.com |
 
-  @462011 @PRAmdVerifythatPMasAmdowneruserseeNewbuttoninAddlineItem&theirfieldsunderBudgetCategorysectionunderOverviewTabinPeriodicRenewalAmendmentRequestlayout @GRegression4
+  @462011 @PRAmdVerifythatPMasAmdowneruserseeNewbuttoninAddlineItem&theirfieldsunderBudgetCategorysectionunderOverviewTabinPeriodicRenewalAmendmentRequestlayout @GRegression4 @GranteeTBE
   Scenario: PR Amd Verify that PM (as Amd owner)user see New button in Add line Item & their fields under Budget Category section under Overview Tab in Periodic Renewal Amendment Request layout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -7890,7 +7890,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly cannot see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
 
-  @464034 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @GRegression1
+  @464034 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @GRegression1 @GranteeTBE
   Scenario:Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -7958,7 +7958,7 @@ Feature: Sanity scenarios
     Then I softly see value "Approved" for title "New Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
 
-  @440231 @440232 @verifywithPMprofileunabletoseethedraftedfocusareatoselectinDirectGrantAward @GRegression1
+  @440231 @440232 @verifywithPMprofileunabletoseethedraftedfocusareatoselectinDirectGrantAward @GRegression1 @GranteeTBE
   Scenario:verify with PM profile unable to see the drafted focus area to select in Direct Grant / Award.
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -8119,7 +8119,7 @@ Feature: Sanity scenarios
       | GRANTEE PM |
       | GRANTEE PO |
 
-  @443841 @AwardVerifyWithEXEProfileIfsettingkeptNOthenunabletoseethesectioninGrantAward @GRegression1
+  @443841 @AwardVerifyWithEXEProfileIfsettingkeptNOthenunabletoseethesectioninGrantAward @GRegression1 @GranteeTBE
   Scenario: AwardVerifyWithEXEProfileIfsettingkeptNOthenunabletoseethesectioninGrantAward
     And I "Created" standalone subaward "Automation Runtime Award" with properties "ALL_SETTING_NO-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -8164,7 +8164,7 @@ Feature: Sanity scenarios
     Then I softly do not see "Program Income" page block displayed
     Then I softly do not see "Indirect Rates" page block displayed
 
-  @443842 @AwardVerifyWithPMProfileIfsettingkeptYesthenabletoseethesectioninGrantAward @GRegression1
+  @443842 @AwardVerifyWithPMProfileIfsettingkeptYesthenabletoseethesectioninGrantAward @GRegression1 @GranteeTBE
   Scenario: Award With PM Profile ,If setting kept Yes then able to see the section in Grant/Award.
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -8201,7 +8201,7 @@ Feature: Sanity scenarios
     Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:grantBudgetCategoryTableId---"
 
-  @462449 @VerifyPOuserAwardOwnercanabletoRevisethePeriodicRenewalAmendmentRequestonclickofReviseAmendmentbuttonwhenPRARisinSubmittoGrantorstate&abletoseestatus&StepProgressbarafterrevisethePRAR @GRegression3
+  @462449 @VerifyPOuserAwardOwnercanabletoRevisethePeriodicRenewalAmendmentRequestonclickofReviseAmendmentbuttonwhenPRARisinSubmittoGrantorstate&abletoseestatus&StepProgressbarafterrevisethePRAR @GRegression3 @GranteeTBE
   Scenario:Verify PO user  (Award Owner) can able to Revise the Periodic Renewal Amendment Request on click of Revise Amendment button when PR AR is in Submit to Grantor state & able to see status & Step Progress bar after revise the PR AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -8503,7 +8503,7 @@ Feature: Sanity scenarios
       | GRANTEE FO    | Automation Permanent Strategic Plan |
       | GRANTEE ADMIN | Automation Permanent Strategic Plan |
 
-  @476993 @477146 @477137 @477139 @477140 @477142 @477144 @CombinationofamendmentVerifyAuditorusercannotcreatecombinationofamendmentusingfollowingcombinationsonactiveaward @GRegression3
+  @476993 @477146 @477137 @477139 @477140 @477142 @477144 @CombinationofamendmentVerifyAuditorusercannotcreatecombinationofamendmentusingfollowingcombinationsonactiveaward @GRegression3 @GranteeTBE
   Scenario Outline: Combination of amendment : Verify Auditor user cannot create combination of amendment using following combinations on active award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<UserName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -8745,7 +8745,7 @@ Feature: Sanity scenarios
       | Grantee PO | GRANTEE PO | GRANTEE FO      |
       | Grantee PO | GRANTEE PO | GRANTEE FD      |
 
-  @476994 @477128 @477129 @477130 @477131 @477132 @CombinationofamendmentVerifyPMusercanseevalidationsoncombinationofamendment @GRegression3 @GRegression1
+  @476994 @477128 @477129 @477130 @477131 @477132 @CombinationofamendmentVerifyPMusercanseevalidationsoncombinationofamendment @GRegression3 @GRegression1 @GranteeTBE
   Scenario Outline:Combination of amendment : Verify PM user can see validations on combination of amendment
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -8844,7 +8844,7 @@ Feature: Sanity scenarios
       | GRANTEE FD    |
       | GRANTEE ADMIN |
 
-  @464036 @ValidateAmeliaFDuserReviewerYescanabletosubmitReview&ReviewcompletebyAROwneronclickofCompeleteReviewbuttononBPCAR @GRegression4
+  @464036 @ValidateAmeliaFDuserReviewerYescanabletosubmitReview&ReviewcompletebyAROwneronclickofCompeleteReviewbuttononBPCAR @GRegression4 @GranteeTBE
   Scenario: Validate Amelia FD user Reviewer Yes can able to submit Review & Review complete by AR Owner on click of Compelete Review button on BPC AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -9292,7 +9292,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:focusEGMSID}" inside table
     Then I cannot see top right button "Deactivate" in page detail
 
-  @476625 @476626 @476627 @476628 @476629 @476630 @476631 @ValidateFederalprogramPMusercanviewFederalProgram @GRegression1
+  @476625 @476626 @476627 @476628 @476629 @476630 @476631 @ValidateFederalprogramPMusercanviewFederalProgram @GRegression1 @GranteeTBE
   Scenario Outline: Validate Federal program PM/Po/EXE/FO/FD/ADMIN/AUD user can view Federal Program
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
@@ -9503,7 +9503,7 @@ Feature: Sanity scenarios
       | GRANTEE AUDITOR |
       | GRANTEE PO      |
 
-  @443818 @ValidateAwardwithnonownerPMProfileonawardpagelayoutunabletoseeEditandSubmitforapprovalbutton @GRegression1
+  @443818 @ValidateAwardwithnonownerPMProfileonawardpagelayoutunabletoseeEditandSubmitforapprovalbutton @GRegression1 @GranteeTBE
   Scenario: Validate Award with non owner (PM Profile) on award page layout unable to see Edit and Submit for approval button
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PM" user
@@ -9517,7 +9517,7 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Submit for Approval" in page detail
 
-  @443822 @ValidateAwardwithEXEprofileIfinDirectgrantselectNOforProgramIncomeAllowed?AndAllowIndirectCosts?fieldTheninawardunabletoseetheSectionsforthatfield @GRegression1
+  @443822 @ValidateAwardwithEXEprofileIfinDirectgrantselectNOforProgramIncomeAllowed?AndAllowIndirectCosts?fieldTheninawardunabletoseetheSectionsforthatfield @GRegression1 @GranteeTBE
   Scenario: Validate Award with EXE profile If in Direct grant select NO for Program Income Allowed? And Allow Indirect Costs? field Then in award unable to see the Sections for that field
     And I "Created" standalone subaward "Automation Runtime Award" with properties "ALL_SETTING_NO-Victor EXE user"
     When I login to "As a Grantee" app as "GRANTEE EXE" user
@@ -9832,7 +9832,7 @@ Feature: Sanity scenarios
       | GRANTEE FD  | Notes for FD  | Danielle FD Garcia | Test4 |
       | GRANTEE EXE | Notes for EXE | Victor EXE         | Test5 |
 
-  @446125 @ValidateGPCloseoutwithEXEprofileifGrantisnotactivethenunabletoseenewbuttontocreatecloseout @GRegression1
+  @446125 @ValidateGPCloseoutwithEXEprofileifGrantisnotactivethenunabletoseenewbuttontocreatecloseout @GRegression1 @GranteeTBE
   Scenario: Validate GP Closeout with EXE  profile ,if Grant is not active then unable to see new button to create closeout
     And I "Submitted for Approval" standalone subaward "Automation Runtime award" with properties "ALL_SETTING_NO-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -9983,7 +9983,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE |
       | GRANTEE PM  |
 
-  @443856 @ValidateAwardsplconWithEXEAwardlistviewpageInawardspecialconditionmodulewhichisvisibleinmonitoringphase @GRegression1
+  @443856 @ValidateAwardsplconWithEXEAwardlistviewpageInawardspecialconditionmodulewhichisvisibleinmonitoringphase @GRegression1 @GranteeTBE
   Scenario: Validate Award spl con With EXE Award list view page In award special condition module which is visible in monitoring phase with special conditions
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -10038,7 +10038,7 @@ Feature: Sanity scenarios
     And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
     Then I softly see value "{SavedValue:TermsTitle}" for title "Title" inside table "---grantee_tableId:-:specialConditionsChildTableId---"
 
-  @443856_1 @ValidateAwardsplconWithEXEAwardlistviewpageInawardspecialconditionmodulewhichisvisibleinmonitoringphase @GRegression1
+  @443856_1 @ValidateAwardsplconWithEXEAwardlistviewpageInawardspecialconditionmodulewhichisvisibleinmonitoringphase @GRegression1 @GranteeTBE
   Scenario: Validate Award spl con With EXE Award list view page In award special condition module which is visible in monitoring phase without special conditions
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -10096,7 +10096,7 @@ Feature: Sanity scenarios
     And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:specialConditionsChildTableId---"
 
-  @443824 @476551 @476550 @ValidateAwardWithPMProfileProgramincomeRevenuebyFocusareaandDrawdownByGrantAwardTasksectionInActualTabofAwardPagelayout @GRegression1
+  @443824 @476551 @476550 @ValidateAwardWithPMProfileProgramincomeRevenuebyFocusareaandDrawdownByGrantAwardTasksectionInActualTabofAwardPagelayout @GRegression1 @GranteeTBE
   Scenario Outline: Validate Award With PM Profile Program income Revenue by Focus area  and Drawdown By Grant Award Task section In Actual Tab of Award Page layout
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -10143,7 +10143,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE | Victor EXE  user |
       | GRANTEE PO  | Grantee PO user  |
 
-  @446128 @ValidateGPCloseoutWithEXEProfileOncecreatetheadhoccloseoutNewbuttonofcloseoutgetdisable @GRegression1
+  @446128 @ValidateGPCloseoutWithEXEProfileOncecreatetheadhoccloseoutNewbuttonofcloseoutgetdisable @GRegression1 @GranteeTBE
   Scenario: Validate GP Closeout With EXE Profile Once create the adhoc closeout New button of closeout get disable
     And I "Created" standalone subaward "Automation Runtime award" with properties "ALL_SETTING_NO-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -10182,7 +10182,7 @@ Feature: Sanity scenarios
     Then I can see row level action button "View" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     Then I can see row level action button "Edit" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
 
-  @443845 @ValidateAwardWithPMProfileIfPeerreviewerFDProfilenotsubmitthereviewthenawardownernotabletoseecompletereviewbuttonontoprightcornerandrowlevelsendforreview @GRegression3
+  @443845 @ValidateAwardWithPMProfileIfPeerreviewerFDProfilenotsubmitthereviewthenawardownernotabletoseecompletereviewbuttonontoprightcornerandrowlevelsendforreview @GRegression3 @GranteeTBE
   Scenario: Validate Award With PM Profile If Peer reviewer FD Profile not submit the review then award owner not able to see complete review button on top right corner and row level send for review
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -10222,7 +10222,7 @@ Feature: Sanity scenarios
       | GRANTEE AUDITOR |
       | GRANTEE FD      |
 
-  @443823 @476543 @476544 @ValidateAwardWithPMProfileFinancialsummaryandExpenditureDetailssectionInActualTabofAwardPagelayout @GRegression1
+  @443823 @476543 @476544 @ValidateAwardWithPMProfileFinancialsummaryandExpenditureDetailssectionInActualTabofAwardPagelayout @GRegression1 @GranteeTBE
   Scenario Outline: Validate Award With PM Profile Financial summary and Expenditure Details section In Actual Tab of Award Page layout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     When I login to "As a Grantee" app as "<userType>" user
@@ -11028,7 +11028,7 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | The time between Schedule Start Date and Schedule End Date must be greater than or equal to 28 days if Monthly frequency is selected. |
 
-  @443846 @ValidateAwardwithPMprofileoncereviewerFDSubmitthereviewawardownerabletocompletethereview @GRegression1
+  @443846 @ValidateAwardwithPMprofileoncereviewerFDSubmitthereviewawardownerabletocompletethereview @GRegression1 @GranteeTBE
   Scenario: Validate Award with PM profile, once reviewer (FD) Submit the review award owner able to complete the review
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -11079,7 +11079,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Send for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
     Then I softly cannot see row level action button "Resend for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
 
-  @471961 @471962 @CombinationofamendmentVerifyAmeliaFDuserReviewerYescanabletosubmitReview&ReviewcompletebyamendmentrequestOwneronclickofCompeleteReviewbuttononamendmentrequest @GRegression1
+  @471961 @471962 @CombinationofamendmentVerifyAmeliaFDuserReviewerYescanabletosubmitReview&ReviewcompletebyamendmentrequestOwneronclickofCompeleteReviewbuttononamendmentrequest @GRegression1 @GranteeTBE
   Scenario:Combination of amendment -  Verify Amelia FD user (Reviewer= Yes)can able to submit Review & Review complete by amendment request Owner on click of Compelete Review button on amendment request
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -11325,7 +11325,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Send for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Delete" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
 
-  @464024 @VerifyPOuserAROwnercanabletoRejecttheAmendmentRequestfromApprovalProcess @GRegression4
+  @464024 @VerifyPOuserAROwnercanabletoRejecttheAmendmentRequestfromApprovalProcess @GRegression4 @GranteeTBE
   Scenario:Verify PO user (AR Owner) can able to Reject the Amendment Request from Approval Process
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -11404,7 +11404,7 @@ Feature: Sanity scenarios
     Then I softly see value "{SavedValue:PRAMENDID}" for title "EGMS ID" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I softly see value "{SavedValue:BPCAMENDID}" for title "EGMS ID" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
 
-  @443806 @GrantVerifyWithEXEProfilewithnoncreatedowneraccessifGrantisinActivatedState @GRegression1
+  @443806 @GrantVerifyWithEXEProfilewithnoncreatedowneraccessifGrantisinActivatedState @GRegression1 @GranteeTBE
   Scenario:Grant -Verify With EXE Profile with non created owner access if Grant is in Activated State.
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -11506,7 +11506,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
 
-  @482121 @VerifyauditorusershouldhaveonlyviewaccessonSOWamendmentrequest @GRegression3
+  @482121 @VerifyauditorusershouldhaveonlyviewaccessonSOWamendmentrequest @GRegression3 @GranteeTBE
   Scenario: Verify auditor user should have only view access on SOW amendment request
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -11596,7 +11596,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
-  @464049 @VerifyFOuserARrecordownercannoteditthefieldsonBudgetPeriodChangeARisinSubmitforApprovalApprovedSubmittoGrantorAcceptedNotAcceptedRejected @GRegression2
+  @464049 @VerifyFOuserARrecordownercannoteditthefieldsonBudgetPeriodChangeARisinSubmitforApprovalApprovedSubmittoGrantorAcceptedNotAcceptedRejected @GRegression2 @GranteeTBE
   Scenario: Verify FO user (AR record owner) cannot edit the fields on Budget Period Change AR is in Submit for Approval, Approved, Submit to Grantor, Accepted, Not Accepted, Rejected
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -11835,7 +11835,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
-  @464049_1 @VerifyFOuserARrecordownercannoteditthefieldsonBudgetPeriodChangeARisinSubmitforApprovalApprovedSubmittoGrantorAcceptedNotAcceptedRejected @GRegression2
+  @464049_1 @VerifyFOuserARrecordownercannoteditthefieldsonBudgetPeriodChangeARisinSubmitforApprovalApprovedSubmittoGrantorAcceptedNotAcceptedRejected @GRegression2 @GranteeTBE
   Scenario: Verify FO user (AR record owner) cannot edit the fields on Budget Period Change AR is in Submit for Approval, Approved, Submit to Grantor, Accepted, Not Accepted, Rejected
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -11960,7 +11960,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
-  @464049_2 @VerifyFOuserARrecordownercannoteditthefieldsonBudgetPeriodChangeARisinSubmitforApprovalApprovedSubmittoGrantorAcceptedNotAcceptedRejected @GRegression2
+  @464049_2 @VerifyFOuserARrecordownercannoteditthefieldsonBudgetPeriodChangeARisinSubmitforApprovalApprovedSubmittoGrantorAcceptedNotAcceptedRejected @GRegression2 @GranteeTBE
   Scenario: Verify FO user (AR record owner) cannot edit the fields on Budget Period Change AR is in Submit for Approval, Approved, Submit to Grantor, Accepted, Not Accepted, Rejected
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -12068,7 +12068,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
-  @449051 @GPCloseoutVerifyWithPOAuditorFOFDProfileAsanonownerCloseoutabletoseeonlyviewmode @GRegression3
+  @449051 @GPCloseoutVerifyWithPOAuditorFOFDProfileAsanonownerCloseoutabletoseeonlyviewmode @GRegression3 @GranteeTBE
   Scenario Outline: GP Closeout - "Verify With PO /Auditor / FO /FD Profile,As a non owner Closeout  able to see only view mode."
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -12140,7 +12140,7 @@ Feature: Sanity scenarios
       | GRANTEE FO |
       | GRANTEE FD |
 
-  @449051_1 @GPCloseoutVerifyWithPOAuditorFOFDProfileAsanonownerCloseoutabletoseeonlyviewmode @GRegression3
+  @449051_1 @GPCloseoutVerifyWithPOAuditorFOFDProfileAsanonownerCloseoutabletoseeonlyviewmode @GRegression3 @GranteeTBE
   Scenario: GP Closeout - "Verify With Auditor,As a non owner Closeout  able to see only view mode."
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -12357,7 +12357,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "View" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
     Then I softly can see row level action button "Edit" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
 
-  @477319 @ValidateProgressreportschedulesvalidationsdisplayedtoFOuserReviewerwitheditaccessasYesonEditProgressreportschedulemodalwhenawardisinSubmittedforreviewstate @GRegression2
+  @477319 @ValidateProgressreportschedulesvalidationsdisplayedtoFOuserReviewerwitheditaccessasYesonEditProgressreportschedulemodalwhenawardisinSubmittedforreviewstate @GRegression2 @GranteeTBE
   Scenario: Validate Progress report schedules validations displayed to FO user Reviewer with edit access as Yes on Edit Progress report schedule modal when award is in Submitted for review state
     And I "Created" standalone subaward "Automation Runtime Award" with properties "SCHEDULE_PROJ_START_END_DATE"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -13036,7 +13036,7 @@ Feature: Sanity scenarios
       | GRANTEE PO    | Grantee PO | 123456789123 |
       | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @469405 @ValidatePRamdPMuserseeNewlygeneratedAwardisinPendingactivationstate @GRegression1
+  @469405 @ValidatePRamdPMuserseeNewlygeneratedAwardisinPendingactivationstate @GRegression1 @GranteeTBE
   Scenario: Validate PR amd PM user see Newly generated Award is in Pending activation state
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -14857,7 +14857,7 @@ Feature: Sanity scenarios
       | GRANTEE PM | Attachment.pdf | Notes Record | Danielle FD Garcia | GRANTEE FD  | Notes Record for FD  | Notes Record for Danielle FD Garcia |
       | GRANTEE PM | Attachment.pdf | Notes Record | Victor EXE         | GRANTEE EXE | Notes Record for EXE | Notes Record for Victor EXE         |
 
-  @449974 @ValidateGPCloseoutwhileoverrideifthereisnoopenitemstillabletodooverrideandcontinuetheflow @GRegression1
+  @449974 @ValidateGPCloseoutwhileoverrideifthereisnoopenitemstillabletodooverrideandcontinuetheflow @GRegression1 @GranteeTBE
   Scenario: Validate GP Closeout while override if there is no open item still able to do override and continue the flow.
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -14915,7 +14915,7 @@ Feature: Sanity scenarios
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PendingProgressReprt---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PendingFinancialReport---"
 
-  @446127 @ValidateGPCloseoutwithEXEProfileOnactivegrantabletoseeNewbuttontocreateadhoccloseout @GRegression1
+  @446127 @ValidateGPCloseoutwithEXEProfileOnactivegrantabletoseeNewbuttontocreateadhoccloseout @GRegression1 @GranteeTBE
   Scenario: Validate GP Closeout with EXE Profile On active grant able to see New button to createa dhoc closeout
     And I "Created" standalone subaward "Automation Runtime award" with properties "ALL_SETTING_NO-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -14967,7 +14967,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:PhasePendingTask---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PhasePendingTask---"
 
-  @463421 @463422 @463423 @463424 @PreAppVerifywithPOProfileOverviewTab @GRegression1
+  @463421 @463422 @463423 @463424 @PreAppVerifywithPOProfileOverviewTab @GRegression1 @GranteeTBE
   Scenario: PreApp - Verify with PO Profile ,Overview Tab.
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
