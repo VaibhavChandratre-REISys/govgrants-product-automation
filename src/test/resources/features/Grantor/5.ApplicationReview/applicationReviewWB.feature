@@ -20246,7 +20246,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
-    And I click on "Save" in the page detail
+    And I click on "Save" in the page details
     When I click on "Decline" in the page details without processing
     When I click alert button "OK"
     And I wait for "2" seconds

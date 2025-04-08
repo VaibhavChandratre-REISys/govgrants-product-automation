@@ -9005,7 +9005,7 @@ Feature: Sanity scenarios New
       | GRANTEE FD    | AttachmentTesting.pdf | Notes for FD    |
       | GRANTEE ADMIN | AttachmentTesting.pdf | Notes for ADMIN |
 
-  @477317 @477315 @477316 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward
+  @477317 @477315 @477316 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @TBExecution
   Scenario Outline: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -9421,8 +9421,8 @@ Feature: Sanity scenarios New
 
     Examples:
       | userType      | userName   | UEI          |
-      | GRANTEE EXE   | Victor EXE | 123456789123 |
-      | GRANTEE PO    | Grantee PO | 123456789123 |
+      | GRANTEE EXE   | Victor EXE | YRNMVN96JC17 |
+      | GRANTEE PO    | Grantee PO | YRNMVN96JC17 |
       | GRANTEE ADMIN | Product QA | 123456789012 |
 
   @446229 @477326 @477325 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward

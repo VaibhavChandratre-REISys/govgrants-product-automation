@@ -3226,7 +3226,6 @@ Feature: Sanity scenarios
     Then I softly see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Closed" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
-    And I click on page navigation arrow "---grantee_tableId:-:GrantsTable---" for table id "Next"
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:GrantsTable---"
     Then I softly see top right button "Advance Filter" inside flex table "---grantee_tableId:-:GrantsTable---"
     And I click toggle button to select "Grants - All"
@@ -3337,17 +3336,17 @@ Feature: Sanity scenarios
     Then I softly see "Create Grant" opens in overLay window
     When I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Grant Title is required to save.               |
-      | Grant Abbreviation is required to save.        |
-      | Grant Number is required to save.              |
-      | Project Period Start Date is required to save. |
-      | Project Period End Date is required to save.   |
-      | Budget Type is required to save.               |
-      | Total Anticipated Amount is required to save.  |
-      | Grant Type is required to save.                |
-      | Funding Organization is required to save.      |
-      | Allow Indirect Costs? is required to save.     |
-      | Match is Required? is required to save.        |
+      | To Save, Grant Title is required.               |
+      | To Save, Grant Abbreviation is required.        |
+      | To Save, Grant Number is required.              |
+      | To Save, Project Period Start Date is required. |
+      | To Save, Project Period End Date is required.   |
+      | To Save, Budget Type is required.               |
+      | To Save, Total Anticipated Amount is required.  |
+      | To Save, Grant Type is required.                |
+      | To Save, Funding Organization is required.      |
+      | To Save, Allow Indirect Costs? is required.     |
+      | To Save, Match is Required? is required.        |
     And I enter "Grantee_Grant_Setting_No" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     Then I see the header is "Grant" in the page details
@@ -8045,7 +8044,7 @@ Feature: Sanity scenarios
       | GRANTEE PO      | MI_STPlan_7824                      |
       | GRANTEE AUDITOR | Automation Permanent Strategic Plan |
 
-  @476976 @476963 @NonFederalprogramVerifyvalidationsdisplayedtoPOuseronNonFederalprogram
+  @476976 @476963 @NonFederalprogramVerifyvalidationsdisplayedtoPOuseronNonFederalprogram @TBExecution
   Scenario Outline: Non-Federal program - Verify validations displayed to PO user on Non Federal program
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Planning" tab
@@ -8058,10 +8057,10 @@ Feature: Sanity scenarios
     Then I softly see field on modal "Type" inside page block
     Then I softly see field on modal "NGO Organization" inside page block
     And I click modal button "Save and Continue"
-    Then I softly see the following messages in the page details :
-      | Program Name is required to save.     |
-      | Type is required to save.             |
-      | NGO Organization is required to save. |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Program Name is required.     |
+      | To Save, Type is required.             |
+      | To Save, NGO Organization is required. |
     When I enter "Grantee_nonFed" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I softly see field "Status" as "Created"
@@ -8104,16 +8103,16 @@ Feature: Sanity scenarios
     And I click on remove for lookup from field "Account__c"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details :
-      | Program Number is required to save under Overview.       |
-      | Program Name is required to save under Overview.         |
-      | Funding Organization is required to save under Overview. |
-      | Program Objectives is required to save under Overview.   |
+      | To Save, Program Number is required in the Overview section.       |
+      | To Save, Program Name is required in the Overview section.         |
+      | To Save, Funding Organization is required in the Overview section. |
+      | To Save, Program Objectives is required in the Overview section.   |
     And I click on "Cancel" in the page details
     Then I softly can see top right button "Activate" in page detail
     Then I softly can see top right button "Edit" in page detail
     And I click on "Activate" in the page details
     Then I softly see the following messages in the page details :
-      | Applicant Eligibility is required to submit under Overview |
+      | To Save, Applicant Eligibility is required in the Overview section. |
     Examples:
       | User       |
       | GRANTEE PM |
@@ -15247,7 +15246,7 @@ Feature: Sanity scenarios
       | GRANTEE PM |
 
 
-  @476674 @VerifywithAuditorprofileGrantsGovleadpreapplicationableseeinViewmodeonly
+  @476674 @VerifywithAuditorprofileGrantsGovleadpreapplicationableseeinViewmodeonly @TBExecution
   Scenario: Verify with Auditor profile , Grants.Gov lead - pre application able see in View mode only.
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
