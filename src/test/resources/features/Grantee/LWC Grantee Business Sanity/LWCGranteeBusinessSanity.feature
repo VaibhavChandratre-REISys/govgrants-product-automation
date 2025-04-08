@@ -8044,7 +8044,7 @@ Feature: Sanity scenarios
       | GRANTEE PO      | MI_STPlan_7824                      |
       | GRANTEE AUDITOR | Automation Permanent Strategic Plan |
 
-  @476976 @476963 @NonFederalprogramVerifyvalidationsdisplayedtoPOuseronNonFederalprogram @TBExecution
+  @476976 @476963 @NonFederalprogramVerifyvalidationsdisplayedtoPOuseronNonFederalprogram
   Scenario Outline: Non-Federal program - Verify validations displayed to PO user on Non Federal program
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Planning" tab
@@ -15246,7 +15246,7 @@ Feature: Sanity scenarios
       | GRANTEE PM |
 
 
-  @476674 @VerifywithAuditorprofileGrantsGovleadpreapplicationableseeinViewmodeonly @TBExecution
+  @476674 @VerifywithAuditorprofileGrantsGovleadpreapplicationableseeinViewmodeonly
   Scenario: Verify with Auditor profile , Grants.Gov lead - pre application able see in View mode only.
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"

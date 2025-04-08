@@ -1012,4 +1012,24 @@ public final class PageDetails {
         I.amPerforming().scroll().onPageToSpecificElement(By.xpath("//span[contains(text(),'" + pageBlockDetailTitle + "')]/..//span[contains(@class,'fa-info')] | //a[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span//span[contains(@class,'fa-info')] | //span[text()='" + pageBlockDetailTitle + "']/ancestor::dt//span[@class='fa fa-info helpIcon'] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span/following-sibling::div/following-sibling::helpicon//span//span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//lightning-icon[contains(@style,'pointer')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] | //label[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] |//label[contains(text(),'" + pageBlockDetailTitle + "')]//..//div//button[contains(@aria-describedby,'tooltip')] | //label[contains(text(),'" + pageBlockDetailTitle + "')]//..//div[@part='help-text']//button"));
         I.amPerforming().scroll().withMouseToElement(By.xpath("//span[contains(text(),'" + pageBlockDetailTitle + "')]/..//span[contains(@class,'fa-info')] | //a[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span//span[contains(@class,'fa-info')] | //span[text()='" + pageBlockDetailTitle + "']/ancestor::dt//span[@class='fa fa-info helpIcon'] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span/following-sibling::div/following-sibling::helpicon//span//span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//lightning-icon[contains(@style,'pointer')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] | //label[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] |//label[contains(text(),'" + pageBlockDetailTitle + "')]//..//div//button[contains(@aria-describedby,'tooltip')] | //label[contains(text(),'" + pageBlockDetailTitle + "')]//..//div[@part='help-text']//button"));
     }
+
+    /**
+     * click any button on right header inside detail page. Submit, submit for
+     * approval
+     *
+     * @param buttonName
+     * @return
+     * @author vaibhav.chandratre
+     */
+    public void clickAnyTopRightButtonInsideSplitScreenWithouProcessing(String buttonName) {
+        By topRightButton = By.xpath("//c-flex-layout-quick-view//lightning-button//button[@title='" + buttonName + "'] | //lightning-button-menu[contains(@class,'" + buttonName + "')]");
+        I.amPerforming().waitFor().makeThreadSleep(2000);
+        try {
+            I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
+            I.amPerforming().click().withJavaScript(topRightButton);
+        } catch (Exception ex) {
+            I.amPerforming().click().on(ByUsing.xpath("//c-flex-layout-quick-view//lightning-button-menu//button[contains(@class,'slds-button_last')]"));
+            I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+        }
+    }
 }

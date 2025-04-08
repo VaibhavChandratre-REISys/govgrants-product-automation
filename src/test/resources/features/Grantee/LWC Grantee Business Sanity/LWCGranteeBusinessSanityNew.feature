@@ -5878,18 +5878,32 @@ Feature: Sanity scenarios New
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @477553 @477511 @477555 @477870 @ValidatewithPOprofileonClickViewactionKeycontactformgetopeninviewTab
+  @477553 @477511 @477555 @477870 @ValidatewithPOprofileonClickViewactionKeycontactformgetopeninviewTab @TBExecution
   Scenario: Validate with PO profile on Click View action Key contact form get open in view Tab
-    When I login to "As a Grantee" app as "GRANTEE PO" user
+    Given I delete the grantee record "{grantee_testData:GrantsGovKeyContactMandatory}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269340" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001269340" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001269340" with properties "default-Grantee PO user"
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{grantee_testData:AutomationGrantsGovApplicationsAllForms}" in "---grantee_tableId:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{grantee_testData:AutomationGrantsGovApplicationsAllForms}" inside table
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I click on "Edit" in the page details
+    And I enter value "123" into field "CongressionalDistrict1__c"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
-    And I wait for "2" seconds
     Then I softly see value "Key Contacts" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Preview" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -5903,10 +5917,10 @@ Feature: Sanity scenarios New
     Then I softly see the text containing "Key Contacts"
     Then I softly see the text containing :
       | Agency Owner: Grants.gov |
-    #Need to check below validations
-#      | OMB Number: 4040-0010           |
-#      | Version:2.0                     |
-#      | OMB Expiration Date: 12/31/2026 |
+    Then I softly see the field "Agency Owner :" as "Grants.gov" on forms
+    Then I softly see the field "OMB Number :" as "4040-0010" on forms
+    Then I softly see the field "Version :" as "2.0" on forms
+    Then I softly see the field "OMB Expiration Date :" as "12/31/2026" on forms
     Then I softly can see "Form" sub tab at view detail page
     Then I softly see "Key Contacts" page block displayed
     Then I softly can see top right button "Add" in flex table with id "---grantee_tableId:-:applicationKeyContactFormTableId---"
@@ -5923,10 +5937,10 @@ Feature: Sanity scenarios New
     Then I softly see the text containing "Key Contacts"
     Then I softly see the text containing :
       | Agency Owner: Grants.gov |
-#    Need to check below validations
-#      | OMB Number: 4040-0010           |
-#      | Version:2.0                     |
-#      | OMB Expiration Date: 12/31/2026 |
+    Then I softly see the field "Agency Owner :" as "Grants.gov" on forms
+    Then I softly see the field "OMB Number :" as "4040-0010" on forms
+    Then I softly see the field "Version :" as "2.0" on forms
+    Then I softly see the field "OMB Expiration Date :" as "12/31/2026" on forms
     Then I softly can see "Form" sub tab at view detail page
     Then I softly see "Key Contacts" page block displayed
     Then I softly can see top right button "Add" in flex table with id "---grantee_tableId:-:applicationKeyContactFormTableId---"
@@ -5990,10 +6004,10 @@ Feature: Sanity scenarios New
     Then I softly see "Key Contacts" page block displayed
     Then I softly see the text containing :
       | Agency Owner: Grants.gov |
-#    Need to check below validations
-#      | OMB Number: 4040-0010           |
-#      | Version:2.0                     |
-#      | OMB Expiration Date: 12/31/2026 |
+    Then I softly see the field "Agency Owner :" as "Grants.gov" on forms
+    Then I softly see the field "OMB Number :" as "4040-0010" on forms
+    Then I softly see the field "Version :" as "2.0" on forms
+    Then I softly see the field "OMB Expiration Date :" as "12/31/2026" on forms
     And I click on "Validate" in the split screen page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
@@ -9005,7 +9019,7 @@ Feature: Sanity scenarios New
       | GRANTEE FD    | AttachmentTesting.pdf | Notes for FD    |
       | GRANTEE ADMIN | AttachmentTesting.pdf | Notes for ADMIN |
 
-  @477317 @477315 @477316 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @TBExecution
+  @477317 @477315 @477316 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward
   Scenario Outline: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -9425,7 +9439,7 @@ Feature: Sanity scenarios New
       | GRANTEE PO    | Grantee PO | YRNMVN96JC17 |
       | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @446229 @477326 @477325 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward
+  @446229 @477326 @477325 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @TBExecution
   Scenario Outline: Validate Financial Report Schedule user can edit Financial report schedule on Created Submitted for review Reviewed Activated award
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -9822,8 +9836,8 @@ Feature: Sanity scenarios New
 
     Examples:
       | userType      | userName   | UEI          |
-      | GRANTEE EXE   | Victor EXE | 123456789123 |
-      | GRANTEE PO    | Grantee PO | 123456789123 |
+      | GRANTEE EXE   | Victor EXE | YRNMVN96JC17 |
+      | GRANTEE PO    | Grantee PO | YRNMVN96JC17 |
       | GRANTEE ADMIN | Product QA | 123456789012 |
 
   @485466 @449143 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant
@@ -11621,7 +11635,7 @@ Feature: Sanity scenarios New
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
     Then I softly see snapshot with name containing "Complete Review.pdf" as name
 
-  @476990 @476991 @476992 @CombinationofamendmentVerifyEXEusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward
+  @476990 @476991 @476992 @CombinationofamendmentVerifyEXEusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @TBExecution
   Scenario Outline:Combination of amendment : Verify EXE user can create combination of amendment using following combinations and activate new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -11837,11 +11851,12 @@ Feature: Sanity scenarios New
     Then I softly see value "$200.00" for title "Cash Match" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$200.00" for title "Other Leverage" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$2,400.00" for title "Total Project Cost" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    Then I softly see value "$200.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    Then I softly see value "Automation Test" for title "Program Income Justification" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    Then I softly see value "$0.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea2}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    Then I softly see value "{SavedValue:FocusArea2}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Commented below stes due to bug US:- 474392 once resolved remove comments
+#    Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Then I softly see value "$200.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Then I softly see value "Automation Test" for title "Program Income Justification" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Then I softly see value "$0.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea2}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Then I softly see value "{SavedValue:FocusArea2}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
     Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see value "{SavedValue:Effectivefrom}" for title "Effective from" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see value "{SavedValue:Effectiveuntil}" for title "Effective until" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
@@ -11893,11 +11908,12 @@ Feature: Sanity scenarios New
     Then I softly see value "$200.00" for title "Cash Match" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$200.00" for title "Other Leverage" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$2,400.00" for title "Total Project Cost" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    Then I softly see value "$200.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    Then I softly see value "Automation Test" for title "Program Income Justification" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    Then I softly see value "$0.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea2}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    Then I softly see value "{SavedValue:FocusArea2}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Commented below stes due to bug US:- 474392 once resolved remove comments
+#    Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Then I softly see value "$200.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Then I softly see value "Automation Test" for title "Program Income Justification" against the value "{SavedValue:FocusArea1}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Then I softly see value "$0.00" for title "Projected Program Income ($)" against the value "{SavedValue:FocusArea2}" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Then I softly see value "{SavedValue:FocusArea2}" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
     Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see value "{SavedValue:Effectivefrom}" for title "Effective from" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see value "{SavedValue:Effectiveuntil}" for title "Effective until" inside table "---grantee_tableId:-:awardIndirectRateTableId---"

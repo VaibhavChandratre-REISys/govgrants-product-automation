@@ -272,7 +272,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Enter Review" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
     Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
 
-  @463432 @ValidatePreAppWithPMprofileabletoaddpeerreviewerwithAllowrecordEditingNO @TBExecution
+  @463432 @ValidatePreAppWithPMprofileabletoaddpeerreviewerwithAllowrecordEditingNO
   Scenario: Validate PreApp With PM profile Able to add peer reviewer with Allow record Editing NO
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "COSTSHARING_NO"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
