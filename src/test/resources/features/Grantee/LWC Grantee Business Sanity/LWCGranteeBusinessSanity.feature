@@ -3202,7 +3202,7 @@ Feature: Sanity scenarios
     And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:specialConditionsChildTableId---"
 
-  @443790 @ValidateGrantWithPMProfileAfterclickonGrantphaseredirecttoGrantListviewpage
+  @443790 @ValidateGrantWithPMProfileAfterclickonGrantphaseredirecttoGrantListviewpage @GRegression1
   Scenario: Validate Grant With PM Profile After click on Grant phase redirect to Grant List view page
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -8044,7 +8044,7 @@ Feature: Sanity scenarios
       | GRANTEE PO      | MI_STPlan_7824                      |
       | GRANTEE AUDITOR | Automation Permanent Strategic Plan |
 
-  @476976 @476963 @NonFederalprogramVerifyvalidationsdisplayedtoPOuseronNonFederalprogram
+  @476976 @476963 @NonFederalprogramVerifyvalidationsdisplayedtoPOuseronNonFederalprogram @GRegression1
   Scenario Outline: Non-Federal program - Verify validations displayed to PO user on Non Federal program
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Planning" tab
@@ -15245,7 +15245,6 @@ Feature: Sanity scenarios
       | GRANTEE PO |
       | GRANTEE PM |
 
-
   @476674 @VerifywithAuditorprofileGrantsGovleadpreapplicationableseeinViewmodeonly
   Scenario: Verify with Auditor profile , Grants.Gov lead - pre application able see in View mode only.
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
@@ -15317,8 +15316,8 @@ Feature: Sanity scenarios
     Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
     When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" with wait for record
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
-    Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
-    Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
+    Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
+    Then I softly cannot see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationProgramIncomeTableId---"
