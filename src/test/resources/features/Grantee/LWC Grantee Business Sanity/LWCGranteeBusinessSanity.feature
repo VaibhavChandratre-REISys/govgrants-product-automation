@@ -8102,17 +8102,17 @@ Feature: Sanity scenarios
     When I clear the value from field "ProgramName__c"
     And I click on remove for lookup from field "Account__c"
     And I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
-      | To Save, Program Number is required in the Overview section.       |
-      | To Save, Program Name is required in the Overview section.         |
-      | To Save, Funding Organization is required in the Overview section. |
-      | To Save, Program Objectives is required in the Overview section.   |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Program Number is required in the Overview tab under the Information section.       |
+      | To Save, Program Name is required in the Overview tab under the Information section.         |
+      | To Save, Funding Organization is required in the Overview tab under the Information section. |
+      | To Save, Program Objectives is required in the Overview tab under the Information section.   |
     And I click on "Cancel" in the page details
     Then I softly can see top right button "Activate" in page detail
     Then I softly can see top right button "Edit" in page detail
     And I click on "Activate" in the page details
-    Then I softly see the following messages in the page details :
-      | To Save, Applicant Eligibility is required in the Overview section. |
+    Then I softly see the following messages in the page details contains:
+      | To Submit , Applicant Eligibility is required in the Overview tab under the Eligibility Requirements section. |
     Examples:
       | User       |
       | GRANTEE PM |
@@ -15314,7 +15314,13 @@ Feature: Sanity scenarios
     Then I softly see field "Budget Level" as "Detailed Line Item Budget"
     Then I softly see field "Budget Type" as "Construction"
     Given I expand nested table containing column value "BP01"
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" with wait for record
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
+    Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
+    Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
+    And I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationProgramIncomeTableId---"
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationIndirectRateTableId---"
     And I navigate to "Chatter" sub tab in split screen
