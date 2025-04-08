@@ -1145,7 +1145,12 @@ Feature: Payment Request scenarios without background
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     When I navigate to "Actuals" sub tab
-    Then I cannot see top right button "Reimbursement Request" for "---paymentRequest:-:paymentRequestTableId---" flex table
+    And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
+    When I enter value "Automation Runtime Payment Request 4" into field "Title__c"
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | The final Reimbursement Payment Request for this award has already been processed. You can not perform this operation. |
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |

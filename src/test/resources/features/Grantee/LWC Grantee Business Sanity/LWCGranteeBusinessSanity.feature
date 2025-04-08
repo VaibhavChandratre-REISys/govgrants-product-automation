@@ -15245,7 +15245,7 @@ Feature: Sanity scenarios
       | GRANTEE PO |
       | GRANTEE PM |
 
-  @476674 @VerifywithAuditorprofileGrantsGovleadpreapplicationableseeinViewmodeonly
+  @476674 @VerifywithAuditorprofileGrantsGovleadpreapplicationableseeinViewmodeonly @GRegression1
   Scenario: Verify with Auditor profile , Grants.Gov lead - pre application able see in View mode only.
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
