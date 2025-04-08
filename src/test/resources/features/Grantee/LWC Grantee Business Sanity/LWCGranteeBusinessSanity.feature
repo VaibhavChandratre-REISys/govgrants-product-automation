@@ -15315,7 +15315,7 @@ Feature: Sanity scenarios
     Then I softly see field "Budget Type" as "Construction"
     Given I expand nested table containing column value "BP01"
     Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
-    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" with wait for record
+    When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" with wait for record
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
     Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"

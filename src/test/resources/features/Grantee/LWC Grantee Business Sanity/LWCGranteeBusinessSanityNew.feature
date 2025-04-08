@@ -9019,7 +9019,7 @@ Feature: Sanity scenarios New
       | GRANTEE FD    | AttachmentTesting.pdf | Notes for FD    |
       | GRANTEE ADMIN | AttachmentTesting.pdf | Notes for ADMIN |
 
-  @477317 @477315 @477316 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward
+  @477317 @477315 @477316 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @GRegression3
   Scenario Outline: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -9140,14 +9140,14 @@ Feature: Sanity scenarios New
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 17                          | 27                                  |
       | {SavedValue:EGMS ID2} | 27                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 15                          | 25                                  |
       | {SavedValue:EGMS ID2} | 25                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     When I click "Associate" after selection of "<userName>" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
@@ -9235,14 +9235,14 @@ Feature: Sanity scenarios New
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 17                          | 27                                  |
       | {SavedValue:EGMS ID2} | 27                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 15                          | 25                                  |
       | {SavedValue:EGMS ID2} | 25                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -9305,14 +9305,14 @@ Feature: Sanity scenarios New
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 17                          | 27                                  |
       | {SavedValue:EGMS ID2} | 27                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 15                          | 25                                  |
       | {SavedValue:EGMS ID2} | 25                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
@@ -9424,14 +9424,14 @@ Feature: Sanity scenarios New
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 17                          | 27                                  |
       | {SavedValue:EGMS ID2} | 27                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 15                          | 25                                  |
       | {SavedValue:EGMS ID2} | 25                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
 
     Examples:
       | userType      | userName   | UEI          |
