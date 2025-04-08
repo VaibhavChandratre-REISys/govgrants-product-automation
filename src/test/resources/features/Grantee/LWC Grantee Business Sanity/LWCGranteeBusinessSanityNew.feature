@@ -5878,7 +5878,7 @@ Feature: Sanity scenarios New
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @477553 @477511 @477555 @477870 @ValidatewithPOprofileonClickViewactionKeycontactformgetopeninviewTab @TBExecution
+  @477553 @477511 @477555 @477870 @ValidatewithPOprofileonClickViewactionKeycontactformgetopeninviewTab @GRegression3
   Scenario: Validate with PO profile on Click View action Key contact form get open in view Tab
     Given I delete the grantee record "{grantee_testData:GrantsGovKeyContactMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269340" with properties "default-Grantee PO user"
@@ -11634,7 +11634,7 @@ Feature: Sanity scenarios New
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
     Then I softly see snapshot with name containing "Complete Review.pdf" as name
 
-  @476990 @476991 @476992 @CombinationofamendmentVerifyEXEusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @TBExecution
+  @476990 @476991 @476992 @CombinationofamendmentVerifyEXEusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @GRegression3
   Scenario Outline:Combination of amendment : Verify EXE user can create combination of amendment using following combinations and activate new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<filter>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -12002,7 +12002,7 @@ Feature: Sanity scenarios New
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
     Examples:
       | User          | filter |
-      | GRANTEE ADMIN | Product QA user|
+      | GRANTEE ADMIN1 | Product Admin user|
 #      | GRANTEE FO    | Grantee PO user|
 #      | GRANTEE FD    | Grantee PO user|
 
