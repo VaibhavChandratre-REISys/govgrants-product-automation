@@ -7377,7 +7377,7 @@ Feature: Sanity scenarios
   Scenario Outline: Verify FO user as (AR Owner) can able to create Budget Period Change AR on active Award & Not Accept AR by Grantor & not able to see Amend Award button in Not Accepted state of BPC AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
-    Given I login to "As a Grantee" app as "<User>" user
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -7400,6 +7400,14 @@ Feature: Sanity scenarios
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
+    And I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
@@ -8757,11 +8765,9 @@ Feature: Sanity scenarios
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Please select Amendment Request Type is required to save. |
-    Then I softly see the following messages in the page details contains:
-      | Initiated By is required to save. |
-    Then I softly see the following messages in the page details contains:
-      | Justification is required to save. |
+      | To Save, Please select Amendment Request Type is required. |
+      | To Save, Initiated By is required. |
+      | To Save, Justification is required. |
     And I enter "Grantee_Combination_Creation2" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Grantee_Combination_Edition" values from "AmendmentRequest_Field_Values.xlsx"
@@ -8779,7 +8785,7 @@ Feature: Sanity scenarios
     When I clear the value from field "PurposeRTA__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Justification is required to save under Overview. |
+      | To Save, Justification is required in the Overview tab under the Details section. |
     When I enter value "Automation Test" into field "Impact__c"
     When I enter value "Automation Test" into field "PurposeRTA__c"
     When I enter value "Automation Test" into field "ApprovedIndirectCostRate__c"
@@ -8829,7 +8835,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE   |
       | GRANTEE FO    |
       | GRANTEE FD    |
-      | GRANTEE ADMIN |
+      | GRANTEE ADMIN1|
 
   @464036 @ValidateAmeliaFDuserReviewerYescanabletosubmitReview&ReviewcompletebyAROwneronclickofCompeleteReviewbuttononBPCAR @GRegression4 @GranteeTBE
   Scenario: Validate Amelia FD user Reviewer Yes can able to submit Review & Review complete by AR Owner on click of Compelete Review button on BPC AR

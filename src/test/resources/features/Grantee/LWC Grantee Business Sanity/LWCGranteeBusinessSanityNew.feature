@@ -7773,8 +7773,8 @@ Feature: Sanity scenarios New
     When I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | To Save, Pre-Application Title is required in the Overview tab under the Pre-Application Overview section.       |
-      | To Save, Program Income Treatment Type is required in the Budget tab under the Budget Overview section. |
+      | To Save, Pre-Application Title is required in the Overview tab under the Pre-Application Overview section. |
+      | To Save, Program Income Treatment Type is required in the Budget tab under the Budget Overview section.    |
     And I enter value "Additive" into field "ProgramIncomeType__c"
     And I navigate to "Overview" sub tab
     And I enter value "{SavedValue:PreApplicationTitle}" into field "Title__c"
@@ -7873,6 +7873,7 @@ Feature: Sanity scenarios New
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
     When I navigate to "Overview" sub tab
+    And I halt execution
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
     When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:preAppAssociateContactTableId---"
     When I click modal button "Close"
@@ -7886,11 +7887,11 @@ Feature: Sanity scenarios New
     And I refresh the page
     And I wait for "5" seconds
     When I enter the following values into flex table with id "---grantee_tableId:-:preResponsibiltiesTableId---" by clicking "New" :
-      | Name     | PreApplication |
-      | David FO | Step 1         |
+      | Name     | Pre-Application |
+      | David FO | Step 1          |
     When I enter the following values into flex table with id "---grantee_tableId:-:preResponsibiltiesTableId---" by clicking "New" :
-      | Name       | PreApplication |
-      | Victor EXE | Step 2         |
+      | Name       | Pre-Application |
+      | Victor EXE | Step 2          |
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Letter of Intent" from computer
