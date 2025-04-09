@@ -1,4 +1,4 @@
-@paymntRequestForms @grantor-parallel-regression @paymentRequest @regression
+@paymntRequestForms @grantor-parallel-regression @paymentRequest @payReqPendingExecution
 Feature: Payment Request Forms scenarios
 
 

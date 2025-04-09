@@ -152,8 +152,8 @@ Feature: Sanity scenarios
     When I click on "Enter Review" icon for "Grantee PO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -227,7 +227,7 @@ Feature: Sanity scenarios
     Then I softly see new tab is opened
     Then I softly can see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly see "Financial Information" page block displayed
     Then I softly see "Recipient Information" page block displayed
@@ -250,7 +250,7 @@ Feature: Sanity scenarios
     And I navigate to "Quickview" sub tab in split screen
     When I click on "Splitview" icon for "Federal Financial Report (SF-425)" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
-    Then I softly can see top right button "Download As PDF" in the split screen page details
+    Then I softly can see top right button "Download as PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
@@ -387,12 +387,14 @@ Feature: Sanity scenarios
     Then I softly see link "{SavedValue:ownerName}" inside Page block
     And I click on hyperlink containing value "{SavedValue:ownerName}"
     Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
+    And I wait for "2" seconds
     And I click on back arrow
+    And I wait for "2" seconds
     And I click on "Mark as Submitted" in the page details
     And I click modal button "Save"
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
-      | Submitted to Grantor On is required to save. |
+      | To Save, Submitted to Grantor On is required. |
     And I enter in modal "Submit Details" values from "Financial_Report_Field_Values.xlsx"
     When I click modal button "Save"
     When I click modal button "Close"
@@ -657,8 +659,10 @@ Feature: Sanity scenarios
     Then I softly can see "Actuals" sub tab at view detail page
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
-    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:closeoutTableId---" panel
-    When I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:closeoutTableId---" without waiting for record
+    When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
+    And I click toggle button to select "Project Period Closeout - All"
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:ProjectPeriodCloseout---" panel
+    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:ProjectPeriodCloseout---"
     When I click on "Submit to Grantor" in the page details
     When I enter values into fields
       | Value | Field                 |
