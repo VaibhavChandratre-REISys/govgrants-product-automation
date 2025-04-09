@@ -7873,7 +7873,6 @@ Feature: Sanity scenarios New
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
     When I navigate to "Overview" sub tab
-    And I halt execution
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
     When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:preAppAssociateContactTableId---"
     When I click modal button "Close"
