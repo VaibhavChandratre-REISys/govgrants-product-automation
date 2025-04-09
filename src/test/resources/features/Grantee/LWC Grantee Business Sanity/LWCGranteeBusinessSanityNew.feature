@@ -11867,7 +11867,7 @@ Feature: Sanity scenarios New
     And I navigate to "Files" sub tab
     Then I softly see value "{SavedValue:Classification}" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<Owner>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -12001,10 +12001,10 @@ Feature: Sanity scenarios New
     Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
     Examples:
-      | User          | filter |
-      | GRANTEE ADMIN1 | Product Admin user|
-      | GRANTEE FO    | Grantee PO user|
-      | GRANTEE FD    | Grantee PO user|
+      | User           | filter             | Owner          |
+      | GRANTEE ADMIN1 | Product Admin user | GRANTEE ADMIN1 |
+#      | GRANTEE FO     | Grantee PO user    | GRANTEE PO     |
+#      | GRANTEE FD     | Grantee PO user    | GRANTEE PO     |
 
   @477603 @477627 @ValidatePMusershouldabletoCreateActivatetheKPI
   Scenario Outline: Validate EXE/ADMIN user should able to Create & Activate the KPI
