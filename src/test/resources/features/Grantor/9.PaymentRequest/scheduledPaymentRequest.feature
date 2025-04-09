@@ -45,7 +45,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | Award Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @55401 @ValidatedUserNotifiedFieldUpdatedExternalPortal-SPI3  @PaymentRerun
+  @55401 @ValidatedUserNotifiedFieldUpdatedExternalPortal-SPI3  @PaymentRerun1
   Scenario Outline: Verify when Batch is run then User Notified field gets Updated at External Portal
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"

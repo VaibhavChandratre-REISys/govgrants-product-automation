@@ -401,7 +401,7 @@ Feature: Validate all scenarios in Payment Request
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly see field "Acknowledgement" as "I Agree"
 
-  @53971 @advancePaymentRequestSubmitToGrantorBySPA
+  @53971 @advancePaymentRequestSubmitToGrantorBySPA @PaymentRerun1
   Scenario Outline: verify that advance payment request should not be able to submit by SPA user
     When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -420,7 +420,7 @@ Feature: Validate all scenarios in Payment Request
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @53980 @captureConfirmationMessageAfterApprovingAdvancePR
+  @53980 @captureConfirmationMessageAfterApprovingAdvancePR @PaymentRerun1
   Scenario: Capture confirmation message after approving advance payment request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -435,6 +435,7 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -518,7 +519,7 @@ Feature: Validate all scenarios in Payment Request
     Then I softly see field "Status" as "Submitted to Grantor"
     #Then I can see the message "Successfully sent to Owner. It may take few mintues to process record." in the approval decision
 
-  @53982 @forwardAdvancePaymentRequest
+  @53982 @forwardAdvancePaymentRequest @PaymentRerun1
   Scenario: validate approver can forward advance payment request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -533,6 +534,7 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -962,7 +964,7 @@ Feature: Validate all scenarios in Payment Request
 #    When I save the value from row "1" for column name "Title" as "File Name" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
 
-   @54416 @uploadAttachmentFromWorkspaceReimbursementPR
+   @54416 @uploadAttachmentFromWorkspaceReimbursementPR  @PaymentRerun1
   Scenario: verify that user can upload document from workspace for Reimbursement Payment Request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1369,7 +1371,7 @@ Feature: Validate all scenarios in Payment Request
     And I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @54594 @validateThatUserCanDeleteOnlyCreatedStatusPR
+  @54594 @validateThatUserCanDeleteOnlyCreatedStatusPR @PaymentRerun1
   Scenario: Validate task is getting created for SPI user after send back advance payment request to subreceipient
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1379,6 +1381,7 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I wait for "2" seconds
     And I click toggle button to select "Subawards  - Active"
     And I perform quick search for "{SavedValue:Automation Runtime Award}" in "---amendment:-:recipientsSubawardTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
@@ -2164,7 +2167,7 @@ Feature: Validate all scenarios in Payment Request
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @55633 @rejectEmailNotificationAdvance
+  @55633 @rejectEmailNotificationAdvance  @PaymentRerun1
   Scenario: Verify that on Reject, user is able to check  email notifications Payment Request (Advance)
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -2180,12 +2183,15 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I wait for "2" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "2" seconds
+    And I pause execution for "3" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    And I wait for "2" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
@@ -2218,11 +2224,12 @@ Feature: Validate all scenarios in Payment Request
       Sandbox: Notification: Payment Request #{SavedValue:PaymentId} has beenRejected.
       """
 
-  @55404 @advancePRSentBackToOwner
+  @55404 @advancePRSentBackToOwner  @PaymentRerun1
   Scenario: Verify that Payment Approval can send back Payment request to Owner (Advance)
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
     When I enter value "Automation Runtime Payment Request" into field "Title__c"
+    And I wait for "1" seconds
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
