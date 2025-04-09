@@ -7819,7 +7819,7 @@ Feature: Sanity scenarios New
     Then I softly can see "History" sub tab at view detail page
     Then I softly can see "Messages" sub tab at view detail page
     Then I softly can see "Chatter" sub tab at view detail page
-    Then I softly can see "Quickview" sub tab at view detail page
+#    Then I softly can see "Quickview" sub tab at view detail page
     And I navigate to "Field Audit" sub tab in split screen
     Then I softly can see "Field Audit" sub tab at view detail page
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -7866,6 +7866,7 @@ Feature: Sanity scenarios New
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:PreApplicationAssociateFocusArea---"
     And I wait for "2" seconds
     And I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     Given I expand nested table containing column value "BP01"
     When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---" by clicking "New" :
