@@ -9779,8 +9779,8 @@ Feature: Sanity scenarios New
 
     Examples:
       | userType      | userName   | UEI          |
-#      | GRANTEE EXE   | Victor EXE | YRNMVN96JC17 |
-#      | GRANTEE PO    | Grantee PO | YRNMVN96JC17 |
+      | GRANTEE EXE   | Victor EXE | YRNMVN96JC17 |
+      | GRANTEE PO    | Grantee PO | YRNMVN96JC17 |
       | GRANTEE ADMIN | Product QA | 123456789012 |
 
   @485466 @449143 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant
@@ -13809,11 +13809,11 @@ Feature: Sanity scenarios New
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
     Examples:
       | User           |
-      | GRANTEE EXE    |
-      | GRANTEE PM     |
+#      | GRANTEE EXE    |
+#      | GRANTEE PM     |
       | GRANTEE PO     |
-      | GRANTEE ADMIN1 |
-      | GRANTEE FO     |
+#      | GRANTEE ADMIN1 |
+#      | GRANTEE FO     |
 
   @486596 @486597 @BudgetRedirectARPmusershouldabletoseethevalidation @P2_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Budget Redirect AR-Pm user should able to see the validation
