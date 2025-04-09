@@ -7882,9 +7882,9 @@ Feature: Sanity scenarios New
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationContactTableId---" by clicking "Edit" :
       | Name       | Is Key Contact | Project Role                                   |
       | Victor EXE | Checked        | Project Director/Principal Investigator(PI/PD) |
-    And I refresh the page
-    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
+    And I refresh the page
+    And I wait for "5" seconds
     When I enter the following values into flex table with id "---grantee_tableId:-:preResponsibiltiesTableId---" by clicking "New" :
       | Name     | PreApplication |
       | David FO | Step 1         |

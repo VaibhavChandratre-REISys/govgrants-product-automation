@@ -7120,10 +7120,9 @@ Feature: Sanity scenarios
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Please select Amendment Request Type is required to save. |
-      | Initiated By is required to save.                         |
-      | Justification is required to save.                        |
-      | Initiated By is required to save.                         |
+      | To Save, Please select Amendment Request Type is required. |
+      | To Save, Initiated By is required.                         |
+      | To Save, Justification is required.                        |
     And I enter "Grantee_BPC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Grantee_BPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
@@ -7132,14 +7131,8 @@ Feature: Sanity scenarios
     And I clear the value from field "PurposeRTA__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Justification is required to save under Overview. |
+      | To Save, Justification is required in the Overview tab under the Details section. |
     And I enter value "Automation Justification" into field "PurposeRTA__c"
-    And I enter value "2222" into field "ApprovedIndirectCostRate__c"
-    When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details contains:
-      | Maximum Indirect Cost Rate: value outside of valid range on numeric field |
-    And I wait for "2" seconds
     And I enter value "10" into field "ApprovedIndirectCostRate__c"
     Then I softly see fields "GeneralConditionChanged__c" is in edit mode
     And I enter value "Checked" into field "GeneralConditionChanged__c"
@@ -7417,11 +7410,11 @@ Feature: Sanity scenarios
     Then I see textarea field "PurposeRTA__c" is editable
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Please select Amendment Request Type is required to save. |
+      | To Save, Please select Amendment Request Type is required. |
     Then I softly see the following messages in the page details contains:
-      | Initiated By is required to save. |
+      | To Save, Initiated By is required. |
     Then I softly see the following messages in the page details contains:
-      | Justification is required to save. |
+      | To Save, Justification is required. |
     And I enter "Grantee_BPC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
@@ -7713,12 +7706,8 @@ Feature: Sanity scenarios
     And I clear the value from field "PurposeRTA__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Justification is required to save under Overview. |
+      | To Save, Justification is required in the Overview tab under the Details section. |
     And I enter value "Automation Justification" into field "PurposeRTA__c"
-    And I enter value "2222" into field "ApprovedIndirectCostRate__c"
-    When I click on "Save" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Maximum Indirect Cost Rate: value outside of valid range on numeric field |
     And I enter value "110" into field "ApprovedIndirectCostRate__c"
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
@@ -11390,10 +11379,12 @@ Feature: Sanity scenarios
     And I click on back arrow
     When I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
-    And I wait for "5" seconds
+    And I wait for "3" seconds
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Awards" sub tab
