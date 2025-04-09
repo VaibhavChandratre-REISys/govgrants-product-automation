@@ -7859,82 +7859,82 @@ Feature: Sanity scenarios New
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationContactTableId---" by clicking "Edit" :
       | Name       | Is Key Contact | Project Role                                   |
       | Victor EXE | Checked        | Project Director/Principal Investigator(PI/PD) |
-#    When I navigate to "Setup" sub tab
-#    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:PreApplicationBudgetPeriodDetails---"
-#    When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:PreApplicationAssociateBP---"
-#    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:PreApplicationAssociateFocusArea---"
-#    And I wait for "4" seconds
-#    And I navigate to "Budget" sub tab
-#    And I wait for "3" seconds
-#    Given I expand nested table containing column value "BP01"
-#    When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" with wait for record
-#    When I enter the following values into flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---" by clicking "New" :
-#      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
-#      | Construction | The narrative | 5000         | 500        | 500            |
-#    When I close "Budget Category Line Item" modal by clicking the top right x button
-#    And I refresh the page
-#    And I wait for "2" seconds
-#    And I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationProgramIncomeTableId---" by clicking "Edit" :
-#      | Focus Area Name                 | Projected Program Income ($) | Program Income Details |
-#      | Automation Permanent Focus Area | 1000                         | Automation Test        |
-#    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationIndirectRateTableId---" by clicking "New" :
-#      | Title | Date From | Date To | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-#      | Rate  | 15        | 30      | 10                             | Final                   |
-#    When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "---grantee_tableId:-:preResponsibiltiesTableId---" by clicking "New" :
-#      | Name     | PreApplication |
-#      | David FO | Step 1         |
-#    When I enter the following values into flex table with id "---grantee_tableId:-:preResponsibiltiesTableId---" by clicking "New" :
-#      | Name       | PreApplication |
-#      | Victor EXE | Step 2         |
-#    When I navigate to "Files" sub tab
-#    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFilesTableId---"
-#    And I upload attachment without random number "Attachment.pdf" of type "Letter of Intent" from computer
-#    When I click modal button "Close"
-#    When I click on "Validate" in the page details
-#    And I wait for "3" seconds
-#    Then I softly see the following messages in the page details contains:
-#      | Pre-Application has been validated successfully. |
-#    And I click on "Submit For Approval" in the page details
-#    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
-#    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-#    When I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-#    When I "Approve" in the approval decision
-#    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-#    When I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-#    When I "Approve" in the approval decision
-#    And I wait for "5" seconds
-#    Then I softly see field "Status" as "Approved"
-#    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Pre-Applications - All"
-#    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PreApplication---" panel
-#    When I click on "View" icon for "{SavedValue:PreappEGMSID}" inside table
-#    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-#    Then I softly can see top right button "Submit to Grantor" in page detail
-#    When I click on "Submit to Grantor" in the page details
-#    When I enter values into fields
-#      | Value | Field          |
-#      | 0     | SubmittedOn__c |
-#    And I click modal button "Save"
-#    And I click modal button "Close"
-#    Then I softly see field "Status" as "Submitted to Grantor"
-#    Then I can see top right button "Record Decision" in page detail
-#    When I click on "Record Decision" in the page details
-#    When I enter values into fields
-#      | Value    | Field       |
-#      | Accepted | Decision__c |
-#    And I click modal button "Save"
-#    And I click modal button "Close"
-#    Then I softly see field "Status" as "Accepted"
-#    Then I softly can see top right button "Create Application" in page detail
+    When I navigate to "Setup" sub tab
+    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:PreApplicationBudgetPeriodDetails---"
+    When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:PreApplicationAssociateBP---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:PreApplicationAssociateFocusArea---"
+    And I wait for "4" seconds
+    And I navigate to "Budget" sub tab
+    And I wait for "3" seconds
+    Given I expand nested table containing column value "BP01"
+    When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" with wait for record
+    When I enter the following values into flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---" by clicking "New" :
+      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
+      | Construction | The narrative | 5000         | 500        | 500            |
+    When I close "Budget Category Line Item" modal by clicking the top right x button
+    And I refresh the page
+    And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationProgramIncomeTableId---" by clicking "Edit" :
+      | Focus Area Name                 | Projected Program Income ($) | Program Income Details |
+      | Automation Permanent Focus Area | 1000                         | Automation Test        |
+    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationIndirectRateTableId---" by clicking "New" :
+      | Title | Date From | Date To | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15        | 30      | 10                             | Final                   |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:preResponsibiltiesTableId---" by clicking "New" :
+      | Name     | PreApplication |
+      | David FO | Step 1         |
+    When I enter the following values into flex table with id "---grantee_tableId:-:preResponsibiltiesTableId---" by clicking "New" :
+      | Name       | PreApplication |
+      | Victor EXE | Step 2         |
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Letter of Intent" from computer
+    When I click modal button "Close"
+    When I click on "Validate" in the page details
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Pre-Application has been validated successfully. |
+    And I click on "Submit For Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    And I wait for "5" seconds
+    Then I softly see field "Status" as "Approved"
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - All"
+    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PreApplication---" panel
+    When I click on "View" icon for "{SavedValue:PreappEGMSID}" inside table
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    Then I softly can see top right button "Submit to Grantor" in page detail
+    When I click on "Submit to Grantor" in the page details
+    When I enter values into fields
+      | Value | Field          |
+      | 0     | SubmittedOn__c |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I can see top right button "Record Decision" in page detail
+    When I click on "Record Decision" in the page details
+    When I enter values into fields
+      | Value    | Field       |
+      | Accepted | Decision__c |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Accepted"
+    Then I softly can see top right button "Create Application" in page detail
 
   @476574 @ValidatePreAppwithAdminprofilePreapplicationpagelayoutofgrantsgovlead
   Scenario: Validate PreApp with Admin profile Pre application page layout of grants.gov lead
