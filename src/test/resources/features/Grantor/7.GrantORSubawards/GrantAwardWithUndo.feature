@@ -118,7 +118,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @286395 @286411  @sprint-1-US-295145  @Undo @bug-414554 @ProExecute
+  @286395 @286411  @sprint-1-US-295145  @Undo @bug-414554
   Scenario: Verify EXE as step 1 approver can see undo button after approved the award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -1623,7 +1623,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @286508 @Verifypreviousapprovedtaskshouldnotcancelfromcompletedtasktableafterclickonundobutton @sprint-1-US-295145  @Undo @ProExecute
+  @286508 @Verifypreviousapprovedtaskshouldnotcancelfromcompletedtasktableafterclickonundobutton @sprint-1-US-295145  @Undo
   Scenario: Verify previous approved task should not cancel from completed task table after click on undo button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -1754,7 +1754,7 @@ Feature: Validate all scenarios of grants and award with undo
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:completeTaskTableId---" panel
     Then I softly see value "Completed" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---subAwardStandAlone:-:completeTaskTableId---"
 
-  @286517 @sprint-1-US-295145  @Undo @ProExecute
+  @286517 @sprint-1-US-295145  @Undo
   Scenario: Verify step 4 approver can sent to owner the award after click on Undo button and update the approver on award so Undo will display to updated approver after approved the award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -2155,7 +2155,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 
-  @286539  @sprint-1-US-295145  @Undo @ProExecute
+  @286539  @sprint-1-US-295145  @Undo
   Scenario: Verify notification email should generate to new owner of award after click on Undo button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -2484,7 +2484,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 
- @286507  @sprint-1-US-295145  @Undo @bug-414554 @ProExecute
+ @286507  @sprint-1-US-295145  @Undo @bug-414554
   Scenario: Verify user see all tables display correctly in downloaded PDF for award in rejected state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
