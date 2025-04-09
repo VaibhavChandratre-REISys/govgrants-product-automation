@@ -7773,8 +7773,8 @@ Feature: Sanity scenarios New
     When I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Pre-Application Title is required to save under Overview.       |
-      | Program Income Treatment Type is required to save under Budget. |
+      | To Save, Pre-Application Title is required in the Overview tab under the Pre-Application Overview section.       |
+      | To Save, Program Income Treatment Type is required in the Budget tab under the Budget Overview section. |
     And I enter value "Additive" into field "ProgramIncomeType__c"
     And I navigate to "Overview" sub tab
     And I enter value "{SavedValue:PreApplicationTitle}" into field "Title__c"
@@ -7801,7 +7801,7 @@ Feature: Sanity scenarios New
     Then I softly see "Resize" button for page
     And I navigate to "Applications" tab
     When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    And I click toggle button to select "Pre-Application - All"
+    And I click toggle button to select "Pre-Applications - All"
     And I perform quick search for "{SavedValue:preAppEGMSID}" in "---grantee_tableId:-:PreApplication---" panel
     When I click on "View" icon for "{SavedValue:preAppEGMSID}" inside table
     Then I softly see "Navigator" button display on footer
@@ -7845,7 +7845,7 @@ Feature: Sanity scenarios New
     When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    And I click toggle button to select "Pre-Application - All"
+    And I click toggle button to select "Pre-Applications - All"
     And I perform quick search for "{SavedValue:preAppEGMSID}" in "---grantee_tableId:-:PreApplication---" panel
     When I click on "View" icon for "{SavedValue:preAppEGMSID}" inside table
     When I click on "Complete Review" in the page details
@@ -7914,7 +7914,7 @@ Feature: Sanity scenarios New
     When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Pre-Application - All"
+    When I click toggle button to select "Pre-Applications - All"
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PreApplication---" panel
     When I click on "View" icon for "{SavedValue:PreappEGMSID}" inside table
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
