@@ -7762,7 +7762,7 @@ Feature: Sanity scenarios New
     And I click on "Create Pre-Application" in the page details
     Then I softly see fields "Title__c" is in edit mode
     And I click modal button "Save and Continue"
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     And I save the field labeled "Pre-Application Title" as "PreApplicationTitle"
@@ -9382,7 +9382,7 @@ Feature: Sanity scenarios New
       | GRANTEE PO    | Grantee PO | YRNMVN96JC17 |
       | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @446229 @477326 @477325 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @GRegression3
+  @446229 @477326 @477325 @477327 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @GRegression3
   Scenario Outline: Validate Financial Report Schedule user can edit Financial report schedule on Created Submitted for review Reviewed Activated award
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
