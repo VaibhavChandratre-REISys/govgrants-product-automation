@@ -12003,8 +12003,8 @@ Feature: Sanity scenarios New
     Examples:
       | User          | filter |
       | GRANTEE ADMIN1 | Product Admin user|
-#      | GRANTEE FO    | Grantee PO user|
-#      | GRANTEE FD    | Grantee PO user|
+      | GRANTEE FO    | Grantee PO user|
+      | GRANTEE FD    | Grantee PO user|
 
   @477603 @477627 @ValidatePMusershouldabletoCreateActivatetheKPI
   Scenario Outline: Validate EXE/ADMIN user should able to Create & Activate the KPI
