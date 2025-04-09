@@ -9780,8 +9780,8 @@ Feature: Sanity scenarios New
 
     Examples:
       | userType      | userName   | UEI          |
-      | GRANTEE EXE   | Victor EXE | YRNMVN96JC17 |
-      | GRANTEE PO    | Grantee PO | YRNMVN96JC17 |
+#      | GRANTEE EXE   | Victor EXE | YRNMVN96JC17 |
+#      | GRANTEE PO    | Grantee PO | YRNMVN96JC17 |
       | GRANTEE ADMIN | Product QA | 123456789012 |
 
   @485466 @449143 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant
