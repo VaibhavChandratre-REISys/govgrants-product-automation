@@ -1675,15 +1675,24 @@ Feature: Validate all scenarios of every modules flow
 
   @debugtest @debug
   Scenario:
-    When I login to "As a Grantor" app as "EXE" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Closeout__c/a23DV000005gt6rYAA/view"
-    And I wait for "15" seconds
-    And I click on hyperlink containing value "GT-1234-00747"
-    And I wait for "4" seconds
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "AP-TAO modified-9255" in "---negotiation:-:homePendingTasks---" panel
+    And I click on "View" icon for "AP-TAO modified-9255" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I click on "Edit" in the page details
+    And I navigate to "Negotiations" sub tab
+    And I enter values into fields
+      | Value                              | Field                |
+      | Automation Negotiation Iniatiation | ApplicantResponse__c |
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Budget" sub tab
+    When I expand nested table containing column value "BP01"
+    And I select value inside table "---applicationReview:-:budgetTableId---" is "10"
+    And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
+    And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match |
+      | Construction  | 1000   | 100        | 100            |
     And I halt execution
-    When I navigate to "Actuals" sub tab
-    Then I softly see "Cumulative Obligation" inside page block detail
-    Then I softly do not see "Awarded Amount" inside page block detail
-    Then I softly see field "Cumulative Obligation" as "$1,000.00"
-    And I save the field labeled "Cumulative Obligation" as "CumulativeObligation"
-    Then I softly see value "{SavedValue:CumulativeObligationAward1}" is "Equals to" the value "{SavedValue:CumulativeObligation}"
