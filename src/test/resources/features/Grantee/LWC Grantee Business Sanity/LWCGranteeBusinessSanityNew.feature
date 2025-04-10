@@ -7738,7 +7738,7 @@ Feature: Sanity scenarios New
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
 
-  @463419 @ValidatePreAppwithPOprofilePreapplicationpagelayoutofgrantsgovlead
+  @463419 @ValidatePreAppwithPOprofilePreapplicationpagelayoutofgrantsgovlead @GRegression3
   Scenario: Validate PreApp with PO profile Pre application page layout of grants gov lead
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default-Grantee PO user"
@@ -14576,7 +14576,6 @@ Feature: Sanity scenarios New
     Then I softly see "Expenses" page block displayed
     Then I softly see "Record Changes" page block displayed
     Then I softly see "Report/Finance" page block displayed
-    Then I softly see "Report/Property" page block displayed
     Then I softly see "Monitoring" page block displayed
     Then I softly see "Overall" page block displayed
     Then I softly see "Link to Disclosure of Lobbying form (SF-LLL)" page block displayed
@@ -14614,8 +14613,8 @@ Feature: Sanity scenarios New
     When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---" without waiting for record
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -14668,9 +14667,10 @@ Feature: Sanity scenarios New
     And I wait for "100" seconds
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
-    And I click toggle button to select "Project Period Closeout Requests - All"
-    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
-    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
+    And I click toggle button to select "Project Period Closeout - All"
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:ProjectPeriodCloseout---" panel
+    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:ProjectPeriodCloseout---"
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:closeoutApproverTableId---" by clicking "Edit" :
       | Closeout | Name       |
@@ -14698,7 +14698,7 @@ Feature: Sanity scenarios New
     And I click modal button "Save"
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
-      | Submitted to Grantor On is required to save. |
+      | To Save, Submitted to Grantor On is required. |
     When I enter values into fields
       | Value | Field                 |
       | 0     | SubmittedToGrantor__c |
@@ -14713,7 +14713,7 @@ Feature: Sanity scenarios New
     And I click modal button "Save"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Grantor Closeout Date is required to save. |
+      | To Save, Grantor Closeout Date is required. |
     When I enter values into fields
       | Value | Field                  |
       | 0     | FederalCloseoutDate__c |

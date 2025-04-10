@@ -721,7 +721,7 @@ Feature: Sanity scenarios
       | Not Accepted | Decision__c |
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Additional Details is required to save. |
+      | To Save, Additional Details is required. |
     When I enter values into fields
       | Value | Field       |
       | Test  | Comments__c |
@@ -923,11 +923,9 @@ Feature: Sanity scenarios
     Then I see textarea field "PurposeRTA__c" is editable
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Please select Amendment Request Type is required to save. |
-    Then I softly see the following messages in the page details contains:
-      | Initiated By is required to save. |
-    Then I softly see the following messages in the page details contains:
-      | Justification is required to save. |
+      | To Save, Please select Amendment Request Type is required. |
+      | To Save, Initiated By is required.                         |
+      | To Save, Justification is required.                        |
     And I enter "Grantee_Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "3" seconds
@@ -2068,8 +2066,8 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -2154,7 +2152,7 @@ Feature: Sanity scenarios
     Then I softly see new tab is opened
     Then I softly can see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly see "Progress Report Overview" page block displayed
     Then I softly see "Performance Narrative" page block displayed
@@ -2182,7 +2180,7 @@ Feature: Sanity scenarios
     And I navigate to "Quickview" sub tab in split screen
     When I click on "Splitview" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
-    Then I softly can see top right button "Download As PDF" in the split screen page details
+    Then I softly can see top right button "Download as PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
     And I click on hyperlink containing value "{SavedValue:AwardID}"
     Then I softly see field "Status" as "Activated"
@@ -2358,7 +2356,7 @@ Feature: Sanity scenarios
     And I click modal button "Save"
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
-      | Submitted to Grantor On is required to save. |
+      | To Save, Submitted to Grantor On is required. |
     And I enter in modal "Grantee_Submit Details" values from "ProgressReport_Field_Values.xlsx"
     When I click modal button "Save"
     And I wait for "3" seconds
@@ -2455,6 +2453,7 @@ Feature: Sanity scenarios
     And I click toggle button to select "Financial Reports - Approved"
     And I perform quick search for "Approved" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
     Then I softly see value "Approved" for title "Status" inside table "---grantee_tableId:-:FinancialReportsOnMonitoring---"
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:FinancialReportsOnMonitoring---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:FinancialReportsOnMonitoring---"
     Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:FinancialReportsOnMonitoring---"
     Then I softly cannot see row level action button "Delete" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:FinancialReportsOnMonitoring---"
@@ -2583,8 +2582,8 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -2827,7 +2826,7 @@ Feature: Sanity scenarios
     And I click on "Mark as Submitted" in the page details
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Submitted to Grantor On is required to save. |
+      | To Save, Submitted to Grantor On is required. |
     And I enter in modal "Submit Details" values from "Financial_Report_Field_Values.xlsx"
     When I click modal button "Save"
     And I wait for "3" seconds
@@ -3901,8 +3900,8 @@ Feature: Sanity scenarios
       | Please select appropriate action before submitting. |
     When I select radio button "Approve" in the approval decision
     And I submit the approval in the approval decision
-    And I wait for "2" seconds
-    Then I see the following messages in the page details contains:
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
       | Comments are required. |
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
@@ -7360,7 +7359,7 @@ Feature: Sanity scenarios
     And I click modal button "Save"
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
-      | Submitted to Grantor On is required to save. |
+      | To Save, Submitted to Grantor On is required. |
     When I enter values into fields
       | Value | Field                 |
       | 0     | SubmittedToGrantor__c |
@@ -8766,8 +8765,8 @@ Feature: Sanity scenarios
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
       | To Save, Please select Amendment Request Type is required. |
-      | To Save, Initiated By is required. |
-      | To Save, Justification is required. |
+      | To Save, Initiated By is required.                         |
+      | To Save, Justification is required.                        |
     And I enter "Grantee_Combination_Creation2" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Grantee_Combination_Edition" values from "AmendmentRequest_Field_Values.xlsx"
@@ -8829,13 +8828,13 @@ Feature: Sanity scenarios
       | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected.      |
       | Responsibilities - At least one approver is required.                                                                                                                         |
     Examples:
-      | User          |
-      | GRANTEE PM    |
-      | GRANTEE PO    |
-      | GRANTEE EXE   |
-      | GRANTEE FO    |
-      | GRANTEE FD    |
-      | GRANTEE ADMIN1|
+      | User           |
+      | GRANTEE PM     |
+      | GRANTEE PO     |
+      | GRANTEE EXE    |
+      | GRANTEE FO     |
+      | GRANTEE FD     |
+      | GRANTEE ADMIN1 |
 
   @464036 @ValidateAmeliaFDuserReviewerYescanabletosubmitReview&ReviewcompletebyAROwneronclickofCompeleteReviewbuttononBPCAR @GRegression4 @GranteeTBE
   Scenario: Validate Amelia FD user Reviewer Yes can able to submit Review & Review complete by AR Owner on click of Compelete Review button on BPC AR
@@ -8921,8 +8920,8 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     Then I see field "Review Type" as "Program" on modal
     And I enter a review as "Passed"
     When I click modal button "Save"

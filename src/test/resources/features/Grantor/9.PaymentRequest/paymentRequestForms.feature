@@ -209,7 +209,7 @@ Feature: Payment Request Forms scenarios
     And I wait for "5" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 
- @307326 @ValidateSF270SPIusercanabletoSaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF270form @sprint-1-US-282692  @Forms
+  @307326 @ValidateSF270SPIusercanabletoSaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF270form @sprint-1-US-282692  @Forms
   Scenario: Validate SF270 SPI user can able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF270 form
     And I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Payment Request"
@@ -233,21 +233,17 @@ Feature: Payment Request Forms scenarios
     Then I softly see the text containing "OMB Number: 4040-0012"
     Then I softly see the text containing "Expiration Date: 01/31/2025"
     When I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
-      | Street1 is required to save.                                     |
-      | City is required to save.                                        |
-      | State is required to save.                                       |
-      | Zip / Postal Code is required to save.                           |
-      | Street1 is required to save.                                     |
-      | City is required to save.                                        |
-      | State is required to save.                                       |
-      | Zip / Postal Code is required to save.                           |
-      | Signature of Authorized Certifying official is required to save. |
-      | Date Request Submitted is required to save.                      |
-      | First Name is required to save.                                  |
-      | Last Name is required to save.                                   |
-      | Title is required to save.                                       |
-      | Telephone (Area Code, Number, Extension) is required to save.    |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Street1 is required in the 10. Payee (Where check is to be sent if different than item 9) section.           |
+      | To Save, City is required in the 10. Payee (Where check is to be sent if different than item 9) section.              |
+      | To Save, State is required in the 10. Payee (Where check is to be sent if different than item 9) section.             |
+      | To Save, Zip / Postal Code is required in the 10. Payee (Where check is to be sent if different than item 9) section. |
+      | To Save, Signature of Authorized Certifying official is required in the 13. Certification section.                    |
+      | To Save, Date Request Submitted is required in the 13. Certification section.                                         |
+      | To Save, First Name is required in the 13. Certification section.                                                     |
+      | To Save, Last Name is required in the 13. Certification section.                                                      |
+      | To Save, Title is required in the 13. Certification section.                                                          |
+      | To Save, Telephone (Area Code, Number, Extension) is required in the 13. Certification section.                       |
     And I select below checkbox options for field "AdvanaceorReimbursement__c"
       | Advance |
     And I enter "SF270_Form" values from "PaymentRequest_Field_Values.xlsx"
@@ -337,20 +333,17 @@ Feature: Payment Request Forms scenarios
     Then I softly see the text containing "Expiration Date: 01/31/2025"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details :
-      | Street1 is required to save.                                     |
-      | City is required to save.                                        |
-      | State is required to save.                                       |
-      | Zip / Postal Code is required to save.                           |
-      | Street1 is required to save.                                     |
-      | City is required to save.                                        |
-      | State is required to save.                                       |
-      | Zip / Postal Code is required to save.                           |
-      | Signature of Authorized Certifying official is required to save. |
-      | Date Request Submitted is required to save.                      |
-      | First Name is required to save.                                  |
-      | Last Name is required to save.                                   |
-      | Title is required to save.                                       |
-      | Telephone (Area Code, Number, Extension) is required to save.    |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Street1 is required in the 10. Payee (Where check is to be sent if different than item 9) section.           |
+      | To Save, City is required in the 10. Payee (Where check is to be sent if different than item 9) section.              |
+      | To Save, State is required in the 10. Payee (Where check is to be sent if different than item 9) section.             |
+      | To Save, Zip / Postal Code is required in the 10. Payee (Where check is to be sent if different than item 9) section. |
+      | To Save, Signature of Authorized Certifying official is required in the 13. Certification section.                    |
+      | To Save, Date Request Submitted is required in the 13. Certification section.                                         |
+      | To Save, First Name is required in the 13. Certification section.                                                     |
+      | To Save, Last Name is required in the 13. Certification section.                                                      |
+      | To Save, Title is required in the 13. Certification section.                                                          |
+      | To Save, Telephone (Area Code, Number, Extension) is required in the 13. Certification section.                       |
     And I select below checkbox options for field "AdvanaceorReimbursement__c"
       | Advance |
     And I enter "SF270_Form" values from "PaymentRequest_Field_Values.xlsx"
@@ -1012,11 +1005,11 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "Program Review Form" for title "Form Name" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "Site Visit/Desk Review Report" for title "Report Type" inside table "---program:-:previewPackageTableId---"
 
-  @293627 @ValidatePMandSPIusercanseeReportTypeclmonPreapplicationFormunderFormssectiononFormsFilestabofPreapplication @sprint-3-US-288713 @Forms
+  @293627 @ValidatePMandSPIusercanseeReportTypeclmonPreapplicationFormunderFormssectiononFormsFilestabofPreapplication @sprint-3-US-288713 @Forms @TBExecution
   Scenario: Validate PM and SPI user can see Report Type clm on Pre-application Form under Forms section on Forms & Files tab of Preapplication
-    And I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES_WITH_IND_ORG"
+    And I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     And I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "IND" user
+    When I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1034,7 +1027,7 @@ Feature: Payment Request Forms scenarios
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                      | Project Role             | Is Key Contact |
-      | {SavedValue:IND Username} | Project Director/Manager | Checked        |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -1063,11 +1056,11 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "Standard Pre-Application form" for title "Form Name" inside table "---preApplication:-:preAppFormTableId---"
     Then I softly see value "Pre-Application Report" for title "Report Type" inside table "---preApplication:-:preAppFormTableId---"
 
-  @293628 @293645 @ValidatePOandSPIusercanseeReportTypeclmApplicationFormunderFormssectiononFilesandFormstabofApplication @sprint-3-US-288713  @Forms
+  @293628 @293645 @ValidatePOandSPIusercanseeReportTypeclmApplicationFormunderFormssectiononFilesandFormstabofApplication @sprint-3-US-288713  @Forms @TBExecution
   Scenario: Validate PO and SPI user can see Report Type clm on Application Form under Forms section on Files and Forms tab of Application
-    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "INVITED_APPLICANT_IND_ORG"
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     When I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "IND" user
+    When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:reviewsTableId---" panel
@@ -1087,8 +1080,8 @@ Feature: Payment Request Forms scenarios
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
       | Name                      | Project Role             | Is Key Contact |
-      | {SavedValue:IND Username} | Project Director/Manager | Checked        |
-     When I navigate to "Proposal" sub tab
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
