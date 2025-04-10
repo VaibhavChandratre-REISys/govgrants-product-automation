@@ -54,6 +54,7 @@ public class GenericSteps {
 
     @Then("^I (softly can see|can see|cannot see|softly cannot see) page block \"([^\"]*)\"$")
     public void iCanSeeCannotSeePageBlock(String usage, String pageblockName) {
+        I.amPerforming().waitFor().makeThreadSleep(2000);
         grantorProjectManager.AssertPageBlockDisplayed(pageblockName, "can see".equalsIgnoreCase(usage) || "softly can see".equalsIgnoreCase(usage), usage.contains("softly"));
     }
 

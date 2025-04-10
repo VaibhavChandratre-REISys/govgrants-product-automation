@@ -426,7 +426,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I navigate to "Forms and Files" sub tab
     Then  I cannot see top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
 
-  @193906 @VerifyEXEusercannotseetopleveleditbuttonandnotabletoaddfileonAdhocreimbursementPRinforceclosedstate @sprint-14-US-225425 @addFiles @TBExecution
+  @193906 @VerifyEXEusercannotseetopleveleditbuttonandnotabletoaddfileonAdhocreimbursementPRinforceclosedstate @sprint-14-US-225425 @addFiles
   Scenario:Verify EXE user can not see top level edit button and not able to add file on Ad-hoc reimbursement PR in force closed state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
     And I am on "SUBPORTAL" portal
