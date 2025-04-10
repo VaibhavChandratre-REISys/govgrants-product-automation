@@ -401,7 +401,7 @@ Feature: Validate all scenarios in Payment Request
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly see field "Acknowledgement" as "I Agree"
 
-  @53971 @advancePaymentRequestSubmitToGrantorBySPA @PaymentRerun1
+  @53971 @advancePaymentRequestSubmitToGrantorBySPA
   Scenario Outline: verify that advance payment request should not be able to submit by SPA user
     When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -420,7 +420,7 @@ Feature: Validate all scenarios in Payment Request
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @53980 @captureConfirmationMessageAfterApprovingAdvancePR @PaymentRerun1
+  @53980 @captureConfirmationMessageAfterApprovingAdvancePR
   Scenario: Capture confirmation message after approving advance payment request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -519,7 +519,7 @@ Feature: Validate all scenarios in Payment Request
     Then I softly see field "Status" as "Submitted to Grantor"
     #Then I can see the message "Successfully sent to Owner. It may take few mintues to process record." in the approval decision
 
-  @53982 @forwardAdvancePaymentRequest @PaymentRerun1
+  @53982 @forwardAdvancePaymentRequest
   Scenario: validate approver can forward advance payment request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -964,7 +964,7 @@ Feature: Validate all scenarios in Payment Request
 #    When I save the value from row "1" for column name "Title" as "File Name" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
 
-   @54416 @uploadAttachmentFromWorkspaceReimbursementPR  @PaymentRerun1
+   @54416 @uploadAttachmentFromWorkspaceReimbursementPR
   Scenario: verify that user can upload document from workspace for Reimbursement Payment Request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1380,6 +1380,7 @@ Feature: Validate all scenarios in Payment Request
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     And I navigate to "Grants" tab
+    And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I wait for "2" seconds
     And I click toggle button to select "Subawards  - Active"
@@ -2167,7 +2168,7 @@ Feature: Validate all scenarios in Payment Request
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @55633 @rejectEmailNotificationAdvance  @PaymentRerun1
+  @55633 @rejectEmailNotificationAdvance
   Scenario: Verify that on Reject, user is able to check  email notifications Payment Request (Advance)
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -2224,7 +2225,7 @@ Feature: Validate all scenarios in Payment Request
       Sandbox: Notification: Payment Request #{SavedValue:PaymentId} has beenRejected.
       """
 
-  @55404 @advancePRSentBackToOwner  @PaymentRerun1
+  @55404 @advancePRSentBackToOwner
   Scenario: Verify that Payment Approval can send back Payment request to Owner (Advance)
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
