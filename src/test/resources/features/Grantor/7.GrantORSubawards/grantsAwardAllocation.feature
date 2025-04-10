@@ -14135,7 +14135,7 @@ Feature: Validate all scenarios of grants and award for Allocation
   @240303 @240304 @ValidateTotalCommitmentamountshouldbepopulatesfromFDMTotalcommitmentAmountfieldonawardanditsHelpTextTotalamountcommittedacrossBudgetperiodsFA=Yes&No @sprint-16-US-220612 @Allocation @ProExecute @TBExecution3
   Scenario Outline: Validate Total Commitment' amount should be populates from FDM "Total commitment Amount field on award and it's Help Text: Total amount committed across Budget periods (FA=Yes&No)
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "<Type>-Automation EXE user"
-    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "BUDGETCATEGORY_NO_FOCUSAREA"
+    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "<filter>"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Applications" tab
@@ -14155,9 +14155,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "Total amount committed across Budget periods" shown as help text
 
     Examples:
-      | Type                       |
-      | BY_APPLICANT               |
-      | BY_APPLICANT_FOCUS_AREA_NO |
+      | Type                       | filter                      |
+      | BY_APPLICANT               | default                     |
+      | BY_APPLICANT_FOCUS_AREA_NO | BUDGETCATEGORY_NO_FOCUSAREA |
 
   @240322 @ValidateAdminuserseeeditaccessonforstartdateandenddateoffocusareabudgetsummarybyfocusareatableincreatedbeforeapprovalsenttoS\Rsentforreviewandreviewedstateofaward @sprint-16-US-220612  @Allocation
   Scenario Outline: Validate Admin user see edit access on for start date and end date of focus area budget summary by focus area table in created,(before approval) sent to S\R, sent for review and reviewed state of award
