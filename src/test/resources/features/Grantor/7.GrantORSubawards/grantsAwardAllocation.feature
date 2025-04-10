@@ -17383,6 +17383,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 1000   | 100        | 100            |
+    And I select value inside table "---applicationReview:-:budgetTableId---" is "10"
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
