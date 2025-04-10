@@ -17377,7 +17377,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     And I select value inside table "---applicationReview:-:budgetTableId---" is "10"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
