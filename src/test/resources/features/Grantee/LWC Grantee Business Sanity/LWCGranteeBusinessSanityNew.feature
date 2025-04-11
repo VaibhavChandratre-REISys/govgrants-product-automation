@@ -1010,7 +1010,7 @@ Feature: Sanity scenarios New
     And I select "Refresh" from parallel lines dropdown of "Special Conditions"
     Then I see table is refreshing
 
-  @484076 @ValidateFromAppGPCloseoutwhileoverrideifthereisnoopenitemstillabletodooverrideandcontinuetheflow @GRegression1 @GranteeTBE
+  @484076 @ValidateFromAppGPCloseoutwhileoverrideifthereisnoopenitemstillabletodooverrideandcontinuetheflow @GRegression1
   Scenario: Validate From App GP Closeout while override if there is no open item still able to do override and continue the flow
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -13450,7 +13450,7 @@ Feature: Sanity scenarios New
       | GRANTEE AUDITOR |
       | GRANTEE ADMIN1  |
 
-  @487040 @487061 @487062 @487063 @487064 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @P1_Grantee @GRegression1 @GranteeTBE
+  @487040 @487061 @487062 @487063 @487064 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @P1_Grantee @GRegression1
   Scenario Outline: Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -13846,7 +13846,7 @@ Feature: Sanity scenarios New
     When I clear the value from field "PurposeRTA__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Justification is required to save under Overview. |
+      | To Save, Justification is required in the Overview tab under the Details section. |
     When I enter value "Automation Test" into field "PurposeRTA__c"
     And I enter value "120" into field "ApprovedIndirectCostRate__c"
     And I enter value "Checked" into field "GeneralConditionChanged__c"
@@ -15690,7 +15690,7 @@ Feature: Sanity scenarios New
     Then I softly see value "<NotesRecord>" for title "Title" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I softly see value "Automation Notes" for title "Description" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:internalOrgNotesTableId---"
-    Then I softly see link "Created By" inside Page block
+    Then I softly see link "<CreatedNotes>" inside Page block
     Then I softly see "Created By" in flex table header "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I can see row level action button "Delete" against "<NotesRecord>" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I can see row level action button "Edit" against "<NotesRecord>" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
@@ -15722,7 +15722,7 @@ Feature: Sanity scenarios New
       | GRANTEE FD    | Danielle FD Garcia | Notes Record FD    | Notes Record FD1    |
       | GRANTEE ADMIN | Product QA         | Notes Record ADMIN | Notes Record ADMIN1 |
 
-  @484041 @ValidateFrommAppGPCloseoutWithPMProfileOncecreatetheadhoccloseoutNewbuttonofcloseoutgetdisable @GRegression1 @GranteeTBE
+  @484041 @ValidateFrommAppGPCloseoutWithPMProfileOncecreatetheadhoccloseoutNewbuttonofcloseoutgetdisable @GRegression1
   Scenario: Validate Fromm App_GP Closeout With PM Profile Once create the adhoc closeout New button of closeout get disable
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -15773,7 +15773,7 @@ Feature: Sanity scenarios New
     Then I can see row level action button "View" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     Then I can see row level action button "Edit" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
 
-  @484062 @ValidateFromAppGPCloseoutWithPMProfileinawardunabletoseeBudgetPeriodcloseoutSection @GRegression1 @GranteeTBE
+  @484062 @ValidateFromAppGPCloseoutWithPMProfileinawardunabletoseeBudgetPeriodcloseoutSection @GRegression1
   Scenario: Validate From App GP Closeout With PM Profile in award unable to see Budget Period closeout Section
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -16179,7 +16179,7 @@ Feature: Sanity scenarios New
     And I click modal button "Save"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Submitted to Grantor On is required to save. |
+      | To Save, Submitted to Grantor On is required. |
     And I enter in modal "Grantee_Submit Details" values from "ProgressReport_Field_Values.xlsx"
     When I click modal button "Save"
     And I wait for "1" seconds

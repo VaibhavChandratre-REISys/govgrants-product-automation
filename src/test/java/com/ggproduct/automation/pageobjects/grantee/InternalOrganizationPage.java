@@ -234,10 +234,6 @@ public class InternalOrganizationPage extends GranteeProjectManager {
     }
 
     private boolean isButtonDisplayedAtModal(String btn) {
-//        By iframeOfActiveModal = By.xpath("//div[contains(@class,'modal') and contains(@style,'block')]//iframe");
-//        String iframeId = I.amPerforming().actionToGet().attribute(iframeOfActiveModal, "id");
-//        I.amPerforming().switchTo().frame(By.xpath("//iframe[@id='" + iframeId + "']"));
-
         boolean flag = false;
         try {
             By toLookInto = By.xpath("//div[@class='slds-modal__container']//button[@title='" + btn + "' or text()='" + btn + "']");
