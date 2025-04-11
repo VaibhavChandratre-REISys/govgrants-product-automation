@@ -904,7 +904,11 @@ public final class FlexTable implements FlexTableComponent {
             I.amPerforming().textInput().toClear(inputBox);
             I.amPerforming().textInput().in(inputBox, fieldValue);
 //                            I.amPerforming().scroll().withMouseToElement(inputBox);
-            I.amPerforming().click().on(inputBox);
+            try {
+                I.amPerforming().click().on(inputBox);
+            } catch (Exception e){
+                I.amPerforming().click().withJavaScript(inputBox);
+            }
             if (I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
                 try {
                     I.amPerforming().click().on(selectText);
