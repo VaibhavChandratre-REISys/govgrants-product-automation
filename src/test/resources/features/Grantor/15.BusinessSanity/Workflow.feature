@@ -1968,8 +1968,10 @@ Feature: Validate all scenarios of every modules flow
       | Administrative Costs | 1000             | 100        | 100            |
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I select value inside table "---applicationReview:-:budgetTableId---" is "10"
+    And I wait for "1" seconds
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
-    When I click on "Add Line Item Details" icon for "Administrative Costs" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
+    When I click on "Add Line Item Details" icon for "Personnel/Labor" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "Edit" :
       | Title           | Budgeted Expense | Cash Match | Non-Cash Match |
       | Personnel/Labor | 1000             | 100        | 100            |
