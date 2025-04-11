@@ -1891,6 +1891,8 @@ Feature: Validate all scenarios of every modules flow
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" in the table "---announcement:-:annoucementContactTableId---"
     And I click modal button "Close"
     And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
       | Name           | Title           |
       | Automation PM1 | Program Manager |
