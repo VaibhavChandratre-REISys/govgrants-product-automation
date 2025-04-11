@@ -1130,6 +1130,7 @@ Feature: Validate all scenarios in Payment Request
     When I edit the following rows inline in flex table with id "---paymentRequest:-:paymentRequestDisallowTableId---" by clicking "Edit" :
       | Title        | Disallowed Amount | Disallowed Amount Reason    |
       | Extra Salary | 50                | Automation Test Description |
+   And I wait for "2" seconds
     Then I see the following messages in the page details :
       | Advance applied cannot be greater than the Net Payment. |
 
