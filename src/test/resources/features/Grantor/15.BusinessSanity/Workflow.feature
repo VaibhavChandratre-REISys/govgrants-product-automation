@@ -2404,10 +2404,12 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
-    When I click on "Add Line Item Details" icon for "Administrative Costs" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
+    And I wait for "2" seconds
+    Then I softly see table "---applicationReview:-:budgetTableId---" shows "Page 2 of 2"
+    When I click on "Add Line Item Details" icon for "Program-Specific Financial Assistance" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "Edit" :
-      | Title           | Budgeted Expense | Cash Match | Non-Cash Match |
-      | Personnel/Labor | 1000             | 100        | 100            |
+      | Title                                 | Budgeted Expense | Cash Match | Non-Cash Match |
+      | Program-Specific Financial Assistance | 1000             | 100        | 100            |
     When I click modal button "Close"
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
@@ -2786,10 +2788,12 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
-    When I click on "Add Line Item Details" icon for "Administrative Costs" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
+    And I wait for "2" seconds
+    Then I softly see table "---applicationReview:-:budgetTableId---" shows "Page 2 of 2"
+    When I click on "Add Line Item Details" icon for "Program-Specific Financial Assistance" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "Edit" :
-      | Title           | Budgeted Expense | Cash Match | Non-Cash Match |
-      | Personnel/Labor | 1000             | 100        | 100            |
+      | Title                                 | Budgeted Expense | Cash Match | Non-Cash Match |
+      | Program-Specific Financial Assistance | 1000             | 100        | 100            |
     When I click modal button "Close"
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
@@ -3110,10 +3114,12 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
-    When I click on "Add Line Item Details" icon for "Administrative Costs" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
+    And I wait for "2" seconds
+    Then I softly see table "---applicationReview:-:budgetTableId---" shows "Page 2 of 2"
+    When I click on "Add Line Item Details" icon for "Program-Specific Financial Assistance" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "Edit" :
-      | Title           | Budgeted Expense | Cash Match | Non-Cash Match |
-      | Personnel/Labor | 1000             | 100        | 100            |
+      | Title                                 | Budgeted Expense | Cash Match | Non-Cash Match |
+      | Program-Specific Financial Assistance | 1000             | 100        | 100            |
     When I click modal button "Close"
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
@@ -3324,10 +3330,12 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
-    When I click on "Add Line Item Details" icon for "Administrative Costs" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
+    And I wait for "2" seconds
+    Then I softly see table "---applicationReview:-:budgetTableId---" shows "Page 2 of 2"
+    When I click on "Add Line Item Details" icon for "Program-Specific Financial Assistance" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "Edit" :
-      | Title           | Budgeted Expense | Cash Match | Non-Cash Match |
-      | Personnel/Labor | 1000             | 100        | 100            |
+      | Title                                 | Budgeted Expense | Cash Match | Non-Cash Match |
+      | Program-Specific Financial Assistance | 1000             | 100        | 100            |
     When I click modal button "Close"
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
@@ -3589,16 +3597,19 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
     When I click on "Add Line Item Details" icon for "Administrative Costs" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
+    When I click on "Add Line Item Details" icon for "Administrative Costs" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "Edit" :
       | Title                | Budgeted Expense | Cash Match | Non-Cash Match |
       | Administrative Costs | 1000             | 100        | 100            |
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
-    When I click on "Add Line Item Details" icon for "Administrative Costs" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
+    And I wait for "2" seconds
+    Then I softly see table "---applicationReview:-:budgetTableId---" shows "Page 2 of 2"
+    When I click on "Add Line Item Details" icon for "Program-Specific Financial Assistance" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "Edit" :
-      | Title           | Budgeted Expense | Cash Match | Non-Cash Match |
-      | Personnel/Labor | 1000             | 100        | 100            |
+      | Title                                 | Budgeted Expense | Cash Match | Non-Cash Match |
+      | Program-Specific Financial Assistance | 1000             | 100        | 100            |
     When I click modal button "Close"
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
@@ -3988,10 +3999,12 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
-    When I click on "Add Line Item Details" icon for "Administrative Costs" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
+    And I wait for "2" seconds
+    Then I softly see table "---applicationReview:-:budgetTableId---" shows "Page 2 of 2"
+    When I click on "Add Line Item Details" icon for "Program-Specific Financial Assistance" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "Edit" :
-      | Title           | Budgeted Expense | Cash Match | Non-Cash Match |
-      | Personnel/Labor | 1000             | 100        | 100            |
+      | Title                                 | Budgeted Expense | Cash Match | Non-Cash Match |
+      | Program-Specific Financial Assistance | 1000             | 100        | 100            |
     When I click modal button "Close"
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
@@ -4233,10 +4246,12 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
-    When I click on "Add Line Item Details" icon for "Administrative Costs" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
+    And I wait for "2" seconds
+    Then I softly see table "---applicationReview:-:budgetTableId---" shows "Page 2 of 2"
+    When I click on "Add Line Item Details" icon for "Program-Specific Financial Assistance" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "Edit" :
-      | Title           | Budgeted Expense | Cash Match | Non-Cash Match |
-      | Personnel/Labor | 1000             | 100        | 100            |
+      | Title                                 | Budgeted Expense | Cash Match | Non-Cash Match |
+      | Program-Specific Financial Assistance | 1000             | 100        | 100            |
     When I click modal button "Close"
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
@@ -4497,10 +4512,12 @@ Feature: Validate all scenarios of every modules flow
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
-    When I click on "Add Line Item Details" icon for "Administrative Costs" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
+    And I wait for "2" seconds
+    Then I softly see table "---applicationReview:-:budgetTableId---" shows "Page 2 of 2"
+    When I click on "Add Line Item Details" icon for "Program-Specific Financial Assistance" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "Edit" :
-      | Title           | Budgeted Expense | Cash Match | Non-Cash Match |
-      | Personnel/Labor | 1000             | 100        | 100            |
+      | Title                                 | Budgeted Expense | Cash Match | Non-Cash Match |
+      | Program-Specific Financial Assistance | 1000             | 100        | 100            |
     When I click modal button "Close"
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
@@ -4933,16 +4950,19 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
     When I click on "Add Line Item Details" icon for "Administrative Costs" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
+    When I click on "Add Line Item Details" icon for "Administrative Costs" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "Edit" :
       | Title                | Budgeted Expense | Cash Match | Non-Cash Match |
       | Administrative Costs | 1000             | 100        | 100            |
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
-    When I click on "Add Line Item Details" icon for "Administrative Costs" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
+    And I wait for "2" seconds
+    Then I softly see table "---applicationReview:-:budgetTableId---" shows "Page 2 of 2"
+    When I click on "Add Line Item Details" icon for "Program-Specific Financial Assistance" inside flex table with id "---applicationReview:-:budgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "Edit" :
-      | Title           | Budgeted Expense | Cash Match | Non-Cash Match |
-      | Personnel/Labor | 1000             | 100        | 100            |
+      | Title                                 | Budgeted Expense | Cash Match | Non-Cash Match |
+      | Program-Specific Financial Assistance | 1000             | 100        | 100            |
     When I click modal button "Close"
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
