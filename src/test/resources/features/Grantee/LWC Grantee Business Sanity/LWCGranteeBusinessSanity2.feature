@@ -2747,7 +2747,7 @@ Feature: Sanity scenarios
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
 
-  @482394 @PMUserVerifythepeerreviewfunctionalityforaward @P2_Grantee @GRegression1 @GranteeTBE
+  @482394 @PMUserVerifythepeerreviewfunctionalityforaward @P2_Grantee @GRegression1
   Scenario:PM User-Verify the peer review functionality for award
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Sarah PM"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
