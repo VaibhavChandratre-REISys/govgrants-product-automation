@@ -1,5 +1,5 @@
 @GranteeSanityBusinessFlowNew
-Feature: Sanity scenarios New 
+Feature: Sanity scenarios New
 
   @463446 @ValidatePreAppwithPOprofileusingtherecorddecisionabletoaccept
   Scenario: Validate PreApp with PO profile ,using the record decision able to accept
@@ -13457,13 +13457,13 @@ Feature: Sanity scenarios New
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:RelatedPrograms---"
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:AllQualificationsTable---"
     And I navigate to "Files" sub tab
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsAttachmentTableId---"
+    Then I softly <filter> top right button "New" inside flex table "---grantee_tableId:-:LeadsAttachmentTableId---"
     Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
     Examples:
-      | UserType        |
-      | GRANTEE FD      |
-      | GRANTEE AUDITOR |
-      | GRANTEE ADMIN1  |
+      | UserType        | filter     |
+      | GRANTEE FD      | see        |
+      | GRANTEE AUDITOR | do not see |
+      | GRANTEE ADMIN1  | see        |
 
   @487040 @487061 @487062 @487063 @487064 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @P1_Grantee @GRegression1
   Scenario Outline: Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
