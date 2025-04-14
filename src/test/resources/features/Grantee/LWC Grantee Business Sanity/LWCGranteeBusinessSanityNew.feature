@@ -16631,7 +16631,7 @@ Feature: Sanity scenarios New
     And I navigate to "Management" sub tab
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
 
-  @493683 @Validateonclickviewactionmodalgetopeninviewmode @P3_Grantee @GRegression1 @TBExecution2
+  @493683 @Validateonclickviewactionmodalgetopeninviewmode @P3_Grantee @GRegression1
   Scenario: Validate on click view action modal get open in view mode
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -16675,7 +16675,7 @@ Feature: Sanity scenarios New
     And I click on "View" icon for "Attachment.pdf" inside flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
     Then I softly see the image "Attachment.pdf" in page detail
 
-  @497967 @Validateauditoruserdonotseeinlineeditbuttonforfederalinternalorginternalcontactfederalnonfederalorgandnonfederalcontactbutnotabletoedittherecord @P3_Grantee @GRegression1 @TBExecution2
+  @497967 @Validateauditoruserdonotseeinlineeditbuttonforfederalinternalorginternalcontactfederalnonfederalorgandnonfederalcontactbutnotabletoedittherecord @P3_Grantee @GRegression1
   Scenario: Validate auditor user do not see inline edit button for federal, internal org, internal contact federal, non federal org and non-federal contact but not able to edit the record
     When I login to "As a Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
