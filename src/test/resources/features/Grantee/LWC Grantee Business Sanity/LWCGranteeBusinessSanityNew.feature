@@ -16719,9 +16719,12 @@ Feature: Sanity scenarios New
     When I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
     When I enter in modal value "12345" into field "MailingPostalCode"
     When I click modal button "Save"
+    And I wait for "2" seconds
     And I save the field labeled "Title" as "Title" on modal
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I perform quick search for "{SavedValue:Title}" in "---grantee_tableId:-:fedContactTableId---" panel
+    Then I softly see that "{SavedValue:Title}" has been added in flextable with Id "---grantee_tableId:-:fedContactTableId---"
 #    Non-Federal Contact
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     When I enter in modal value "Automation Runtime" into field "Title"
@@ -16743,9 +16746,12 @@ Feature: Sanity scenarios New
     When I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
     When I enter in modal value "12345" into field "MailingPostalCode"
     When I click modal button "Save"
+    And I wait for "2" seconds
     And I save the field labeled "Title" as "NonFedTitle" on modal
     And I click modal button "Close"
     And I wait for "2" seconds
+    And I perform quick search for "{SavedValue:Title}" in "---grantee_tableId:-:nonFedContactTableId---" panel
+    Then I softly see that "{SavedValue:Title}" has been added in flextable with Id "---grantee_tableId:-:nonFedContactTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
 #    Internal Org
     When I navigate to "Home" tab
