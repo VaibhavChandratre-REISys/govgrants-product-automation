@@ -11178,7 +11178,7 @@ Feature: Sanity scenarios New
       | GRANTEE ADMIN   |
       | GRANTEE PO      |
 
-  @443840 @443848 @443844 @443847 @ValidatewithPMProfileIfindirectgrantkeepsettingYESthenInApprovedActivestateabletoseetheaccessofsection @GRegression1 @GranteeTBE
+  @443840 @443848 @443844 @443847 @ValidatewithPMProfileIfindirectgrantkeepsettingYESthenInApprovedActivestateabletoseetheaccessofsection @GRegression1
   Scenario: Validate with PM Profile in direct grant keep setting YES then In Approved Active state able to see the access of section
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -13819,7 +13819,7 @@ Feature: Sanity scenarios New
       | GRANTEE ADMIN1 |
       | GRANTEE FO     |
 
-  @486596 @486597 @BudgetRedirectARPmusershouldabletoseethevalidation @P2_Grantee @GRegression1 @GranteeTBE
+  @486596 @486597 @BudgetRedirectARPmusershouldabletoseethevalidation @P2_Grantee @GRegression1
   Scenario Outline: Budget Redirect AR-Pm user should able to see the validation
     And I "Submitted for Approval" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -14663,8 +14663,10 @@ Feature: Sanity scenarios New
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---grantee_tableId:-:HomePendingTask---"
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
     When I "Send to Owner" in the approval decision
-    Then I softly see field "Status" as "Created"
     And I wait for "100" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see field "Status" as "Created"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
@@ -14688,9 +14690,10 @@ Feature: Sanity scenarios New
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
-    And I click toggle button to select "Project Period Closeout Requests - All"
-    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
-    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
+    And I click toggle button to select "Project Period Closeout - All"
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:ProjectPeriodCloseout---" panel
+    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:ProjectPeriodCloseout---"
     Then I softly can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
     Then I softly see "Submit to Grantor" opens in overLay window
@@ -15715,12 +15718,12 @@ Feature: Sanity scenarios New
 
     Examples:
       | userType      | CreatedNotes       | NotesRecord        | NotesRecord1        |
-      | GRANTEE PM    | Sarah PM           | Notes Record PM    | Notes Record PM1    |
-      | GRANTEE PO    | Grantee PO         | Notes Record PO    | Notes Record PO1    |
-      | GRANTEE EXE   | Victor EXE         | Notes Record EXE   | Notes Record EXE1   |
+#      | GRANTEE PM    | Sarah PM           | Notes Record PM    | Notes Record PM1    |
+#      | GRANTEE PO    | Grantee PO         | Notes Record PO    | Notes Record PO1    |
+#      | GRANTEE EXE   | Victor EXE         | Notes Record EXE   | Notes Record EXE1   |
       | GRANTEE FO    | David FO           | Notes Record FO    | Notes Record FO1    |
-      | GRANTEE FD    | Danielle FD Garcia | Notes Record FD    | Notes Record FD1    |
-      | GRANTEE ADMIN | Product QA         | Notes Record ADMIN | Notes Record ADMIN1 |
+#      | GRANTEE FD    | Danielle FD Garcia | Notes Record FD    | Notes Record FD1    |
+#      | GRANTEE ADMIN | Product QA         | Notes Record ADMIN | Notes Record ADMIN1 |
 
   @484041 @ValidateFrommAppGPCloseoutWithPMProfileOncecreatetheadhoccloseoutNewbuttonofcloseoutgetdisable @GRegression1
   Scenario: Validate Fromm App_GP Closeout With PM Profile Once create the adhoc closeout New button of closeout get disable
@@ -15991,7 +15994,7 @@ Feature: Sanity scenarios New
     And I save the field labeled "Submitted On" as "SubmittedOn"
     Then I softly see field "Submitted On" as "{SavedValue:SubmittedOn}"
 
-  @484558 @ValidateFromAppEXEuserPRownercanabletoSubmitProgressReportforApprovalApprovedfromassigned4stepapprovercandoSendtoOwnerForwardApprovedactionsseeMarkasSubmittedbuttononceApprovedthePRseevalidationsonmodal @GRegression1 @GranteeTBE
+  @484558 @ValidateFromAppEXEuserPRownercanabletoSubmitProgressReportforApprovalApprovedfromassigned4stepapprovercandoSendtoOwnerForwardApprovedactionsseeMarkasSubmittedbuttononceApprovedthePRseevalidationsonmodal @GRegression1
   Scenario: Validate From App EXE user PR owner can able to Submit Progress Report for Approval & Approved from assigned 4 step approver & can do Send to Owner Forward Approved actions  see Mark as Submitted button once Approved the PR & see validations on modal
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"

@@ -236,7 +236,7 @@ public class InternalOrganizationPage extends GranteeProjectManager {
     private boolean isButtonDisplayedAtModal(String btn) {
         boolean flag = false;
         try {
-            By toLookInto = By.xpath("//div[@class='slds-modal__container']//button[@title='" + btn + "' or text()='" + btn + "']");
+            By toLookInto = By.xpath("//div[contains(@class,'modal__container')]//button[@title='" + btn + "' or text()='" + btn + "']");
             I.amPerforming().checkToSee().isDisplayed(toLookInto);
             flag = true;
         } catch (Exception ee) {
