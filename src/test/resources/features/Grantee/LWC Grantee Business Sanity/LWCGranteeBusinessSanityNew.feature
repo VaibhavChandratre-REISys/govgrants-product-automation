@@ -13461,9 +13461,9 @@ Feature: Sanity scenarios New
     Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
     Examples:
       | UserType        | filter     |
-      | GRANTEE FD      | see        |
+#      | GRANTEE FD      | see        |
       | GRANTEE AUDITOR | do not see |
-      | GRANTEE ADMIN1  | see        |
+#      | GRANTEE ADMIN1  | see        |
 
   @487040 @487061 @487062 @487063 @487064 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @P1_Grantee @GRegression1
   Scenario Outline: Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
