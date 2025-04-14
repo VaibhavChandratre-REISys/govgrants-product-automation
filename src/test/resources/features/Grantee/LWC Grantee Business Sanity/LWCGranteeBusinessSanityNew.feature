@@ -13426,7 +13426,7 @@ Feature: Sanity scenarios New
       | GRANTEE EXE |
       | GRANTEE FO  |
 
-  @488705 @488706 @488708 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads @TBExecution
+  @488705 @488706 @488708 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads @P4_Grantee @Auditor_Grantee @FD_Grantee @ADMIN_Grantee @GRegression1
   Scenario Outline: Verify As FO user should not see new button for not yet qualify lead and edit access on not yet qualify leads
     Given I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Opportunities" tab
@@ -13461,9 +13461,9 @@ Feature: Sanity scenarios New
     Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
     Examples:
       | UserType        | filter     |
-#      | GRANTEE FD      | see        |
+      | GRANTEE FD      | see        |
       | GRANTEE AUDITOR | do not see |
-#      | GRANTEE ADMIN1  | see        |
+      | GRANTEE ADMIN1  | see        |
 
   @487040 @487061 @487062 @487063 @487064 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @P1_Grantee @GRegression1
   Scenario Outline: Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
@@ -16267,7 +16267,8 @@ Feature: Sanity scenarios New
     Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
-    When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:associateModalProgressTableId---"
+    And I wait for "2" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     And I refresh the page
@@ -16602,9 +16603,9 @@ Feature: Sanity scenarios New
     And I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Reporting Period Start Date is required to save under Overview. |
-      | Reporting Period End Date is required to save under Overview.   |
-      | Report Due Date is required to save under Overview.             |
+      | To Save, Reporting Period Start Date is required in the Overview tab under the Report Overview section. |
+      | To Save, Reporting Period End Date is required in the Overview tab under the Report Overview section.   |
+      | To Save, Report Due Date is required in the Overview tab under the Report Overview section.             |
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - My Records"
