@@ -16345,6 +16345,7 @@ Feature: Sanity scenarios New
     When I navigate to "Responsibilities" sub tab
     And I click on "Send for Review" icon for "Grantee PO" inside table
     Then I softly see field "Status" as "Submitted for Review"
+    When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     Then I softly see fields "ReportingPeriodStartDate__c" is in edit mode
     Then I softly see fields "ReportingPeriodEndDate__c" is in edit mode
@@ -16358,7 +16359,7 @@ Feature: Sanity scenarios New
     Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
-    When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:associateModalProgressTableId---"
     When I click modal button "Close"
     And I wait for "3" seconds
     Then I softly can see row level action button "Remove" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
@@ -16460,6 +16461,7 @@ Feature: Sanity scenarios New
     When I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:ProgressReports---"
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
+    When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     Then I softly see fields "ReportingPeriodStartDate__c" is in edit mode
     Then I softly see fields "ReportingPeriodEndDate__c" is in edit mode
@@ -16476,7 +16478,7 @@ Feature: Sanity scenarios New
     Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly can see row level action button "View" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
-    When I click "Associate" after selection of "Danielle FD Garcia" in the table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    When I click "Associate" after selection of "Danielle FD Garcia" in the table "---grantee_tableId:-:associateModalProgressTableId---"
     When I click modal button "Close"
     And I wait for "3" seconds
     Then I softly can see row level action button "Remove" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
@@ -16551,7 +16553,7 @@ Feature: Sanity scenarios New
     When I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly do not see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
 
-  @484556 @ValidateFromAppEXEuserprogressreportrecordownercanseeAdhocPRcanbecreatedforactiveawardsseerequiredtoSavevalidationsondetailspagelayoutwhenRequiredfieldskeptblankothervalidationsonValidatebuttondeletePR @GRegression1 @TBExecution
+  @484556 @ValidateFromAppEXEuserprogressreportrecordownercanseeAdhocPRcanbecreatedforactiveawardsseerequiredtoSavevalidationsondetailspagelayoutwhenRequiredfieldskeptblankothervalidationsonValidatebuttondeletePR @GRegression1 @P2_Grantee @PM_Grantee
   Scenario: Validate From App EXE user (progress report record owner)can see Ad hoc PR can be created only for active awards & see required to Save validations on details page layout when Required fields kept blank & other validations on Validate button& delete PR
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
