@@ -16625,3 +16625,188 @@ Feature: Sanity scenarios New
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     And I navigate to "Management" sub tab
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+
+  @493683 @Validateonclickviewactionmodalgetopeninviewmode @P3_Grantee @GRegression1 @TBExecution2
+  Scenario: Validate on click view action modal get open in view mode
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "PRE_APPLICATION_YES"
+    And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:PreApplication---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I save the field labeled "EGMS ID" as "PreappEGMSID"
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
+    When I upload attachment without random number "Attachment.pdf" of type "Letter of Intent" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    Then I can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
+    Then I can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:PreApplication---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    When I navigate to "Files" sub tab
+    Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:preApplicationAddFileTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
+    And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
+    Then I softly see the image "Attachment.pdf" in page detail
+
+  @497967 @Validateauditoruserdonotseeinlineeditbuttonforfederalinternalorginternalcontactfederalnonfederalorgandnonfederalcontactbutnotabletoedittherecord @P3_Grantee @GRegression1 @TBExecution2
+  Scenario: Validate auditor user do not see inline edit button for federal, internal org, internal contact federal, non federal org and non-federal contact but not able to edit the record
+    When I login to "As a Grantor" app as "GRANTEE PM" user
+    When I navigate to "Home" tab
+    And I navigate to "External" content inside "Organizations" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
+    When I enter in modal value "123" into field "CongressionalDistrict__c"
+    When I enter in modal value "www.google.com" into field "Website"
+    When I enter in modal value "erer" into field "AddressLine2__c"
+    When I enter in modal value "1234" into field "BillingPostalCodeExtension__c"
+    When I enter in modal value "vegas" into field "County__c"
+    When I enter in modal value "Automation Runtime Organization" into field "Name"
+    When I enter in modal value "NGO" into field "NonFederalOrganizationType__c"
+    When I enter in modal value "Street 1" into field "BillingStreet"
+    When I enter in modal value "New York" into field "BillingCity"
+    When I enter in modal value "AL" into field "State__c"
+    When I enter in modal value "USA" into field "BillingCountry"
+    When I enter in modal value "45623" into field "BillingPostalCode"
+    And I click modal button "Save and Continue"
+    And I wait for "1" seconds
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Overview" sub tab
+    And I wait for "2" seconds
+    And I save the field labeled "Organization Name" as "OrganizationName"
+#    Federal Contact
+    When I navigate to "Home" tab
+    And I navigate to "External" content inside "Contacts" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:fedContactTableId---"
+    When I enter in modal value "Automation Runtime" into field "Title"
+    When I enter in modal value "Department of Education" into field "AccountId"
+    When I enter in modal value "Automation" into field "FirstName"
+    When I enter in modal value "Execution" into field "LastName"
+    When I enter in modal value "8967093844" into field "Phone"
+    When I enter in modal value "8967093440" into field "MobilePhone"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
+    When I enter in modal value "Mail Street" into field "MailingStreet"
+    When I enter in modal value "Howard Lane" into field "Address2__c"
+    When I enter in modal value "AK: Alaska" into field "State__c"
+    When I enter in modal value "VA" into field "MailingCity"
+    When I enter in modal value "123" into field "CongressionalDistrict__c"
+    When I enter in modal value "USA" into field "MailingCountry"
+    When I enter in modal value "United" into field "County__c"
+    When I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
+    When I enter in modal value "12345" into field "MailingPostalCode"
+    When I click modal button "Save"
+    And I save the field labeled "Title" as "Title" on modal
+    When I click modal button "Close"
+    And I wait for "2" seconds
+#    Non-Federal Contact
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
+    When I enter in modal value "Automation Runtime" into field "Title"
+    When I enter in modal value "Test With Automation PM" into field "AccountId"
+    When I enter in modal value "Other" into field "Role__c"
+    When I enter in modal value "Automation" into field "FirstName"
+    When I enter in modal value "Execution" into field "LastName"
+    When I enter in modal value "8967093844" into field "Phone"
+    When I enter in modal value "8967093440" into field "MobilePhone"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
+    When I enter in modal value "Mail Street" into field "MailingStreet"
+    When I enter in modal value "Howard Lane" into field "Address2__c"
+    When I enter in modal value "AK: Alaska" into field "State__c"
+    When I enter in modal value "VA" into field "MailingCity"
+    When I enter in modal value "123" into field "CongressionalDistrict__c"
+    When I enter in modal value "USA" into field "MailingCountry"
+    When I enter in modal value "United" into field "County__c"
+    When I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
+    When I enter in modal value "12345" into field "MailingPostalCode"
+    When I click modal button "Save"
+    And I save the field labeled "Title" as "NonFedTitle" on modal
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+#    Internal Org
+    When I navigate to "Home" tab
+    And I navigate to "Internal" content inside "Organizations" subheader on left panel
+    Then I softly can see row level action button "View" against "Test Automation Organization" in flex table with id "---grantee_tableId:-:InternalOrganizations---"
+    Then I softly cannot see row level action button "Edit" against "Test Automation Organization" in flex table with id "---grantee_tableId:-:InternalOrganizations---"
+    Then I softly can see row level action button "View" against "GMS Administrator" in flex table with id "---grantee_tableId:-:InternalOrganizations---"
+    Then I softly cannot see row level action button "Edit" against "GMS Administrator" in flex table with id "---grantee_tableId:-:InternalOrganizations---"
+    Then I softly can see row level action button "View" against "Department of Product" in flex table with id "---grantee_tableId:-:InternalOrgDivisionTableId---"
+    Then I softly cannot see row level action button "Edit" against "Department of Product" in flex table with id "---grantee_tableId:-:InternalOrgDivisionTableId---"
+#   Federal Org
+    And I navigate to "External" content inside "Organizations" subheader on left panel
+    When I perform quick search for "Agency For International Development" in "---grantee_tableId:-:fedOrgTableId---" panel
+    Then I softly can see row level action button "View" against "Agency For International Development" in flex table with id "---grantee_tableId:-:fedOrgTableId---"
+    Then I softly cannot see row level action button "Edit" against "Agency For International Development" in flex table with id "---grantee_tableId:-:fedOrgTableId---"
+#    Non-Federal Org
+    When I perform quick search for "{SavedValue:OrganizationName}" in "---grantee_tableId:-:nonFedOrgTableId---" panel
+    Then I softly can see row level action button "View" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
+#    Internal Contact
+    And I navigate to "Internal" content inside "Contacts" subheader on left panel
+    And I click toggle button to select "All Contacts"
+    When I perform quick search for "Sarah PM" in "---grantee_tableId:-:InternalContacts---" panel
+    Then I softly can see row level action button "View" against "Sarah PM" in flex table with id "---grantee_tableId:-:InternalContacts---"
+    Then I softly cannot see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:InternalContacts---"
+#    Federal Contact
+    And I navigate to "External" content inside "Contacts" subheader on left panel
+    When I perform quick search for "{SavedValue:Title}" in "---grantee_tableId:-:fedContactTableId---" panel
+    Then I softly can see row level action button "View" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:fedContactTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:fedContactTableId---"
+#    Non-Federal Contact
+    And I perform quick search for "{SavedValue:NonFedTitle}" in "---grantee_tableId:-:nonFedContactTableId---" panel
+    Then I softly can see row level action button "View" against "{SavedValue:NonFedTitle}" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:NonFedTitle}" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
+
+  @488675 @ValidatePMProfileDrawntoDatefieldonactualtabinFinancialSummarysection @P2_Grantee @GRegression1 @TBExecution2
+  Scenario: Validate PM Profile Drawn to Date field on actual tab in Financial Summary section
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    When I navigate to "Actuals" sub tab
+    Then I softly see field "Drawn to Date" as "$0.00"
+    Then I softly see that "Drawn to Date" rendered in view mode only
+    Given I expand nested table containing column value "Automation Permanent Focus Area"
+    When I enter the following values into flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---" by clicking "New" :
+      | Reference ID | Drawdown Date | Amount |
+      | Focus        | 1             | 1500   |
+    And I wait for "1" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see field "Drawn to Date" as "$1,500.00"
+    When I hovering mouse on help text icon inside page block detail "Drawn to Date"
+    Then I softly see "Drawn amount ($) given to Grantee till Date." shown as help text

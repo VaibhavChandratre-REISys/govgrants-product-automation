@@ -8729,20 +8729,20 @@ Feature: Sanity scenarios
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     And I save the value from row "1" for column name "Description" as "Description" from flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly <filter> top right button "New" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly see value "{SavedValue:Description}" for title "Description" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I cannot see row level action button "Download" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I cannot see row level action button "View" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Examples:
-      | UserName   | User       | NonOwner        |
-      | Grantee PO | GRANTEE PO | GRANTEE AUDITOR |
-      | Sarah PM   | GRANTEE PM | GRANTEE PO      |
-      | Grantee PO | GRANTEE PO | GRANTEE PM      |
-      | Grantee PO | GRANTEE PO | GRANTEE EXE     |
-      | Grantee PO | GRANTEE PO | GRANTEE FO      |
-      | Grantee PO | GRANTEE PO | GRANTEE FD      |
+      | UserName   | User       | NonOwner        | filter     |
+      | Grantee PO | GRANTEE PO | GRANTEE AUDITOR | cannot see |
+      | Sarah PM   | GRANTEE PM | GRANTEE PO      | can see    |
+      | Grantee PO | GRANTEE PO | GRANTEE PM      | can see    |
+      | Grantee PO | GRANTEE PO | GRANTEE EXE     | can see    |
+      | Grantee PO | GRANTEE PO | GRANTEE FO      | can see    |
+      | Grantee PO | GRANTEE PO | GRANTEE FD      | can see    |
 
   @476994 @477128 @477129 @477130 @477131 @477132 @CombinationofamendmentVerifyPMusercanseevalidationsoncombinationofamendment @GRegression3 @GRegression1
   Scenario Outline:Combination of amendment : Verify PM user can see validations on combination of amendment
