@@ -16401,9 +16401,10 @@ Feature: Sanity scenarios New
     Then I softly can see row level action button "Edit" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     When I click on "Edit" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I switch to tab number "1"
-    And I enter "Grantee_PSR_form" values from "ProgressReport_Field_Values.xlsx"
+    And I enter value "Automation Test Execution" into field "PerformanceNarrative__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
+    Then I softly see field "Performance Narrative" as "Automation Test Execution" in "Performance Narrative" pageblock
     And I close the tab
     And I wait for "2" seconds
     Then I softly see value "Progress Report" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
@@ -16519,9 +16520,10 @@ Feature: Sanity scenarios New
     Then I softly can see row level action button "Edit" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     When I click on "Edit" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I switch to tab number "1"
-    And I enter "Grantee_PSR_form" values from "ProgressReport_Field_Values.xlsx"
+    And I enter value "Automation Test Data" into field "PerformanceNarrative__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
+    Then I softly see field "Performance Narrative" as "Automation Test Data" in "Performance Narrative" pageblock
     And I close the tab
     And I wait for "2" seconds
     Then I softly see value "Progress Report" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
