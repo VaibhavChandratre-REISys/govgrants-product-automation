@@ -494,7 +494,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
-  @72342 @publishingDirectedAnnouncement @ProdSan2
+  @72342 @publishingDirectedAnnouncement @ProdSan2 @ovi1
   Scenario: Validate the activation of Directed Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1334,7 +1334,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "10" seconds
     And I click on "Save" in the page details
     And I wait for "8" seconds
-   And I halt execution
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "15" seconds
@@ -1866,6 +1865,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
     When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -4360,6 +4360,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "SF429B_Form_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
     And I wait for "3" seconds
     When I click on "Save" in the page details
+    And I halt execution
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | If "Other" option is selected in "14k", Justification in specify is required.                                                                |
