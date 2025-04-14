@@ -2,7 +2,9 @@ package com.ggproduct.automation.steps;
 
 import com.ggproduct.automation.projectmanager.ProjectManager;
 import com.ggproduct.automation.webservices.ProjectWebServices;
+import com.helperPackage.controller.DeviceBucket;
 import com.helperPackage.handlers.govgrants;
+import com.helperPackage.objects.InstanceRecording;
 import com.helperPackage.register.I;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -13,6 +15,7 @@ import io.cucumber.java.en.When;
 import jdk.jfr.Description;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 
 public class CommonSteps {
     ProjectManager projectManager;
@@ -65,13 +68,13 @@ public class CommonSteps {
 
     @Description("Validate field is not editable")
     @Then("I (softly see|see) field \"([^\"]*)\" not in edit mode$")
-    public void iSoftlySeeFieldNotInEditMode(String usage,String fieldAPIName) {
+    public void iSoftlySeeFieldNotInEditMode(String usage, String fieldAPIName) {
         projectManager.assertFieldIsNotInEditMode(fieldAPIName, usage.contains("softly"));
     }
 
 
     @Then("I (softly see|see) field inside table \"([^\"]*)\" not in edit mode$")
-    public void iSoftlySeeFieldInsideTableNotInEditMode(String usage,String fieldAPIName) {
+    public void iSoftlySeeFieldInsideTableNotInEditMode(String usage, String fieldAPIName) {
         projectManager.assertFieldIsNotInEditModeForTable(fieldAPIName, usage.contains("softly"));
 
     }
@@ -90,6 +93,7 @@ public class CommonSteps {
     public void iResetTheTable() {
         I.amPerforming().click().withJavaScript(By.xpath("//div[@class='resetIcon']//button"));
     }
+
     @And("I click on remove for lookup from field \"([^\"]*)\"$")
     public void iRemovelookupvalue(String fieldApiName) {
         I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//div[contains(@class,'pillDiv slds-show')]//*[@title='Remove selected option']"));
@@ -107,18 +111,18 @@ public class CommonSteps {
 
     @And("I click on {string} icon for {string} inside flex table with id {string} without Split")
     public void iClickOnIconForInsideFlexTableWithIdWithQuotes(String actionIcon, String anyUniqueColumnValues, String flexTableId) {
-            govgrants.perform().flexTable().clickTableActionIcon(flexTableId, actionIcon, anyUniqueColumnValues);
+        govgrants.perform().flexTable().clickTableActionIcon(flexTableId, actionIcon, anyUniqueColumnValues);
     }
 
     @When("I {string} page block contaninig value {string}")
     public void iPageBlockContaninigValue(String actionIcon, String pageBlockTitle) {
-        govgrants.perform().pageDetails().pageBlockExpandedOrCollapse(pageBlockTitle,actionIcon);
+        govgrants.perform().pageDetails().pageBlockExpandedOrCollapse(pageBlockTitle, actionIcon);
     }
 
 
     @When("I {string} left navigation contaninig value {string}")
     public void iLeftNavigationContaninigValue(String actionIcon, String leftNavigationButton) {
-        govgrants.perform().pageDetails().leftNavigationContaninigValue(actionIcon,leftNavigationButton);
+        govgrants.perform().pageDetails().leftNavigationContaninigValue(actionIcon, leftNavigationButton);
     }
 
 
@@ -130,6 +134,12 @@ public class CommonSteps {
         } else {
             Assert.assertEquals("see".equalsIgnoreCase(shouldBeDisplayed), govgrants.perform().pageDetails().isElementPresentInsidePageBlockWithQuotes(fieldLabel1));
         }
+    }
+
+    @And("I get current URL")
+    public void iGetCurrentURL() {
+        String currentURL = (InstanceRecording.getInstance(DeviceBucket.class)).getDriver().getCurrentUrl();
+        System.out.println("current URL : " + currentURL);
     }
 }
 
