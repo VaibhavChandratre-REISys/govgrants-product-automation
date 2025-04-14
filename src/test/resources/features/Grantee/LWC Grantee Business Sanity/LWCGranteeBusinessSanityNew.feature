@@ -6066,18 +6066,32 @@ Feature: Sanity scenarios New
     And I wait for "3" seconds
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationProjectNarrativeAttachmentTableId---"
 
-  @477672 @ValidateWithPOProfileAddbuttonabletoseeandcontinue
+  @477672 @ValidateWithPOProfileAddbuttonabletoseeandcontinue @TBExecution
   Scenario: Validate With PO Profile Add button able to see and continue
-    When I login to "As a Grantee" app as "GRANTEE PO" user
+    Given I delete the grantee record "{grantee_testData:GrantsGovKeyContactMandatory}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269340" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001269340" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001269340" with properties "default-Grantee PO user"
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{grantee_testData:AutomationGrantsGovApplicationsAllForms}" in "---grantee_tableId:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{grantee_testData:AutomationGrantsGovApplicationsAllForms}" inside table
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I click on "Edit" in the page details
+    And I enter value "123" into field "CongressionalDistrict1__c"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
-    And I wait for "2" seconds
     Then I softly see value "Key Contacts" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Preview" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -13412,7 +13426,7 @@ Feature: Sanity scenarios New
       | GRANTEE EXE |
       | GRANTEE FO  |
 
-  @488705 @488706 @488708 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads
+  @488705 @488706 @488708 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads @TBExecution
   Scenario Outline: Verify As FO user should not see new button for not yet qualify lead and edit access on not yet qualify leads
     Given I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Opportunities" tab
@@ -15718,12 +15732,12 @@ Feature: Sanity scenarios New
 
     Examples:
       | userType      | CreatedNotes       | NotesRecord        | NotesRecord1        |
-#      | GRANTEE PM    | Sarah PM           | Notes Record PM    | Notes Record PM1    |
-#      | GRANTEE PO    | Grantee PO         | Notes Record PO    | Notes Record PO1    |
-#      | GRANTEE EXE   | Victor EXE         | Notes Record EXE   | Notes Record EXE1   |
+      | GRANTEE PM    | Sarah PM           | Notes Record PM    | Notes Record PM1    |
+      | GRANTEE PO    | Grantee PO         | Notes Record PO    | Notes Record PO1    |
+      | GRANTEE EXE   | Victor EXE         | Notes Record EXE   | Notes Record EXE1   |
       | GRANTEE FO    | David FO           | Notes Record FO    | Notes Record FO1    |
-#      | GRANTEE FD    | Danielle FD Garcia | Notes Record FD    | Notes Record FD1    |
-#      | GRANTEE ADMIN | Product QA         | Notes Record ADMIN | Notes Record ADMIN1 |
+      | GRANTEE FD    | Danielle FD Garcia | Notes Record FD    | Notes Record FD1    |
+      | GRANTEE ADMIN | Product QA         | Notes Record ADMIN | Notes Record ADMIN1 |
 
   @484041 @ValidateFrommAppGPCloseoutWithPMProfileOncecreatetheadhoccloseoutNewbuttonofcloseoutgetdisable @GRegression1
   Scenario: Validate Fromm App_GP Closeout With PM Profile Once create the adhoc closeout New button of closeout get disable
@@ -16194,7 +16208,7 @@ Feature: Sanity scenarios New
     And I save the field labeled "Submitted On" as "SubmittedOn"
     Then I softly see field "Submitted On" as "{SavedValue:SubmittedOn}"
 
-  @484537 @ValidateFromAppEXEuserprogressreportrecordownercaneditthefieldsonAdhocprogressreportisinCreatedsubmittedforreviewreviewedstates @GRegression1
+  @484537 @ValidateFromAppEXEuserprogressreportrecordownercaneditthefieldsonAdhocprogressreportisinCreatedsubmittedforreviewreviewedstates @GRegression1 @TBExecution
   Scenario: Validate From App EXE user progress report record owner can edit the fields on Adhoc progress report is in Created submitted for review reviewed states
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -16531,7 +16545,7 @@ Feature: Sanity scenarios New
     When I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly do not see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
 
-  @484556 @ValidateFromAppEXEuserprogressreportrecordownercanseeAdhocPRcanbecreatedforactiveawardsseerequiredtoSavevalidationsondetailspagelayoutwhenRequiredfieldskeptblankothervalidationsonValidatebuttondeletePR @GRegression1
+  @484556 @ValidateFromAppEXEuserprogressreportrecordownercanseeAdhocPRcanbecreatedforactiveawardsseerequiredtoSavevalidationsondetailspagelayoutwhenRequiredfieldskeptblankothervalidationsonValidatebuttondeletePR @GRegression1 @TBExecution
   Scenario: Validate From App EXE user (progress report record owner)can see Ad hoc PR can be created only for active awards & see required to Save validations on details page layout when Required fields kept blank & other validations on Validate button& delete PR
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
