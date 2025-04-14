@@ -1,5 +1,5 @@
 @GranteeSanityBusinessFlowNew
-Feature: Sanity scenarios New
+Feature: Sanity scenarios New 
 
   @463446 @ValidatePreAppwithPOprofileusingtherecorddecisionabletoaccept
   Scenario: Validate PreApp with PO profile ,using the record decision able to accept
