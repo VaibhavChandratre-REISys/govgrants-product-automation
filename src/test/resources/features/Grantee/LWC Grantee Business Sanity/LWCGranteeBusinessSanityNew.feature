@@ -6066,7 +6066,7 @@ Feature: Sanity scenarios New
     And I wait for "3" seconds
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationProjectNarrativeAttachmentTableId---"
 
-  @477672 @ValidateWithPOProfileAddbuttonabletoseeandcontinue @TBExecution
+  @477672 @ValidateWithPOProfileAddbuttonabletoseeandcontinue @GRegression1
   Scenario: Validate With PO Profile Add button able to see and continue
     Given I delete the grantee record "{grantee_testData:GrantsGovKeyContactMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269340" with properties "default-Grantee PO user"
@@ -13448,6 +13448,7 @@ Feature: Sanity scenarios New
     When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Leads Not Yet Qualified - All"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
     When I perform quick search for "{SavedValue:LeadsEGMSID}" in "---grantee_tableId:-:LeadsNotYetQualified---" panel
     And I click on "View" icon for "{SavedValue:LeadsEGMSID}" inside flex table with id "---grantee_tableId:-:LeadsNotYetQualified---" without waiting for record
@@ -16268,6 +16269,8 @@ Feature: Sanity scenarios New
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     When I click modal button "Close"
+    And I wait for "2" seconds
+    And I refresh the page
     And I wait for "3" seconds
     Then I softly can see row level action button "Remove" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly can see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
@@ -16276,7 +16279,7 @@ Feature: Sanity scenarios New
       | Name     | Is Key Contact | Project Role |
       | Sarah PM | Checked        | Other        |
     Then I softly cannot see row level action button "Remove" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
-    Then I softly can see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly cannot see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly can see row level action button "View" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     When I navigate to "Performance" sub tab
     And I click on "Edit" in the page details
@@ -16351,7 +16354,7 @@ Feature: Sanity scenarios New
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly cannot see row level action button "Remove" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
-    Then I softly can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
@@ -16363,8 +16366,8 @@ Feature: Sanity scenarios New
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---" by clicking "Edit" :
       | Name     | Is Key Contact | Project Role |
       | David FO | Checked        | Other        |
-    Then I softly cannot see row level action button "Remove" against "David FOM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
-    Then I softly can see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly cannot see row level action button "Remove" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly can see row level action button "View" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     When I navigate to "Performance" sub tab
     And I click on "Edit" in the page details
@@ -16466,10 +16469,10 @@ Feature: Sanity scenarios New
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly cannot see row level action button "Remove" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
-    Then I softly can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly cannot see row level action button "Remove" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
-    Then I softly can see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly can see row level action button "View" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     When I click "Associate" after selection of "Danielle FD Garcia" in the table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
@@ -16482,7 +16485,7 @@ Feature: Sanity scenarios New
       | Name               | Is Key Contact | Project Role |
       | Danielle FD Garcia | Checked        | Other        |
     Then I softly cannot see row level action button "Remove" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
-    Then I softly can see row level action button "Edit" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly cannot see row level action button "Edit" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly can see row level action button "View" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     When I navigate to "Performance" sub tab
     And I click on "Edit" in the page details
@@ -16585,9 +16588,9 @@ Feature: Sanity scenarios New
     When I click on "Validate" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Forms and Files Tab - Attach Progress Report document.       |
-      | Performance Tab: Provide 'Reported Value As Of' for the KPI. |
-      | Responsibilities - At least one approver is required.        |
+      | Forms and Files Tab - Attach Progress Report document.        |
+      | Performance Tab - Provide 'Reported Value As Of' for the KPI. |
+      | Responsibilities - At least one approver is required.         |
     And I save the field labeled "Reporting Period Start Date" as "ReportingPeriodStartDate"
     And I save the field labeled "Reporting Period End Date" as "ReportingPeriodEndDate"
     And I save the field labeled "Report Due Date" as "ReportDueDate"
@@ -16701,6 +16704,7 @@ Feature: Sanity scenarios New
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Contacts" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:fedContactTableId---"
+    When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation Runtime" into field "Title"
     When I enter in modal value "Department of Education" into field "AccountId"
     When I enter in modal value "Automation" into field "FirstName"
@@ -16750,8 +16754,8 @@ Feature: Sanity scenarios New
     And I save the field labeled "Title" as "NonFedTitle" on modal
     And I click modal button "Close"
     And I wait for "2" seconds
-    And I perform quick search for "{SavedValue:Title}" in "---grantee_tableId:-:nonFedContactTableId---" panel
-    Then I softly see that "{SavedValue:Title}" has been added in flextable with Id "---grantee_tableId:-:nonFedContactTableId---"
+    And I perform quick search for "{SavedValue:NonFedTitle}" in "---grantee_tableId:-:nonFedContactTableId---" panel
+    Then I softly see that "{SavedValue:NonFedTitle}" has been added in flextable with Id "---grantee_tableId:-:nonFedContactTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
 #    Internal Org
     When I navigate to "Home" tab
