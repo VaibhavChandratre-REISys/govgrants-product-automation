@@ -3739,6 +3739,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Save" in the page details
     And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
+    And I wait for "10" seconds
     And I upload attachment without random number "AttachmentTesting.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "2. Additional File for Comments" from computer
@@ -3788,6 +3789,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
+    And I wait for "10" seconds
     And I upload attachment without random number "AttachmentTesting.pdf" of type "2. Additional File for Comments" from computer
     When I click modal button "Close"
     And I wait for "9" seconds
