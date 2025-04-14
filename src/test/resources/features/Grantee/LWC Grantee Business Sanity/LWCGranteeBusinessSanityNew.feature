@@ -14625,7 +14625,9 @@ Feature: Sanity scenarios New
     And I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "Edit" in page detail
     When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---" without waiting for record
+    And I wait for "2" seconds
     When I click modal button "Save"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | To Save, Rating is required.   |
       | To Save, Comments is required. |
@@ -16667,7 +16669,7 @@ Feature: Sanity scenarios New
     Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
     Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
     Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
-    And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
+    And I click on "View" icon for "Attachment.pdf" inside flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
     Then I softly see the image "Attachment.pdf" in page detail
 
   @497967 @Validateauditoruserdonotseeinlineeditbuttonforfederalinternalorginternalcontactfederalnonfederalorgandnonfederalcontactbutnotabletoedittherecord @P3_Grantee @GRegression1 @TBExecution2
@@ -16752,6 +16754,8 @@ Feature: Sanity scenarios New
     Then I softly cannot see row level action button "Edit" against "Test Automation Organization" in flex table with id "---grantee_tableId:-:InternalOrganizations---"
     Then I softly can see row level action button "View" against "GMS Administrator" in flex table with id "---grantee_tableId:-:InternalOrganizations---"
     Then I softly cannot see row level action button "Edit" against "GMS Administrator" in flex table with id "---grantee_tableId:-:InternalOrganizations---"
+    And I expand nested table containing column value "GMS Administrator"
+    And I wait for "2" seconds
     Then I softly can see row level action button "View" against "Department of Product" in flex table with id "---grantee_tableId:-:InternalOrgDivisionTableId---"
     Then I softly cannot see row level action button "Edit" against "Department of Product" in flex table with id "---grantee_tableId:-:InternalOrgDivisionTableId---"
 #   Federal Org
@@ -16779,7 +16783,7 @@ Feature: Sanity scenarios New
     Then I softly can see row level action button "View" against "{SavedValue:NonFedTitle}" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:NonFedTitle}" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
 
-  @488675 @ValidatePMProfileDrawntoDatefieldonactualtabinFinancialSummarysection @P2_Grantee @GRegression1 @TBExecution2
+  @488675 @ValidatePMProfileDrawntoDatefieldonactualtabinFinancialSummarysection @P2_Grantee @GRegression1
   Scenario: Validate PM Profile Drawn to Date field on actual tab in Financial Summary section
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
