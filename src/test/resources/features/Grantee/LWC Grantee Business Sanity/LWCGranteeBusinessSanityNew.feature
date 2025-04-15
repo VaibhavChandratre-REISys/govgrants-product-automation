@@ -16211,7 +16211,7 @@ Feature: Sanity scenarios New
     And I save the field labeled "Submitted On" as "SubmittedOn"
     Then I softly see field "Submitted On" as "{SavedValue:SubmittedOn}"
 
-  @484537 @ValidateFromAppEXEuserprogressreportrecordownercaneditthefieldsonAdhocprogressreportisinCreatedsubmittedforreviewreviewedstates @GRegression1 @TBExecution
+  @484537 @ValidateFromAppEXEuserprogressreportrecordownercaneditthefieldsonAdhocprogressreportisinCreatedsubmittedforreviewreviewedstates @GRegression1 @EXE_Grantee @P1_Grantee
   Scenario: Validate From App EXE user progress report record owner can edit the fields on Adhoc progress report is in Created submitted for review reviewed states
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -16852,7 +16852,7 @@ Feature: Sanity scenarios New
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Management" sub tab
-    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:FinancialReportsOnAwards---"
     And I save the field labeled "EGMS ID" as "financialEGMSID"
     And I wait for "3" seconds
     When I navigate to "Overview" sub tab
@@ -16940,3 +16940,24 @@ Feature: Sanity scenarios New
     And I click on hyperlink containing value "View All"
     Then I softly see value "Reviewed" for title "New Value" inside field history table
     Then I softly see value "Submitted for Review" for title "Original Value" inside field history table
+
+  @456309 @456303 @ValidateGrantPOFOFDwhenchangethelistviewfilterafterrefreshagainitshowsMyrecordinfilter @P4_Grantee @PO_Grantee @FO_Grantee @FD_Grantee @Gregression1
+  Scenario: Validate Grant PO FO FD when change the list view filter after refresh again it shows My record in filter
+    When I login to "As a Grantee" app as "<user>" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    Then I softly see toggle option "Grants - All" inside flex table id "---grantee_tableId:-:GrantsTable---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    Then I softly see toggle option "Grants - My Records" inside flex table id "---grantee_tableId:-:GrantsTable---"
+    #456303
+    And I navigate to "Grants" tab
+    When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Awards - All"
+    Then I softly see toggle option "Awards - All" inside flex table id "---grantee_tableId:-:awardTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardTableId---"
+    Then I softly see toggle option "Awards - My Records" inside flex table id "---grantee_tableId:-:awardTableId---"
+      | user       |
+      | GRANTEE PO |
+      | GRANTEE FO |
+      | GRANTEE FD |

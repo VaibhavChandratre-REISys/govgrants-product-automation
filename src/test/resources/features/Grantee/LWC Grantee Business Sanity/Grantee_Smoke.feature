@@ -13648,7 +13648,7 @@ Feature: Grantee Smoke scenarios
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "Sarah PM"
 
-  @484555 @ValidateFromAppPMuserAwardOwnercanabletocreateSceduledProgressReportabletosubmitProgressReporttoGrantor @Grantee_Smoke1 @TBExecution
+  @484555 @ValidateFromAppPMuserAwardOwnercanabletocreateSceduledProgressReportabletosubmitProgressReporttoGrantor @Grantee_Smoke1
   Scenario: Validate From App PM user Award Owner can able to create Sceduled Progress Report & able to submit Progress Report to Grantor
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default"
