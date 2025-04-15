@@ -903,7 +903,7 @@ public final class GovGrantsAssertionSteps {
     }
 
     @Then("I (softly see|see|do not see|softly do not see) default toggle as \"([^\"]*)\" for table \"([^\"]*)\"$")
-    public void iSoftlySeeDefaultToggleAs(String usage, String tableId, String defaultToggle) {
-        ggAssertionObjects.assertDefaultToggleAs(usage, tableId, defaultToggle);
+    public void iSoftlySeeDefaultToggleAs(String usage, String defaultToggle, String tableId) {
+        ggAssertionObjects.assertDefaultToggleAs(usage, defaultToggle, tableId);
     }
 }

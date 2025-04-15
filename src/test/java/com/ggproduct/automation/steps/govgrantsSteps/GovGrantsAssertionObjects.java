@@ -4229,19 +4229,19 @@ public final class GovGrantsAssertionObjects {
         return flag;
     }
 
-    public void assertDefaultToggleAs(String usage, String tableId, String defaultToggle) {
+    public void assertDefaultToggleAs(String usage, String defaultToggle, String tableId) {
         if (usage.equalsIgnoreCase("see")) {
-            Assert.assertTrue(isDefaultToggleAs(tableId, defaultToggle));
+            Assert.assertTrue(isDefaultToggleAs(defaultToggle, tableId));
         }else if (usage.equalsIgnoreCase("softly see")) {
-            I.amPerforming().assertionsTo().assertThat(isDefaultToggleAs(tableId, defaultToggle)).isTrue();
+            I.amPerforming().assertionsTo().assertThat(isDefaultToggleAs(defaultToggle, tableId)).isTrue();
         }  else if (usage.equalsIgnoreCase("do not see")) {
-            Assert.assertFalse(isDefaultToggleAs(tableId, defaultToggle));
+            Assert.assertFalse(isDefaultToggleAs(defaultToggle, tableId));
         } else{
-            I.amPerforming().assertionsTo().assertThat(isDefaultToggleAs(tableId, defaultToggle)).isFalse();
+            I.amPerforming().assertionsTo().assertThat(isDefaultToggleAs(defaultToggle, tableId)).isFalse();
         }
     }
 
-    private Boolean isDefaultToggleAs(String tableId, String defaultToggle) {
+    private Boolean isDefaultToggleAs(String defaultToggle, String tableId) {
         boolean flag = false;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//div[@class='header']//span[contains(@class,'header-title') and @title='" + defaultToggle + "']"))) {
