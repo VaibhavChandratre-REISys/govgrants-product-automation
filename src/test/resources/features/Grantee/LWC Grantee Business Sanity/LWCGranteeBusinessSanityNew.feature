@@ -16949,15 +16949,17 @@ Feature: Sanity scenarios New
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
     Then I softly see toggle option "Grants - All" inside flex table id "---grantee_tableId:-:GrantsTable---"
+    And I perform quick search for "Test" in "---grantee_tableId:-:GrantsTable---" panel
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:GrantsTable---"
-    Then I softly see toggle option "Grants - My Records" inside flex table id "---grantee_tableId:-:GrantsTable---"
+    Then I softly see default toggle as "Grants - My Records" for table "---grantee_tableId:-:GrantsTable---"
     #456303
     And I navigate to "Grants" tab
     When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Awards - All"
     Then I softly see toggle option "Awards - All" inside flex table id "---grantee_tableId:-:awardTableId---"
+    And I perform quick search for "Test" in "---grantee_tableId:-:awardTableId---" panel
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardTableId---"
-    Then I softly see toggle option "Awards - My Records" inside flex table id "---grantee_tableId:-:awardTableId---"
+    Then I softly see default toggle as "Awards - My Records" for table "---grantee_tableId:-:GrantsTable---"
     Examples:
       | user       |
       | GRANTEE PO |

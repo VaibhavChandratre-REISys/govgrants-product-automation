@@ -4228,4 +4228,27 @@ public final class GovGrantsAssertionObjects {
         }
         return flag;
     }
+
+    public void assertDefaultToggleAs(String usage, String tableId, String defaultToggle) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isDefaultToggleAs(tableId, defaultToggle));
+        }else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isDefaultToggleAs(tableId, defaultToggle)).isTrue();
+        }  else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isDefaultToggleAs(tableId, defaultToggle));
+        } else{
+            I.amPerforming().assertionsTo().assertThat(isDefaultToggleAs(tableId, defaultToggle)).isFalse();
+        }
+    }
+
+    private Boolean isDefaultToggleAs(String tableId, String defaultToggle) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//div[@class='header']//span[contains(@class,'header-title') and @title='" + defaultToggle + "']"))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
+    }
 }
