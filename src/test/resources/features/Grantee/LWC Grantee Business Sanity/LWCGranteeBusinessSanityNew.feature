@@ -16878,6 +16878,7 @@ Feature: Sanity scenarios New
     Then I softly see field "Status" as "Submitted for Review"
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
+    And I wait for "2" seconds
     And I click on "notifications" button on header
     Then I softly see notification "Review Financial Report for Award #{SavedValue:AwardEGMSID} for Reporting Period {SavedValue:ReportingPeriodStartDate} - {SavedValue:ReportingPeriodEndDate}"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -16942,7 +16943,7 @@ Feature: Sanity scenarios New
     Then I softly see value "Submitted for Review" for title "Original Value" inside field history table
 
   @456309 @456303 @ValidateGrantPOFOFDwhenchangethelistviewfilterafterrefreshagainitshowsMyrecordinfilter @P4_Grantee @PO_Grantee @FO_Grantee @FD_Grantee @Gregression1
-  Scenario: Validate Grant PO FO FD when change the list view filter after refresh again it shows My record in filter
+  Scenario Outline: Validate Grant PO FO FD when change the list view filter after refresh again it shows My record in filter
     When I login to "As a Grantee" app as "<user>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -16957,6 +16958,7 @@ Feature: Sanity scenarios New
     Then I softly see toggle option "Awards - All" inside flex table id "---grantee_tableId:-:awardTableId---"
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardTableId---"
     Then I softly see toggle option "Awards - My Records" inside flex table id "---grantee_tableId:-:awardTableId---"
+    Examples:
       | user       |
       | GRANTEE PO |
       | GRANTEE FO |
