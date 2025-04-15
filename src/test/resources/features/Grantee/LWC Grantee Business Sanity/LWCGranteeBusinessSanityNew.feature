@@ -16454,7 +16454,7 @@ Feature: Sanity scenarios New
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - All"
