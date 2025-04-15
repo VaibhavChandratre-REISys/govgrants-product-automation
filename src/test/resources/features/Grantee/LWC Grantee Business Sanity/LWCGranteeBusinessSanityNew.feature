@@ -16423,6 +16423,7 @@ Feature: Sanity scenarios New
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     When I click on "Delete" icon for "Other" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    And I wait for "2" seconds
     Then I softly do not see value "Other" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
@@ -16439,6 +16440,7 @@ Feature: Sanity scenarios New
     Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     When I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    And I wait for "2" seconds
     Then I softly do not see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
       | Title         | Description      |
@@ -16542,6 +16544,7 @@ Feature: Sanity scenarios New
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     When I click on "Delete" icon for "Other" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    And I wait for "2" seconds
     Then I softly do not see value "Other" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
@@ -16553,6 +16556,7 @@ Feature: Sanity scenarios New
     Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     When I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    And I wait for "2" seconds
     Then I softly do not see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
 
   @484556 @ValidateFromAppEXEuserprogressreportrecordownercanseeAdhocPRcanbecreatedforactiveawardsseerequiredtoSavevalidationsondetailspagelayoutwhenRequiredfieldskeptblankothervalidationsonValidatebuttondeletePR @GRegression1 @P2_Grantee @PM_Grantee
