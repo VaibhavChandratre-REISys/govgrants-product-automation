@@ -16959,7 +16959,7 @@ Feature: Sanity scenarios New
     Then I softly see toggle option "Awards - All" inside flex table id "---grantee_tableId:-:awardTableId---"
     And I perform quick search for "Test" in "---grantee_tableId:-:awardTableId---" panel
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardTableId---"
-    Then I softly see default toggle as "Awards - My Records" for table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see default toggle as "Awards - My Records" for table "---grantee_tableId:-:awardTableId---"
     Examples:
       | user       |
       | GRANTEE PO |
