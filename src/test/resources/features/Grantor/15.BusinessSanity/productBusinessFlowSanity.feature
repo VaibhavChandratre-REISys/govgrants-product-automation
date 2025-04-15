@@ -3027,12 +3027,16 @@ Feature: Validate sanity testing of Complete Business Flow
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I pause execution for "7" seconds
     And I click toggle button to select "Grants - All"
+    And I pause execution for "6" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardFromFDM:-:RecipientGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside table
+    And I pause execution for "6" seconds
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardFromFDM:-:RecipientSubAwardTableId---" without waiting for record
     Given I navigate to "Management" sub tab
+    And I pause execution for "6" seconds
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -3276,10 +3280,12 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---amendment:-:recipientsSubawardTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
     And I navigate to "Management" sub tab
+    And I pause execution for "8" seconds
     And I click on top right button "New" in flex table with id "---amendment:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientBPC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "budgetPChangeId"
+    And I pause execution for "7" seconds
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
@@ -3522,7 +3528,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see that "Subaward" is in "Activated" status
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
-    When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
+    When I enter in modal "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
@@ -3551,9 +3557,11 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name          | Amendment Request |
       | Automation PM | Step 1            |
     And I click on "Send to Subrecipient" in the page details
+    And I pause execution for "10" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
+    And I pause execution for "7" seconds
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
@@ -4360,7 +4368,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "SF429B_Form_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
     And I wait for "3" seconds
     When I click on "Save" in the page details
-    And I halt execution
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | If "Other" option is selected in "14k", Justification in specify is required.                                                                |
