@@ -17166,10 +17166,10 @@ Feature: Sanity scenarios New
       | Value | Field                      |
       | 2000  | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
-    When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
-      | Indirect costs | The narrative | 2000           | 200        | 200            |
+      | Construction | The narrative | 2000           | 200        | 200            |
     When I close "Add Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
