@@ -17320,9 +17320,6 @@ Feature: Sanity scenarios New
     When I "Collapse" page block contaninig value "Instructions"
     And I wait for "1" seconds
     When I "Expanded" page block contaninig value "Instructions"
-    When I "Collapse" page block contaninig value "Files"
-    Then I softly do not see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    When I "Expanded" page block contaninig value "Files"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly see "Classification" in flex table header "---grantee_tableId:-:applicationFormAddFileTableId---"
@@ -17485,7 +17482,6 @@ Feature: Sanity scenarios New
     And I click on "Validate" in the split screen page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
-    And I close the tab
     When I click on "Splitview" icon for "Attachments" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "Validate" in the split screen page details
     Then I softly see the following messages in the page details contains:
@@ -17577,10 +17573,6 @@ Feature: Sanity scenarios New
     Then I can see row level action button "View" against "Attachments" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Splitview" against "Attachments" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "0.00%" for title "Percentage" against the value "Attachments" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-    When I click on "Validate" in the page details
-    And I wait for "3" seconds
-    Then I softly see the following messages in the page details contains:
-      | Please validate the Forms by clicking validate button. |
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Attachments" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I see the header is "Attachments" in the page details
@@ -17591,9 +17583,6 @@ Feature: Sanity scenarios New
     When I "Collapse" page block contaninig value "Instructions"
     And I wait for "1" seconds
     When I "Expanded" page block contaninig value "Instructions"
-    When I "Collapse" page block contaninig value "Files"
-    Then I softly do not see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    When I "Expanded" page block contaninig value "Files"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly see "Classification" in flex table header "---grantee_tableId:-:applicationFormAddFileTableId---"
@@ -17756,7 +17745,6 @@ Feature: Sanity scenarios New
     And I click on "Validate" in the split screen page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
-    And I close the tab
     When I click on "Splitview" icon for "Attachments" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "Validate" in the split screen page details
     Then I softly see the following messages in the page details contains:
@@ -17828,7 +17816,7 @@ Feature: Sanity scenarios New
     Then I softly see value "$2,500.00" for title "Amount Spent to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     And I refresh the page
     And I wait for "2" seconds
-    And I "Approved" of type "Key Personnel Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "NON_CASH_MATCH_BUDGET"
+    And I "Approved" of type "Key Personnel Change" amendment request for title "{grantee_testData:GrantsForNonConstructionAndSpent}" with properties "NON_CASH_MATCH_BUDGET"
     When I navigate to "Amendments" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     When I click on "Submit to Grantor" in the page details

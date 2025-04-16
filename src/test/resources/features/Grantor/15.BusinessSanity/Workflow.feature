@@ -1675,24 +1675,13 @@ Feature: Validate all scenarios of every modules flow
 
   @debugtest @debug
   Scenario:
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "AP-TAO modified-9255" in "---negotiation:-:homePendingTasks---" panel
-    And I click on "View" icon for "AP-TAO modified-9255" inside flex table with id "---negotiation:-:homePendingTasks---"
-    And I click on "Edit" in the page details
-    And I navigate to "Negotiations" sub tab
-    And I enter values into fields
-      | Value                              | Field                |
-      | Automation Negotiation Iniatiation | ApplicantResponse__c |
-    When I click on "Save" in the page details
-    And I wait for "2" seconds
-    And I navigate to "Budget" sub tab
-    When I expand nested table containing column value "BP01"
-    And I select value inside table "---applicationReview:-:budgetTableId---" is "10"
-    And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
-    And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
-      | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 1000   | 100        | 100            |
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Application__c/a1hDa000003S8QSIA0/view"
+    And I halt execution
+    When I "Collapse" page block contaninig value "Instructions"
+    And I wait for "1" seconds
+    When I "Expanded" page block contaninig value "Instructions"
+    When I "Collapse" page block contaninig value "Files"
+    Then I softly do not see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    When I "Expanded" page block contaninig value "Files"
     And I halt execution
