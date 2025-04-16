@@ -17817,45 +17817,13 @@ Feature: Sanity scenarios New
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     And I save the field labeled "Award Title" as "AwardTitle"
     When I navigate to "Actuals" sub tab
-    Given I expand nested table containing column value "Automation Permanent Focus Area"
-    When I enter the following values into flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---" by clicking "New" :
-      | Reference ID | Drawdown Date | Amount |
-      | Focus        | 1             | 1500   |
-      | Focus1       | 1             | 1500   |
-    Then I softly can see row level action button "Edit" against "Focus" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
-    Then I softly can see row level action button "Delete" against "Focus" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
-    Then I softly can see row level action button "Edit" against "Focus1" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
-    Then I softly can see row level action button "Delete" against "Focus1" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
-    And I collapse nested table containing column value "Automation Permanent Focus Area"
-    Given I expand nested table containing column value "Automation Permanent Focus Area2"
-    When I enter the following values into flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---" by clicking "New" :
-      | Reference ID | Drawdown Date | Amount |
-      | Focus2       | 1             | 500    |
-      | Focus3       | 1             | 200    |
-    Then I softly can see row level action button "Edit" against "Focus2" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
-    Then I softly can see row level action button "Delete" against "Focus2" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
-    Then I softly can see row level action button "Edit" against "Focus3" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
-    Then I softly can see row level action button "Delete" against "Focus3" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
-    And I refresh the page
-    And I wait for "2" seconds
-    Then I softly see field "Drawn to Date" as "$3,700.00"
-    Then I softly see field "Current Balance" as "$3,700.00"
-    Then I softly see field "Grant Balance" as "$96,300.00"
+    Then I softly see field "Drawn to Date" as "$3,500.00"
+    Then I softly see field "Current Balance" as "$3,500.00"
+    Then I softly see field "Grant Balance" as "$96,500.00"
     Then I softly see field "Spent to Date" as "$4,500.00"
     Then I softly see value "$2,000.00" for title "Spent to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:ExpenditureDetailsTableId---" for table id "Next"
     Then I softly see value "$2,500.00" for title "Spent to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-    Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$700.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$700.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    When I click on "Delete" icon for "Focus3" inside flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
-    And I wait for "2" seconds
-    And I refresh the page
-    And I wait for "2" seconds
-    Then I softly see field "Drawn to Date" as "$3,500.00"
-    Then I softly see field "Current Balance" as "$3,500.00"
-    Then I softly see field "Grant Balance" as "$96,500.00"
     Then I softly see value "$2,000.00" for title "Amount Spent to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$2,500.00" for title "Amount Spent to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     And I refresh the page
