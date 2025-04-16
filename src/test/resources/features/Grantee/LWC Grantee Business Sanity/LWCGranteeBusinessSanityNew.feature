@@ -17848,6 +17848,8 @@ Feature: Sanity scenarios New
     Then I softly see field "Current Balance" as "$0.00"
     Then I softly see field "Grant Balance" as "$95,500.00"
     Then I softly see field "Spent to Date" as "$4,500.00"
+    When I perform quick search for "Construction" in "---grantee_tableId:-:ExpenditureDetailsTableId---" panel
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$2,000.00" for title "Spent to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:ExpenditureDetailsTableId---" for table id "Next"
     Then I softly see value "$2,500.00" for title "Spent to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
@@ -18364,4 +18366,3 @@ Feature: Sanity scenarios New
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-   
