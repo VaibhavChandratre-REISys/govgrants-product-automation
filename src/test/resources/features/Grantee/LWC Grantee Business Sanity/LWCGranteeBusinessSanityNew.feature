@@ -17746,7 +17746,7 @@ Feature: Sanity scenarios New
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
     When I click on "View" icon for "Attachments" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I click on "Validate" in the split screen page details
+    When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
     And I close the tab
