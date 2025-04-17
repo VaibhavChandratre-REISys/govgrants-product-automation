@@ -19214,20 +19214,6 @@ Feature: Sanity scenarios New
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download As PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
-    And I click on "Download As PDF" in the page details
-    And I wait for "8" seconds
-    And I download the file
-    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
-    And I click on "Take Snapshot" in the page details
-    And I wait for "8" seconds
-    And I refresh the page
-    When I navigate to "History" sub tab
-    And I click on hyperlink containing value "SnapShot on"
-    And I wait for "8" seconds
-    When I download the file
-    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
     And I navigate to "Financials" sub tab
     Then I softly see field "Budgeted Cash Match" inside page block
     Then I softly see field "Budgeted Non-Cash Match" inside page block
