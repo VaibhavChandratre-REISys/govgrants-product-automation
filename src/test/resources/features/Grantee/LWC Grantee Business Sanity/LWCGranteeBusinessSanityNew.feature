@@ -18463,9 +18463,9 @@ Feature: Sanity scenarios New
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly can see row level action button "Edit" against "New Indirect rate1" in flex table with id "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly can see row level action button "Delete" against "New Indirect rate1" in flex table with id "---grantee_tableId:-:awardIndirectRateTableId---"
+    And I navigate to "Responsibilities" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:awardPeerReviewerTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:awardApproverTableId---"
-    And I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "Edit" in page detail
     When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" without waiting for record
     And I wait for "2" seconds
@@ -18477,8 +18477,8 @@ Feature: Sanity scenarios New
     When I click modal button "Save"
     And I click on submit review
     And I wait for "3" seconds
-    Then I softly see value "Submitted" for title "Status" against the value "Grantee PO" inside table "---grantee_tableId:-:awardPeerReviewerTableId---"
-    Then I softly cannot see row level action button "Enter Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
+    Then I softly see value "Submitted" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:awardPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Enter Review" against "David FO" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
 
   @484536 @ValidateFromAppPMusercanabletocreateScheduledtypeofProgressReportbyenteringReportCreationDateseeheaderstatus&StepProgressBartabslandingtabsbuttonsectionsunderalltabsofanyPRseetaskcreation @PM_Grantee @P2_Grantee @GRegression1
   Scenario: Validate From App PM user can able to create Scheduled type of Progress Report by entering Report Creation Date & see  header, status & Step Progress Bar,  tabs , landing tabs , button & sections under all tabs of any PR & see task creation
@@ -19141,17 +19141,17 @@ Feature: Sanity scenarios New
     Then I softly see "Create Grant" opens in overLay window
     When I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Grant Title is required to save.               |
-      | Grant Abbreviation is required to save.        |
-      | Grant Number is required to save.              |
-      | Project Period Start Date is required to save. |
-      | Project Period End Date is required to save.   |
-      | Budget Type is required to save.               |
-      | Total Anticipated Amount is required to save.  |
-      | Grant Type is required to save.                |
-      | Funding Organization is required to save.      |
-      | Allow Indirect Costs? is required to save.     |
-      | Match is Required? is required to save.        |
+      | To Save, Grant Title is required.               |
+      | To Save, Grant Abbreviation is required.        |
+      | To Save, Grant Number is required.              |
+      | To Save, Project Period Start Date is required. |
+      | To Save, Project Period End Date is required.   |
+      | To Save, Budget Type is required.               |
+      | To Save, Total Anticipated Amount is required.  |
+      | To Save, Grant Type is required.                |
+      | To Save, Funding Organization is required.      |
+      | To Save, Allow Indirect Costs? is required.     |
+      | To Save, Match is Required? is required.        |
     And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     Then I see the header is "Grant" in the page details
@@ -19162,7 +19162,7 @@ Feature: Sanity scenarios New
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | UEI Number is required to save under Overview. |
+      | To Save, UEI Number is required in the Overview tab under the General Information section. |
     And I navigate to "Overview" sub tab
     When I enter value "<UEI>" into field "DUNS__c"
     When I click on "Cancel" in the page details without processing
@@ -19205,7 +19205,6 @@ Feature: Sanity scenarios New
     Then I softly can see "Financials" sub tab at view detail page
     Then I softly can see "Management" sub tab at view detail page
     Then I softly can see "Monitoring" sub tab at view detail page
-    Then I softly can see "Closeout" sub tab at view detail page
     Then I softly can see "Files" sub tab at view detail page
     Then I softly can see "History" sub tab at view detail page
     Then I softly can see "Messages" sub tab at view detail page
@@ -19262,3 +19261,6 @@ Feature: Sanity scenarios New
     Examples:
       | userType   | UEI          |
       | GRANTEE PM | YRNMVN96JC17 |
+
+  @482049 @ValidateGrantsgovlobbingformfieldsandvalidationsdisplayedtoPMuserforGrantsgovlobbingform @P2_Grantee @PM_Grantee @GRegression1
+  Scenario: Validate Grants gov lobbing form fields and validations displayed to PM user for Grants gov lobbing form
