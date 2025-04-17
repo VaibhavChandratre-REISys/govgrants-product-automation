@@ -7430,7 +7430,7 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
 
-  @485339 @SF424VerifyPMusershouldabletoedittheformsinCreatedSubmittedforreviewreviewedRevisioninprogressstate&Verifynonuserpermission @P2_Grantee
+  @485339 @SF424VerifyPMusershouldabletoedittheformsinCreatedSubmittedforreviewreviewedRevisioninprogressstate&Verifynonuserpermission @P2_Grantee @GranteeTBE
   Scenario: SF-424-Verify PM user should able to edit the forms in Created , Submitted for review, reviewed, Revision in progress state & Verify non user permission
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -7584,7 +7584,7 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Cancel" in page detail
     Then I softly can see top right button "Save" in page detail
 
-  @477451 @477452 @477453 @477454 @477455 @VerifyEXEuserNonOwneranonlyviewfilesaddedonBudgetNarrativeattachmentform @P3_Grantee @GRegression1
+  @477451 @477452 @477453 @477454 @477455 @VerifyEXEuserNonOwneranonlyviewfilesaddedonBudgetNarrativeattachmentform @P3_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Verify EXE user (Non Owner) can only view files added on Budget Narrative attachment form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default"
@@ -7661,7 +7661,7 @@ Feature: Sanity scenarios
       | GRANTEE PM | GRANTEE ADMIN1  |
       | GRANTEE PM | GRANTEE AUDITOR |
 
-  @477449 @477450 @BudgetNarrativeattachmentformVerifyvalidationdisplayedtoPMuseronBudgetNarrativeattachmentform @P2_Grantee
+  @477449 @477450 @BudgetNarrativeattachmentformVerifyvalidationdisplayedtoPMuseronBudgetNarrativeattachmentform @P2_Grantee @GranteeTBE
   Scenario Outline:Budget Narrative attachment form - Verify validation displayed to PM user on Budget Narrative attachment form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default-<UserName>"

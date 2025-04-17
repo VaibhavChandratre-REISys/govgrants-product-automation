@@ -1277,7 +1277,7 @@ Feature: Grantee Smoke scenarios
       | userType   | emailId                 |
       | GRANTEE PM | sarah.pm.23@yopmail.com |
 
-  @477437 @BudgetNarrativeattachmentformVerifyPMusercanaddfilesinBudgetnarrativeattachmentinViewmodeandsuccessfullysubmitapplicationtograntsgov @Grantee_Smoke1
+  @477437 @BudgetNarrativeattachmentformVerifyPMusercanaddfilesinBudgetnarrativeattachmentinViewmodeandsuccessfullysubmitapplicationtograntsgov @Grantee_Smoke1 @GranteeTBE
   Scenario: Budget Narrative attachment form - Verify PM user can add files in Budget narrative attachment in View mode and successfully submit application to grants.gov
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
