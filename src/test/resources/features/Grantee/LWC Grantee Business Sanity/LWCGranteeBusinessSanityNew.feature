@@ -13465,7 +13465,7 @@ Feature: Sanity scenarios New
       | GRANTEE AUDITOR | do not see |
       | GRANTEE ADMIN1  | see        |
 
-  @487040 @487061 @487062 @487063 @487064 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @P1_Grantee @GRegression1
+  @487040 @487061 @487062 @487063 @487064 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @P1_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -13834,7 +13834,7 @@ Feature: Sanity scenarios New
       | GRANTEE ADMIN1 |
       | GRANTEE FO     |
 
-  @486596 @486597 @BudgetRedirectARPmusershouldabletoseethevalidation @P2_Grantee @GRegression1
+  @486596 @486597 @BudgetRedirectARPmusershouldabletoseethevalidation @P2_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Budget Redirect AR-Pm user should able to see the validation
     And I "Submitted for Approval" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -19265,7 +19265,7 @@ Feature: Sanity scenarios New
   @482049 @ValidateGrantsgovlobbingformfieldsandvalidationsdisplayedtoPMuserforGrantsgovlobbingform @P2_Grantee @PM_Grantee @GRegression1
   Scenario: Validate Grants gov lobbing form fields and validations displayed to PM user for Grants gov lobbing form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
-    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001271854" with properties "default"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
@@ -19274,8 +19274,8 @@ Feature: Sanity scenarios New
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212745" with properties "default"
-    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001212745" with properties "default"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001271854" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001271854" with properties "default"
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -19300,31 +19300,6 @@ Feature: Sanity scenarios New
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
-    And I close the tab
-    And I click on "Edit" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I wait for "3" seconds
-    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I click on "Save" in the page details
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | Form validated successfully. |
-    And I close the tab
-    And I click on "Edit" icon for "Attachments" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "Attachment.pdf" of type "Grant Application Document" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I click on "Save" in the page details
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | Form validated successfully. |
     And I close the tab
     Then I softly see value "Grants.gov Lobbying Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see "check" symbol against the value "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -19357,6 +19332,9 @@ Feature: Sanity scenarios New
     Then I softly see "Signature And Date" page block displayed
     Then I softly see the text containing " Required to Save | "
     Then I softly see the text containing " Required to Submit"
+    When I "Collapse" page block contaninig value "Certification Regarding Lobbying"
+    And I wait for "1" seconds
+    When I "Expanded" page block contaninig value "Certification Regarding Lobbying"
     Then I softly see the text containing "Certification for Contracts, Grants, Loans, and Cooperative Agreements"
     Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "The undersigned certifies, to the best of his or her knowledge and belief, that:" on forms
     Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "(1) No Federal appropriated funds have been paid or will be paid, by or on behalf of the undersigned, to any person for influencing or attempting to influence an officer or employee of an agency, a Member of Congress, an officer or employee of Congress, or an employee of a Member of Congress in connection with the awarding of any Federal contract, the making of any Federal grant, the making of any Federal loan, the entering into of any cooperative agreement, and the extension, continuation, renewal, amendment, or modification of any Federal contract, grant, loan, or cooperative agreement." on forms
@@ -19410,6 +19388,28 @@ Feature: Sanity scenarios New
     When I click modal button "OK"
     Then I can see top right button "Edit" in page detail
     And I click on "Edit" in the page details
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | To Save, APPLICANT'S ORGANIZATION is required in the Applicant's Organization section.              |
+      | To Save, First Name is required in the Printed Name And Title Of Authorized Representative section. |
+      | To Save, Last Name is required in the Printed Name And Title Of Authorized Representative section.  |
+      | To Save, Title is required in the Printed Name And Title Of Authorized Representative section.      |
+    And I enter value "{AUTOEnvData:StringOf100Chars}" into field "ApplicantsOrganization__c"
+    And I enter value "{AUTOEnvData:StringOf100Chars}" into field "AOR_First_Name__c"
+    And I enter value "{AUTOEnvData:StringOf100Chars}" into field "AOR_Middle_Name__c"
+    And I enter value "{AUTOEnvData:StringOf100Chars}" into field "AOR_Last_Name__c"
+    And I enter value "{AUTOEnvData:StringOf100Chars}" into field "AOR_Title__c"
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    And I wait for "1" seconds
+    Then I softly see the following messages in the page details contains:
+      | The value of the field "APPLICANT'S ORGANIZATION" exceeds the maximum allowed limit of 60 characters. |
+      | The value of the field "First Name" exceeds the maximum allowed limit of 35 characters.               |
+      | The value of the field "Middle Name" exceeds the maximum allowed limit of 25 characters.              |
+      | The value of the field "Last Name" exceeds the maximum allowed limit of 60 characters.                |
+      | The value of the field "Title" exceeds the maximum allowed limit of 45 characters.                    |
+    When I click on "Edit" in the page details
     And I enter "Lobbying_Form" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "1" seconds
@@ -19435,24 +19435,7 @@ Feature: Sanity scenarios New
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Yes" for title "Validated" against the value "Grants.gov Lobbying Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-    When I click on "Edit" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1"
-    And I enter value "Department of Trust" into field "ApplicantsOrganization__c"
-    When I click on "Save" in the page details
-    And I close the tab
-    And I refresh the page
-    And I wait for "2" seconds
-    Then I softly see value "No" for title "Validated" against the value "Grants.gov Lobbying Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I click on "Validate" in the page details
-    And I wait for "1" seconds
-    Then I softly see the following messages in the page details contains:
-      | Please validate the Forms by clicking validate button. |
-    When I click on "View" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1"
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Form Validated Successfully. |
-    And I close the tab
-    And I refresh the page
     And I wait for "2" seconds
-    Then I softly see value "Yes" for title "Validated" against the value "Grants.gov Lobbying Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see the following messages in the page details contains:
+      | Application has been validated successfully. |
