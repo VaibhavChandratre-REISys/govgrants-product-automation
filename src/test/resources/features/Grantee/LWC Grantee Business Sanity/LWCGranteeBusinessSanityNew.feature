@@ -1010,7 +1010,7 @@ Feature: Sanity scenarios New
     And I select "Refresh" from parallel lines dropdown of "Special Conditions"
     Then I see table is refreshing
 
-  @484076 @ValidateFromAppGPCloseoutwhileoverrideifthereisnoopenitemstillabletodooverrideandcontinuetheflow @GRegression1
+  @484076 @ValidateFromAppGPCloseoutwhileoverrideifthereisnoopenitemstillabletodooverrideandcontinuetheflow @GRegression1 @GranteeTBE
   Scenario: Validate From App GP Closeout while override if there is no open item still able to do override and continue the flow
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -11192,7 +11192,7 @@ Feature: Sanity scenarios New
       | GRANTEE ADMIN   |
       | GRANTEE PO      |
 
-  @443840 @443848 @443844 @443847 @ValidatewithPMProfileIfindirectgrantkeepsettingYESthenInApprovedActivestateabletoseetheaccessofsection @GRegression1
+  @443840 @443848 @443844 @443847 @ValidatewithPMProfileIfindirectgrantkeepsettingYESthenInApprovedActivestateabletoseetheaccessofsection @GRegression1 @GranteeTBE
   Scenario: Validate with PM Profile in direct grant keep setting YES then In Approved Active state able to see the access of section
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -15742,7 +15742,7 @@ Feature: Sanity scenarios New
       | GRANTEE FD    | Danielle FD Garcia | Notes Record FD    | Notes Record FD1    |
       | GRANTEE ADMIN | Product QA         | Notes Record ADMIN | Notes Record ADMIN1 |
 
-  @484041 @ValidateFrommAppGPCloseoutWithPMProfileOncecreatetheadhoccloseoutNewbuttonofcloseoutgetdisable @GRegression1
+  @484041 @ValidateFrommAppGPCloseoutWithPMProfileOncecreatetheadhoccloseoutNewbuttonofcloseoutgetdisable @GRegression1 @GranteeTBE
   Scenario: Validate Fromm App_GP Closeout With PM Profile Once create the adhoc closeout New button of closeout get disable
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -15793,7 +15793,7 @@ Feature: Sanity scenarios New
     Then I can see row level action button "View" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     Then I can see row level action button "Edit" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
 
-  @484062 @ValidateFromAppGPCloseoutWithPMProfileinawardunabletoseeBudgetPeriodcloseoutSection @GRegression1
+  @484062 @ValidateFromAppGPCloseoutWithPMProfileinawardunabletoseeBudgetPeriodcloseoutSection @GRegression1 @GranteeTBE
   Scenario: Validate From App GP Closeout With PM Profile in award unable to see Budget Period closeout Section
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -16011,7 +16011,7 @@ Feature: Sanity scenarios New
     And I save the field labeled "Submitted On" as "SubmittedOn"
     Then I softly see field "Submitted On" as "{SavedValue:SubmittedOn}"
 
-  @484558 @ValidateFromAppEXEuserPRownercanabletoSubmitProgressReportforApprovalApprovedfromassigned4stepapprovercandoSendtoOwnerForwardApprovedactionsseeMarkasSubmittedbuttononceApprovedthePRseevalidationsonmodal @GRegression1
+  @484558 @ValidateFromAppEXEuserPRownercanabletoSubmitProgressReportforApprovalApprovedfromassigned4stepapprovercandoSendtoOwnerForwardApprovedactionsseeMarkasSubmittedbuttononceApprovedthePRseevalidationsonmodal @GRegression1 @GranteeTBE
   Scenario: Validate From App EXE user PR owner can able to Submit Progress Report for Approval & Approved from assigned 4 step approver & can do Send to Owner Forward Approved actions  see Mark as Submitted button once Approved the PR & see validations on modal
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"

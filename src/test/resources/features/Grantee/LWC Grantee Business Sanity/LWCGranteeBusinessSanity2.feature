@@ -2205,7 +2205,7 @@ Feature: Sanity scenarios
     And I click modal button "Close"
     Then I softly see field "Status" as "Accepted"
 
-  @482861 @VerifyEXEuserAROwnercanabletoRejecttheCarryForwardAmendmentRequestfromApprovalProcess @GRegression1
+  @482861 @VerifyEXEuserAROwnercanabletoRejecttheCarryForwardAmendmentRequestfromApprovalProcess @GRegression1 @GranteeTBE
   Scenario:Verify EXE user (AR Owner) can able to Reject the Carry Forward Amendment Request from Approval Process
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -3905,7 +3905,7 @@ Feature: Sanity scenarios
       | GRANTEE FO |
       | GRANTEE FD |
 
-  @482627 @482628 @482629 @482630 @482631 @VerifyPOuserNonownercanviewawarddetailspagebutcannotseeeditactiononaward @GRegression1
+  @482627 @482628 @482629 @482630 @482631 @VerifyPOuserNonownercanviewawarddetailspagebutcannotseeeditactiononaward @GRegression1 @GranteeTBE
   Scenario Outline:Verify PO user(Non owner) can view award details page but cannot see edit action on award
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<OwnerName>"
     Given I login to "As a Grantee" app as "<OwnerType>" user
@@ -6798,7 +6798,7 @@ Feature: Sanity scenarios
       | UserName      | UserType   |
       | Sarah PM user | GRANTEE PM |
 
-  @482029 @GrantsgovlobbingformVerifyassignedreviewerFOwitheditaccessasYescanseeeditbuttonforGrantsgovlobbingformandcaneditallthedataontheformandvalidateitwhenapplicationisinSubmittedforreviewstate @GRegression2
+  @482029 @GrantsgovlobbingformVerifyassignedreviewerFOwitheditaccessasYescanseeeditbuttonforGrantsgovlobbingformandcaneditallthedataontheformandvalidateitwhenapplicationisinSubmittedforreviewstate @GRegression2 @GranteeTBE
   Scenario Outline: Grants.gov lobbing form - Verify assigned reviewer(FO)  with edit access as Yes can see edit button for Grants.gov lobbing form and can edit all the data on the form and validate it when application is in Submitted for review state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumber}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001241410" with properties "default"
@@ -7711,7 +7711,7 @@ Feature: Sanity scenarios
       | Sarah PM user   | GRANTEE PM |
       | Grantee PO user | GRANTEE PO |
 
-  @477446 @BudgetNarrativeattachmentformVerifyFDusercannotaddeditViewdeletefilesinBudgetnarrativeattachmentforminSplitviewmodewhenApplicationisinsubmittedforreviewstate @GRegression2
+  @477446 @BudgetNarrativeattachmentformVerifyFDusercannotaddeditViewdeletefilesinBudgetnarrativeattachmentforminSplitviewmodewhenApplicationisinsubmittedforreviewstate @GRegression2 @GranteeTBE
   Scenario: Budget Narrative attachment form - Verify FD user cannot add/edit/View/delete files in Budget narrative attachment form in Split view mode when Application is in submitted for review state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default"
@@ -7789,7 +7789,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Delete" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly can see row level action button "View" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
 
-  @481564 @481565 @481566 @481567 @481568 @VerifyEXEusershouldabletoviewaccessinallstateofApplicationforform @GRegression4
+  @481564 @481565 @481566 @481567 @481568 @VerifyEXEusershouldabletoviewaccessinallstateofApplicationforform @GRegression4 @GranteeTBE
   Scenario Outline: Verify EXE user should able to view access in all state of Application for form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -8042,7 +8042,7 @@ Feature: Sanity scenarios
       | GRANTEE PM | GRANTEE ADMIN1  |
       | GRANTEE PM | GRANTEE AUDITOR |
 
-  @481536 @VerifyFOuserasaReviewershouldabletoedittheformifeditaccessisYes @GRegression2
+  @481536 @VerifyFOuserasaReviewershouldabletoedittheformifeditaccessisYes @GRegression2 @GranteeTBE
   Scenario Outline: Verify FO user as a Reviewer should able to edit the form if edit access is Yes
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -8126,7 +8126,7 @@ Feature: Sanity scenarios
       | UserType   |
       | GRANTEE PM |
 
-  @481537 @VerifyFDuserasaReviewershouldablenotedittheformifeditaccessisNo @GRegression4
+  @481537 @VerifyFDuserasaReviewershouldablenotedittheformifeditaccessisNo @GRegression4 @GranteeTBE
   Scenario Outline: Verify FD user as a Reviewer should able not edit the form if edit access is No
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -8192,7 +8192,7 @@ Feature: Sanity scenarios
       | UserType   |
       | GRANTEE PM |
 
-  @481563 @VerifyPOUsershouldabletotoedittheforminRevisioninProgressstate @GRegression4
+  @481563 @VerifyPOUsershouldabletotoedittheforminRevisioninProgressstate @GRegression4 @GranteeTBE
   Scenario: Verify PO User should able to to edit the form in Revision in Progress state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -8268,7 +8268,7 @@ Feature: Sanity scenarios
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @481571 @VerifyPMUsershouldabletosubmittheapplicationtograntsgovwithaddingrequiredfields&optionalfields @GRegression2
+  @481571 @VerifyPMUsershouldabletosubmittheapplicationtograntsgovwithaddingrequiredfields&optionalfields @GRegression2 @GranteeTBE
   Scenario: Verify PM User should able to submit the application to grants.gov with adding  required fields & optional fields
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"

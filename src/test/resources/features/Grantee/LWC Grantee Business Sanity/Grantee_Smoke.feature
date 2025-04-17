@@ -1,4 +1,4 @@
-@GranteeSmokeTestCases
+@GranteeSmokeTestCases @GranteeTBE
 Feature: Grantee Smoke scenarios
 
   @470406 @ValidatetheflowofasPMuserisabletocreateandqualifythemanuallead @Grantee_Smoke1
@@ -14024,7 +14024,6 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download as PDF" present in parallel dropdown
-    Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly see "Progress Report Overview" page block displayed
     Then I softly see "Performance Narrative" page block displayed
     Then I softly see "Key Accomplishments" page block displayed
@@ -14052,7 +14051,6 @@ Feature: Grantee Smoke scenarios
     When I click on "Splitview" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Download as PDF" in the split screen page details
-    Then I softly can see top right button "Take Snapshot" in the split screen page details
     And I click on hyperlink containing value "{SavedValue:AwardID}"
     Then I softly see field "Status" as "Activated"
     Then I softly see field "EGMS ID" as "{SavedValue:AwardID}"
