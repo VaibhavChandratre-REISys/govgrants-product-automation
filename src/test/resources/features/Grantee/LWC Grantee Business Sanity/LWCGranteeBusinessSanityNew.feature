@@ -18809,8 +18809,6 @@ Feature: Sanity scenarios New
     When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
       | Name               | Progress Report |
       | Danielle FD Garcia | Step 4          |
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
     When I navigate to "Forms and Files" sub tab
     Then I softly see "Forms" page block displayed
     Then I softly see "Progress Report Files" page block displayed

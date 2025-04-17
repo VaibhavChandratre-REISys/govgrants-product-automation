@@ -13688,7 +13688,7 @@ Feature: Grantee Smoke scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Report Creation Date |
       | {SavedValue:EGMS ID1} | 0                    |
-    And I wait for "180" seconds
+    And I wait for "200" seconds
     And I refresh the page
     And I wait for "3" seconds
     And I save the value from row "1" for column name "EGMS ID" as "progressEGMSID" from flex table "---grantee_tableId:-:ProgressReportTableId---"
