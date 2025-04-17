@@ -18436,8 +18436,8 @@ Feature: Sanity scenarios New
     Then I softly can see row level action button "View" against "{SavedValue:AwardEGMSID}" in flex table with id "---grantee_tableId:-:awardTableId---"
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     Then I softly can see top right button "Edit" in page detail
     When I navigate to "Overview" sub tab
@@ -19211,7 +19211,7 @@ Feature: Sanity scenarios New
     Then I softly can see "Chatter" sub tab at view detail page
     Then I softly can see "Field Audit" sub tab at view detail page
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     And I navigate to "Financials" sub tab
     Then I softly see field "Budgeted Cash Match" inside page block
@@ -19264,3 +19264,195 @@ Feature: Sanity scenarios New
 
   @482049 @ValidateGrantsgovlobbingformfieldsandvalidationsdisplayedtoPMuserforGrantsgovlobbingform @P2_Grantee @PM_Grantee @GRegression1
   Scenario: Validate Grants gov lobbing form fields and validations displayed to PM user for Grants gov lobbing form
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212745" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001212745" with properties "default"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I navigate to "Forms and Files" sub tab
+    And I halt execution
+    Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    Then I softly can see top right button "Cancel" in page detail
+    Then I softly can see top right button "Save" in page detail
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    And I click on "Edit" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "3" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I close the tab
+    And I click on "Edit" icon for "Attachments" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Grant Application Document" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I close the tab
+    Then I softly see value "Grants.gov Lobbying Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see "check" symbol against the value "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see value "0.00%" for title "Percentage" against the value "Grants.gov Lobbying Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "Validate" in the page details
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Please validate the Forms by clicking validate button. |
+    Then I softly can see row level action button "View" against "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "Splitview" against "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "Preview" against "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "Edit" against "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Validate" in page detail
+    And I click on Menu icon present on top right corner of the page
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see the header is "Grants.gov Lobbying Form" in the page details
+    Then I softly see the field "Agency Owner :" as "Grants.gov" on forms
+    Then I softly see the field "OMB Number :" as "4040-0013" on forms
+    Then I softly see the field "Version :" as "1.1" on forms
+    Then I softly see the field "OMB Expiration Date :" as "02/28/2025" on forms
+    Then I softly see the text containing "When filling out the data within this form, please adhere to the character limits for each field as specified within the information icon for the field."
+    Then I softly can see "Form" sub tab at view detail page
+    Then I softly see "Certification Regarding Lobbying" page block displayed
+    Then I softly see field with quotes "APPLICANT'S ORGANIZATION" inside page block
+    Then I softly see "Organization" page block displayed with quotes
+    Then I softly see "Printed Name And Title Of Authorized Representative" page block displayed
+    Then I softly see "Signature And Date" page block displayed
+    Then I softly see the text containing " Required to Save | "
+    Then I softly see the text containing " Required to Submit"
+    Then I softly see the text containing "Certification for Contracts, Grants, Loans, and Cooperative Agreements"
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "The undersigned certifies, to the best of his or her knowledge and belief, that:" on forms
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "(1) No Federal appropriated funds have been paid or will be paid, by or on behalf of the undersigned, to any person for influencing or attempting to influence an officer or employee of an agency, a Member of Congress, an officer or employee of Congress, or an employee of a Member of Congress in connection with the awarding of any Federal contract, the making of any Federal grant, the making of any Federal loan, the entering into of any cooperative agreement, and the extension, continuation, renewal, amendment, or modification of any Federal contract, grant, loan, or cooperative agreement." on forms
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "(2) If any funds other than Federal appropriated funds have been paid or will be paid to any person for influencing or attempting to influence an officer or employee of any agency" on forms
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "(3) The undersigned shall require that the language of this certification be included in the award documents for all subawards at all tiers (including subcontracts, subgrants, and contracts under grants, loans, and cooperative agreements)" on forms
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "Statement for Loan Guarantees and Loan Insurance" on forms
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "The undersigned states, to the best of his or her knowledge and belief, that:" on forms
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "If any funds have been paid or will be paid to any person for influencing or attempting to influence an officer or employee of any agency" on forms
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "Statement for Loan Guarantees and Loan Insurance" on forms
+    Then I softly see field with quotes "APPLICANT'S ORGANIZATION" inside page block
+    Then I softly see asterisk mark on "ApplicantsOrganization__c"
+    When I hovering mouse on help text icon inside page block detail "ORGANIZATION"
+    Then I softly see "This is the legal name of the organization that will undertake the assistance activity. This should normally be the name under which the organization has registered with the Business Partner Network. Max character limit for this field is 60." shown as help text
+    Then I softly see field "Prefix" inside page block
+    Then I softly do not see asterisk mark on "Prefix"
+    When I hovering mouse on help text icon inside page block detail "Prefix"
+    Then I softly see "This is the prefix (e.g., Mr., Mrs., Rev.) for the name of the Authorized Representative." shown as help text
+    And I click on "Edit" in the page details
+    Then I see only the following ordered options in dropdown field "AOR_Prefix__c" :
+      | --None-- | Mr. | Mrs. | Miss | Ms. | Dr. | Rev. | Prof. |
+    Then I softly see field "First Name" inside page block
+    Then I softly see asterisk mark on "First Name"
+    When I hovering mouse on help text icon inside page block detail "First Name"
+    Then I softly see "This is the first (given) name of the Authorized Representative who is signing this form. Max character limit for this field is 35." shown as help text
+    Then I softly see field "Middle Name" inside page block
+    Then I softly do not see asterisk mark on "Middle Name"
+    When I hovering mouse on help text icon inside page block detail "Middle Name"
+    Then I softly see "This is the middle name of the Authorized Representative. Max character limit for this field is 25." shown as help text
+    Then I softly see field "Last Name" inside page block
+    Then I softly see asterisk mark on "Last Name"
+    Then I softly see field "Suffix" inside page block
+    Then I softly do not see asterisk mark on "Suffix"
+    When I hovering mouse on help text icon inside page block detail "Suffix"
+    Then I softly see "This is the suffix (e.g., Jr, Sr, PhD) for the name of the Authorized Representative." shown as help text
+    Then I see only the following ordered options in dropdown field "AOR_Suffix__c" :
+      | --None-- | Jr. | Sr. | M.D. | Ph.D |
+    Then I softly see field "Title" inside page block
+    Then I softly see asterisk mark on "Title"
+    When I hovering mouse on help text icon inside page block detail "Title"
+    Then I softly see "This is the title of the Authorized Representative who is signing this form. Max character limit for this field is 45." shown as help text
+    Then I softly see field "SIGNATURE:" inside page block
+    Then I softly do not see asterisk mark on "SIGNATURE:"
+    When I hovering mouse on help text icon inside page block detail "SIGNATURE:"
+    Then I softly see "It is the organization's responsibility to assure that only properly authorized individuals sign in this capacity and/or submit the application to Grants.gov. If this application is submitted through Grants.gov leave blank. If a hard copy is submitted, the AOR must sign this block." shown as help text
+    Then I softly see field "DATE:" inside page block
+    Then I softly do not see asterisk mark on "DATE:"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+    When I click on "Cancel" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to cancel?" is displayed
+    When I click modal button "OK"
+    Then I can see top right button "Edit" in page detail
+    And I click on "Edit" in the page details
+    And I enter "Lobbying_Form" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "1" seconds
+    And I close the tab
+    When I click on "Edit" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    When I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "100.00%" for title "Percentage" against the value "Grants.gov Lobbying Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see value "No" for title "Validated" against the value "Grants.gov Lobbying Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "Validate" in the page details
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Please validate the Forms by clicking validate button. |
+    When I click on "View" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Yes" for title "Validated" against the value "Grants.gov Lobbying Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "Edit" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I enter value "Department of Trust" into field "ApplicantsOrganization__c"
+    When I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "No" for title "Validated" against the value "Grants.gov Lobbying Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "Validate" in the page details
+    And I wait for "1" seconds
+    Then I softly see the following messages in the page details contains:
+      | Please validate the Forms by clicking validate button. |
+    When I click on "View" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Yes" for title "Validated" against the value "Grants.gov Lobbying Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
