@@ -18424,7 +18424,7 @@ Feature: Sanity scenarios New
     When I enter the following values into flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
-    And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
+    And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" without waiting for record
     And I pause execution for "3" seconds
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -18467,7 +18467,7 @@ Feature: Sanity scenarios New
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:awardApproverTableId---"
     And I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "Edit" in page detail
-    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
+    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" without waiting for record
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
@@ -18477,8 +18477,8 @@ Feature: Sanity scenarios New
     When I click modal button "Save"
     And I click on submit review
     And I wait for "3" seconds
-    Then I softly see value "Submitted" for title "Status" against the value "Grantee PO" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
-    Then I softly cannot see row level action button "Enter Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly see value "Submitted" for title "Status" against the value "Grantee PO" inside table "---grantee_tableId:-:awardPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Enter Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
 
   @484536 @ValidateFromAppPMusercanabletocreateScheduledtypeofProgressReportbyenteringReportCreationDateseeheaderstatus&StepProgressBartabslandingtabsbuttonsectionsunderalltabsofanyPRseetaskcreation @PM_Grantee @P2_Grantee @GRegression1
   Scenario: Validate From App PM user can able to create Scheduled type of Progress Report by entering Report Creation Date & see  header, status & Step Progress Bar,  tabs , landing tabs , button & sections under all tabs of any PR & see task creation
