@@ -2951,7 +2951,7 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
 
-  @CreateBulkDataFiscalReviewCompleted
+  @CreateBulkDataFiscalReviewCompleted @TestExecute
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -3090,7 +3090,7 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
 
-  @CreateBulkDataFiscalReviewCompletedWithMultipleFocusArea
+  @CreateBulkDataFiscalReviewCompletedWithMultipleFocusArea @TestExecute1
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -4281,7 +4281,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "Reject" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see value "Rejected" for title "Decision Status" against the value "{SavedValue:appEGMSID}" inside table "---applicationReview:-:appTableId---"
 
-  @CreateBulkDataNegotiationInitiated
+  @CreateBulkDataNegotiationInitiated @TestExecute
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -4488,7 +4488,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Send to Grantee" in the page details
     Then I softly see field "Status" as "Negotiation Initiated"
 
-  @CreateBulkDataNegotiationInitiatedWithMultipleFocusArea
+  @CreateBulkDataNegotiationInitiatedWithMultipleFocusArea @TestExecute1
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -4706,7 +4706,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Send to Grantee" in the page details
     Then I softly see field "Status" as "Negotiation Initiated"
 
-  @CreateBulkDataNegotiationCompleted
+  @CreateBulkDataNegotiationCompleted @TestExecute
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -4932,7 +4932,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Reviewed"
     Then I softly can see top right button "Create Award" in page detail
 
-  @CreateBulkDataNegotiationCompletedWithMultipleFocusArea
+  @CreateBulkDataNegotiationCompletedWithMultipleFocusArea @TestExecute1
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
