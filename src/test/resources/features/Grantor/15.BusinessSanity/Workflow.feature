@@ -3240,7 +3240,7 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
 
-  @CreateBulkDataPreScreenReviewCompleted @TestExecute
+  @CreateBulkDataPreScreenReviewCompleted
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -3306,7 +3306,7 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
 
-  @CreateBulkDataPreScreenReviewCompletedWithMultipleFocusArea @TestExecute1
+  @CreateBulkDataPreScreenReviewCompletedWithMultipleFocusArea
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -3383,7 +3383,7 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
 
-  @CreateBulkDataPreScreenCompletedNotRecommended @TestExecute
+  @CreateBulkDataPreScreenCompletedNotRecommended
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -3579,7 +3579,7 @@ Feature: Validate all scenarios of every modules flow
     When I perform quick search for "{SavedValue:appEGMSID}" in "---subAwardFromFDM:-:fdmNonRecommendedTableId---" panel
     Then I softly see value "{SavedValue:appEGMSID}" for title "EGMS ID" inside table "---subAwardFromFDM:-:fdmNonRecommendedTableId---"
 
-  @CreateBulkDataPreScreenCompletedNotRecommendedWithBulkDataAnnouncementNameWithMultipleFocusAreaultipleFocusArea @TestExecute1
+  @CreateBulkDataPreScreenCompletedNotRecommendedWithBulkDataAnnouncementNameWithMultipleFocusAreaultipleFocusArea
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -4174,7 +4174,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
 
-  @CreateBulkDataPreScreenReject @TestExecute
+  @CreateBulkDataPreScreenReject
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -4222,7 +4222,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "Reject" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see value "Rejected" for title "Decision Status" against the value "{SavedValue:appEGMSID}" inside table "---applicationReview:-:appTableId---"
 
-  @CreateBulkDataPreScreenRejectWithMultipleFocusArea @TestExecute1
+  @CreateBulkDataPreScreenRejectWithMultipleFocusArea
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
