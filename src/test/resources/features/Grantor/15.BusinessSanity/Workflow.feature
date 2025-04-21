@@ -2951,7 +2951,7 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
 
-  @CreateBulkDataFiscalReviewCompleted @TestExecute
+  @CreateBulkDataFiscalReviewCompleted
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -3090,7 +3090,7 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
 
-  @CreateBulkDataFiscalReviewCompletedWithMultipleFocusArea @TestExecute1
+  @CreateBulkDataFiscalReviewCompletedWithMultipleFocusArea
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -3240,7 +3240,7 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
 
-  @CreateBulkDataPreScreenReviewCompleted
+  @CreateBulkDataPreScreenReviewCompleted @TestExecute
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -3306,7 +3306,7 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
 
-  @CreateBulkDataPreScreenReviewCompletedWithMultipleFocusArea
+  @CreateBulkDataPreScreenReviewCompletedWithMultipleFocusArea @TestExecute1
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -3383,7 +3383,7 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
 
-  @CreateBulkDataPreScreenCompletedNotRecommended
+  @CreateBulkDataPreScreenCompletedNotRecommended @TestExecute
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -3579,7 +3579,7 @@ Feature: Validate all scenarios of every modules flow
     When I perform quick search for "{SavedValue:appEGMSID}" in "---subAwardFromFDM:-:fdmNonRecommendedTableId---" panel
     Then I softly see value "{SavedValue:appEGMSID}" for title "EGMS ID" inside table "---subAwardFromFDM:-:fdmNonRecommendedTableId---"
 
-  @CreateBulkDataPreScreenCompletedNotRecommendedWithBulkDataAnnouncementNameWithMultipleFocusAreaultipleFocusArea
+  @CreateBulkDataPreScreenCompletedNotRecommendedWithBulkDataAnnouncementNameWithMultipleFocusAreaultipleFocusArea @TestExecute1
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -4174,7 +4174,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
 
-  @CreateBulkDataPreScreenReject
+  @CreateBulkDataPreScreenReject @TestExecute
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -4222,7 +4222,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "Reject" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see value "Rejected" for title "Decision Status" against the value "{SavedValue:appEGMSID}" inside table "---applicationReview:-:appTableId---"
 
-  @CreateBulkDataPreScreenRejectWithMultipleFocusArea
+  @CreateBulkDataPreScreenRejectWithMultipleFocusArea @TestExecute1
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -4281,7 +4281,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "Reject" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see value "Rejected" for title "Decision Status" against the value "{SavedValue:appEGMSID}" inside table "---applicationReview:-:appTableId---"
 
-  @CreateBulkDataNegotiationInitiated @TestExecute
+  @CreateBulkDataNegotiationInitiated
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -4488,7 +4488,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Send to Grantee" in the page details
     Then I softly see field "Status" as "Negotiation Initiated"
 
-  @CreateBulkDataNegotiationInitiatedWithMultipleFocusArea @TestExecute1
+  @CreateBulkDataNegotiationInitiatedWithMultipleFocusArea
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -4706,7 +4706,7 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Send to Grantee" in the page details
     Then I softly see field "Status" as "Negotiation Initiated"
 
-  @CreateBulkDataNegotiationCompleted @TestExecute
+  @CreateBulkDataNegotiationCompleted
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -4932,7 +4932,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Reviewed"
     Then I softly can see top right button "Create Award" in page detail
 
-  @CreateBulkDataNegotiationCompletedWithMultipleFocusArea @TestExecute1
+  @CreateBulkDataNegotiationCompletedWithMultipleFocusArea
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
