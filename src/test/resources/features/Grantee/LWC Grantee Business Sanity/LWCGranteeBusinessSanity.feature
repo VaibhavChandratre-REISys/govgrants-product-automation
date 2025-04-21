@@ -16332,13 +16332,13 @@ Feature: Sanity scenarios
     Then I softly see asterisk mark on "Cost Sharing or Matching Requirement"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | To Save, Opportunity Title is required.                    |
-      | To Save, Opportunity Number is required.                   |
-      | To Save, Application Due Date is required.                 |
-      | To Save, Funding Organization is required.                 |
-      | To Save, Eligible Applicants is required.                  |
-      | To Save, Lead Description is required.                     |
-      | To Save, Cost Sharing or Matching Requirement is required. |
+      | To Save, Opportunity Title is required in the General Information section.                  |
+      | To Save, Opportunity Number is required in the General Information section.                 |
+      | To Save, Application Due Date is required in the General Information section.               |
+      | To Save, Funding Organization is required in the General Information section.               |
+      | To Save, Eligible Applicants is required in the Eligibility section.                        |
+      | To Save, Lead Description is required in the Additional Information section.                |
+      | To Save, Cost Sharing or Matching Requirement is required in the Financial Details section. |
     And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I see the header is "Lead" in the page details

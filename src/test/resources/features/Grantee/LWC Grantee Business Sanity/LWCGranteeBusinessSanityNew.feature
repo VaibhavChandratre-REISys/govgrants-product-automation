@@ -10576,7 +10576,7 @@ Feature: Sanity scenarios New
     And I save the field labeled "Days Left" as "DaysLeft"
     Then I softly see field "Days Left" as "{SavedValue:DaysLeft}"
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly see "Opportunity Information" page block displayed
     Then I softly see field "Funding Opportunity Title" inside page block
@@ -10669,10 +10669,10 @@ Feature: Sanity scenarios New
     Then I softly see "Text and number both are allowed. Must not exceed 255 characters" shown as help text
     Then I softly see field "6. Provide the estimated number of hours required to develop the application. Provide an explanation." inside page block
     When I hovering mouse on help text icon inside page block detail "6. Provide the estimated number of hours required to develop the application. Provide an explanation."
-    Then I softly see "add Text and number both are allowed. Must not exceed 650 characters" shown as help text
+    Then I softly see "Text and Numbers are allowed, with a maximum limit of 650 characters." shown as help text
     Then I softly see field "7. Provide the estimated number of full time personnel (FTE) that will be required to be hired to implement the grant. Provide an explanation." inside page block
     When I hovering mouse on help text icon inside page block detail "7. Provide the estimated number of full time personnel (FTE) that will be required to be hired to implement the grant. Provide an explanation."
-    Then I softly see "Text and number both are allowed. Must not exceed 650 characters" shown as help text
+    Then I softly see "Text and Numbers are allowed, with a maximum limit of 650 characters." shown as help text
     Then I softly see "Collaboration Details" page block displayed
     Then I softly see field "8. Have other internal organizations within the Department qualified this lead?" inside page block
     Then I softly see field "8a. If yes, has an agreement been reached to which organization will be the lead?" inside page block
@@ -11943,13 +11943,13 @@ Feature: Sanity scenarios New
     Then I softly see asterisk mark on "Cost Sharing or Matching Requirement"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | To Save, Opportunity Title is required.                    |
-      | To Save, Opportunity Number is required.                   |
-      | To Save, Application Due Date is required.                 |
-      | To Save, Funding Organization is required.                 |
-      | To Save, Eligible Applicants is required.                  |
-      | To Save, Lead Description is required.                     |
-      | To Save, Cost Sharing or Matching Requirement is required. |
+      | To Save, Opportunity Title is required in the General Information section.                  |
+      | To Save, Opportunity Number is required in the General Information section.                 |
+      | To Save, Application Due Date is required in the General Information section.               |
+      | To Save, Funding Organization is required in the General Information section.               |
+      | To Save, Eligible Applicants is required in the Eligibility section.                        |
+      | To Save, Lead Description is required in the Additional Information section.                |
+      | To Save, Cost Sharing or Matching Requirement is required in the Financial Details section. |
     And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I see the header is "Lead" in the page details
@@ -12568,7 +12568,7 @@ Feature: Sanity scenarios New
   @475750 @ValidateNotYetConvertedOpportunitGrantsgovPMusercancreatePreApplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord @TBExecution
   Scenario Outline: Validate Not Yet Converted Opportunity Grants.gov PM user can create Pre-Application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
-    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001271854" with properties "default"
     Given I login to "As a Grantee" app as "<userName>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
@@ -12577,7 +12577,7 @@ Feature: Sanity scenarios New
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212745" with properties "PRE_APPLICATION_YES"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001271854" with properties "PRE_APPLICATION_YES"
     And I navigate to "Opportunities" tab
     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Opportunities Not Converted to Application - All"
