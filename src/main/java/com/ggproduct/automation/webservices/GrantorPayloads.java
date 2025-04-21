@@ -3085,10 +3085,10 @@ public class GrantorPayloads {
         opportunityData.addProperty("projectPeriodStartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(210, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         opportunityData.addProperty("projectPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(365, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         opportunityData.addProperty("isPreApplicationRequired", "No");
-        opportunityData.addProperty("preApplicationDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(-3, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        opportunityData.addProperty("preApplicationDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(100, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         opportunityData.addProperty("letterOfIntentRequired", "Yes");
-        opportunityData.addProperty("letterOfIntentDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(-5, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        opportunityData.addProperty("applicationDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(-1, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        opportunityData.addProperty("letterOfIntentDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(50, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        opportunityData.addProperty("applicationDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(200, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         opportunityData.addProperty("IsProgramIncomeAllowed", "Yes");
         opportunityData.addProperty("LinkAdditionalInformation", "www.google.com");
         opportunityData.addProperty("GrantorContactInformation", "Automation Test Information");

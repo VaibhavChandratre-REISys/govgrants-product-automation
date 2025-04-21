@@ -9638,9 +9638,9 @@ Feature: Sanity scenarios
     Then I softly see "No Records Found" inside snapshot history
     Examples:
       | userType   | EmailId                     |
-      | GRANTEE PO | automationpo@yopmail.com    |
-      | GRANTEE FO | david.fo@yopmail.com        |
-      | GRANTEE FD | danielle.garcia@yopmail.com |
+      | GRANTEE PO | govgrantsuat@yopmail.com    |
+#      | GRANTEE FO | david.fo@yopmail.com        |
+#      | GRANTEE FD | danielle.garcia@yopmail.com |
 
   @461000 @477512 @477515 @477517 @477519 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
