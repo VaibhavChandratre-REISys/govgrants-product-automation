@@ -1176,7 +1176,7 @@ Feature: Validate all scenarios of every modules flow
 
   @SubrecipientOrganizationRegistrationFlow
   Scenario: Verify Subrecipient Organization Registration Process
-    Given I begin "Organization" registration
+    Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456780" into "Employer Identification Number (EIN)" on old form
@@ -1674,13 +1674,21 @@ Feature: Validate all scenarios of every modules flow
 
   @debugtest @debug
   Scenario:
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Application__c/a1hDa000003S8QSIA0/view"
-    And I halt execution
-    When I "Collapse" page block contaninig value "Instructions"
-    And I wait for "1" seconds
-    When I "Expanded" page block contaninig value "Instructions"
-    When I "Collapse" page block contaninig value "Files"
-    Then I softly do not see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    When I "Expanded" page block contaninig value "Files"
+    Given I delete the grantee record "{grantee_testData:closedOpportunity}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212745" with properties "PRE_APPLICATION_YES-Grantee PO user"
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly can see top right button "Create Pre-Application" in page detail
     And I halt execution

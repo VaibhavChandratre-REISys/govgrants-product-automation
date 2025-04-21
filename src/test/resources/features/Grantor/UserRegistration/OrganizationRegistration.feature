@@ -546,7 +546,7 @@ Feature: Validate all registration related scenarios
     And I checkout to yopmail with mailid "{SavedValue:uniqueEmailID}"
     And I pause execution for "190" seconds
     And I refresh the page
-    And I click on mail with subject "Sandbox: Welcome to Recipient Portal"
+    And I click on mail with subject "Sandbox: Welcome to GovGrants *.* Recipient Portal"
     And I navigate to reset password link
     Then I set password for the user
     And I navigate to "Home" tab

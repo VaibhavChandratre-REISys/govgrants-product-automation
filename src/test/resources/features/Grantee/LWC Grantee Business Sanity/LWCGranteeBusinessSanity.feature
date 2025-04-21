@@ -9552,7 +9552,7 @@ Feature: Sanity scenarios
     Then I softly do not see "Program Income" page block displayed
     Then I softly do not see "Indirect Rates" page block displayed
 
-  @477639 @477642 @477643 @ValidatePOusershoulonlyviewaccessforKPI
+  @477639 @477642 @477643 @ValidatePOusershoulonlyviewaccessforKPI @TBExecution
   Scenario Outline: Validate PO user should only view access for KPI
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab
@@ -15234,7 +15234,7 @@ Feature: Sanity scenarios
     Then I cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preApplicationFocusAreaTableId---"
     Then I cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preApplicationFocusAreaTableId---"
 
-  @463448 @463449 @PreAppVerifywithPOProfilewhenpreapplicationduedateiscrossedforgrantsgovleadthenunabletoseethecreatepreapplicationbutton.
+  @463448 @463449 @PreAppVerifywithPOProfilewhenpreapplicationduedateiscrossedforgrantsgovleadthenunabletoseethecreatepreapplicationbutton @TBExecution
   Scenario Outline: PreApp - Verify with PO Profile ,when preapplication due date is crossed for grants.gov lead then unable to see the create pre application button.
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
@@ -16302,7 +16302,7 @@ Feature: Sanity scenarios
     And I enter value "No" into field "LimitOnAdministrativeRate__c"
     Then I softly cannot see field "16a. If yes, what percent is the administrative cost limit?" inside page block
 
-  @482115 @482116 @482117 @482118 @482331 @482332 @482334 @ValidateFOusershouldhaveviewaccessonlyonthequalifiedlead
+  @482115 @482116 @482117 @482118 @482331 @482332 @482334 @ValidateFOusershouldhaveviewaccessonlyonthequalifiedlead @TBExecution
   Scenario Outline: Validate FO user should have view access only on the qualified lead
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -16332,13 +16332,13 @@ Feature: Sanity scenarios
     Then I softly see asterisk mark on "Cost Sharing or Matching Requirement"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Opportunity Title is required to save.                    |
-      | Opportunity Number is required to save.                   |
-      | Application Due Date is required to save.                 |
-      | Funding Organization is required to save.                 |
-      | Eligible Applicants is required to save.                  |
-      | Lead Description is required to save.                     |
-      | Cost Sharing or Matching Requirement is required to save. |
+      | To Save, Opportunity Title is required.                    |
+      | To Save, Opportunity Number is required.                   |
+      | To Save, Application Due Date is required.                 |
+      | To Save, Funding Organization is required.                 |
+      | To Save, Eligible Applicants is required.                  |
+      | To Save, Lead Description is required.                     |
+      | To Save, Cost Sharing or Matching Requirement is required. |
     And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I see the header is "Lead" in the page details
