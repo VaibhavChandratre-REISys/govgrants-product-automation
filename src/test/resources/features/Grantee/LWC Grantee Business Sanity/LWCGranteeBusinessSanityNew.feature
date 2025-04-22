@@ -7452,8 +7452,6 @@ Feature: Sanity scenarios New
     Given I expand nested table containing column value "BP01"
     Then I softly can see row level action button "Add Line Item Details" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
     Given I expand nested table containing column value "BP01"
-    And I select value inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" is "10"
-    And I click on page navigation arrow "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" for table id "Next"
     When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" with wait for record
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---" by clicking "New" :
