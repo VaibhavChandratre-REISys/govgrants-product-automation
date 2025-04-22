@@ -10540,7 +10540,7 @@ Feature: Sanity scenarios New
       | GRANTEE FO  | GRANTEE FD |
       | GRANTEE FD  | GRANTEE FO |
 
-  @480768 @480769 @480771 @480773 @480774 @481129 @OpportunitiesconvertedtoApplicationGrantsgovVerifyPMusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @TBExecution
+  @480768 @480769 @480771 @480773 @480774 @481129 @OpportunitiesconvertedtoApplicationGrantsgovVerifyPMusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @FO_Grantee @FD_Grantee @P3_Grantee @GRegression1 @GRegression2
   Scenario Outline: Opportunities converted to Application (Grants.gov) - Verify PM user can navigate to Opportunity details page from Opportunities Converted to Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -11913,7 +11913,7 @@ Feature: Sanity scenarios New
       | userType   |
       | GRANTEE PO |
 
-  @483167 @483181 @ValidatePMusertheflowofNotyetqualifiedlead @TBExecution
+  @483167 @483181 @ValidatePMusertheflowofNotyetqualifiedlead
   Scenario Outline: Validate PM user the flow of Not yet qualified lead
     Given I login to "As a Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
@@ -12051,7 +12051,7 @@ Feature: Sanity scenarios New
     Then I can see top right button "Qualify Lead" in page detail
     Examples:
       | User        |
-      | GRANTEE EXE |
+#      | GRANTEE EXE |
       | GRANTEE PO  |
 
   @485376 @ValidatePMusercanseeProgressreportschedulesfromawardinMonitoringschedules

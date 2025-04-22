@@ -9552,7 +9552,7 @@ Feature: Sanity scenarios
     Then I softly do not see "Program Income" page block displayed
     Then I softly do not see "Indirect Rates" page block displayed
 
-  @477639 @477642 @477643 @ValidatePOusershoulonlyviewaccessforKPI @TBExecution
+  @477639 @477642 @477643 @ValidatePOusershoulonlyviewaccessforKPI @P3_Grantee @PO_Grantee @FO_Grantee @FD_Grantee @GRegression2
   Scenario Outline: Validate PO user should only view access for KPI
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab
@@ -9639,8 +9639,8 @@ Feature: Sanity scenarios
     Examples:
       | userType   | EmailId                     |
       | GRANTEE PO | govgrantsuat@yopmail.com    |
-#      | GRANTEE FO | david.fo@yopmail.com        |
-#      | GRANTEE FD | danielle.garcia@yopmail.com |
+      | GRANTEE FO | david.fo@yopmail.com        |
+      | GRANTEE FD | danielle.garcia@yopmail.com |
 
   @461000 @477512 @477515 @477517 @477519 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
@@ -15234,7 +15234,7 @@ Feature: Sanity scenarios
     Then I cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preApplicationFocusAreaTableId---"
     Then I cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preApplicationFocusAreaTableId---"
 
-  @463448 @463449 @PreAppVerifywithPOProfilewhenpreapplicationduedateiscrossedforgrantsgovleadthenunabletoseethecreatepreapplicationbutton @TBExecution
+  @463448 @463449 @PreAppVerifywithPOProfilewhenpreapplicationduedateiscrossedforgrantsgovleadthenunabletoseethecreatepreapplicationbutton @PO_Grantee @PM_Grantee @GRegression2
   Scenario Outline: PreApp - Verify with PO Profile ,when preapplication due date is crossed for grants.gov lead then unable to see the create pre application button.
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
@@ -16302,7 +16302,7 @@ Feature: Sanity scenarios
     And I enter value "No" into field "LimitOnAdministrativeRate__c"
     Then I softly cannot see field "16a. If yes, what percent is the administrative cost limit?" inside page block
 
-  @482115 @482116 @482117 @482118 @482331 @482332 @482334 @ValidateFOusershouldhaveviewaccessonlyonthequalifiedlead @TBExecution
+  @482115 @482116 @482117 @482118 @482331 @482332 @482334 @ValidateFOusershouldhaveviewaccessonlyonthequalifiedlead @FO_Grantee @FD_Grantee @ADMIN_Grantee @Auditor_Grantee @P3_Grantee @GRegression2
   Scenario Outline: Validate FO user should have view access only on the qualified lead
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
