@@ -7446,6 +7446,7 @@ Feature: Sanity scenarios New
     And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:PreApplicationBudgetPeriodDetails---"
     When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:PreApplicationAssociateBP---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:PreApplicationAssociateFocusArea---"
+    And I click modal button "Close"
     And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
