@@ -10728,17 +10728,17 @@ Feature: Sanity scenarios New
     Then I softly can see "Field Audit" sub tab at view detail page
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
-    Then I cannot see top right button "Edit" in page detail
-    Then I cannot see top right button "Delete" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Delete" in page detail
 
     Examples:
       | User            |
-#      | GRANTEE EXE     |
-#      | GRANTEE FO      |
-#      | GRANTEE FD      |
-#      | GRANTEE AUDITOR |
+      | GRANTEE EXE     |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE AUDITOR |
       | GRANTEE ADMIN   |
-#      | GRANTEE PO      |
+      | GRANTEE PO      |
 
   @480684 @480685 @480686 @480687 @480688 @480689 @EXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOpportunitywhichisconvertedtoPre-application
   Scenario Outline: Opportunities converted to Pre-Application (Grants.gov) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Opportunity which is converted to Pre-application
@@ -12624,7 +12624,7 @@ Feature: Sanity scenarios New
     And I wait for "2" seconds
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Pre-Application - All"
+    When I click toggle button to select "Pre-Applications - All"
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:PreApplication---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I navigate to "Budget" sub tab
