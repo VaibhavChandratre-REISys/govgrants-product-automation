@@ -7429,14 +7429,14 @@ Feature: Sanity scenarios New
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
-    When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:preAppAssociateContactTableId---"
+    When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:preAppAssociateContactTableId---"
     And I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
-    Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
-    Then I softly can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
-    Then I softly can see row level action button "Remove" against "Victor EXE" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
-    When I click on "Edit" icon for "Victor EXE" inside flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I softly can see row level action button "View" against "Sarah PM" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I softly can see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I softly can see row level action button "Remove" against "Sarah PM" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    When I click on "Edit" icon for "Sarah PM" inside flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
     Then I softly can see top right button "Save" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
     And I refresh the page
     And I wait for "2" seconds
@@ -11913,7 +11913,7 @@ Feature: Sanity scenarios New
       | userType   |
       | GRANTEE PO |
 
-  @483167 @483181 @ValidatePMusertheflowofNotyetqualifiedlead
+  @483167 @483181 @ValidatePMusertheflowofNotyetqualifiedlead @P2_Grantee @EXE_Grantee @PO_Grantee @GRegression2
   Scenario Outline: Validate PM user the flow of Not yet qualified lead
     Given I login to "As a Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
@@ -12051,7 +12051,7 @@ Feature: Sanity scenarios New
     Then I can see top right button "Qualify Lead" in page detail
     Examples:
       | User        |
-#      | GRANTEE EXE |
+      | GRANTEE EXE |
       | GRANTEE PO  |
 
   @485376 @ValidatePMusercanseeProgressreportschedulesfromawardinMonitoringschedules
@@ -12476,7 +12476,7 @@ Feature: Sanity scenarios New
       | userType   | userName | UEI          |
       | GRANTEE PM | Sarah PM | 123456789123 |
 
-  @473231 @487216 @ValidateNotYetConvertedOpportunityManualPMusercancreatePre-applicationfromOpportunityifPre-ApplicationRequiredisselectedasYesonOpportunityrecord @TBExecution
+  @473231 @487216 @ValidateNotYetConvertedOpportunityManualPMusercancreatePre-applicationfromOpportunityifPre-ApplicationRequiredisselectedasYesonOpportunityrecord @P2_Grantee @PO_Grantee @GRegression2
   Scenario Outline: Validate Not Yet Converted Opportunity Manual PM user can create Pre-application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<userName>"
     Given I login to "As a Grantee" app as "<userType>" user
@@ -12565,7 +12565,7 @@ Feature: Sanity scenarios New
       | GRANTEE EXE   |
       | GRANTEE ADMIN |
 
-  @475750 @ValidateNotYetConvertedOpportunitGrantsgovPMusercancreatePreApplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord @TBExecution
+  @475750 @ValidateNotYetConvertedOpportunitGrantsgovPMusercancreatePreApplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord @P2_Grantee @PO_Grantee @GRegression2
   Scenario Outline: Validate Not Yet Converted Opportunity Grants.gov PM user can create Pre-Application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001271854" with properties "default"
