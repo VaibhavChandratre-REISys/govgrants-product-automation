@@ -7026,7 +7026,7 @@ Feature: Sanity scenarios New
       | GRANTEE PM | GRANTEE AUDITOR |
       | GRANTEE PO | GRANTEE ADMIN   |
 
-  @463594 @480703 @480706 @480708 @480709 @ValidateOpportunitiesconvertedtoPreApplicationManualPOusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPreapplication
+  @463594 @480703 @480706 @480708 @480709 @ValidateOpportunitiesconvertedtoPreApplicationManualPOusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPreapplication @TBExecution
   Scenario Outline: Validate Opportunities converted to Pre-Application Manual PO user can navigate to Opportunity details page after clicking on view action for the Oppprotunity which is converted to Pre-application
     Given I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
@@ -7302,7 +7302,7 @@ Feature: Sanity scenarios New
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-  @487217 @487218 @487219 @487220 @487221 @ValidateNotYetConvertedOpportunityManualEXEusercannotcreatePreapplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord
+  @487217 @487218 @487219 @487220 @487221 @ValidateNotYetConvertedOpportunityManualEXEusercannotcreatePreapplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord @TBExecution
   Scenario Outline: Validate Not Yet Converted Opportunity Manual EXE user cannot create Pre-application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Victor EXE user"
     Given I login to "As a Grantee" app as "GRANTEE EXE" user
@@ -7329,7 +7329,7 @@ Feature: Sanity scenarios New
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-  @487227 @487228 @487229 @487230 @487231 @ValidateOpportunitiesNotconvertedGrantsgovEXEusercannotseeCreatePreapplicationbuttononApprovedOpportunity
+  @487227 @487228 @487229 @487230 @487231 @ValidateOpportunitiesNotconvertedGrantsgovEXEusercannotseeCreatePreapplicationbuttononApprovedOpportunity @TBExecution
   Scenario Outline: Validate Opportunities Not converted Grants gov EXE user cannot see Create Preapplication button on Approved
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Victor EXE user"
@@ -7492,7 +7492,7 @@ Feature: Sanity scenarios New
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Pre-Application - All"
+    When I click toggle button to select "Pre-Applications - All"
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PreApplication---" panel
     When I click on "View" icon for "{SavedValue:PreappEGMSID}" inside table
     When I navigate to "Files" sub tab
