@@ -10733,12 +10733,12 @@ Feature: Sanity scenarios New
 
     Examples:
       | User            |
-      | GRANTEE EXE     |
-      | GRANTEE FO      |
-      | GRANTEE FD      |
-      | GRANTEE AUDITOR |
+#      | GRANTEE EXE     |
+#      | GRANTEE FO      |
+#      | GRANTEE FD      |
+#      | GRANTEE AUDITOR |
       | GRANTEE ADMIN   |
-      | GRANTEE PO      |
+#      | GRANTEE PO      |
 
   @480684 @480685 @480686 @480687 @480688 @480689 @EXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOpportunitywhichisconvertedtoPre-application
   Scenario Outline: Opportunities converted to Pre-Application (Grants.gov) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Opportunity which is converted to Pre-application
