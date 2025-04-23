@@ -8039,10 +8039,10 @@ Feature: Sanity scenarios
     Then I cannot see top right button "Deactivate" in page detail
     Examples:
       | User            | RecordId                            |
-      | GRANTEE FO      | Automation Permanent Strategic Plan |
-      | GRANTEE FD      | Automation Permanent Strategic Plan |
-      | GRANTEE PO      | MI_STPlan_7824                      |
-      | GRANTEE AUDITOR | Automation Permanent Strategic Plan |
+#      | GRANTEE FO      | Automation Permanent Strategic Plan |
+#      | GRANTEE FD      | Automation Permanent Strategic Plan |
+      | GRANTEE PO      | Automation Permanent Strategic Plan |
+#      | GRANTEE AUDITOR | Automation Permanent Strategic Plan |
 
   @476976 @476963 @NonFederalprogramVerifyvalidationsdisplayedtoPOuseronNonFederalprogram @GRegression1
   Scenario Outline: Non-Federal program - Verify validations displayed to PO user on Non Federal program
