@@ -4417,7 +4417,9 @@ Feature: Sanity scenarios
     When I login to "As a Grantor" app as "GRANTEE AUDITOR" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
-    When I perform quick search for "Agency For International Development" in "---grantee_tableId:-:fedOrgTableId---" panel
+    And I click on advance filter of table id "---grantee_tableId:-:fedOrgTableId---" for LWC
+    And I enter advance filter values inside id "---grantee_tableId:-:fedOrgTableId---" for LWC
+      | Organization Name | contains | Agency For International Development |
     And I click on "View" icon for "Agency For International Development" inside flex table with id "---grantee_tableId:-:fedOrgTableId---" without waiting for record
     Then I see the header is "Federal Organization" in the page details
     Then I see the sub-header is "Agency For International Development" in the page details
@@ -4603,6 +4605,7 @@ Feature: Sanity scenarios
     When I enter in modal value "USA" into field "BillingCountry"
     When I enter in modal value "45623" into field "BillingPostalCode"
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     And I save the field labeled "Organization Name" as "OrganizationName"
@@ -4624,6 +4627,7 @@ Feature: Sanity scenarios
     When I enter in modal value "United" into field "County__c"
     When I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
     When I enter in modal value "12345" into field "MailingPostalCode"
+    When I enter in modal value "Other" into field "Role__c"
     When I click modal button "Save"
     And I wait for "2" seconds
     And I save the field labeled "Title" as "ContactTitle" on modal

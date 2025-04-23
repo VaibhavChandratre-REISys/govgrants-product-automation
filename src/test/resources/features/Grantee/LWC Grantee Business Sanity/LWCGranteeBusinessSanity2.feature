@@ -2299,7 +2299,7 @@ Feature: Sanity scenarios
     When I perform quick search for "{SavedValue:CFAMENDID}" in "---grantee_tableId:-:HomeCompletedTask---" panel
     Then I see that "{SavedValue:CFAMENDID}" has been added in flextable with Id "---grantee_tableId:-:HomeCompletedTask---"
 
-  @463595 @OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application @TBExecution
+  @463595 @OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application @P3_Grantee @PM_Grantee @GRegression2
   Scenario Outline: OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     Given I login to "As a Grantee" app as "GRANTEE PO" user
