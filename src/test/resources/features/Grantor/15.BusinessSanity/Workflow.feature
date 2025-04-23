@@ -1674,21 +1674,5 @@ Feature: Validate all scenarios of every modules flow
 
   @debugtest @debug
   Scenario:
-    Given I delete the grantee record "{grantee_testData:closedOpportunity}"
-    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PO" user
-    And I navigate to "Opportunities" tab
-    When I navigate to "Qualified" content inside "Leads" subheader on left panel
-    And I click toggle button to select "Qualified Leads - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
-    When I click on "Convert to Opportunity" in the page details
-    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212745" with properties "PRE_APPLICATION_YES-Grantee PO user"
-    And I navigate to "Opportunities" tab
-    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
-    When I click toggle button to select "Opportunities Not Converted to Application - All"
-    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
-    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
-    Then I softly can see top right button "Create Pre-Application" in page detail
+    And I "Created" award from application for opportunity "Automation Runtime1316489936" for title "Automation Runtime Opportunity65465" with properties "default-Grantee PO user"
     And I halt execution

@@ -7054,7 +7054,7 @@ Feature: Sanity scenarios New
     Then I softly can see "Field Audit" sub tab at view detail page
     Then I softly can see "Chatter" sub tab at view detail page
     Then I see the header is "Opportunity" in the page details
-    Then I see the sub-header is "{SavedValue:Automation Runtime Leads}" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime Opportunity}" in the page details
     And I save the field labeled "EGMS ID" as "EGMSID"
     Then I softly see field "EGMS ID" as "{SavedValue:EGMSID}"
     Then I softly see field "Status" as "Converted to Pre-Application"
