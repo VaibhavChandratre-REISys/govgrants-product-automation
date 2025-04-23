@@ -2301,12 +2301,23 @@ Feature: Sanity scenarios
 
   @463595 @OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application @TBExecution
   Scenario Outline: OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application
-    When I login to "As a Grantee" app as "<User>" user
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "default-Grantee PO user"
+    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Opportunities - All"
-    When I perform quick search for "{AUTOEnvData:AutomationPermanentApplicationStaticRecord}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
-    And I click on "View" icon for "{AUTOEnvData:AutomationPermanentApplicationStaticRecord}" inside flex table with id "---grantee_tableId:-:opportunitysGranteeTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:opportunityEGMSID}}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
+    And I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:opportunitysGranteeTableId---" without waiting for record
     Then I softly see field "Status" as "Converted to Application"
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Evaluation" sub tab at view detail page
@@ -2316,7 +2327,7 @@ Feature: Sanity scenarios
     Then I softly can see "Field Audit" sub tab at view detail page
     Then I softly can see "Chatter" sub tab at view detail page
     Then I see the header is "Opportunity" in the page details
-    Then I see the sub-header is "Automation Permanent Application Static Record" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime Opportunity}" in the page details
     And I save the field labeled "EGMS ID" as "EGMSID"
     Then I softly see field "EGMS ID" as "{SavedValue:EGMSID}"
     Then I softly see field "Status" as "Converted to Application"
@@ -2324,7 +2335,7 @@ Feature: Sanity scenarios
     And I save the field labeled "Days Left" as "DaysLeft"
     Then I softly see field "Days Left" as "{SavedValue:DaysLeft}"
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly see "Opportunity Information" page block displayed
     Then I softly see field "Funding Opportunity Title" inside page block
@@ -2420,10 +2431,10 @@ Feature: Sanity scenarios
     Then I softly see "Text and number both are allowed. Must not exceed 255 characters" shown as help text
     Then I softly see field "6. Provide the estimated number of hours required to develop the application. Provide an explanation." inside page block
     When I hovering mouse on help text icon inside page block detail "6. Provide the estimated number of hours required to develop the application. Provide an explanation."
-    Then I softly see "add Text and number both are allowed. Must not exceed 650 characters" shown as help text
+    Then I softly see "Text and Numbers are allowed, with a maximum limit of 650 characters." shown as help text
     Then I softly see field "7. Provide the estimated number of full time personnel (FTE) that will be required to be hired to implement the grant. Provide an explanation." inside page block
     When I hovering mouse on help text icon inside page block detail "7. Provide the estimated number of full time personnel (FTE) that will be required to be hired to implement the grant. Provide an explanation."
-    Then I softly see "Text and number both are allowed. Must not exceed 650 characters" shown as help text
+    Then I softly see "Text and Numbers are allowed, with a maximum limit of 650 characters." shown as help text
     Then I softly see "Collaboration Details" page block displayed
     Then I softly see field "8. Have other internal organizations within the Department qualified this lead?" inside page block
     Then I softly see field "8a. If yes, has an agreement been reached to which organization will be the lead?" inside page block

@@ -9487,7 +9487,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE     |
       | GRANTEE AUDITOR |
 
-  @476612 @476613 @476615 @445784 @ValidateStrategicPlanFOusercannotcreateStrategicPlan @TBExecution
+  @476612 @476613 @476615 @445784 @ValidateStrategicPlanFOusercannotcreateStrategicPlan @P3_Grantee @PO_Grantee @FO_Grantee @FD_Grantee @AUDITOR_Grantee @GRegression2
   Scenario Outline: Validate Strategic Plan FO user cannot create Strategic Plan
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
