@@ -4412,7 +4412,7 @@ Feature: Sanity scenarios
       | Product Admin user | GRANTEE ADMIN1 | Product Admin |
       | Sarah PM user      | GRANTEE PM     | Sarah PM      |
 
-  @460983 @ValidateFederalOrgAuditorprofileusershouldseeallfieldsandsectionreadonlyonfederalOrglayoutViewonlyaccess
+  @460983 @ValidateFederalOrgAuditorprofileusershouldseeallfieldsandsectionreadonlyonfederalOrglayoutViewonlyaccess @P4_Grantee @AUDITOR_Grantee @GRegression2
   Scenario: Validate Federal Org Auditor profile user should see all fields and section readonly on federal Org layout Viewonly access
     When I login to "As a Grantor" app as "GRANTEE AUDITOR" user
     When I navigate to "Home" tab
