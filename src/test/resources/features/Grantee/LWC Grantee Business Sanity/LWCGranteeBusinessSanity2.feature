@@ -2315,9 +2315,9 @@ Feature: Sanity scenarios
     When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
-    And I click toggle button to select "Opportunities - All"
-    When I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
-    And I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:opportunitysGranteeTableId---" without waiting for record
+    When I click toggle button to select "Opportunities - All"
+    When I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:fundingOpportunitiesTableId---" panel
+    And I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:fundingOpportunitiesTableId---" without waiting for record
     Then I softly see field "Status" as "Converted to Application"
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Evaluation" sub tab at view detail page

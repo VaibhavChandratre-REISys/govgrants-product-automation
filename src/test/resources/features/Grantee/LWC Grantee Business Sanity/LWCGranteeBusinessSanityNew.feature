@@ -7026,7 +7026,7 @@ Feature: Sanity scenarios New
       | GRANTEE PM | GRANTEE AUDITOR |
       | GRANTEE PO | GRANTEE ADMIN   |
 
-  @463594 @480703 @480706 @480708 @480709 @ValidateOpportunitiesconvertedtoPreApplicationManualPOusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPreapplication @TBExecution
+  @463594 @480703 @480706 @480708 @480709 @ValidateOpportunitiesconvertedtoPreApplicationManualPOusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPreapplication @P3_Grantee @PO_Grantee @FO_Grantee @FD_Grantee @ADMIN_Grantee @GRegression2
   Scenario Outline: Validate Opportunities converted to Pre-Application Manual PO user can navigate to Opportunity details page after clicking on view action for the Oppprotunity which is converted to Pre-application
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     Given I login to "As a Grantee" app as "GRANTEE PO" user
