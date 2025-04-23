@@ -126,6 +126,30 @@ public class UsersAndURL implements UsersController {
     private String getWashingtonEnvironmentPassword(String userLevel) {
         String password;
         switch (userLevel.toUpperCase()) {
+            case "GRANTEE ADMIN":
+                password = "Rei@2025";
+                break;
+            case "GRANTEE ADMIN1":
+                password = "Rei@2025";
+                break;
+            case "GRANTEE PM":
+                password = "gntwhcagap@25";
+                break;
+            case "GRANTEE EXE":
+                password = "gntwhcagap@25";
+                break;
+            case "GRANTEE FO":
+                password = "gntwhcagap@25";
+                break;
+            case "GRANTEE FD":
+                password = "gntwhcagap@25";
+                break;
+            case "GRANTEE AUDITOR":
+                password = "gntwhcagap@25";
+                break;
+            case "GRANTEE PO":
+                password = "gntwhcagap@25";
+                break;
             default:
                 password = "Salesforce@2025";
         }
@@ -325,6 +349,15 @@ public class UsersAndURL implements UsersController {
         username.put("SME", "sme11@yopmail.com.gtrwhcagap");
         username.put("SPI4", "spi4@yopmail.com.gtrwhcagap");
         username.put("SARAH PM", "sarah.pm@ggp.test8.gtrwhcagap");
+
+        username.put("GRANTEE ADMIN", "product.qa@ggp.test8.gntwhcagap");
+        username.put("GRANTEE ADMIN1", "qa.admin@ggp.test8.gntwhcagap");
+        username.put("GRANTEE PM", "sarah.pm@ggp.test8.gntwhcagap");
+        username.put("GRANTEE EXE", "victor.exe@ggp.test8.gntwhcagap");
+        username.put("GRANTEE FO", "david.fo@ggp.test8.gntwhcagap");
+        username.put("GRANTEE FD", "danielle.garcia@ggp.test8.gntwhcagap");
+        username.put("GRANTEE PO", "grantee.po@yopmail.com.gntwhcagap");
+        username.put("GRANTEE AUDITOR", "automationauditor@yopmail.com.gntwhcagap");
 
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());

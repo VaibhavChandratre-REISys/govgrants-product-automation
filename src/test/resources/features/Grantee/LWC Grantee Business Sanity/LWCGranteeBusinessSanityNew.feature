@@ -160,7 +160,7 @@ Feature: Sanity scenarios New
     Then I softly see field "Status" as "Accepted"
     Then I softly can see top right button "Create Application" in page detail
 
-  @463447 @ValidatePreAppwithPOprofileusingtherecorddecisionabletoselectnotaccept
+  @463447 @ValidatePreAppwithPOprofileusingtherecorddecisionabletoselectnotaccept @P2_Grantee @PO_Grantee @GRegression2
   Scenario: Validate PreApp with PO profile using the record decision able to select not accept
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     Given I login to "As a Grantee" app as "GRANTEE PO" user
@@ -7357,7 +7357,7 @@ Feature: Sanity scenarios New
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-  @463434 @ValidatePreAppWithPOProfileChecktheaccessinReviewedStatewithAllowrecordEditingYes
+  @463434 @ValidatePreAppWithPOProfileChecktheaccessinReviewedStatewithAllowrecordEditingYes @P2_Grantee @PO_Grantee @GRegression2
   Scenario: Validate PreApp With PO Profile Check the access in Reviewed State with Allow record Editing Yes
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     Given I login to "As a Grantee" app as "GRANTEE PO" user
