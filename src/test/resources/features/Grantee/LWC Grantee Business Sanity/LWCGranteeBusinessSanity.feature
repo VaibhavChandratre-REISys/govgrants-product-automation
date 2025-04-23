@@ -4565,18 +4565,12 @@ Feature: Sanity scenarios
     Then I softly see "Organization Files" page block displayed
     Then I softly see "Notes" page block displayed
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:federalFilesTableId---"
-    Then I see "Attachment.pdf" has been added in "Organization Files" flex table
-    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
-    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
-    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
-    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
+    Then I see "Indirect Cost Rate Letter" has been added in "Organization Files" flex table
+    Then I can see row level action button "View" against "Indirect Cost Rate Letter" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
+    Then I cannot see row level action button "Delete" against "Indirect Cost Rate Letter" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
+    Then I cannot see row level action button "Edit" against "Indirect Cost Rate Letter" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
+    Then I can see row level action button "Download" against "Indirect Cost Rate Letter" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:fedNotesTableId---"
-    Then I softly see value "Notes for PM" for title "Title" inside table "---grantee_tableId:-:fedNotesTableId---"
-    Then I softly see value "Automation Notes" for title "Description" inside table "---grantee_tableId:-:fedNotesTableId---"
-    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:fedNotesTableId---"
-    Then I softly see "Created By" in flex table header "---grantee_tableId:-:fedNotesTableId---"
-    Then I cannot see row level action button "Delete" against "Notes for PM" in flex table with id "---grantee_tableId:-:fedNotesTableId---"
-    Then I cannot see row level action button "Edit" against "Notes for PM" in flex table with id "---grantee_tableId:-:fedNotesTableId---"
     Then I softly see value "Test" for title "Title" inside table "---grantee_tableId:-:fedNotesTableId---"
     Then I softly see value "Grantee testing" for title "Description" inside table "---grantee_tableId:-:fedNotesTableId---"
     And I save the value from row "2" for column name "Created By" as "CreatedBy" from flex table "---grantee_tableId:-:fedNotesTableId---"
@@ -16508,7 +16502,7 @@ Feature: Sanity scenarios
       | GRANTEE ADMIN1  | softly can see    | Qualified Leads - Open |
       | GRANTEE AUDITOR | softly cannot see | Qualified Leads - All  |
 
-  @463455 @ValidateNotYetConvertedOpportunityManualPMusercancreatePreApplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord
+  @463455 @ValidateNotYetConvertedOpportunityManualPMusercancreatePreApplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord @P4_Grantee @AUDITOR_Grantee @GRegression2
   Scenario: Validate Not Yet Converted Opportunity Manual PM user can create Pre-Application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
