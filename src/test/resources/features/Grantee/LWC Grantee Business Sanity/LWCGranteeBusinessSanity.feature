@@ -4423,7 +4423,7 @@ Feature: Sanity scenarios
     Then I see the sub-header is "Agency For International Development" in the page details
     Then I softly see field "Parent Organization" as "NA"
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Related Log" sub tab at view detail page
@@ -4678,7 +4678,7 @@ Feature: Sanity scenarios
     Then I see the sub-header is "{SavedValue:OrganizationName}" in the page details
     Then I softly see field "Parent Organization" as "NA"
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Related Log" sub tab at view detail page
@@ -8028,7 +8028,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:FocusAreaId}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
     Then I do not see value "{SavedValue:FocusAreaId}" for title "EGMS ID" inside table "---grantee_tableId:-:GranteeProjectTableId---"
 
-  @476620 @476621 @476622 @476623 @VerifyFDusercannotDeactivateactiveStrategicplan
+  @476620 @476621 @476622 @476623 @VerifyFDusercannotDeactivateactiveStrategicplan @P3_Grantee @FO_Grantee @FD_Grantee @PO_Grantee @AUDITOR_Grantee @GRegression2
   Scenario Outline: Verify FD user cannot Deactivate active Strategic plan
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Planning" tab
@@ -8039,10 +8039,10 @@ Feature: Sanity scenarios
     Then I cannot see top right button "Deactivate" in page detail
     Examples:
       | User            | RecordId                            |
-#      | GRANTEE FO      | Automation Permanent Strategic Plan |
-#      | GRANTEE FD      | Automation Permanent Strategic Plan |
+      | GRANTEE FO      | Automation Permanent Strategic Plan |
+      | GRANTEE FD      | Automation Permanent Strategic Plan |
       | GRANTEE PO      | Automation Permanent Strategic Plan |
-#      | GRANTEE AUDITOR | Automation Permanent Strategic Plan |
+      | GRANTEE AUDITOR | Automation Permanent Strategic Plan |
 
   @476976 @476963 @NonFederalprogramVerifyvalidationsdisplayedtoPOuseronNonFederalprogram @GRegression1
   Scenario Outline: Non-Federal program - Verify validations displayed to PO user on Non Federal program

@@ -6871,7 +6871,7 @@ Feature: Sanity scenarios New
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     Then I softly see value "Amended" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
 
-  @487155 @487156 @ValidateNotYetConvertedOpportunityManualFOusercannotcreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord
+  @487155 @487156 @ValidateNotYetConvertedOpportunityManualFOusercannotcreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord @FO_Grantee @FD_Grantee @GRegression2
   Scenario Outline: Validate Not Yet Converted Opportunity Manual FO/FD user cannot create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Victor EXE user"
     Given I login to "As a Grantee" app as "GRANTEE EXE" user
@@ -6898,7 +6898,7 @@ Feature: Sanity scenarios New
       | GRANTEE FO |
       | GRANTEE FD |
 
-  @487157 @487158 @ValidateNotYetConvertedOpportunityManualAuditorusercannotcreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord
+  @487157 @487158 @ValidateNotYetConvertedOpportunityManualAuditorusercannotcreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord @P3_Grantee @ADMIN_Grantee @AUDITOR_Grantee @GRegression2
   Scenario Outline: Validate Not Yet Converted Opportunity Manual Auditor user cannot create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<filter>"
     Given I login to "As a Grantee" app as "<userName>" user
