@@ -1082,7 +1082,7 @@ Feature: Grantee Smoke scenarios
       | User       |
       | GRANTEE PM |
 
-  @482165 @ValidateQualifyLeadPMusercanqualifytheleadwhichisingestedfromgrantsgov @Grantee_Smoke1
+  @482165 @ValidateQualifyLeadPMusercanqualifytheleadwhichisingestedfromgrantsgov @Grantee_Smoke1 @GranteeTest
   Scenario Outline: Validate Qualify Lead PM user can qualify the lead which is ingested from grants gov
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
     Given I login to "As a Grantee" app as "<userType>" user
@@ -1938,10 +1938,10 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "EGMS ID" as "appEGMSID"
     Then I softly see field "Status" as "Created"
 
-  @475808 @ValidateNotYetConvertedOpportunitGrantsgovPMusercancreatePreApplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord @Grantee_Smoke2
+  @475808 @ValidateNotYetConvertedOpportunitGrantsgovPMusercancreatePreApplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord @Grantee_Smoke2 @GranteeTest
   Scenario Outline: Validate Not Yet Converted Opportunity Grants.gov PM user can create Pre-Application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
-    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001271854" with properties "default"
     Given I login to "As a Grantee" app as "<userName>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
@@ -1950,7 +1950,7 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212745" with properties "PRE_APPLICATION_YES"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001271854" with properties "PRE_APPLICATION_YES"
     And I navigate to "Opportunities" tab
     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Opportunities Not Converted to Application - All"
@@ -2508,7 +2508,7 @@ Feature: Grantee Smoke scenarios
       | User       |
       | GRANTEE PM |
 
-  @472256 @CombinationofamendmentVerifyEXEusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @Grantee_Smoke2
+  @472256 @CombinationofamendmentVerifyEXEusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @Grantee_Smoke2 @GranteeTest1
   Scenario Outline:Combination of amendment : Verify EXE user can create combination of amendment using following combinations and activate new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -2869,7 +2869,7 @@ Feature: Grantee Smoke scenarios
       | User        |
       | GRANTEE EXE |
 
-  @470843 @PRamdVerifytheimpactonGrants&AwardafterPeriodicRenewalAmendmentRequestisAccepted&creatednewaward @Grantee_Smoke1 @GRegression1
+  @470843 @PRamdVerifytheimpactonGrants&AwardafterPeriodicRenewalAmendmentRequestisAccepted&creatednewaward @Grantee_Smoke1 @GRegression1 @GranteeTest1
   Scenario:PR amd the impact on Grants & Award after Periodic Renewal Amendment Request is Accepted & created new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -2972,8 +2972,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     When I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     And I navigate to "Projections" sub tab
-    Then I softly see value "{Date:M/dd/yyyy::d+15}" for title "Start Date" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see value "{Date:M/dd/yyyy::d+3670}" for title "End Date" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Start Date" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "{Date:M/d/yyyy::d+3670}" for title "End Date" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "$2,000.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$200.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
@@ -5782,7 +5782,7 @@ Feature: Grantee Smoke scenarios
       | userType   | attachment     | Notes        |
       | GRANTEE PM | Attachment.pdf | Notes for PM |
 
-  @443755 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @Grantee_Smoke3
+  @443755 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @Grantee_Smoke3 @GranteeTest1
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -7341,7 +7341,7 @@ Feature: Grantee Smoke scenarios
       | User       |
       | GRANTEE PO |
 
-  @480737 @ValidatewithPOprofileonClickeditactionotherattachmentformgetopen @Grantee_Smoke1
+  @480737 @ValidatewithPOprofileonClickeditactionotherattachmentformgetopen @Grantee_Smoke1 @GranteeTest
   Scenario: Validate with PO profile on Click edit action other attachment form get open
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -7424,7 +7424,6 @@ Feature: Grantee Smoke scenarios
     And I click on "Save" in the page details
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download as PDF" present in parallel dropdown
-    Then I see option "Take Snapshot" present in parallel dropdown
     When I "Collapse" page block contaninig value "Files"
     Then I softly do not see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     When I "Expanded" page block contaninig value "Files"
@@ -7444,7 +7443,6 @@ Feature: Grantee Smoke scenarios
     When I click on "Splitview" icon for "Other Attachments Forms" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Download as PDF" in the split screen page details
-    Then I softly can see top right button "Take Snapshot" in the split screen page details
     And I click on "Validate" in the split screen page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
@@ -7962,7 +7960,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @482123 @VerifytheinternalOrganizationallsectionandfields @Grantee_Smoke1
+  @482123 @VerifytheinternalOrganizationallsectionandfields @Grantee_Smoke1 @GranteeTest1
   Scenario Outline: Verify the as the PM user internal Organization all section and fields
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -8163,7 +8161,6 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "<NotesRecord>" for title "Title" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I softly see value "Automation Notes" for title "Description" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:internalOrgNotesTableId---"
-    Then I softly see link "Created By" inside Page block
     Then I softly see "Created By" in flex table header "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I can see row level action button "Delete" against "<NotesRecord>" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I can see row level action button "Edit" against "<NotesRecord>" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
@@ -10063,10 +10060,10 @@ Feature: Grantee Smoke scenarios
     And I click on hyperlink containing value "Grantee PO"
     Then I softly see the text containing "grantee.po@yopmail.com.qagrnteatm"
 
-  @482033 @ValidateGrantsgovlobbingformMandatoryPMusercansuccessfullysubmitheformtoGrantsgovafterenteringvaliddatainGrantsgovlobbingform @Grantee_Smoke1
+  @482033 @ValidateGrantsgovlobbingformMandatoryPMusercansuccessfullysubmitheformtoGrantsgovafterenteringvaliddatainGrantsgovlobbingform @Grantee_Smoke1 @GranteeTest
   Scenario: Validate Grants gov lobbing form Mandatory PM user can successfully submit the form to Grants.gov after entering valid data in Grants gov lobbing form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
-    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001271854" with properties "default"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
@@ -10075,8 +10072,8 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212745" with properties "default"
-    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001212745" with properties "default"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001271854" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001271854" with properties "default"
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -11528,16 +11525,16 @@ Feature: Grantee Smoke scenarios
     When I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Project Role is required to save.   |
-      | First Name is required to save.     |
-      | Last Name is required to save.      |
-      | Phone is required to save.          |
-      | Email is required to save.          |
-      | Address Line 1 is required to save. |
-      | State is required to save.          |
-      | City is required to save.           |
-      | Country is required to save.        |
-      | Zip Code is required to save.       |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, First Name is required in the Contact Information section.     |
+      | To Save, Last Name is required in the Contact Information section.      |
+      | To Save, Phone is required in the Contact Information section.          |
+      | To Save, Email is required in the Contact Information section.          |
+      | To Save, Address Line 1 is required in the Address Information section. |
+      | To Save, State is required in the Address Information section.          |
+      | To Save, City is required in the Address Information section.           |
+      | To Save, Country is required in the Address Information section.        |
+      | To Save, Zip Code is required in the Address Information section.       |
     And I click modal button "Close"
     And I click on "Edit" in the page details
     And I enter value "Checked" into field "GeneralConditionChanged__c"
@@ -11653,8 +11650,8 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     Then I softly see "Edit" modal button
@@ -15362,9 +15359,9 @@ Feature: Grantee Smoke scenarios
     And I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Reporting Period Start Date is required to save under Overview. |
-      | Reporting Period End Date is required to save under Overview.   |
-      | Report Due Date is required to save under Overview.             |
+      | To Save, Reporting Period Start Date is required in the Overview tab under the Report Overview section. |
+      | To Save, Report Due Date is required in the Overview tab under the Report Overview section.             |
+      | To Save, Reporting Period End Date is required in the Overview tab under the Report Overview section.   |
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - My Records"

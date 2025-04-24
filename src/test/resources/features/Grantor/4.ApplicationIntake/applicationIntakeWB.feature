@@ -59,7 +59,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:reviewsTableId---" panel
     Then I softly see "No records found" inside flex table with id "---applicationReview:-:reviewsTableId---"
 
-  @72579 @77380 @76374 @70258
+  @72579 @77380 @76374 @70258 @ErrorMsgTest
   Scenario: Validate the SPA users should not be able to Submit the Application | Validate whether SPI user can continue to proceed without providing application title while creating a application
   Validate whether user should be able to enter the required information for the creation  Application | Validate that the user is able to view the added setting while the creating an application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
@@ -78,7 +78,7 @@ Feature: Application Intake scenarios without background
     And I wait for "2" seconds
     When I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Application Title is required to save. |
+      | To Save, Application Title is required.   |
     And I enter value "{SavedValue:Automation Runtime Announcement Application Review}" into field "Title__c"
     And I wait for "2" seconds
     And I click modal button "Save and Continue"

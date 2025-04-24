@@ -899,7 +899,7 @@ Feature: Validate all scenarios in Organizational Site Visit
       | Internal                  |
       | {SavedValue:EXE Username} |
 
-  @55799 @organizationalsiteVisitPurpose
+  @55799 @organizationalsiteVisitPurpose @ErrorMsgTest
   Scenario: Validate the Purpose of Site Visit Org level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -908,9 +908,9 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I enter "Edition1" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I see the following messages in the page details :
-      | Purpose is Required to save under Overview. |
+      | To Save, Purpose is required in the Overview tab under the Plan section. |
 
-  @55800 @organizationalsiteVisitSource
+  @55800 @organizationalsiteVisitSource @ErrorMsgTest
   Scenario: Validate the Source of Site Visit Org level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -919,7 +919,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I enter "Edition1" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I see the following messages in the page details :
-      | Source is Required to save under Overview. |
+      | To Save, Source is required in the Overview tab under the Plan section. |
 
   @55802 @55806 @notifyConductButtonSiteVisitOrgLevel @smoke
   Scenario: User will be able to view the Notify and Conduct button on the Site Visit to complete the action items

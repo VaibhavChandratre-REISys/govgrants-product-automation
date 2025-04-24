@@ -2286,7 +2286,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80060 @verifyErrorMessageForSubAwardAbbreviation
+  @80060 @verifyErrorMessageForSubAwardAbbreviation @ErrorMsgTest
   Scenario Outline: validate user should be able to get error message while clicking on submit for approval button if sub award abbreviation fiels is empty
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -2484,7 +2484,7 @@ Feature: Validate all scenarios in the Application Review
       | Automation Test Description | Justification__c |
     And I click on "Save" in the page details
     Then I see the following messages in the page details :
-      | Subaward Abbreviation is required to save under Funding Decision Memo. |
+      | To Save, Subaward Abbreviation is required in the Funding Decision Memo tab under the Overview section. |
 
     Examples:
       | Announcement Name                                               | Application Name                                                |

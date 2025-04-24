@@ -929,7 +929,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @58936 @acknowledgementIsRequiredToContinue
+  @58936 @acknowledgementIsRequiredToContinue @ErrorMsgTest
   Scenario: Validate System generates an error message if the user tries to proceed on the risk assessment without providing acknowledgment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -950,7 +950,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I enter "Risk Assessment Creation1" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
     Then I see the following messages in the page details :
-      | Acknowledgement is Required to save. |
+      | To Save, Acknowledgement is required in the Signatures Confirming Assessment section. |
 
   @58938 @58179 @initialRAIsExpiredandSucceedingAreActive  @smoke
   Scenario: Initial Risk Assessment should be marked as Expired if succeeding Risk Assessments are made active

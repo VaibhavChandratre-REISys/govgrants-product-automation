@@ -850,7 +850,7 @@ Feature: Validate all scenarios of grants and award without background
       | User |
       | PM   |
 
-  @64415 @64416 @64417 @64418 @64420 @64421 @64422 @64419
+  @64415 @64416 @64417 @64418 @64420 @64421 @64422 @64419 @ErrorMsgTest
   Scenario: Verify validation message is displayed when award owner did not enter Grant Title field while creating direct grant.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -859,15 +859,15 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "2" seconds
     And I click modal button "Continue"
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Grant Title is required to save.               |
-      | Grant Abbreviation is required to save.        |
-      | Project Period Start Date is required to save. |
-      | Project Period End Date is required to save.   |
-      | Budget Category Type is required to save.      |
-      | Subrecipient Organization is required to save. |
-      | Internal Program is required to save.          |
-      | Funding Organization is required to save.      |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Grant Title is required.               |
+      | To Save, Grant Abbreviation is required.        |
+      | To Save, Project Period Start Date is required. |
+      | To Save, Project Period End Date is required.   |
+      | To Save, Budget Category Type is required.      |
+      | To Save, Subrecipient Organization is required. |
+      | To Save, Internal Program is required.          |
+      | To Save, Funding Organization is required.      |
 
   @64424 @VerifyRequiredMatch%Filed
   Scenario: Verify If you select Subrecipient Match Required setting as Yes and award owner did not enter Required Match % field then it should show validation message.
@@ -1176,7 +1176,7 @@ Feature: Validate all scenarios of grants and award without background
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @66224 @66210 @67895 @validateSourceNdInstructionField
+  @66224 @66210 @67895 @validateSourceNdInstructionField @ErrorMsgTest
   Scenario: To verify that if source and instruction field  unfilled in site visit review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation error must be thrown.
   | @67895 Validate BP number from subaward is updating the BP number on Grant upon activation of Subaward
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
@@ -1199,10 +1199,10 @@ Feature: Validate all scenarios of grants and award without background
     When I click modal button "Save and Continue"
     And I enter "SourceError" values from "SiteVisit_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
-      | Source is required to save under Overview. |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Source is required in the Overview tab under the Plan section. |
 
-  @66223 @67954 @67925 @67916 @67917 @ErrorMsgForPurposeField
+  @66223 @67954 @67925 @67916 @67917 @ErrorMsgForPurposeField @ErrorMsgTest
   Scenario: To verify that if Purpose field in plan table is left unfilled in site visit review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation error must be thrown
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1222,8 +1222,8 @@ Feature: Validate all scenarios of grants and award without background
     And I enter value "Automation Desc" into field "Pointsdiscussedwithofficials__c"
     And I enter value "To fulfill pass-through monitoring responsibilities" into field "SourceSiteVisit__c"
     When I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
-      | Purpose is required to save under Overview. |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Purpose is required in the Overview tab under the Plan section. |
 
   @53967 @NoIfAreExpenseDetailRequiredonReimbursements  @smoke
   Scenario Outline: Verify that If Are Expense Details Required on Reimbursements? field is No then user should see only edit action at Reimbursement Payment request Budget category table.
@@ -1445,7 +1445,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} |
 
-  @66219 @validateInstructionField
+  @66219 @validateInstructionField @ErrorMsgTest
   Scenario: To verify that if instruction field is left unfilled in site visit review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation error must be throw
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1463,8 +1463,8 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "3" seconds
     And I enter "InstructionError" values from "SiteVisit_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I see the following messages in the page details :
-      | Instructions for Subrecipient is required to save under Overview. |
+    Then I see the following messages in the page details contains:
+      | To Save, Instructions for Subrecipient is required in the Overview tab under the Instructions section. |
 
   @66215 @validateCreatedStatusSV
   Scenario: To verify that after the general information in the modal window of site visit is filled by the award owner the status change to created.
@@ -1501,7 +1501,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Overview" sub tab
     Then I see textarea field "GrantAwardDescription__c" is editable
 
-  @66416 @validateSourceInDeskReview
+  @66416 @validateSourceInDeskReview @ErrorMsgTest
   Scenario: To verify that if source field in plan table is left unfilled in Desk review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation message  must be thrown
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1518,10 +1518,10 @@ Feature: Validate all scenarios of grants and award without background
     When I click modal button "Save and Continue"
     And I enter "SourceError" values from "DeskReview_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I see the following messages in the page details :
-      | Source is required to save under Overview. |
+    Then I see the following messages in the page details contains:
+      | To Save, Source is required in the Overview tab under the Plan section. |
 
-  @66410 @validateInstructionFieldInDeskReview
+  @66410 @validateInstructionFieldInDeskReview @ErrorMsgTest
   Scenario: To verify that if instruction field is left unfilled in Desk review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation message must be thrown
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1538,8 +1538,8 @@ Feature: Validate all scenarios of grants and award without background
     When I click modal button "Save and Continue"
     And I enter "InstructionError" values from "DeskReview_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I see the following messages in the page details :
-      | Instructions for Subrecipient is required to save under Overview. |
+    Then I see the following messages in the page details contains:
+      | To Save, Instructions for Subrecipient is required in the Overview tab under the Instructions section. |
 
   @68078 @redirectionThresholdCheck  @smoke
   Scenario Outline: validate that Budget Redirection threshold is default set to 10% on amendment,For a Grant with No Budget redirection threshold set

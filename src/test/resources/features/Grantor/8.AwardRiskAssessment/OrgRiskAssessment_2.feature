@@ -80,7 +80,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I perform quick search for "Expired" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     Then I see value "Expired" for title "Status" against the value "{SavedValue:EGMSID}" inside table "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @62946 @62947 @62948 @acknowledgeOrgRiskAssessment  @smoke
+  @62946 @62947 @62948 @acknowledgeOrgRiskAssessment @smoke @ErrorMsgTest
   Scenario: Validate whether user can proceed without checkin 'Acknowledment' field for Org Level Risk Assessment
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -119,7 +119,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I click on "Save and Continue" in the page details
     #62946
     Then I see the following messages in the page details contains:
-      | Acknowledgement is required to save. |
+      | To Save, Acknowledgement is required in the Signatures Confirming Assessment section.. |
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I wait for "3" seconds

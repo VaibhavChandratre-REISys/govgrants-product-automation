@@ -7361,7 +7361,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Negotiations" sub tab
     Then I softly cannot see top right button "Edit" in page detail
 
-  @134183 @ValidateNegotiationtabFieldRequiredToSave @Sprint-1
+  @134183 @ValidateNegotiationtabFieldRequiredToSave @Sprint-1 @ErrorMsgTest
   Scenario:Validate Negotiation Tab Field Required To Save
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7382,9 +7382,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Negotiations" sub tab
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Due Date                             | is required to save under Negotiations |
-      | Application Sections for Negotiation | is required to save under Negotiations |
-      | Details                              | is required to save under Negotiations |
+      | To Save, Due Date is required in the Negotiations tab under the Negotiation Request Details section.                             |
+      | To Save, Application Sections for Negotiation is required in the Negotiations tab under the Negotiation Request Details section. |
+      | To Save, Details is required in the Negotiations tab under the Explanation of Negotiations Needed section.                                       |
 
   @134198 @ValidateannouncementownercannotpromotetheapplicationtothenextreviewstepifitisNegotiationrequested @Sprint-1
   Scenario:Validate announcement owner cannot promote the application to the next review step if it is Negotiation requested

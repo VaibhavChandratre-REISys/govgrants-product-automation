@@ -695,7 +695,7 @@ Feature: Validate all scenarios in Organizational Desk Review
       | User                      |
       | {SavedValue:EXE Username} |
 
-  @55797 @organizationalDeskReviewPurpose  @organizationalDeskReviewFirst
+  @55797 @organizationalDeskReviewPurpose  @organizationalDeskReviewFirst @ErrorMsgTest
   Scenario: Validate the Purpose of Desk Review Org level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -704,9 +704,9 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I enter "Edition1" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I see the following messages in the page details :
-      | Purpose is Required to save under Overview. |
+      | To Save, Purpose is required in the Overview tab under the Plan section. |
 
-  @55798 @organizationalDeskReviewSource  @organizationalDeskReviewFirst
+  @55798 @organizationalDeskReviewSource  @organizationalDeskReviewFirst @ErrorMsgTest
   Scenario: Validate the Source of Desk Review Org level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -715,7 +715,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I enter "Edition1" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I see the following messages in the page details :
-      | Source is Required to save under Overview. |
+      | To Save, Source is required in the Overview tab under the Plan section. |
 
   @55806 @55803 @54461 @notifyConductButtonDeskReviewOrgLevel @smoke  @organizationalDeskReviewFirst
   Scenario: User will be able to view the Notify and Conduct button on the Desk Review to complete the action items

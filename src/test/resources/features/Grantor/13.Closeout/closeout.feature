@@ -299,7 +299,7 @@ Feature: Validate all scenarios in Closeout
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---closeout:-:closeoutNotesTableId---"
 
-  @40729 @87356 @VerifyErrorMessageForCloseoutRequest
+  @40729 @87356 @VerifyErrorMessageForCloseoutRequest @ErrorMsgTest
   Scenario: Validate user should get error message on closeout request for Type and Reason fields
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -309,8 +309,8 @@ Feature: Validate all scenarios in Closeout
     And I wait for "5" seconds
     #40729
     Then I softly see the following messages in the page details contains:
-      | Type is required to save.   |
-      | Reason is required to save. |
+      | To Save, Type is required.   |
+      | To Save, Reason is required. |
 
   @40065 @87352 @40608 @89221 @89222 @89223 @89224 @89225 @89226 @89229 @89227 @88734 @88735 @88736 @88737 @88738 @88739 @ValidatingCloseoutRequest @buglogged141573
   Scenario: To verify the PM user should be able to create the Closeout Request
@@ -1151,7 +1151,7 @@ Feature: Validate all scenarios in Closeout
       Sandbox: Notification: Closeout Request {SavedValue:closeoutID} has beenapproved
       """
 
-  @96255 @VerifySystemErrorMessageForReason
+  @96255 @VerifySystemErrorMessageForReason @ErrorMsgTest
   Scenario: Validate user should get error message for reason while creating closeout request
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -1159,7 +1159,7 @@ Feature: Validate all scenarios in Closeout
     When I enter value "" into field "Reason__c"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Reason is required to save. |
+      | To Save, Reason is required. |
 
   @95522 @VerifyAttachmentUploadBySubrecipientForAdhocCloseoutRequest  @buglogged141573
   Scenario: Validate sub-recipient user should be able to upload attachment while creating adhoc closeout request

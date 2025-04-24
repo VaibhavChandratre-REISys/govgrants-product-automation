@@ -840,7 +840,7 @@ Feature: Validate all registration related scenarios
     Then I softly do not see value "{SavedValue:Automation Runtime Organization}" for title "EGMS ID" inside table "---program:-:adminTaskReassignmentTableId---"
     Then I softly do not see value "Review Parent/Child Organization Relationship Request" for title "Task Type" inside table "---program:-:adminTaskReassignmentTableId---"
 
-  @452446 @452447 @452448 @452449 @452450 @452451 @452452 @ValidateLoginPageabletoseeOranizationandIndividualbuttononexternalregistrationpageusingtheExternalsiteregistrationUrl @Sprint-16-US-416690
+  @452446 @452447 @452448 @452449 @452450 @452451 @452452 @ValidateLoginPageabletoseeOranizationandIndividualbuttononexternalregistrationpageusingtheExternalsiteregistrationUrl @Sprint-16-US-416690 @ErrorMsgTest
   Scenario: Validate Login Page able to see Oranization and Individual button on external registration page using the External site registration Url
     When I am on "SUBPORTAL" portal
     Then I softly see button "Organization" on login page
@@ -894,8 +894,8 @@ Feature: Validate all registration related scenarios
     When I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details :
-      | Social Security Number (SSN) is required to save. |
-      | Email is required to save.                        |
+      | To Save, Social Security Number (SSN) is required. |
+      | To Save, Email is required.                        |
 
   @452453 @INDRegVerifyfromorganizationpagewithvaliddataonclicksavebuttonredirecttoregistrationpage @sprint-16-US-416690
   Scenario: IND Reg : Verify from organization page with valid data   on click save button redirect  to registration page
@@ -993,7 +993,7 @@ Feature: Validate all registration related scenarios
     Then I can see top right button "Back" in page detail
     Then I can see top right button "Submit" in page detail
 
- @452464 @INDRegVerifyINDorgabletoseeinpendingIndividualsubrecipientregistration @sprint-16-US-416690
+  @452464 @INDRegVerifyINDorgabletoseeinpendingIndividualsubrecipientregistration @sprint-16-US-416690
   Scenario: IND Reg : Verify IND org able  to see in pending Individual subrecipient registration.
     Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
@@ -1011,11 +1011,11 @@ Feature: Validate all registration related scenarios
     And I pause execution for "5" seconds
     Then I see the following messages in the page details contains:
       | Your registration request for access to EGMS has been completed and sent for government approval.Once approved, you will be sent another email from salesforce.com (technology platform provider) with your Username and Password shortly to log into the system. |
-   And I am on "INTERNAL" portal
-   And I login to "As a Grantor" app as "SARAH PM" user
+    And I am on "INTERNAL" portal
+    And I login to "As a Grantor" app as "SARAH PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:uniqueEmailID}" in "{grantor_tableId:SubrecipientIndRegistration}" panel
-   And I save the value from row "1" for column name "Full Name" as "UserFullName" from flex table "{grantor_tableId:SubrecipientIndRegistration}"
+    And I save the value from row "1" for column name "Full Name" as "UserFullName" from flex table "{grantor_tableId:SubrecipientIndRegistration}"
     And I wait for "2" seconds
     When I click on "Start" icon for "{SavedValue:UserFullName}" inside flex table with id "{grantor_tableId:SubrecipientIndRegistration}"
     Then I see only the following ordered radio buttons in the approval decision :

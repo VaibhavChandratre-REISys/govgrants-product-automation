@@ -56,7 +56,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-Application}" in "---applicationIntake:-:qualifiedTableId---" panel
     Then I softly see value "{SavedValue:Automation Runtime Announcement for Pre-Application}" for title "Opportunity Name" inside table "---applicationIntake:-:qualifiedTableId---"
 
-  @72575 @70253 @75595 @spaUserCannotSubmitanPre-application
+  @72575 @70253 @75595 @spaUserCannotSubmitanPre-application @ErrorMsgTest
   Scenario: Validate the SPA users should not be able to Submit the Pre Application | Validate whether SPI user can continue to proceed without providing application title while creating a pre-application
   Validate whether users from other organizations will be able to create Pre-Applications
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
@@ -74,7 +74,7 @@ Feature: Pre-Application scenarios without background
     When I clear in modal the value from field "Title__c"
     When I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Pre-Application Title is required to save. |
+      | To Save, Pre-Application Title is required. |
     And I enter value "{SavedValue:Automation Runtime Announcement for Pre-Application}" into field "Title__c"
     And I wait for "3" seconds
     When I click modal button "Save and Continue"
@@ -155,7 +155,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     Then I softly cannot see top right button "Create Pre-Application" in page detail
 
- @71115 @71114 @preappDueDateValidation
+  @71115 @71114 @preappDueDateValidation
   Scenario: Validate whether User will be able to submit the pre- application on the last date for submission.
   Validate once the Announcement is published and Pre-Application is in created status, later the announcement is unpublished then the User will not be able to see the Submit to Grantor on pre-application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for PreApp and App" and properties "TODAY_PREAPP_DUE_DATE"
@@ -197,8 +197,8 @@ Feature: Pre-Application scenarios without background
     When I click toggle button to select "Pre-Applications - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for PreApp and App}" in "---preApplication:-:recipientPreApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for PreApp and App}" inside flex table with id "---preApplication:-:recipientPreApplicationsTableId---"
-   And I wait for "2" seconds
-   Then I softly can see top right button "Submit to Grantor" in page detail
+    And I wait for "2" seconds
+    Then I softly can see top right button "Submit to Grantor" in page detail
 
   @71413 @userCannotCreatePreAppWhenSettingIsNo
   Scenario: Validate whether User is able to create Pre Application only when the Opportunity setting for Pre Application (No)
@@ -214,7 +214,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     Then I softly cannot see top right button "Create Pre-Application" in page detail
 
- @72516 @72518 @34154 @72519 @72520 @72515 @preapplicationInformationCopiedToApplication  @buglogged100926 @buglogged109204 @buglogged169487
+  @72516 @72518 @34154 @72519 @72520 @72515 @preapplicationInformationCopiedToApplication  @buglogged100926 @buglogged109204 @buglogged169487
   Scenario: Validate the Pre Application information is copied to Application | Validate whether user is able to acknowledge the application submission by entering the mandatory details.
   Validate the Match Percentage validation during submit for approval when the Match required setting as Yes | Validate when the pre-application is submitted to grantor then the pending task is created for PM user
   Validate the once the PM user accepts the pre-application when is submitted to grantor using the pending task, then the task moved from pending to Completed task table
@@ -247,7 +247,7 @@ Feature: Pre-Application scenarios without background
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    And I click on "Back" in the page details
-     And I close the tab
+    And I close the tab
     When I click on "Submit to Grantor" in the page details
     And I pause execution for "2" seconds
     Then I softly see the following messages in the page details contains:
@@ -257,11 +257,11 @@ Feature: Pre-Application scenarios without background
       | Budget Tab - Enter budget details for the first budget period before submitting the Pre-Application to the Grantor.                                                 |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
 #    And I click on "Edit" in the page details
-   When I navigate to "Overview" sub tab
-   And I wait for "2" seconds
+    When I navigate to "Overview" sub tab
+    And I wait for "2" seconds
     And I enter value "Checked" into field "Agreement5__c"
     And I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
@@ -336,7 +336,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-Application}" in "---preApplication:-:notYetQualifiedTable---" panel
     Then I softly do not see "{SavedValue:Automation Runtime Announcement for Pre-Application}" has been added in "---preApplication:-:notYetQualifiedTable---" flex table
 
- @72576 @75866 @75865 @preApplicationSubmittedToGrantorPendingTask @buglogged125701  @buglogged169487
+  @72576 @75866 @75865 @preApplicationSubmittedToGrantorPendingTask @buglogged125701  @buglogged169487
   Scenario: Validate whether user can change the pre-application due date while creating the pre-application
   Validate whether pre-application title field is editable while creating the pre-application | Validate whether the Announcement owner receives an email notification when the pre-application is submitted to grantor |
   Validate whether the external user recieves an email notification when the pre-application is accepted by the grantor
@@ -511,7 +511,7 @@ Feature: Pre-Application scenarios without background
       | SPI3 |
       | SPA  |
 
- @34147 @validateRequestedAmountIsGreateThanSubawardFloorAmount   @buglogged169487
+  @34147 @validateRequestedAmountIsGreateThanSubawardFloorAmount   @buglogged169487
   Scenario: Verify SPI & SPA user is not able to Submit Pre-Application to Grantor with Requested Amount greater than Subaward Floor Amount
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     Given I am on "SUBPORTAL" portal
@@ -566,9 +566,9 @@ Feature: Pre-Application scenarios without background
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Application Intake}" inside flex table with id "---preApplication:-:qualifiedOpprtunitesTableId---" without waiting for record
     Then I softly see field "EGMS ID" as "{SavedValue:egms id}"
     Examples:
-      | User  |
-      | SPI3  |
-      | SPA   |
+      | User |
+      | SPI3 |
+      | SPA  |
 
   @34045 @editCreatedApplication
   Scenario Outline: Verify SPI & SPA user (Record owner of Application) is able to edit created Application
@@ -614,9 +614,9 @@ Feature: Pre-Application scenarios without background
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I navigate to "Budget" sub tab
-   Then I softly do not see "Focus Area" page block displayed
+    Then I softly do not see "Focus Area" page block displayed
 
- @35054 @34353 @33998 @validateListOfSubmittedApplication   @buglogged169487
+  @35054 @34353 @33998 @validateListOfSubmittedApplication   @buglogged169487
   Scenario: Verify when SPI (Record owner of Pre-Application) submit the Pre-Application to Grantor then it is displayed in the list of Submitted Pre-Applications and disappeared from the list of Not yet qualified Opputunities
   Verify if the opportunity has only one focus area, then the application budget periods are automatically associated to that focus area |
   Validate whether SPI user can edit the pre-application once it is submitted to grantor.
@@ -641,8 +641,8 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Budget" sub tab
     Then I softly see "Budget Summary by Focus Area" page block displayed
     Given I expand nested table containing column value "BP01"
@@ -747,7 +747,7 @@ Feature: Pre-Application scenarios without background
     When I download the file
     Then I softly see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 
- @34146 @preAppCannotBeSubmittedWithZeroAmount
+  @34146 @preAppCannotBeSubmittedWithZeroAmount
   Scenario: Verify SPI user is not able to Submit Pre-Application to Grantor with zero budget/requested amount
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     Given I am on "SUBPORTAL" portal
@@ -989,7 +989,7 @@ Feature: Pre-Application scenarios without background
     When I save the field containing "Program Income Allowed?" as "No"
     Then I softly cannot see field "Estimated Program Income For Project Period" inside page block
 
- @174845 @174846 @174858 @174860 @174876 @174879 @174883 @174885 @ValidatesubmittedpreapplicationsendbacktonegotiationfromgrantorsideafterselectingtheRequesNegotiation @sprint-8
+  @174845 @174846 @174858 @174860 @174876 @174879 @174883 @174885 @ValidatesubmittedpreapplicationsendbacktonegotiationfromgrantorsideafterselectingtheRequesNegotiation @sprint-8
   Scenario: Validate submitted pre application send back to negotiation from grantor side after selecting the Request Negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1003,7 +1003,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-   And I wait for "2" seconds
+    And I wait for "2" seconds
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1058,7 +1058,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see field "Due Date" inside page block
     Then I softly see field "Pre-Application Sections for Negotiation" inside page block
      #174883
-   Then I softly see field "Details" as "Negotiation Initiated" in "Explanation of Negotiations Needed" pageblock
+    Then I softly see field "Details" as "Negotiation Initiated" in "Explanation of Negotiations Needed" pageblock
     And I click on "Send to Subrecipient" in the page details
     And I wait for "2" seconds
      #174860
@@ -1071,7 +1071,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Negotiations" sub tab
     Then I softly can see "Negotiations" sub tab at view detail page
 
- @174849 @ValidatewhenpreapplicationisAcceptthenRequestNegotiationbuttonishidefromGrantor @sprint-8
+  @174849 @ValidatewhenpreapplicationisAcceptthenRequestNegotiationbuttonishidefromGrantor @sprint-8
   Scenario: when pre-application is Accept then "Request Negotiation" button is hide  from Grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1118,10 +1118,10 @@ Feature: Pre-Application scenarios without background
     Then I softly can see top right button "Accept" in page detail
     Then I softly can see top right button "Reject" in page detail
     When I click on "Accept" in the page details
-   And I wait for "3" seconds
+    And I wait for "3" seconds
     Then I softly cannot see top right button "Request Negotiation" in page detail
 
- @178505 @ValidateonRejectedpreapplicationnegotiationtabshouldbehiddenifthenegotiationisnotinitiated @sprint-8
+  @178505 @ValidateonRejectedpreapplicationnegotiationtabshouldbehiddenifthenegotiationisnotinitiated @sprint-8
   Scenario: on Rejected preapplication negotiation tab should be hidden if the negotiation is not initiated
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1135,7 +1135,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-   And I wait for "3" seconds
+    And I wait for "3" seconds
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1171,7 +1171,7 @@ Feature: Pre-Application scenarios without background
     Then I softly cannot see "Negotiations" sub tab at view detail page
     Then I softly see field "Status" as "Rejected"
 
- @178468 @Validatetaskcreatedwhennegotiationrequestpreapplicationissendtosubrecipient @sprint-8
+  @178468 @Validatetaskcreatedwhennegotiationrequestpreapplicationissendtosubrecipient @sprint-8
   Scenario: task is created when negotiation request preapplication  is send to subrecipient
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1193,8 +1193,8 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -1229,7 +1229,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "Record Id" in "---home:-:externalPendingTasktableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---home:-:externalPendingTasktableId---"
 
- @176549 @Validatesaveandcancelbuttonisdisplayedonsubrecipientside @sprint-8
+  @176549 @Validatesaveandcancelbuttonisdisplayedonsubrecipientside @sprint-8
   Scenario: Validate save and cancel button is displayed on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1243,7 +1243,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-   And I wait for "2" seconds
+    And I wait for "2" seconds
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1290,7 +1290,7 @@ Feature: Pre-Application scenarios without background
     Then I can see top right button "Cancel" in page detail
     Then I can see top right button "Save" in page detail
 
- @176528 @176525 @176521 @ValidateDuedatefieldisdisplayedonsubrecipientside @sprint-8
+  @176528 @176525 @176521 @ValidateDuedatefieldisdisplayedonsubrecipientside @sprint-8
   Scenario: Validate Due date field is displayed on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1314,8 +1314,8 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -1404,7 +1404,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     Then I softly can see top right button "Request Negotiation" in page detail
 
- @176508  @ValidateSubrecipientuserisabletosubmittograntorthenegotiationrequestpreapplication @sprint-8
+  @176508  @ValidateSubrecipientuserisabletosubmittograntorthenegotiationrequestpreapplication @sprint-8
   Scenario: Subrecipient  user is able to  submit to grantor the negotiation request  preapplication
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1418,7 +1418,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-   And I wait for "2" seconds
+    And I wait for "2" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -1456,7 +1456,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see top right button "Send to Subrecipient" in page detail
     And I click on "Send to Subrecipient" in the page details
     And I navigate to "Negotiations" sub tab
-   And I wait for "2" seconds
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -1472,7 +1472,7 @@ Feature: Pre-Application scenarios without background
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor" in "Negotiation Request Details" pageblock
 
-  @174890 @ValidateDueDatefieldshouldbeRequiredtosubmitunderNegotiationRequestdetailssectiononGrantorSide @sprint-8
+  @174890 @ValidateDueDatefieldshouldbeRequiredtosubmitunderNegotiationRequestdetailssectiononGrantorSide @sprint-8 @ErrorMsgTest
   Scenario: Due Date field should be Required to submit under Negotiation Request details section on Grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1524,9 +1524,9 @@ Feature: Pre-Application scenarios without background
       | Standard Pre-Application form | Checked           |
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Due Date is required to save under Negotiations. |
+      | To Save, Due Date is required in the Negotiations tab under the Negotiation Request Details section. |
 
-  @174900 @174903 @ValidateExplanationofnegotiationneededfieldshouldbeRequairedtosubmitunderNegotiationRequestdetailssectiononGrantorSide @sprint-8
+  @174900 @174903 @ValidateExplanationofnegotiationneededfieldshouldbeRequairedtosubmitunderNegotiationRequestdetailssectiononGrantorSide @sprint-8 @ErrorMsgTest
   Scenario: Explanation of negotiation needed field should be Required to submit under Negotiation Request details section on Grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1540,7 +1540,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-   And I wait for "3" seconds
+    And I wait for "3" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -1548,8 +1548,8 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} | Checked         |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -1571,14 +1571,13 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
-#   Added below extra steps due to bug once resolved remove the step
     And I enter "FileFormForms1" values from "PreApplication_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
       | Standard Pre-Application form | Checked           |
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Details is required to save under Negotiations. |
+      | To Save, Details is required in the Negotiations tab under the Applicant Response section. |
      #174903
     Then I softly see fields "ExplanationOfRevisionsNeeded__c" is in edit mode
 
@@ -1636,10 +1635,10 @@ Feature: Pre-Application scenarios without background
     Then I softly can see top right button "Send to Subrecipient" in page detail
     And I click on "Send to Subrecipient" in the page details
     And I navigate to "Negotiations" sub tab
-   And I wait for "2" seconds
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
 
- @175042 @ValidateInternalUsershouldabletoeditthefieldafterinclickonRequestnegotiation @sprint-8
+  @175042 @ValidateInternalUsershouldabletoeditthefieldafterinclickonRequestnegotiation @sprint-8
   Scenario: Validate Internal User should able to edit the field after in click on Request negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1653,7 +1652,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-   And I wait for "3" seconds
+    And I wait for "3" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -1702,7 +1701,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-   And I wait for "2" seconds
+    And I wait for "2" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -1759,7 +1758,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     Then I softly can see top right button "Request Negotiation" in page detail
 
- @175055 @usershouldabletoselectthepicklistvalueat"NegotiationsRequestDetails"sectionin"Pre-ApplicationSectionforNegotiation"multi-picklist. @Sprint-8 @Vrishali
+  @175055 @usershouldabletoselectthepicklistvalueat"NegotiationsRequestDetails"sectionin"Pre-ApplicationSectionforNegotiation"multi-picklist. @Sprint-8 @Vrishali
   Scenario: Verify user should able to select the picklist value at "Negotiations Request Details" section in "Pre-Application Section for Negotiation" multi-pick list.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1773,7 +1772,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-   And I wait for "2" seconds
+    And I wait for "2" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -1864,7 +1863,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see "Negotiations" sub tab at view detail page
     Then I softly see field "Status" as "Negotiation Initiated"
 
- @174725 @TheApplicantResponsesectionisdisplayedfortheNegotiationtab @Sprint-7 @Vrishali
+  @174725 @TheApplicantResponsesectionisdisplayedfortheNegotiationtab @Sprint-7 @Vrishali
   Scenario: Verify the Applicant Response section is displayed for the Negotiation tab
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1879,7 +1878,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-   And I wait for "2" seconds
+    And I wait for "2" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -2005,8 +2004,8 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -2032,10 +2031,10 @@ Feature: Pre-Application scenarios without background
     When I hovering mouse on help text icon inside page block detail "Negotiation Request Details"
     Then I softly see "<new_helpText>" shown as help text
     Examples:
-      | new_helpText                                                                                                               |
-      | This section contains negotiation details for the applicant to view, enter all details before sending to the Subreceipent  |
+      | new_helpText                                                                                                              |
+      | This section contains negotiation details for the applicant to view, enter all details before sending to the Subreceipent |
 
- @176545 @ValidatehelptextdisplayedfortheNegotiationrequestdetailssectiononsubrecipientside @sprint-8
+  @176545 @ValidatehelptextdisplayedfortheNegotiationrequestdetailssectiononsubrecipientside @sprint-8
   Scenario Outline: Validate help text displayed for the Negotiation request details section on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2057,8 +2056,8 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} | Checked         |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -2099,7 +2098,7 @@ Feature: Pre-Application scenarios without background
       | new_helpText                                                |
       | This section contains negotiation details from the Grantor. |
 
- @176517 @Validatehelptextisdisplayedonsubrecipientsideforpreapplicationforapplicantresponsesection @sprint-8
+  @176517 @Validatehelptextisdisplayedonsubrecipientsideforpreapplicationforapplicantresponsesection @sprint-8
   Scenario Outline: help text is displayed on subrecipient side for pre-application for applicant  response section
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2164,7 +2163,7 @@ Feature: Pre-Application scenarios without background
       | new_helpText                                                             |
       | Provide a brief explanation of the negotiations made to the application. |
 
- @169921 @169923 @169926 @169928 @169932 @170092 @ValidateUserShouldAbleToSeeEDitViewPreviewButtonInFilesForm @sprint-7
+  @169921 @169923 @169926 @169928 @169932 @170092 @ValidateUserShouldAbleToSeeEDitViewPreviewButtonInFilesForm @sprint-7
   Scenario: Validate User Should Able To See EDit View Preview Button In Files Form
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2178,7 +2177,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-   And I wait for "2" seconds
+    And I wait for "2" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -2223,7 +2222,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "100.00%" for title "Percentage" against the value "Standard Pre-Application form" inside table "---preApplication:-:preAppFormTableId---"
 
-@170093 @ValidateusershouldabletoseeErrorMessageonvalidatebutton @sprint-7
+  @170093 @ValidateusershouldabletoseeErrorMessageonvalidatebutton @sprint-7
   Scenario: Validate user should able to see Error Message on validate button
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2284,7 +2283,7 @@ Feature: Pre-Application scenarios without background
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-   And I wait for "3" seconds
+    And I wait for "3" seconds
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
@@ -2312,14 +2311,14 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "100.00%" for title "Percentage" against the value "Standard Pre-Application form" inside table "---preApplication:-:preAppFormTableId---"
      #170101
-   And I click on "Save" in the page details
+    And I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     When I navigate to "Forms and Files" sub tab
     Then I can see row level action button "View" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     Then I cannot see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
 
- @170102 @ValidateSPI&SPAbothusercanedittheformmanytimesbeforesubmittingthepreapplication @sprint-7
+  @170102 @ValidateSPI&SPAbothusercanedittheformmanytimesbeforesubmittingthepreapplication @sprint-7
   Scenario Outline: Validate SPI & SPA both user can edit the form many times before submitting the pre-application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2361,7 +2360,7 @@ Feature: Pre-Application scenarios without background
       | SPI3 | {SavedValue:SPI3 Username} |
       | SPA  | {SavedValue:SPA Username}  |
 
- @170105 @ValidateusershouldabletoseetheEditValidateBackbuttonaftersavingthepreapplicationform @sprint-7
+  @170105 @ValidateusershouldabletoseetheEditValidateBackbuttonaftersavingthepreapplicationform @sprint-7
   Scenario: Validate user should able to see the Edit Validate Back button after saving the preapplication form
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2399,7 +2398,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see top right button "Validate" in page detail
 #    Then I softly can see top right button "Back" in page detail
 
- @174520 @Validatepreapplicationisaccepted/rejectedthenusershouldonlyviewpreviewtheforminformtable @sprint-7
+  @174520 @Validatepreapplicationisaccepted/rejectedthenusershouldonlyviewpreviewtheforminformtable @sprint-7
   Scenario Outline: Validate preapplication is accepted/rejected then user should only view preview the form in form table
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2452,7 +2451,7 @@ Feature: Pre-Application scenarios without background
       | Accept |
       | Reject |
 
- @174728 @TheExplanationofRevisionsneededsectiondisplayedonnegotiationsectionisreadonlyonsubrecipientside @Sprint-7 @Vrishali
+  @174728 @TheExplanationofRevisionsneededsectiondisplayedonnegotiationsectionisreadonlyonsubrecipientside @Sprint-7 @Vrishali
   Scenario: Verify the Explanation of Revisions needed section  displayed on negotiation section is read only on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2509,7 +2508,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the page details
     Then I softly see field "Explanation of Negotiations Needed" is not editable
 
- @174697 @Theusercaneditonlythosesectionwhichareselectedbygrantorwhileinitiatingthenegotiationrequestonpre-applicationonSubrecipientside @Sprint-8 @Vrishali 
+  @174697 @Theusercaneditonlythosesectionwhichareselectedbygrantorwhileinitiatingthenegotiationrequestonpre-applicationonSubrecipientside @Sprint-8 @Vrishali
   Scenario: the user can edit only those section which are selected by grantor while initiating the negotiation request on pre-application on Subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2573,7 +2572,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Forms and Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
 
- @174727 @Thesubrecipientuserisabletosavedetails @Sprint-7 @Vrishali
+  @174727 @Thesubrecipientuserisabletosavedetails @Sprint-7 @Vrishali
   Scenario: Verify the subrecipient user is able to save details
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2587,7 +2586,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-   And I wait for "2" seconds
+    And I wait for "2" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -2595,8 +2594,8 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Overview" sub tab
     And I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -2647,7 +2646,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Forms and Files" sub tab
     Then I softly see value "Other" for title "Classification" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
 
- @174537 @ValidateUsershouldnotsubmitthepre-applicationifpre-applicationformisnotfillthe100%&asperfillingfield%shouldbedisplayontheform @Sprint-7 @Vrishali
+  @174537 @ValidateUsershouldnotsubmitthepre-applicationifpre-applicationformisnotfillthe100%&asperfillingfield%shouldbedisplayontheform @Sprint-7 @Vrishali
   Scenario: Verify user should not submit the pre-application if pre-application form is not fill the 100% & as per filling field % should be display on the form
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2672,7 +2671,7 @@ Feature: Pre-Application scenarios without background
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
-   And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
@@ -2735,7 +2734,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     Then I softly cannot see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
 
- @180660 @180661 @180662 @180665 @ValidateannouncementownershouldabletoseetheFilesandForms:FormsoptioninthepreapplicationsectionforNegotiationtabatgrantorside @sprint-10
+  @180660 @180661 @180662 @180665 @ValidateannouncementownershouldabletoseetheFilesandForms:FormsoptioninthepreapplicationsectionforNegotiationtabatgrantorside @sprint-10
   Scenario: Validate announcement owner should able to see the Forms and Files:Forms option in the pre application section for Negotiation tab at grantor side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2850,7 +2849,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see the following messages in the page details contains:
       | Negotiations Tab - Select at least one form to allow edits on, because Form section is added for negotiation. |
 
-  @181545 @Validateusershouldabletoseethechangesafterfeelingtheformatgrantor&Subrecipientside @sprint-10 
+  @181545 @Validateusershouldabletoseethechangesafterfeelingtheformatgrantor&Subrecipientside @sprint-10
   Scenario: Validate user should able to see the changes after feeling the format grantor & Subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2961,8 +2960,8 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -3140,7 +3139,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
 
- @174731 @Validatethependingtaskiscreatedforthegrantoronsubmittograntornegotiationrequest @sprint-8 
+  @174731 @Validatethependingtaskiscreatedforthegrantoronsubmittograntornegotiationrequest @sprint-8
   Scenario: Validate the pending task is created for the grantor on submit to grantor  negotiation request
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -3163,8 +3162,8 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -3340,7 +3339,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "{SavedValue:PreappEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
- @197942 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforadminuseronreassignmytaskpage  @sprint-7-US-197384  @reassignment
+  @197942 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforadminuseronreassignmytaskpage  @sprint-7-US-197384  @reassignment
   Scenario: Validate Pre-Application Review Negotiation task should not generate for admin user on reassign my task page
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES-Automation ADMIN user"
     Given I am on "SUBPORTAL" portal
@@ -3407,7 +3406,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "{SavedValue:PreappEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
- @197949 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforPMuseronreassignmytaskpage @sprint-7-US-197384  @reassignment
+  @197949 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforPMuseronreassignmytaskpage @sprint-7-US-197384  @reassignment
   Scenario: Validate Pre-Application Review Negotiation' task should not generate for PM user on reassign my task page
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -3473,7 +3472,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "{SavedValue:PreappEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
- @197951 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforEXEuseronreassignmytaskpage @sprint-7-US-197384  @reassignment
+  @197951 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforEXEuseronreassignmytaskpage @sprint-7-US-197384  @reassignment
   Scenario: Validate Pre-Application Review Negotiation task should not generate for PO user on reassign my task page
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES-Automation EXE user"
     When I am on "SUBPORTAL" portal
@@ -3540,7 +3539,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "{SavedValue:PreappEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
- @197954 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforPOuseronreassignmytaskpage @sprint-7-US-197384  @reassignment
+  @197954 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforPOuseronreassignmytaskpage @sprint-7-US-197384  @reassignment
   Scenario: Validate Pre-Application Review Negotiation' task should not generate for PO user on reassign my task page
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES-Automation PO user"
     When I am on "SUBPORTAL" portal
@@ -3698,8 +3697,8 @@ Feature: Pre-Application scenarios without background
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -4554,7 +4553,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     Then I softly see field "Status" as "Submitted for Review"
 
- @202460 @ValidatePreapptasktypeshouldberenamedforAdminuserasReviePre-Applicationafterpre-appsubmittedtograntor @sprint-11-US-224734  @reassignment @bugid_461962
+  @202460 @ValidatePreapptasktypeshouldberenamedforAdminuserasReviePre-Applicationafterpre-appsubmittedtograntor @sprint-11-US-224734  @reassignment @bugid_461962
   Scenario: Validate Pre app_ Verify task type should be renamed for Admin user as "Review Pre-Application" after pre-app submitted to grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES-Automation ADMIN user"
     When I am on "SUBPORTAL" portal
@@ -4578,7 +4577,7 @@ Feature: Pre-Application scenarios without background
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
-   And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
@@ -4883,7 +4882,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see top right button "Accept" in page detail
     Then I softly can see top right button "Reject" in page detail
 
- @196968 @ValidatePre-apponlyS\Rusernameshouldbedisplayunderownersectionofresponsibilitytabofpre-appevenifAnnownershipwillgetchangeforrelatedpre-app @sprint-4-US-197579  @reassignment
+  @196968 @ValidatePre-apponlyS\Rusernameshouldbedisplayunderownersectionofresponsibilitytabofpre-appevenifAnnownershipwillgetchangeforrelatedpre-app @sprint-4-US-197579  @reassignment
   Scenario: Validate Pre-app only S\R user name should be display under owner section of responsibility tab of pre-app even if Ann ownership will get change for related pre-app
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES-Automation EXE user"
     When I am on "SUBPORTAL" portal
@@ -4996,7 +4995,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I see value "Automation SPI3" for title "Name" inside table "---preApplication:-:preApplicationOwnerTableId---"
 
- @196980 @ValidatePre-appVenewownershouldseethebelowbuttonswhens/rusersubmitthepre-applicationnegotiationtograntorafterit'srelatedAnnownerwillchangeitsownershipandassigntonewuser @sprint-4-US-197579  @reassignment
+  @196980 @ValidatePre-appVenewownershouldseethebelowbuttonswhens/rusersubmitthepre-applicationnegotiationtograntorafterit'srelatedAnnownerwillchangeitsownershipandassigntonewuser @sprint-4-US-197579  @reassignment
   Scenario: Validate Pre-app new owner should see the below buttons when s/r user submit the pre-application negotiation to grantor after it's related Ann owner will change its ownership and assign to new user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -5110,7 +5109,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see top right button "Accept" in page detail
     Then I softly can see top right button "Reject" in page detail
 
- @197235 @ValidatePre-appemailshouldbegeneratedfornewownerforpre-appifit'srelatedAnnownershipassigntonewAnnuser @sprint-4-US-197579  @reassignment
+  @197235 @ValidatePre-appemailshouldbegeneratedfornewownerforpre-appifit'srelatedAnnownershipassigntonewAnnuser @sprint-4-US-197579  @reassignment
   Scenario: Validate Pre-app email should be generated for new owner for pre-app if it's related Ann ownership assign to new Ann user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES-Automation EXE user"
     When I am on "SUBPORTAL" portal
@@ -5129,8 +5128,8 @@ Feature: Pre-Application scenarios without background
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -5490,7 +5489,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see value "{SavedValue:AwardFloor}" is "Equals to" the value "{SavedValue:AwardFloor1}"
     Then I softly see value "{SavedValue:BudgetedAmount}" is "Equals to" the value "{SavedValue:BudgetedAmount1}"
 
- @274164 @DirectiveAnnVerifyINDusercanteditBudgetTabBudgetSummarybyFocusAreasectionifgrantornotselectedBudgetTabBudgetSummarybyFocusAreaforapplicationfornegotiation @Sprint-23-US-273843
+  @274164 @DirectiveAnnVerifyINDusercanteditBudgetTabBudgetSummarybyFocusAreasectionifgrantornotselectedBudgetTabBudgetSummarybyFocusAreaforapplicationfornegotiation @Sprint-23-US-273843
   Scenario: Directive Ann Verify IND user can't edit "Budget Tab: Budget Summary by Focus Area" section if grantor not selected "Budget Tab: Budget Summary by Focus Area" for application for negotiation
     Given I published "Directed" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "INVITED_APPLICANT_IND_ORGPRE_PRE_APPLICATION_NEGOTIATION-Automation EXE user"
     When I am on "SUBPORTAL" portal
@@ -5513,8 +5512,8 @@ Feature: Pre-Application scenarios without background
     And I get the "EGMS ID"
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                      |  Is Key Contact |
-      | {SavedValue:IND Username} | Checked         |
+      | Name                      | Is Key Contact |
+      | {SavedValue:IND Username} | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -5620,7 +5619,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see page block "Budget Summary by Focus Area"
     Then I cannot see page block "Focus Area"
 
- @274243 @ValidatePreApptheeffectsofpreApprejectioncreatedonCompAnn @Sprint-23-US-273843  @Allocation
+  @274243 @ValidatePreApptheeffectsofpreApprejectioncreatedonCompAnn @Sprint-23-US-273843  @Allocation
   Scenario: Validate Pre App the effects of pre App rejection created on Comp Ann
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -5676,4 +5675,4 @@ Feature: Pre-Application scenarios without background
     Then I softly cannot see top right button "Create Application" in page detail
     Then I cannot see top right button "Edit" in page detail
     And I navigate to "Budget" sub tab
-   Then I softly do not see "Actions" in flex table header "---applicationIntake:-:focusAreaTableAppId---"
+    Then I softly do not see "Actions" in flex table header "---applicationIntake:-:focusAreaTableAppId---"

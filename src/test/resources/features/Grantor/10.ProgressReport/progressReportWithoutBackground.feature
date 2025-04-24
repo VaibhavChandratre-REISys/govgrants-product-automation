@@ -142,7 +142,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
 
-  @45733 @37232 @45744 @45738 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod @jitendra
+  @45733 @37232 @45744 @45738 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod @jitendra @ErrorMsgTest
   Scenario Outline: Verify Reporting Period End Date is same as the Schedule End Date (Active award) | Validate User is not allowed to select schedule dates less than 120 days when frequency is Semi-Annually
   Verify if Schedule Start date field is not selected then it should not allow to create the schedule | Verify Reporting Period Start Date is same as the Schedule Start Date (Active)
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
@@ -193,7 +193,7 @@ Feature: Validate scenarios in Progress Report without background
     And I enter value "" into field "CalReportingStartDate__c"
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Reporting Period Start Date is required to save. |
+      | To Save, Reporting Period Start Date is required. |
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
