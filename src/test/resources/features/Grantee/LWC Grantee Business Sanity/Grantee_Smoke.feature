@@ -5920,6 +5920,8 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     And I click modal button "Close"
     And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I save the value from row "1" for column name "Organization Name" as "OrganizationName" from flex table "---grantee_tableId:-:nonFedChildOrgTableId---"
     Then I softly see value "{SavedValue:OrganizationName}" for title "Organization Name" inside table "---grantee_tableId:-:nonFedChildOrgTableId---"
     And I navigate to "Related Log" sub tab
