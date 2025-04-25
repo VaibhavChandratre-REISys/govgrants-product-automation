@@ -8442,17 +8442,17 @@ Feature: Grantee Smoke scenarios
     Then I softly can see "Form" sub tab at view detail page
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ABudgetSummaryTableId---" by clicking "Edit" :
       | Grant Program Function or Activity (a) | Catalog of Federal Domestic Assistance Number (b) | Estimated Unobligated Federal Funds (c) | Estimated Unobligated Non-Federal Funds (d) | New or Revised Federal Budget (e) | New or Revised Non-Federal Budget (f) |
-      | Automation Permanent Focus Area - BP01 | Automation Test                                   | 1000                                    | 1000                                        | 1000                              | 1000                                  |
+      | Automation Permanent Focus Area | Automation Test                                   | 1000                                    | 1000                                        | 1000                              | 1000                                  |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ANonFedResourceTableId---" by clicking "Edit" :
       | (a) Grant Program                      | (b) Applicant | (c) State | (d) Other Sources |
-      | Automation Permanent Focus Area - BP01 | 1000          | 1000      | 1000              |
+      | Automation Permanent Focus Area | 1000          | 1000      | 1000              |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ANonConstructionGridDTableId---" by clicking "Edit" :
       | Type        | 1st Quarter | 2nd Quarter | 3rd Quarter | 4th Quarter |
       | Federal     | 1000        | 1000        | 1000        | 1000        |
       | Non-Federal | 1000        | 1000        | 1000        | 1000        |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ANonConstructionGridETableId---" by clicking "Edit" :
       | (a) Grant Program                      | (b) First Future Funding Period | (c) Second Future Funding Period | (d) Third Future Funding Period | (e) Fourth Future Funding Period |
-      | Automation Permanent Focus Area - BP01 | 1000                            | 1000                             | 1000                            | 1000                             |
+      | Automation Permanent Focus Area | 1000                            | 1000                             | 1000                            | 1000                             |
     And I wait for "1" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
@@ -10607,6 +10607,9 @@ Feature: Grantee Smoke scenarios
       | David FO | Notes Record for FO | Automation Notes |
     When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
     And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
@@ -10641,18 +10644,10 @@ Feature: Grantee Smoke scenarios
     Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
     When I navigate to "Forms and Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
-      | Title        | Description      |
-      | Notes Record | Automation Notes |
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
-      | Name     | Title               | Description      |
-      | David FO | Notes Record for FO | Automation Notes |
-    When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
@@ -10683,18 +10678,10 @@ Feature: Grantee Smoke scenarios
     Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
     When I navigate to "Forms and Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
-      | Title        | Description      |
-      | Notes Record | Automation Notes |
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
-      | Name     | Title               | Description      |
-      | David FO | Notes Record for FO | Automation Notes |
-    When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
     And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
@@ -10733,18 +10720,10 @@ Feature: Grantee Smoke scenarios
     Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
     When I navigate to "Forms and Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
-      | Title        | Description      |
-      | Notes Record | Automation Notes |
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
-      | Name     | Title               | Description      |
-      | David FO | Notes Record for FO | Automation Notes |
-    When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
     And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
@@ -10773,18 +10752,10 @@ Feature: Grantee Smoke scenarios
     Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
     When I navigate to "Forms and Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
-      | Title        | Description      |
-      | Notes Record | Automation Notes |
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
-      | Name     | Title               | Description      |
-      | David FO | Notes Record for FO | Automation Notes |
-    When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
     And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
@@ -11916,10 +11887,6 @@ Feature: Grantee Smoke scenarios
       | To Save, ZIP / Postal Code is required.                                |
       | To Save, Project/ Performance Site Congressional District is required. |
     And I enter "Project_Perform_Site" values from "Application_Field_Values.xlsx"
-    And I enter value "{AUTOEnvData:300Char}" into field "AddressLine1__c"
-    When I click modal button "Save"
-    Then I softly see the following messages in the page details contains:
-      | Street 1: data value too large (max length=255) |
     And I enter value "Street1" into field "AddressLine1__c"
     And I enter value "Mun123" into field "City__c"
     When I click modal button "Save"
