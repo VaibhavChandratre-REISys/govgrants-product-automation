@@ -10798,6 +10798,8 @@ Feature: Grantee Smoke scenarios
       | Name     | Title               | Description      |
       | David FO | Notes Record for FO | Automation Notes |
     When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I wait for "2" seconds
+    When I click on "Delete" icon for "Notes Record" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"

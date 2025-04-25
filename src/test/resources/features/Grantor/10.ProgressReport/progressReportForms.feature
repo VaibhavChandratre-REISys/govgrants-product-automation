@@ -52,7 +52,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @284392 @ValidateSF425SPIusercanabletosaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF425form @sprint-26-US-282689 @Forms
+  @284392 @ValidateSF425SPIusercanabletosaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF425form @sprint-26-US-282689 @Forms @ErrorMsgTest
   Scenario: Validate SF425 SPI user can able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF-425form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -87,23 +87,24 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details :
-      | 1. Federal Agency and Organizational Element to Which Report is Submitted is required to save.                                               |
-      | 2. Federal Grant or Other Identifying Number Assigned by Federal Agency (To report multiple grants, use FFR Attachment) is required to save. |
-      | 8a. Project/Grant Period From is required to save.                                                                                           |
-      | 8b.To is required to save.                                                                                                                   |
-      | 9. Reporting Period End Date is required to save.                                                                                            |
-      | Recipient Organization Name is required to save.                                                                                             |
-      | Street1 is required to save.                                                                                                                 |
-      | City is required to save.                                                                                                                    |
-      | State is required to save.                                                                                                                   |
-      | ZIP / Postal Code is required to save.                                                                                                       |
-      | First Name is required to save.                                                                                                              |
-      | Last Name is required to save.                                                                                                               |
-      | Title is required to save.                                                                                                                   |
-      | b. Signature of Authorized Certifying Official is required to save.                                                                          |
-      | c. Telephone (Area code, number and extension) is required to save.                                                                          |
-      | d. Email Address is required to save.                                                                                                        |
-      | e. Date Report Submitted is required to save.                                                                                                |
+      | To Save, 1. Federal Agency and Organizational Element to Which Report is Submitted is required in the Financial Information section.                                               |
+      | To Save, 2. Federal Grant or Other Identifying Number Assigned by Federal Agency (To report multiple grants, use FFR Attachment) is required in the Financial Information section. |
+      | To Save, 8a. Project/Grant Period From is required in the Financial Information section.                                                                                           |
+      | To Save, 8b.To is required in the Financial Information section.                                                                                                                   |
+      | To Save, 9. Reporting Period End Date is required in the Financial Information section.                                                                                            |
+      | To Save, Recipient Organization Name is required in the Recipient Information section.                                                                                             |
+      | To Save, Street1 is required in the Recipient Information section.                                                                                                                 |
+      | To Save, City is required in the Recipient Information section.                                                                                                                    |
+      | To Save, State is required in the Recipient Information section.                                                                                                                   |
+      | To Save, ZIP / Postal Code is required in the Recipient Information section.                                                                                                       |
+      | To Save, Country is required in the Recipient Information section.                                                                                                                 |
+      | To Save, First Name is required in the 13. Certification section.                                                                                                                  |
+      | To Save, Last Name is required in the 13. Certification section.                                                                                                                   |
+      | To Save, Title is required in the 13. Certification section.                                                                                                                       |
+      | To Save, b. Signature of Authorized Certifying Official is required in the 13. Certification section.                                                                              |
+      | To Save, c. Telephone (Area code, number and extension) is required in the 13. Certification section.                                                                              |
+      | To Save, d. Email Address is required in the 13. Certification section.                                                                                                            |
+      | To Save, e. Date Report Submitted is required in the 13. Certification section.                                                                                                    |
     And I refresh the page
     And I wait for "4" seconds
     And I close the tab
@@ -193,7 +194,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @280156 @280161 @280184 @280193 @280216 @280243 @ValidateSPIuserseeFederalAgencyandOrganizationalElementtoWhichReportisSubmittedmandatoryfiledonSF425formwhichacceptmaximumalphanumericvalue @sprint-26-US-282689 @Forms
+  @280156 @280161 @280184 @280193 @280216 @280243 @ValidateSPIuserseeFederalAgencyandOrganizationalElementtoWhichReportisSubmittedmandatoryfiledonSF425formwhichacceptmaximumalphanumericvalue @sprint-26-US-282689 @Forms @ErrorMsgTest
   Scenario: Validate SPI user see Federal Agency and Organizational Element to Which Report is Submitted mandatory filed on SF425 form which accept maximum alphanumeric value
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -240,8 +241,8 @@ Feature: Validate scenarios in Progress Report Forms
     And I clear the value from field "FederalAgencySF428__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | 1. Federal Agency and Organizational Element to Which Report is Submitted is required to save. |
+    Then I softly see the following messages in the page details contains:
+      | To Save, 1. Federal Agency and Organizational Element to Which Report is Submitted is required in the Financial Information section. |
     And I enter value "{AUTOEnvData:StringOf100Chars}" into field "FederalAgencySF428__c"
     When I click on "Save" in the page details
     Then I softly see field "1. Federal Agency and Organizational Element to Which Report is Submitted" as "{AUTOEnvData:StringOf100Chars}"
@@ -250,8 +251,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "2" seconds
     #280161
-    Then I softly see the following messages in the page details :
-      | Recipient Organization Name is required to save. |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Recipient Organization Name is required in the Recipient Information section. |
     And I enter value "{AUTOEnvData:StringOf60Chars}" into field "RecipientOrganizationNameSF428__c"
     When I click on "Save" in the page details
     Then I softly see field "Recipient Organization Name" as "{AUTOEnvData:StringOf60Chars}"
@@ -261,7 +262,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "2" seconds
     #280184
     Then I softly see the following messages in the page details :
-      | Street1 is required to save. |
+      | To Save, Street1 is required in the Recipient Information section. |
     And I enter value "{AUTOEnvData:StringOf55Chars}" into field "Street1SF428__c"
     When I click on "Save" in the page details
     Then I softly see field "Street1" as "{AUTOEnvData:StringOf55Chars}"
@@ -272,7 +273,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     #280193
     Then I softly see the following messages in the page details :
-      | City is required to save. |
+      | To Save, City is required in the Recipient Information section. |
     And I enter value "{AUTOEnvData:StringOf35Chars}" into field "CitySF428__c"
     When I click on "Save" in the page details
     Then I softly see field "City" as "{AUTOEnvData:StringOf35Chars}"
@@ -282,7 +283,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "2" seconds
     #280216
     Then I softly see the following messages in the page details :
-      | Country is required to save. |
+      | To Save, Country is required in the Recipient Information section. |
     #280243
     When I enter value "USA: UNITED STATES" into field "CountrySF428__c"
     When I click on "Save" in the page details
@@ -305,7 +306,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | The amount cannot be less than zero. |
 
-  @passed @280159 @280206 @ValidateSPAuserseeFederalGrantorOtherIdentifyingNumberAssignedbyFederalAgencyismandatoryfiledonSF425formwhichacceptmaximum30alphanumericvalue @sprint-26-US-282689  @Forms
+  @280159 @280206 @ValidateSPAuserseeFederalGrantorOtherIdentifyingNumberAssignedbyFederalAgencyismandatoryfiledonSF425formwhichacceptmaximum30alphanumericvalue @sprint-26-US-282689 @Forms @ErrorMsgTest
   Scenario: Validate SPA user see "Federal Grant or Other Identifying Number Assigned by Federal Agency is mandatory filed on SF425 form which accept maximum 30 alphanumeric value
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -350,8 +351,8 @@ Feature: Validate scenarios in Progress Report Forms
     And I clear the value from field "FederalGrantIdentifyingNumbe__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | 2. Federal Grant or Other Identifying Number Assigned by Federal Agency (To report multiple grants, use FFR Attachment) is required to save. |
+    Then I softly see the following messages in the page details contains:
+      | To Save, 2. Federal Grant or Other Identifying Number Assigned by Federal Agency (To report multiple grants, use FFR Attachment) is required in the Financial Information section. |
     And I enter value "{AUTOEnvData:StringOf30Chars}" into field "FederalGrantIdentifyingNumbe__c"
     When I click on "Save" in the page details
     Then I softly see field "2. Federal Grant or Other Identifying Number Assigned by Federal Agency (To report multiple grants, use FFR Attachment)" as "{AUTOEnvData:StringOf30Chars}"
@@ -360,10 +361,10 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "2" seconds
     #280206
-    Then I softly see the following messages in the page details :
-      | State is required to save. |
+    Then I softly see the following messages in the page details contains:
+      | To Save, State is required in the Recipient Information section. |
 
-@286154 @286159 @ValidateSF425ASPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-1-US-283119 @Forms
+  @286154 @286159 @ValidateSF425ASPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-1-US-283119 @Forms
   Scenario: Validate SF425A SPI user can able to save & validate form after entering correct & valid data on all fields present on form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -380,7 +381,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I wait for "5" seconds 
+    And I wait for "5" seconds
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
@@ -515,7 +516,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I cannot see top right button "Edit" in page detail
     Then I cannot see top right button "Validate" in page detail
 
-  @279756 @279764 @279785 @ValidateUserseeFederalAgencyandOrganizationalElementtoWhichReportisSubmittedmandatorylabelonSF425A @sprint-1-US-283119 @Forms
+  @279756 @279764 @279785 @ValidateUserseeFederalAgencyandOrganizationalElementtoWhichReportisSubmittedmandatorylabelonSF425A @sprint-1-US-283119 @Forms @ErrorMsgTest
   Scenario: Validate User see Federal Agency and Organizational Element to Which Report is Submitted mandatory label on SF425-A
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -549,7 +550,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details :
-      | 1. Federal Agency and Organizational Element to Which Report is Submitted (Box 1 on Page 1) is required to save.              |
+      | To Save, 1. Federal Agency and Organizational Element to Which Report is Submitted (Box 1 on Page 1) is required in the 1. Federal Agency and Organizational Element to Which Report is Submitted section. |
     And I enter value "{AUTOEnvData:StringOf100Chars}" into field "FederalAgencyandOrganizationalSF429__c"
     When I click on "Save" in the page details
     Then I softly see field "1. Federal Agency and Organizational Element to Which Report is Submitted (Box 1 on Page 1)" as "{AUTOEnvData:StringOf100Chars}"
@@ -560,7 +561,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details :
-      | 2. Recipient Organization (Box 3 on Page 1) is required to save. |
+      | To Save, 2. Recipient Organization (Box 3 on Page 1) is required in the 2. Recipient Organization section. |
     And I enter value "{AUTOEnvData:StringOf60Chars}" into field "RecipientOrganizationNameSF428__c"
     And I wait for "3" seconds
     When I click on "Save" in the page details
@@ -571,7 +572,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details :
-      | 4. Reporting Period End Date (Box 9 on Page 1) is required to save. |
+      | To Save, 4. Reporting Period End Date (Box 9 on Page 1) is required in the 4. Reporting Period End Date section. |
 
   @279789 @279799 @ValidateSPAuserseeFederalGrantNumberismandatorylabelonSF425Aform @sprint-1-US-283119  @Forms
   Scenario: Validate SPA user see "Federal Grant Number" is mandatory label on SF425-A form
@@ -622,7 +623,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Required Fields Missing |
 
-  @286153 @ValidateSF425ASPIusercanabletosaveallfieldsbutvalidationisgeneratedonsavebuttonandvalidatebuttonafterenteringincorrectorblankdatadatainallfieldspresentonSF425form @sprint-1-US-283119  @Forms
+  @286153 @ValidateSF425ASPIusercanabletosaveallfieldsbutvalidationisgeneratedonsavebuttonandvalidatebuttonafterenteringincorrectorblankdatadatainallfieldspresentonSF425form @sprint-1-US-283119  @Forms @ErrorMsgTest
   Scenario: Validate SF425 A SPI user can able to save all fields but validation is generated on save button and validate button after entering incorrect or blank data data in all fields present on SF 425form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -654,10 +655,10 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | 1. Federal Agency and Organizational Element to Which Report is Submitted (Box 1 on Page 1) is required to save. |
-      | 2. Recipient Organization (Box 3 on Page 1) is required to save.                                                 |
-      | 4. Reporting Period End Date (Box 9 on Page 1) is required to save.                                              |
+    Then I softly see the following messages in the page details contains:
+      | To Save, 1. Federal Agency and Organizational Element to Which Report is Submitted (Box 1 on Page 1) is required in the 1. Federal Agency and Organizational Element to Which Report is Submitted section. |
+      | To Save, 2. Recipient Organization (Box 3 on Page 1) is required in the 2. Recipient Organization section.                                                                                                 |
+      | To Save, 4. Reporting Period End Date (Box 9 on Page 1) is required in the 4. Reporting Period End Date section.                                                                                           |
     And I enter "SF425A_Form" values from "ProgressReport_Field_Values.xlsx"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
@@ -737,7 +738,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @284062 @ValidateSF428SINDusercanabletosaveallfieldbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF428Sform @sprint-26-US-282679 @Forms
+  @284062 @ValidateSF428SINDusercanabletosaveallfieldbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF428Sform @sprint-26-US-282679 @Forms @ErrorMsgTest
   Scenario: Validate SF428-S IND user can able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF-428-S form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -770,8 +771,8 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" icon for "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     When I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
-      | Federal Grant or Other Identifying Number Assigned by Federal Awarding Agency (Block 2 of SF-428) is required to save. |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Federal Grant or Other Identifying Number Assigned by Federal Awarding Agency (Block 2 of SF-428) is required in the Federal Grant or Other Identifying Number Assigned by Federal Awarding Agency. section. |
     And I enter value "78904" into field "FederalGrantIdentifyingNumbe__c"
     When I click on "Save" in the page details
     And I wait for "4" seconds
@@ -788,12 +789,12 @@ Feature: Validate scenarios in Progress Report Forms
     And I click modal button "Save"
     And I wait for "3" seconds
     Then I softly see the following messages in the page details :
-      | GP or ACQ is required to save.             |
-      | Description is required to save.           |
-      | Identification Number is required to save. |
-      | Acquired Date is required to save.         |
-      | Condition Code is required to save.        |
-      | Acquisition Cost is required to save.      |
+      | To Save, GP or ACQ is required.             |
+      | To Save, Description is required.           |
+      | To Save, Identification Number is required. |
+      | To Save, Acquired Date is required.         |
+      | To Save, Condition Code is required.        |
+      | To Save, Acquisition Cost is required.      |
 
   @284129 @ValidateSF248SSPIonlyrecordownershouldhaveeditaccessonformotherusercanhaveonlyviewaccess @sprint-26-US-282679 @Forms
   Scenario: Validate SF248-S SPI only record owner should have edit access on form other user can have only view access
@@ -1199,7 +1200,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I cannot see top right button "Edit" in page detail
     Then I cannot see top right button "Validate" in page detail
 
- @284123 @284133 @ValidateSF428SSPIuserseethepreviewandviewicononforminCreatedSentbackSrSubmittedtothegrantorsentforreviewreviewedSubmittedforApprovalApprovedstateofprogressreport @sprint-26-US-282679 @Forms
+  @284123 @284133 @ValidateSF428SSPIuserseethepreviewandviewicononforminCreatedSentbackSrSubmittedtothegrantorsentforreviewreviewedSubmittedforApprovalApprovedstateofprogressreport @sprint-26-US-282679 @Forms
   Scenario: Validate SF428 S SPI user see the preview and view icon on form in Created/Sent back to S/r / Submitted to the grantor/sent for review/reviewed/Submitted for Approval/Approved state of progress report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1241,7 +1242,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
     And I wait for "2" seconds
-   And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1261,7 +1262,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
     And I wait for "2" seconds
-   And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1282,7 +1283,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see field "Status" as "Submitted for Review"
     When I navigate to "Forms and Files" sub tab
     And I wait for "2" seconds
-   And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1551,13 +1552,13 @@ Feature: Validate scenarios in Progress Report Forms
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent " or Add comment in "Comments Section", If "(ii) Other" option in "Federally-owned Property" is checked.     |
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent ", If any option in "1b. Equipment Acquired under a Federal Award" is checked.                               |
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent ", If "3. Report Loss, Destruction or Theft of Federally-owned Property" is checked.                         |
-      | Any one among "Sale Proceeds" or "Estimate of Current Fair Market Value" is required to be checked, if "2b. Sale of acquired equipment" is checked.                                                                              |
-      | "Percentage of Federal participation" is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                               |
-      | "Federal Share" is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                                                     |
+      | Any one among "Sale Proceeds" or "Estimate of Current Fair Market Value" is required to be checked, if "2b. Sale of acquired equipment" is checked.                                                                             |
+      | "Percentage of Federal participation" is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                              |
+      | "Federal Share" is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                                                    |
       | "Selling and handling allowance", if "2b. Sale of acquired equipment" is checked.                                                                                                                                               |
-      | Total Amount is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                                                        |
+      | Total Amount is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                                                       |
 
- @329591 @ValidateSF425validationshoulddisplayonvalidatebutton @sprint-11-US-328863 @Forms
+  @329591 @ValidateSF425validationshoulddisplayonvalidatebutton @sprint-11-US-328863 @Forms
   Scenario: Validate SF425 validation should display on validate button
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1663,7 +1664,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
- @282061 @ValidateSPIusercanablesaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF428Bform @sprint-25-US-280119 @Forms
+  @282061 @ValidateSPIusercanablesaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF428Bform @sprint-25-US-280119 @Forms
   Scenario: Validate SPI user can able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF-428-B form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1730,7 +1731,7 @@ Feature: Validate scenarios in Progress Report Forms
       | "Federal share" in "2c. Reportable Residual Unused Supplies" is required, if "1c" is checked in 'Report' section.                               |
       | "Selling and handling allowance" in "2c. Reportable Residual Unused Supplies" is required, if "1c" is checked in 'Report' section.              |
 
- @282061 @ValidateSPIusercanablesaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF428Bform @sprint-25-US-280119 @Forms
+  @282061 @ValidateSPIusercanablesaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF428Bform @sprint-25-US-280119 @Forms
   Scenario: Validate SPI user can able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF-428-B form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2138,7 +2139,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
- @281844 @ValidateSPIusercanabletosavallfieldsbutvalidationisgenerateonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF428form @sprint-25-US-280119 @Forms
+  @281844 @ValidateSPIusercanabletosavallfieldsbutvalidationisgenerateonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF428form @sprint-25-US-280119 @Forms @ErrorMsgTest
   Scenario: Validate SPI user can able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF-428 form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2171,19 +2172,19 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details :
-      | 1. Federal Agency and Organizational Element to Which Report is Submitted is required to save.    |
-      | 2. Federal Grant or Other Identifying Number Assigned by Federal Agency is required to save.      |
-      | Recipient Organization Name is required to save.                                                  |
-      | Street1 is required to save.                                                                      |
-      | City is required to save.                                                                         |
-      | 7. Supplemental Sheet is required to save.                                                        |
-      | First Name is required to save.                                                                   |
-      | Last Name is required to save.                                                                    |
-      | Title is required to save.                                                                        |
-      | 9b. Signature of Authorized Certifying Official is required to save.                              |
-      | 9c. Telephone(area code,number, extension) of Authorized Certifying Official is required to save. |
-      | 9d. E-mail Address of Authorized Certifying Official is required to save.                         |
-      | 9e. Date Report Submitted (MM/DD/YYYY) is required to save.                                       |
+      | To Save, 1. Federal Agency and Organizational Element to Which Report is Submitted is required in the 1. Federal Agency and Organizational Element to Which Report is Submitted section. |
+      | To Save, 2. Federal Grant or Other Identifying Number Assigned by Federal Agency is required in the 2. Federal Grant or Other Identifying Number Assigned by Federal Agency section.     |
+      | To Save, Recipient Organization Name is required in the 4. Recipient Organization (Name and complete address including zip code) section.                                                |
+      | To Save, Street1 is required in the 4. Recipient Organization (Name and complete address including zip code) section.                                                                    |
+      | To Save, City is required in the 4. Recipient Organization (Name and complete address including zip code) section.                                                                       |
+      | To Save, 7. Supplemental Sheet is required in the 7. Supplemental Sheet section.                                                                                                         |
+      | To Save, First Name is required in the Details of Authorized Certifying Official section.                                                                                                |
+      | To Save, Last Name is required in the Details of Authorized Certifying Official section.                                                                                                 |
+      | To Save, Title is required in the Details of Authorized Certifying Official section.                                                                                                     |
+      | To Save, 9b. Signature of Authorized Certifying Official is required in the Details of Authorized Certifying Official section.                                                           |
+      | To Save, 9c. Telephone(area code,number, extension) of Authorized Certifying Official is required in the Details of Authorized Certifying Official section.                              |
+      | To Save, 9d. E-mail Address of Authorized Certifying Official is required in the Details of Authorized Certifying Official section.                                                      |
+      | To Save, 9e. Date Report Submitted (MM/DD/YYYY) is required in the Details of Authorized Certifying Official section.                                                                    |
     And I enter "SF428_Form" values from "ProgressReport_Field_Values.xlsx"
     And I enter value "Yes" into field "SupplementalSheet__c"
     And I wait for "3" seconds
@@ -2477,7 +2478,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "View" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I cannot see row level action button "Edit" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
 
-   @281845 @ValidateusercanabletofillformsSF428ABSF428SsubmitprogressreportusershouldabletocompletebusinessworkflowApprovedProgressReport @sprint-25-US-280119 @Forms
+  @281845 @ValidateusercanabletofillformsSF428ABSF428SsubmitprogressreportusershouldabletocompletebusinessworkflowApprovedProgressReport @sprint-25-US-280119 @Forms
   Scenario: Validate user can able to fill forms SF 428, A, B, C & SF428 S submit progress report & user should able to complete business work flow & Approved Progress Report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2494,7 +2495,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-     And I wait for "5" seconds
+    And I wait for "5" seconds
     #Fill SF428-C Form
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
@@ -2715,7 +2716,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "View" against "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" in flex table with id "---progressReport:-:formTableId---"
     Then I cannot see row level action button "Edit" against "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" in flex table with id "---progressReport:-:formTableId---"
 
-  @282975 @ValidateSF428ASPIusercanabletosaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF428Aform @sprint-26-US-282679  @Forms
+  @282975 @ValidateSF428ASPIusercanabletosaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF428Aform @sprint-26-US-282679  @Forms @ErrorMsgTest
   Scenario: Validate SF428 A SPI user can able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF428A form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2746,10 +2747,10 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on top right button "New" in flex table with id "---progressReport:-:sf428AFederallyOwnedTableId---"
     And I click modal button "Save"
     Then I softly see the following messages in the page details :
-      | Description is required to save.      |
-      | Identification is required to save.   |
-      | Acquisition Date is required to save. |
-      | Acquisition Cost is required to save. |
+      | To Save, Description is required.      |
+      | To Save, Identification is required.   |
+      | To Save, Acquisition Date is required. |
+      | To Save, Acquisition Cost is required. |
     And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "1.a Individual item information" from computer
@@ -2763,9 +2764,9 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details :
-      | Federal Grant or Other Identifying Number Assigned by Federal Agency is required to save. |
-      | 1. Report Type is required to save.                                                       |
-      | 2. Report As of is required to save.                                                      |
+      | To Save, Federal Grant or Other Identifying Number Assigned by Federal Agency is required in the Federal Grant or Other Identifying Number Assigned by Federal Agency section. |
+      | To Save, 1. Report Type is required in the 1. Report Type section.                                                                                                             |
+      | To Save, 2. Report As of is required in the 2. Report As of section.                                                                                                           |
     And I enter value "1234" into field "FederalGrantSF428A__c"
     And I enter value "(a) Individual (Reporting Federally-owned property for one award)" into field "ReportTypePiclikist__c"
     And I enter value "30 SEP" into field "ReportAsOf__c"
@@ -2868,7 +2869,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Select the Annual Report (SF-428-A) as required form is filled. |
 
-   @280402 @ValidateSPIusercanseesection6AttachmentonSF428Formseebelowfieldsonsection @sprint-25-US-280119 @Forms
+  @280402 @ValidateSPIusercanseesection6AttachmentonSF428Formseebelowfieldsonsection @sprint-25-US-280119 @Forms
   Scenario: Validate SPI user can see section 6 Attachment on SF428 Form & see below fields on section
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2967,7 +2968,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     And I refresh the page
-    And I wait for "2" seconds 
+    And I wait for "2" seconds
     When I click on "Validate" in the page details
     And I wait for "4" seconds
     Then I softly see the following messages in the page details :
@@ -2988,7 +2989,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Select the Annual Report (SF-428-A) as required form is filled.                 |
       | Select the Disposition Report/Request (SF-428-C) as required form is filled.    |
 
-   @280404 @ValidateSPIusercanseesection7SupplementalsheetonSF428Formseebelowoptiononfields @sprint-25-US-280119 @Forms
+  @280404 @ValidateSPIusercanseesection7SupplementalsheetonSF428Formseebelowoptiononfields @sprint-25-US-280119 @Forms
   Scenario: Validate SPI user can see section 7 Supplemental sheet on SF428 Form see below option on fields
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3057,7 +3058,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Select Supplement Sheet as Yes as required form is filled. |
 
-  @284859 @ValidateSF428SvalidationshouldbedisplayonparentformSF428ifchildformnotvalidatedbutselectyeonparentform @sprint-26-US-282679  @Forms
+  @284859 @ValidateSF428SvalidationshouldbedisplayonparentformSF428ifchildformnotvalidatedbutselectyeonparentform @sprint-26-US-282679 @Forms @ErrorMsgTest
   Scenario: Validate SF428S validation should be display on parent form SF428 if child form not validated but select yes on parent form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3087,9 +3088,8 @@ Feature: Validate scenarios in Progress Report Forms
     Then I see radio button "No" for field "SupplementalSheet__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    #Bug425572
     Then I softly see the following messages in the page details :
-      | 7. Supplemental Sheet is required to save. |
+      | To Save, 7. Supplemental Sheet is required in the 7. Supplemental Sheet section. |
     And I enter value "Yes" into field "SupplementalSheet__c"
     When I click on "Save" in the page details
     And I wait for "9" seconds
@@ -3311,7 +3311,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Annual Report (SF-428-A) is required to be submitted as it is selected in field 6 'Attachment'. |
       | Select Supplement Sheet as Yes as required form is filled.                                      |
 
- @285223 @ValidateSF428BvalidationshouldbedisplayonparentformSF428ifchildformnotvalidatedbutselectyesonparentform @sprint-26-US-282679  @Forms
+  @285223 @ValidateSF428BvalidationshouldbedisplayonparentformSF428ifchildformnotvalidatedbutselectyesonparentform @sprint-26-US-282679  @Forms
   Scenario: Validate SF428 B validation should be display on parent form SF428 if child form not validated but select yes on parent form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3384,36 +3384,36 @@ Feature: Validate scenarios in Progress Report Forms
     And I close the tab
 #    We don't have support for dropdown in form hence commented this step
 #    And I select "Tangible Personal Property Report - Final Report - SF-428-B" from dropdown at forms
-   And I select value inside table "---progressReport:-:formTableId---" is "All"
-   And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-   And I switch to tab number "1"
-   And I enter "SF428B_Form_deselect" values from "ProgressReport_Field_Values.xlsx"
-   And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
-   When I click on "Save" in the page details
-   And I wait for "3" seconds
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
+    And I enter "SF428B_Form_deselect" values from "ProgressReport_Field_Values.xlsx"
+    And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
-   And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
-   And I upload attachment without random number "AttachmentTesting.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
-   When I click modal button "Close"
-   And I wait for "2" seconds
-   And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
-   And I upload attachment without random number "AttachmentTesting.pdf" of type "2. Additional File for Comments" from computer
-   When I click modal button "Close"
-   And I wait for "2" seconds
-   And I refresh the page
-   And I wait for "3" seconds
-   When I click on "Validate" in the page details
-   Then I softly see the following messages in the page details :
-     | Form validated successfully. |
-   And I close the tab
+    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "2. Additional File for Comments" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I close the tab
 #    We don't have support for dropdown in form hence commented this step
 #    And I select "Tangible Personal Property Report - SF-428" from dropdown at forms
-   And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-   And I switch to tab number "1"
-   When I click on "Validate" in the page details
-   Then I softly see the following messages in the page details :
-     | Select the Final (Award Closeout) Report (SF-428-B) as required form is filled. |
+    And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Select the Final (Award Closeout) Report (SF-428-B) as required form is filled. |
 
   @280653 @ValidateSPIusercanseefieldReportsResidualUnusedSuppliesseefollowingoptionsunderthiieldonCompleterelevantsectionsofSF428Bform @sprint-25-US-280119  @Forms @BugLogged-281717
   Scenario: Validate SPI user can see field "Reports Residual Unused Supplies" & see following options under this field on Complete relevant section(s) of SF428B form
@@ -3651,7 +3651,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Adding file is required in "Files section" with classification "Additional File for Comments", if 'Other' is checked in "2a. Federally-owned Property". |
 
- @285300 @285303 @285304 @285305 @285306 @ValidateSF428BUsershouldnotseevalidationforAdditionalfileforcommentswhenfilesSupplementalSheetSF428Sequivalentrecipientisattacheweselect1st2ndoptionfrom2afieldif1aisselect @sprint-25-US-280119 @Forms
+  @285300 @285303 @285304 @285305 @285306 @ValidateSF428BUsershouldnotseevalidationforAdditionalfileforcommentswhenfilesSupplementalSheetSF428Sequivalentrecipientisattacheweselect1st2ndoptionfrom2afieldif1aisselect @sprint-25-US-280119 @Forms
   Scenario: Validate SF428 B User should not see validation for Additional file for comments when files "Supplemental Sheet SF428S or equivalent recipient is attached if we select 1st 2nd option from 2a field if 1a is select
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3724,7 +3724,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I refresh the page
     And I wait for "5" seconds
     When I click on "Validate" in the page details
-   And I wait for "2" seconds
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Adding file is required in "Files section" with classification "Additional File for Comments", if 'Other' is checked in "2a. Federally-owned Property". |
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
@@ -3770,7 +3770,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Delete" icon for "2. Additional File for Comments" inside flex table with id "---progressReport:-:sf428cFormAttachmentTableId---" without waiting for record
     And I wait for "6" seconds
     When I click on "Validate" in the page details
-   And I wait for "3" seconds
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | Adding file is required in "Files section" with classification "Additional File for Comments", if 'Other' is checked in "2a. Federally-owned Property". |
     #285306
@@ -4059,7 +4059,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
- @285606 @ValidateSF428BUsershouldvalidateformwhenuserselect1a1coptionfrom11sectionselectanyoneoptionfrom2aoneoptionfrom2cfieldselectrelatedfilesinfilessection @sprint-25-US-280119 @Forms
+  @285606 @ValidateSF428BUsershouldvalidateformwhenuserselect1a1coptionfrom11sectionselectanyoneoptionfrom2aoneoptionfrom2cfieldselectrelatedfilesinfilessection @sprint-25-US-280119 @Forms
   Scenario: Validate SF428 B User should validate form when user select 1a & 1c option from 1.1 section & select any one option from 2a & one option from 2c field & select related files in files section
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -4133,7 +4133,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
- @282676 @288908 @ValidateSF429eSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF429form @sprint-26-US-282688  @Forms
+  @282676 @288908 @ValidateSF429eSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF429form @sprint-26-US-282688  @Forms
   Scenario: Validate SF429 SPI user can able to save & validate form after entering correct & valid data on all fields present on SF-429 form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -4290,7 +4290,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
- @282826 @288910 @ValidateSF429ASPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldpresentonSF429Aform @sprint-26-US-282688  @Forms
+  @282826 @288910 @ValidateSF429ASPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldpresentonSF429Aform @sprint-26-US-282688  @Forms
   Scenario: Validate SF429A SPI user can able to save & validate form after entering correct & valid data on all fields present on SF429A form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -4373,7 +4373,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
-  @282871 @ValidateSF429ASPIusercannotabletosavevalidateformafterenteringincorrectinvaliddataonallfieldspresentonSF429Aform @sprint-26-US-282688  @Forms
+  @282871 @ValidateSF429ASPIusercannotabletosavevalidateformafterenteringincorrectinvaliddataonallfieldspresentonSF429Aform @sprint-26-US-282688  @Forms @ErrorMsgTest
   Scenario: Validate SF429A SPI user can not able to save & validate form after entering incorrect invalid data on all fields present on SF429A form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -4410,11 +4410,11 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details :
-      | Federal Grant or Other Identifying Number Assigned by Federal Agency is required to save. |
-      | Street1 is required to save.                                                              |
-      | City is required to save.                                                                 |
-      | State is required to save.                                                                |
-      | ZIP / Postal Code is required to save.                                                    |
+      | To Save, Federal Grant or Other Identifying Number Assigned by Federal Agency is required in the Federal Grant or Other Identifying Number Assigned by Federal Agency section.|
+      | To Save, Street1 is required in the 14b. Address of Real Property (legal description and complete address including zoning information) section.|
+      | To Save, City is required in the 14b. Address of Real Property (legal description and complete address including zoning information) section.|
+      | To Save, State is required in the 14b. Address of Real Property (legal description and complete address including zoning information) section.|
+      | To Save, ZIP / Postal Code is required in the 14b. Address of Real Property (legal description and complete address including zoning information) section.|
     And I enter "SF429A_Form_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
     And I wait for "10" seconds
     When I click on "Save" in the page details
@@ -4535,7 +4535,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
-  @282920 @ValidateSF429BSPIusercannotabletosavevalidateformafterenteringincorrectinvaliddataonallfieldspresentonSF429Bform @sprint-26-US-282693 @Forms
+  @282920 @ValidateSF429BSPIusercannotabletosavevalidateformafterenteringincorrectinvaliddataonallfieldspresentonSF429Bform @sprint-26-US-282693 @Forms @ErrorMsgTest
   Scenario: Validate SF429B SPI user cannot able to save & validate form after entering incorrect & invalid data on all fields present on SF429B form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -4572,11 +4572,11 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details :
-      | Federal Grant or Other Identifying Number Assigned by Federal Agency (#2 on cover page) is required to save. |
-      | Street1 is required to save.                                                                                 |
-      | City is required to save.                                                                                    |
-      | State is required to save.                                                                                   |
-      | ZIP / Postal Code is required to save.                                                                       |
+      | To Save, Federal Grant or Other Identifying Number Assigned by Federal Agency (#2 on cover page) is required in the Federal Grant or Other Identifying Number Assigned by Federal Agency section.|
+      | To Save, Street1 is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
+      | To Save, City is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
+      | To Save, State is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
+      | To Save, ZIP / Postal Code is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
     And I enter "SF429B_Form_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
     And I wait for "3" seconds
     When I click on "Save" in the page details
@@ -4722,7 +4722,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
-  @282921 @ValidateSF429CSPIusercannotabletosavevalidateformafterenteringincorrectinvaliddataonallfieldpresentonSF429Cform @sprint-26-US-282693  @Forms
+  @282921 @ValidateSF429CSPIusercannotabletosavevalidateformafterenteringincorrectinvaliddataonallfieldpresentonSF429Cform @sprint-26-US-282693  @Forms @ErrorMsgTest
   Scenario: Validate SF429C SPI user cannot able to save & validate form after entering incorrect & invalid data on all fields present on SF-429C form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -4759,11 +4759,11 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details :
-      | Federal Grant or Other Identifying Number Assigned by Federal Agency (#2 on cover page) is required to save. |
-      | Street 1 is required to save.                                                                                |
-      | City is required to save.                                                                                    |
-      | State is required to save.                                                                                   |
-      | Zip Code is required to save.                                                                                |
+      | To Save, Federal Grant or Other Identifying Number Assigned by Federal Agency (#2 on cover page) is required in the Federal Grant or Other Identifying Number Assigned by Federal Agency section.|
+      | To Save, Street 1 is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
+      | To Save, City is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
+      | To Save, State is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
+      | To Save, Zip Code is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
     And I enter "SF429C_Form_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
     And I wait for "6" seconds
     When I click on "Save" in the page details
@@ -4801,7 +4801,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Federal Share Percentage must be equal to or less than 100%.     |
       | Non-Federal Share Percentage must be equal to or less than 100%. |
 
-  @282701 @298878 @ValidateSF429SPIusercannotabletosaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF429form @sprint-26-US-282688  @Forms
+  @282701 @298878 @ValidateSF429SPIusercannotabletosaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF429form @sprint-26-US-282688  @Forms @ErrorMsgTest
   Scenario: Validate SF429 SPI user cannot able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF429 form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -4832,24 +4832,24 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details :
-      | 1. Federal Agency and Organizational Element to Which Report is Submitted is required to save.          |
-      | 2. Federal Grant(s) or Other Identifying Number(s) Assigned by Federal Agency(ies) is required to save. |
-      | Recipient Organization Name is required to save.                                                        |
-      | Street1 is required to save.                                                                            |
-      | City is required to save.                                                                               |
-      | State is required to save.                                                                              |
-      | ZIP / Postal Code is required to save.                                                                  |
+      | To Save, 1. Federal Agency and Organizational Element to Which Report is Submitted is required in the 1. Federal Agency and Organizational Element to Which Report is Submitted section.|
+      | To Save, 2. Federal Grant(s) or Other Identifying Number(s) Assigned by Federal Agency(ies) is required in the 2. Federal Grant(s) or Other Identifying Number(s) Assigned by Federal Agency(ies) section.|
+      | To Save, Recipient Organization Name is required in the 3. Recipient Organization (name and complete address including zip code) section.|
+      | To Save, Street1 is required in the 3. Recipient Organization (name and complete address including zip code) section.|
+      | To Save, City is required in the 3. Recipient Organization (name and complete address including zip code) section.|
+      | To Save, State is required in the 3. Recipient Organization (name and complete address including zip code) section.|
+      | To Save, ZIP / Postal Code is required in the 3. Recipient Organization (name and complete address including zip code) section.|
       | First Name is required to save.                                                                         |
       | Last Name is required to save.                                                                          |
-      | Email is required to save.                                                                              |
-      | Phone is required to save.                                                                              |
-      | First Name is required to save.                                                                         |
-      | Last Name is required to save.                                                                          |
-      | Title is required to save.                                                                              |
-      | 11b. Signature of Authorized Certifying Official is required to save.                                   |
-      | 11c. Telephone(area code,number, extension) of Authorized Certifying Official is required to save.      |
-      | 11d. Email Address of Authorized Certifying Official is required to save.                               |
-      | 11e. Date report submitted (MM/DD/YYYY) is required to save.                                            |
+      | To Save, Email is required in the 6. Contact Person for this Report section.|
+      | To Save, Phone is required in the 6. Contact Person for this Report section.|
+      | To Save, First Name is required in the Details of Authorized Certifying Official section.|
+      | To Save, Last Name is required in the Details of Authorized Certifying Official section.|
+      | To Save, Title is required in the Details of Authorized Certifying Official section.|
+      | To Save, 11b. Signature of Authorized Certifying Official is required in the Details of Authorized Certifying Official section.|
+      | To Save, 11c. Telephone(area code,number, extension) of Authorized Certifying Official is required in the Details of Authorized Certifying Official section.|
+      | To Save, 11d. Email Address of Authorized Certifying Official is required in the Details of Authorized Certifying Official section.|
+      | To Save, 11e. Date report submitted (MM/DD/YYYY) is required in the Details of Authorized Certifying Official section.|
     And I enter values into fields
       | Value              | Field                                  |
       | 1234               | FederalAgencyandOrganizationalSF429__c |
@@ -5043,7 +5043,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Select the Request to Acquire, Improve or Furnish (SF-429-B) as required form is filled. |
       | Select the Disposition Request (SF-429-C) as required form is filled.                    |
 
-  @297940 @298087 @Validatesf429userwillseerecipientaccountandIdentifyingfieldvalidationsuponclickonsavebuttonifkeptblank @sprint-4-US-295000  @Forms
+  @297940 @298087 @Validatesf429userwillseerecipientaccountandIdentifyingfieldvalidationsuponclickonsavebuttonifkeptblank @sprint-4-US-295000 @Forms @ErrorMsgTest
   Scenario: Validate sf 429 user will see recipient account and Identifying no field validations upon click on save button if kept blank
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -5070,7 +5070,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details :
-      | 5. Recipient Account or Identifying Number is required to save. |
+      | To Save, 5. Recipient Account or Identifying Number is required in the 5. Recipient's Account or Identifying Number section. |
     When I enter value "12345" into field "RecipientAccountNumber__c"
     When I enter value "Unchecked" into field "AcknowledgementSF428__c"
     When I click on "Save" in the page details
@@ -5179,7 +5179,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
-  @288257 @ValidateSF271SPIusercannotabletosavevalidateformafterenteringincorrectinvaliddataonallfieldspresentonSF271form @sprint-1-US-282698  @Forms
+  @288257 @ValidateSF271SPIusercannotabletosavevalidateformafterenteringincorrectinvaliddataonallfieldspresentonSF271form @sprint-1-US-282698 @Forms @ErrorMsgTest
   Scenario: Validate SF271 SPI user can not able to save & validate form after entering incorrect &in valid data on all fields present on SF-271 form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -5215,23 +5215,23 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details :
-      | 1. Type of Request is required to save.                                                                        |
-      | 2. Basis of Request is required to save.                                                                       |
-      | 3. Federal Sponsoring Agency and Organizational Element to Which This Report Is Submitted is required to save. |
-      | From is required to save.                                                                                      |
-      | To is required to save.                                                                                        |
+      | To Save, 1. Type of Request is required in the 1. Type of Request section.|
+      | To Save, 2. Basis of Request is required in the 2. Basis of Request section.|
+      | To Save, 3. Federal Sponsoring Agency and Organizational Element to Which This Report Is Submitted is required in the 3. Federal Sponsoring Agency and Organizational Element to Which This Report Is Submitted section.|
+      | To Save, From is required in the 8. Period Covered by This Request section.|
+      | To Save, To is required in the 8. Period Covered by This Request section.|
       | Street1 is required to save.                                                                                   |
       | City is required to save.                                                                                      |
       | State is required to save.                                                                                     |
       | ZIP / Postal Code is required to save.                                                                         |
-      | Street1 is required to save.                                                                                   |
-      | City is required to save.                                                                                      |
-      | State is required to save.                                                                                     |
-      | ZIP / Postal Code is required to save.                                                                         |
-      | Signature of Authorized Certifying Official is required to save.                                               |
-      | Date Report Submitted: is required to save.                                                                    |
-      | Signature of Authorized Certifying Official is required to save.                                               |
-      | Date Request Submitted is required to save.                                                                    |
+      | To Save, Street1 is required in the 10. Payee (Where check is to be sent if different than item 9) section.|
+      | To Save, City is required in the 10. Payee (Where check is to be sent if different than item 9) section.|
+      | To Save, State is required in the 10. Payee (Where check is to be sent if different than item 9) section.|
+      | To Save, ZIP / Postal Code is required in the 10. Payee (Where check is to be sent if different than item 9) section.|
+      | To Save, Signature of Authorized Certifying Official is required in the 12. Certification section.|
+      | To Save, Date Report Submitted: is required in the 12. Certification section.|
+      | To Save, Signature of Authorized Certifying Official is required in the 12. Certification section.|
+      | To Save, Date Request Submitted is required in the 12. Certification section.|
     And I enter "SF271_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
@@ -6268,7 +6268,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Please enter Zip code in the Zip + 4 codes format (e.g. 12345-1234) in the 'Zip / Postal code' field. |
 
- @339610 @Validateusershouldbeabletosubmitandapprovedprogressreportwithfillingalldataonall13forms @sprint-12-US-328869 @Forms  @EndToEndFlow
+  @339610 @Validateusershouldbeabletosubmitandapprovedprogressreportwithfillingalldataonall13forms @sprint-12-US-328869 @Forms  @EndToEndFlow
   Scenario: Validate user should be able to submit and approved progress report with filling all data on all 13 forms
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -6337,8 +6337,8 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     And I close the tab
      #Fill SF428-C Form
-   And I select value inside table "---progressReport:-:formTableId---" is "All"
-   And I click on "View" icon for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I click on "View" icon for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF428C_Form" values from "ProgressReport_Field_Values.xlsx"
@@ -6373,7 +6373,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     And I close the tab
     #Fill SF428-A Form
-   And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "View" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I click on "Edit" in the page details
@@ -6404,7 +6404,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     And I close the tab
     #Fill SF428-S
-   And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "View" icon for "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I click on "Edit" in the page details
@@ -6422,7 +6422,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     And I close the tab
     #SF 428 Form
-   And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     When I click on "Edit" in the page details
@@ -6456,7 +6456,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     And I close the tab
     # SF429-B Form
-   And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without Split
     And I switch to tab number "1"
     And I click on "Edit" in the page details
@@ -6477,7 +6477,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     And I close the tab
     # SF429-C Form
-   And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "View" icon for "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I click on "Edit" in the page details
@@ -6512,7 +6512,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     And I close the tab
     # SF429 Form
-   And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "View" icon for "Real Property Status Report (Cover Page) - SF-429" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I click on "Edit" in the page details
@@ -6527,7 +6527,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     And I close the tab
     #SF-271
-   And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "View" icon for "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I click on "Edit" in the page details
@@ -6560,7 +6560,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     And I close the tab
     #Community Form
-   And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "View" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I click on "Edit" in the page details
@@ -6865,7 +6865,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
- @329934 @ValidateusershouldbeabletoeditallformsontheprogressreportwhichisreparentedtonewawardafterFCamendmentrequestandapproveprogressreportsuccessfullyPreconditionPartiallyfilledsomeformsonProgressreportofInitialaward @sprint-11-US-328848 @Forms @EndToEndFlow
+  @329934 @ValidateusershouldbeabletoeditallformsontheprogressreportwhichisreparentedtonewawardafterFCamendmentrequestandapproveprogressreportsuccessfullyPreconditionPartiallyfilledsomeformsonProgressreportofInitialaward @sprint-11-US-328848 @Forms @EndToEndFlow
   Scenario: Validate user should be able to edit all forms on the progress report which is reparented to new award after FC amendment request and approve progress report successfully Pre-condition Partially filled some forms on Progress report of Initial award
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
