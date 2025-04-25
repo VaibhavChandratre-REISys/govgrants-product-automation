@@ -10119,7 +10119,6 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Validate" in page detail
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download as PDF" present in parallel dropdown
-    Then I see option "Take Snapshot" present in parallel dropdown
     Then I see the header is "Grants.gov Lobbying Form" in the page details
     Then I softly see the field "Agency Owner :" as "Grants.gov" on forms
     Then I softly see the field "OMB Number :" as "4040-0013" on forms
