@@ -1672,7 +1672,34 @@ Feature: Validate all scenarios of every modules flow
 #    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD"
     And I halt execution
 
-  @debugtest @debug
+  @orgRegister @debug
+    Scenario:
+    Given I begin "Organization" registration as "Register As Organization"
+    When I click on "Agree" in the page details
+    When I click on "Agree" in the page details
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    And I navigate to "Organization Profile" sub tab
+    And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "Yes" into field "SameAsOrganizationAddress__c"
+    When I click on "Save" in the page details
+    And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
+    And I generate the random maildropEmail and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
+    When I click on "Save" in the page details
+    When I click on "Submit" in the page details
+    And I am on "INTERNAL" portal
+    And I login to "As a Grantor" app as "PM" user
+    When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
+    When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
+    When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
+    And I "Approve" in the approval decision
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
+    And I click on mail with subject "Sandbox: Welcome to GovGrants 3.0 Recipient Portal"
+    And I navigate to reset password link
+    Then I set password for the user
+
+  @debugtest
   Scenario:
 #    And I "Created" award from application for opportunity "Automation Runtime1316489936" for title "Automation Runtime Opportunity65465" with properties "default-Grantee PO user"
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"

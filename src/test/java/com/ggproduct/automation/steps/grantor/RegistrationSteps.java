@@ -39,11 +39,13 @@ public class RegistrationSteps {
     }
 
     @Description("To generate unique emailID, EIN, SSN, UEI or random number")
-    @When("^I generate the random (EIN|SSN|EmailID|digits|UEI) and save as \"([^\"]*)\"$")
+    @When("^I generate the random (EIN|SSN|EmailID|digits|UEI|maildropEmail) and save as \"([^\"]*)\"$")
     public void generateAndSaveRandomDigits(String usage, String fieldKey) {
         String randomNumbers = String.valueOf(I.amPerforming().addOnsTo().getRandomNumber()).substring(0, 5);
         if (usage.equalsIgnoreCase("EmailID"))
             I.amPerforming().propertiesFileOperationsTo().saveValue(fieldKey, ("automationruntime" + randomNumbers + "@yopmail.com"));
+       else if (usage.equalsIgnoreCase("maildropEmail"))
+            I.amPerforming().propertiesFileOperationsTo().saveValue(fieldKey, ("automationruntime" + randomNumbers + "@maildrop.cc"));
         else if (usage.equalsIgnoreCase("EIN") || usage.equalsIgnoreCase("SSN")) {
             String randomEmail = randomNumbers + randomNumbers.substring(0, 4);
             I.amPerforming().propertiesFileOperationsTo().saveValue(fieldKey, randomEmail);

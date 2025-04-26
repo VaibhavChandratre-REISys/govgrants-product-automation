@@ -104,7 +104,9 @@ public class RegistrationPage extends ProjectManager {
      * @author komal.mukhekar
      */
     public void iNavigateToResetPasswordLink() {
-        String setPasswordLink = "https" + I.amPerforming().actionToGet().text(By.xpath("//div[@id='mail']")).split("https")[1].split("\\s")[0].trim();
+        I.amPerforming().waitFor().ElementToBePresent(By.xpath("//iframe[@class='w-full overflow-scroll']"));
+        I.amPerforming().switchTo().frame(By.xpath("//iframe[@class='w-full overflow-scroll']"));
+        String setPasswordLink = "https" + I.amPerforming().actionToGet().text(By.xpath("//body | //div[@id='mail']")).split("https")[1].split("\\s")[0].trim();
         I.amPerforming().browserOperationsTo().navigateToUrl(setPasswordLink);
     }
 
@@ -114,17 +116,20 @@ public class RegistrationPage extends ProjectManager {
      * @author komal.mukhekar
      */
     public void iClickOnMailWithSubject(String subject) {
-        By mailSubject = By.xpath("//div[@class='m']//div[@class='lms' and text()='" + subject + "']");
+        By mailSubject = By.xpath("//div[contains(@class,'message')]//div[text()='" + subject + "'] |//div[@class='m']//div[@class='lms' and text()='" + subject + "']");
         try {
             I.amPerforming().click().on(mailSubject);
         } catch (Exception e) {
-            for (int i = 0; i < 15; i++) {
-                I.amPerforming().waitFor().makeThreadSleep(5000);
-                I.amPerforming().click().on(By.xpath("//button[@id='refresh']"));
-                if (I.amPerforming().checkToSee().isElementDisplayed(mailSubject)) {
-                    I.amPerforming().click().on(mailSubject);
-                    break;
-                }
+            for (int i = 0; i < 18; i++) {
+                I.amPerforming().click().on(By.xpath("//span[text()='Refresh']/parent::button[@type='button'] | //button[@id='refresh']"));
+              try {
+                  if (I.amPerforming().checkToSee().isElementDisplayed(mailSubject)) {
+                      I.amPerforming().click().on(mailSubject);
+                      break;
+                  }
+              }catch (Exception j){
+                  I.amPerforming().waitFor().makeThreadSleep(10000);
+              }
             }
         }
     }
