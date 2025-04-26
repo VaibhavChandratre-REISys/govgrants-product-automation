@@ -703,7 +703,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click modal button "Save and Continue"
     And I enter "Edition1" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I see the following messages in the page details :
+    Then I see the following messages in the page details contains:
       | To Save, Purpose is required in the Overview tab under the Plan section. |
 
   @55798 @organizationalDeskReviewSource  @organizationalDeskReviewFirst @ErrorMsgTest
@@ -714,7 +714,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click modal button "Save and Continue"
     And I enter "Edition1" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I see the following messages in the page details :
+    Then I see the following messages in the page details contains:
       | To Save, Source is required in the Overview tab under the Plan section. |
 
   @55806 @55803 @54461 @notifyConductButtonDeskReviewOrgLevel @smoke  @organizationalDeskReviewFirst

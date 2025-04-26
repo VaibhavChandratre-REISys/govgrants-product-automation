@@ -258,7 +258,7 @@ Feature: Validate all scenarios in Negotiations
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I click on "Edit" in the page details
     When I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, Details is required in the Negotiations tab under the Applicant Response section. |
 
   @34387 @negotiationWhenOpenUserCannotCreateOther
@@ -502,7 +502,7 @@ Feature: Validate all scenarios in Negotiations
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I click on "Edit" in the page details
     When I click on "Save" in the page details
-    Then I see the following messages in the page details :
+    Then I see the following messages in the page details contains:
       | To Save, Details is required in the Negotiations tab under the Applicant Response section. |
 
   @57839 @57840 @66445 @pendingNegotiationsViewAndSendToSubrecipientAfterSubmittingToGrantor
@@ -915,7 +915,7 @@ Feature: Validate all scenarios in Negotiations
     When I clear the value from field "NegotiationDueDate__c"
     When  I enter "Due Date" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I see the following messages in the page details :
+    Then I see the following messages in the page details contains:
       | To Save, Due Date is required in the Negotiations tab under the Negotiation Request Details section. |
 
   @66381 @66451 @createSubawardFromNegotiation  @smoke  @bug-411045-2024

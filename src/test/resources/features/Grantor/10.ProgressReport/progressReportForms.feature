@@ -86,7 +86,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly can see top right button "Cancel" in page detail
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, 1. Federal Agency and Organizational Element to Which Report is Submitted is required in the Financial Information section.                                               |
       | To Save, 2. Federal Grant or Other Identifying Number Assigned by Federal Agency (To report multiple grants, use FFR Attachment) is required in the Financial Information section. |
       | To Save, 8a. Project/Grant Period From is required in the Financial Information section.                                                                                           |
@@ -261,7 +261,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "2" seconds
     #280184
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, Street1 is required in the Recipient Information section. |
     And I enter value "{AUTOEnvData:StringOf55Chars}" into field "Street1SF428__c"
     When I click on "Save" in the page details
@@ -272,7 +272,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "3" seconds
     #280193
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, City is required in the Recipient Information section. |
     And I enter value "{AUTOEnvData:StringOf35Chars}" into field "CitySF428__c"
     When I click on "Save" in the page details
@@ -282,14 +282,14 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "2" seconds
     #280216
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, Country is required in the Recipient Information section. |
     #280243
     When I enter value "USA: UNITED STATES" into field "CountrySF428__c"
     When I click on "Save" in the page details
     And I wait for "9" seconds
     When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | Form validated successfully. |
     And I edit the following rows inline in flex table with id "---progressReport:-:sf425TransactionTableID---" by clicking "Edit" :
       | Classification                                                          | Cumulative |
@@ -549,7 +549,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I clear the value from field "FederalAgencyandOrganizationalSF429__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, 1. Federal Agency and Organizational Element to Which Report is Submitted (Box 1 on Page 1) is required in the 1. Federal Agency and Organizational Element to Which Report is Submitted section. |
     And I enter value "{AUTOEnvData:StringOf100Chars}" into field "FederalAgencyandOrganizationalSF429__c"
     When I click on "Save" in the page details
@@ -560,7 +560,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, 2. Recipient Organization (Box 3 on Page 1) is required in the 2. Recipient Organization section. |
     And I enter value "{AUTOEnvData:StringOf60Chars}" into field "RecipientOrganizationNameSF428__c"
     And I wait for "3" seconds
@@ -571,7 +571,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I clear the value from field "Date__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, 4. Reporting Period End Date (Box 9 on Page 1) is required in the 4. Reporting Period End Date section. |
 
   @279789 @279799 @ValidateSPAuserseeFederalGrantNumberismandatorylabelonSF425Aform @sprint-1-US-283119  @Forms
@@ -788,7 +788,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on top right button "New" in flex table with id "---progressReport:-:sf428SDetailIndividualTableId---"
     And I click modal button "Save"
     And I wait for "3" seconds
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, GP or ACQ is required.             |
       | To Save, Description is required.           |
       | To Save, Identification Number is required. |
@@ -2171,7 +2171,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "4" seconds
     When I click on "Save" in the page details
     And I wait for "3" seconds
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, 1. Federal Agency and Organizational Element to Which Report is Submitted is required in the 1. Federal Agency and Organizational Element to Which Report is Submitted section. |
       | To Save, 2. Federal Grant or Other Identifying Number Assigned by Federal Agency is required in the 2. Federal Grant or Other Identifying Number Assigned by Federal Agency section.     |
       | To Save, Recipient Organization Name is required in the 4. Recipient Organization (Name and complete address including zip code) section.                                                |
@@ -2746,7 +2746,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I see the page contains text " Expiration Date: 11/30/2024"
     And I click on top right button "New" in flex table with id "---progressReport:-:sf428AFederallyOwnedTableId---"
     And I click modal button "Save"
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, Description is required.      |
       | To Save, Identification is required.   |
       | To Save, Acquisition Date is required. |
@@ -2763,7 +2763,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     When I click on "Save" in the page details
     And I wait for "3" seconds
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, Federal Grant or Other Identifying Number Assigned by Federal Agency is required in the Federal Grant or Other Identifying Number Assigned by Federal Agency section. |
       | To Save, 1. Report Type is required in the 1. Report Type section.                                                                                                             |
       | To Save, 2. Report As of is required in the 2. Report As of section.                                                                                                           |
@@ -3088,7 +3088,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I see radio button "No" for field "SupplementalSheet__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, 7. Supplemental Sheet is required in the 7. Supplemental Sheet section. |
     And I enter value "Yes" into field "SupplementalSheet__c"
     When I click on "Save" in the page details
@@ -4409,7 +4409,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "6" seconds
     When I click on "Save" in the page details
     And I wait for "3" seconds
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, Federal Grant or Other Identifying Number Assigned by Federal Agency is required in the Federal Grant or Other Identifying Number Assigned by Federal Agency section.|
       | To Save, Street1 is required in the 14b. Address of Real Property (legal description and complete address including zoning information) section.|
       | To Save, City is required in the 14b. Address of Real Property (legal description and complete address including zoning information) section.|
@@ -4571,7 +4571,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     When I click on "Save" in the page details
     And I wait for "3" seconds
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, Federal Grant or Other Identifying Number Assigned by Federal Agency (#2 on cover page) is required in the Federal Grant or Other Identifying Number Assigned by Federal Agency section.|
       | To Save, Street1 is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
       | To Save, City is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
@@ -4758,7 +4758,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "6" seconds
     When I click on "Save" in the page details
     And I wait for "3" seconds
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, Federal Grant or Other Identifying Number Assigned by Federal Agency (#2 on cover page) is required in the Federal Grant or Other Identifying Number Assigned by Federal Agency section.|
       | To Save, Street 1 is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
       | To Save, City is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
@@ -4831,7 +4831,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, 1. Federal Agency and Organizational Element to Which Report is Submitted is required in the 1. Federal Agency and Organizational Element to Which Report is Submitted section.|
       | To Save, 2. Federal Grant(s) or Other Identifying Number(s) Assigned by Federal Agency(ies) is required in the 2. Federal Grant(s) or Other Identifying Number(s) Assigned by Federal Agency(ies) section.|
       | To Save, Recipient Organization Name is required in the 3. Recipient Organization (name and complete address including zip code) section.|
@@ -5069,7 +5069,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I clear the value from field "RecipientAccountNumber__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, 5. Recipient Account or Identifying Number is required in the 5. Recipient's Account or Identifying Number section. |
     When I enter value "12345" into field "RecipientAccountNumber__c"
     When I enter value "Unchecked" into field "AcknowledgementSF428__c"
@@ -5214,7 +5214,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" in the page details
     And I wait for "3" seconds
     When I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, 1. Type of Request is required in the 1. Type of Request section.|
       | To Save, 2. Basis of Request is required in the 2. Basis of Request section.|
       | To Save, 3. Federal Sponsoring Agency and Organizational Element to Which This Report Is Submitted is required in the 3. Federal Sponsoring Agency and Organizational Element to Which This Report Is Submitted section.|

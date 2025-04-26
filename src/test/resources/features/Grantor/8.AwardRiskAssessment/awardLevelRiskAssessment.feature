@@ -949,7 +949,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation1" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
-    Then I see the following messages in the page details :
+    Then I see the following messages in the page details contains:
       | To Save, Acknowledgement is required in the Signatures Confirming Assessment section. |
 
   @58938 @58179 @initialRAIsExpiredandSucceedingAreActive  @smoke

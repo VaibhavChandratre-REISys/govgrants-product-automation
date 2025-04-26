@@ -2483,7 +2483,7 @@ Feature: Validate all scenarios in the Application Review
       | Value                       | Field            |
       | Automation Test Description | Justification__c |
     And I click on "Save" in the page details
-    Then I see the following messages in the page details :
+    Then I see the following messages in the page details contains:
       | To Save, Subaward Abbreviation is required in the Funding Decision Memo tab under the Overview section. |
 
     Examples:
