@@ -6085,7 +6085,6 @@ Feature: Amendment Request scenarios with Undo
     When I select radio button "Forward" in the approval decision
     And I select user "{SavedValue:PM Username}" in the approval decision
     And I submit the approval in the approval decision
-    #Bug431809
     Then I softly see the following messages in the page details contains:
       | Comments are required. |
     When I select radio button "Forward" in the approval decision
