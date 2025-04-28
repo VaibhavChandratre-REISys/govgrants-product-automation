@@ -290,7 +290,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
-      | Form validated successfully. |
+      | Form Validated Successfully. |
     And I edit the following rows inline in flex table with id "---progressReport:-:sf425TransactionTableID---" by clicking "Edit" :
       | Classification                                                          | Cumulative |
       | a. Cash Receipts                                                        | -30        |

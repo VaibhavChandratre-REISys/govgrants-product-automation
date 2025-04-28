@@ -257,6 +257,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly can see row level action button "Start" against "Negotiation Request" in flex table with id "---negotiation:-:homePendingTasks---"
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I click on "Edit" in the page details
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
       | To Save, Details is required in the Negotiations tab under the Applicant Response section. |
@@ -501,6 +502,7 @@ Feature: Validate all scenarios in Negotiations
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I click on "Edit" in the page details
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     Then I see the following messages in the page details contains:
       | To Save, Details is required in the Negotiations tab under the Applicant Response section. |

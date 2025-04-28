@@ -893,7 +893,7 @@ Feature: Validate all registration related scenarios
     Then I softly do not see asterisk mark on "Vendor ID"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, Social Security Number (SSN) is required. |
       | To Save, Email is required.                        |
 
