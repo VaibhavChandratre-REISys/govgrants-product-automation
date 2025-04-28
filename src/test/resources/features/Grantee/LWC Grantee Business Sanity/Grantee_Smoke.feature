@@ -9580,7 +9580,6 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download as PDF" present in parallel dropdown
-    Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly see "Financial Information" page block displayed
     Then I softly see "Recipient Information" page block displayed
     Then I softly see "Transactions" page block displayed
@@ -9603,7 +9602,6 @@ Feature: Grantee Smoke scenarios
     When I click on "Splitview" icon for "Federal Financial Report (SF-425)" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Download as PDF" in the split screen page details
-    Then I softly can see top right button "Take Snapshot" in the split screen page details
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I see "Upload" button is disabled at modal under library
@@ -15462,7 +15460,6 @@ Feature: Grantee Smoke scenarios
     When I click on "Splitview" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly cannot see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Download as PDF" in the split screen page details
-    Then I softly can see top right button "Take Snapshot" in the split screen page details
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
     When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
@@ -15550,7 +15547,6 @@ Feature: Grantee Smoke scenarios
     When I click on "Splitview" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly cannot see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Download as PDF" in the split screen page details
-    Then I softly can see top right button "Take Snapshot" in the split screen page details
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
     When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
