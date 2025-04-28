@@ -900,7 +900,7 @@ Feature: Validate all scenarios in Organizational Site Visit
       | Internal                  |
       | {SavedValue:EXE Username} |
 
-  @55799 @organizationalsiteVisitPurpose @ErrorMsgTest @TBExecution
+  @55799 @organizationalsiteVisitPurpose @ErrorMsgTest
   Scenario: Validate the Purpose of Site Visit Org level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -911,7 +911,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Then I see the following messages in the page details contains:
       | To Save, Purpose is required in the Overview tab under the Plan section. |
 
-  @55800 @organizationalsiteVisitSource @ErrorMsgTest @TBExecution
+  @55800 @organizationalsiteVisitSource @ErrorMsgTest
   Scenario: Validate the Source of Site Visit Org level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"

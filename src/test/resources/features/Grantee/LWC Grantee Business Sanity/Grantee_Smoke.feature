@@ -12639,7 +12639,6 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download as PDF" present in parallel dropdown
-    Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly see "Financial Information" page block displayed
     Then I softly see "Recipient Information" page block displayed
     Then I softly see "Transactions" page block displayed
@@ -12662,7 +12661,6 @@ Feature: Grantee Smoke scenarios
     When I click on "Splitview" icon for "Federal Financial Report (SF-425)" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Download as PDF" in the split screen page details
-    Then I softly can see top right button "Take Snapshot" in the split screen page details
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     And I wait for "2" seconds
