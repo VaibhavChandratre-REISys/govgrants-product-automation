@@ -6087,8 +6087,7 @@ Feature: Amendment Request scenarios with Undo
     And I submit the approval in the approval decision
     #Bug431809
     Then I softly see the following messages in the page details contains:
-      | Comments are Required. |
-#    Then I can see the message "Comments are Required." in the approval decision
+      | Comments are required. |
     When I select radio button "Forward" in the approval decision
     And I select user "{SavedValue:FD1 Username}" in the approval decision
     When I enter comment "Automation testing" in the approval decision

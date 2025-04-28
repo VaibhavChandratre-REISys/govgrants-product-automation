@@ -67,6 +67,7 @@ public final class Approvals {
     public void selectUser(String userName) {
         try {
             I.amPerforming().click().on(userLookupLocator);
+            I.amPerforming().textInput().toClear(userLookupSearchLocator);
             I.amPerforming().textInput().in(userLookupSearchLocator, userName);
             I.amPerforming().waitFor().ElementToBeVisible(userLookupResultLocator(userName));
             I.amPerforming().click().on(userLookupResultLocator(userName));
