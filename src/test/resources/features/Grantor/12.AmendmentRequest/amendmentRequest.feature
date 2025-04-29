@@ -507,8 +507,8 @@ Feature: Validate all scenarios in the Amendment Request
     Then I softly see field "Status" as "Activated"
     And I save the field containing "EGMS ID" as "subAwardId1"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    When I delete the record "{SavedValue:subAwardId1}" from the object "Progress Report"
-    When I create a post award record "ProgressReport" for the Award "{SavedValue:subAwardId1}" having object api name as "ProgressReports__c"
+    When I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "ProgressReports__c"
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Progress Reports - All"
