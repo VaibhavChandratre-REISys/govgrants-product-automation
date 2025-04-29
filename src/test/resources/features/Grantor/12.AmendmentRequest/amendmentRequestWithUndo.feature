@@ -5755,7 +5755,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see snapshot with name containing "Amendment - Undo Approval.pdf" as name
     Then I softly see snapshot with name containing "Amendment - Undo Approval.pdf" as name
     Then I softly see column "Assigned To" at position "2" contains text "{SavedValue:PM Username}"
-    Then I softly see column "Date" at position "1" contains text "Step : Re - approval (Pending for approval)"
+    Then I softly see column "Date" at position "1" contains text "Step : Re-approval (Pending for approval)"
 #    Then I softly see column "Overall Status" at position "1" contains text "Pending"
 #    And I navigate to "Field Audit" sub tab in split screen
 #    And I click on hyperlink containing value "View All"
