@@ -16486,7 +16486,7 @@ Feature: Amendment Request scenarios without background
     And I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Amendment Request #{SavedValue:BudgetRedirectId} has beenRejected
+      Sandbox: Notification: Amendment Request #{SavedValue:BudgetRedirectId} hasbeen Rejected
       """
 
     Then I see the mail text is as follows :
