@@ -5756,83 +5756,83 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see snapshot with name containing "Amendment - Undo Approval.pdf" as name
     Then I softly see column "Assigned To" at position "2" contains text "{SavedValue:PM Username}"
     Then I softly see column "Date" at position "1" contains text "Step : Re-approval (Pending for approval)"
-#    Then I softly see column "Overall Status" at position "1" contains text "Pending"
-#    And I navigate to "Field Audit" sub tab in split screen
-#    And I click on hyperlink containing value "View All"
-#    Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
-#    Then I softly see value "Approved" for title "Original Value" inside field history table
-#    And I click on back arrow
-#    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Amendment Requests - All"
-#    When I perform quick search for "{SavedValue:KPCID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-#    And I click on "View" icon for "{SavedValue:KPCID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-#    Then I softly see field "Status" as "Submitted for Approval"
-#    Then I cannot see top right button "Undo" in page detail
-#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Amendment Requests - All"
-#    When I perform quick search for "{SavedValue:KPCID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-#    And I click on "View" icon for "{SavedValue:KPCID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-#    Then I softly see field "Status" as "Submitted for Approval"
-#    Then I cannot see top right button "Undo" in page detail
-#    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Amendment Requests - All"
-#    When I perform quick search for "{SavedValue:KPCID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-#    And I click on "View" icon for "{SavedValue:KPCID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-#    Then I softly see field "Status" as "Submitted for Approval"
-#    Then I cannot see top right button "Undo" in page detail
-#    #292651
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Home" tab
-#    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "Record Id" in "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---" panel
-#    Then I softly see value "Cancelled" for title "Status" against the value "{SavedValue:KPCID}" inside table "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---"
-#    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-#    And I navigate to "Home" tab
-#    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "Record Id" in "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---" panel
-#    Then I softly see value "Completed" for title "Status" against the value "{SavedValue:KPCID}" inside table "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---"
-#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-#    And I navigate to "Home" tab
-#    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "Record Id" in "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---" panel
-#    Then I softly see value "Completed" for title "Status" against the value "{SavedValue:KPCID}" inside table "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---"
-#    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-#    And I navigate to "Home" tab
-#    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "Record Id" in "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---" panel
-#    Then I softly see value "Completed" for title "Status" against the value "{SavedValue:KPCID}" inside table "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---"
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Home" tab
-#    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-#    When I reassign task to "Automation PM1"
-#    When I perform quick search for "{SavedValue:KPCID}" in "---program:-:grantorTaskReassignTableId---" panel
-#    When I check "{SavedValue:KPCID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
-#    And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
-#    And I pause execution for "30" seconds
-#    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "{SavedValue:KPCID}" in "---amendment:-:pendingTaskTableId---" panel
-#    When I click on "Start" icon for "{SavedValue:KPCID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-#    And I "Approve" in the approval decision
-#    Then I softly see field "Status" as "Approved"
-#    #292652
-#    Then I can see top right button "Undo" in page detail
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Amendment Requests - Approved"
-#    And I perform quick search for "{SavedValue:KPCID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-#    When I click on "View" icon for "{SavedValue:KPCID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-#    Then I softly see field "Status" as "Approved"
-#    #292653
-#    Then I cannot see top right button "Undo" in page detail
+    Then I softly see column "Overall Status" at position "1" contains text "Pending"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
+    Then I softly see value "Approved" for title "Original Value" inside field history table
+    And I click on back arrow
+    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "{SavedValue:KPCID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    And I click on "View" icon for "{SavedValue:KPCID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    Then I softly see field "Status" as "Submitted for Approval"
+    Then I cannot see top right button "Undo" in page detail
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "{SavedValue:KPCID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    And I click on "View" icon for "{SavedValue:KPCID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    Then I softly see field "Status" as "Submitted for Approval"
+    Then I cannot see top right button "Undo" in page detail
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "{SavedValue:KPCID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    And I click on "View" icon for "{SavedValue:KPCID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    Then I softly see field "Status" as "Submitted for Approval"
+    Then I cannot see top right button "Undo" in page detail
+    #292651
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---" panel
+    Then I softly see value "Cancelled" for title "Status" against the value "{SavedValue:KPCID}" inside table "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---"
+    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---" panel
+    Then I softly see value "Completed" for title "Status" against the value "{SavedValue:KPCID}" inside table "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---" panel
+    Then I softly see value "Completed" for title "Status" against the value "{SavedValue:KPCID}" inside table "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---"
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---" panel
+    Then I softly see value "Completed" for title "Status" against the value "{SavedValue:KPCID}" inside table "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
+    When I reassign task to "Automation PM1"
+    When I perform quick search for "{SavedValue:KPCID}" in "---program:-:grantorTaskReassignTableId---" panel
+    When I check "{SavedValue:KPCID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
+    And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
+    And I pause execution for "30" seconds
+    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:KPCID}" in "---amendment:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:KPCID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
+    #292652
+    Then I can see top right button "Undo" in page detail
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - Approved"
+    And I perform quick search for "{SavedValue:KPCID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    When I click on "View" icon for "{SavedValue:KPCID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    Then I softly see field "Status" as "Approved"
+    #292653
+    Then I cannot see top right button "Undo" in page detail
 
   @292649 @VerifythatwhenPmuserclickonUndobuttonandclickonYesbuttoninConfirmationWindowsystemwillsendnotificationemailtoKPCAmmendrequestowner&otherapproversforthesameKPCAmmendrequest @sprint-3-US-288690  @Undo
   Scenario: Verify that when Pm user click on Undo button and click on Yes button in Confirmation Window system will send notification email to  KPC Ammend request owner & other approvers for the same  KPC Ammend request
