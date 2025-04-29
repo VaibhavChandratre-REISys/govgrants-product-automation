@@ -619,7 +619,7 @@ Feature: Amendment Request scenarios with Undo
     The EGMS Team
     """
 
-  @292868 @292870 @292877 @292888 @ValidatePmapproverclickonundobuttoninCarryFwdAmmendrequestAmmendrequestrecordSystemwillshowconfirmationboxwithquestionandoptionsforselection @Sprint-3-US-288693  @Undo @TBE
+  @292868 @292870 @292877 @292888 @ValidatePmapproverclickonundobuttoninCarryFwdAmmendrequestAmmendrequestrecordSystemwillshowconfirmationboxwithquestionandoptionsforselection @Sprint-3-US-288693  @Undo
   Scenario: Validate Pm approver click on undo button in Carry Fwd Ammend request Ammend request record System will show confirmation box with a question and options for selection
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -814,7 +814,7 @@ Feature: Amendment Request scenarios with Undo
     Then I can see top right button "Undo" in page detail
     Then I can see top right button "Amend Subaward" in page detail
 
-  @292878 @292881 @292882 @ValidatethatwhenlastApproverandOwneroCarryFwdAmmendrequestAmmendrequestarenotsameLastApproverwillSeeonlyUNDObutton @Sprint-3-US-288693  @Undo @TBE
+  @292878 @292881 @292882 @ValidatethatwhenlastApproverandOwneroCarryFwdAmmendrequestAmmendrequestarenotsameLastApproverwillSeeonlyUNDObutton @Sprint-3-US-288693  @Undo
   Scenario: Validate that when last Approver and Owner of Carry Fwd Ammend request Ammend request are not same,Last Approver will See only UNDO button
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -2078,7 +2078,7 @@ Feature: Amendment Request scenarios with Undo
     Then I see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
 
-  @292635 @VerifyEXEasstep1approvercanseeundobuttonaftertheBPchangeamendmentrequestisapprovedwhen1stepapprovalprocessissetforamendmentrequest @Sprint-2-US-285149  @Undo @TBE
+  @292635 @VerifyEXEasstep1approvercanseeundobuttonaftertheBPchangeamendmentrequestisapprovedwhen1stepapprovalprocessissetforamendmentrequest @Sprint-2-US-285149  @Undo
   Scenario: Verify EXE as step 1 approver can see undo button after the BP change amendment request is approved when 1 step approval process is set for amendment request
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -2244,7 +2244,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
 
-  @292680 @292672 @292681 @292682 @292685 @297810 @VerifywhenlaststepapproverclicksundothenstatusofcompletedtasksofPreviousstepapproversisnotcancelledincompletedtasklist @Sprint-2-US-285149  @Undo @TBE
+  @292680 @292672 @292681 @292682 @292685 @297810 @VerifywhenlaststepapproverclicksundothenstatusofcompletedtasksofPreviousstepapproversisnotcancelledincompletedtasklist @Sprint-2-US-285149  @Undo
   Scenario: Verify when last step approver clicks undo, then status of completed tasks of Previous step approvers is not cancelled in completed task list
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -2467,7 +2467,7 @@ Feature: Amendment Request scenarios with Undo
     The EGMS Team
     """
 
-  @292705 @VerifylastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinActivatedstate @Sprint-2-US-285149  @Undo @TBE
+  @292705 @VerifylastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinActivatedstate @Sprint-2-US-285149  @Undo
   Scenario:Verify last approver cannot see undo button on approved amendment when award is created on the amendment and is in Activated state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -4217,7 +4217,7 @@ Feature: Amendment Request scenarios with Undo
     Then I see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
 
-  @287076 @291089 @291090 @VerifythatUsercanForwardARafterclickonUndoButtonAndafterthathewillnotseeUndoButton @sprint-2-US-289813  @Undo @TBE
+  @287076 @291089 @291090 @VerifythatUsercanForwardARafterclickonUndoButtonAndafterthathewillnotseeUndoButton @sprint-2-US-289813  @Undo
   Scenario:Verify that User can Forward AR after click on Undo Button And after that he will not see Undo Button
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -4828,7 +4828,7 @@ Feature: Amendment Request scenarios with Undo
     The EGMS Team
     """
 
-  @289046 @290069 @VerifylastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @Sprint-2-US-289825  @Undo @TBE
+  @289046 @290069 @VerifylastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @Sprint-2-US-289825  @Undo
   Scenario: Verify last approver cannot see undo button on approved amendment when award is created on the amendment and is in Pending Activation state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMIS_YES_FOCUS_AREA_NO_BUILDUP_YES-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -5045,7 +5045,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     Then I cannot see top right button "Undo" in page detail
 
-  @291092 @VerifythatUsercanForwardARafterthathewillnotseeUndoButtonifuserisnotlastApprover @sprint-2-US-289813  @Undo @TBE
+  @291092 @VerifythatUsercanForwardARafterthathewillnotseeUndoButtonifuserisnotlastApprover @sprint-2-US-289813  @Undo
   Scenario:Verify that User can Forward AR  after that he will not see Undo Button if user is not last Approver
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -5156,7 +5156,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     Then I cannot see top right button "Undo" in page detail
 
-  @291094 @291095 @296832 @VerifythatUsercanReassignARafterclickonUNDObuttonAfterthathewillseeUndoButton @Sprint-2-US-289813  @Undo @TBE
+  @291094 @291095 @296832 @VerifythatUsercanReassignARafterclickonUNDObuttonAfterthathewillseeUndoButton @Sprint-2-US-289813  @Undo
   Scenario:Verify that User can Reassign AR  after click on UNDO button After that he will see Undo Button
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -5412,7 +5412,7 @@ Feature: Amendment Request scenarios with Undo
     And I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-  @289126 @Verifyafterapprovaltaskisforwardedfromlaststepapprovalprocessandamendmentisapprovedbytheuserthenundobuttonshouldbevisibleonlytotheusertowhomthelaststepapprovaltaskisforwarded @Sprint-2-US-289816  @Undo @TBE
+  @289126 @Verifyafterapprovaltaskisforwardedfromlaststepapprovalprocessandamendmentisapprovedbytheuserthenundobuttonshouldbevisibleonlytotheusertowhomthelaststepapprovaltaskisforwarded @Sprint-2-US-289816  @Undo
   Scenario: Verify after approval task is forwarded from last step approval process and amendment is approved by the user then undo button should be visible only to the user to whom the last step approval task is forwarded
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMIS_YES_FOCUS_AREA_NO_BUILDUP_YES-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -5646,7 +5646,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Undo" in page detail
 
-  @292647 @292648 @292650 @292651 @292652 @292653 @292657 @292661 @292667 @VerifywhenPmapprovercanclickonundobuttoninKPCAmmendrequestrecordwhenrecordisinApprovedstate @sprint-3-US-288690  @Undo @TBE
+  @292647 @292648 @292650 @292651 @292652 @292653 @292657 @292661 @292667 @VerifywhenPmapprovercanclickonundobuttoninKPCAmmendrequestrecordwhenrecordisinApprovedstate @sprint-3-US-288690  @Undo
   Scenario: Verify when Pm approver can click on undo button in  KPC Ammend request  record when record is in Approved state
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -6019,7 +6019,7 @@ Feature: Amendment Request scenarios with Undo
     The EGMS Team
     """
 
-  @292654 @292655 @292658 @VerifythatwhenExeapproverForwardtheKPCAmmendrequestApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-3-US-288690  @Undo @TBE
+  @292654 @292655 @292658 @VerifythatwhenExeapproverForwardtheKPCAmmendrequestApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-3-US-288690  @Undo
   Scenario: Verify that when Exe approver Forward the  KPC Ammend request Approval task , Forwarded Approver will see UNDO button and not previous One
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -6174,7 +6174,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
 
-  @292662 @VerifythatwhenApproveruserafterclickofRejectButtonWillnotSeeUndoButton @sprint-3-US-288690  @Undo @TBE
+  @292662 @VerifythatwhenApproveruserafterclickofRejectButtonWillnotSeeUndoButton @sprint-3-US-288690  @Undo
   Scenario: Verify that when Approver user after click of Reject Button Will not See Undo Button
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -6256,7 +6256,7 @@ Feature: Amendment Request scenarios with Undo
     Then I see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
 
-  @292663 @292664 @292665 @VerifylastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @sprint-3-US-288690  @Undo @TBE
+  @292663 @292664 @292665 @VerifylastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @sprint-3-US-288690  @Undo
   Scenario:Verify last approver cannot see undo button on approved amendment when award is created on the amendment and is in Pending Activation state
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -7042,7 +7042,7 @@ Feature: Amendment Request scenarios with Undo
     The EGMS Team
     """
 
-  @290161 @VerifylastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinClosedstate @Sprint-5-US-297244  @Undo @TBE
+  @290161 @VerifylastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinClosedstate @Sprint-5-US-297244  @Undo
   Scenario: Verify last approver cannot see undo button on approved amendment when award is created on the amendment and is in Closed state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMIS_YES_FOCUS_AREA_NO_BUILDUP_YES-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -7340,7 +7340,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
 
-  @309653 @VerifywhenAuditorUsercannotclickonundobuttoninKPCAmmendrequestrecordwhenrecordisinApprovedstate @sprint-3-US-288690  @Undo @TBE
+  @309653 @VerifywhenAuditorUsercannotclickonundobuttoninKPCAmmendrequestrecordwhenrecordisinApprovedstate @sprint-3-US-288690  @Undo
   Scenario: Verify when Auditor User cannot click on undo button in  KPC Ammend request  record when record is in Approved state
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -7608,7 +7608,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see value "Step 1" for title "Award" against the value "Automation EXE" inside table "---subAwardStandAlone:-:awardApproversTableId---"
     Then I softly see value "Step 2" for title "Award" against the value "Automation PO" inside table "---subAwardStandAlone:-:awardApproversTableId---"
 
-  @329498 @BudgetperiodchangeVerifyRNRshouldnotupdateonawardevenifuserupdateRNRonamendment @Sprint-11-US-328884 @Undo @TBE
+  @329498 @BudgetperiodchangeVerifyRNRshouldnotupdateonawardevenifuserupdateRNRonamendment @Sprint-11-US-328884 @Undo
   Scenario:Budget period change_ Verify RNR should not update on award even if user update RNR on amendment
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -7984,7 +7984,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Force Closed"
     Then I cannot see top right button "Undo" in page detail
 
-  @310023 @ValidateCFARthatLastApproverusercannotseeundobuttononCFARinForceClosedstate @Undo @TBE
+  @310023 @ValidateCFARthatLastApproverusercannotseeundobuttononCFARinForceClosedstate @Undo
   Scenario: Validate CF AR that Last Approver user cannot see undo button on CF AR in Force Closed state
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -8169,7 +8169,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Force Closed"
     Then I cannot see top right button "Undo" in page detail
 
-  @310026 @ValidateCFARthatAuditorusercannotseeundobuttoninapprovedstate @Undo @TBE
+  @310026 @ValidateCFARthatAuditorusercannotseeundobuttoninapprovedstate @Undo
   Scenario: Validate CF AR that Auditor user can not see undo button in approved state
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -8764,7 +8764,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Force Closed"
     Then I cannot see top right button "Undo" in page detail
 
-  @310047 @ValidateCFthatIfuserdynamicallychangedApproverwhilecreatingammendmentthenalsoonlylastapprovercanseeUndobutton @Undo @TBE
+  @310047 @ValidateCFthatIfuserdynamicallychangedApproverwhilecreatingammendmentthenalsoonlylastapprovercanseeUndobutton @Undo
   Scenario: Validate CF that If user dynamically changed Approver while creating ammendment ,then also only last approver can see undo button
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -8907,7 +8907,7 @@ Feature: Amendment Request scenarios with Undo
     And I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-  @299481 @VerifythatUserWillSeeSnapshotInSnapshotHistoryTable @Sprint-5-US-297246  @Undo @TBE
+  @299481 @VerifythatUserWillSeeSnapshotInSnapshotHistoryTable @Sprint-5-US-297246  @Undo
   Scenario: Verify that User Will See Snapshot In Snapshot History Table
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -9183,7 +9183,7 @@ Feature: Amendment Request scenarios with Undo
     And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @329496 @ValidateBudgetperiodchangeauditorusercannotseeUndobuttonontheBPchangeamendmentwhenamendmentisinapprovedstate @Undo @TBE
+  @329496 @ValidateBudgetperiodchangeauditorusercannotseeUndobuttonontheBPchangeamendmentwhenamendmentisinapprovedstate @Undo
   Scenario: Validate Budget period change Verify auditor user can not see Undo button on the BP change amendment when amendment is in approved state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -9270,7 +9270,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Undo" in page detail
 
-  @329500 @ValidateBudgetPeriodChangeuserseeapprovalhistoryandfiledhistorygetupdatedafterlaststepapproverclickonundobutton @Undo @FieldHistoryExclude @TBE
+  @329500 @ValidateBudgetPeriodChangeuserseeapprovalhistoryandfiledhistorygetupdatedafterlaststepapproverclickonundobutton @Undo @FieldHistoryExclude
   Scenario: Validate Budget Period Change user see approval history and filed history get updated after last step approver click on undo button
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -10058,7 +10058,7 @@ Feature: Amendment Request scenarios with Undo
     #292393
     Then I cannot see top right button "Undo" in page detail
 
-  @292394 @292395 @VerifythatwhenExeapproverForwardtheBudredAmmendrequestApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-3-US-288689  @Undo @TBE
+  @292394 @292395 @VerifythatwhenExeapproverForwardtheBudredAmmendrequestApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-3-US-288689  @Undo
   Scenario: Verify that when Exe approver Forward the Bud red Ammend request Approval task , Forwarded Approver will see UNDO button and not previous One.
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -10271,7 +10271,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
 
-  @292403 @292404 @VerifylastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @sprint-3-US-288689  @Undo @TBE
+  @292403 @292404 @VerifylastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @sprint-3-US-288689  @Undo
   Scenario:Verify last approver cannot see undo button on approved amendment when award is created on the amendment and is in Pending Activation state
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -10350,7 +10350,7 @@ Feature: Amendment Request scenarios with Undo
     #292404
     Then I cannot see top right button "Undo" in page detail
 
-  @292455 @292634 @VerifyUndobuttonvisibilityonapprovedamendmentaftersubawardisdeletedfromPendingactivationstate @sprint-3-US-288689  @Undo @TBE
+  @292455 @292634 @VerifyUndobuttonvisibilityonapprovedamendmentaftersubawardisdeletedfromPendingactivationstate @sprint-3-US-288689  @Undo
   Scenario:Verify Undo button visibility on approved amendment after subaward is deleted from Pending activation state
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -10459,7 +10459,7 @@ Feature: Amendment Request scenarios with Undo
     And I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-  @299629 @VerifythatUserWillseesnapshothistorynameAmendmentUndoApprovalpdfinsnapshotHistorytableafterlastapproverclickundobutton @sprint-3-US-299198  @Undo @TBE
+  @299629 @VerifythatUserWillseesnapshothistorynameAmendmentUndoApprovalpdfinsnapshotHistorytableafterlastapproverclickundobutton @sprint-3-US-299198  @Undo
   Scenario: Verify that User Will see snapshot history name Amendment - Undo Approval.pdf in snapshot History table after last approver click undo button
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -10854,7 +10854,7 @@ Feature: Amendment Request scenarios with Undo
     #342651
     Then I cannot see top right button "Undo" in page detail
 
-  @287048 @287068 @292545 @VerifylastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @Sprint-2-US-285149  @Undo @TBE
+  @287048 @287068 @292545 @VerifylastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @Sprint-2-US-285149  @Undo
   Scenario: Verify last approver cannot see undo button on approved amendment when award is created on the amendment and is in Pending Activation state
     And I activated standalone subaward "Automation Runtime award" with properties "AMENDMENT_REQUEST" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -11049,7 +11049,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @292424 @292486 @VerifyundobuttonisnotdisplayedtouserotherthanlastapproverontheapprovedBPchangeamendmentrequest @Sprint-2-US-285149  @Undo @TBE
+  @292424 @292486 @VerifyundobuttonisnotdisplayedtouserotherthanlastapproverontheapprovedBPchangeamendmentrequest @Sprint-2-US-285149  @Undo
   Scenario: Verify undo button is not displayed to user other than last approver on the approved BP change amendment request
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -11435,7 +11435,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
 
-  @291760 @291761 @291762 @ValidatelastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @Sprint-2-US-289823  @Undo @TBE
+  @291760 @291761 @291762 @ValidatelastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @Sprint-2-US-289823  @Undo
   Scenario: Validate last approver cannot see undo button on approved amendment when award is created on the amendment and is in Pending Activation state
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I login to "As a Grantor" app as "PM" user
@@ -11626,7 +11626,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @291763 @ValidateUndobuttonvisibilityonapprovedamendmentaftersubawardisdeletedfromPendingactivationstate @Sprint-2-US-289823  @Undo @TBE
+  @291763 @ValidateUndobuttonvisibilityonapprovedamendmentaftersubawardisdeletedfromPendingactivationstate @Sprint-2-US-289823  @Undo
   Scenario: Validate Undo button visibility on approved amendment after subaward is deleted from Pending activation state
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I login to "As a Grantor" app as "PM" user
@@ -13307,7 +13307,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Force Closed"
     Then I cannot see top right button "Undo" in page detail
 
-  @329638 @ValidateCFthatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApproverofAmendment @Sprint-13-US-331643  @Undo @TBE
+  @329638 @ValidateCFthatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApproverofAmendment @Sprint-13-US-331643  @Undo
   Scenario: Validate CF that approval task and email is generated to last step approver on click of undo button by Last Approver of Amendment
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -13513,7 +13513,7 @@ Feature: Amendment Request scenarios with Undo
     The EGMS Team
     """
 
-  @325284 @Validatetheundoishiddenontheamendmentwhere1awardwasinpendingactstateonthegrantandVisiblewhenAmendsubwardbuttonisnotclick @Sprint-13-US-331643  @Undo @TBE
+  @325284 @Validatetheundoishiddenontheamendmentwhere1awardwasinpendingactstateonthegrantandVisiblewhenAmendsubwardbuttonisnotclick @Sprint-13-US-331643  @Undo
   Scenario: Validate the undo is hidden on the amendment where 1 award was in pending act state  on the grant and Visible when Amend subward button is not click
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -13746,7 +13746,7 @@ Feature: Amendment Request scenarios with Undo
     The EGMS Team
     """
 
-  @325565 @ValidateCArryFwdthebehaviorifForwardedapproverapprovesARandclicksonundoButton @Sprint-13-US-331643  @Undo @TBE
+  @325565 @ValidateCArryFwdthebehaviorifForwardedapproverapprovesARandclicksonundoButton @Sprint-13-US-331643  @Undo
   Scenario: Validate CArry Fwd the behavior if Forwarded approver approves AR and clicks on undo Button
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -14040,7 +14040,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Force Closed"
     Then I cannot see top right button "Undo" in page detail
 
-  @342724 @342726 @342731 @342732 @ValidateCFARthatAnyuserwillnotseeUndoButtonwhenCarryforwardAmendmentisinCreatedstate @Sprint-13-US-331643  @Undo @TBE
+  @342724 @342726 @342731 @342732 @ValidateCFARthatAnyuserwillnotseeUndoButtonwhenCarryforwardAmendmentisinCreatedstate @Sprint-13-US-331643  @Undo
   Scenario: Validate CF AR that Any user will not see Undo Button when Carry forward Amendment is in Created state
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -14249,7 +14249,7 @@ Feature: Amendment Request scenarios with Undo
     #342732
     Then I cannot see top right button "Undo" in page detail
 
-  @292183 @292224 @292576 @ValidateFDuserassinglestepapproverstep1canabletoseeUNDObuttonafterApprovedtheARbyassignedapprover @Sprint-3-US-286469  @Undo @TBE
+  @292183 @292224 @292576 @ValidateFDuserassinglestepapproverstep1canabletoseeUNDObuttonafterApprovedtheARbyassignedapprover @Sprint-3-US-286469  @Undo
   Scenario: Validate FD user as single step approver step 1 can able to see UNDO button after Approved the AR by assigned approver
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -14473,7 +14473,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     Then I cannot see top right button "Undo" in page detail
 
-  @292230 @ValidatenewFDuserLaststepapprovercanseeUNDObuttononApprovedstateofARwhenapprovaltaskistransferfromoneFDstep1usertootherFDuserstep1 @Sprint-3-US-286469  @Undo @TBE
+  @292230 @ValidatenewFDuserLaststepapprovercanseeUNDObuttononApprovedstateofARwhenapprovaltaskistransferfromoneFDstep1usertootherFDuserstep1 @Sprint-3-US-286469  @Undo
   Scenario: Validate new FD user Last step approver can see UNDO button on Approved state of AR when approval task is transfer from one FD step1 user to other FD user step 1
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -14589,7 +14589,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
 
-  @292582 @292587 @292594 @292591 @292588 @ValidatePOuserasLaststepapprovercanseeUNDOAmendsubawardbuttonsonApprovedstateofARwhenAmendmentownerissameaslaststepapprove2stepapproverabletoForwardapprovaldecisiontasktoEXEuser @Sprint-3-US-286469  @Undo @TBE
+  @292582 @292587 @292594 @292591 @292588 @ValidatePOuserasLaststepapprovercanseeUNDOAmendsubawardbuttonsonApprovedstateofARwhenAmendmentownerissameaslaststepapprove2stepapproverabletoForwardapprovaldecisiontasktoEXEuser @Sprint-3-US-286469  @Undo
   Scenario: Validate PO user as Last step approver can see UNDO & Amend subaward buttons on Approved state of AR when Amendment owner is same as last step approver(2 step approver) able to Forward approval decision task to EXE user
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -15007,7 +15007,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see column "Overall Status" at position "1" contains text "Rejected"
     Then I softly do not see value "{SavedValue:FD Username}" for title "Taken By" inside table "a0t4T000000YQBcQAO"
 
-  @292590 @Validatestep3approvercannotseeUNDObuttoninPendingActivatedstateofnewAwardpostT&CAR&seeUndobuttononARisinApprovedonceclickondeletebuttononAwardthenARinSubmittoGrantorstate @Sprint-3-US-286469  @Undo @TBE
+  @292590 @Validatestep3approvercannotseeUNDObuttoninPendingActivatedstateofnewAwardpostT&CAR&seeUndobuttononARisinApprovedonceclickondeletebuttononAwardthenARinSubmittoGrantorstate @Sprint-3-US-286469  @Undo
   Scenario: Validate step 3 approver cannot see UNDO button in Pending Activated state of new Award post T &C AR & see Undo button on AR is in Approved once click on delete button on Award then AR in Submit to Grantor state
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -15285,7 +15285,7 @@ Feature: Amendment Request scenarios with Undo
     And I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-  @325583 @ValidateCarryForwrdthatUndobuttonisavailabletocarryForwardamendmentonBPO2andBP03award @Sprint-13-US-331643  @Undo @TBE
+  @325583 @ValidateCarryForwrdthatUndobuttonisavailabletocarryForwardamendmentonBPO2andBP03award @Sprint-13-US-331643  @Undo
   Scenario: Validate Carry Forwrd that Undo button is available to carry Forward amendment on BPO2 and BP03 award
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
