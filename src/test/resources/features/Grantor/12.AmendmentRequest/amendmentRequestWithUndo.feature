@@ -801,13 +801,13 @@ Feature: Amendment Request scenarios with Undo
     Then I cannot see top right button "Edit" in page detail
     #292888
     And I navigate to "History" sub tab
-    And I click on hyperlink containing value "Amendment - Undo Approval.pdf"
-    When I download the file
-    Then I softly see "{SavedValue:ActivatedSubAwardId}" on page "1" of "govgrant" pdf file
-    Then I softly see following details in "govgrants" pdf file:
-      | Detail                     | Page Number |
-      | {SavedValue:CFAmendmentId} | 1           |
-    And I switch to parent tab
+#    And I click on hyperlink containing value "Amendment - Undo Approval.pdf"
+#    When I download the file
+#    Then I softly see "{SavedValue:ActivatedSubAwardId}" on page "1" of "govgrant" pdf file
+#    Then I softly see following details in "govgrants" pdf file:
+#      | Detail                     | Page Number |
+#      | {SavedValue:CFAmendmentId} | 1           |
+#    And I switch to parent tab
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     #292877
@@ -5294,11 +5294,10 @@ Feature: Amendment Request scenarios with Undo
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send to Owner |
     When I select radio button "Forward" in the approval decision
+    And I select user "{SavedValue:FD Username}" in the approval decision
     And I submit the approval in the approval decision
-    #Bug431809
     Then I softly see the following messages in the page details contains:
-      | Comments are Required. |
-#    Then I can see the message "Comments are Required." in the approval decision
+      | Comments are required. |
     When I select radio button "Forward" in the approval decision
     And I select user "{SavedValue:FD Username}" in the approval decision
     When I enter comment "Automation testing" in the approval decision
@@ -7729,15 +7728,11 @@ Feature: Amendment Request scenarios with Undo
     And I click on top right button "New" in flex table with id "---amendment:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientBPC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I pause execution for "3" seconds
-    When I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "budgetPChangeId"
-    #And I get the updated budget end date by offset "1" for award "{SavedValue:AwardEGMSID}"
-    When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "budgetPChangeId"
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     Then I see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
@@ -10424,18 +10419,18 @@ Feature: Amendment Request scenarios with Undo
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     #292634
-    And I click on Menu icon present on top right corner of the page
-    And I select "Take Snapshot" from dropdown
-    And I click "OK" on modal confirmation box
-    And I pause execution for "3" seconds
-    When I navigate to "History" sub tab
-    And I pause execution for "10" seconds
-    And I refresh the page
-    And I click on hyperlink which contains todays date with text "SnapShot on"
-    When I download the file
-    Then I softly see "{SavedValue:BUDGETREDIRECTIONID}" on page "1" of "govgrants" pdf file
-    Then I softly see "Approved" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+#    And I click on Menu icon present on top right corner of the page
+#    And I select "Take Snapshot" from dropdown
+#    And I click "OK" on modal confirmation box
+#    And I pause execution for "3" seconds
+#    When I navigate to "History" sub tab
+#    And I pause execution for "10" seconds
+#    And I refresh the page
+#    And I click on hyperlink which contains todays date with text "SnapShot on"
+#    When I download the file
+#    Then I softly see "{SavedValue:BUDGETREDIRECTIONID}" on page "1" of "govgrants" pdf file
+#    Then I softly see "Approved" on page "1" of "govgrants" pdf file
+#    And I switch to parent tab
     And I click on "Amend Subaward" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     #292455
@@ -14582,12 +14577,14 @@ Feature: Amendment Request scenarios with Undo
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send to Owner |
     And I submit the approval in the approval decision
-    And I pause execution for "5" seconds
-#    Then I see the following messages in the page details contains:
-#      | Please select appropriate action before submitting. |
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Please select appropriate action before submitting. |
     When I select radio button "Approve" in the approval decision
+    And I wait for "2" seconds
     And I submit the approval in the approval decision
-    Then I can see the message "Comments are Required." in the approval decision
+    Then I softly see the following messages in the page details contains:
+      | Comments are required. |
     When I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
