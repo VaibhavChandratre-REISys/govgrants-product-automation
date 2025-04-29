@@ -146,7 +146,8 @@ public final class InputForms {
 
             }
         }
-        I.amPerforming().waitFor().ElementToBePresent(fieldWrapperLocator);
+//        I.amPerforming().waitFor().ElementToBePresent(fieldWrapperLocator);
+        I.amPerforming().waitFor().ElementToBeVisible(fieldWrapperLocator);
         WebElement fieldWrapper = I.amPerforming().getElementReference().of(fieldWrapperLocator);
 //        I.amPerforming().scroll().withMouseToElement(fieldWrapperLocator);
         I.amPerforming().scroll().toMoveToElement(fieldWrapperLocator);

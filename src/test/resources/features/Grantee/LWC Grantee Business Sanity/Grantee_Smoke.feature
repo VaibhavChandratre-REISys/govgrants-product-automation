@@ -15538,7 +15538,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Forms and Files" sub tab
     Then I softly cannot see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Splitview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Splitview" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Preview" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     When I click on "Splitview" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly cannot see top right button "Edit" in the split screen page details
