@@ -24641,7 +24641,7 @@ Feature: Amendment Request scenarios without background
       The EGMS Team
       """
 
-  @232522 @ValidateemailshouldbetriggeredofAmendmentRequestapproved&forChangeownershiptonewusers/rSide @sprint-13-US-231194  @reassignment
+  @232522 @ValidateemailshouldbetriggeredofAmendmentRequestapproved&forChangeownershiptonewusers/rSide @sprint-13-US-231194  @reassignment @TBE1
   Scenario: Validate email should be triggered of Amendment Request approved & for Change ownership to new user(s/r Side)
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
