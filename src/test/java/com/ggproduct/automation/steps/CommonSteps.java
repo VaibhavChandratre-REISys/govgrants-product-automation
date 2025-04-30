@@ -151,6 +151,11 @@ public class CommonSteps {
     public void iSoftlySeeTheFieldAs(String usage, String fieldLabel, String fieldValue) {
         projectManager.assertFormsFields(usage, fieldLabel, fieldValue);
     }
+
+    @And("I click on {string} button for snapshot view")
+    public void iClickOnButtonForSnapshotView(String buttonName) {
+        projectManager.clickOnuttonForSnapshotView(buttonName);
+    }
 }
 
 

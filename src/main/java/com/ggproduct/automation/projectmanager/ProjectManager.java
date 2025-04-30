@@ -257,4 +257,8 @@ public class ProjectManager extends ProjectWebServices {
         }
         return flag;
     }
+
+    public void clickOnuttonForSnapshotView(String buttonName) {
+        I.amPerforming().click().on(By.xpath("//button[@title='" + buttonName + "']"));
+    }
 }

@@ -1672,7 +1672,7 @@ Feature: Validate all scenarios of every modules flow
 #    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD"
     And I halt execution
 
-  @orgRegister @debug
+  @orgRegister
     Scenario:
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -1698,6 +1698,10 @@ Feature: Validate all scenarios of every modules flow
     And I click on mail with subject "Sandbox: Welcome to GovGrants 3.0 Recipient Portal"
     And I navigate to reset password link
     Then I set password for the user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    Then I see the header is "Subrecipient Organization" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime Organization}" in the page details
 
   @debugtest
   Scenario:
@@ -1714,4 +1718,23 @@ Feature: Validate all scenarios of every modules flow
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I halt execution
+    
+  @debug
+  Scenario:
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/AmendmentRequest__c/a1YDV000003FYES2A4/view?0.source=alohaHeader"
+    And I halt execution
+    And I navigate to "History" sub tab
+    And I click on hyperlink containing value "Amendment Submit for Approval.pdf"
+    And I click on "Download" button for snapshot view
+    And I switch to parent tab
+    And I wait for "2" seconds
+    And I click on "Close" button for view files page
+    And I refresh the page
+    And I wait for "2" seconds
+    When I download the file
+    And I wait for "5" seconds
+    Then I softly see "CR-AD--3316-00" on page "1" of "govgrants" pdf file
+    And I switch to parent tab
     And I halt execution
