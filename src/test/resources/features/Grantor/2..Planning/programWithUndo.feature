@@ -1578,7 +1578,7 @@ Feature: Validate all scenarios for program
     And I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
 
-   @299539 @Verifyhesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-25-US-295138  @Undo
+  @299539 @Verifyhesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-25-US-295138  @Undo
   Scenario: Verify the snapshot is generated in snapshot history section when last approver click undo action
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1646,7 +1646,7 @@ Feature: Validate all scenarios for program
     Then I softly see snapshot with name containing "Internal Program - Undo Approval.pdf" as name
     And I click on hyperlink containing value "Internal Program - Undo Approval.pdf"
     When I download the file
-     And I wait for "3" seconds
+    And I wait for "3" seconds
     Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
     Then I softly see "Submitted for Approval" on page "1" of "govgrants" pdf file
     Then I softly see "Test Automation Organization" on page "1" of "govgrants" pdf file

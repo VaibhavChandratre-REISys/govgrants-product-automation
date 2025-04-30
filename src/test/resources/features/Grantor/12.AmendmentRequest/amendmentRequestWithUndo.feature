@@ -9337,7 +9337,6 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-#    Then I softly see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside field history table
     Then I softly see value "{SavedValue:FO Username}" for title "User" inside field history table
     Then I softly see value "Approved" for title "Original Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
@@ -9348,7 +9347,6 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see column "Overall Status" at position "1" contains text "Approved"
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-#    Then I softly see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside field history table
     Then I softly see value "{SavedValue:FO Username}" for title "User" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     Then I softly see value "Approved" for title "New Value" inside field history table

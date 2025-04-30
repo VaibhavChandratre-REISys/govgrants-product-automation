@@ -212,18 +212,9 @@ Feature: Validate all scenarios in Closeout
     And I click toggle button to select "Project Period Closeouts - All"
     When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel
     When I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:ProjectPeriodCloseoutTableId---"
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Submission.pdf" for title "File Name" inside table "---closeout:-:snapshotHistoryTableId---"
-#    Then I softly see value "{SavedValue:EXE Username}" for title "Taken By" inside table "---closeout:-:snapshotHistoryTableId---"
-#    Then I softly see value "Acknowledge.pdf" for title "File Name" inside table "---closeout:-:snapshotHistoryTableId---"
-#    Then I softly see value "{SavedValue:SPI3 Username}" for title "Taken By" inside table "---closeout:-:snapshotHistoryTableId---"
-#    Then I softly see value "Overriden.pdf" for title "File Name" inside table "---closeout:-:snapshotHistoryTableId---"
-#    Then I softly see value "{SavedValue:EXE Username}" for title "Taken By" inside table "---closeout:-:snapshotHistoryTableId---"
-  #  Then I softly see value "Submission.pdf" for title "File Name" against the value "Submission.pdf" inside table "---subAwardStandAlone:-:snapshotHistoryTableId---"
-  #  Then I softly see value "{SavedValue:PM Username}" for title "Taken By" against the value "Submission.pdf" inside table "---subAwardStandAlone:-:snapshotHistoryTableId---"
+    And I navigate to "History" sub tab
     And I click on hyperlink containing value "Overriden.pdf"
     And I switch to parent tab
-#    Then I softly see page title contains as "servlet.FileDownload"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2760,20 +2751,21 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---closeout:-:closeoutOwnerTableId---"
     And I navigate to "History" sub tab
-#    Then I softly see that "Automation PM" has been added in flextable with Id "---closeout:-:closeoutHistoryTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PM1" for title "New Value" inside table "---subAwardStandAlone:-:historyTableId---"
-#    Then I softly see value "Automation PM" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
-#    Then I softly see value "Automation PM1" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
+    Then I softly see value "Automation PM1" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
   @229477 @ValidateusershouldnotabletoseeclosegrantrecordonownershiplookupforAdminuser @sprint-12-US-226646  @reassignment
   Scenario: Validate user should not able to see close grant record on ownership lookup for Admin user

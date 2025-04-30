@@ -2468,7 +2468,7 @@ Feature: Amendment Request scenarios without background
     Then I softly can see top right button "Delete" in page detail
     Then I softly can see top right button "Submit to Grantor" in page detail
 
-  @97766 @ValidateCreationOfAmendMentRequestBySubRecipient-BudgetPeriodChange @TBE1
+  @97766 @ValidateCreationOfAmendMentRequestBySubRecipient-BudgetPeriodChange
   Scenario: Verify sub recipient user is able to create Budget period change Amendment request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -2822,9 +2822,6 @@ Feature: Amendment Request scenarios without background
     #100433 #monu
     And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-#    And I navigate to "History" sub tab
-#    And I see "{SavedValue:EXE Username}" against "Step 2" in approval history
-#    Then I softly see column "Overall Status" at position "1" contains text "Approved"
     #100454 #monu
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3747,7 +3744,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
-  @101612 @ValidateActualNegativeValueOfKPI-PeriodicRenewal @TBE1
+  @101612 @ValidateActualNegativeValueOfKPI-PeriodicRenewal
   Scenario Outline: Verify Negative Actual Value of KPI At Periodic renewal Amendment request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -4162,7 +4159,7 @@ Feature: Amendment Request scenarios without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @101515 @ValidateDecreasedTargetValueOfAmendmentRequest-PeriodicRenewal @TBE1
+  @101515 @ValidateDecreasedTargetValueOfAmendmentRequest-PeriodicRenewal
   Scenario: Verify progress report should display with Updated decreased target value
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -4263,7 +4260,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Performance" sub tab
     Then I softly see value "8" for title "Target" against the value "Automation Permanent KPI" inside table "---amendment:-:RecipientPerformanceKPITableId---"
 
-  @101638 @ValidateDecreasedNegativeTargetValueOfAmendmentRequest-PeriodicRenewal @TBE1
+  @101638 @ValidateDecreasedNegativeTargetValueOfAmendmentRequest-PeriodicRenewal
   Scenario: Verify progress report should display with Updated decreased(negative) target value
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -4362,7 +4359,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Performance" sub tab
     Then I softly see value "(8)" for title "Target" against the value "Automation Permanent KPI" inside table "---amendment:-:RecipientPerformanceKPITableId---"
 
-  @102780 @ValidatePreviousActualValueForAmendmentRequest-FundingChangeAmendmentRequest @TBE1
+  @102780 @ValidatePreviousActualValueForAmendmentRequest-FundingChangeAmendmentRequest
   Scenario Outline: Verify Previous Actual value is getting updated while creating funding change Amendment request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -9731,7 +9728,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Activate" in the page details
     Then I see that "Subaward" is in "Activated" status
 
-  @201089 @ValidateCarryForwardfiledhistoryshouldbeupdatedfornewownerofAR @sprint-5-US-198235  @reassignment @FieldHistoryExclude @TBE1
+  @201089 @ValidateCarryForwardfiledhistoryshouldbeupdatedfornewownerofAR @sprint-5-US-198235  @reassignment @FieldHistoryExclude
   Scenario: Validate Carry Forward filed history should be updated for new owner of AR
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -10565,7 +10562,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @200057  @sprint-5-US-198419  @reassignment @FieldHistoryExclude @TBE1
+  @200057  @sprint-5-US-198419  @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R at Submitted for approval state for Budget Period Change AR type
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -10652,7 +10649,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation EXE1" for title "New Value" inside field history table
     Then I softly see value "Automation EXE" for title "Original Value" inside field history table
 
-  @200058 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatapprovedstateforbudgetperiodchange @sprint-5-US-198419  @reassignment @FieldHistoryExclude @TBE1
+  @200058 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatapprovedstateforbudgetperiodchange @sprint-5-US-198419  @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R Side at approved state for budget period change
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -22338,7 +22335,7 @@ Feature: Amendment Request scenarios without background
       The EGMS Team
       """
 
-  @200515 @ValidateafterchangingthetaskownershipofcombinationSOW/BPCchangebyS/Rsidethenemailshouldtriggeredto&newOwner @sprint-12-US-226646  @reassignment @TBE1
+  @200515 @ValidateafterchangingthetaskownershipofcombinationSOW/BPCchangebyS/Rsidethenemailshouldtriggeredto&newOwner @sprint-12-US-226646  @reassignment
   Scenario: Validate after changing the task ownership of combination SOW/BPC  change by S/R side then email should triggered to old & new Owner
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PM1 user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -24308,7 +24305,7 @@ Feature: Amendment Request scenarios without background
       The EGMS Team
       """
 
-  @232521 @ValidateemailshouldbetriggeredofAmendmentRequestsendback&forChangeownershiptonewusers/rSide @sprint-13-US-231194  @reassignment @TBE1
+  @232521 @ValidateemailshouldbetriggeredofAmendmentRequestsendback&forChangeownershiptonewusers/rSide @sprint-13-US-231194  @reassignment
   Scenario: Validate email should be triggered of Amendment Request send back & for Change ownership to new user s/r Side
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -24641,7 +24638,7 @@ Feature: Amendment Request scenarios without background
       The EGMS Team
       """
 
-  @232522 @ValidateemailshouldbetriggeredofAmendmentRequestapproved&forChangeownershiptonewusers/rSide @sprint-13-US-231194  @reassignment @TBE1
+  @232522 @ValidateemailshouldbetriggeredofAmendmentRequestapproved&forChangeownershiptonewusers/rSide @sprint-13-US-231194  @reassignment
   Scenario: Validate email should be triggered of Amendment Request approved & for Change ownership to new user(s/r Side)
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal

@@ -405,8 +405,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I refresh the page
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     And I pause execution for "3" seconds
-#    When I navigate to "History" sub tab
-#    Then I softly see value "Rejected" for title "New Value" inside table "History"
     When I navigate to "Announcements" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel

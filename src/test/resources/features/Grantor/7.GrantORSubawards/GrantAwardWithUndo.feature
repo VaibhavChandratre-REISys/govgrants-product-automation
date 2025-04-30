@@ -2015,11 +2015,12 @@ Feature: Validate all scenarios of grants and award with undo
     Then I can see top right button "Undo" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "{SavedValue:PO1 Username}" for title "Name" inside table "---subAwardStandAlone:-:awardApproversTableId---"
-#    And I navigate to "History" sub tab
-#    To Do:- Field history deployment not done in LWC hence commented this part
-#    Then I softly see value "Approved" for title "New Value" inside table "---subAwardStandAlone:-:historyTableId---"
-#    Then I softly see value "Submitted for Approval" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
-#    Then I softly see value "Automation PO1" for title "Changed By" inside table "---subAwardStandAlone:-:historyTableId---"
+   And I navigate to "History" sub tab
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Approved" for title "New Value" inside field history table
+    Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
+    And I click on back arrow
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
