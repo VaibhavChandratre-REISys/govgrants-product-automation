@@ -3618,6 +3618,7 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
+#    Commented below steps duw to bug-472991 it's known issue FW team working on it
 #    And I select "Download as PDF" from parallel lines dropdown of "Awards - All"
 #    And I wait for "7" seconds
 #    And I download the file

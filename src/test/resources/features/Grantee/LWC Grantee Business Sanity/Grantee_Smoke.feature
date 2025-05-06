@@ -1714,7 +1714,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE PM |
 
   @476066 @OpportunitiesconvertedtoApplicationGrantsgovVerifyPMusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @Grantee_Smoke1
-  Scenario Outline: Opportunities converted to Application (Grants.gov) - Verify PM user can navigate to Opportunity details page from Opportunities Converted to Application list view
+  Scenario Outline: Opportunities converted to pre-Application (Grants.gov) - Verify PM user can navigate to Opportunity details page from Opportunities Converted to Pre-Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
     When I login to "As a Grantee" app as "GRANTEE PM" user
