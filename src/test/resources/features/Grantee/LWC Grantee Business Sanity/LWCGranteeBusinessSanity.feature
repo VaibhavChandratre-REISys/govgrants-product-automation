@@ -3575,7 +3575,7 @@ Feature: Sanity scenarios
     Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
 
-  @443816 @ValidateAwardWithPMProfileAfterclickonAwardphaseListviewpage @TBE
+  @443816 @ValidateAwardWithPMProfileAfterclickonAwardphaseListviewpage
   Scenario: Validate Award With PM Profile After click on Award phase List view page
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -4241,9 +4241,8 @@ Feature: Sanity scenarios
 #    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
 #    And I switch to parent tab
     And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I wait for "2" seconds
-    Then I softly see "View" opens in overLay window
-    And I click modal button "Close"
+    Then I softly see the image "Attachment.pdf" in page detail
+    And I click on "Close" button for view files page
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" by clicking "Edit" :
       | Title          | Title          | Classification  |
       | Attachment.pdf | Automation.pdf | Notice of Award |
@@ -4819,8 +4818,8 @@ Feature: Sanity scenarios
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    Then I softly see field "Status" as "Draft"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    Then I softly see field "Status" as "Draft"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Created"
@@ -5402,9 +5401,9 @@ Feature: Sanity scenarios
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Please select Amendment Request Type is required to save. |
-      | Initiated By is required to save.                         |
-      | Justification is required to save.                        |
+      | To Save, Please select Amendment Request Type is required. |
+      | To Save, Initiated By is required.                         |
+      | To Save, Justification is required.                        |
     And I enter "Grantee_PRenewal_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
@@ -6698,7 +6697,7 @@ Feature: Sanity scenarios
       | Overview Tab - At least one Focus Area's Start Date should match the Budget Period Start Date and one Focus Area's End Date should match the Proposed Budget Period End Date. |
       | Responsibilities - At least one approver is required                                                                                                                          |
 
-  @462436 @462376 @462432 @VerifyPOusercannotabletoseeGrantorDecisionHistorysectionunderHistorytabwhenPeriodicRenewalAmendmentRequestisnotinAcceptedstate
+  @462436 @462376 @462432 @VerifyPOusercannotabletoseeGrantorDecisionHistorysectionunderHistorytabwhenPeriodicRenewalAmendmentRequestisnotinAcceptedstate @PO_Grantee @PM_Grantee @GRegression2 @Gregression1
   Scenario Outline: Verify PO user cannot able to see Grantor Decision History section under History tab when Periodic Renewal Amendment Request is not in Accepted state
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -6740,7 +6739,7 @@ Feature: Sanity scenarios
     Then I softly do not see fields "AwardIssueDate__c" is visible
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Additional Details is required to save. |
+      | To Save, Additional Details is required. |
     When I enter values into fields
       | Value | Field       |
       | Test  | Comments__c |
@@ -6754,9 +6753,9 @@ Feature: Sanity scenarios
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Not Accepted" for title "New Value" inside field history table
-    Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
+    Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
     And I wait for "3" seconds
-    And I "Created" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I "Created" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-<userName>"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -6768,12 +6767,13 @@ Feature: Sanity scenarios
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     When I navigate to "Amendments" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Created"
     Then I softly see field "Amendment Type" as "Periodic Renewal"
     Examples:
-      | userName   | User       |
-      | Grantee PO | GRANTEE PO |
-      | Sarah PM   | GRANTEE PM |
+      | userName        | User       |
+      | Grantee PO user | GRANTEE PO |
+      | Sarah PM user   | GRANTEE PM |
 
   @443831 @AwardVerifywithPMprofileManagementTabofAwardPagelayout.
   Scenario:  Award with PM profile Management Tab of Award Page layout

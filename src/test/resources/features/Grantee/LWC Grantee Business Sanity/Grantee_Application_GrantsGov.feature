@@ -1,7 +1,7 @@
 @GranteeApplicationsGrantsGov
 Feature: Validate all scenarios for Applications Grants Gov
 
-  @480684 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P3_Grantee @PO_Grantee @TBE
+  @480684 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P3_Grantee @PO_Grantee @GRegression2
   Scenario Outline: Validate Opportunities converted to Application Grants gov PO user can navigate to Opportunity details page from Opportunities Converted to Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -197,7 +197,7 @@ Feature: Validate all scenarios for Applications Grants Gov
       | User       |
       | GRANTEE PO |
 
-  @480686 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P3_Grantee @FO_Grantee @TBE
+  @480686 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P3_Grantee @FO_Grantee @GRegression2
   Scenario Outline: Validate Opportunities converted to Application Grants gov FO user can navigate to Opportunity details page from Opportunities Converted to Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -393,7 +393,7 @@ Feature: Validate all scenarios for Applications Grants Gov
       | User       |
       | GRANTEE FO |
 
-  @480687 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P3_Grantee @FD_Grantee @TBE
+  @480687 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P3_Grantee @FD_Grantee @GRegression2
   Scenario Outline: Validate Opportunities converted to Application Grants gov FD user can navigate to Opportunity details page from Opportunities Converted to Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -589,7 +589,7 @@ Feature: Validate all scenarios for Applications Grants Gov
       | User       |
       | GRANTEE FD |
 
-  @480688 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P4_Grantee @AUDITOR_Grantee @TBE
+  @480688 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P4_Grantee @AUDITOR_Grantee @GRegression2
   Scenario Outline: Validate Opportunities converted to Application Grants gov AUDITOR user can navigate to Opportunity details page from Opportunities Converted to Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -785,7 +785,7 @@ Feature: Validate all scenarios for Applications Grants Gov
       | User            |
       | GRANTEE AUDITOR |
 
-  @480689 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P3_Grantee @ADMIN_Grantee @TBE
+  @480689 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P3_Grantee @ADMIN_Grantee @GRegression2
   Scenario Outline: Validate Opportunities converted to Application Grants gov ADMIN user can navigate to Opportunity details page from Opportunities Converted to Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"

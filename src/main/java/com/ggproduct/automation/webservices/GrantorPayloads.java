@@ -5304,7 +5304,7 @@ public class GrantorPayloads {
     }
 
     private JsonObject payloadForGranteePOApprover(JsonObject json) {
-        JsonObject preAPPData = json.getAsJsonArray("GrantAwardData").get(0).getAsJsonObject();
+        JsonObject preAPPData = json.getAsJsonArray("AwardChildData").get(0).getAsJsonObject();
         JsonArray topLevelApprovers = new JsonArray();
         JsonObject topLevelApprover = new JsonObject();
         topLevelApprover.addProperty("name", ProjectWebServices.getIdOf("User", "Grantee PO"));
@@ -5313,7 +5313,7 @@ public class GrantorPayloads {
         preAPPData.add("approvers", topLevelApprovers);
         JsonArray preAPPDataDataArray = new JsonArray();
         preAPPDataDataArray.add(preAPPData);
-        json.add("GrantAwardData", preAPPDataDataArray);
+        json.add("AwardChildData", preAPPDataDataArray);
         return json;
     }
 

@@ -26,7 +26,7 @@ public final class Modal {
     }
 
     public By getModalContentSpecificButton(String buttonName) {
-        return By.xpath("//div[contains(@class,'modal__container')]//button[contains(text(),'" + buttonName + "')] | //div[@id='WorkspaceFileEdit']//button[@title='" + buttonName + "' or text()='" + buttonName + "']");
+        return By.xpath("//div[contains(@class,'modal__container')]//button[contains(text(),'" + buttonName + "')] | //div[contains(@class,'modal__container')]//button[@title='" + buttonName + "'] | //div[@id='WorkspaceFileEdit']//button[@title='" + buttonName + "' or text()='" + buttonName + "']");
     }
 
     /**

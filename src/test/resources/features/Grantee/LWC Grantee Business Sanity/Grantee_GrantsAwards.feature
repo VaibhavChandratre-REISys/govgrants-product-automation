@@ -142,7 +142,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I click toggle button to select "Grants - My Records"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
 
-  @456280 @ValidateAwardPOFOFDthePhasewiselevellistviewforAward @PO_Grantee @P4_Grantee @TBE
+  @456280 @ValidateAwardPOFOFDthePhasewiselevellistviewforAward @PO_Grantee @P4_Grantee @GRegression2
   Scenario: Validate Award PO FO FD the Phase wise level list view for Award
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
@@ -200,7 +200,7 @@ Feature: Validate all scenarios for Grants & Awards
     When I perform quick search for "Created" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
 
-  @456280_1 @ValidateAwardPOFOFDthePhasewiselevellistviewforAward @FO_Grantee @P4_Grantee @TBE
+  @456280_1 @ValidateAwardPOFOFDthePhasewiselevellistviewforAward @FO_Grantee @P4_Grantee @GRegression2
   Scenario: Validate Award PO FO FD the Phase wise level list view for Award
     When I login to "As a Grantee" app as "GRANTEE FO" user
     And I navigate to "Grants" tab
@@ -258,7 +258,7 @@ Feature: Validate all scenarios for Grants & Awards
     When I perform quick search for "Created" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
 
-  @456280_2 @ValidateAwardPOFOFDthePhasewiselevellistviewforAward @FD_Grantee @P4_Grantee @TBE
+  @456280_2 @ValidateAwardPOFOFDthePhasewiselevellistviewforAward @FD_Grantee @P4_Grantee @GRegression2
   Scenario: Validate Award PO FO FD the Phase wise level list view for Award
     When I login to "As a Grantee" app as "GRANTEE FD" user
     And I navigate to "Grants" tab
