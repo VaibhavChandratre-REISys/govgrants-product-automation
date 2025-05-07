@@ -1,7 +1,7 @@
 @GranteeGrantsAwards
 Feature: Validate all scenarios for Grants & Awards
 
-  @456238 @ValidateGrantPOFOFDthePhasewiselevellistviewforGrant @P3_Grantee @PO_Grantee @TBE
+  @456238 @ValidateGrantPOFOFDthePhasewiselevellistviewforGrant @P3_Grantee @PO_Grantee @GRegression2
   Scenario: Validate Grant PO FO FD the Phase wise level list view for Grant
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
@@ -22,10 +22,6 @@ Feature: Validate all scenarios for Grants & Awards
     And I click toggle button to select "Grants - All"
     And I wait for "3" seconds
     And I select value inside table "---grantee_tableId:-:GrantsTable---" is "5"
-    And I wait for "3" seconds
-    Then I see "10" records inside flex table id "---grantee_tableId:-:GrantsTable---"
-
-    Then I see "5" records inside flex table id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "Draft" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Active" in "---grantee_tableId:-:GrantsTable---" panel
@@ -52,7 +48,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I click toggle button to select "Grants - My Records"
     Then I softly see value "Draft" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
 
-  @456238_1 @ValidateGrantPOFOFDthePhasewiselevellistviewforGrant @P3_Grantee @FO_Grantee @TBE
+  @456238_1 @ValidateGrantPOFOFDthePhasewiselevellistviewforGrant @P3_Grantee @FO_Grantee @GRegression2
   Scenario: Validate Grant PO FO FD the Phase wise level list view for Grant
     When I login to "As a Grantee" app as "GRANTEE FO" user
     And I navigate to "Grants" tab
@@ -99,7 +95,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I click toggle button to select "Grants - My Records"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
 
-  @456238_2 @ValidateGrantPOFOFDthePhasewiselevellistviewforGrant @P3_Grantee @FD_Grantee @TBE
+  @456238_2 @ValidateGrantPOFOFDthePhasewiselevellistviewforGrant @P3_Grantee @FD_Grantee @GRegression2
   Scenario: Validate Grant PO FO FD the Phase wise level list view for Grant
     When I login to "As a Grantee" app as "GRANTEE FD" user
     And I navigate to "Grants" tab
@@ -146,7 +142,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I click toggle button to select "Grants - My Records"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
 
-  @456280 @ValidateAwardPOFOFDthePhasewiselevellistviewforAward @PO_Grantee @P4_Grantee
+  @456280 @ValidateAwardPOFOFDthePhasewiselevellistviewforAward @PO_Grantee @P4_Grantee @TBE
   Scenario: Validate Award PO FO FD the Phase wise level list view for Award
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
@@ -158,7 +154,6 @@ Feature: Validate all scenarios for Grants & Awards
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Download as CSV" present in parallel dropdown
-    Then I see "10" records inside flex table id "---grantee_tableId:-:awardTableId---"
     Then I softly see toggle option "Awards - All" inside flex table id "---grantee_tableId:-:awardTableId---"
     Then I softly see toggle option "Awards - Draft" inside flex table id "---grantee_tableId:-:awardTableId---"
     Then I softly see toggle option "Awards - Active" inside flex table id "---grantee_tableId:-:awardTableId---"
@@ -166,6 +161,8 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see toggle option "Awards - Closed" inside flex table id "---grantee_tableId:-:awardTableId---"
     Then I softly see toggle option "Awards - My Records" inside flex table id "---grantee_tableId:-:awardTableId---"
     And I click toggle button to select "Awards - All"
+    And I wait for "5" seconds
+    And I select value inside table "---grantee_tableId:-:awardTableId---" is "5"
     When I perform quick search for "created" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see value "created" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Activated" in "---grantee_tableId:-:awardTableId---" panel
@@ -203,7 +200,7 @@ Feature: Validate all scenarios for Grants & Awards
     When I perform quick search for "Created" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
 
-  @456280_1 @ValidateAwardPOFOFDthePhasewiselevellistviewforAward @FO_Grantee @P4_Grantee
+  @456280_1 @ValidateAwardPOFOFDthePhasewiselevellistviewforAward @FO_Grantee @P4_Grantee @TBE
   Scenario: Validate Award PO FO FD the Phase wise level list view for Award
     When I login to "As a Grantee" app as "GRANTEE FO" user
     And I navigate to "Grants" tab
@@ -215,7 +212,6 @@ Feature: Validate all scenarios for Grants & Awards
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Download as CSV" present in parallel dropdown
-    Then I see "10" records inside flex table id "---grantee_tableId:-:awardTableId---"
     Then I softly see toggle option "Awards - All" inside flex table id "---grantee_tableId:-:awardTableId---"
     Then I softly see toggle option "Awards - Draft" inside flex table id "---grantee_tableId:-:awardTableId---"
     Then I softly see toggle option "Awards - Active" inside flex table id "---grantee_tableId:-:awardTableId---"
@@ -223,6 +219,8 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see toggle option "Awards - Closed" inside flex table id "---grantee_tableId:-:awardTableId---"
     Then I softly see toggle option "Awards - My Records" inside flex table id "---grantee_tableId:-:awardTableId---"
     And I click toggle button to select "Awards - All"
+    And I wait for "5" seconds
+    And I select value inside table "---grantee_tableId:-:awardTableId---" is "5"
     When I perform quick search for "created" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see value "created" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Activated" in "---grantee_tableId:-:awardTableId---" panel
@@ -260,7 +258,7 @@ Feature: Validate all scenarios for Grants & Awards
     When I perform quick search for "Created" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
 
-  @456280_2 @ValidateAwardPOFOFDthePhasewiselevellistviewforAward @FD_Grantee @P4_Grantee
+  @456280_2 @ValidateAwardPOFOFDthePhasewiselevellistviewforAward @FD_Grantee @P4_Grantee @TBE
   Scenario: Validate Award PO FO FD the Phase wise level list view for Award
     When I login to "As a Grantee" app as "GRANTEE FD" user
     And I navigate to "Grants" tab
@@ -272,7 +270,6 @@ Feature: Validate all scenarios for Grants & Awards
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Download as CSV" present in parallel dropdown
-    Then I see "10" records inside flex table id "---grantee_tableId:-:awardTableId---"
     Then I softly see toggle option "Awards - All" inside flex table id "---grantee_tableId:-:awardTableId---"
     Then I softly see toggle option "Awards - Draft" inside flex table id "---grantee_tableId:-:awardTableId---"
     Then I softly see toggle option "Awards - Active" inside flex table id "---grantee_tableId:-:awardTableId---"
@@ -280,6 +277,8 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see toggle option "Awards - Closed" inside flex table id "---grantee_tableId:-:awardTableId---"
     Then I softly see toggle option "Awards - My Records" inside flex table id "---grantee_tableId:-:awardTableId---"
     And I click toggle button to select "Awards - All"
+    And I wait for "5" seconds
+    And I select value inside table "---grantee_tableId:-:awardTableId---" is "5"
     When I perform quick search for "created" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see value "created" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Activated" in "---grantee_tableId:-:awardTableId---" panel

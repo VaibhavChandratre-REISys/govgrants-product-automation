@@ -16,7 +16,7 @@
         <numberOfTimesRunTag/>
 
         <!-- Versions -->
-        <java.version>17</java.version>
+        <java.version>11</java.version>
         <selenium.version>3.141.59</selenium.version>
         <selenium.server.version>4.0.0-alpha-2</selenium.server.version>
         <appium.version>7.3.0</appium.version>
@@ -28,7 +28,7 @@
         <junit.surefire.version>3.0.0-M5</junit.surefire.version>
         <assertj.version>3.11.1</assertj.version>
         <webdrivermanager.version>4.0.0</webdrivermanager.version>
-        <rest-assured.version>5.3.0</rest-assured.version>
+        <rest-assured.version>4.1.1</rest-assured.version>
         <maven.failsafe.plugin.version>3.0.0-M3</maven.failsafe.plugin.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <maven.build.helper.plugin.version>3.0.0</maven.build.helper.plugin.version>

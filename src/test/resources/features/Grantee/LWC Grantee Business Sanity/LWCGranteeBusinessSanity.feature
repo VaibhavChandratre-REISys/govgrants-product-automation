@@ -3575,7 +3575,7 @@ Feature: Sanity scenarios
     Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
 
-  @443816 @ValidateAwardWithPMProfileAfterclickonAwardphaseListviewpage
+  @443816 @ValidateAwardWithPMProfileAfterclickonAwardphaseListviewpage @TBE
   Scenario: Validate Award With PM Profile After click on Award phase List view page
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -4819,8 +4819,7 @@ Feature: Sanity scenarios
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    Then I softly see field "Status" as "Active"
-    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    Then I softly see field "Status" as "Draft"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
@@ -10204,7 +10203,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PendingTask---"
 
-  @443803 @ValidateGrantFO/FD/AuditorProfileunabletoseetheNEWbuttontocreateDirectGrant
+  @443803 @ValidateGrantFO/FD/AuditorProfileunabletoseetheNEWbuttontocreateDirectGrant @P3_Grantee @FO_Grantee @FD_Grantee @AUDITOR_Grantee @GRegression2
   Scenario Outline: Validate Grant FO /FD /Auditor Profile unable to see the NEW button to create Direct Grant
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab

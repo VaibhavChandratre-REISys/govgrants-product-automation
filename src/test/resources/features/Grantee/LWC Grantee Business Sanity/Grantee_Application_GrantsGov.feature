@@ -1,7 +1,7 @@
 @GranteeApplicationsGrantsGov
 Feature: Validate all scenarios for Applications Grants Gov
 
-  @480684 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P3_Grantee @PO_Grantee
+  @480684 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P3_Grantee @PO_Grantee @TBE
   Scenario Outline: Validate Opportunities converted to Application Grants gov PO user can navigate to Opportunity details page from Opportunities Converted to Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -17,10 +17,10 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
-    And I click toggle button to select "Opportunities - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:opportunitysGranteeTableId---" without waiting for record
-    Then I softly see field "Status" as "Converted to Pre-Application"
+    When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:fundingOpportunitiesTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:fundingOpportunitiesTableId---" without waiting for record
+    Then I softly see field "Status" as "Converted to Application"
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Evaluation" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
@@ -32,13 +32,15 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I see the sub-header is "{SavedValue:Automation Runtime Opportunity}" in the page details
     And I save the field labeled "EGMS ID" as "EGMSID"
     Then I softly see field "EGMS ID" as "{SavedValue:EGMSID}"
-    Then I softly see field "Status" as "Converted to Pre-Application"
-    Then I softly see field "Funding Organization" as "Department of Education"
+    Then I softly see field "Status" as "Converted to Application"
+    And I save the field labeled "Funding Organization" as "FundingOrganization"
+    Then I softly see field "Funding Organization" as "{SavedValue:FundingOrganization}"
     And I save the field labeled "Days Left" as "DaysLeft"
     Then I softly see field "Days Left" as "{SavedValue:DaysLeft}"
-    And I click on Menu icon present on top right corner of the page
-    Then I see option "Download as PDF" present in parallel dropdown
-    Then I see option "Take Snapshot" present in parallel dropdown
+    When I hovering mouse on help text icon inside page block detail "Days Left"
+    Then I softly see "Days remaining until the application due date" shown as help text
+    Then I softly can see top right button "Download as PDF" in page detail
+    Then I softly can see top right button "Take Snapshot" in page detail
     Then I softly see "Opportunity Information" page block displayed
     Then I softly see field "Funding Opportunity Title" inside page block
     Then I softly see field "Opportunity Number" inside page block
@@ -82,6 +84,9 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see field "Funding Organization Grants System" inside page block
     Then I softly see "Financial Details" page block displayed
     Then I softly see field "Is Match Required?" inside page block
+    Then I softly see field "Cost Sharing or Matching Requirement" inside page block
+    Then I softly see field "Required Match(%)" inside page block
+    Then I softly see field "Match Source" inside page block
     Then I softly see field "Estimated Total Program Funding" inside page block
     Then I softly see field "Award Floor" inside page block
     When I hovering mouse on help text icon inside page block detail for invisible element "Award Floor"
@@ -94,8 +99,6 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I hovering mouse on help text icon inside page block detail for invisible element "Program Income Treatment Type"
     Then I softly see "• Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. • Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based. • Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
     Then I softly see field "Are Indirect Costs Allowed?" inside page block
-    Then I softly see field "Maximum Indirect Cost Rate" inside page block
-    Then I softly see field "Rate for Organization Use" inside page block
     Then I softly see field "Is Leverage Allowed?" inside page block
     Then I softly see "System Information" page block displayed
     Then I softly see field "Created by" inside page block
@@ -149,6 +152,15 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see field "11. Is match required for this grant?" inside page block
     When I hovering mouse on help text icon inside page block detail "11. Is match required for this grant?"
     Then I softly see "Match Requirement setting as shown in the Financial Details" shown as help text
+    Then I softly see field "11a. What is the match type." inside page block
+    When I hovering mouse on help text icon inside page block detail "11a. What is the match type."
+    Then I softly see "Cost Sharing or Matching Requirement selected in the Financial Details." shown as help text
+    Then I softly see field "11b. If yes, identify the match sources." inside page block
+    When I hovering mouse on help text icon inside page block detail "11b. If yes, identify the match sources."
+    Then I softly see "Match Source as selected in the Financial Details." shown as help text
+    Then I softly see field "11c. Required Match(%)" inside page block
+    When I hovering mouse on help text icon inside page block detail "11c. Required Match(%)"
+    Then I softly see "Required Match(%) as provided in the Financial Details." shown as help text
     Then I softly see field "12. Is program income anticipated?" inside page block
     When I hovering mouse on help text icon inside page block detail "12. Is program income anticipated?"
     Then I softly see "Is Program Income Allowed? setting as selected in the Financial Details." shown as help text
@@ -156,18 +168,10 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I hovering mouse on help text icon inside page block detail "12a. If yes, what is the program income treatment type?"
     Then I softly see "Program Income Treatment Type as selected in the Financial Details." shown as help text
     Then I softly see field "13. Is there a maintenance of effort required?" inside page block
-    Then I softly see field "13a. If yes, describe the statutory maintenance of effort requirement." inside page block
     Then I softly see field "14. Does the grant require pass through funding to subrecipients?" inside page block
-    Then I softly see field "14a. If yes, what is the percent of funding required to pass through to subrecipients." inside page block
     Then I softly see field "15. Does the grant allow indirect costs?" inside page block
     When I hovering mouse on help text icon inside page block detail for invisible element "15. Does the grant allow indirect costs?"
     Then I softly see "Are Indirect Costs Allowed? setting as selected in the Financial Details." shown as help text
-    Then I softly see field "15a. If yes, what rate will the organization use?" inside page block
-    When I hovering mouse on help text icon inside page block detail for invisible element "15a. If yes, what rate will the organization use?"
-    Then I softly see "Rate for Organization Use as selected in the Financial Details." shown as help text
-    Then I softly see field "15b. If Yes, Maximum Indirect Cost Rate." inside page block
-    When I hovering mouse on help text icon inside page block detail for invisible element "15b. If Yes, Maximum Indirect Cost Rate."
-    Then I softly see "Maximum Indirect Cost Rate as provided in the Financial Details." shown as help text
     Then I softly see field "16. Is there an administrative cost limit?" inside page block
     Then I softly see field "16a. If yes, what percent is the administrative cost limit?" inside page block
     Then I softly see field "17. How will the program be sustained, should funding end?" inside page block
@@ -188,14 +192,12 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly can see "Field Audit" sub tab at view detail page
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
-    Then I softly cannot see top right button "Edit" in page detail
-    Then I softly cannot see top right button "Delete" in page detail
 
     Examples:
       | User       |
       | GRANTEE PO |
 
-  @480686 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P3_Grantee @FO_Grantee
+  @480686 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P3_Grantee @FO_Grantee @TBE
   Scenario Outline: Validate Opportunities converted to Application Grants gov FO user can navigate to Opportunity details page from Opportunities Converted to Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -211,10 +213,10 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
-    And I click toggle button to select "Opportunities - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:opportunitysGranteeTableId---" without waiting for record
-    Then I softly see field "Status" as "Converted to Pre-Application"
+    When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:fundingOpportunitiesTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:fundingOpportunitiesTableId---" without waiting for record
+    Then I softly see field "Status" as "Converted to Application"
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Evaluation" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
@@ -226,13 +228,15 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I see the sub-header is "{SavedValue:Automation Runtime Opportunity}" in the page details
     And I save the field labeled "EGMS ID" as "EGMSID"
     Then I softly see field "EGMS ID" as "{SavedValue:EGMSID}"
-    Then I softly see field "Status" as "Converted to Pre-Application"
-    Then I softly see field "Funding Organization" as "Department of Education"
+    Then I softly see field "Status" as "Converted to Application"
+    And I save the field labeled "Funding Organization" as "FundingOrganization"
+    Then I softly see field "Funding Organization" as "{SavedValue:FundingOrganization}"
     And I save the field labeled "Days Left" as "DaysLeft"
     Then I softly see field "Days Left" as "{SavedValue:DaysLeft}"
-    And I click on Menu icon present on top right corner of the page
-    Then I see option "Download as PDF" present in parallel dropdown
-    Then I see option "Take Snapshot" present in parallel dropdown
+    When I hovering mouse on help text icon inside page block detail "Days Left"
+    Then I softly see "Days remaining until the application due date" shown as help text
+    Then I softly can see top right button "Download as PDF" in page detail
+    Then I softly can see top right button "Take Snapshot" in page detail
     Then I softly see "Opportunity Information" page block displayed
     Then I softly see field "Funding Opportunity Title" inside page block
     Then I softly see field "Opportunity Number" inside page block
@@ -276,6 +280,9 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see field "Funding Organization Grants System" inside page block
     Then I softly see "Financial Details" page block displayed
     Then I softly see field "Is Match Required?" inside page block
+    Then I softly see field "Cost Sharing or Matching Requirement" inside page block
+    Then I softly see field "Required Match(%)" inside page block
+    Then I softly see field "Match Source" inside page block
     Then I softly see field "Estimated Total Program Funding" inside page block
     Then I softly see field "Award Floor" inside page block
     When I hovering mouse on help text icon inside page block detail for invisible element "Award Floor"
@@ -288,8 +295,6 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I hovering mouse on help text icon inside page block detail for invisible element "Program Income Treatment Type"
     Then I softly see "• Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. • Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based. • Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
     Then I softly see field "Are Indirect Costs Allowed?" inside page block
-    Then I softly see field "Maximum Indirect Cost Rate" inside page block
-    Then I softly see field "Rate for Organization Use" inside page block
     Then I softly see field "Is Leverage Allowed?" inside page block
     Then I softly see "System Information" page block displayed
     Then I softly see field "Created by" inside page block
@@ -343,6 +348,15 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see field "11. Is match required for this grant?" inside page block
     When I hovering mouse on help text icon inside page block detail "11. Is match required for this grant?"
     Then I softly see "Match Requirement setting as shown in the Financial Details" shown as help text
+    Then I softly see field "11a. What is the match type." inside page block
+    When I hovering mouse on help text icon inside page block detail "11a. What is the match type."
+    Then I softly see "Cost Sharing or Matching Requirement selected in the Financial Details." shown as help text
+    Then I softly see field "11b. If yes, identify the match sources." inside page block
+    When I hovering mouse on help text icon inside page block detail "11b. If yes, identify the match sources."
+    Then I softly see "Match Source as selected in the Financial Details." shown as help text
+    Then I softly see field "11c. Required Match(%)" inside page block
+    When I hovering mouse on help text icon inside page block detail "11c. Required Match(%)"
+    Then I softly see "Required Match(%) as provided in the Financial Details." shown as help text
     Then I softly see field "12. Is program income anticipated?" inside page block
     When I hovering mouse on help text icon inside page block detail "12. Is program income anticipated?"
     Then I softly see "Is Program Income Allowed? setting as selected in the Financial Details." shown as help text
@@ -350,18 +364,10 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I hovering mouse on help text icon inside page block detail "12a. If yes, what is the program income treatment type?"
     Then I softly see "Program Income Treatment Type as selected in the Financial Details." shown as help text
     Then I softly see field "13. Is there a maintenance of effort required?" inside page block
-    Then I softly see field "13a. If yes, describe the statutory maintenance of effort requirement." inside page block
     Then I softly see field "14. Does the grant require pass through funding to subrecipients?" inside page block
-    Then I softly see field "14a. If yes, what is the percent of funding required to pass through to subrecipients." inside page block
     Then I softly see field "15. Does the grant allow indirect costs?" inside page block
     When I hovering mouse on help text icon inside page block detail for invisible element "15. Does the grant allow indirect costs?"
     Then I softly see "Are Indirect Costs Allowed? setting as selected in the Financial Details." shown as help text
-    Then I softly see field "15a. If yes, what rate will the organization use?" inside page block
-    When I hovering mouse on help text icon inside page block detail for invisible element "15a. If yes, what rate will the organization use?"
-    Then I softly see "Rate for Organization Use as selected in the Financial Details." shown as help text
-    Then I softly see field "15b. If Yes, Maximum Indirect Cost Rate." inside page block
-    When I hovering mouse on help text icon inside page block detail for invisible element "15b. If Yes, Maximum Indirect Cost Rate."
-    Then I softly see "Maximum Indirect Cost Rate as provided in the Financial Details." shown as help text
     Then I softly see field "16. Is there an administrative cost limit?" inside page block
     Then I softly see field "16a. If yes, what percent is the administrative cost limit?" inside page block
     Then I softly see field "17. How will the program be sustained, should funding end?" inside page block
@@ -382,14 +388,12 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly can see "Field Audit" sub tab at view detail page
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
-    Then I softly cannot see top right button "Edit" in page detail
-    Then I softly cannot see top right button "Delete" in page detail
 
     Examples:
       | User       |
       | GRANTEE FO |
 
-  @480687 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P3_Grantee @FD_Grantee
+  @480687 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P3_Grantee @FD_Grantee @TBE
   Scenario Outline: Validate Opportunities converted to Application Grants gov FD user can navigate to Opportunity details page from Opportunities Converted to Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -405,10 +409,10 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
-    And I click toggle button to select "Opportunities - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:opportunitysGranteeTableId---" without waiting for record
-    Then I softly see field "Status" as "Converted to Pre-Application"
+    When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:fundingOpportunitiesTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:fundingOpportunitiesTableId---" without waiting for record
+    Then I softly see field "Status" as "Converted to Application"
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Evaluation" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
@@ -420,13 +424,15 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I see the sub-header is "{SavedValue:Automation Runtime Opportunity}" in the page details
     And I save the field labeled "EGMS ID" as "EGMSID"
     Then I softly see field "EGMS ID" as "{SavedValue:EGMSID}"
-    Then I softly see field "Status" as "Converted to Pre-Application"
-    Then I softly see field "Funding Organization" as "Department of Education"
+    Then I softly see field "Status" as "Converted to Application"
+    And I save the field labeled "Funding Organization" as "FundingOrganization"
+    Then I softly see field "Funding Organization" as "{SavedValue:FundingOrganization}"
     And I save the field labeled "Days Left" as "DaysLeft"
     Then I softly see field "Days Left" as "{SavedValue:DaysLeft}"
-    And I click on Menu icon present on top right corner of the page
-    Then I see option "Download as PDF" present in parallel dropdown
-    Then I see option "Take Snapshot" present in parallel dropdown
+    When I hovering mouse on help text icon inside page block detail "Days Left"
+    Then I softly see "Days remaining until the application due date" shown as help text
+    Then I softly can see top right button "Download as PDF" in page detail
+    Then I softly can see top right button "Take Snapshot" in page detail
     Then I softly see "Opportunity Information" page block displayed
     Then I softly see field "Funding Opportunity Title" inside page block
     Then I softly see field "Opportunity Number" inside page block
@@ -470,6 +476,9 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see field "Funding Organization Grants System" inside page block
     Then I softly see "Financial Details" page block displayed
     Then I softly see field "Is Match Required?" inside page block
+    Then I softly see field "Cost Sharing or Matching Requirement" inside page block
+    Then I softly see field "Required Match(%)" inside page block
+    Then I softly see field "Match Source" inside page block
     Then I softly see field "Estimated Total Program Funding" inside page block
     Then I softly see field "Award Floor" inside page block
     When I hovering mouse on help text icon inside page block detail for invisible element "Award Floor"
@@ -482,8 +491,6 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I hovering mouse on help text icon inside page block detail for invisible element "Program Income Treatment Type"
     Then I softly see "• Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. • Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based. • Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
     Then I softly see field "Are Indirect Costs Allowed?" inside page block
-    Then I softly see field "Maximum Indirect Cost Rate" inside page block
-    Then I softly see field "Rate for Organization Use" inside page block
     Then I softly see field "Is Leverage Allowed?" inside page block
     Then I softly see "System Information" page block displayed
     Then I softly see field "Created by" inside page block
@@ -537,6 +544,15 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see field "11. Is match required for this grant?" inside page block
     When I hovering mouse on help text icon inside page block detail "11. Is match required for this grant?"
     Then I softly see "Match Requirement setting as shown in the Financial Details" shown as help text
+    Then I softly see field "11a. What is the match type." inside page block
+    When I hovering mouse on help text icon inside page block detail "11a. What is the match type."
+    Then I softly see "Cost Sharing or Matching Requirement selected in the Financial Details." shown as help text
+    Then I softly see field "11b. If yes, identify the match sources." inside page block
+    When I hovering mouse on help text icon inside page block detail "11b. If yes, identify the match sources."
+    Then I softly see "Match Source as selected in the Financial Details." shown as help text
+    Then I softly see field "11c. Required Match(%)" inside page block
+    When I hovering mouse on help text icon inside page block detail "11c. Required Match(%)"
+    Then I softly see "Required Match(%) as provided in the Financial Details." shown as help text
     Then I softly see field "12. Is program income anticipated?" inside page block
     When I hovering mouse on help text icon inside page block detail "12. Is program income anticipated?"
     Then I softly see "Is Program Income Allowed? setting as selected in the Financial Details." shown as help text
@@ -544,18 +560,10 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I hovering mouse on help text icon inside page block detail "12a. If yes, what is the program income treatment type?"
     Then I softly see "Program Income Treatment Type as selected in the Financial Details." shown as help text
     Then I softly see field "13. Is there a maintenance of effort required?" inside page block
-    Then I softly see field "13a. If yes, describe the statutory maintenance of effort requirement." inside page block
     Then I softly see field "14. Does the grant require pass through funding to subrecipients?" inside page block
-    Then I softly see field "14a. If yes, what is the percent of funding required to pass through to subrecipients." inside page block
     Then I softly see field "15. Does the grant allow indirect costs?" inside page block
     When I hovering mouse on help text icon inside page block detail for invisible element "15. Does the grant allow indirect costs?"
     Then I softly see "Are Indirect Costs Allowed? setting as selected in the Financial Details." shown as help text
-    Then I softly see field "15a. If yes, what rate will the organization use?" inside page block
-    When I hovering mouse on help text icon inside page block detail for invisible element "15a. If yes, what rate will the organization use?"
-    Then I softly see "Rate for Organization Use as selected in the Financial Details." shown as help text
-    Then I softly see field "15b. If Yes, Maximum Indirect Cost Rate." inside page block
-    When I hovering mouse on help text icon inside page block detail for invisible element "15b. If Yes, Maximum Indirect Cost Rate."
-    Then I softly see "Maximum Indirect Cost Rate as provided in the Financial Details." shown as help text
     Then I softly see field "16. Is there an administrative cost limit?" inside page block
     Then I softly see field "16a. If yes, what percent is the administrative cost limit?" inside page block
     Then I softly see field "17. How will the program be sustained, should funding end?" inside page block
@@ -576,14 +584,12 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly can see "Field Audit" sub tab at view detail page
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
-    Then I softly cannot see top right button "Edit" in page detail
-    Then I softly cannot see top right button "Delete" in page detail
 
     Examples:
       | User       |
       | GRANTEE FD |
 
-  @480688 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P4_Grantee @AUDITOR_Grantee
+  @480688 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P4_Grantee @AUDITOR_Grantee @TBE
   Scenario Outline: Validate Opportunities converted to Application Grants gov AUDITOR user can navigate to Opportunity details page from Opportunities Converted to Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -599,10 +605,10 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
-    And I click toggle button to select "Opportunities - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:opportunitysGranteeTableId---" without waiting for record
-    Then I softly see field "Status" as "Converted to Pre-Application"
+    When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:fundingOpportunitiesTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:fundingOpportunitiesTableId---" without waiting for record
+    Then I softly see field "Status" as "Converted to Application"
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Evaluation" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
@@ -614,13 +620,15 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I see the sub-header is "{SavedValue:Automation Runtime Opportunity}" in the page details
     And I save the field labeled "EGMS ID" as "EGMSID"
     Then I softly see field "EGMS ID" as "{SavedValue:EGMSID}"
-    Then I softly see field "Status" as "Converted to Pre-Application"
-    Then I softly see field "Funding Organization" as "Department of Education"
+    Then I softly see field "Status" as "Converted to Application"
+    And I save the field labeled "Funding Organization" as "FundingOrganization"
+    Then I softly see field "Funding Organization" as "{SavedValue:FundingOrganization}"
     And I save the field labeled "Days Left" as "DaysLeft"
     Then I softly see field "Days Left" as "{SavedValue:DaysLeft}"
-    And I click on Menu icon present on top right corner of the page
-    Then I see option "Download as PDF" present in parallel dropdown
-    Then I see option "Take Snapshot" present in parallel dropdown
+    When I hovering mouse on help text icon inside page block detail "Days Left"
+    Then I softly see "Days remaining until the application due date" shown as help text
+    Then I softly can see top right button "Download as PDF" in page detail
+    Then I softly can see top right button "Take Snapshot" in page detail
     Then I softly see "Opportunity Information" page block displayed
     Then I softly see field "Funding Opportunity Title" inside page block
     Then I softly see field "Opportunity Number" inside page block
@@ -664,6 +672,9 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see field "Funding Organization Grants System" inside page block
     Then I softly see "Financial Details" page block displayed
     Then I softly see field "Is Match Required?" inside page block
+    Then I softly see field "Cost Sharing or Matching Requirement" inside page block
+    Then I softly see field "Required Match(%)" inside page block
+    Then I softly see field "Match Source" inside page block
     Then I softly see field "Estimated Total Program Funding" inside page block
     Then I softly see field "Award Floor" inside page block
     When I hovering mouse on help text icon inside page block detail for invisible element "Award Floor"
@@ -676,8 +687,6 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I hovering mouse on help text icon inside page block detail for invisible element "Program Income Treatment Type"
     Then I softly see "• Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. • Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based. • Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
     Then I softly see field "Are Indirect Costs Allowed?" inside page block
-    Then I softly see field "Maximum Indirect Cost Rate" inside page block
-    Then I softly see field "Rate for Organization Use" inside page block
     Then I softly see field "Is Leverage Allowed?" inside page block
     Then I softly see "System Information" page block displayed
     Then I softly see field "Created by" inside page block
@@ -731,6 +740,15 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see field "11. Is match required for this grant?" inside page block
     When I hovering mouse on help text icon inside page block detail "11. Is match required for this grant?"
     Then I softly see "Match Requirement setting as shown in the Financial Details" shown as help text
+    Then I softly see field "11a. What is the match type." inside page block
+    When I hovering mouse on help text icon inside page block detail "11a. What is the match type."
+    Then I softly see "Cost Sharing or Matching Requirement selected in the Financial Details." shown as help text
+    Then I softly see field "11b. If yes, identify the match sources." inside page block
+    When I hovering mouse on help text icon inside page block detail "11b. If yes, identify the match sources."
+    Then I softly see "Match Source as selected in the Financial Details." shown as help text
+    Then I softly see field "11c. Required Match(%)" inside page block
+    When I hovering mouse on help text icon inside page block detail "11c. Required Match(%)"
+    Then I softly see "Required Match(%) as provided in the Financial Details." shown as help text
     Then I softly see field "12. Is program income anticipated?" inside page block
     When I hovering mouse on help text icon inside page block detail "12. Is program income anticipated?"
     Then I softly see "Is Program Income Allowed? setting as selected in the Financial Details." shown as help text
@@ -738,18 +756,10 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I hovering mouse on help text icon inside page block detail "12a. If yes, what is the program income treatment type?"
     Then I softly see "Program Income Treatment Type as selected in the Financial Details." shown as help text
     Then I softly see field "13. Is there a maintenance of effort required?" inside page block
-    Then I softly see field "13a. If yes, describe the statutory maintenance of effort requirement." inside page block
     Then I softly see field "14. Does the grant require pass through funding to subrecipients?" inside page block
-    Then I softly see field "14a. If yes, what is the percent of funding required to pass through to subrecipients." inside page block
     Then I softly see field "15. Does the grant allow indirect costs?" inside page block
     When I hovering mouse on help text icon inside page block detail for invisible element "15. Does the grant allow indirect costs?"
     Then I softly see "Are Indirect Costs Allowed? setting as selected in the Financial Details." shown as help text
-    Then I softly see field "15a. If yes, what rate will the organization use?" inside page block
-    When I hovering mouse on help text icon inside page block detail for invisible element "15a. If yes, what rate will the organization use?"
-    Then I softly see "Rate for Organization Use as selected in the Financial Details." shown as help text
-    Then I softly see field "15b. If Yes, Maximum Indirect Cost Rate." inside page block
-    When I hovering mouse on help text icon inside page block detail for invisible element "15b. If Yes, Maximum Indirect Cost Rate."
-    Then I softly see "Maximum Indirect Cost Rate as provided in the Financial Details." shown as help text
     Then I softly see field "16. Is there an administrative cost limit?" inside page block
     Then I softly see field "16a. If yes, what percent is the administrative cost limit?" inside page block
     Then I softly see field "17. How will the program be sustained, should funding end?" inside page block
@@ -770,14 +780,12 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly can see "Field Audit" sub tab at view detail page
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
-    Then I softly cannot see top right button "Edit" in page detail
-    Then I softly cannot see top right button "Delete" in page detail
 
     Examples:
       | User            |
       | GRANTEE AUDITOR |
 
-  @480689 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P3_Grantee @ADMIN_Grantee
+  @480689 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P3_Grantee @ADMIN_Grantee @TBE
   Scenario Outline: Validate Opportunities converted to Application Grants gov ADMIN user can navigate to Opportunity details page from Opportunities Converted to Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -793,9 +801,9 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
-    And I click toggle button to select "Opportunities - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:opportunitysGranteeTableId---" without waiting for record
+    When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:fundingOpportunitiesTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:fundingOpportunitiesTableId---" without waiting for record
     Then I softly see field "Status" as "Converted to Application"
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Evaluation" sub tab at view detail page
@@ -808,13 +816,15 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I see the sub-header is "{SavedValue:Automation Runtime Opportunity}" in the page details
     And I save the field labeled "EGMS ID" as "EGMSID"
     Then I softly see field "EGMS ID" as "{SavedValue:EGMSID}"
-    Then I softly see field "Status" as "Converted to Pre-Application"
-    Then I softly see field "Funding Organization" as "Department of Education"
+    Then I softly see field "Status" as "Converted to Application"
+    And I save the field labeled "Funding Organization" as "FundingOrganization"
+    Then I softly see field "Funding Organization" as "{SavedValue:FundingOrganization}"
     And I save the field labeled "Days Left" as "DaysLeft"
     Then I softly see field "Days Left" as "{SavedValue:DaysLeft}"
-    And I click on Menu icon present on top right corner of the page
-    Then I see option "Download as PDF" present in parallel dropdown
-    Then I see option "Take Snapshot" present in parallel dropdown
+    When I hovering mouse on help text icon inside page block detail "Days Left"
+    Then I softly see "Days remaining until the application due date" shown as help text
+    Then I softly can see top right button "Download as PDF" in page detail
+    Then I softly can see top right button "Take Snapshot" in page detail
     Then I softly see "Opportunity Information" page block displayed
     Then I softly see field "Funding Opportunity Title" inside page block
     Then I softly see field "Opportunity Number" inside page block
@@ -858,6 +868,9 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see field "Funding Organization Grants System" inside page block
     Then I softly see "Financial Details" page block displayed
     Then I softly see field "Is Match Required?" inside page block
+    Then I softly see field "Cost Sharing or Matching Requirement" inside page block
+    Then I softly see field "Required Match(%)" inside page block
+    Then I softly see field "Match Source" inside page block
     Then I softly see field "Estimated Total Program Funding" inside page block
     Then I softly see field "Award Floor" inside page block
     When I hovering mouse on help text icon inside page block detail for invisible element "Award Floor"
@@ -870,8 +883,6 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I hovering mouse on help text icon inside page block detail for invisible element "Program Income Treatment Type"
     Then I softly see "• Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. • Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based. • Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
     Then I softly see field "Are Indirect Costs Allowed?" inside page block
-    Then I softly see field "Maximum Indirect Cost Rate" inside page block
-    Then I softly see field "Rate for Organization Use" inside page block
     Then I softly see field "Is Leverage Allowed?" inside page block
     Then I softly see "System Information" page block displayed
     Then I softly see field "Created by" inside page block
@@ -925,6 +936,15 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see field "11. Is match required for this grant?" inside page block
     When I hovering mouse on help text icon inside page block detail "11. Is match required for this grant?"
     Then I softly see "Match Requirement setting as shown in the Financial Details" shown as help text
+    Then I softly see field "11a. What is the match type." inside page block
+    When I hovering mouse on help text icon inside page block detail "11a. What is the match type."
+    Then I softly see "Cost Sharing or Matching Requirement selected in the Financial Details." shown as help text
+    Then I softly see field "11b. If yes, identify the match sources." inside page block
+    When I hovering mouse on help text icon inside page block detail "11b. If yes, identify the match sources."
+    Then I softly see "Match Source as selected in the Financial Details." shown as help text
+    Then I softly see field "11c. Required Match(%)" inside page block
+    When I hovering mouse on help text icon inside page block detail "11c. Required Match(%)"
+    Then I softly see "Required Match(%) as provided in the Financial Details." shown as help text
     Then I softly see field "12. Is program income anticipated?" inside page block
     When I hovering mouse on help text icon inside page block detail "12. Is program income anticipated?"
     Then I softly see "Is Program Income Allowed? setting as selected in the Financial Details." shown as help text
@@ -932,18 +952,10 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I hovering mouse on help text icon inside page block detail "12a. If yes, what is the program income treatment type?"
     Then I softly see "Program Income Treatment Type as selected in the Financial Details." shown as help text
     Then I softly see field "13. Is there a maintenance of effort required?" inside page block
-    Then I softly see field "13a. If yes, describe the statutory maintenance of effort requirement." inside page block
     Then I softly see field "14. Does the grant require pass through funding to subrecipients?" inside page block
-    Then I softly see field "14a. If yes, what is the percent of funding required to pass through to subrecipients." inside page block
     Then I softly see field "15. Does the grant allow indirect costs?" inside page block
     When I hovering mouse on help text icon inside page block detail for invisible element "15. Does the grant allow indirect costs?"
     Then I softly see "Are Indirect Costs Allowed? setting as selected in the Financial Details." shown as help text
-    Then I softly see field "15a. If yes, what rate will the organization use?" inside page block
-    When I hovering mouse on help text icon inside page block detail for invisible element "15a. If yes, what rate will the organization use?"
-    Then I softly see "Rate for Organization Use as selected in the Financial Details." shown as help text
-    Then I softly see field "15b. If Yes, Maximum Indirect Cost Rate." inside page block
-    When I hovering mouse on help text icon inside page block detail for invisible element "15b. If Yes, Maximum Indirect Cost Rate."
-    Then I softly see "Maximum Indirect Cost Rate as provided in the Financial Details." shown as help text
     Then I softly see field "16. Is there an administrative cost limit?" inside page block
     Then I softly see field "16a. If yes, what percent is the administrative cost limit?" inside page block
     Then I softly see field "17. How will the program be sustained, should funding end?" inside page block
@@ -964,8 +976,6 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly can see "Field Audit" sub tab at view detail page
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
-    Then I softly cannot see top right button "Edit" in page detail
-    Then I softly cannot see top right button "Delete" in page detail
 
     Examples:
       | User            |

@@ -1,7 +1,7 @@
 @GranteeStrategicPlan
 Feature: Validate all scenarios for Strategic Plan
 
-  @476591 @validateAdminusercandeactivateactivestrategicplancreatedbyEXEuserfromsameinternalorganization @P2_Grantee @ADMIN_Grantee
+  @476591 @validateAdminusercandeactivateactivestrategicplancreatedbyEXEuserfromsameinternalorganization @P2_Grantee @ADMIN_Grantee @GRegression2
   Scenario: Validate Admin user can Deactivate active Strategic plan created by EXE user from same internal organization
     Given I login to "As a Grantee" app as "GRANTEE EXE1" user
     And I navigate to "Planning" tab
