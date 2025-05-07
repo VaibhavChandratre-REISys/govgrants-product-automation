@@ -902,7 +902,7 @@ public final class PageDetails {
      */
 
     public void getHelpTextAtModalWindowforPageBlock(String modalPageBlockTitle) {
-        I.amPerforming().scroll().withMouseToElement(By.xpath("//div[contains(@class,'modal__content')]//span[contains(text(),'" + modalPageBlockTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] | //div[contains(@class,'modal__content')]//label[contains(text(),'" + modalPageBlockTitle + "')]//..//div[@part='help-text']//button"));
+        I.amPerforming().scroll().withMouseToElement(By.xpath("//div[contains(@class,'modal__content')]//span[contains(text(),'" + modalPageBlockTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] | //div[contains(@class,'modal__content')]//label[contains(text(),'" + modalPageBlockTitle + "')]//..//div[@part='help-text']//button | //div[contains(@class,'modal__content')]//span[text()='" + modalPageBlockTitle + "']//..//div[@part='help-text']//button"));
     }
 
     /**
