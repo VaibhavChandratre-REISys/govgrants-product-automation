@@ -3913,7 +3913,6 @@ Feature: Sanity scenarios
   Scenario Outline: Verify PM user as (AR Owner) can able to create Funding Change AR on active Award & Not Accept AR by Grantor & not able to see Amend Award button in Not Accepted state of FC AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
-    And I activate the award for title "{SavedValue:Automation Runtime Award}"
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -3922,10 +3921,20 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     Then I softly see field "Status" as "Active"
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
     And I save the field labeled "Project Period" as "ProjectPeriod"
     When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Overview" sub tab
@@ -4392,7 +4401,7 @@ Feature: Sanity scenarios
       | Not Accepted | Decision__c |
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Additional Details is required to save. |
+      | To Save, Additional Details is required. |
     When I enter values into fields
       | Value | Field       |
       | Test  | Comments__c |

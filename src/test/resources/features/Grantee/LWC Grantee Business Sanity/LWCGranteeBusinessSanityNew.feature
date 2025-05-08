@@ -6234,7 +6234,7 @@ Feature: Sanity scenarios New
     And I navigate to "Amendments" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AmendmentsTableId---"
 
-  @485303 @ValidateFDuserAROwnercanabletotakeNotAcceptedDecisionfromGrantorRecordDecisionmodal
+  @485303 @ValidateFDuserAROwnercanabletotakeNotAcceptedDecisionfromGrantorRecordDecisionmodal @P3_Grantee @FD_Grantee @Gregression2
   Scenario: Validate FD user AR Owner can able to take Not Accepted Decision from Grantor Record Decision modal
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
