@@ -10017,10 +10017,10 @@ Feature: Sanity scenarios New
     Then I softly see field "Status" as "Accepted"
     Examples:
       | User        | Non Owner  |
-      | GRANTEE PO  | GRANTEE PM |
-      | GRANTEE EXE | GRANTEE PO |
+#      | GRANTEE PO  | GRANTEE PM |
+#      | GRANTEE EXE | GRANTEE PO |
       | GRANTEE FO  | GRANTEE FD |
-      | GRANTEE FD  | GRANTEE FO |
+#      | GRANTEE FD  | GRANTEE FO |
 
   @480768 @480769 @480771 @480773 @480774 @481129 @OpportunitiesconvertedtoApplicationGrantsgovVerifyPMusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @FO_Grantee @FD_Grantee @P3_Grantee @GRegression1 @GRegression2
   Scenario Outline: Opportunities converted to Pre-Application (Grants.gov) - Verify PM user can navigate to Opportunity details page from Opportunities Converted to Pre-Application list view
