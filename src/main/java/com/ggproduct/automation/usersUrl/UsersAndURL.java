@@ -310,7 +310,7 @@ public class UsersAndURL implements UsersController {
         username.put("EXE1", "exe1.automation@yopmail.com.lctcsgap");
         username.put("PO1", "automationpo1@yopmail.com.minigap");
         username.put("FO1", "fo1.automation@yopmail.com.minigap");
-        username.put("FD1", "automationfd1@yopmail.com.minigap");
+        username.put("FD1", "automationfd1@yopmail.com.lctcsgap");
         username.put("SPI3", "automationspi341@yopmail.com");
         username.put("SPA", "spaautomation56@yopmail.com");
         username.put("SA", "asa@grants.gov.minigap");
