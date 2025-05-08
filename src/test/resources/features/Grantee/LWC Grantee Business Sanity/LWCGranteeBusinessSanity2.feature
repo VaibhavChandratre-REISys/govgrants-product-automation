@@ -4542,6 +4542,10 @@ Feature: Sanity scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
     When I click "Associate" after selection of "Automation Runtime KPI2" in the table "---grantee_tableId:-:selectAmendmentKPITableId---"
     And I click modal button "Close"
+    And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentKPITableId---" by clicking "Edit" :
+      | Title                   | Target | Current Value As Of |
+      | Automation Runtime KPI2 | 10     | 5                   |
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I enter in modal value "Terms1" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
