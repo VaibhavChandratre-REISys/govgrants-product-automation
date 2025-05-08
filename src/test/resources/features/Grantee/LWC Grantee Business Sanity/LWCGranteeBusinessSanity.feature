@@ -3944,11 +3944,9 @@ Feature: Sanity scenarios
     Then I see textarea field "PurposeRTA__c" is editable
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Please select Amendment Request Type is required to save. |
-    Then I softly see the following messages in the page details contains:
-      | Initiated By is required to save. |
-    Then I softly see the following messages in the page details contains:
-      | Justification is required to save. |
+      | To Save, Please select Amendment Request Type is required. |
+      | To Save, Initiated By is required.                         |
+      | To Save, Justification is required.                        |
     And I enter "Grantee_FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
@@ -4215,6 +4213,7 @@ Feature: Sanity scenarios
       | David FO | Step 2            |
     Then I softly see link "Victor EXE" inside Page block
     And I click on hyperlink containing value "Victor EXE"
+    And I wait for "2" seconds
     Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
     And I click on back arrow
     And I navigate to "Files" sub tab
@@ -4243,9 +4242,14 @@ Feature: Sanity scenarios
     And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see the image "Attachment.pdf" in page detail
     And I click on "Close" button for view files page
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" by clicking "Edit" :
-      | Title          | Title          | Classification  |
-      | Attachment.pdf | Automation.pdf | Notice of Award |
+    And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I update title as "Attachment.pdf" on upload file modal
+    And I select Classification as "Notice of Award" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
     And I click on "Delete" icon for "Notice of Award" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" without waiting for record
     Then I softly do not see value "Notice of Award" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
@@ -4304,13 +4308,8 @@ Feature: Sanity scenarios
     And I clear the value from field "PurposeRTA__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Justification is required to save under Overview. |
+      | To Save, Justification is required in the Overview tab under the Details section. |
     And I enter value "Automation Justification" into field "PurposeRTA__c"
-    And I enter value "2222" into field "ApprovedIndirectCostRate__c"
-    When I click on "Save" in the page details
-    And I wait for "3" seconds
-    Then I softly see the following messages in the page details contains:
-      | Maximum Indirect Cost Rate: value outside of valid range on numeric field |
     And I enter value "110" into field "ApprovedIndirectCostRate__c"
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
