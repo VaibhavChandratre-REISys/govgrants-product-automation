@@ -4503,7 +4503,7 @@ Feature: Sanity scenarios
     Then I cannot see row level action button "Edit" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
-  @471672 @CombinationofamendmentVerifythatPOuserabletoDeleteamendmentrequestinCreated&RevisioninProgressstateonARlayout
+  @471672 @CombinationofamendmentVerifythatPOuserabletoDeleteamendmentrequestinCreated&RevisioninProgressstateonARlayout @P2_Grantee @PO_Grantee @GRegression2
   Scenario:Combination of amendment that PO user able to Delete amendment request in Created & Revision in Progress state on AR layout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
