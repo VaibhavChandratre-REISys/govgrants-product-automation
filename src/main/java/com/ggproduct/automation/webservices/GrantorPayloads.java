@@ -4796,13 +4796,15 @@ public class GrantorPayloads {
 //        grantAwardData.add("contacts", contacts);
 
         // Focus Areas
-        JsonArray focusAreas = new JsonArray();
-        JsonObject focusArea = new JsonObject();
-        focusArea.addProperty("Title", "Automation Permanent Focus Area");
-        focusArea.addProperty("StartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        focusArea.addProperty("EndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        focusAreas.add(focusArea);
-        grantAwardData.add("focusAreas", focusAreas);
+        if(!type.equalsIgnoreCase("Funding Change")) {
+            JsonArray focusAreas = new JsonArray();
+            JsonObject focusArea = new JsonObject();
+            focusArea.addProperty("Title", "Automation Permanent Focus Area");
+            focusArea.addProperty("StartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+            focusArea.addProperty("EndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+            focusAreas.add(focusArea);
+            grantAwardData.add("focusAreas", focusAreas);
+        }
 
         // Build-up Items
         JsonArray buildUpItems = new JsonArray();
