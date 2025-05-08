@@ -6179,7 +6179,7 @@ Feature: Sanity scenarios New
     Then I softly see field "Initiated By" as "Grantor"
     Then I softly see field "Amendment Type" as "Funding Change"
 
-  @485304 @ValidatePOuserAROwnercanabletoRejecttheFundingChangeAmendmentRequestfromApprovalProcess
+  @485304 @ValidatePOuserAROwnercanabletoRejecttheFundingChangeAmendmentRequestfromApprovalProcess @P3_Grantee @PO_Grantee @GRegression2
   Scenario: Validate PO user AR Owner can able to Reject the Funding Change Amendment Request from Approval Process
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
