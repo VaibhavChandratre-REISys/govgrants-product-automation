@@ -4448,3 +4448,34 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Activate" in the page details
     Then I softly see that "Subaward" is in "Activated" status
+
+  @userRegistration @ProdSan4
+  Scenario: Scenario for user registration
+    Given I begin "Organization" registration as "Register As Organization"
+    When I click on "Agree" in the page details
+    When I click on "Agree" in the page details
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    And I navigate to "Organization Profile" sub tab
+    And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "Yes" into field "SameAsOrganizationAddress__c"
+    When I click on "Save" in the page details
+    And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
+    And I generate the random maildropEmail and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
+    When I click on "Save" in the page details
+    When I click on "Submit" in the page details
+    And I am on "INTERNAL" portal
+    And I login to "As a Grantor" app as "PM" user
+    When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
+    When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
+    When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
+    And I "Approve" in the approval decision
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
+    And I click on mail with subject "Sandbox: Welcome to GovGrants 3.0 Recipient Portal"
+    And I navigate to reset password link
+    Then I set password for the user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    Then I see the header is "Subrecipient Organization" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime Organization}" in the page details

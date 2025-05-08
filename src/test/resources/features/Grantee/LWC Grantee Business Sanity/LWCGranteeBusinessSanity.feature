@@ -4807,7 +4807,7 @@ Feature: Sanity scenarios
       | userType   | attachment     | Notes        | userName | Title | userAuditor     |
       | GRANTEE PM | Attachment.pdf | Notes Record | Sarah PM | Test  | GRANTEE AUDITOR |
 
-  @443808 @ValidateGrantWithPOProfileOnceawardrejectedthengrantabletoseeinTerminatedstate
+  @443808 @ValidateGrantWithPOProfileOnceawardrejectedthengrantabletoseeinTerminatedstate @P3_Grantee @PO_Grantee @GRegression2
   Scenario: Validate Grant With PO Profile,Once award rejected then grant able to see in Terminated state
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "GRANTEE_PO_APPROVER"
