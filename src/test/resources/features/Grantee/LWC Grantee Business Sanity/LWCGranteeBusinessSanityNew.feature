@@ -9845,7 +9845,7 @@ Feature: Sanity scenarios New
       | GRANTEE PO  |
       | GRANTEE EXE |
 
-  @477663 @477666 @477669 @477670 @VerifyPMusershouldabletocreateandaccepttheSOWamendmentrequest
+  @477663 @477666 @477669 @477670 @VerifyPMusershouldabletocreateandaccepttheSOWamendmentrequest @P3_Grantee @FO_Grantee @FD_Grantee @EXE_Grantee @PO_Grantee @GRegression2
   Scenario Outline: Verify PM user should able to create and accept the SOW amendment request
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"

@@ -4925,7 +4925,6 @@ Feature: Sanity scenarios
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:grantNotesTableId---"
-    When I navigate to "Closeout" sub tab
     Then I softly cannot see "Closeout" sub tab at view detail page
 
   @443819 @ValidateAwardWithPMProfileAwardPagelayoutfordirectgrant
