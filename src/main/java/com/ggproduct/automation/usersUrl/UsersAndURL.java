@@ -299,15 +299,15 @@ public class UsersAndURL implements UsersController {
 
     private String getNYLwcEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "govgrantsautomation@yopmail.com.minigap");
-        username.put("ADMIN1", "manu.admin@ggp.test8.minigap");
-        username.put("EXE", "test@gmaildemo.com.minigap");
+        username.put("ADMIN", "govgrantsautomation@yopmail.com.lctcsgap");
+        username.put("ADMIN1", "manu.admin@ggp.test8.lctcsgap");
+        username.put("EXE", "test@gmaildemo.com.lctcsgap");
         username.put("PM", "donald_pm@ggp.test7.atm.minigap");
         username.put("FO", "auto.fm@auto.com.minigap");
         username.put("PO", "automationpo@yopmail.com.minigap");
-        username.put("FD", "automationfd@yopmail.com.minigap");
+        username.put("FD", "automationfd@yopmail.com.lctcsgap");
         username.put("PM1", "pm1.automation@yopmail.com.minigap");
-        username.put("EXE1", "exe1.automation@yopmail.com.minigap");
+        username.put("EXE1", "exe1.automation@yopmail.com.lctcsgap");
         username.put("PO1", "automationpo1@yopmail.com.minigap");
         username.put("FO1", "fo1.automation@yopmail.com.minigap");
         username.put("FD1", "automationfd1@yopmail.com.minigap");
@@ -315,7 +315,7 @@ public class UsersAndURL implements UsersController {
         username.put("SPA", "spaautomation56@yopmail.com");
         username.put("SA", "asa@grants.gov.minigap");
         username.put("IND", "ind12.automation@yopmail.com.nysedgapan");
-        username.put("AUDITOR", "automationauditor@yopmail.com.minigap");
+        username.put("AUDITOR", "automationauditor@yopmail.com.lctcsgap");
         username.put("SME", "sme11@yopmail.com");
         username.put("SPI4", "spi4@yopmail.com.minigap");
         username.put("SARAH PM", "sarah.pm.23@yopmail.com");

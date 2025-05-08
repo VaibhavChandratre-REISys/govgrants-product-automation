@@ -5292,7 +5292,7 @@ Feature: Sanity scenarios
     Then I softly see value "Automation Permanent Focus Area" for title "Focus Area Name" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly can see row level action button "Show RIFANS Transactions" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
-  @462455 @ValidatePOserasRecordOwnercanseerowlevelChangeownerbuttononanytableofsearchlayoutwhenPRARrecordisinallstates
+  @462455 @ValidatePOserasRecordOwnercanseerowlevelChangeownerbuttononanytableofsearchlayoutwhenPRARrecordisinallstates @P3_Grantee @PO_Grantee @GRegression2
   Scenario: Validate PO user as Record Owner can see row level Change owner button on any table of search layout when PR AR record is in all states
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -5343,9 +5343,9 @@ Feature: Sanity scenarios
     And I select users value "Victor EXE" in field "forceSearchInputLookup"
     When I click modal button "Submit"
     Then I softly see the following messages in the page details contains:
-      | You cannot change the owner from this screen. Click Cancel, and navigate to Home. Then select Ownership Reassignment. |
+      | You cannot change the owner from this screen. The Ownership Reassignment feature is not available for Grantee application. Please contact your system administrator for assistance. |
 
-  @462457 @ValidatePOuserPRAROwnercanabletoseeCreateARonlyonActivestateofAward&Fields&validationsonCreateAmendmnetRequestmodal
+  @462457 @ValidatePOuserPRAROwnercanabletoseeCreateARonlyonActivestateofAward&Fields&validationsonCreateAmendmnetRequestmodal @P2_Grantee @PO_Grantee @GRegression2
   Scenario: Validate PO user PR AR Owner can able to see Create AR only on Active state of Award & Fields & validations on Create Amendmnet Request modal
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
