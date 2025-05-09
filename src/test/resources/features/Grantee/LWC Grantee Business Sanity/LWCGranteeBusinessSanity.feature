@@ -5515,7 +5515,7 @@ Feature: Sanity scenarios
 
   @469404 @ValidatePRPMuserabletoIncreaseordecreasethebudgetinBudgetPeriodchangesectiononPeriodicRenewalAmendmentRequest
   Scenario: Validate PR amd PM user able to Increase or decrease the budget in Budget Period change section on Periodic Renewal Amendment Request
-    And I "Created" standalone subaward "Automation Runtime Award" with properties "CASH_MATCH_NON_CASH_MATCH-Grantee PO user"
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "CASH_MATCH_NON_CASH_MATCH_PO_OWNER"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "NON_CASH_MATCH_BUDGET"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     And I "Created" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "NO_BUDGET"
