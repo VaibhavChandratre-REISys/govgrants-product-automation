@@ -366,7 +366,7 @@ Feature: Sanity scenarios
     And I select "Refresh" from parallel lines dropdown of "Peer Reviewers"
     Then I see table is refreshing
 
-  @474704 @CFVerifyGranteePOuserReviewerNocanabletosubmitReviewonCFAR
+  @474704 @CFVerifyGranteePOuserReviewerNocanabletosubmitReviewonCFAR @TBE
   Scenario:CF - Verify Grantee PO user (Reviewer= No)can able to submit Review on CF AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -456,7 +456,7 @@ Feature: Sanity scenarios
     When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
     Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
 
-  @474703 @CFVerifyAmeliaFOuserReviewerYescanabletosubmitReview&ReviewcompletebyAROwneronclickofCompeleteReviewbuttononCFAR
+  @474703 @CFVerifyAmeliaFOuserReviewerYescanabletosubmitReview&ReviewcompletebyAROwneronclickofCompeleteReviewbuttononCFAR @TBE
   Scenario:CF - Verify Amelia FO user (Reviewer= Yes)can able to submit Review & Review complete by AR Owner on click of Compelete Review button on CF  AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -718,7 +718,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
-  @474697 @CFVerifyPOuseAROwnercanabletoSubmitARforApproval&Approvedfromassigned4stepapprover&candoSendtoOwner/Forward/Approveactions&seeSubmittoGrantorbuttononceApprovedtheBPCARRecord
+  @474697 @CFVerifyPOuseAROwnercanabletoSubmitARforApproval&Approvedfromassigned4stepapprover&candoSendtoOwner/Forward/Approveactions&seeSubmittoGrantorbuttononceApprovedtheBPCARRecord @TBE
   Scenario:CF - Verify PO user (AR Owner) can able to Submit AR for Approval & Approved from assigned 4 step approver & can do Send to Owner/ Forward/ Approve actions & see 'Submit to Grantor' button once Approved the BPC AR Record
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -917,7 +917,7 @@ Feature: Sanity scenarios
     And I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
     Then I softly see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
 
-  @474674 @CFVerifyPOuserAROwnercanabletotakeNotAcceptedDecisionfromGrantorRecordDecisionmodalonCFAR
+  @474674 @CFVerifyPOuserAROwnercanabletotakeNotAcceptedDecisionfromGrantorRecordDecisionmodalonCFAR @TBE
   Scenario:CF PO user (AR Owner)can able to take Not Accepted Decision from Grantor Record Decision modal on CF AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -1000,7 +1000,7 @@ Feature: Sanity scenarios
     Then I softly see value "Not Accepted" for title "New Value" inside field history table
     Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
 
-  @474673 @CFVerifyAdminuserAwardOwnercanabletoRevisetheCarryForwardAmendmentRequestonclickofReviseAmendmentbuttonwhenARisinSubmittoGrantorstate&abletoseestatus&StepProgressbarafterrevisetheAR
+  @474673 @CFVerifyAdminuserAwardOwnercanabletoRevisetheCarryForwardAmendmentRequestonclickofReviseAmendmentbuttonwhenARisinSubmittoGrantorstate&abletoseestatus&StepProgressbarafterrevisetheAR @TBE
   Scenario:CF Admin user  (Award Owner) can able to Revise the Carry Forward Amendment Request on click of Revise Amendment button when AR is in Submit to Grantor state & able to see status & Step Progress bar after revise the AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
