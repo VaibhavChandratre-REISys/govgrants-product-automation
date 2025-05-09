@@ -1827,7 +1827,6 @@ Feature: Validate sanity testing of Complete Business Flow
   @72361 @activeOrgRiskAssessment @ProdSan2
   Scenario: Validate the Activation of Org Risk Assessment and the status changes to Active
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
-#    Given I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SA" user
     And I navigate to "Home" tab

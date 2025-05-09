@@ -3198,7 +3198,7 @@ Feature: Sanity scenarios
     Then I softly see "Validated" in flex table header "---grantee_tableId:-:applicationBusinessFormTableId---"
 
   @482632 @482633 @VerifyAdminuserNonownercanviewawarddetailspagebutcannotseeeditactiononaward
-  Scenario Outline:Verify Admin  user(Non owner) can view award details page but cannot see edit action on award
+  Scenario Outline:Verify Admin user(Non owner) can view award details page but cannot see edit action on award
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
@@ -3220,14 +3220,13 @@ Feature: Sanity scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Awards" sub tab
-    When I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Created"
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Submit for Approval" in page detail
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:awardExternalProgranTableId---"
     Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:awardContactTableId---"
@@ -3242,14 +3241,14 @@ Feature: Sanity scenarios
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:SpecialConditionTableId---"
     When I navigate to "Files" sub tab
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardsNotesTableId---"
+    Then I <Assertion> top right button "New" inside flex table "---grantee_tableId:-:awardsNotesTableId---"
     And I navigate to "Messages" sub tab
-    Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
+    Then I <Assertion> top right button "Send Email" inside flex table "CommunicationHistory"
 
     Examples:
-      | User            |
-      | GRANTEE ADMIN1  |
-      | GRANTEE AUDITOR |
+      | User            | Assertion         |
+      | GRANTEE ADMIN1  | softly see        |
+      | GRANTEE AUDITOR | softly do not see |
 
   @485867 @BPCARVerifyPOuserNonrecordownercanonlyviewBPCofamendmentrequestandcannotseeeditbuttontoedittheamendment
   Scenario: BPC AR  -Verify PO user (Non record owner) can only view BPC of amendment request and cannot see edit button to edit the amendment
@@ -4087,7 +4086,8 @@ Feature: Sanity scenarios
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I click on notification icon
-    Then I softly see notification "Grantee PO assigned you a task" contains "Automation Runtime Direct"
+    And I wait for "2" seconds
+    Then I softly see notification "Grantee PO assigned you a task" contains "{SavedValue:Automation Runtime Direct}"
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     And I enter a review as "Passed"
@@ -4137,7 +4137,8 @@ Feature: Sanity scenarios
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I click on notification icon
-    Then I softly see notification "Sarah PM assigned you a task" contains "Automation Runtime Direct"
+    And I wait for "2" seconds
+    Then I softly see notification "Sarah PM assigned you a task" contains "{SavedValue:Automation Runtime Direct}"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
@@ -4154,6 +4155,8 @@ Feature: Sanity scenarios
     And I click modal button "Save"
     And I click modal button "Close"
     Then I softly see field "Status" as "Submitted to Grantor"
+    When I click on notification icon
+    And I wait for "2" seconds
     Then I softly do not see notification "Grantee PO assigned you a task" contains "{SavedValue:Automation Runtime Direct}"
 
   @485478_1 @FundingChangeTypeARVerifytheNotificationforFundingchangetypeofAmendmentRequets

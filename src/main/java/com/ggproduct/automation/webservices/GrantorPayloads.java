@@ -1514,6 +1514,8 @@ public class GrantorPayloads {
         switch (filter) {
             case "NO_RISK_ASSESSMENT":
                 return payloadForCreateStandAloneWithNORiskAssement(json);
+            case "SUBRECIPIENTMATCH_FIFTY_PERCENT":
+                return payloadForSubrecipientMatchFiftyPercent(json);
             case "YES_RISK_ASSESSMENT":
                 return payloadForCreateStandAloneWithYesRiskAssement(json);
             case "NO_ADVANCE_PERMISSION":
@@ -1623,6 +1625,16 @@ public class GrantorPayloads {
             default:
                 return json;
         }
+    }
+
+    private JsonObject payloadForSubrecipientMatchFiftyPercent(JsonObject json) {
+        JsonObject grant = json.getAsJsonArray("Grant").get(0).getAsJsonObject();
+        JsonArray newA = new JsonArray();
+        grant.addProperty("IsMatchRequired", "Yes");
+        grant.addProperty("GranteeMatch", 50);
+        newA.add(grant);
+        json.add("Grant", newA);
+        return json;
     }
 
     private JsonObject createAwarForSecondFocusAreaNewObligation(JsonObject json, String... Type) {
@@ -2728,7 +2740,6 @@ public class GrantorPayloads {
         grant.addProperty("InternalOrganization", ProjectWebServices.getIdOf("Account", "SAN DIEGO ELECTRICAL TRAINING TRUST"));
         grant.addProperty("Program", ProjectWebServices.getIdOf("Program__c", "Automation Permanent Internal Program"));
         grant.addProperty("DoesGrantAllowIndirect", "Yes");
-        grant.addProperty("IsMatchRequired", "Yes");
         grant.addProperty("MaintenanceOfEffort", "Yes");
         grant.addProperty("LaverageAllowed", "Yes");
         grant.addProperty("IsProgramIncomeAnticipated", "Yes");
