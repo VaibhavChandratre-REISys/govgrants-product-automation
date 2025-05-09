@@ -4206,6 +4206,7 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Rejected" and is "Red"
     When I click on notification icon
+    And I wait for "2" seconds
     Then I softly do not see notification "Sarah PM assigned you a task" contains "{SavedValue:Automation Runtime Direct}"
 
   @487067 @487073 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess
