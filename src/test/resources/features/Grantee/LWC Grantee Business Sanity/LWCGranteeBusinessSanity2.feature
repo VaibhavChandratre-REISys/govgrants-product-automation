@@ -3220,6 +3220,7 @@ Feature: Sanity scenarios
     When I navigate to "Amendments" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     When I get the "EGMS ID"
+    When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name     | Amendment Request |
       | Sarah PM | Step 2            |
