@@ -492,7 +492,7 @@ Feature: Sanity scenarios
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "AwardId1"
-    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
+    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD_PO_OWNER"
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "Amendments" sub tab
@@ -787,7 +787,7 @@ Feature: Sanity scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name     | Amendment Request |
       | Sarah PM | Step 4            |
-    When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name     | Amendment Request |
       | Sarah PM | Step 4            |
     And I wait for "2" seconds
@@ -3229,6 +3229,10 @@ Feature: Sanity scenarios
 
   @487067 @487073 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess
   Scenario: Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
+
+
+
+
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
