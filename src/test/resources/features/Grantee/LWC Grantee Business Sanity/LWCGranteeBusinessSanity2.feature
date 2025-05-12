@@ -426,29 +426,21 @@ Feature: Sanity scenarios
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
-      | David FO      | Fiscal Reviewer | Automation Description | 5        | No                   |
-    And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
+      | Grantee PO      | Fiscal Reviewer | Automation Description | 5        | No                   |
+    And I click on "Send for Review" icon for "Grantee PO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     And I pause execution for "3" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
+    When I click on "Enter Review" icon for "Grantee PO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
     Then I softly see field "Status" as "Submitted for Review"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
-    And I click on "Complete Review" in the page details
-    Then I softly see field "Status" as "Reviewed"
-    And I wait for "3" seconds
+    Then I softly cannot see row level action button "Enter Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     And I navigate to "Grants" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
@@ -500,7 +492,8 @@ Feature: Sanity scenarios
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "AwardId1"
-    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
+    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "474674
+  -Grantee PO user"
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "Amendments" sub tab
@@ -563,6 +556,10 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     Then I softly see that "Submitted" has been added in flextable with Id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     And I wait for "3" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -574,17 +571,6 @@ Feature: Sanity scenarios
     And I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
     Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    And I wait for "3" seconds
-    And I navigate to "Grants" tab
-    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
-    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
-    And I wait for "3" seconds
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -720,6 +706,7 @@ Feature: Sanity scenarios
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     And I "Approved" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I wait for "2" seconds
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -760,7 +747,7 @@ Feature: Sanity scenarios
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "AwardId1"
-    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD"
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "Amendments" sub tab
@@ -803,6 +790,7 @@ Feature: Sanity scenarios
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
       | Name     | Amendment Request |
       | Sarah PM | Step 4            |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | You cannot specify the same step for multiple users for Amendment Request |
     And I refresh the page
@@ -911,7 +899,7 @@ Feature: Sanity scenarios
     And I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
     Then I softly see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
 
-  @474674 @CFVerifyPOuserAROwnercanabletotakeNotAcceptedDecisionfromGrantorRecordDecisionmodalonCFAR @TBE1
+  @474674 @CFVerifyPOuserAROwnercanabletotakeNotAcceptedDecisionfromGrantorRecordDecisionmodalonCFAR @P3_Grantee @PO_Grantee @GRegression2
   Scenario:CF PO user (AR Owner)can able to take Not Accepted Decision from Grantor Record Decision modal on CF AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -1038,7 +1026,7 @@ Feature: Sanity scenarios
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "AwardId1"
-    And I "Approved" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I "Approved" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD"
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "Amendments" sub tab
@@ -3115,9 +3103,11 @@ Feature: Sanity scenarios
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I halt execution
     When I click on notification icon
     And I wait for "2" seconds
     Then I softly see notification "Grantee PO assigned you a task" contains "Review Amendment Request #{SavedValue:Automation Runtime Award} for Department of Product"
+    And I halt execution
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     And I enter a review as "Passed"
