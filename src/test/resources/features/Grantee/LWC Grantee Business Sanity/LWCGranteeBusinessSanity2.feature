@@ -366,7 +366,7 @@ Feature: Sanity scenarios
     And I select "Refresh" from parallel lines dropdown of "Peer Reviewers"
     Then I see table is refreshing
 
-  @474704 @CFVerifyGranteePOuserReviewerNocanabletosubmitReviewonCFAR
+  @474704 @CFVerifyGranteePOuserReviewerNocanabletosubmitReviewonCFAR @TBE1
   Scenario:CF - Verify Grantee PO user (Reviewer= No)can able to submit Review on CF AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -412,9 +412,7 @@ Feature: Sanity scenarios
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "AwardId1"
-    And I navigate to "Overview" sub tab
-    And I save the field labeled "Award Title" as "Automation Runtime New award"
-    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime New award}" with properties "default-Grantee PO user"
+    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "Amendments" sub tab
@@ -456,7 +454,7 @@ Feature: Sanity scenarios
     When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
     Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
 
-  @474703 @CFVerifyAmeliaFOuserReviewerYescanabletosubmitReview&ReviewcompletebyAROwneronclickofCompeleteReviewbuttononCFAR
+  @474703 @CFVerifyAmeliaFOuserReviewerYescanabletosubmitReview&ReviewcompletebyAROwneronclickofCompeleteReviewbuttononCFAR @TBE1
   Scenario:CF - Verify Amelia FO user (Reviewer= Yes)can able to submit Review & Review complete by AR Owner on click of Compelete Review button on CF  AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -502,9 +500,7 @@ Feature: Sanity scenarios
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "AwardId1"
-    And I navigate to "Overview" sub tab
-    And I save the field labeled "Award Title" as "Automation Runtime New award"
-    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime New award}" with properties "default-Grantee PO user"
+    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "Amendments" sub tab
@@ -718,7 +714,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
-  @474697 @CFVerifyPOuseAROwnercanabletoSubmitARforApproval&Approvedfromassigned4stepapprover&candoSendtoOwner/Forward/Approveactions&seeSubmittoGrantorbuttononceApprovedtheBPCARRecord
+  @474697 @CFVerifyPOuseAROwnercanabletoSubmitARforApproval&Approvedfromassigned4stepapprover&candoSendtoOwner/Forward/Approveactions&seeSubmittoGrantorbuttononceApprovedtheBPCARRecord @TBE1
   Scenario:CF - Verify PO user (AR Owner) can able to Submit AR for Approval & Approved from assigned 4 step approver & can do Send to Owner/ Forward/ Approve actions & see 'Submit to Grantor' button once Approved the BPC AR Record
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -764,9 +760,7 @@ Feature: Sanity scenarios
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "AwardId1"
-    And I navigate to "Overview" sub tab
-    And I save the field labeled "Award Title" as "Automation Runtime New award"
-    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime New award}" with properties "default"
+    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "Amendments" sub tab
@@ -917,7 +911,7 @@ Feature: Sanity scenarios
     And I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
     Then I softly see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
 
-  @474674 @CFVerifyPOuserAROwnercanabletotakeNotAcceptedDecisionfromGrantorRecordDecisionmodalonCFAR
+  @474674 @CFVerifyPOuserAROwnercanabletotakeNotAcceptedDecisionfromGrantorRecordDecisionmodalonCFAR @TBE1
   Scenario:CF PO user (AR Owner)can able to take Not Accepted Decision from Grantor Record Decision modal on CF AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -963,9 +957,7 @@ Feature: Sanity scenarios
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "AwardId1"
-    And I navigate to "Overview" sub tab
-    And I save the field labeled "Award Title" as "Automation Runtime New award"
-    And I "Approved" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime New award}" with properties "default"
+    And I "Approved" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "Amendments" sub tab
@@ -1000,7 +992,7 @@ Feature: Sanity scenarios
     Then I softly see value "Not Accepted" for title "New Value" inside field history table
     Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
 
-  @474673 @CFVerifyAdminuserAwardOwnercanabletoRevisetheCarryForwardAmendmentRequestonclickofReviseAmendmentbuttonwhenARisinSubmittoGrantorstate&abletoseestatus&StepProgressbarafterrevisetheAR
+  @474673 @CFVerifyAdminuserAwardOwnercanabletoRevisetheCarryForwardAmendmentRequestonclickofReviseAmendmentbuttonwhenARisinSubmittoGrantorstate&abletoseestatus&StepProgressbarafterrevisetheAR @TBE1
   Scenario:CF Admin user  (Award Owner) can able to Revise the Carry Forward Amendment Request on click of Revise Amendment button when AR is in Submit to Grantor state & able to see status & Step Progress bar after revise the AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -1046,9 +1038,7 @@ Feature: Sanity scenarios
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "AwardId1"
-    And I navigate to "Overview" sub tab
-    And I save the field labeled "Award Title" as "Automation Runtime New award"
-    And I "Approved" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime New award}" with properties "default"
+    And I "Approved" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "Amendments" sub tab
