@@ -703,8 +703,8 @@ Feature: Sanity scenarios
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I navigate to "Files" sub tab
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I can see row level action button "View" against "Interim Award Document" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I can see row level action button "Download" against "Interim Award Document" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I can see row level action button "View" against "Interim Award Document" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I can see row level action button "Download" against "Interim Award Document" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"

@@ -8738,13 +8738,13 @@ Feature: Sanity scenarios
     Then I cannot see row level action button "Edit" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Examples:
-      | UserName   | User       | NonOwner        | filter     |
-      | Grantee PO | GRANTEE PO | GRANTEE AUDITOR | cannot see |
-      | Sarah PM   | GRANTEE PM | GRANTEE PO      | can see    |
-      | Grantee PO | GRANTEE PO | GRANTEE PM      | can see    |
-      | Grantee PO | GRANTEE PO | GRANTEE EXE     | can see    |
-      | Grantee PO | GRANTEE PO | GRANTEE FO      | can see    |
-      | Grantee PO | GRANTEE PO | GRANTEE FD      | can see    |
+      | UserName        | User       | NonOwner        | filter     |
+      | Grantee PO user | GRANTEE PO | GRANTEE AUDITOR | cannot see |
+      | Sarah PM user   | GRANTEE PM | GRANTEE PO      | can see    |
+      | Grantee PO user | GRANTEE PO | GRANTEE PM      | can see    |
+      | Grantee PO user | GRANTEE PO | GRANTEE EXE     | can see    |
+      | Grantee PO user | GRANTEE PO | GRANTEE FO      | can see    |
+      | Grantee PO user | GRANTEE PO | GRANTEE FD      | can see    |
 
   @476994 @477128 @477129 @477130 @477131 @477132 @CombinationofamendmentVerifyPMusercanseevalidationsoncombinationofamendment @GRegression3 @GRegression1 @GranteeTBE
   Scenario Outline:Combination of amendment : Verify PM user can see validations on combination of amendment
