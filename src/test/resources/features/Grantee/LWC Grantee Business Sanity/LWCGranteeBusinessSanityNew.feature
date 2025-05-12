@@ -3845,7 +3845,7 @@ Feature: Sanity scenarios New
     And I select "Refresh" from parallel lines dropdown of "Award Files"
     Then I see table is refreshing
 
-  @485363 @VerifyEXEusercanseeProgressreportschedulesfromawardinMonitoringschedules
+  @485363 @VerifyEXEusercanseeProgressreportschedulesfromawardinMonitoringschedules @P2_Grantee @EXE_Grantee @GRegression2
   Scenario: Verify EXE user can see Financial report schedules from award in Monitoring schedules
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -12963,11 +12963,9 @@ Feature: Sanity scenarios New
     Then I see textarea field "PurposeRTA__c" is editable
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Please select Amendment Request Type is required to save. |
-    Then I softly see the following messages in the page details contains:
-      | Initiated By is required to save. |
-    Then I softly see the following messages in the page details contains:
-      | Justification is required to save. |
+      | To Save, Please select Amendment Request Type is required. |
+      | To Save, Initiated By is required.                         |
+      | To Save, Justification is required.                        |
     And I enter "Grantee_Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "BDRAMENDID"

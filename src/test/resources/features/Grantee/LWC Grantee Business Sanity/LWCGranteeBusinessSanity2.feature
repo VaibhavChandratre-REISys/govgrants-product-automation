@@ -366,7 +366,7 @@ Feature: Sanity scenarios
     And I select "Refresh" from parallel lines dropdown of "Peer Reviewers"
     Then I see table is refreshing
 
-  @474704 @CFVerifyGranteePOuserReviewerNocanabletosubmitReviewonCFAR @TBE1
+  @474704 @CFVerifyGranteePOuserReviewerNocanabletosubmitReviewonCFAR @P3_Grantee @PO_Grantee @GRegression2
   Scenario:CF - Verify Grantee PO user (Reviewer= No)can able to submit Review on CF AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -581,6 +581,7 @@ Feature: Sanity scenarios
     And I "Created" standalone subaward "Automation Runtime Award" with properties "CASH_MATCH_NON_CASH_MATCH_PO_OWNER"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    And I wait for "2" seconds
     And I "Approved" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
@@ -979,7 +980,7 @@ Feature: Sanity scenarios
     Then I softly see value "Not Accepted" for title "New Value" inside field history table
     Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
 
-  @474673 @CFVerifyAdminuserAwardOwnercanabletoRevisetheCarryForwardAmendmentRequestonclickofReviseAmendmentbuttonwhenARisinSubmittoGrantorstate&abletoseestatus&StepProgressbarafterrevisetheAR @TBE1
+  @474673 @CFVerifyAdminuserAwardOwnercanabletoRevisetheCarryForwardAmendmentRequestonclickofReviseAmendmentbuttonwhenARisinSubmittoGrantorstate&abletoseestatus&StepProgressbarafterrevisetheAR @P2_Grantee @PM_Grantee @GRegression2
   Scenario:CF Admin user  (Award Owner) can able to Revise the Carry Forward Amendment Request on click of Revise Amendment button when AR is in Submit to Grantor state & able to see status & Step Progress bar after revise the AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -3102,11 +3103,9 @@ Feature: Sanity scenarios
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    And I halt execution
     When I click on notification icon
     And I wait for "2" seconds
     Then I softly see notification "Grantee PO assigned you a task" contains "Review Amendment Request #{SavedValue:Automation Runtime Award} for Department of Product"
-    And I halt execution
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     And I enter a review as "Passed"
