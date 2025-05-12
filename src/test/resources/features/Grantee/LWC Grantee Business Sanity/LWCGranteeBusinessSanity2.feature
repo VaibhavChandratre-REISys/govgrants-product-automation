@@ -446,7 +446,7 @@ Feature: Sanity scenarios
     When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
     Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
 
-  @474703 @CFVerifyAmeliaFOuserReviewerYescanabletosubmitReview&ReviewcompletebyAROwneronclickofCompeleteReviewbuttononCFAR @TBE1
+  @474703 @CFVerifyAmeliaFOuserReviewerYescanabletosubmitReview&ReviewcompletebyAROwneronclickofCompeleteReviewbuttononCFAR @FO_Grantee @P3_Grantee @GRegression2
   Scenario:CF Amelia FO user (Reviewer= Yes)can able to submit Review & Review complete by AR Owner on click of Compelete Review button on CF  AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -575,7 +575,7 @@ Feature: Sanity scenarios
     When I navigate to "Responsibilities" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
 
-  @482865 @CFamdVerifythatAuditoruserhavingonlyviewaccessonPRamendmentrequestonGrantlayout
+  @482865 @CFamdVerifythatAuditoruserhavingonlyviewaccessonPRamendmentrequestonGrantlayout @P4_Grantee @AUDITOR_Grantee @GRegression2
   Scenario:CF amd that Auditor user having only view access on PR amendment request on Grant layout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "CASH_MATCH_NON_CASH_MATCH_PO_OWNER"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -801,7 +801,7 @@ Feature: Sanity scenarios
       | Grantee PO | Step 4            |
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | You cannot specify the same step for multiple users for Amendment Request |
+      | You cannot specify the same user for multiple steps for Amendment Request |
     And I refresh the page
     And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
@@ -3236,7 +3236,7 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I softly do not see notification "Sarah PM assigned you a task" contains "{SavedValue:Automation Runtime Award}"
 
-  @487067 @487073 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess
+  @487067 @487073 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @TBE1
   Scenario: Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"

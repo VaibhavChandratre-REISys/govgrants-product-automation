@@ -7488,7 +7488,7 @@ Feature: Sanity scenarios New
     And I save the field labeled "EGMS ID" as "appEGMSID"
     Then I softly see field "Status" as "Created"
 
-  @487171 @ValidatethatAuditoruserdonotabletocreateAdhocProgressReportdonotseeanybuttononanysection
+  @487171 @ValidatethatAuditoruserdonotabletocreateAdhocProgressReportdonotseeanybuttononanysection @TBE1
   Scenario: Validate that Auditor user do not able to create Adhoc Progress Report & do not see any button on any section
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -12846,7 +12846,7 @@ Feature: Sanity scenarios New
       | Sarah PM user   | GRANTEE PM |
       | Grantee PO user | GRANTEE PO |
 
-  @486579 @486584 @486586 @486592 @486593 @487329 @487330 @BudgetRedirectionAREXEusershouldabletoactivatenewawardthroughBRAR @Grantee_Smoke
+  @486579 @486584 @486586 @486592 @486593 @487329 @487330 @BudgetRedirectionAREXEusershouldabletoactivatenewawardthroughBRAR @Grantee_Smoke @TBE1
   Scenario Outline: Budget Redirection AR- EXE user should able to activate new award through BR AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<OwnerType>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -13315,7 +13315,7 @@ Feature: Sanity scenarios New
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I navigate to "Amendments" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
-    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<Owner>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -13347,7 +13347,7 @@ Feature: Sanity scenarios New
     Then I softly see field "Status" as "Accepted"
     And I click on "Amend Award" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
-    When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<Owner>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -13443,14 +13443,14 @@ Feature: Sanity scenarios New
     Then I softly see value "{SavedValue:AwardEGMSID1}" for title "Original Value" inside field history table
 
     Examples:
-      | OwnerType          | UserType       | emailIdTo                         | CreatedBy          |
-      | Sarah PM user      | GRANTEE PM     | victor.exeqagrantee@yopmail.com   | Sarah PM           |
-      | Grantee PO user    | GRANTEE PO     | grantee.po@yopmail.com.qagrnteatm | Grantee PO         |
-      | Victor EXE user    | GRANTEE EXE    | victor.exeqagrantee@yopmail.com   | Victor EXE         |
-      | Product Admin user | GRANTEE ADMIN1 | productadmin@yopmail.com          | Product Admin      |
-      | Victor EXE user    | GRANTEE FO     | victor.exeqagrantee@yopmail.com   | David FO           |
-      | Victor EXE user    | GRANTEE FD     | victor.exeqagrantee@yopmail.com   | Danielle FD Garcia |
-      | Victor EXE user    | GRANTEE ADMIN1 | victor.exeqagrantee@yopmail.com   | Product Admin      |
+      | Owner          | OwnerType          | UserType       | emailIdTo                         | CreatedBy          |
+      | GRANTEE PM     | Sarah PM user      | GRANTEE PM     | victor.exeqagrantee@yopmail.com   | Sarah PM           |
+      | GRANTEE PO     | Grantee PO user    | GRANTEE PO     | grantee.po@yopmail.com.qagrnteatm | Grantee PO         |
+      | GRANTEE EXE    | Victor EXE user    | GRANTEE EXE    | victor.exeqagrantee@yopmail.com   | Victor EXE         |
+      | GRANTEE ADMIN1 | Product Admin user | GRANTEE ADMIN1 | productadmin@yopmail.com          | Product Admin      |
+      | GRANTEE EXE    | Victor EXE user    | GRANTEE FO     | victor.exeqagrantee@yopmail.com   | David FO           |
+      | GRANTEE EXE    | Victor EXE user    | GRANTEE FD     | victor.exeqagrantee@yopmail.com   | Danielle FD Garcia |
+      | GRANTEE EXE    | Victor EXE user    | GRANTEE ADMIN1 | victor.exeqagrantee@yopmail.com   | Product Admin      |
 
   @484063 @ValidateFromAppGPCloseoutwithPMProfileabletocreateProjectperiodcloseoutandabletocompletethecloseout @GRegression1
   Scenario: Validate From App GP Closeout with PM Profile Able to create Project period closeout and able to complete the closeout

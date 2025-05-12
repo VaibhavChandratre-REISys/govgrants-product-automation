@@ -8504,7 +8504,7 @@ Feature: Sanity scenarios
       | GRANTEE FO    | Automation Permanent Strategic Plan |
       | GRANTEE ADMIN | Automation Permanent Strategic Plan |
 
-  @476993 @477146 @477137 @477139 @477140 @477142 @477144 @CombinationofamendmentVerifyAuditorusercannotcreatecombinationofamendmentusingfollowingcombinationsonactiveaward @GRegression3 @GranteeTBE
+  @476993 @477146 @477137 @477139 @477140 @477142 @477144 @CombinationofamendmentVerifyAuditorusercannotcreatecombinationofamendmentusingfollowingcombinationsonactiveaward @GRegression3 @TBE1
   Scenario Outline: Combination of amendment : Verify Auditor user cannot create combination of amendment using following combinations on active award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<UserName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
