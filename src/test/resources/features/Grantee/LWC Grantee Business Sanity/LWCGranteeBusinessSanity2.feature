@@ -492,8 +492,7 @@ Feature: Sanity scenarios
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "AwardId1"
-    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "474674
-  -Grantee PO user"
+    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "Amendments" sub tab
