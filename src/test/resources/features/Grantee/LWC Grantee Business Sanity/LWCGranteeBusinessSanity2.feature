@@ -3236,7 +3236,7 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I softly do not see notification "Sarah PM assigned you a task" contains "{SavedValue:Automation Runtime Award}"
 
-  @487067 @487073 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @TBE1
+  @487067 @487073 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess
   Scenario: Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"

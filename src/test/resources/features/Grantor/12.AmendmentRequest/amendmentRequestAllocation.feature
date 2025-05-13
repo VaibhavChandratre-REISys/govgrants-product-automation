@@ -251,7 +251,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @57377 @68075 @verifyAmendedBudgetPeriodAtAdvancePRPage @TBE
+  @57377 @68075 @verifyAmendedBudgetPeriodAtAdvancePRPage
   Scenario: Verify user can submit Advance Payment request to grantor after Budget Period Change Amendment is done on Subaward.
   |Validate that the Version number and Subaward type in Subaward Information table gets updated after amendment( Budget period)|
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST_ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
@@ -3157,7 +3157,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$1,500.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:grantsBudgetSummaryFocusAreaTableId---"
     Then I softly see value "$3,000.00" for title "Cumulative Obligation" against the value "Grand Total" inside table "---subAwardStandAlone:-:grantsBudgetSummaryFocusAreaTableId---"
 
-  @258711 @ValidatePMusercanseecorrectamountdisplayinPre-EncumbranceAppropriationAmountEncumbranceSpentTotalObligationandAvailableBalanceunderfundingaccount @sprint-19-US-249880  @Allocation @TBE
+  @258711 @ValidatePMusercanseecorrectamountdisplayinPre-EncumbranceAppropriationAmountEncumbranceSpentTotalObligationandAvailableBalanceunderfundingaccount @sprint-19-US-249880  @Allocation
   Scenario: Validate PM user can see correct $ amount display in Pre-Encumbrance, Appropriation Amount, Encumbrance, Spent, Total Obligation and Available Balance under funding account
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -4476,7 +4476,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$0.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly see value "$0.00" for title "New Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @258410 @258414 @258422 @258423 @ValidateCumulativeObligationvalueshouldbereadonlycolumnandRolluptheAwardAmountforeachfocusareafromtheawardbudgetgrid @sprint-19-US-250549  @Allocation @TBE
+  @258410 @258414 @258422 @258423 @ValidateCumulativeObligationvalueshouldbereadonlycolumnandRolluptheAwardAmountforeachfocusareafromtheawardbudgetgrid @sprint-19-US-250549  @Allocation
   Scenario: Validate Cumulative Obligation value should be read-only column and Roll up the Award Amount for each focus area from the award budget grid.
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -4727,7 +4727,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$3,000.00" for title "Cumulative Obligation" against the value "Grand Total" inside table "---subAwardStandAlone:-:grantSubrecipientFocusAreaTableId---"
     Then I softly see addition of two fields "{SavedValue:CumulativeObligation1}" and "{SavedValue:CumulativeObligation2}" is equal to "{SavedValue:CumulativeObligation6}"
 
-  @258596 @ValidateCompPOusercanseecorrectamountdisplayinPreEncumbranceAppropriationAmountEncumbranceSpentTotalObligationandAvailableBalanceunderfundingaccount @sprint-19-US-250551  @Allocation @TBE
+  @258596 @ValidateCompPOusercanseecorrectamountdisplayinPreEncumbranceAppropriationAmountEncumbranceSpentTotalObligationandAvailableBalanceunderfundingaccount @sprint-19-US-250551  @Allocation
   Scenario: Validate Comp PO user can see correct $ amount display in Pre-Encumbrance, Appropriation Amount, Encumbrance, Spent, Total Obligation and Available Balance under funding account
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -7986,7 +7986,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligation1"
     Then I softly see addition of two fields "{SavedValue:CumulativeObligationAwd1}" and "{SavedValue:CumulativeObligation}" is equal to "{SavedValue:CumulativeObligation1}"
 
-  @257471 @257476 @257488 @257510 @VerifyFDusercannotseeBudgetsummarybyfocusareasectiononawardwhichisinactivatedstatewhenFocusareaisNo @sprint-19-US-250550  @Allocation @TBE
+  @257471 @257476 @257488 @257510 @VerifyFDusercannotseeBudgetsummarybyfocusareasectiononawardwhichisinactivatedstatewhenFocusareaisNo @sprint-19-US-250550  @Allocation
   Scenario: Verify FD user cannot see Budget summary by focus area section on award which is in activated state when Focus area is No
     And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT_FOCUS_AREA_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -8101,7 +8101,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #257488
     Then I softly cannot see field "Budgeted Amount" inside page block
 
-  @257569 @VerifyFOusercanseeaFocusareawithzerovalueforNewObligationandCumulativeObligationcolumnonthenewawardIftheinitalAwardisnotfromFDM @sprint-19-US-250550  @Allocation @TBE
+  @257569 @VerifyFOusercanseeaFocusareawithzerovalueforNewObligationandCumulativeObligationcolumnonthenewawardIftheinitalAwardisnotfromFDM @sprint-19-US-250550  @Allocation
   Scenario: Verify FO user can see a Focus area with zero value for New Obligation and Cumulative Obligation column on the new award If the inital Award is not from FDM
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_TOTAL_COMMIT_TWO_THOUSAND" of type "Directed"
     When I login to "As a Grantor" app as "FO" user
@@ -9074,7 +9074,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Total Commitment" as "TotalCommitment2"
     Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:TotalCommitment2}"
 
-  @257410 @258310 @258320 @ValidateusershouldseeCumulativeObligationcolumninbudgetsummarybyfocusareasectionvalueswillrollupfromtheawardsCumulativeObligationforthatfocusareaacrossallBPsoflatestaward @sprint-21-US-263183  @Allocation @TBE
+  @257410 @258310 @258320 @ValidateusershouldseeCumulativeObligationcolumninbudgetsummarybyfocusareasectionvalueswillrollupfromtheawardsCumulativeObligationforthatfocusareaacrossallBPsoflatestaward @sprint-21-US-263183  @Allocation
   Scenario: Validate user should see Cumulative Obligation column in budget summary by focus area section & values will roll up from the award's Cumulative Obligation for that focus area across all BPs of latest award
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -11511,7 +11511,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Budget" sub tab
     Then I do not see value "Test Focus Area1" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @265058 @ValidatePMusercanseeFocusareawithzerovalueforNewObligationandCumulativeObligationcolumnonthenewawardIftheinitialAwardisnotfromFDMFAisyes @sprint-20-US-263390  @Allocation @TBE
+  @265058 @ValidatePMusercanseeFocusareawithzerovalueforNewObligationandCumulativeObligationcolumnonthenewawardIftheinitialAwardisnotfromFDMFAisyes @sprint-20-US-263390  @Allocation
   Scenario: Validate PM user can see a Focus area with zero value for New Obligation and Cumulative Obligation column on the new award If the initial Award is not from FDM FA is yes
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "PM" user
@@ -11638,7 +11638,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$0.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$0.00" for title "New Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @265696 @ValidateINDusercancarryforwardtheamountfromonefocusareatoanotherfocusareaFAisYes @sprint-20-US-248356  @Allocation @TBE
+  @265696 @ValidateINDusercancarryforwardtheamountfromonefocusareatoanotherfocusareaFAisYes @sprint-20-US-248356  @Allocation
   Scenario: Validate IND user can carry forward the amount from one focus area to another focus area FA is Yes
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUD_CAT_SUB_ORG_IND" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "PM" user
@@ -11825,7 +11825,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
 
-  @256938 @VerifyAdminusercanseeasectionofBudgetSummarybyFocusAreaontheBudredamendmentrequestwhichiscreatedfromFDMandshouldhaveallthefocusareasfromtheawardEvenwithZeroObligation @sprint-19-US-255648  @Allocation @TBE
+  @256938 @VerifyAdminusercanseeasectionofBudgetSummarybyFocusAreaontheBudredamendmentrequestwhichiscreatedfromFDMandshouldhaveallthefocusareasfromtheawardEvenwithZeroObligation @sprint-19-US-255648  @Allocation
   Scenario: Verify Admin user can see a section of Budget Summary by Focus Area on the Bud red amendment request which is created from FDM and should have all the focus areas from the award Even with Zero Obligation
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_BY_APPLICANT_FOCUS_AREA_RISK_ASS_NO-Automation ADMIN user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -12861,7 +12861,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see "Budget Summary by Focus Area" page block displayed
     Then I softly do not see "Funding Change - Focus Area" page block displayed
 
-  @249039 @249139 @ValidateNewObligationcolumnonBudgetSummarybyFocusAreasectionisdollarfieldandAdminusercanenternegativevalueinNewObligationcolumnWhenamendmentrequestisincreatedstate @sprint-18-US-225787  @Allocation @TBE
+  @249039 @249139 @ValidateNewObligationcolumnonBudgetSummarybyFocusAreasectionisdollarfieldandAdminusercanenternegativevalueinNewObligationcolumnWhenamendmentrequestisincreatedstate @sprint-18-US-225787  @Allocation
   Scenario: Validate New Obligation column on Budget Summary by Focus Area section is dollar field and Admin user can enter negative value in New Obligation column When amendment request is in created state
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPLICANT_FOCUS_AREA_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -13613,7 +13613,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$1,000.00" for title "New Obligation" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:subrecipientProjectAreasTableId---"
     Then I softly see field "New Obligation" as "$2,000.00"
 
-  @249564 @249627 @ValidateFormulaSPISPAcanseeCurrentobligationfieldvalueCopiedfromthepreviousawardsCummulativeobligation @sprint-18-US-241042  @Allocation @TBE
+  @249564 @249627 @ValidateFormulaSPISPAcanseeCurrentobligationfieldvalueCopiedfromthepreviousawardsCummulativeobligation @sprint-18-US-241042  @Allocation
   Scenario Outline: Validate Formula SPI/SPA can see Current obligation field value Copied from the previous award's Cummulative obligation
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "<User>" user
@@ -15184,7 +15184,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Total Commitment" as "$3,000.00"
     Then I softly see value "{SavedValue:TotalCommitment1}" is "Equals to" the value "{SavedValue:TotalCommitment2}"
 
-  @253990 @254001 @254205 @253663 @253669 @254206 @ValidateusecanseeCurrentobligationasReadOnlyfieldcopiedfromthecumulativeObligationoftheawardfromwhichtherequestiscreatedFAYes @sprint-18-US-242373  @Allocation @TBE
+  @253990 @254001 @254205 @253663 @253669 @254206 @ValidateusecanseeCurrentobligationasReadOnlyfieldcopiedfromthecumulativeObligationoftheawardfromwhichtherequestiscreatedFAYes @sprint-18-US-242373  @Allocation
   Scenario: Validate user can see Current obligation as Read Only field copied from the cumulative Obligation of the award from which the request is created(FA Yes)
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "EXE" user
@@ -17036,7 +17036,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Actuals" sub tab
     Then I softly see field "Spent" as "$0.00"
 
-  @253467 @253495 @253472 @253548 @253553 @253554 @ValidateCumulativeObligationissameasAmountAwarded&helptextshouldbedisplayFAYes @sprint-18-US-250639 @Allocation @TBE
+  @253467 @253495 @253472 @253548 @253553 @253554 @ValidateCumulativeObligationissameasAmountAwarded&helptextshouldbedisplayFAYes @sprint-18-US-250639 @Allocation
   Scenario: Validate Cumulative Obligation is same as Amount Awarded & help text should be display (FA Yes)
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY-Automation EXE user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "EXE" user
@@ -24579,7 +24579,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Submit for Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @256959 @257081 @257080 @VerifyvalidationisnotdisplayedtoFDuserwhenNewObligationisequaltoRevisedEncumbrancewhenfocusareaisNo @sprint-19-US-229281  @Allocation @TBE
+  @256959 @257081 @257080 @VerifyvalidationisnotdisplayedtoFDuserwhenNewObligationisequaltoRevisedEncumbrancewhenfocusareaisNo @sprint-19-US-229281  @Allocation
   Scenario: Verify validation is not displayed to FD user when New Obligation is equal to Revised Encumbrance when focus area is No
     And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "FOCUS_AREA_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
