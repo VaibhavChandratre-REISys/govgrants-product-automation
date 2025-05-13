@@ -4251,4 +4251,27 @@ public final class GovGrantsAssertionObjects {
         }
         return flag;
     }
+
+    public void assertLabelMaximumLengthIsForInputField(String usage, String labelName, String length) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isMaximumLengthIsForInputField(labelName, length));
+        }else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isMaximumLengthIsForInputField(labelName, length)).isTrue();
+        }  else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isMaximumLengthIsForInputField(labelName, length));
+        } else{
+            I.amPerforming().assertionsTo().assertThat(isMaximumLengthIsForInputField(labelName, length)).isFalse();
+        }
+    }
+
+    private Boolean isMaximumLengthIsForInputField(String labelName, String length) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath(" //label[text()='" + labelName + "']//parent::div//input[@maxlength='" + length + "']"))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
+    }
 }

@@ -378,10 +378,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter values into fields
       | Value                | Field                      |
       | 20000000000000000.30 | RequestedChangeInBudget__c |
-    And I click on "Save" in the page details
-    #257701 #Bug449256
-    Then I softly see the following messages in the page details contains:
-      | New Obligation: value outside of valid range on numeric field: 20000000000000000.30 |
+    #257701
+    Then I softly see label "New Obligation" maximum length is "19" for input field
     #257708
     When I enter values into fields
       | Value | Field                      |
@@ -446,10 +444,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Value                 | Field                      |
       | -2000                 | RequestedChangeInBudget__c |
       | 200000000000000000.30 | RevisedCommitment__c       |
-    When I click on "Save" in the page details
     #257717
-    Then I softly see the following messages in the page details contains:
-      | Revised Commitment: value outside of valid range on numeric field: 200000000000000000.30 |
+    Then I softly see label "Revised Commitment" maximum length is "19" for input field
     When I enter values into fields
       | Value | Field                |
       | 5000  | RevisedCommitment__c |
@@ -1901,9 +1897,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter values into fields
       | Value                | Field                |
       | 20000000000000000.30 | RevisedCommitment__c |
-    And I click on "Save" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Revised Commitment: value outside of valid range on numeric field: 20000000000000000.30 |
+    Then I softly see label "Revised Commitment" maximum length is "19" for input field
     When I enter values into fields
       | Value | Field                |
       | 4000  | RevisedCommitment__c |
@@ -5191,9 +5185,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter values into fields
       | Value                | Field                      |
       | 20000000000000000.30 | RequestedChangeInBudget__c |
-    And I click on "Save" in the page details
-    Then I softly see the following messages in the page details contains:
-      | New Obligation: value outside of valid range on numeric field: 20000000000000000.30 |
+    Then I softly see label "New Obligation" maximum length is "19" for input field
     When I enter values into fields
       | Value | Field                      |
       | 10000 | RequestedChangeInBudget__c |
@@ -5201,12 +5193,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #256842
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value                | Field                |
-      | 20000000000000000.30 | RevisedCommitment__c |
-    And I click on "Save" in the page details
-    #Bug420758
-    Then I softly see the following messages in the page details contains:
-      | Revised Commitment: value outside of valid range on numeric field: 20000000000000000.30 |
+      | Value                | Field                      |
+      | 20000000000000000.30 | RequestedChangeInBudget__c |
+    Then I softly see label "Revised Commitment" maximum length is "19" for input field
     #256838
     When I enter values into fields
       | Value | Field                |
@@ -24204,11 +24193,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #257532
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value                         | Field                      |
-      | {AUTOEnvData:StringOf18Chars} | RequestedChangeInBudget__c |
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see field "New Obligation" as "{AUTOEnvData:StringOf18Chars}"
+      | Value                | Field                      |
+      | 20000000000000000.30 | RequestedChangeInBudget__c |
+    Then I softly see label "New Obligation" maximum length is "19" for input field
 
   @257862 @257907 @257912 @ValidateusercanseeanewsectionofBudgetSummaryinsteadofFundingChangeontheamendmentrequestwhichiscreatedFAYes @sprint-19-US-247769  @Allocation
   Scenario: Validate user can see a new section of "Budget Summary" instead of "Funding Change" on the amendment request which is created (FA Yes)
