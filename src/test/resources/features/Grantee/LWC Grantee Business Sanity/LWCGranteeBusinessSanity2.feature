@@ -709,7 +709,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
-  @474697 @CFVerifyPOuseAROwnercanabletoSubmitARforApproval&Approvedfromassigned4stepapprover&candoSendtoOwner/Forward/Approveactions&seeSubmittoGrantorbuttononceApprovedtheBPCARRecord @TBE1
+  @474697 @CFVerifyPOuseAROwnercanabletoSubmitARforApproval&Approvedfromassigned4stepapprover&candoSendtoOwner/Forward/Approveactions&seeSubmittoGrantorbuttononceApprovedtheBPCARRecord @P2_Grantee @PO_Grantee @GRegression2
   Scenario:CF - Verify PO user (AR Owner) can able to Submit AR for Approval & Approved from assigned 4 step approver & can do Send to Owner/ Forward/ Approve actions & see 'Submit to Grantor' button once Approved the BPC AR Record
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"

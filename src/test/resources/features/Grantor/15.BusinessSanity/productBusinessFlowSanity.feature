@@ -4478,3 +4478,101 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     Then I see the header is "Subrecipient Organization" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime Organization}" in the page details
+    #Create Secondary User
+    And I click on top right button "New" in flex table with id "---home:-:userContactsTableId---"
+    And I enter "Secondary_User" values from "SubrecipientOrganization_Field_Values.xlsx"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "fieldEmail"
+    When I click on "Save" in the page details
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "2" seconds
+    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} User" inside flex table with id "---home:-:userContactsTableId---" without waiting for record
+    And I click "Send" button in modal
+    Then I softly see the following messages in the page details :
+      | Email Sent Successfully. |
+    When I click modal button "Ok"
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
+    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Notification: You have been Invited to Register in the"
+    When I click on "Agree" in the page details
+    When I click on "Agree" in the page details
+    And I click on "Save" in the page details
+    When I click on "Submit" in the page details
+    And I pause execution for "5" seconds
+    Then I softly see the following messages in the page details contains:
+      | Confirmation Message |
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
+    And I click on mail with subject "Sandbox: Welcome to GovGrants 3.0 Recipient Portal"
+    And I navigate to reset password link
+    Then I set password for the user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    Then I see the header is "Subrecipient Organization" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime} User" in the page details
+
+  @IndividualRegistration @ProdSan4
+  Scenario: Scenario for Individual registration
+    Given I begin "Individual" registration as "Register As Individual"
+    When I click on "Agree" in the page details
+    When I click on "Agree" in the page details
+    And I generate the random SSN and save as "SSN"
+    When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
+    And I generate the random maildropEmail and save as "uniqueEmailID"
+    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
+    When I enter value as "1234" into "Vendor ID" on old form
+    When I click on "Save" in the page details
+    And I enter "Individual_PrimaryDetails" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "Yes" into field "SameAsOrganizationAddress__c"
+    When I click on "Save" in the page details
+    When I click on "Submit" in the page details
+    And I pause execution for "5" seconds
+    And I am on "INTERNAL" portal
+    And I login to "As a Grantor" app as "dynamicUser" user
+    When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
+    When I perform quick search for "{SavedValue:uniqueEmailID}" in "{grantor_tableId:SubrecipientIndRegistration}" panel
+    When I click on "Start" icon for "{SavedValue:uniqueEmailID}" inside flex table with id "{grantor_tableId:SubrecipientIndRegistration}"
+    And I "Approve" in the approval decision
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
+    And I click on mail with subject "Sandbox: Welcome to GovGrants 3.0 Recipient Portal"
+    And I navigate to reset password link
+    Then I set password for the user
+    And I navigate to "Home" tab
+    When I navigate to "Individual Profile" content inside "Organization" subheader on left panel
+    Then I see the header is "Individual Subrecipient" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime} User" in the page details
+
+  @SMEreviewerFlowSanity @ProdSan4
+  Scenario: Scenario for SME reviewer
+    Given I login to "As a Grantor" app as "EXE" user
+    When I navigate to "Home" tab
+    And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
+    When I click on top right button "New" in flex table with id "---home:-:reviewersTableId---"
+    And I enter "Creation" values from "PotentialReviewersContact_Field_Values.xlsx"
+    And I generate the random maildropEmail and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
+    When I click modal button "Save"
+    And I wait for "2" seconds
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
+    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
+    And I click "Send" button in modal
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details :
+      | Email Sent Successfully. |
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
+    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Notification: You have been Invited to Register in the"
+    When I click on "Agree" in the page details
+    When I click on "Agree" in the page details
+    And I enter "Edition" values from "PotentialReviewersContact_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I click on "Submit" in the page details
+    And I pause execution for "5" seconds
+    Then I see the following messages in the page details contains:
+      | Confirmation Message |
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
+    And I click on mail with subject "Sandbox: Welcome to GovGrants 3.0 Recipient Portal"
+    And I navigate to reset password link
+    Then I set password for the user
+    And I navigate to "Home" tab
+    And I select "My Profile" from user dropdown
+    Then I see the header is "{SavedValue:Automation Runtime} Contact" in the page details

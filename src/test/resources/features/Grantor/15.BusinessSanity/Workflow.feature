@@ -1722,21 +1722,8 @@ Feature: Validate all scenarios of every modules flow
     
   @debug
   Scenario:
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/AmendmentRequest__c/a1YDV000003FYES2A4/view?0.source=alohaHeader"
-    And I halt execution
-    And I navigate to "History" sub tab
-    And I click on hyperlink containing value "Amendment Submit for Approval.pdf"
-    And I click on "Download" button for snapshot view
-    And I switch to parent tab
-    And I wait for "2" seconds
-    And I click on "Close" button for view files page
-    And I refresh the page
-    And I wait for "2" seconds
-    When I download the file
-    And I wait for "5" seconds
-    Then I softly see "CR-AD--3316-00" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+    And I checkout to maildrop with mailid "automationruntime11364@maildrop.cc"
+    And I navigate to maildrop portal for "automationruntime11364@maildrop.cc" with subject "Sandbox: Notification: You have been Invited to Register in the"
     And I halt execution
 
   @testCheck
@@ -1794,3 +1781,4 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
+
