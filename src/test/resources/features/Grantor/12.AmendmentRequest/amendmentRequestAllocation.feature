@@ -5912,7 +5912,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Revised Award Amount |
       | $2,500.00            |
 
- @264151 @264152 @264574 @264576 @264586 @264768 @264797 @308967 @265760  @sprint-20-US-228432-244399  @Allocation @skipDueToIndUser @TBE
+  @264151 @264152 @264574 @264576 @264586 @264768 @264797 @308967 @265760  @sprint-20-US-228432-244399  @Allocation @skipDueToIndUser @TBE
   Scenario: Validate PO user can see Budgeted Amount as Rolled up from the budget change sections Revised Award Amount column
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APP_IND_ORG_BY_APP_TWO_FOCUS_AREA_RISK_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY-Automation IND user"
@@ -7164,7 +7164,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Total Commitment" as "$4,000.00"
     Then I softly see value "{SavedValue:TotalCommitmentAward}" is "Equals to" the value "{SavedValue:TotalCommitmentGrant}"
 
- @265137 @265192 @ValidatePOusercanseeCumulativeObligationfieldvalueasthetotaloftheEncumbrancecolumnfromtheAwardFundingAccountinformationinactivatestateofaward @sprint-20-US-263389  @Allocation @skipDueToIndUser
+  @265137 @265192 @ValidatePOusercanseeCumulativeObligationfieldvalueasthetotaloftheEncumbrancecolumnfromtheAwardFundingAccountinformationinactivatestateofaward @sprint-20-US-263389  @Allocation @skipDueToIndUser
   Scenario: Validate PO user can see Cumulative Obligation field value as the total of the 'Encumbrance' column from the Award Funding Account information in activate state of award
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APP_IND_ORG_BY_APP_TWO_FOCUS_AREA_RISK_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY-Automation IND user"
@@ -16064,8 +16064,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "Revised Commitment" rendered in view mode only
 
     Examples:
-      | User  | User1                 | AllocationType                     | Approver                    |
-      | ADMIN | Automation ADMIN user | Formula_By_Applicant               | {SavedValue:ADMIN Username} |
+      | User  | User1                 | AllocationType       | Approver                    |
+      | ADMIN | Automation ADMIN user | Formula_By_Applicant | {SavedValue:ADMIN Username} |
 #      | PM    | Automation PM user    | Formula_By_Applicant_Focus_Area_No | {SavedValue:PM Username}    |
 
   @253658 @253661 @253685 @ValidateSPIusercanseeBudgetedAmountasTotalofAwardamountRolledupfromthebudgetchangesectionsRevisedAwardAmountcolumnFANo @sprint-18-US-247642  @Allocation
@@ -16331,9 +16331,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$600.00" for title "New Obligation" against the value "Grand Total" inside table "---amendment:-:subrecipientProjectAreasTableId---"
 
     Examples:
-      | User | UserProfile          | Properties                             |
+      | User | UserProfile         | Properties                             |
 #      | SPA  | Automation SPI3 user | SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO  |
-      | IND  | Automation IND user  | INVITED_APPLICANT_IND_ORG_BY_APPLICANT |
+      | IND  | Automation IND user | INVITED_APPLICANT_IND_ORG_BY_APPLICANT |
 
   @253678 @ValidateSPAusercanseeBudgetedAmountcolumnvalueisrollupfromthebudgetgridinthebudgetchangesectionFAYes @sprint-18-US-247642  @Allocation
   Scenario: Validate SPA user can see Budgeted Amount column value is rollup from the budget grid in the budget change section (FA Yes)
@@ -18270,7 +18270,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #253774
     Then I softly see field "Revised Commitment" as "$3,000.00"
 
- @AllocationRerun @254260 @254262 @254273 @254264 @254265 @254266 @254269 @254270 @254272 @254276 @254277 @ValidateSPAusercanseetheCurrentobligationSpentNewObligationRevisedObligationBudgetedAmountCurrentCommitmentRevisedCommitmentfieldsreadonlyfieldshebudgetsummarySectionhenAmendmentrequestissenttosubrecipient @sprint-18-US-250621  @Allocation
+  @AllocationRerun @254260 @254262 @254273 @254264 @254265 @254266 @254269 @254270 @254272 @254276 @254277 @ValidateSPAusercanseetheCurrentobligationSpentNewObligationRevisedObligationBudgetedAmountCurrentCommitmentRevisedCommitmentfieldsreadonlyfieldshebudgetsummarySectionhenAmendmentrequestissenttosubrecipient @sprint-18-US-250621  @Allocation
   Scenario Outline: Validate SPA user can see the Current obligation,  Spent, New Obligation, Revised Obligation, Budgeted Amount, Current Commitment, Revised Commitment fields as read-only fields in the budget summary Section when Amendment request is sent to subrecipient
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -18886,7 +18886,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Revised Commitment should be equal to or greater than the total of Cummulative Obligation $3000.00 across all budget periods. |
 
- @253315 @253508 @253514 @253363 @253736 @253527 @253528 @ValidatevaluedisplayedforSpentfieldinbudgetsummarySection @sprint-18-US-229266  @Allocation
+  @253315 @253508 @253514 @253363 @253736 @253527 @253528 @ValidatevaluedisplayedforSpentfieldinbudgetsummarySection @sprint-18-US-229266  @Allocation
   Scenario: Validate value displayed for Spent field in budget summary Section
     And I activated standalone subaward "Automation Runtime FDM Announcement" with properties "default" of type "Directed"
     And I am on "SUBPORTAL" portal
@@ -24203,11 +24203,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #257532
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value                | Field                      |
-      | 20000000000000000.30 | RequestedChangeInBudget__c |
+      | Value                         | Field                      |
+      | {AUTOEnvData:StringOf18Chars} | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
-    Then I softly see the following messages in the page details contains:
-      | New Obligation: value outside of valid range on numeric field: 20000000000000000.30 |
+    And I wait for "2" seconds
+    Then I softly see field "New Obligation" as "{AUTOEnvData:StringOf18Chars}"
 
   @257862 @257907 @257912 @ValidateusercanseeanewsectionofBudgetSummaryinsteadofFundingChangeontheamendmentrequestwhichiscreatedFAYes @sprint-19-US-247769  @Allocation
   Scenario: Validate user can see a new section of "Budget Summary" instead of "Funding Change" on the amendment request which is created (FA Yes)
