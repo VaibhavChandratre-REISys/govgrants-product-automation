@@ -5457,6 +5457,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
     And I save the field labeled "Budget Period End Date" as "BudgetPeriodDate"
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -12909,6 +12910,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "2" seconds
     Then I softly see value "($1,000.00)" for title "New Obligation" against the value "Automation Permanent Focus Area" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "($1,000.00)" for title "New Obligation" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:projectAreasTableId---"
+    And I refresh the page
+    And I wait for "2" seconds
     #249139
     Then I softly see field "New Obligation" as "($2,000.00)"
     Then I softly see field "Current Obligation" as "$1,000.00"
