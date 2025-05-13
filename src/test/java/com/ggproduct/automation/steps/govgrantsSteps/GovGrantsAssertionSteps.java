@@ -907,7 +907,7 @@ public final class GovGrantsAssertionSteps {
         ggAssertionObjects.assertDefaultToggleAs(usage, defaultToggle, tableId);
     }
 
-    @Then("I softly see label {string} maximum length is {string} for input field")
+    @Then("I (softly see|see|do not see|softly do not see) label \"([^\"]*)\" maximum length is \"([^\"]*)\" for input field$")
     public void iSoftlySeeLabelMaximumLengthIsForInputField(String usage, String labelName, String length) {
         ggAssertionObjects.assertLabelMaximumLengthIsForInputField(usage, labelName, length);
     }
