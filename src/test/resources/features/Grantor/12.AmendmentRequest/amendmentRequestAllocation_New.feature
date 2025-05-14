@@ -10057,6 +10057,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Award Amount |
       | $500.00      |
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     #269858
     Then I softly see field "Total Commitment" as "$1,000.00"
