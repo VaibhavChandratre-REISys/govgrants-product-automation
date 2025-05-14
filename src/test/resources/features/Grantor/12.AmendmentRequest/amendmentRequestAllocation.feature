@@ -5194,6 +5194,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Value                | Field                      |
       | 20000000000000000.30 | RequestedChangeInBudget__c |
     Then I softly see label "New Obligation" maximum length is "19" for input field
+    And I clear the value from field "RequestedChangeInBudget__c"
     When I enter values into fields
       | Value | Field                      |
       | 10000 | RequestedChangeInBudget__c |
@@ -5204,6 +5205,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Value                | Field                      |
       | 20000000000000000.30 | RequestedChangeInBudget__c |
     Then I softly see label "Revised Commitment" maximum length is "19" for input field
+    And I clear the value from field "RequestedChangeInBudget__c"
     #256838
     When I enter values into fields
       | Value | Field                |

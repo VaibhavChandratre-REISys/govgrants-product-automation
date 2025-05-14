@@ -18473,6 +18473,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$600.00" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
     Then I softly see value "{SavedValue:EncumbranceAmend}" is "Equals to" the value "{SavedValue:EncumbrancePendAwd2}"
     When I navigate to "Actuals" sub tab
+    And I wait for "2" seconds
     #271733
     Then I softly see field "Cumulative Obligation" as "$600.00"
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationPendActAwd"
