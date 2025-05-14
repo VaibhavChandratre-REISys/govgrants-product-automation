@@ -7603,7 +7603,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
     When I perform quick search for "{SavedValue:ActivatedSubAwardId}" in "---amendment:-:recipientsSubawardTableId---" panel
-    And I click on "View" icon for "{SavedValue:ActivatedSubAwardId}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
+    And I wait for "2" seconds
+    And I click on "View" icon for "{SavedValue:ActivatedSubAwardId}" inside flex table with id "---amendment:-:recipientsSubawardTableId---"
     And I navigate to "Budget" sub tab
     Then I softly see field "Cumulative Obligation" as "$2,000.00"
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligation"
@@ -7670,6 +7671,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "ActivatedSubAwardId1"
     #265110
     And I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     And I save the field labeled "New Obligation" as "newObligationAward3"
     Then I softly see field "New Obligation" as "$700.00"
     Then I softly see value "{SavedValue:Difference}" is "Equals to" the value "{SavedValue:newObligationAward3}"
@@ -7693,6 +7695,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on page navigation arrow "---subAwardStandAlone:-:subAwardBudgetTableId---" for table id "Next"
     Then I softly see value "$1,500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I refresh the page
+    And I wait for "2" seconds
     And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "All"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" :
       | Award Amount |
@@ -7707,7 +7710,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---paymentRequest:-:recipientGrantTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+    And I wait for "2" seconds
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:ActivatedSubAwardId1}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
@@ -7809,7 +7813,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---paymentRequest:-:recipientGrantTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---"
     #265230
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
     When I navigate to "Budget" sub tab
@@ -7843,6 +7847,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly cannot see field "Budgeted Amount" inside page block
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     And I click "{SavedValue:GrantId}" lookup link
+    And I wait for "2" seconds
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:ActivatedSubAwardId1}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
