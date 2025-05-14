@@ -17510,6 +17510,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Award Amount |
       | $1,000.00    |
     When I navigate to "Actuals" sub tab
+    And I wait for "2" seconds
     #272556
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationPendAwdPaySummSR"
@@ -18631,6 +18632,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly do not see field "Budgeted Amount" inside "Budget Summary" section
     #271819
     And I navigate to "Budget" sub tab
+    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     Then I softly see value "$300.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     And I click on page navigation arrow "---subAwardStandAlone:-:sRBudgetCategoryTableId---" for table id "Next"
     Then I softly see value "$300.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
