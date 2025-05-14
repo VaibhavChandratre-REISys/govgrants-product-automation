@@ -24609,12 +24609,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter values into fields
       | Value                | Field                      |
       | 20000000000000000.30 | RequestedChangeInBudget__c |
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
     #257081
-    Then I softly see the following messages in the page details contains:
-      | New Obligation: value outside of valid range on numeric field: 20000000000000000.30 |
+    Then I softly see label "New Obligation" maximum length is "19" for input field
     #257080
+    And I clear the value from field "RequestedChangeInBudget__c"
     When I enter values into fields
       | Value | Field                      |
       | 10000 | RequestedChangeInBudget__c |
