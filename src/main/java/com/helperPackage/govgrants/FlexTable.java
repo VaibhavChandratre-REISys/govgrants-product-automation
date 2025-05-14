@@ -917,12 +917,11 @@ public final class FlexTable implements FlexTableComponent {
         if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//lightning-input[contains(@id,'combobox-id')]//input[@type='text' or @placeholder='Select an Option'] | .//lightning-input//input[@type='text' and @placeholder='Select an Option']")).size() > 0) {
             By inputBoxSelector = By.xpath(".//lightning-input[contains(@id,'combobox-id')]//input[@type='text' and @placeholder='Select an Option'] | .//lightning-input//input[@type='text' or @placeholder='Select an Option'] | .//textarea");
             WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
-//                I.amPerforming().scroll().onPageToSpecificElement(inputBox);
             I.amPerforming().click().withJavaScript(inputBox);
             By selectText = By.xpath("//ul/li//span[text()='" + fieldValue + "']");
             I.amPerforming().textInput().toClear(inputBox);
             I.amPerforming().textInput().in(inputBox, fieldValue);
-//                            I.amPerforming().scroll().withMouseToElement(inputBox);
+                  I.amPerforming().scroll().withMouseToElement(inputBox);
             I.amPerforming().click().on(inputBox);
             if (I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
                 try {
