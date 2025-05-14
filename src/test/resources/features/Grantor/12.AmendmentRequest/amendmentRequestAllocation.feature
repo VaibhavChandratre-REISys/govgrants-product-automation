@@ -5202,10 +5202,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #256842
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value                | Field                      |
-      | 20000000000000000.30 | RequestedChangeInBudget__c |
+      | Value                | Field                |
+      | 20000000000000000.30 | RevisedCommitment__c |
     Then I softly see label "Revised Commitment" maximum length is "19" for input field
-    And I clear the value from field "RequestedChangeInBudget__c"
+    And I clear the value from field "RevisedCommitment__c"
     #256838
     When I enter values into fields
       | Value | Field                |
