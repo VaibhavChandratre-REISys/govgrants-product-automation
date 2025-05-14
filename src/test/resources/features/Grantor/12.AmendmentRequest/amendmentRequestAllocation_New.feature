@@ -2983,8 +2983,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection. |
     And I pause execution for "5" seconds
     And I refresh the page
-#    And I click on parallel menu button in flex table title "Budget Change"
-#    And I select "Reset Table" from parallel lines dropdown of "Budget Change"
     And I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     When I edit the following rows inline in flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" by clicking "Edit" :
       | Title        | Narrative     | Award Amount |
@@ -3004,7 +3002,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see "Award Amount" in flex table header "---amendment:-:AddLineItemForBudgetChangeTableId---"
     Then I softly see "Prior Award Amount" in flex table header "---amendment:-:AddLineItemForBudgetChangeTableId---"
     And I click modal button "Close"
-    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
+#    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
 #    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
     Then I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:grantorBudgetChangeTableId---"
     Then I softly see "Award Amount" in flex table header "---amendment:-:AddLineItemForBudgetChangeTableId---"
