@@ -2529,7 +2529,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @60880 @validateFiscalApprovercannotApproveProgressReportWhenFinalprogressreportAlreadyApproved
+  @60880 @validateFiscalApprovercannotApproveProgressReportWhenFinalprogressreportAlreadyApproved @BugExecution
   Scenario Outline: Validate Fiscal Approver cannot Approve the Progress report when Final progress report request is already approved
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal

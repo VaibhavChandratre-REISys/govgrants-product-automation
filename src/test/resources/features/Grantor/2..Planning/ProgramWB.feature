@@ -2024,7 +2024,6 @@ Feature: Validate all scenarios for program
       The EGMS Team
       """
 
-
   @198790  @sprint-4  @reassignment
   Scenario: Validate newly assigned owner PM receives an email after internal program is sent to owner during approvals when ownership is transferred before post program is Reviewed
     When I login to "As a Grantor" app as "PM1" user
@@ -8321,3 +8320,27 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Active"
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "---program:-:programCollabMessagesTableId---"
+
+  @ValidateNewButtonForContactSection @BugExecution
+  Scenario: Validate New Button functio ality on contact section
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+    When I enter "Creation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "Program_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    When I navigate to "Overview" sub tab
+    And I click on top right button "New" in flex table with id "---program:-:contactsTableId---"
+    And I wait for "2" seconds
+    Then I softly see "Create Contact" opens in overLay window
+    Then I softly see field on modal "Title" inside page block
+    Then I softly see field on modal "First Name" inside page block
+    Then I softly see field on modal "Last Name" inside page block
+    Then I softly see field on modal "Email" inside page block
+    Then I softly see field on modal "Mobile Phone" inside page block
+    Then I softly see field on modal "Office Phone" inside page block
+    Then I softly see field on modal "Project Role" inside page block
