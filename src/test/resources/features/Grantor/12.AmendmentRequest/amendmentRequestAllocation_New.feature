@@ -7629,8 +7629,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Budget Category | Carry Forward |
       | Construction    | 500           |
     And I refresh the page
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1200                 | 120        | 0              |
@@ -11421,9 +11422,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:SpentAwd1}" is "Equals to" the value "{SavedValue:SpentActAwdPaySumm}"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
     #269647
     When I navigate to "Actuals" sub tab
+    And I wait for "2" seconds
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationPaySummGrant"
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
     Then I softly see value "{SavedValue:CumulativeObligationPaySummAwd1}" is "Equals to" the value "{SavedValue:CumulativeObligationPaySummGrant}"
@@ -11440,6 +11443,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
     #269647
     When I navigate to "Actuals" sub tab
+    And I wait for "2" seconds
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationPaySummGrantSr"
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
     Then I softly see value "{SavedValue:CumulativeObligationPaySummAwd1}" is "Equals to" the value "{SavedValue:CumulativeObligationPaySummGrantSr}"
@@ -11456,6 +11460,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
     #269630
     When I navigate to "Actuals" sub tab
+    And I wait for "2" seconds
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationPaySummActAwd2Sr"
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
     Then I softly see value "{SavedValue:CumulativeObligationPaySummAwd1}" is "Equals to" the value "{SavedValue:CumulativeObligationPaySummActAwd2Sr}"
