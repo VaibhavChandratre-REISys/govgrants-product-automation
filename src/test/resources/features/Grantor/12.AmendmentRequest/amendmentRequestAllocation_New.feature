@@ -2302,6 +2302,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
     When I perform quick search for "{SavedValue:ActivatedSubAwardId1}" in "---amendment:-:recipientsSubawardTableId---" panel
+    And I wait for "1" seconds
     And I click on "View" icon for "{SavedValue:ActivatedSubAwardId1}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
