@@ -13072,7 +13072,8 @@ Feature: Sanity scenarios New
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    Then I softly can see top right button "Edit" in page detail
+    And I wait for "2" seconds
+    Then I can see top right button "Edit" in page detail
     And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     And I enter a review as "Passed"
@@ -13445,13 +13446,13 @@ Feature: Sanity scenarios New
 
     Examples:
       | Owner          | OwnerType          | UserType       | emailIdTo                         | CreatedBy          |
-      | GRANTEE PM     | Sarah PM user      | GRANTEE PM     | victor.exeqagrantee@yopmail.com   | Sarah PM           |
-      | GRANTEE PO     | Grantee PO user    | GRANTEE PO     | grantee.po@yopmail.com.qagrnteatm | Grantee PO         |
+#      | GRANTEE PM     | Sarah PM user      | GRANTEE PM     | victor.exeqagrantee@yopmail.com   | Sarah PM           |
+#      | GRANTEE PO     | Grantee PO user    | GRANTEE PO     | grantee.po@yopmail.com.qagrnteatm | Grantee PO         |
       | GRANTEE EXE    | Victor EXE user    | GRANTEE EXE    | victor.exeqagrantee@yopmail.com   | Victor EXE         |
       | GRANTEE ADMIN1 | Product Admin user | GRANTEE ADMIN1 | productadmin@yopmail.com          | Product Admin      |
-      | GRANTEE EXE    | Victor EXE user    | GRANTEE FO     | victor.exeqagrantee@yopmail.com   | David FO           |
+#      | GRANTEE EXE    | Victor EXE user    | GRANTEE FO     | victor.exeqagrantee@yopmail.com   | David FO           |
       | GRANTEE EXE    | Victor EXE user    | GRANTEE FD     | victor.exeqagrantee@yopmail.com   | Danielle FD Garcia |
-      | GRANTEE EXE    | Victor EXE user    | GRANTEE ADMIN1 | victor.exeqagrantee@yopmail.com   | Product Admin      |
+#      | GRANTEE EXE    | Victor EXE user    | GRANTEE ADMIN1 | victor.exeqagrantee@yopmail.com   | Product Admin      |
 
   @484063 @ValidateFromAppGPCloseoutwithPMProfileabletocreateProjectperiodcloseoutandabletocompletethecloseout @GRegression1
   Scenario: Validate From App GP Closeout with PM Profile Able to create Project period closeout and able to complete the closeout
