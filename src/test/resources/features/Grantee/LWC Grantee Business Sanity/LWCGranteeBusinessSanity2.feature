@@ -3115,7 +3115,7 @@ Feature: Sanity scenarios
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I wait for "5" seconds
     When I click on notification icon
-    And I wait for "5" seconds
+    And I wait for "8" seconds
     Then I softly see notification "Grantee PO assigned you a task" contains "Review Amendment Request #{SavedValue:Automation Runtime Award} for Department of Product"
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
