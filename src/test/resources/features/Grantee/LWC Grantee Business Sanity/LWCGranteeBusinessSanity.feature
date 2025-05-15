@@ -3742,8 +3742,8 @@ Feature: Sanity scenarios
     Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Closed" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
-    When I perform quick search for "Rejected" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Rejected" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Amended" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Reviewed" in "---grantee_tableId:-:awardTableId---" panel
