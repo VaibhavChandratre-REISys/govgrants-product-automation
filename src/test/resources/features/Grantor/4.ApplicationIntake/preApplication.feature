@@ -236,7 +236,7 @@ Feature: Validate all scenarios in the Pre-Application
     Then I softly see the following messages in the page details :
       | Overview Tab - Enter an Acknowledgement before submitting this Pre-Application. |
 
-  @70523 @snapshotAfterPreApplicationIsSubmitted  @skipOnJenkins
+  @70523 @snapshotAfterPreApplicationIsSubmitted  @skipOnJenkins @snapExecution
   Scenario:  Validate SR user is able to view the Snapshot after Pre- Application is Submitted to Grantor status
     Given I click on "Edit" in the page details
     And I wait for "5" seconds

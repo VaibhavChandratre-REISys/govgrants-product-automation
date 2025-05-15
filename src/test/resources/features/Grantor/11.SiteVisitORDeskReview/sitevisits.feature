@@ -936,7 +936,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on hyperlink containing value "View All"
     Then I softly see value "In Progress" for title "New Value" inside field history table
 
-  @60833 @theSnapshotAfterSiteVisitsIsSendToSubrecipient 
+  @60833 @theSnapshotAfterSiteVisitsIsSendToSubrecipient @snapExecution
   Scenario: Validate whether record Owner is able to view the Snapshot after Site Visits Send to Subrecipient
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1009,7 +1009,7 @@ Feature: Validate all scenarios in the Site Visit
     And I wait for "3" seconds
     Then I see "Sent to Subrecipient" on page "1" of "govgrants" pdf file
 
-  @60832 @65385 @75868 @theSnapshotAfterSubmitForApproval 
+  @60832 @65385 @75868 @theSnapshotAfterSubmitForApproval @snapExecution
   Scenario: Validate whether record Owner is able to view the Snapshot after Site Visits Accepted and Closed | Also whether the Subrecipient can view the site viist that is accepted and closed by record owner
   Validate whether external user will receive an email notification when Site Visit is accepted and closed.
     Given I navigate to "Responsibilities" sub tab

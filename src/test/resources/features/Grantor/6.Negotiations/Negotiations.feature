@@ -727,7 +727,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see value "Automation.pdf" for title "Title" inside table "GrantorApplicationFiles"
     Then I softly see value "Suspension" for title "Classification" inside table "GrantorApplicationFiles"
 
-  @62667 @RecordOwnerCanViewSnapshotAfterNegotiationIsInSubmittedToGrantor  @skipOnJenkins
+  @62667 @RecordOwnerCanViewSnapshotAfterNegotiationIsInSubmittedToGrantor  @skipOnJenkins @snapExecution
   Scenario: Validate Record Owner user is able to view the Snapshot after Negotiation  is in "Submitted to Grantor" status
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab

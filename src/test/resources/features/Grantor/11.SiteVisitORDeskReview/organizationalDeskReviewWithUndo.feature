@@ -617,14 +617,12 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     The EGMS Team
     """
 
-  @296068 @296094 @VerifythatafterEXEuserclickonUndobuttonAllthetablesofOrganizationalDeskReviewwillnotgetaffected @sprint-4-US-288692  @Undo
+  @296068 @296094 @VerifythatafterEXEuserclickonUndobuttonAllthetablesofOrganizationalDeskReviewwillnotgetaffected @sprint-4-US-288692  @Undo @snapExecution
   Scenario:Verify that after EXE user click on Undo button All the tables of Organizational Desk Review will not get affected
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    When I click on "Approved Date" column header inside table with id "ActiveAccount"
-    When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"

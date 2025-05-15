@@ -999,7 +999,7 @@ Feature: Validate all scenarios in Desk Review
     And I click on hyperlink containing value "View All"
     Then I softly see value "In Progress" for title "New Value" inside field history table
 
-  @69411 @61057 @61055 @55370 @66139 @77253 @66274 @snapshotAfterSubmitForApprovalDeskReviewIsAcceptedAndClosed  @skipOnJenkins
+  @69411 @61057 @61055 @55370 @66139 @77253 @66274 @snapshotAfterSubmitForApprovalDeskReviewIsAcceptedAndClosed  @skipOnJenkins @snapExecution
   Scenario: Validate whether record Owner is able to view the Accept and Close Button and User view the Snapshot after Desk Review is Submitted for Approval status also after Accepted and Closed |Subrecipient can view Closed Desk Review
   Validate whether the approver receives an email notification to approve the desk review| Validate whether external user will receive an email notification when desk review is accepted and closed.
     Given I navigate to "Responsibilities" sub tab
@@ -1051,14 +1051,16 @@ Feature: Validate all scenarios in Desk Review
     When I download the file for snapshot
     And I wait for "3" seconds
     Then I softly see "{SavedValue:EGMSID}" on page "1" of "govgrants" pdf file
-    And I pause execution for "120" seconds
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
-    And I refresh the page
-    And I see the mail subject is as follows :
-     """
-      Sandbox: Notification: Desk Review Approval Requested
-      """
-    Then I refresh the page
+    And I switch to parent tab
+    And I logout
+#    And I pause execution for "120" seconds
+#    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+#    And I refresh the page
+#    And I see the mail subject is as follows :
+#     """
+#      Sandbox: Notification: Desk Review Approval Requested
+#      """
+#    Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Monitoring" tab

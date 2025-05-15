@@ -1362,7 +1362,7 @@ Feature: Application Intake scenarios without background
     Then I softly see the following messages in the page details contains:
       | An Application cannot be submitted after the Application Due Date. |
 
-  @77657 @snapshotHistoryApplication
+  @77657 @snapshotHistoryApplication @snapExecution
   Scenario: Validate whether SPI user will be able to take the snapshot on page when the Application is in Created status and is saved under snapshot history
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal

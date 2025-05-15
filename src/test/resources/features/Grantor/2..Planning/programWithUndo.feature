@@ -1578,7 +1578,7 @@ Feature: Validate all scenarios for program
     And I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
 
-  @299539 @Verifyhesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-25-US-295138  @Undo
+  @299539 @Verifyhesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-25-US-295138  @Undo @snapExecution
   Scenario: Verify the snapshot is generated in snapshot history section when last approver click undo action
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2855,7 +2855,7 @@ Feature: Validate all scenarios for program
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
 
-  @300299 @ExternalProgVerifythesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-5-US-299190  @Undo
+  @300299 @ExternalProgVerifythesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-5-US-299190  @Undo @snapExecution
   Scenario: External Prog_ Verify the snapshot is generated in snapshot history section when last approver click undo action
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3044,7 +3044,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     Then I softly see field "Status" as "Approved"
 
-  @312499 @312505 @ValidateInternalProgIseeIcaneditandupdatethefiledwhenundoisinprogress @Undo
+  @312499 @312505 @ValidateInternalProgIseeIcaneditandupdatethefiledwhenundoisinprogress @Undo @snapExecution
   Scenario: Validate Internal Prog I see I can edit and update the filed when undo is in progress
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab

@@ -3014,7 +3014,7 @@ Feature: Sanity scenarios
     Then I see "Delete" button name inside post dropdown
     Then I see "Bookmark" button name inside post dropdown
 
-  @443801 @476534 @476537 @ValidateGrantwithEXEProfileabletocreatedirectgrantandseealltabsandsection
+  @443801 @476534 @476537 @ValidateGrantwithEXEProfileabletocreatedirectgrantandseealltabsandsection @snapExecution
   Scenario Outline: Validate Grant with EXE Profile able to create direct grant and see all tabs and section
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -3023,17 +3023,17 @@ Feature: Sanity scenarios
     Then I softly see "Create Grant" opens in overLay window
     When I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Grant Title is required to save.               |
-      | Grant Abbreviation is required to save.        |
-      | Grant Number is required to save.              |
-      | Project Period Start Date is required to save. |
-      | Project Period End Date is required to save.   |
-      | Budget Type is required to save.               |
-      | Total Anticipated Amount is required to save.  |
-      | Grant Type is required to save.                |
-      | Funding Organization is required to save.      |
-      | Allow Indirect Costs? is required to save.     |
-      | Match is Required? is required to save.        |
+      | To Save, Grant Title is required.               |
+      | To Save, Grant Abbreviation is required.        |
+      | To Save, Grant Number is required.              |
+      | To Save, Project Period Start Date is required. |
+      | To Save, Project Period End Date is required.   |
+      | To Save, Budget Type is required.               |
+      | To Save, Total Anticipated Amount is required.  |
+      | To Save, Grant Type is required.                |
+      | To Save, Funding Organization is required.      |
+      | To Save, Allow Indirect Costs? is required.     |
+      | To Save, Match is Required? is required.        |
     And I enter "Grantee_Grant_Setting_No" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     Then I see the header is "Grant" in the page details
@@ -3044,7 +3044,7 @@ Feature: Sanity scenarios
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | UEI Number is required to save under Overview. |
+      | To Save, UEI Number is required in the Overview tab under the General Information section. |
     And I navigate to "Overview" sub tab
     When I enter value "<UEI>" into field "DUNS__c"
     When I click on "Cancel" in the page details without processing
@@ -3479,7 +3479,7 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:grantKPITableId---"
     Then I softly cannot see "Closeout" sub tab at view detail page
 
-  @443802 @ValidateGrantwithnonownerabletoseeonlyviewaction
+  @443802 @ValidateGrantwithnonownerabletoseeonlyviewaction @snapExecution
   Scenario: Validate Grant with non owner able to see only view action
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
