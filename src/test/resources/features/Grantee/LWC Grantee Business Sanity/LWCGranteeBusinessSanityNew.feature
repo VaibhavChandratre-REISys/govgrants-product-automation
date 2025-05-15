@@ -12850,7 +12850,7 @@ Feature: Sanity scenarios New
   Scenario Outline: Budget Redirection AR- EXE user should able to activate new award through BR AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<OwnerType>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
-    When I login to "As a Grantee" app as "<UserType>" user
+    When I login to "As a Grantee" app as "<Owner>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -12865,6 +12865,7 @@ Feature: Sanity scenarios New
     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
     When I click modal button "Close"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
