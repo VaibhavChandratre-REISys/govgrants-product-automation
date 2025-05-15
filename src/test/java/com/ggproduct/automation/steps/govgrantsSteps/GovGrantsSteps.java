@@ -799,6 +799,17 @@ public final class GovGrantsSteps {
         I.amPerforming().waitFor().makeThreadSleep(2000);
     }
 
+    @Description("This will download the file using javascript for snapshot")
+    @When("I download the file for snapshot")
+    public void iDownloadTheFileForSnapshot() {
+        I.amPerforming().fileHandling().DownloadAnyFilefromTabForSnapshot();
+        File targetDir = new File(System.getProperty("user.dir") + File.separator + "target");
+        I.amPerforming().waitFor().makeThreadSleep(7000);
+        I.amPerforming().fileHandling().toRenameFileWithSpecificExtension(targetDir, "govgrant", "pdf", "pdf");
+        I.amPerforming().waitFor().makeThreadSleep(2000);
+    }
+
+
     @Description("Click on Burger Icon present or enhanced view in flex table top right corner")
     @And("I click on (enhanced view|parallel menu) button in flex table title \"([^\"]*)\"$")
     public void iClickOnParallelMenuButtonInFlexTableTitled(String usage, String flexTableTitle) {

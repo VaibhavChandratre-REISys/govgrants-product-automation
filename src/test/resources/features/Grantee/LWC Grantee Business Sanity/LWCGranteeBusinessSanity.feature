@@ -3624,7 +3624,7 @@ Feature: Sanity scenarios
 #    And I download the file
 #    Then I softly see "Awards - All" on page "1" of "govgrants" pdf file
 #    And I close the tab
-    When I click on parallel lines menu bar with data target value "Awards - All"
+#    When I click on parallel lines menu bar with data target value "Awards - All"
     And I select "Refresh" from parallel lines dropdown of "Awards - All"
     Then I see table is refreshing
     And I click toggle button to select "Awards - Draft"

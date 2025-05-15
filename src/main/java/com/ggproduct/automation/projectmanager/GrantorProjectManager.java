@@ -209,21 +209,34 @@ public class GrantorProjectManager extends ProjectManager {
     /**
      * Method to delete the give file
      *
-     * @param partialFileName
+     * @param isPartialMatch
      * @param fileName
      * @author komal.mukhekar
      */
-    public void deleteGivenFile(boolean partialFileName, String fileName) {
-        File file = new File(System.getProperty("user.dir") + File.separatorChar + "target");
-        File[] directory = I.amPerforming().fileHandling().toGetCompleteFilesListOnLocalDirectory(file.getAbsolutePath());
-        for (File files : directory) {
-            if (partialFileName && files.getName().contains(fileName)) {
-                files.delete();
-            } else if (files.getName().equalsIgnoreCase(fileName)) {
-                files.delete();
+    public void deleteGivenFile(boolean isPartialMatch, String fileName) {
+        File directory = new File(System.getProperty("user.dir") + File.separator + "target");
+
+        if (!directory.exists() || !directory.isDirectory()) {
+            System.out.println("Target directory does not exist or is not a directory.");
+            return;
+        }
+
+        File[] files = I.amPerforming().fileHandling().toGetCompleteFilesListOnLocalDirectory(directory.getAbsolutePath());
+
+        for (File file : files) {
+            boolean shouldDelete = isPartialMatch ? file.getName().contains(fileName) : file.getName().equalsIgnoreCase(fileName);
+
+            if (shouldDelete) {
+                boolean deleted = file.delete();
+                if (deleted) {
+                    System.out.println("Deleted file: " + file.getAbsolutePath());
+                } else {
+                    System.out.println("Failed to delete file: " + file.getAbsolutePath());
+                }
             }
         }
     }
+
 
     public void AssertFieldValueIsChecked(String fieldName, String count, boolean isSoftly) {
         if (isSoftly) {

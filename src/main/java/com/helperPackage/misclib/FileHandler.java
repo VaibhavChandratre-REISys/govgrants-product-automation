@@ -294,6 +294,30 @@ public final class FileHandler {
     }
 
     /**
+     * Function will use to download any file from multiple window tabs using url - Updated function
+     */
+    public void DownloadAnyFilefromTabForSnapshot(){
+        Set<String> tabs =driver.getWindowHandles();
+        I.amPerforming().switchTo().windowHandler((tabs.size()-2));
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        try {
+            String downloadScript = "var link = document.createElement('a'); " +
+                    "link.href = document.URL; " +
+                    "link.download = name; " +
+                    "document.body.appendChild(link); " +
+                    "link.click(); " +
+                    "document.body.removeChild(link);";
+            InstanceRecording.getInstance(JavaScript.class).executeJSCommand().executeScript(downloadScript);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * Delete any file in provide directory
      *
      * @param fileNameWithExtensionAndPath
