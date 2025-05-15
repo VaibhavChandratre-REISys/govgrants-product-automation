@@ -1722,8 +1722,17 @@ Feature: Validate all scenarios of every modules flow
     
   @debug
   Scenario:
-    And I checkout to maildrop with mailid "automationruntime11364@maildrop.cc"
-    And I navigate to maildrop portal for "automationruntime11364@maildrop.cc" with subject "Sandbox: Notification: You have been Invited to Register in the"
+    When I am on "INTERNAL" portal
+    And I login to "As a Grantor" app as "PM" user
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000tTQ4YAM/view"
+    And I halt execution
+    And I click on hyperlink containing value "Internal Program - submit for approval.pdf"
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file
+    And I wait for "3" seconds
+    Then I softly see "PG-TAO modified-3945" on page "1" of "govgrants" pdf file
+    Then I softly see " Created" on page "1" of "govgrants" pdf file
     And I halt execution
 
   @testCheck

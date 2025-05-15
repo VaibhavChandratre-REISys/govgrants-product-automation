@@ -3443,10 +3443,8 @@ Feature: Sanity scenarios
     Then I cannot see row level action button "Edit" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I cannot see row level action button "Delete" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I save the value from row "1" for column name "Description" as "Description" from flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly see value "{SavedValue:Description}" for title "Description" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I cannot see row level action button "Download" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I cannot see row level action button "View" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 

@@ -16336,7 +16336,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
 
     Examples:
       | User | UserProfile         | Properties                             |
-#      | SPA  | Automation SPI3 user | SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO  |
+      | SPA  | Automation SPI3 user | SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO  |
       | IND  | Automation IND user | INVITED_APPLICANT_IND_ORG_BY_APPLICANT |
 
   @253678 @ValidateSPAusercanseeBudgetedAmountcolumnvalueisrollupfromthebudgetgridinthebudgetchangesectionFAYes @sprint-18-US-247642  @Allocation

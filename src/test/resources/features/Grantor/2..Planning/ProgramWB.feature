@@ -8321,7 +8321,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "---program:-:programCollabMessagesTableId---"
 
-  @ValidateNewButtonForContactSection @BugExecution
+  @ValidateNewButtonForContactSection
   Scenario: Validate New Button functio ality on contact section
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
