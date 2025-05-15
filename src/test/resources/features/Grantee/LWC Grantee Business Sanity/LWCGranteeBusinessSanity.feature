@@ -3014,7 +3014,7 @@ Feature: Sanity scenarios
     Then I see "Delete" button name inside post dropdown
     Then I see "Bookmark" button name inside post dropdown
 
-  @443801 @476534 @476537 @ValidateGrantwithEXEProfileabletocreatedirectgrantandseealltabsandsection @snapExecution
+  @443801 @476534 @476537 @ValidateGrantwithEXEProfileabletocreatedirectgrantandseealltabsandsection @snapExecution1
   Scenario Outline: Validate Grant with EXE Profile able to create direct grant and see all tabs and section
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -3479,7 +3479,7 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:grantKPITableId---"
     Then I softly cannot see "Closeout" sub tab at view detail page
 
-  @443802 @ValidateGrantwithnonownerabletoseeonlyviewaction @snapExecution
+  @443802 @ValidateGrantwithnonownerabletoseeonlyviewaction @snapExecution1
   Scenario: Validate Grant with non owner able to see only view action
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
