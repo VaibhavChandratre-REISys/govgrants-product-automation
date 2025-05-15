@@ -16070,7 +16070,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Examples:
       | User  | User1                 | AllocationType       | Approver                    |
       | ADMIN | Automation ADMIN user | Formula_By_Applicant | {SavedValue:ADMIN Username} |
-#      | PM    | Automation PM user    | Formula_By_Applicant_Focus_Area_No | {SavedValue:PM Username}    |
+      | PM    | Automation PM user    | Formula_By_Applicant_Focus_Area_No | {SavedValue:PM Username}    |
 
   @253658 @253661 @253685 @ValidateSPIusercanseeBudgetedAmountasTotalofAwardamountRolledupfromthebudgetchangesectionsRevisedAwardAmountcolumnFANo @sprint-18-US-247642  @Allocation
   Scenario: Validate SPI user can see Budgeted Amount as Total of Award amount Rolled up from the budget change section's Revised Award Amount column(FA No)

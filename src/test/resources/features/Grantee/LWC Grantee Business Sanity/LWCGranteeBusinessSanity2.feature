@@ -3113,6 +3113,7 @@ Feature: Sanity scenarios
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I wait for "5" seconds
     When I click on notification icon
     And I wait for "2" seconds
     Then I softly see notification "Grantee PO assigned you a task" contains "Review Amendment Request #{SavedValue:Automation Runtime Award} for Department of Product"
@@ -3163,6 +3164,7 @@ Feature: Sanity scenarios
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I wait for "4" seconds
     When I click on notification icon
     And I wait for "2" seconds
     Then I softly see notification "Sarah PM assigned you a task" contains "{SavedValue:Automation Runtime Award}"
