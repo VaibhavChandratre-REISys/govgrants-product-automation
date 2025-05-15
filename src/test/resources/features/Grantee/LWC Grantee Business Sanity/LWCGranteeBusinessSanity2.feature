@@ -3115,7 +3115,7 @@ Feature: Sanity scenarios
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I wait for "5" seconds
     When I click on notification icon
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I softly see notification "Grantee PO assigned you a task" contains "Review Amendment Request #{SavedValue:Automation Runtime Award} for Department of Product"
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
@@ -3166,7 +3166,7 @@ Feature: Sanity scenarios
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I wait for "4" seconds
     When I click on notification icon
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I softly see notification "Sarah PM assigned you a task" contains "{SavedValue:Automation Runtime Award}"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -3185,7 +3185,7 @@ Feature: Sanity scenarios
     And I click modal button "Close"
     Then I softly see field "Status" as "Submitted to Grantor"
     When I click on notification icon
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I softly do not see notification "Grantee PO assigned you a task" contains "{SavedValue:Automation Runtime Award}"
 
   @485478_1 @FundingChangeTypeARVerifytheNotificationforFundingchangetypeofAmendmentRequets
