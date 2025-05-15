@@ -3579,7 +3579,7 @@ Feature: Sanity scenarios
     Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
 
-  @443816 @ValidateAwardWithPMProfileAfterclickonAwardphaseListviewpage
+  @443816 @ValidateAwardWithPMProfileAfterclickonAwardphaseListviewpage @P2_Grantee @PM_Grantee @GRegression2
   Scenario: Validate Award With PM Profile After click on Award phase List view page
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab

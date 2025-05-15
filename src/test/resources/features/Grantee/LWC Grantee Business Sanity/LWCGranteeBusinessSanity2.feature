@@ -3084,6 +3084,7 @@ Feature: Sanity scenarios
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    And I wait for "1" seconds
     And I "Created" of type "Funding Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "GRANTEE_FO_APPROVER-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
@@ -3190,6 +3191,7 @@ Feature: Sanity scenarios
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    And I wait for "1" seconds
     And I "Created" of type "Funding Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "GRANTEE_FO_APPROVER-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
