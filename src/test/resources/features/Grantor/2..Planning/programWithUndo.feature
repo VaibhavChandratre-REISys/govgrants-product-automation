@@ -1645,7 +1645,9 @@ Feature: Validate all scenarios for program
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     Then I softly see snapshot with name containing "Internal Program - Undo Approval.pdf" as name
     And I click on hyperlink containing value "Internal Program - Undo Approval.pdf"
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
     And I wait for "3" seconds
     Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
     Then I softly see "Submitted for Approval" on page "1" of "govgrants" pdf file
@@ -2892,9 +2894,10 @@ Feature: Validate all scenarios for program
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "External NGO Program - Undo Approval.pdf" as name
     And I click on hyperlink containing value "External NGO Program - Undo Approval.pdf"
-    When I download the file
-#   And I switch to tab number "1"
-    And I wait for "5" seconds
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
     Then I softly see "Submitted for Approval" on page "1" of "govgrants" pdf file
     Then I softly see "Test With Automation PM" on page "1" of "govgrants" pdf file
@@ -3084,7 +3087,10 @@ Feature: Validate all scenarios for program
     And I refresh the page
     And I navigate to "History" sub tab
     And I click on hyperlink containing value "Internal Program - submit for approval.pdf"
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     #312505
     Then I softly see following details in "govgrants" pdf file:
       | Status                 | Page Number |
@@ -3112,7 +3118,10 @@ Feature: Validate all scenarios for program
     And I refresh the page
     And I navigate to "History" sub tab
     And I click on hyperlink containing value "Internal Program - Undo Approval.pdf"
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     #312505
     Then I softly see following details in "govgrants" pdf file:
       | Status                 | Page Number |

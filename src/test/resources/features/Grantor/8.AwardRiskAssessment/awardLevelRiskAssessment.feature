@@ -78,7 +78,10 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "SnapShot on"
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I softly see "Created" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     When I navigate to "Responsibilities" sub tab
@@ -2209,7 +2212,10 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "SnapShot on"
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I see "Submitted for Approval" on page "1" of "govgrants" pdf file
 
   @60209 @validateRecordOwnerISAbleToViewActiveRASnapshot
@@ -2273,8 +2279,10 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Risk Assessment Activation/Rejection.pdf"
+    And I click on "Download" button for snapshot view
     And I wait for "3" seconds
-    When I download the file
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I see "Active" on page "1" of "govgrants" pdf file
 
   @60210 @60220 @recordOwnerCannotEditEffectiveDateAndCreatedDateOfRA

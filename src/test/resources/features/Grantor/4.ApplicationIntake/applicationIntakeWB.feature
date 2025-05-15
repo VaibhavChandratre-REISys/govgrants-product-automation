@@ -1387,7 +1387,10 @@ Feature: Application Intake scenarios without background
     And I refresh the page
     And I wait for "5" seconds
     And I click on hyperlink containing value "SnapShot on"
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I see "Created" on page "1" of "govgrants" pdf file
 
   @195250 @sprint-12-US-226646 @reassignment

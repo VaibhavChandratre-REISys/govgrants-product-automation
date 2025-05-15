@@ -3105,11 +3105,13 @@ Feature: Sanity scenarios
     And I wait for "8" seconds
     And I refresh the page
     When I navigate to "History" sub tab
-#    And I click on hyperlink containing value "SnapShot on"
-#    And I wait for "8" seconds
-#    When I download the file
-#    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
-#    And I switch to parent tab
+    And I click on hyperlink containing value "SnapShot on"
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
+    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
+    And I switch to parent tab
     And I navigate to "Financials" sub tab
     Then I softly cannot see field "Budgeted Cash Match" inside page block
     Then I softly cannot see field "Budgeted Non-Cash Match" inside page block
@@ -3521,21 +3523,23 @@ Feature: Sanity scenarios
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly cannot see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
-#    And I click on "Download As PDF" in the page details
-#    And I wait for "7" seconds
-#    And I download the file
-#    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
-#    And I switch to parent tab
+    And I click on "Download as PDF" in the page details
+    And I wait for "7" seconds
+    And I download the file
+    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
+    And I switch to parent tab
     And I click on "Take Snapshot" in the page details
     And I wait for "5" seconds
     When I navigate to "History" sub tab
-#    And I click on hyperlink containing value "SnapShot on"
-#    And I wait for "7" seconds
-#    When I download the file
-#    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
-#    And I switch to parent tab
+    And I click on hyperlink containing value "SnapShot on"
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
+    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
+    And I switch to parent tab
     And I navigate to "Awards" sub tab
     Then I softly cannot see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
@@ -3638,8 +3642,8 @@ Feature: Sanity scenarios
     Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Closed" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
-    When I perform quick search for "Rejected" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Rejected" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Amended" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Reviewed" in "---grantee_tableId:-:awardTableId---" panel

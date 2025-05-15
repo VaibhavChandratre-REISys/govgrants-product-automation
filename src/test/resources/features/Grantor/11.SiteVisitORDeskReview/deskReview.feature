@@ -1046,8 +1046,10 @@ Feature: Validate all scenarios in Desk Review
     And I refresh the page
     When I navigate to "History" sub tab
     And I click on hyperlink which contains todays date with text "SnapShot on"
-    And I wait for "2" seconds
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I softly see "{SavedValue:EGMSID}" on page "1" of "govgrants" pdf file
     And I pause execution for "120" seconds
     And I checkout to yopmail with mailid "exe.automation@yopmail.com"
@@ -1118,7 +1120,10 @@ Feature: Validate all scenarios in Desk Review
     And I select "Take Snapshot" from dropdown
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Desk Review - Accept And Close"
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I softly see "{SavedValue:EGMSID}" on page "1" of "govgrants" pdf file
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab

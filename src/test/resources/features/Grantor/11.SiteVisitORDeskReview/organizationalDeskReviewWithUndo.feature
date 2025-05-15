@@ -711,7 +711,10 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     #296094
     And I navigate to "History" sub tab
     And I click on hyperlink containing value "Organizational Desk Review - Undo Approval.pdf"
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I softly see "{SavedValue:DeskReviewID}" on page "1" of "govgrants" pdf file
     Then I softly see following details in "govgrants" pdf file:
       | Status                 | Page Number |

@@ -1003,7 +1003,10 @@ Feature: Validate all scenarios in the Site Visit
     And I refresh the page
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Site Visit -Send to Subrecipient"
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I see "Sent to Subrecipient" on page "1" of "govgrants" pdf file
 
   @60832 @65385 @75868 @theSnapshotAfterSubmitForApproval 
@@ -1117,7 +1120,10 @@ Feature: Validate all scenarios in the Site Visit
     And I refresh the page
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Site Visit - Accept And Close"
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I softly see "Closed" on page "1" of "govgrants" pdf file
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab

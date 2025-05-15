@@ -1734,7 +1734,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see "PG-TAO modified-3945" on page "1" of "govgrants" pdf file
     Then I softly see " Created" on page "1" of "govgrants" pdf file
     And I close the tab
-    Then I delete file contains name ".pdf"
+    Then I delete file contains name "govgrants.pdf"
     And I halt execution
 
   @testCheck

@@ -757,7 +757,10 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Submit_Negotiation"
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I see "Negotiation Submitted" on page "1" of "govgrants" pdf file
 
   @64851 @historyBeforeAndAfterNegotitionComplete  @FieldHistoryExclude

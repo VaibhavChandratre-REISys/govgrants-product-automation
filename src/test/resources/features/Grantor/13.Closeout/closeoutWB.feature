@@ -214,6 +214,11 @@ Feature: Validate all scenarios in Closeout
     When I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:ProjectPeriodCloseoutTableId---"
     And I navigate to "History" sub tab
     And I click on hyperlink containing value "Overriden.pdf"
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
+    Then I see that file name contains ".pdf" is downloaded
     And I switch to parent tab
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab

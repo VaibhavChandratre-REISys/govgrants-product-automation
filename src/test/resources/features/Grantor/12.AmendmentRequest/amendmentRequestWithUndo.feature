@@ -802,7 +802,10 @@ Feature: Amendment Request scenarios with Undo
     #292888
     And I navigate to "History" sub tab
     And I click on hyperlink containing value "Amendment - Undo Approval.pdf"
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I softly see "{SavedValue:ActivatedSubAwardId}" on page "1" of "govgrant" pdf file
     Then I softly see following details in "govgrants" pdf file:
       | Detail                     | Page Number |
@@ -10425,7 +10428,10 @@ Feature: Amendment Request scenarios with Undo
     And I pause execution for "10" seconds
     And I refresh the page
     And I click on hyperlink which contains todays date with text "SnapShot on"
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I softly see "{SavedValue:BUDGETREDIRECTIONID}" on page "1" of "govgrants" pdf file
     Then I softly see "Approved" on page "1" of "govgrants" pdf file
     And I switch to parent tab

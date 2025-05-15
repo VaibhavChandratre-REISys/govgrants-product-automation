@@ -872,7 +872,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Snapshot_Announcement_Submission" as name
     And I click on hyperlink containing value "Snapshot_Announcement_Submission"
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I softly see "Announcement information" on page "1" of "govgrants" pdf file
     And I see "{SavedValue:PM Username}" against "Initial Submitter" in approval history
     And I "Approve" in the approval decision

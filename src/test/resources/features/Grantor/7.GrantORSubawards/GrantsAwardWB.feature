@@ -152,7 +152,10 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "2" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "SnapShot"
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I see "$0.00" on page "3" of "govgrant" pdf file
 
   @67891 @68036 @68025 @68019 @68021 @calculateAwardTotal  @smoke @skipOnJenkins

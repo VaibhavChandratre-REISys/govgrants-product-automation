@@ -252,8 +252,10 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Risk Assessment Snapshot.pdf"
-    And I wait for "2" seconds
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I softly see "{SavedValue:EGMSID}" on page "1" of "govgrants" pdf file
     Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 

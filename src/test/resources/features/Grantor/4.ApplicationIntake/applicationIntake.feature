@@ -309,8 +309,10 @@ Feature: Validate all scenarios in the Application Intake
     And I select "Take Snapshot" from dropdown
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Snapshot_Application_Submission.pdf"
-    And I wait for "7" seconds
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I see "Submitted to Grantor" on page "1" of "govgrants" pdf file
     Examples:
       | Application Name                                         |

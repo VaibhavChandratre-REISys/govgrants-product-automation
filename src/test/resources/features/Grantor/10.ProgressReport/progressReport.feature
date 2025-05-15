@@ -1333,7 +1333,10 @@ Feature: Validate all scenarios in Progress Report
     When I click on "Submit to Grantor" in the page details
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Progress Report Snapshot"
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 
   @59830 @59828 @validateINTERNALUserCannotEditKPIOnceSubmittedToGrantor @jitendra

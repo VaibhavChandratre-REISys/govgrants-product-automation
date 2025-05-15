@@ -743,8 +743,10 @@ Feature: Pre-Application scenarios without background
     And I select "Take Snapshot" from dropdown
     And I wait for "5" seconds
     And I click on hyperlink containing value "Submission"
+    And I click on "Download" button for snapshot view
     And I wait for "3" seconds
-    When I download the file
+    When I download the file for snapshot
+    And I wait for "3" seconds
     Then I softly see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 
   @34146 @preAppCannotBeSubmittedWithZeroAmount
@@ -962,7 +964,9 @@ Feature: Pre-Application scenarios without background
     And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "SnapShot on"
-    When I download the file
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file for snapshot
     And I wait for "3" seconds
     Then I see "Created" on page "1" of "govgrants" pdf file
 
