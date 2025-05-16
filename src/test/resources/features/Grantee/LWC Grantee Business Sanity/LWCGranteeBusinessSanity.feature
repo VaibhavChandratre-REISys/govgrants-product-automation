@@ -3112,6 +3112,7 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
     And I switch to parent tab
+    And I click on "Close" button for view files page
     And I navigate to "Financials" sub tab
     Then I softly cannot see field "Budgeted Cash Match" inside page block
     Then I softly cannot see field "Budgeted Non-Cash Match" inside page block
@@ -3540,6 +3541,7 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
     And I switch to parent tab
+    And I click on "Close" button for view files page
     And I navigate to "Awards" sub tab
     Then I softly cannot see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"

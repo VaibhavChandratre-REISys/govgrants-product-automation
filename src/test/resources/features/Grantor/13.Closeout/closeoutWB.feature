@@ -220,6 +220,7 @@ Feature: Validate all scenarios in Closeout
     And I wait for "3" seconds
     Then I see that file name contains ".pdf" is downloaded
     And I switch to parent tab
+    And I click on "Close" button for view files page
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

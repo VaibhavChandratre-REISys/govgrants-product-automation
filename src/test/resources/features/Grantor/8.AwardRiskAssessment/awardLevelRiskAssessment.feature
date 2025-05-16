@@ -84,6 +84,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "3" seconds
     Then I softly see "Created" on page "1" of "govgrants" pdf file
     And I switch to parent tab
+    And I click on "Close" button for view files page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |

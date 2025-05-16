@@ -811,6 +811,7 @@ Feature: Amendment Request scenarios with Undo
       | Detail                     | Page Number |
       | {SavedValue:CFAmendmentId} | 1           |
     And I switch to parent tab
+    And I click on "Close" button for view files page
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     #292877
@@ -10435,6 +10436,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see "{SavedValue:BUDGETREDIRECTIONID}" on page "1" of "govgrants" pdf file
     Then I softly see "Approved" on page "1" of "govgrants" pdf file
     And I switch to parent tab
+    And I click on "Close" button for view files page
     And I click on "Amend Subaward" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     #292455

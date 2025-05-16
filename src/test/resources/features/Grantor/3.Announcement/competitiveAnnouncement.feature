@@ -878,6 +878,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "3" seconds
     Then I softly see "Announcement information" on page "1" of "govgrants" pdf file
     And I switch to parent tab
+    And I click on "Close" button for view files page
     And I see "{SavedValue:PM Username}" against "Initial Submitter" in approval history
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal

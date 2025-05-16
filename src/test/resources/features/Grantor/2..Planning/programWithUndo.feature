@@ -3096,6 +3096,7 @@ Feature: Validate all scenarios for program
       | Status                 | Page Number |
       | Submitted for Approval | 1           |
     And I switch to parent tab
+    And I click on "Close" button for view files page
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3127,6 +3128,7 @@ Feature: Validate all scenarios for program
       | Status                 | Page Number |
       | Submitted for Approval | 1           |
     And I switch to parent tab
+    And I click on "Close" button for view files page
     And I "Send back" in the approval decision
     And I wait for "2" seconds
     Then I softly see field "Status" as "Created"

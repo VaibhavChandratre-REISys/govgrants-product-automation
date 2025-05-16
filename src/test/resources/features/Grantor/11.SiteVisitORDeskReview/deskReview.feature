@@ -1052,6 +1052,7 @@ Feature: Validate all scenarios in Desk Review
     And I wait for "3" seconds
     Then I softly see "{SavedValue:EGMSID}" on page "1" of "govgrants" pdf file
     And I switch to parent tab
+    And I click on "Close" button for view files page
     And I logout
 #    And I pause execution for "120" seconds
 #    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
@@ -1127,6 +1128,8 @@ Feature: Validate all scenarios in Desk Review
     When I download the file for snapshot
     And I wait for "3" seconds
     Then I softly see "{SavedValue:EGMSID}" on page "1" of "govgrants" pdf file
+    And I switch to parent tab
+    And I click on "Close" button for view files page
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
