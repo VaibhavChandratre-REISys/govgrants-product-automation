@@ -64,7 +64,7 @@ Feature: Validate all scenarios for closeout
     And I navigate to "Closeout" tab
     Then I softly see default toggle as "Project Period Closeout - Draft" for table "---grantee_tableId:-:phaseCloseoutTableId---"
 
-  @484052 @ValidateFromAppGPCloseoutwithPOProfileIfCloseoutisinCreatedstatetheabletoseetheaccessofsection
+  @484052 @ValidateFromAppGPCloseoutwithPOProfileIfCloseoutisinCreatedstatetheabletoseetheaccessofsection @PO_Grantee @P3_Grantee @GRegression2
   Scenario: Validate From App GP Closeout with PO Profile If Closeout is in Created state then able to see the access of section
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"

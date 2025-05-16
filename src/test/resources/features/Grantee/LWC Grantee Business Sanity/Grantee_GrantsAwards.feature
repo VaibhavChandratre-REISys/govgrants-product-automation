@@ -316,8 +316,8 @@ Feature: Validate all scenarios for Grants & Awards
     When I perform quick search for "Created" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
 
-  @488680 @ValidatePOProfilewithnonownerNewbuttonunabletoseeonFinancialTransactionsubsection @P3_Grantee
-  Scenario: Validate PO Profile with non owner New button unable to see  on Financial Transaction sub section
+  @488680 @ValidatePOProfilewithnonownerNewbuttonunabletoseeonFinancialTransactionsubsection @P3_Grantee @PO_Grantee @GRegression2
+  Scenario: Validate PO Profile with non owner New button unable to see on Financial Transaction sub section
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"

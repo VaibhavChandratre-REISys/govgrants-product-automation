@@ -12846,7 +12846,7 @@ Feature: Sanity scenarios New
       | Sarah PM user   | GRANTEE PM |
       | Grantee PO user | GRANTEE PO |
 
-  @486579 @486584 @486586 @486592 @486593 @487329 @487330 @BudgetRedirectionAREXEusershouldabletoactivatenewawardthroughBRAR @Grantee_Smoke
+  @486579 @486584 @486586 @486592 @486593 @487329 @487330 @BudgetRedirectionAREXEusershouldabletoactivatenewawardthroughBRAR @P2_Grantee @EXE_Grantee @PO_Grantee @FO_Grantee @ADMIN_Grantee @FD_Grantee @GRegression2 @GRegression1 @GRegression4
   Scenario Outline: Budget Redirection AR- EXE user should able to activate new award through BR AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<OwnerType>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
