@@ -3079,7 +3079,7 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I softly do not see notification "Sarah PM assigned you a task" contains "{SavedValue:Automation Runtime Direct}"
 
-  @485478 @FundingChangeTypeARVerifytheNotificationforFundingchangetypeofAmendmentRequets
+  @485478 @FundingChangeTypeARVerifytheNotificationforFundingchangetypeofAmendmentRequets @P4_Grantee @FO_Grantee @GRegression2
   Scenario:Funding Change Type AR-Verify the Notification for Funding change type of Amendment Requets
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -3188,7 +3188,7 @@ Feature: Sanity scenarios
     And I wait for "5" seconds
     Then I softly do not see notification "Grantee PO assigned you a task" contains "{SavedValue:Automation Runtime Award}"
 
-  @485478_1 @FundingChangeTypeARVerifytheNotificationforFundingchangetypeofAmendmentRequets
+  @485478_1 @FundingChangeTypeARVerifytheNotificationforFundingchangetypeofAmendmentRequets @P4_Grantee @FO_Grantee @GRegression2
   Scenario:Funding Change Type AR-Verify the Notification for Funding change type of Amendment Requets
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"

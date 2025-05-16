@@ -13073,7 +13073,7 @@ Feature: Sanity scenarios New
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I wait for "2" seconds
-    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly can see top right button "Edit" in page detail
     And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     And I enter a review as "Passed"
