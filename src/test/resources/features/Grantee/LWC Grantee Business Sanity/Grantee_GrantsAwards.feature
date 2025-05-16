@@ -315,3 +315,28 @@ Feature: Validate all scenarios for Grants & Awards
     And I click toggle button to select "Awards - My Records"
     When I perform quick search for "Created" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+
+  @488680 @ValidatePOProfilewithnonownerNewbuttonunabletoseeonFinancialTransactionsubsection @P3_Grantee
+  Scenario: Validate PO Profile with non owner New button unable to see  on Financial Transaction sub section
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    When I navigate to "Actuals" sub tab
+    Then I softly see "Drawdown By Award" page block displayed
+    Given I expand nested table containing column value "Automation Permanent Focus Area"
+    Then I softly see "Financial Transactions" page block displayed
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
