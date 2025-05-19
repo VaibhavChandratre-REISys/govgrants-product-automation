@@ -691,6 +691,7 @@ public final class PageDetails {
 
 
     public void leftNavigationContaninigValue(String actionIcon, String leftNavigationButton) {
+        I.amPerforming().waitFor().ElementToBePresent(By.xpath("//gnt-side-bar-lwc//section"));
         if (actionIcon.contains("Collapse")) {
             try {
                 By pageBlockExpand = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='true']");

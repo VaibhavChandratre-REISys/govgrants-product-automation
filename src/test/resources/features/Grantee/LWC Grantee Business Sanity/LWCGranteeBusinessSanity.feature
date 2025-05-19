@@ -3017,7 +3017,7 @@ Feature: Sanity scenarios
     Then I see "Delete" button name inside post dropdown
     Then I see "Bookmark" button name inside post dropdown
 
-  @443801 @476534 @476537 @ValidateGrantwithEXEProfileabletocreatedirectgrantandseealltabsandsection @snapExecution1
+  @443801 @ValidateGrantwithEXEProfileabletocreatedirectgrantandseealltabsandsection @snapExecution1 @P1_Grantee @EXE_Grantee @Po_Grantee @ADMIN_Grantee @GRegression1
   Scenario Outline: Validate Grant with EXE Profile able to create direct grant and see all tabs and section
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -3155,8 +3155,6 @@ Feature: Sanity scenarios
     Examples:
       | userType      | UEI          |
       | GRANTEE EXE   | 123456789123 |
-      | GRANTEE PO    | 123456789123 |
-      | GRANTEE ADMIN | 123456789012 |
 
   @443858 @ValidateAwardsplconwithPMProfileIfSpecialConditionisaddedtheninawardspecialconditionmoduleafterexpandtheawardabletoseespecialconditionrecord @GRegression2 @GranteeTBE
   Scenario: Validate Award spl con with PM Profile ,If Special Condition is added then in  award special condition module after expand the award able to see special condition record
@@ -3539,7 +3537,7 @@ Feature: Sanity scenarios
     And I click on hyperlink containing value "SnapShot on"
     And I click on "Download" button for snapshot view
     And I wait for "3" seconds
-    When I download the file for snapshot
+    And I download the file
     And I wait for "3" seconds
     Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
     And I switch to parent tab
