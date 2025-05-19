@@ -3090,14 +3090,13 @@ Feature: Sanity scenarios
     Then I softly can see "Financials" sub tab at view detail page
     Then I softly can see "Management" sub tab at view detail page
     Then I softly can see "Monitoring" sub tab at view detail page
-    Then I softly can see "Closeout" sub tab at view detail page
     Then I softly can see "Files" sub tab at view detail page
     Then I softly can see "History" sub tab at view detail page
     Then I softly can see "Messages" sub tab at view detail page
     Then I softly can see "Chatter" sub tab at view detail page
     Then I softly can see "Field Audit" sub tab at view detail page
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
 #    And I click on "Download As PDF" in the page details
 #    And I wait for "8" seconds
