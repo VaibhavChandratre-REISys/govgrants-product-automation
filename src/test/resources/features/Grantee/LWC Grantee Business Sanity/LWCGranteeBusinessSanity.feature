@@ -8043,7 +8043,7 @@ Feature: Sanity scenarios
     Then I can see row level action button "Delete" against "{SavedValue:FocusAreaId}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
     And I click on "Delete" icon for "{SavedValue:FocusAreaId}" inside flex table with id "---grantee_tableId:-:GranteeProjectTableId---" without waiting for record
     And I perform quick search for "{SavedValue:FocusAreaId}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
-    Then I do not see value "{SavedValue:FocusAreaId}" for title "EGMS ID" inside table "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
 
   @476620 @476621 @476622 @476623 @VerifyFDusercannotDeactivateactiveStrategicplan @P3_Grantee @FO_Grantee @FD_Grantee @PO_Grantee @AUDITOR_Grantee @GRegression2
   Scenario Outline: Verify FD user cannot Deactivate active Strategic plan
