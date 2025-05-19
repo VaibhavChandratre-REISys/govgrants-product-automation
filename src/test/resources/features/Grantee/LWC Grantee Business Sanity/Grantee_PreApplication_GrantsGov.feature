@@ -202,3 +202,91 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I click modal button "Close"
     Then I softly see field "Status" as "Accepted"
     Then I softly can see top right button "Create Application" in page detail
+
+  @476909 @ValidatePreAppwithAdminprofilePreapplicationpagelayoutofgrantsgovleadwithYessetting
+  Scenario: Validate PreApp with Admin profile Pre application page layout of grants.gov lead with Yes setting
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "PRE_APPLICATION_YES"
+    And I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly cannot see top right button "Create Pre-Application" in page detail
+    And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:PreApplication---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    Then I softly see field "Status" as "Created"
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Validate" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
+    And I click on "Collapse" button on header
+    Then I softly see "Expand" button for header
+    And I click on "Expand" button on header
+    Then I softly see "Collapse" button for header
+    And I click on "Collapse" button for page
+    Then I softly see "Expand" button for page
+    And I click on "Expand" button for page
+    Then I softly see "Collapse" button for page
+    Then I softly see "Resize" button for page
+    Then I softly see "Navigator" button display on footer
+    And I click on bottom button "Navigator" in page detail
+    Then I see "Pending Tasks" inside "My Tasks" is displayed
+    Then I see "Completed Tasks" inside "My Tasks" is displayed
+    Then I see "Pre-Applications" inside "Applications" is displayed
+    Then I see "Applications" inside "Applications" is displayed
+    And I click on bottom button "Navigator" in page detail
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Setup" sub tab at view detail page
+    Then I softly can see "Budget" sub tab at view detail page
+    Then I softly can see "Responsibilities" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    Then I softly can see "Chatter" sub tab at view detail page
+    Then I softly can see "Field Audit" sub tab at view detail page
+    Then I can see row level action button "View" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I cannot see row level action button "Edit" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    When I navigate to "Setup" sub tab
+    Then I softly cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    Then I softly cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    And I navigate to "Budget" sub tab
+    Then I softly see field "Budget Level" as "Detailed Line Item Budget"
+    Then I softly see "Program Income" page block displayed
+    Then I softly see "Indirect Rates" page block displayed
+    Then I softly see field "Cost Sharing or Match Requirement?" as "Cash and Non-Cash Match"
+    And I expand nested table containing column value "BP01"
+    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+    Then I softly see "Non-Cash Match" in flex table header "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+    Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+    When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" with wait for record
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
+    Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
+    Then I softly cannot see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationProgramIncomeTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationIndirectRateTableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---"
+    Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---"
+    And I navigate to "Files" sub tab
+    Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
+    Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"

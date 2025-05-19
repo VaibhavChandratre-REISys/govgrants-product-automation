@@ -1,7 +1,7 @@
 @GranteeProgressReport
 Feature: Validate all scenarios for Grantee Progress Report
 
-  @495998 @ValidateFromAppScheduleProgressReportAdminuserPRownercanabletoSubmitProgressReportwithsingleApprover
+  @495998 @ValidateFromAppScheduleProgressReportAdminuserPRownercanabletoSubmitProgressReportwithsingleApprover @P2_Grantee @ADMIN_Grantee @GRegression2
   Scenario: Validate From App - Schedule Progress Report Admin user PR owner can able to Submit Progress Report with single Approver
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default-Product Admin user"
