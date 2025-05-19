@@ -4247,6 +4247,8 @@ public class GrantorPayloads {
                 return updateBudgetRedirection(defaultJson);
             case "CARRY_FORWARD":
                 return updateCarryForward(defaultJson, type, grantTitle, state);
+            case "CARRY_FORWARD_STEP_FOUR_APPROVER":
+                return updateCarryForwardStepFourApprover(defaultJson, type, grantTitle, state);
             case "CARRY_FORWARD_PO_OWNER":
                 return updateCarryForwardPoOwner(defaultJson, type, grantTitle, state);
             case "BUDGET_PERIOD_CHANGE_GRANTEE_PO":
@@ -4266,6 +4268,101 @@ public class GrantorPayloads {
             default:
                 return defaultJson;
         }
+    }
+
+    private JsonObject updateCarryForwardStepFourApprover(JsonObject defaultJson, String type, String grantTitle, String state) {
+        JsonObject grantAwardData = new JsonObject();
+        grantAwardData.addProperty("InitiatedBy", "Grantee");
+        grantAwardData.addProperty("PleaseselectAmendmentRequestType", type);
+        grantAwardData.addProperty("AwardTitle", grantTitle);
+        grantAwardData.addProperty("Justification", "Automation Test");
+        grantAwardData.addProperty("Impact", "Automation Test Impact");
+        grantAwardData.addProperty("ownerId", ProjectWebServices.getIdOf("User", "Sarah PM"));
+        grantAwardData.addProperty("isStatusCreatedOrApproved", state);
+        grantAwardData.addProperty("MaximumIndirectCostRate", 10);
+        grantAwardData.addProperty("NewAwardTitle", "Approved");
+        grantAwardData.addProperty("NewAwardDescription", "Automation Test");
+        grantAwardData.addProperty("BudgetRedirectionThreshold", 10);
+        grantAwardData.addProperty("Addressline", "Rei System");
+        grantAwardData.addProperty("Address", "Baner");
+        grantAwardData.addProperty("City", "Alaska");
+        grantAwardData.addProperty("County", "Alaska");
+        grantAwardData.addProperty("State", "MA");
+        grantAwardData.addProperty("CongressionalDistrict", "345");
+        grantAwardData.addProperty("ZipCode", "45678");
+        grantAwardData.addProperty("Country", "USA");
+        grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        grantAwardData.addProperty("RequestedChangeinAwardBudget", 2000);
+        grantAwardData.addProperty("ProposedBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        grantAwardData.addProperty("4DigitZipCodeExtension", "3456");
+        grantAwardData.addProperty("OtherChangeDescription", "Automation Test");
+        grantAwardData.addProperty("PurposeSummary", "Automation Test");
+        grantAwardData.addProperty("OtherAmendmentTypeDetails", "Automation Test");
+        grantAwardData.addProperty("GeneralCondition", false);
+
+
+        JsonArray carryForwards = new JsonArray();
+        JsonObject carryForward = new JsonObject();
+        carryForward.addProperty("BudgetCategoryName", "Construction");
+        carryForward.addProperty("CarryForward", 700);
+        carryForward.addProperty("ServiceAreaName", "Automation Permanent Focus Area");
+        carryForwards.add(carryForward);
+        grantAwardData.add("budgetCategories", carryForwards);
+
+        JsonArray buildUpItems = new JsonArray();
+        JsonObject buildUpItem1 = new JsonObject();
+        buildUpItem1.addProperty("BudgetCategory", "Construction");
+        buildUpItem1.addProperty("Title", "Construction");
+        buildUpItem1.addProperty("Narrative", "Test Build-up");
+        buildUpItem1.addProperty("awardBudget", 700);
+        buildUpItem1.addProperty("CashMatch", 70);
+        buildUpItem1.addProperty("OtherLeverage", 70);
+        buildUpItem1.addProperty("ServiceAreaName", "Automation Permanent Focus Area");
+        buildUpItems.add(buildUpItem1);
+        grantAwardData.add("BuildUpItems", buildUpItems);
+
+
+        // Indirect Rates
+        JsonArray indirectRates = new JsonArray();
+        JsonObject indirectRate = new JsonObject();
+        indirectRate.addProperty("title", "New Indirect rate1");
+        indirectRate.addProperty("effectiveFrom", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        indirectRate.addProperty("effectiveUntil", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(50, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        indirectRate.addProperty("indirectCostRates", 10);
+        indirectRate.addProperty("indirectCostRateType", "Final");
+        indirectRates.add(indirectRate);
+        grantAwardData.add("indirectRates", indirectRates);
+
+        // Approvers
+        JsonArray approvers = new JsonArray();
+        JsonObject approver = new JsonObject();
+        approver.addProperty("name", ProjectWebServices.getIdOf("User", "Sarah PM"));
+        approver.addProperty("amendmentRequest", "Step1");
+
+        JsonObject approver1 = new JsonObject();
+        approver1.addProperty("name", ProjectWebServices.getIdOf("User", "Victor EXE"));
+        approver1.addProperty("amendmentRequest", "Step2");
+        approvers.add(approver1);
+
+        JsonObject approver2 = new JsonObject();
+        approver2.addProperty("name", ProjectWebServices.getIdOf("User", "Grantee PO"));
+        approver2.addProperty("amendmentRequest", "Step3");
+        approvers.add(approver2);
+
+        JsonObject approver3 = new JsonObject();
+        approver3.addProperty("name", ProjectWebServices.getIdOf("User", "David FO"));
+        approver3.addProperty("amendmentRequest", "Step4");
+        approvers.add(approver3);
+
+        grantAwardData.add("approvers", approvers);
+
+        // Creating the GrantAwardData array and adding the GrantAwardData object
+        JsonArray grantAwardDataArray = new JsonArray();
+        grantAwardDataArray.add(grantAwardData);
+
+        defaultJson.add("GrantAwardData", grantAwardDataArray);
+
+        return defaultJson;
     }
 
     private JsonObject updateCarryForwardPoOwner(JsonObject defaultJson, String type, String grantTitle, String state) {
