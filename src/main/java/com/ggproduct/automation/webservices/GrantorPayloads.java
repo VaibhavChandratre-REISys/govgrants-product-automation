@@ -4247,7 +4247,7 @@ public class GrantorPayloads {
                 return updateBudgetRedirection(defaultJson);
             case "CARRY_FORWARD":
                 return updateCarryForward(defaultJson, type, grantTitle, state);
-            case "CARRY_FORWARD_STEP_FOUR_APPROVER":
+            case "CARRY_FORWARD_STEP_FOUR_APPROVER_FD_OWNER":
                 return updateCarryForwardStepFourApprover(defaultJson, type, grantTitle, state);
             case "CARRY_FORWARD_PO_OWNER":
                 return updateCarryForwardPoOwner(defaultJson, type, grantTitle, state);
@@ -4277,7 +4277,7 @@ public class GrantorPayloads {
         grantAwardData.addProperty("AwardTitle", grantTitle);
         grantAwardData.addProperty("Justification", "Automation Test");
         grantAwardData.addProperty("Impact", "Automation Test Impact");
-        grantAwardData.addProperty("ownerId", ProjectWebServices.getIdOf("User", "Sarah PM"));
+        grantAwardData.addProperty("ownerId", ProjectWebServices.getIdOf("User", "Danielle FD Garcia"));
         grantAwardData.addProperty("isStatusCreatedOrApproved", state);
         grantAwardData.addProperty("MaximumIndirectCostRate", 10);
         grantAwardData.addProperty("NewAwardTitle", "Approved");

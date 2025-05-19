@@ -48,7 +48,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "AwardId1"
     When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
-    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD_STEP_FOUR_APPROVER-Danielle FD Garcia user"
+    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD_STEP_FOUR_APPROVER_FD_OWNER"
     And I refresh the page
     And I wait for "2" seconds
     And I navigate to "Grants" tab
