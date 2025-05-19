@@ -2878,17 +2878,17 @@ Feature: Sanity scenarios
     Then I softly see "Create Grant" opens in overLay window
     When I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Grant Title is required to save.               |
-      | Grant Abbreviation is required to save.        |
-      | Grant Number is required to save.              |
-      | Project Period Start Date is required to save. |
-      | Project Period End Date is required to save.   |
-      | Budget Type is required to save.               |
-      | Total Anticipated Amount is required to save.  |
-      | Grant Type is required to save.                |
-      | Funding Organization is required to save.      |
-      | Allow Indirect Costs? is required to save.     |
-      | Match is Required? is required to save.        |
+      | To Save, Grant Title is required.               |
+      | To Save, Grant Abbreviation is required.        |
+      | To Save, Grant Number is required.              |
+      | To Save, Project Period Start Date is required. |
+      | To Save, Project Period End Date is required.   |
+      | To Save, Budget Type is required.               |
+      | To Save, Total Anticipated Amount is required.  |
+      | To Save, Grant Type is required.                |
+      | To Save, Funding Organization is required.      |
+      | To Save, Allow Indirect Costs? is required.     |
+      | To Save, Match is Required? is required.        |
     And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     Then I see the header is "Grant" in the page details
