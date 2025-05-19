@@ -2899,7 +2899,7 @@ Feature: Sanity scenarios
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | UEI Number is required to save under Overview. |
+      | To Save, UEI Number is required in the Overview tab under the General Information section. |
     And I navigate to "Overview" sub tab
     When I enter value "YRNMVN96JC17" into field "DUNS__c"
     When I click on "Cancel" in the page details without processing
@@ -2950,14 +2950,14 @@ Feature: Sanity scenarios
     Then I softly can see "Financials" sub tab at view detail page
     Then I softly can see "Management" sub tab at view detail page
     Then I softly can see "Monitoring" sub tab at view detail page
-    Then I softly can see "Closeout" sub tab at view detail page
+    Then I softly cannot see "Closeout" sub tab at view detail page
     Then I softly can see "Files" sub tab at view detail page
     Then I softly can see "History" sub tab at view detail page
     Then I softly can see "Messages" sub tab at view detail page
     Then I softly can see "Chatter" sub tab at view detail page
     Then I softly can see "Field Audit" sub tab at view detail page
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     When I click on parallel lines menu bar with data target value "Budget Period Details"
     And I wait for "2" seconds
@@ -2985,7 +2985,7 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    When I click on parallel lines menu bar with data target value "Progress Report"
+    When I click on parallel lines menu bar with data target value "Progress Reports"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
@@ -2999,11 +2999,6 @@ Feature: Sanity scenarios
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     When I click on parallel lines menu bar with data target value "Key Performance Indicators (KPIs)"
-    And I wait for "2" seconds
-    Then I see option "Refresh" present in parallel dropdown
-    Then I see option "Download as PDF" present in parallel dropdown
-    When I navigate to "Closeout" sub tab
-    When I click on parallel lines menu bar with data target value "Project Period Closeout Requests"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
@@ -8007,7 +8002,7 @@ Feature: Sanity scenarios
     #@440231
     Then I softly see "Automation Permanent Focus Area" inside flex table with id "---grantee_tableId:-:selectAwardFocusAreaTableId---"
 
-  @440216 @FocusAreaVerifyOnlyPOFOFDprofilenotabletoseetheNEWbuttontocreatetheFocusareas
+  @440216 @FocusAreaVerifyOnlyPOFOFDprofilenotabletoseetheNEWbuttontocreatetheFocusareas @PO_Grantee @FO_Grantee @FD_Grantee @GRegression1
   Scenario Outline: Focus Area - Verify Only PO,FO, FD profile not able to see the NEW button to create the Focus areas.
     When I login to "As a Grantee" app as "<User>" user
     When I navigate to "Planning" tab
@@ -8019,7 +8014,7 @@ Feature: Sanity scenarios
       | GRANTEE FO |
       | GRANTEE FD |
 
-  @440213 @VerifywithPMProfileonlydraftcreatestatusrecordabletodeletebyrecordowneronly
+  @440213 @VerifywithPMProfileonlydraftcreatestatusrecordabletodeletebyrecordowneronly @P3_Grantee @PM_Grantee @GRegression1
   Scenario: Verify with PM Profile ,only draft (create) status record able to delete by record owner only
     When I login to "As a Grantee" app as "GRANTEE PM" user
     When I navigate to "Planning" tab

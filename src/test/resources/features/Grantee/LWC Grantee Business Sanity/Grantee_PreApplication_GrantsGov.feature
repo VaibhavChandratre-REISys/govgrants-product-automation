@@ -203,7 +203,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     Then I softly see field "Status" as "Accepted"
     Then I softly can see top right button "Create Application" in page detail
 
-  @476909 @ValidatePreAppwithAdminprofilePreapplicationpagelayoutofgrantsgovleadwithYessetting
+  @476909 @ValidatePreAppwithAdminprofilePreapplicationpagelayoutofgrantsgovleadwithYessetting @ADMIN_Grantee @P2_Grantee @GRegression1
   Scenario: Validate PreApp with Admin profile Pre application page layout of grants.gov lead with Yes setting
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
