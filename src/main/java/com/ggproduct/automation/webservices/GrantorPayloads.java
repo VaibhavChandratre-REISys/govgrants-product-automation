@@ -4338,6 +4338,7 @@ public class GrantorPayloads {
         JsonObject approver = new JsonObject();
         approver.addProperty("name", ProjectWebServices.getIdOf("User", "Sarah PM"));
         approver.addProperty("amendmentRequest", "Step1");
+        approvers.add(approver);
 
         JsonObject approver1 = new JsonObject();
         approver1.addProperty("name", ProjectWebServices.getIdOf("User", "Victor EXE"));
