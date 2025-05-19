@@ -2869,7 +2869,7 @@ Feature: Sanity scenarios
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "Sarah PM"
 
-  @443791 @ValidateGrantWithPMProfileAfterclickonGrantphaseredirecttoGrantListviewpage
+  @443791 @ValidateGrantWithPMProfileAfterclickonGrantphaseredirecttoGrantListviewpage @PM_Grantee @P2_Grantee @GRegression1
   Scenario: Validate Grant With PM Profile After click on Grant phase redirect to Grant List view page
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -3111,7 +3111,7 @@ Feature: Sanity scenarios
     And I click on hyperlink containing value "SnapShot on"
     And I click on "Download" button for snapshot view
     And I wait for "3" seconds
-    When I download the file for snapshot
+    And I download the file
     And I wait for "3" seconds
     Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
     And I switch to parent tab
@@ -9254,7 +9254,7 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Delete" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
 
-  @441788 @ValidateFocusAreanonrecordEXEProfileownershouldnotabletoactivatedeactivatethefocusArea
+  @441788 @ValidateFocusAreanonrecordEXEProfileownershouldnotabletoactivatedeactivatethefocusArea @P2_Grantee @EXE_Grantee @GRegression1
   Scenario: Validate Focus Area non record EXE Profile owner should not able to activate & deactivate the focus Area
     When I login to "As a Grantee" app as "GRANTEE PM" user
     When I navigate to "Planning" tab

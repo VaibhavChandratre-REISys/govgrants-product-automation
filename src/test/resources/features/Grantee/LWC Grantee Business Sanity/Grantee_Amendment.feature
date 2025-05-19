@@ -1,7 +1,7 @@
 @GranteeAmendment
 Feature: Validate all scenarios for Grantee Amendment Request
 
-  @489010 @ValidateCFFDuserAROwnercanabletoSubmitARforApprovalApprovedfromassigned4stepapprovercandoSendtoOwnerForwardApproveactionsseeSubmittoGrantorbuttononceApprovedtheBPCARRecord
+  @489010 @ValidateCFFDuserAROwnercanabletoSubmitARforApprovalApprovedfromassigned4stepapprovercandoSendtoOwnerForwardApproveactionsseeSubmittoGrantorbuttononceApprovedtheBPCARRecord @P2_Grantee @FD_Grantee @GRegression2
   Scenario: Validate CF FD user AR Owner can able to Submit AR for Approval & Approved from assigned 4 step approver & can do Send to Owner/ Forward/ Approve actions & see 'Submit to Grantor' button once Approved the AR Record
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
