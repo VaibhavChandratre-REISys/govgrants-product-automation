@@ -230,9 +230,9 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:PreApplication---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     Then I softly see field "Status" as "Created"
-    Then I softly can see top right button "Edit" in page detail
-    Then I softly can see top right button "Validate" in page detail
-    Then I softly can see top right button "Submit for Approval" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Submit for Approval" in page detail
     And I click on "Collapse" button on header
     Then I softly see "Expand" button for header
     And I click on "Expand" button on header
@@ -285,8 +285,14 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationProgramIncomeTableId---"
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationIndirectRateTableId---"
     When I navigate to "Responsibilities" sub tab
-    Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---"
-    Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---"
     And I navigate to "Files" sub tab
-    Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
-    Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
+    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationNoteTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:preApplicationNoteTableId---"
+    Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
+    Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"

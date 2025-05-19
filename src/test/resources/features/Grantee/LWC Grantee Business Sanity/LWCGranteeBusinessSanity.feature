@@ -2901,7 +2901,7 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | UEI Number is required to save under Overview. |
     And I navigate to "Overview" sub tab
-    When I enter value "123456789123" into field "DUNS__c"
+    When I enter value "YRNMVN96JC17" into field "DUNS__c"
     When I click on "Cancel" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to cancel?" is displayed
     When I click modal button "OK"
@@ -2909,7 +2909,7 @@ Feature: Sanity scenarios
     Then I softly see field "UEI Number" as ""
     And I click on "Edit" in the page details
     And I navigate to "Overview" sub tab
-    When I enter value "123456789123" into field "DUNS__c"
+    When I enter value "YRNMVN96JC17" into field "DUNS__c"
     And I click on "Save" in the page details
     And I save the field labeled "Funding Organization" as "FundingOrganization"
     Then I softly see field "Funding Organization" inside page block
@@ -2924,19 +2924,27 @@ Feature: Sanity scenarios
     Then I softly see field "Last Modified by" inside page block
     Then I softly see link "{SavedValue:LastModifiedby}" inside Page block
     And I click on hyperlink containing value "{SavedValue:LastModifiedby}"
+    And I wait for "2" seconds
     Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
     And I click on back arrow
+    And I wait for "2" seconds
     And I click on hyperlink containing value "{SavedValue:Createdby}"
+    And I wait for "2" seconds
     Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
     And I click on back arrow
+    And I wait for "2" seconds
     And I click on hyperlink containing value "{SavedValue:FundingOrganization}"
+    And I wait for "2" seconds
     Then I see the header is "Federal Organization" in the page details
     Then I see the sub-header is "{SavedValue:FundingOrganization}" in the page details
     And I click on back arrow
+    And I wait for "2" seconds
     And I click on hyperlink containing value "{SavedValue:InternalOrganization}"
+    And I wait for "2" seconds
     Then I see the header is "Internal Organization" in the page details
     Then I see the sub-header is "{SavedValue:InternalOrganization}" in the page details
     And I click on back arrow
+    And I wait for "2" seconds
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Awards" sub tab at view detail page
     Then I softly can see "Financials" sub tab at view detail page
