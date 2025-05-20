@@ -1720,22 +1720,22 @@ Feature: Validate all scenarios of every modules flow
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
     And I halt execution
     
-  @debug
-  Scenario:
-    When I am on "INTERNAL" portal
-    And I login to "As a Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000tTQ4YAM/view"
-    And I halt execution
-    And I click on hyperlink containing value "Internal Program - submit for approval.pdf"
-    And I click on "Download" button for snapshot view
-    And I wait for "3" seconds
-    When I download the file for snapshot
-    And I wait for "3" seconds
-    Then I softly see "PG-TAO modified-3945" on page "1" of "govgrants" pdf file
-    Then I softly see " Created" on page "1" of "govgrants" pdf file
-    And I close the tab
-    Then I delete file contains name "govgrants.pdf"
-    And I halt execution
+#  @debug
+#  Scenario:
+#    When I am on "INTERNAL" portal
+#    And I login to "As a Grantor" app as "PM" user
+#    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000tTQ4YAM/view"
+#    And I halt execution
+#    And I click on hyperlink containing value "Internal Program - submit for approval.pdf"
+#    And I click on "Download" button for snapshot view
+#    And I wait for "3" seconds
+#    When I download the file for snapshot
+#    And I wait for "3" seconds
+#    Then I softly see "PG-TAO modified-3945" on page "1" of "govgrants" pdf file
+#    Then I softly see " Created" on page "1" of "govgrants" pdf file
+#    And I close the tab
+#    Then I delete file contains name "govgrants.pdf"
+#    And I halt execution
 
   @testCheck
   Scenario:

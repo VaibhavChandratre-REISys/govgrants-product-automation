@@ -227,7 +227,7 @@ public final class SideBar {
     private boolean isSideBarAccordionSubHeaderDisplayed(String sideBarCategory, String accordianSubHeaderDetail) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(getSideBarAccordianSubHeaderContent(sideBarCategory, accordianSubHeaderDetail))) {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(getSideBarContentLocator(sideBarCategory, accordianSubHeaderDetail)))) {
                 flag = true;
             }
         } catch (Exception e) {

@@ -3480,7 +3480,7 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:grantKPITableId---"
     Then I softly cannot see "Closeout" sub tab at view detail page
 
-  @443802 @ValidateGrantwithnonownerabletoseeonlyviewaction @snapExecution1
+  @443802 @ValidateGrantwithnonownerabletoseeonlyviewaction @snapExecution1 @P3_Grantee @PM_Grantee @GRegression1
   Scenario: Validate Grant with non owner able to see only view action
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
