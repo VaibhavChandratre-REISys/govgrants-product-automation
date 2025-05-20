@@ -9959,13 +9959,13 @@ Feature: Sanity scenarios
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Test Focus Area1" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-    When I click "Associate" after selection of "Sam PM Focus Area 1" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
+    When I click "Associate" after selection of "test sanity PM" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
     When I click "Associate" after selection of "Gauri FA" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
     And I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Test Focus Area1" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see value "Sam PM Focus Area 1" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "test sanity PM" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "Gauri FA" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     When I click on "Remove" icon for "Gauri FA" inside flex table with id "---grantee_tableId:-:ProjectTableId---" without waiting for record
     And I wait for "2" seconds
