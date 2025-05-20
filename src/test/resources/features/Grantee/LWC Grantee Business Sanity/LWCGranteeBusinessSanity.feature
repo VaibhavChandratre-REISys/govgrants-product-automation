@@ -3153,8 +3153,8 @@ Feature: Sanity scenarios
     Then I cannot see row level action button "Delete" against "{SavedValue:GrantEGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
 
     Examples:
-      | userType      | UEI          |
-      | GRANTEE EXE   | 123456789123 |
+      | userType    | UEI          |
+      | GRANTEE EXE | 123456789123 |
 
   @443858 @ValidateAwardsplconwithPMProfileIfSpecialConditionisaddedtheninawardspecialconditionmoduleafterexpandtheawardabletoseespecialconditionrecord @GRegression2 @GranteeTBE
   Scenario: Validate Award spl con with PM Profile ,If Special Condition is added then in  award special condition module after expand the award able to see special condition record
@@ -4997,25 +4997,30 @@ Feature: Sanity scenarios
     Then I see the header is "Federal Organization" in the page details
     Then I see the sub-header is "{SavedValue:FundingOrganization}" in the page details
     And I click on back arrow
+    And I wait for "2" seconds
     And I save the field labeled "Internal Organization" as "InternalOrganization"
     Then I softly see link "{SavedValue:InternalOrganization}" inside Page block
     And I click on hyperlink containing value "{SavedValue:InternalOrganization}"
     Then I see the header is "Internal Organization" in the page details
     Then I see the sub-header is "{SavedValue:InternalOrganization}" in the page details
     And I click on back arrow
+    And I wait for "2" seconds
     Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     Then I see the header is "Grant" in the page details
     Then I softly see field "EGMS ID" as "{SavedValue:GrantEGMSID}"
     And I click on back arrow
+    And I wait for "2" seconds
     And I save the field labeled "Created by" as "Createdby"
     And I click on hyperlink containing value "{SavedValue:Createdby}"
     Then I softly see the text containing "Sarah PM"
     And I click on back arrow
+    And I wait for "2" seconds
     And I save the field labeled "Last Modified by" as "LastModifiedby"
     And I click on hyperlink containing value "{SavedValue:LastModifiedby}"
     Then I softly see the text containing "Sarah PM"
     And I click on back arrow
+    And I wait for "2" seconds
     And I navigate to "Projections" sub tab
     Then I softly see fields "BudgetRedirectionThreshhold__c" is in edit mode
     Then I softly see fields "BudgetPeriodEndDate__c" is in edit mode
@@ -5025,16 +5030,16 @@ Feature: Sanity scenarios
     Then I softly see that "Award Amount to Date" rendered in view mode only
     Then I softly see that "Budget Period Start Date" rendered in view mode only
     And I click on "Save" in the page details
-    Then I see the following messages in the page details contains:
-      | Award Issue Date is required to save under Overview.                |
-      | Funder Payment System is required to save under Overview.           |
-      | Congressional District is required to save under Overview.          |
-      | Program Income Treatment Type is required to save under Projections |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Award Issue Date is required in the Overview tab under the Details section.                                |
+      | To Save, Funder Payment System is required in the Overview tab under the Details section.                           |
+      | To Save, Congressional District is required in the Overview tab under the Primary Place of Performance section.     |
+      | To Save , Program Income Treatment Type is required in the Projections tab under the Budget Period Details section. |
     When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Validate" in page detail
@@ -5303,7 +5308,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:actualsTabProgramIncomeTableId---"
     Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:actualsTabProgramIncomeTableId---"
     Then I softly see value "Automation Permanent Focus Area" for title "Focus Area Name" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly can see row level action button "Show RIFANS Transactions" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly can see row level action button "Show Financial Transactions" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
   @462455 @ValidatePOserasRecordOwnercanseerowlevelChangeownerbuttononanytableofsearchlayoutwhenPRARrecordisinallstates @P3_Grantee @PO_Grantee @GRegression2
   Scenario: Validate PO user as Record Owner can see row level Change owner button on any table of search layout when PR AR record is in all states
