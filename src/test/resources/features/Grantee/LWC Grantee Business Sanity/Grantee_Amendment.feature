@@ -243,7 +243,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly cannot see row level action button "Delete" against "Reviewed" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
     When I perform quick search for "Submitted for review" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see value "Submitted for review" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Edit" against "Submitted for review" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly can see row level action button "Edit" against "Submitted for review" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
     Then I softly can see row level action button "View" against "Submitted for review" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
     Then I softly cannot see row level action button "Delete" against "Submitted for review" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
     And I click toggle button to select "Amendment Requests - All"
