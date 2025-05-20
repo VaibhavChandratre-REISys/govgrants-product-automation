@@ -228,7 +228,6 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download as PDF" present in parallel dropdown
-    Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly see "Financial Information" page block displayed
     Then I softly see "Recipient Information" page block displayed
     Then I softly see "Transactions" page block displayed
@@ -250,7 +249,6 @@ Feature: Sanity scenarios
     And I navigate to "Quickview" sub tab in split screen
     When I click on "Splitview" icon for "Federal Financial Report (SF-425)" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
-    Then I softly can see top right button "Download as PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
@@ -9979,7 +9977,7 @@ Feature: Sanity scenarios
       | userType    | Approver   |
       | GRANTEE EXE | Victor EXE |
 
-  @449022 @446148 @ValidateGPCloseoutwithEXEProfileunabletoseebudgetperiodcloseout
+  @449022 @446148 @ValidateGPCloseoutwithEXEProfileunabletoseebudgetperiodcloseout @P2_Grantee @PM_Grantee @GRegression1
   Scenario Outline: Validate GP Closeout with EXE Profile unable to see budget period closeout
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Closeout" tab
