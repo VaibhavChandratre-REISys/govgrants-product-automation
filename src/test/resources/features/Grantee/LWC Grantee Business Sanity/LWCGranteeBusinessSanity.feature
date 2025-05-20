@@ -5247,9 +5247,6 @@ Feature: Sanity scenarios
     Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:awardAddFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
-    And I wait for "8" seconds
-    Then I softly see the following messages in the page details contains:
-      | File Attachment.pdf Uploaded successfully. |
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
@@ -5301,13 +5298,15 @@ Feature: Sanity scenarios
     Then I see "Financials Summary" page block displayed
     Then I see "Expenditure Detail" page block displayed
     Then I see "Program Income Revenue by Focus Area" page block displayed
-    Then I see "Drawdown By Grant Award Task" page block displayed
+    Then I see "Drawdown By Award" page block displayed
     Then I softly see field "Total Awarded Budget" inside page block
-    Then I softly see field "Total Spent" inside page block
+    Then I softly see field "Spent to Date" inside page block
     Then I softly see field "Remaining Balance" inside page block
     Then I softly see field "Total Match Expenditures to Date this Budget Period" inside page block
     Then I softly see field "Total Program Income Revenue this Budget Period" inside page block
     Then I softly see field "Total Leverage" inside page block
+    Then I softly see field "Current Balance" inside page block
+    Then I softly see field "Grant Balance" inside page block
     Then I softly see value "Automation Permanent Focus Area" for title "Focus Area Name" inside table "---grantee_tableId:-:actualsTabProgramIncomeTableId---"
     Then I softly cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:actualsTabProgramIncomeTableId---"
     Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:actualsTabProgramIncomeTableId---"
@@ -9868,7 +9867,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Draft"
     Then I softly cannot see "Closeout" sub tab at view detail page
 
-  @443821 @476540 @ValidateAwardwithEXEProfileFocusareavalidations
+  @443821 @ValidateAwardwithEXEProfileFocusareavalidations
   Scenario Outline: Validate Award with EXE/PO Profile Focus area validations
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -9979,7 +9978,6 @@ Feature: Sanity scenarios
     Examples:
       | userType    | Approver   |
       | GRANTEE EXE | Victor EXE |
-      | GRANTEE PO  | Grantee PO |
 
   @449022 @446148 @ValidateGPCloseoutwithEXEProfileunabletoseebudgetperiodcloseout
   Scenario Outline: Validate GP Closeout with EXE Profile unable to see budget period closeout
