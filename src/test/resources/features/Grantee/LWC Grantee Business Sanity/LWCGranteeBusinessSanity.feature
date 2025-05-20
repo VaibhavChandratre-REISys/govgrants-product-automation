@@ -5005,12 +5005,6 @@ Feature: Sanity scenarios
     Then I see the sub-header is "{SavedValue:InternalOrganization}" in the page details
     And I click on back arrow
     And I wait for "3" seconds
-    Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
-    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    Then I see the header is "Grant" in the page details
-    Then I softly see field "EGMS ID" as "{SavedValue:GrantEGMSID}"
-    And I click on back arrow
-    And I wait for "2" seconds
     And I save the field labeled "Created by" as "Createdby"
     And I click on hyperlink containing value "{SavedValue:Createdby}"
     Then I softly see the text containing "Sarah PM"
@@ -5038,6 +5032,12 @@ Feature: Sanity scenarios
     When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Overview" sub tab
+    Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    Then I see the header is "Grant" in the page details
+    Then I softly see field "EGMS ID" as "{SavedValue:GrantEGMSID}"
+    And I click on back arrow
+    And I wait for "2" seconds
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
