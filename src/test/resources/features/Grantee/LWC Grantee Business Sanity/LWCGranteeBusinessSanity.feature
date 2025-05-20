@@ -5216,12 +5216,15 @@ Feature: Sanity scenarios
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | KPIs added succesfully. |
+      | KPIs added successfully. |
     And I click modal button "Close"
     And I wait for "3" seconds
     Then I can see row level action button "View" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     Then I can see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     Then I can see row level action button "Remove" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---" by clicking "Edit" :
+      | Title                  | Target | Current Value | Current Value As Of |
+      | Automation Runtime KPI | 10     | 10            | 0                   |
     When I click on parallel lines menu bar with data target value "Key Performance Indicators (KPIs)"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -5244,7 +5247,7 @@ Feature: Sanity scenarios
     Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:awardAddFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
-    And I wait for "12" seconds
+    And I wait for "8" seconds
     Then I softly see the following messages in the page details contains:
       | File Attachment.pdf Uploaded successfully. |
     When I click modal button "Close"
