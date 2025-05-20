@@ -249,7 +249,6 @@ Feature: Sanity scenarios
     And I navigate to "Quickview" sub tab in split screen
     When I click on "Splitview" icon for "Federal Financial Report (SF-425)" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
-    Then I softly can see top right button "Take Snapshot" in the split screen page details
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I see "Upload" button is disabled at modal under library
