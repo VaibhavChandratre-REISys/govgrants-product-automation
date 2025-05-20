@@ -5004,7 +5004,7 @@ Feature: Sanity scenarios
     Then I see the header is "Internal Organization" in the page details
     Then I see the sub-header is "{SavedValue:InternalOrganization}" in the page details
     And I click on back arrow
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     Then I see the header is "Grant" in the page details
@@ -5034,7 +5034,7 @@ Feature: Sanity scenarios
       | To Save, Award Issue Date is required in the Overview tab under the Details section.                                |
       | To Save, Funder Payment System is required in the Overview tab under the Details section.                           |
       | To Save, Congressional District is required in the Overview tab under the Primary Place of Performance section.     |
-      | To Save , Program Income Treatment Type is required in the Projections tab under the Budget Period Details section. |
+      | To Save, Program Income Treatment Type is required in the Projections tab under the Budget Period Details section.  |
     When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Overview" sub tab
