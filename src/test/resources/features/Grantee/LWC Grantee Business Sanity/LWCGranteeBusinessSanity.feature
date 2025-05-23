@@ -15426,7 +15426,7 @@ Feature: Sanity scenarios
     Then I softly see "Due Date" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
 
-  @463425 @PreAppVerifywithPMproofileLineItemBudgetinBudgetTab
+  @463425 @PreAppVerifywithPMproofileLineItemBudgetinBudgetTab @P1_Grantee @PM_Grantee @GRegression1
   Scenario: PreApp - Verify with PO Profile ,Overview Tab.
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "COSTSHARING_NO-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PO" user
