@@ -1720,22 +1720,28 @@ Feature: Validate all scenarios of every modules flow
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
     And I halt execution
     
-#  @debug
-#  Scenario:
-#    When I am on "INTERNAL" portal
-#    And I login to "As a Grantor" app as "PM" user
-#    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000tTQ4YAM/view"
-#    And I halt execution
-#    And I click on hyperlink containing value "Internal Program - submit for approval.pdf"
-#    And I click on "Download" button for snapshot view
-#    And I wait for "3" seconds
-#    When I download the file for snapshot
-#    And I wait for "3" seconds
-#    Then I softly see "PG-TAO modified-3945" on page "1" of "govgrants" pdf file
-#    Then I softly see " Created" on page "1" of "govgrants" pdf file
-#    And I close the tab
-#    Then I delete file contains name "govgrants.pdf"
-#    And I halt execution
+  @debug
+  Scenario:
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/PreApplication__c/a31Da000000kwuDIAQ/view"
+    And I halt execution
+    When I navigate to "Setup" sub tab
+    And I click on "Edit" icon for "BP01" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetPeriodDetails---"
+    When I enter in modal value "300" into field "BudgetEndDate__c"
+    When I click modal button "Save"
+    And I wait for "2" seconds
+    And I click on top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    When I enter in modal value "302" into field "BudgetStartDate__c"
+    When I enter in modal value "365" into field "BudgetEndDate__c"
+    When I click modal button "Save"
+    And I wait for "2" seconds
+    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    When I click "Next" after selection of "BP02" in the table "---grantee_tableId:-:preAppAssociateBudgetTableId---"
+    And I wait for "3" seconds
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:preAppAssociateFocusAreaTableId---"
+    And I click modal button "Close"
+    Then I softly can see row level action button "Delete" against "BP02" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    And I halt execution
 
   @testCheck
   Scenario:

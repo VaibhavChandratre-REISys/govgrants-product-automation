@@ -167,7 +167,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
     Then I see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
 
-  @495182 @ValidateFOusercanseeonclickofARseeoptionsfromGrantphasecanseedefaultlandingpageshowsMyRecordslistviewtableofARabletotogglethelistviewfilteractionsacctostatusofrecordAlsocomfunctshouldworkontable @debug
+  @495182 @ValidateFOusercanseeonclickofARseeoptionsfromGrantphasecanseedefaultlandingpageshowsMyRecordslistviewtableofARabletotogglethelistviewfilteractionsacctostatusofrecordAlsocomfunctshouldworkontable
   Scenario: Validate FO user can see on click of AR see options from Grant phase & can see default landing page shows 'My Records' list view table of AR & able to toggle the list view filter & actions acc to status of record, Also com funct should work on table
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"

@@ -15426,7 +15426,7 @@ Feature: Sanity scenarios
     Then I softly see "Due Date" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
 
-  @463425 @PreAppVerifywithPMproofileLineItemBudgetinBudgetTab @TBE1
+  @463425 @PreAppVerifywithPMproofileLineItemBudgetinBudgetTab
   Scenario: PreApp - Verify with PO Profile ,Overview Tab.
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "COSTSHARING_NO-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PO" user
@@ -15488,14 +15488,14 @@ Feature: Sanity scenarios
     Then I softly see value "$0.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
     Then I softly see value "$0.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
     When I navigate to "Setup" sub tab
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:PreApplicationBudgetPeriodDetails---" by clicking "Edit" :
-      | Budget Period # |  End Date |
-      | BP01            |  300      |
+    And I click on "Edit" icon for "BP01" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetPeriodDetails---"
+    When I enter in modal value "300" into field "BudgetEndDate__c"
+    When I click modal button "Save"
+    And I wait for "2" seconds
     And I click on top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
     When I enter in modal value "302" into field "BudgetStartDate__c"
     When I enter in modal value "365" into field "BudgetEndDate__c"
     When I click modal button "Save"
-    When I click modal button "Close"
     And I wait for "2" seconds
     And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
     When I click "Next" after selection of "BP02" in the table "---grantee_tableId:-:preAppAssociateBudgetTableId---"
