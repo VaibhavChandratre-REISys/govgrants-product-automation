@@ -1,7 +1,7 @@
 @GranteeSanityBusinessFlowNew
 Feature: Sanity scenarios New
 
-  @463446 @ValidatePreAppwithPOprofileusingtherecorddecisionabletoaccept @TBE
+  @463446 @ValidatePreAppwithPOprofileusingtherecorddecisionabletoaccept @P1_Grantee @PO_Grantee @GRegression1
   Scenario: Validate PreApp with PO profile ,using the record decision able to accept
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PO" user
@@ -9494,7 +9494,7 @@ Feature: Sanity scenarios New
       | Grantee PO user | GRANTEE PO  | Grantee PO |
       | Victor EXE user | GRANTEE EXE | Victor EXE |
 
-  @462721 @482114 @ValidatetheflowofasPMuserisabletocreateandqualifythemanuallead @TBE2
+  @462721 @482114 @ValidatetheflowofasPMuserisabletocreateandqualifythemanuallead @PM_Grantee @EXE_Grantee @GRegression1
   Scenario Outline: Validate the flow of as PM/PO user is able to create and qualify the manual lead
     Given I login to "As a Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
@@ -9674,7 +9674,7 @@ Feature: Sanity scenarios New
     Then I softly see "Business Forms" page block displayed
     Examples:
       | User        |
-      | GRANTEE PO  |
+      | GRANTEE PM  |
       | GRANTEE EXE |
 
   @477663 @477666 @477669 @477670 @VerifyPMusershouldabletocreateandaccepttheSOWamendmentrequest @P3_Grantee @FO_Grantee @FD_Grantee @EXE_Grantee @PO_Grantee @GRegression2

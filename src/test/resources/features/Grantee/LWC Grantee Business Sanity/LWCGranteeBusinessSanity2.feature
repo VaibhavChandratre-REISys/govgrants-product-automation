@@ -74,7 +74,7 @@ Feature: Sanity scenarios
     When I navigate to "Overview" sub tab
     Then I softly see field "Pre-Application Required?" as "No"
 
-  @463442 @ValidatePreAppwithPMprofileabletoRejectwithmultipleapproverableReject @TBE2
+  @463442 @ValidatePreAppwithPMprofileabletoRejectwithmultipleapproverableReject @P3_Grantee @PM_Grantee @GRegression1
   Scenario: Validate PreApp with PM profile ,Able to Reject with multiple approver able Reject
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "COSTSHARING_NO"
     When I login to "As a Grantee" app as "GRANTEE PM" user

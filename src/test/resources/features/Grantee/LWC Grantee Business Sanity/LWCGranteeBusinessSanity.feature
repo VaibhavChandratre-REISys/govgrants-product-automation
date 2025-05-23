@@ -5022,10 +5022,10 @@ Feature: Sanity scenarios
     Then I softly see that "Budget Period Start Date" rendered in view mode only
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | To Save, Award Issue Date is required in the Overview tab under the Details section.                                |
-      | To Save, Funder Payment System is required in the Overview tab under the Details section.                           |
-      | To Save, Congressional District is required in the Overview tab under the Primary Place of Performance section.     |
-      | To Save, Program Income Treatment Type is required in the Projections tab under the Budget Period Details section.  |
+      | To Save, Award Issue Date is required in the Overview tab under the Details section.                               |
+      | To Save, Funder Payment System is required in the Overview tab under the Details section.                          |
+      | To Save, Congressional District is required in the Overview tab under the Primary Place of Performance section.    |
+      | To Save, Program Income Treatment Type is required in the Projections tab under the Budget Period Details section. |
     When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -7049,9 +7049,9 @@ Feature: Sanity scenarios
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     Examples:
-      | userName   | User        |
-      | Grantee PO | GRANTEE PO  |
-      | Victor EXE | GRANTEE EXE |
+      | userName        | User        |
+      | Grantee PO user | GRANTEE PO  |
+      | Victor EXE user | GRANTEE EXE |
 
   @462448 @VerifyPOuserPRAROwnercanabletoseeValidationonSaveSubmitforApproval&ValidatebuttonsonPRARwhenRequiredtosave @P2_Grantee @GRegression1 @GranteeTBE
   Scenario: Verify PO user (PR AR Owner) can able to see Validation on Save, Submit for Approval & Validate buttons on PR AR when Required to save & Required to submit fields are not entered
@@ -15166,7 +15166,7 @@ Feature: Sanity scenarios
   Scenario: PreApp - Verify With EXE , Summary Budget in Budget Tab.
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PO" user
+    When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -16113,7 +16113,7 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Create Application" in page detail
     Then I softly see field "Pre-Application Required?" as "No"
 
-  @463439 @463457 @ValidatePreAppwithPMProfilAlltabsandsectionformanuallead @TBE
+  @463439 @463457 @ValidatePreAppwithPMProfilAlltabsandsectionformanuallead @P2_Grantee @P3_Grantee @PM_Grantee @GRegression1
   Scenario: Validate PreApp with PM Profile All tabs and section for manual lead
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "COSTSHARING_NO"
     When I login to "As a Grantee" app as "GRANTEE PM" user
