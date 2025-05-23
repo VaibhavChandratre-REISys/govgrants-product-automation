@@ -8869,7 +8869,7 @@ Feature: Sanity scenarios New
       | GRANTEE PO    | Grantee PO | YRNMVN96JC17 |
       | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @485466 @449143 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant @TBE1
+  @485466 @449143 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant @P1_Grantee @EXE_Grantee @GRegression1
   Scenario Outline: Verify PM user as (AR Owner same as Award Owner) can able to create Funding Change AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"

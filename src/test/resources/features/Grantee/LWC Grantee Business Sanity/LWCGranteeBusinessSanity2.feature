@@ -1400,6 +1400,7 @@ Feature: Sanity scenarios
     When I click toggle button to select "Pre-Applications - All"
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:PreApplication---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I save the field labeled "EGMS ID" as "PreappEGMSID"
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "Edit" :
       | Name       | Pre-Application |
@@ -1449,26 +1450,26 @@ Feature: Sanity scenarios
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
 

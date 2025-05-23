@@ -6967,7 +6967,7 @@ Feature: Sanity scenarios
       | Victor EXE | GRANTEE EXE |
       | Grantee PO | GRANTEE PO  |
 
-  @462433 @462379 @VerifyPOuserAROwnercanabletoAcceptPeriodicRenewalAmendmentRequest @TBE2
+  @462433 @462379 @VerifyPOuserAROwnercanabletoAcceptPeriodicRenewalAmendmentRequest @P1_Grantee @EXE_Grantee @GRegression1
   Scenario Outline: Verify PO user  (AR Owner) can able to Accept Periodic Renewal Amendment Request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -15162,7 +15162,7 @@ Feature: Sanity scenarios
     And I click on "Delete" icon for "Rate" inside flex table with id "---grantee_tableId:-:preApplicationIndirectRateTableId---" without waiting for record
     Then I softly do not see value "Rate" for title "Title" inside table "---grantee_tableId:-:preApplicationIndirectRateTableId---"
 
-  @463426 @PreAppVerifyWithEXESummaryBudgetinBudgetTab @TBE2
+  @463426 @PreAppVerifyWithEXESummaryBudgetinBudgetTab @P1_Grantee @EXE_Grantee @GRegression1
   Scenario: PreApp - Verify With EXE , Summary Budget in Budget Tab.
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
