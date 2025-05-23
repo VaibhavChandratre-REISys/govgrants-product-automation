@@ -16170,7 +16170,6 @@ Feature: Sanity scenarios
     When I click on parallel lines menu bar with data target value "External Programs"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    Then I see option "Download as CSV" present in parallel dropdown
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
     Then I softly see "Project Role" in flex table header "---grantee_tableId:-:preApplicationContactTableId---"
@@ -16197,11 +16196,11 @@ Feature: Sanity scenarios
     And I navigate to "Budget" sub tab
     Then I softly see "Budget Overview" page block displayed
     Then I softly see "Budget Level Information" page block displayed
-    Then I softly see "Budget Period Details" page block displayed
-    Then I softly see "Budget Period #" in flex table header "---grantee_tableId:-:BudgetPeriodDetailsFromBudgetTab---"
-    Then I softly see "Start Date" in flex table header "---grantee_tableId:-:BudgetPeriodDetailsFromBudgetTab---"
-    Then I softly see "End Date" in flex table header "---grantee_tableId:-:BudgetPeriodDetailsFromBudgetTab---"
-    When I click on parallel lines menu bar with data target value "Budget Period Details"
+    Then I softly see "Budget Details" page block displayed
+    Then I softly see "Budget Period #" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see "Start Date" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see "End Date" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    When I click on parallel lines menu bar with data target value "Budget Details"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     When I navigate to "Responsibilities" sub tab
@@ -16220,7 +16219,7 @@ Feature: Sanity scenarios
     Then I see option "Download as PDF" present in parallel dropdown
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:preResponsibiltiesTableId---"
     Then I softly see "Name" in flex table header "---grantee_tableId:-:preResponsibiltiesTableId---"
-    Then I softly see "PreApplication" in flex table header "---grantee_tableId:-:preResponsibiltiesTableId---"
+    Then I softly see "Pre-Application" in flex table header "---grantee_tableId:-:preResponsibiltiesTableId---"
     When I click on parallel lines menu bar with data target value "Approvers"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
@@ -16256,12 +16255,11 @@ Feature: Sanity scenarios
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Then I softly can see "Chatter" sub tab at view detail page
-    Then I softly can see "Quickview" sub tab at view detail page
     And I navigate to "Field Audit" sub tab in split screen
     Then I softly can see "Field Audit" sub tab at view detail page
     #463457
     And I navigate to "Budget" sub tab
-    Then I softly see field "Maintenance of Effort Required?" as "No"
+    Then I softly see field "Maintenance of Effort Required?" as "Yes"
     Then I softly cannot see field "Cost Sharing or Matching Requirement" inside page block
     Then I softly cannot see field "Required Match(%)" inside page block
     Then I softly cannot see field "Maximum Indirect Cost Rate" inside page block

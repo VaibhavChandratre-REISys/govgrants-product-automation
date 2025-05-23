@@ -46,12 +46,11 @@ Feature: Sanity scenarios New
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    And I wait for "5" seconds
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Pre-Application - All"
+    When I click toggle button to select "Pre-Applications - All"
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PreApplication---" panel
     When I click on "View" icon for "{SavedValue:PreappEGMSID}" inside table
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
