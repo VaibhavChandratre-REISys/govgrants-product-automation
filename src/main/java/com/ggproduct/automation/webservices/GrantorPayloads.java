@@ -3209,6 +3209,8 @@ public class GrantorPayloads {
                 return payloadForCreateProgramIncome(json);
             case "SUMMARY_BUDGET":
                 return payloadForSummaryBudget(json);
+            case "LINE_ITEM_BUDGET":
+                return payloadForLineItemBudget(json);
             case "DAVID_FO_APPROVER":
                 return payloadForDavidFoApprover(json, module);
             case "TWO_STEP_APPROVER":
@@ -3216,6 +3218,15 @@ public class GrantorPayloads {
             default:
                 return json;
         }
+    }
+
+    private JsonObject payloadForLineItemBudget(JsonObject json) {
+        JsonObject pre_application = json.getAsJsonArray("preAppAndAppData").get(0).getAsJsonObject();
+        JsonArray pre = new JsonArray();
+        pre_application.addProperty("BudgetLevel", "Line Item Budget");
+        pre.add(pre_application);
+        json.add("preAppAndAppData", pre);
+        return json;
     }
 
     private JsonObject payloadForSummaryBudget(JsonObject json) {

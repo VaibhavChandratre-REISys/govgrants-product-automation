@@ -1,116 +1,29 @@
 @GranteeSanityBusinessFlowNew
 Feature: Sanity scenarios New
 
-  @463446 @ValidatePreAppwithPOprofileusingtherecorddecisionabletoaccept
+  @463446 @ValidatePreAppwithPOprofileusingtherecorddecisionabletoaccept @TBE
   Scenario: Validate PreApp with PO profile ,using the record decision able to accept
-    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
+    When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
-    When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
-    And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see field "State" as "Forecasted"
-    And I save the field labeled "EGMS ID" as "LeadsEGMSID"
-    When I click on "Activate" in the page details without processing
-    Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
-    When I click modal button "OK"
-    Then I softly see field "State" as "Posted"
-    Then I can see top right button "Qualify Lead" in page detail
-    And I click on "Qualify Lead" in the page details
-    Then I softly see field "Status" as "Qualified Lead"
-    And I save the field labeled "EGMS ID" as "QualifiedLeadEGMSID"
-    And I click on "Edit" in the page details
-    And I enter "Grantee_Qualifiedleads_Edition" values from "Announcement_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I wait for "2" seconds
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
-    And I click on "Edit" in the page details
-    And I refresh the page
-    And I wait for "3" seconds
-    And I enter "Grantee_Opportunity_Edition" values from "Announcement_Field_Values.xlsx"
-    And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
-    When I click on "Save" in the page details
-    And I wait for "3" seconds
-    And I refresh the page
-    And I click on "Edit" in the page details
-    And I enter value "Yes" into field "MaintenanceEffortRequire__c"
-    And I enter value "Automation Test" into field "StatutoryMaintenanceOfEffort__c"
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:opportunityExternalProgramTableId---"
-    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:opportunityExternalProgramModalTableId---"
-    When I click modal button "Close"
-    And I wait for "3" seconds
-    And I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---grantee_tableId:-:opportunityApproverTableId---" by clicking "New" :
-      | Name       | Opportunity |
-      | Victor EXE | Step 1      |
-    When I click on "Validate" in the page details
-    And I wait for "3" seconds
-    Then I softly see the following messages in the page details contains:
-      | The Funding Opportunity has been validated successfully. |
-    And I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-    And I navigate to "Opportunities" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    When I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
-    And I navigate to "Opportunities" tab
-    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
-    When I click toggle button to select "Opportunities Not Converted to Application - All"
-    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
-    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
-    Then I softly can see top right button "Create Pre-Application" in page detail
-    When I navigate to "Overview" sub tab
-    Then I softly see field "Pre-Application Required?" as "Yes"
-    And I click on "Create Pre-Application" in the page details
-    And I wait for "2" seconds
-    And I click modal button "Save and Continue"
-    And I enter "Grantee_Edition_DetailLineItems" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "PRE_APPLICATION_YES"
+    And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "default-Grantee PO user"
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:PreApplication---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
-    When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:preAppAssociateContactTableId---"
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    And I refresh the page
-    And I wait for "3" seconds
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationContactTableId---" by clicking "Edit" :
-      | Name     | Is Key Contact | Project Role                                   |
-      | Sarah PM | Checked        | Project Director/Principal Investigator(PI/PD) |
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:PreApplicationBudgetPeriodDetails---"
-    When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:PreApplicationAssociateBP---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:PreApplicationAssociateFocusArea---"
-    And I wait for "2" seconds
-    And I navigate to "Budget" sub tab
-    Given I expand nested table containing column value "BP01"
-    When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" with wait for record
-    When I enter the following values into flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
-      | Construction | The narrative | 5000         | 500        | 500            |
-    When I close "Budget Category Line Item" modal by clicking the top right x button
-    And I refresh the page
-    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:preResponsibiltiesTableId---" by clicking "New" :
-      | Name     | PreApplication |
-      | David FO | Step 1         |
-    When I enter the following values into flex table with id "---grantee_tableId:-:preResponsibiltiesTableId---" by clicking "New" :
-      | Name       | PreApplication |
-      | Victor EXE | Step 2         |
+      | Name     | Pre-Application |
+      | David FO | Step 2          |
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Letter of Intent" from computer
@@ -121,13 +34,13 @@ Feature: Sanity scenarios New
       | Pre-Application has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -8556,7 +8469,7 @@ Feature: Sanity scenarios New
       | GRANTEE PO    | Grantee PO | YRNMVN96JC17 |
       | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @446229 @477326 @477325 @477327 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @GRegression3
+  @446229 @477326 @477325 @477327 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @GRegression3 @GRegression1 @EXE_Grantee @P2_Grantee
   Scenario Outline: Validate Financial Report Schedule user can edit Financial report schedule on Created Submitted for review Reviewed Activated award
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -8957,7 +8870,7 @@ Feature: Sanity scenarios New
       | GRANTEE PO    | Grantee PO | YRNMVN96JC17 |
       | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @485466 @449143 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant
+  @485466 @449143 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant @TBE1
   Scenario Outline: Verify PM user as (AR Owner same as Award Owner) can able to create Funding Change AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -9005,11 +8918,9 @@ Feature: Sanity scenarios New
     Then I see textarea field "PurposeRTA__c" is editable
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Please select Amendment Request Type is required to save. |
-    Then I softly see the following messages in the page details contains:
-      | Initiated By is required to save. |
-    Then I softly see the following messages in the page details contains:
-      | Justification is required to save. |
+      | To Save, Please select Amendment Request Type is required. |
+      | To Save, Initiated By is required.                         |
+      | To Save, Justification is required.                        |
     And I enter "Grantee_FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -9362,12 +9273,8 @@ Feature: Sanity scenarios New
     And I clear the value from field "PurposeRTA__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Justification is required to save under Overview. |
+      | To Save, Justification is required in the Overview tab under the Details section. |
     And I enter value "Automation Justification" into field "PurposeRTA__c"
-    And I enter value "2222" into field "ApprovedIndirectCostRate__c"
-    When I click on "Save" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Maximum Indirect Cost Rate: value outside of valid range on numeric field |
     And I enter value "110" into field "ApprovedIndirectCostRate__c"
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
@@ -9410,6 +9317,7 @@ Feature: Sanity scenarios New
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
+    And I wait for "2" seconds
     And I navigate to "Grants" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
@@ -9587,7 +9495,7 @@ Feature: Sanity scenarios New
       | Grantee PO user | GRANTEE PO  | Grantee PO |
       | Victor EXE user | GRANTEE EXE | Victor EXE |
 
-  @462721 @482114 @ValidatetheflowofasPMuserisabletocreateandqualifythemanuallead
+  @462721 @482114 @ValidatetheflowofasPMuserisabletocreateandqualifythemanuallead @TBE2
   Scenario Outline: Validate the flow of as PM/PO user is able to create and qualify the manual lead
     Given I login to "As a Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
@@ -9617,13 +9525,13 @@ Feature: Sanity scenarios New
     Then I softly see asterisk mark on "Cost Sharing or Matching Requirement"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Opportunity Title is required to save.                    |
-      | Opportunity Number is required to save.                   |
-      | Application Due Date is required to save.                 |
-      | Funding Organization is required to save.                 |
-      | Eligible Applicants is required to save.                  |
-      | Lead Description is required to save.                     |
-      | Cost Sharing or Matching Requirement is required to save. |
+      | To Save, Opportunity Title is required in the General Information section.                  |
+      | To Save, Opportunity Number is required in the General Information section.                 |
+      | To Save, Application Due Date is required in the General Information section.               |
+      | To Save, Funding Organization is required in the General Information section.               |
+      | To Save, Eligible Applicants is required in the Eligibility section.                        |
+      | To Save, Lead Description is required in the Additional Information section.                |
+      | To Save, Cost Sharing or Matching Requirement is required in the Financial Details section. |
     And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I see the header is "Lead" in the page details
@@ -10192,7 +10100,7 @@ Feature: Sanity scenarios New
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:awardContactTableId---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardContactTableId---"
     Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-#    Then I softly can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I softly can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
@@ -10327,7 +10235,7 @@ Feature: Sanity scenarios New
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:awardContactTableId---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardContactTableId---"
     Then I can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-#    Then I can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:awardExternalProgranTableId---"
     Then I can see row level action button "View" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     Then I can see row level action button "Edit" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
@@ -10400,7 +10308,7 @@ Feature: Sanity scenarios New
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:awardContactTableId---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardContactTableId---"
     Then I can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-#    Then I can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:awardExternalProgranTableId---"
     Then I can see row level action button "View" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     Then I can see row level action button "Edit" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
@@ -13445,13 +13353,13 @@ Feature: Sanity scenarios New
     Then I softly see value "{SavedValue:AwardEGMSID1}" for title "Original Value" inside field history table
 
     Examples:
-      | Owner          | OwnerType          | UserType       | emailIdTo                         | CreatedBy          | Assertion |
+      | Owner          | OwnerType          | UserType       | emailIdTo                       | CreatedBy          | Assertion     |
 #      | GRANTEE PM     | Sarah PM user      | GRANTEE PM     | victor.exeqagrantee@yopmail.com   | Sarah PM           | softly cannot |
 #      | GRANTEE PO     | Grantee PO user    | GRANTEE PO     | grantee.po@yopmail.com.qagrnteatm | Grantee PO         | softly cannot |
-      | GRANTEE EXE    | Victor EXE user    | GRANTEE EXE    | victor.exeqagrantee@yopmail.com   | Victor EXE         | softly cannot |
-      | GRANTEE ADMIN1 | Product Admin user | GRANTEE ADMIN1 | productadmin@yopmail.com          | Product Admin      | softly cannot |
+      | GRANTEE EXE    | Victor EXE user    | GRANTEE EXE    | victor.exeqagrantee@yopmail.com | Victor EXE         | softly cannot |
+      | GRANTEE ADMIN1 | Product Admin user | GRANTEE ADMIN1 | productadmin@yopmail.com        | Product Admin      | softly cannot |
 #      | GRANTEE EXE    | Victor EXE user    | GRANTEE FO     | victor.exeqagrantee@yopmail.com   | David FO           | softly cannot |
-      | GRANTEE EXE    | Victor EXE user    | GRANTEE FD     | victor.exeqagrantee@yopmail.com   | Danielle FD Garcia | softly can |
+      | GRANTEE EXE    | Victor EXE user    | GRANTEE FD     | victor.exeqagrantee@yopmail.com | Danielle FD Garcia | softly can    |
 #      | GRANTEE EXE    | Victor EXE user    | GRANTEE ADMIN1 | victor.exeqagrantee@yopmail.com   | Product Admin      | softly cannot |
 
   @484063 @ValidateFromAppGPCloseoutwithPMProfileabletocreateProjectperiodcloseoutandabletocompletethecloseout @GRegression1

@@ -1,7 +1,7 @@
 @GranteeSanityBusinessFlow
 Feature: Sanity scenarios
 
-  @445207 @ValidateEXEuserFinancialreportOwnercanabletocreateAdhocFinancialReport&abletosubmitFinancialReporttoGrantor @GRegression2 @GranteeTBE
+  @445207 @ValidateEXEuserFinancialreportOwnercanabletocreateAdhocFinancialReport&abletosubmitFinancialReporttoGrantor @GRegression1 @EXE_Grantee @P1_Grantee
   Scenario: Validate EXE user Financial report Owner can able to create Adhoc Financial Report & able to submit Financial Report to Grantor
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -3354,7 +3354,7 @@ Feature: Sanity scenarios
     When I click modal button "Save and Continue"
     Then I see the header is "Grant" in the page details
 
-  @447517 @ValidateGrantwithPMProfileOndirectgrantmodalunabletoseethefieldIsBudgetPeriodCloseoutRequestRequired
+  @447517 @ValidateGrantwithPMProfileOndirectgrantmodalunabletoseethefieldIsBudgetPeriodCloseoutRequestRequired @TBE1
   Scenario: Validate Grant with PM Profile On direct grant modal unable to see the field Is Budget Period Closeout Request Required
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -5525,7 +5525,7 @@ Feature: Sanity scenarios
     And I save the value from row "2" for column name "EGMS ID" as "kpiBP02Id" from flex table "---grantee_tableId:-:grantKPITableId---"
     Then I softly see value "{SavedValue:kpiBP02Id}" for title "EGMS ID" inside table "---grantee_tableId:-:grantKPITableId---"
 
-  @469404 @ValidatePRPMuserabletoIncreaseordecreasethebudgetinBudgetPeriodchangesectiononPeriodicRenewalAmendmentRequest
+  @469404 @ValidatePRPMuserabletoIncreaseordecreasethebudgetinBudgetPeriodchangesectiononPeriodicRenewalAmendmentRequest @TBE1
   Scenario: Validate PR amd PM user able to Increase or decrease the budget in Budget Period change section on Periodic Renewal Amendment Request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "CASH_MATCH_NON_CASH_MATCH_PO_OWNER"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "NON_CASH_MATCH_BUDGET"
@@ -6967,7 +6967,7 @@ Feature: Sanity scenarios
       | Victor EXE | GRANTEE EXE |
       | Grantee PO | GRANTEE PO  |
 
-  @462433 @462379 @VerifyPOuserAROwnercanabletoAcceptPeriodicRenewalAmendmentRequest
+  @462433 @462379 @VerifyPOuserAROwnercanabletoAcceptPeriodicRenewalAmendmentRequest @TBE2
   Scenario Outline: Verify PO user  (AR Owner) can able to Accept Periodic Renewal Amendment Request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -15162,7 +15162,7 @@ Feature: Sanity scenarios
     And I click on "Delete" icon for "Rate" inside flex table with id "---grantee_tableId:-:preApplicationIndirectRateTableId---" without waiting for record
     Then I softly do not see value "Rate" for title "Title" inside table "---grantee_tableId:-:preApplicationIndirectRateTableId---"
 
-  @463426 @PreAppVerifyWithEXESummaryBudgetinBudgetTab
+  @463426 @PreAppVerifyWithEXESummaryBudgetinBudgetTab @TBE2
   Scenario: PreApp - Verify With EXE , Summary Budget in Budget Tab.
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -15426,14 +15426,25 @@ Feature: Sanity scenarios
     Then I softly see "Due Date" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
 
-  @463425 @PreAppVerifywithPMproofileLineItemBudgetinBudgetTab
+  @463425 @PreAppVerifywithPMproofileLineItemBudgetinBudgetTab @TBE1
   Scenario: PreApp - Verify with PO Profile ,Overview Tab.
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "COSTSHARING_NO-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PO" user
-    And I navigate to "Applications" tab
-    When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    And I click toggle button to select "Pre-Application - All"
-    When I perform quick search for "{AUTOEnvData:AutomationPermanentLeadPreApplicationAllSettingNo}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    And I click on "View" icon for "{AUTOEnvData:AutomationPermanentLeadPreApplicationAllSettingNo}" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---" without waiting for record
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "PRE_APP_YES_NO_CONST_NO_SETTING"
+    And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "LINE_ITEM_BUDGET-Grantee PO user"
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:PreApplication---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I save the field labeled "EGMS ID" as "PreappEGMSID"
     When I navigate to "Setup" sub tab
     Then I softly see "Project Period" page block displayed
     Then I softly see "Budget Period Details" page block displayed
@@ -16102,28 +16113,39 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Create Application" in page detail
     Then I softly see field "Pre-Application Required?" as "No"
 
-  @463439 @463457 @ValidatePreAppwithPMProfilAlltabsandsectionformanuallead
+  @463439 @463457 @ValidatePreAppwithPMProfilAlltabsandsectionformanuallead @TBE
   Scenario: Validate PreApp with PM Profile All tabs and section for manual lead
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "COSTSHARING_NO"
     When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "PRE_APP_YES_NO_CONST_NO_SETTING"
+    And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "LINE_ITEM_BUDGET"
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Pre-Application - All"
-    And I perform quick search for "{grantee_testData:AutomationPreApplicationCreatedState}" in "---grantee_tableId:-:PreApplication---" panel
-    When I click on "View" icon for "{grantee_testData:AutomationPreApplicationCreatedState}" inside table
+    When I click toggle button to select "Pre-Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:PreApplication---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     Then I see the header is "Pre-Application" in the page details
-    Then I see the sub-header is "{grantee_testData:AutomationPreApplicationCreatedState}" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime Opportunity}" in the page details
     And I save the field labeled "EGMS ID" as "PreAppEGMSID"
     Then I softly see field "EGMS ID" as "{SavedValue:PreAppEGMSID}"
     Then I softly see field "Status" as "Created"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     And I save the field labeled "Funding Organization" as "FundingOrganization"
     Then I softly see link "{SavedValue:FundingOrganization}" inside Page block
     And I click on hyperlink containing value "{SavedValue:FundingOrganization}"
     Then I see the header is "Federal Organization" in the page details
     Then I see the sub-header is "{SavedValue:FundingOrganization}" in the page details
+    And I wait for "2" seconds
     And I click on back arrow
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Setup" sub tab at view detail page
@@ -16142,9 +16164,9 @@ Feature: Sanity scenarios
     Then I softly see "Title" in flex table header "---grantee_tableId:-:preApplicationExternalProgramTableId---"
     Then I softly see "Type" in flex table header "---grantee_tableId:-:preApplicationExternalProgramTableId---"
     Then I softly see "Is Primary Program" in flex table header "---grantee_tableId:-:preApplicationExternalProgramTableId---"
-    Then I can see row level action button "Edit" against "Pratiksha Program" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
-    Then I can see row level action button "View" against "Pratiksha Program" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
-    Then I can see row level action button "Remove" against "Pratiksha Program" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I can see row level action button "Edit" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I can see row level action button "View" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I can see row level action button "Remove" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
     When I click on parallel lines menu bar with data target value "External Programs"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
@@ -16156,6 +16178,8 @@ Feature: Sanity scenarios
     Then I softly see "Email" in flex table header "---grantee_tableId:-:preApplicationContactTableId---"
     Then I softly see "Is Key Contact" in flex table header "---grantee_tableId:-:preApplicationContactTableId---"
     Then I softly see "Is User" in flex table header "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
     When I click on parallel lines menu bar with data target value "Contacts"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
@@ -16246,7 +16270,7 @@ Feature: Sanity scenarios
     Then I softly do not see "Program Income" page block displayed
     Then I softly do not see "Indirect Rates" page block displayed
     When I navigate to "Overview" sub tab
-    And I click on hyperlink containing value "{grantee_testData:AutomationOpportunityEGMSID}"
+    And I click on hyperlink containing value "{SavedValue:opportunityEGMSID}"
     Then I softly see field "Status" as "Converted to Pre-Application"
     Then I softly see field "Is Match Required?" as "No"
     Then I softly cannot see field "Cost Sharing or Matching Requirement" inside page block
