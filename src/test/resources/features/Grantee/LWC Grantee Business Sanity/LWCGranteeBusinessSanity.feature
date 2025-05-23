@@ -3354,7 +3354,7 @@ Feature: Sanity scenarios
     When I click modal button "Save and Continue"
     Then I see the header is "Grant" in the page details
 
-  @447517 @ValidateGrantwithPMProfileOndirectgrantmodalunabletoseethefieldIsBudgetPeriodCloseoutRequestRequired @TBE1
+  @447517 @ValidateGrantwithPMProfileOndirectgrantmodalunabletoseethefieldIsBudgetPeriodCloseoutRequestRequired @P2_Grantee @PM_Grantee @GRegression1
   Scenario: Validate Grant with PM Profile On direct grant modal unable to see the field Is Budget Period Closeout Request Required
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -5530,7 +5530,7 @@ Feature: Sanity scenarios
     And I "Created" standalone subaward "Automation Runtime Award" with properties "CASH_MATCH_NON_CASH_MATCH_PO_OWNER"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "NON_CASH_MATCH_BUDGET"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    And I "Created" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "NO_BUDGET"
+    And I "Created" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -15491,8 +15491,8 @@ Feature: Sanity scenarios
     And I click on top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
     And I enter values into fields
       | Value | Field              |
-      | 2     | BudgetStartDate__c |
-      | 100   | BudgetEndDate__c   |
+      | 368   | BudgetStartDate__c |
+      | 450   | BudgetEndDate__c   |
     When I click modal button "Save"
     When I click modal button "Close"
     And I wait for "2" seconds

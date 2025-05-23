@@ -1428,13 +1428,18 @@ Feature: Sanity scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
       | Name     | Pre-Application |
       | Sarah PM | Step 4          |
-    When I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "Edit" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---" by clicking "New" :
       | Name     | Pre-Application |
       | Sarah PM | Step 4          |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | You cannot specify the same user for multiple steps for PreApplication |
+      | You cannot specify the same user for multiple steps for Pre-Application |
     And I refresh the page
     And I wait for "2" seconds
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Letter of Intent" from computer
+    When I click modal button "Close"
     When I click on "Validate" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
