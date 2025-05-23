@@ -1382,7 +1382,7 @@ Feature: Sanity scenarios
     When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
     Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
 
-  @463440 @PreAppVerifywithPOprofilewithmultipleapproverabletoapprove @TBE1
+  @463440 @PreAppVerifywithPOprofilewithmultipleapproverabletoapprove @P2_Grantee @PO_Grantee @GRegression1
   Scenario:PreApp - Verify with PO profile ,with multiple approver able to approve.
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PO" user

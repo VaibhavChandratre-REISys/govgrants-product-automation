@@ -15475,24 +15475,25 @@ Feature: Sanity scenarios
     Then I can see row level action button "Edit" against "Contractual" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
     Then I can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
     Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---" by clicking "Edit" :
-      | Budget Category | Award Budget |
-      | Construction    | 1000         |
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" by clicking "Edit" :
+      | Category     | Award Budget |
+      | Construction | 1000         |
     And I wait for "5" seconds
-    Then I softly see value "$1000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
-    Then I softly see value "$1000.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---" by clicking "Edit" :
+    Then I softly see value "$1,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+    Then I softly see value "$1,200.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" by clicking "Edit" :
       | Budget Category | Award Budget |
       | Construction    | 0            |
     And I wait for "5" seconds
-    Then I softly see value "$0.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
-    Then I softly see value "$0.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "$0.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+    Then I softly see value "$0.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
     When I navigate to "Setup" sub tab
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:PreApplicationBudgetPeriodDetails---" by clicking "Edit" :
+      | Budget Period # |  End Date |
+      | BP01            |  300      |
     And I click on top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
-    And I enter values into fields
-      | Value | Field              |
-      | 368   | BudgetStartDate__c |
-      | 450   | BudgetEndDate__c   |
+    When I enter in modal value "302" into field "BudgetStartDate__c"
+    When I enter in modal value "365" into field "BudgetEndDate__c"
     When I click modal button "Save"
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -15504,6 +15505,8 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Delete" against "BP02" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
     Then I softly can see row level action button "Edit" against "BP02" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
     And I navigate to "Budget" sub tab
+    And I collapse nested table containing column value "BP01"
+    And I wait for "2" seconds
     Given I expand nested table containing column value "BP02"
     Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
     Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
