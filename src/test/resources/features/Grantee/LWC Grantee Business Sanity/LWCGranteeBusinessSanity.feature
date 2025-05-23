@@ -15486,7 +15486,7 @@ Feature: Sanity scenarios
       | Construction    | 0            |
     And I wait for "5" seconds
     Then I softly see value "$0.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
-    Then I softly see value "$0.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+    Then I softly see value "$200.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
     When I navigate to "Setup" sub tab
     And I click on "Edit" icon for "BP01" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetPeriodDetails---"
     When I enter in modal value "300" into field "BudgetEndDate__c"
