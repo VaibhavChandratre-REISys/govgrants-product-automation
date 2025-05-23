@@ -7004,8 +7004,8 @@ Feature: Sanity scenarios
     Then I softly see fields "Comments__c" is in edit mode
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Additional Details is required to save. |
-      | Decision is required to save.           |
+      | To Save, Additional Details is required. |
+      | To Save, Decision is required.           |
     Then I see only the following ordered options in dropdown field "Decision__c" :
       | --None-- | Accepted | Not Accepted |
     When I enter values into fields
@@ -7018,7 +7018,7 @@ Feature: Sanity scenarios
     Then I softly see "Field should allow only number upto 4 digits" shown as help text
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Additional Details is required to save. |
+      | To Save, Additional Details is required. |
     When I enter values into fields
       | Value | Field       |
       | Test  | Comments__c |
@@ -15243,9 +15243,9 @@ Feature: Sanity scenarios
     Then I softly see value "$5,000.00" for title "Budget Request" inside table "---grantee_tableId:-:preApplicationFocusAreaTableId---"
     When I navigate to "Setup" sub tab
     Given I expand nested table containing column value "BP01"
-    Then I cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preApplicationFocusAreaTableId---"
-    Then I cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preApplicationFocusAreaTableId---"
-    Then I cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preApplicationFocusAreaTableId---"
+    Then I cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:setupPreAppChildFocusTableId---"
+    Then I cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:setupPreAppChildFocusTableId---"
+    Then I cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:setupPreAppChildFocusTableId---"
 
   @463448 @463449 @PreAppVerifywithPOProfilewhenpreapplicationduedateiscrossedforgrantsgovleadthenunabletoseethecreatepreapplicationbutton @PO_Grantee @PM_Grantee @GRegression2
   Scenario Outline: PreApp - Verify with PO Profile ,when preapplication due date is crossed for grants.gov lead then unable to see the create pre application button.
