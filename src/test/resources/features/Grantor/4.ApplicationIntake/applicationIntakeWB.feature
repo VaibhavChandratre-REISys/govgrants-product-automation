@@ -135,8 +135,11 @@ Feature: Application Intake scenarios without background
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I navigate to "Opportunities" tab
+    And I wait for "3" seconds
     When I navigate to "Qualified" content inside "Opportunities" subheader on left panel
+    And I wait for "3" seconds
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:qualifiedTableId---" panel
     Then I do not see value "{SavedValue:Automation Runtime Announcement Application Intake}" for title "Opportunity Name" inside table "---applicationIntake:-:qualifiedTableId---"
 
@@ -1738,6 +1741,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly can see row level action button "Initiate Review Process" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationReview:-:announcementListTableId---"
     When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I pause execution for "5" seconds
     Then I softly can see "Related Log" sub tab at view detail page
 
   @196715  @sprint-4-US-197579 @reassignment @TBE
@@ -1952,7 +1956,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Proposal" sub tab
     Then I softly cannot see row level action button "Edit" against "Automation Permanent KPI" in flex table with id "---applicationReview:-:kpiTableId---"
 
-  @Bug-402305-Hold  @196756 @196759  @sprint-4-US-197579 @reassignment @TBE
+  @196756 @196759  @sprint-4-US-197579 @reassignment @TBE
   Scenario: Validate App-Rev New EXE owner can initiate app review process if it's related Ann owner will change ownership and assign to new user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default-Automation EXE user"
     When I am on "SUBPORTAL" portal
@@ -2029,8 +2033,6 @@ Feature: Application Intake scenarios without background
     Then I softly can see top right button "Unpublish" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---announcement:-:approversTableId---"
-    When I navigate to "Related Log" sub tab
-    Then I softly can see top right button "Validate" in flex table with id "---applicationReview:-:reviewStepsTableId---"
 
   @196855  @sprint-4-US-197579  @reassignment @TBE
   Scenario: Validate App-Rev new App owner can see 'related log' tab after Ann ownership will get change

@@ -1199,7 +1199,9 @@ Feature: Application Intake scenarios without background
     When I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
+    And I wait for "2" seconds
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    And I wait for "2" seconds
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationReview:-:reviewsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
