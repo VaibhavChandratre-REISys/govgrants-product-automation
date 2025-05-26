@@ -1049,7 +1049,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "6" seconds
     Then I see status in Progress-bar is "Converted to Award" and is "dark blue"
 
-  @133262 @133251 @ValidatePMUserAllowEditSelectAtLeastOneFormErrorMessage @Sprint-3  @NegotiationRerun
+  @133262 @133251 @ValidatePMUserAllowEditSelectAtLeastOneFormErrorMessage @Sprint-3
   Scenario: Validate PM User Allow Edit Select At Least One Form Error Message
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1076,7 +1076,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Save" in the page details
     And I pause execution for "5" seconds
     #133251
-    Then I softly see field "Application Sections for Negotiation" as "Forms and Files:Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Forms and Files: Forms"
     When I click on "Send to Subrecipient" in the page details
     Then I softly see the following messages in the page details contains:
       | Negotiations Tab - Select at least one form for negotiation, because Form section is added for negotiation. |
@@ -1161,6 +1161,7 @@ Feature: Validate all scenarios in Negotiations
     When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Negotiation Submitted"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab

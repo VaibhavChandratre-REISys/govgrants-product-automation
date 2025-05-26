@@ -162,7 +162,7 @@ Feature: Validate all scenarios in Negotiations
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "5" seconds
-    Then I softly see field "Application Sections for Negotiation" as "Forms and Files:Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Forms and Files: Forms"
 
   @164568  @sprint-3
   Scenario: Validate PO User Able To Select File And Forms For Revision Picklist When Application In reviewed State
@@ -192,7 +192,7 @@ Feature: Validate all scenarios in Negotiations
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "3" seconds
-    Then I softly see field "Application Sections for Negotiation" as "Forms and Files:Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Forms and Files: Forms"
 
   @164573 @ValidatePOUserselecttheAlloweditforatleastoneformintheavailableformsforRevisionstable
   Scenario: Validate PO User select the Allow edit for atleast one form in the available forms for Revisions table
