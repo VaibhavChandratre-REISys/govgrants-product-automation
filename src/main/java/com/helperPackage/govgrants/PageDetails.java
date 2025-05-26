@@ -118,11 +118,7 @@ public final class PageDetails {
         By topRightButton = By.xpath("//c-flex-layout-quick-view//lightning-button//button[@title='" + buttonName + "'] | //lightning-button-menu[contains(@class,'" + buttonName + "')]");
         try {
             I.amPerforming().waitFor().ElementToBeClickable(topRightButton);
-           try {
-               I.amPerforming().click().on(topRightButton);
-           }catch(Exception e){
                I.amPerforming().click().withJavaScript(topRightButton);
-           }
             govgrants.perform().modal().acceptPopUp();
         } catch (Exception ex) {
             I.amPerforming().waitFor().ElementToBeClickable(By.xpath("//c-flex-layout-quick-view//lightning-button-menu//button[contains(@class,'slds-button_last')]"));
