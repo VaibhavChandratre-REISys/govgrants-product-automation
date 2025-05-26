@@ -260,7 +260,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "2" seconds
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | To Save, Details is required in the Negotiations tab under the Applicant Response section. |
+      | To Save , Details is required in the Negotiations tab under the Applicant Response section. |
 
   @34387 @negotiationWhenOpenUserCannotCreateOther
   Scenario: Verify that with open negotiation request user can not Complete Negotiation (Negative TC)
@@ -505,7 +505,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "2" seconds
     When I click on "Save" in the page details
     Then I see the following messages in the page details contains:
-      | To Save, Details is required in the Negotiations tab under the Applicant Response section. |
+      | To Save , Details is required in the Negotiations tab under the Applicant Response section. |
 
   @57839 @57840 @66445 @pendingNegotiationsViewAndSendToSubrecipientAfterSubmittingToGrantor
   Scenario: Validate whether users able to Send to Subrecipient after Submit to Grantor for adjustments and view the record  inside Pending Negotaitions Table |Validate Task is craeted to Subrecipient even when the negotiation is send back to subrecipient
@@ -724,6 +724,7 @@ Feature: Validate all scenarios in Negotiations
     And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
+    When I navigate to "Forms and Files" sub tab
     Then I softly see value "Automation.pdf" for title "Title" inside table "GrantorApplicationFiles"
     Then I softly see value "Suspension" for title "Classification" inside table "GrantorApplicationFiles"
 
@@ -1937,10 +1938,10 @@ Feature: Validate all scenarios in Negotiations
     And I pause execution for "5" seconds
     And I enter value "10/18/2142" into field "NegotiationDueDate__c"
     When I click on "Save" in the page details
+    And I navigate to "Negotiations" sub tab
     And I pause execution for "5" seconds
     #189548
     Then I softly see field "Due Date" as "10/18/2142"
-    And I navigate to "Negotiations" sub tab
     And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
       | Form Name                | Needs Negotiation |
       | Standard Assurances Form | Checked           |
