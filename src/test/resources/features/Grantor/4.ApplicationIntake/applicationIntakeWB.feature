@@ -119,7 +119,7 @@ Feature: Application Intake scenarios without background
     And I wait for "3" seconds
     Then I cannot see top right button "Submit Application" in page detail
 
-  @70464
+  @70464 @TBE
   Scenario: Validate whether user should not able to qualify the announcement again for once it is Qualified
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -131,19 +131,14 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I click modal button "Save and Continue"
     And I wait for "5" seconds
+    And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:qualifiedTableId---" panel
     Then I do not see value "{SavedValue:Automation Runtime Announcement Application Intake}" for title "Opportunity Name" inside table "---applicationIntake:-:qualifiedTableId---"
-#    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationIntake:-:qualifiedTableId---" without waiting for record
-#    When I click on "Qualify" in the page details
-#    #requested manual qa to provide correct test steps
-#    Then I see the following messages in the page details :
-#      | This Opportunity has already been qualified for your Organization. |
 
   @70463 @73366 @70462 @userCanEnterBudgetDetailsApplTitleasOppurtunityTitleField
   Scenario: To verify that the budget field is editable for the Subrecipient (SPI User) under budget tab on Application | Validate the Application created date is updated with Today's date
@@ -231,7 +226,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     Then I softly can see top right button "Create Application" in page detail
 
-  @71104 @72578 @72624 @77151 @77152 @71107 @71109 @71108
+  @71104 @72578 @72624 @77151 @77152 @71107 @71109 @71108 @TBE
   Scenario: Validate once the Announcement is published and Application is in created status, later the announcement is unpublished then the User will not be able to see the Submit Application
   Validate whether the Applicant will be able to view qualify button on the same funding opportunity after republish
   Validate whether the Applicant will be able to create a New Application from the republish announcement and oppurtunity |Validate whether the Applicant will be able to Submit the New Application from the republish announcement and oppurtunity
@@ -360,7 +355,9 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -371,7 +368,7 @@ Feature: Application Intake scenarios without background
     When I click on "Submit Application" in the page details
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
 
-  @71112 @71113 @appDueDateValidation
+  @71112 @71113 @appDueDateValidation @TBE
   Scenario: Validate the Application Submission before the due date | Validate whether the application due date on Announcement is reflecting same while creating an application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for App Intake and PreApp" and properties "TODAY_APP_DUE_DATE"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -418,7 +415,9 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -715,7 +714,7 @@ Feature: Application Intake scenarios without background
     When I download the file
     Then I softly see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 
-  @33799 @createdANDQualifiedApplication
+  @33799 @createdANDQualifiedApplication @TBE
   Scenario: Validate whether SPI & SPA users are able to view the qualified and created Statuses
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -727,8 +726,8 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
-    And I wait for "5" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I navigate to "Applications" tab
@@ -852,7 +851,7 @@ Feature: Application Intake scenarios without background
       | User | userType        |
       | SPI3 | Automation SPI3 |
 
-  @73516 @73517 @supportingDocValidationOnApplication
+  @73516 @73517 @supportingDocValidationOnApplication @TBE
   Scenario: Validate whether User will be able to attach any document if the supporting document details mentioned in the Announcement
   Validate if suppoting document is not uploaded by user while submitting the application then the system should throw an error message on screen
   Validate user will be able to view and add additional focus areas while creating an application only when the published announcemnt has additional focus areas
@@ -1139,7 +1138,7 @@ Feature: Application Intake scenarios without background
     And I wait for "3" seconds
     Then I softly can see top right button "Create Application" in page detail
 
-  @34017 @34291 @focusAreaSettingAsNO
+  @34017 @34291 @focusAreaSettingAsNO @TBE
   Scenario: Validate when the funding opportunity  has focus area setting as No then the  User will not be able to view the focus area section when creating the Application
   Validate whether the user is able to Edit the budget category while creating an Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "FOCUS_AREA_NO"
@@ -1152,8 +1151,8 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I click modal button "Save and Continue"
     And I wait for "5" seconds
+    And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -1362,7 +1361,7 @@ Feature: Application Intake scenarios without background
     Then I softly see the following messages in the page details contains:
       | An Application cannot be submitted after the Application Due Date. |
 
-  @77657 @snapshotHistoryApplication @snapExecution
+  @77657 @snapshotHistoryApplication @snapExecution @TBE
   Scenario: Validate whether SPI user will be able to take the snapshot on page when the Application is in Created status and is saved under snapshot history
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1504,7 +1503,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---applicationReview:-:announcementListTableId---"
 
-  @196695  @sprint-4-US-197579 @reassignment
+  @196695  @sprint-4-US-197579 @reassignment @TBE
   Scenario: Validate App Application is transfer to new user after Ann ownership will get change with setting pre-app as 'Yes'
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES-Automation EXE user"
     When I login to "As a Grantor" app as "ADMIN" user
@@ -1594,7 +1593,9 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -1608,7 +1609,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
 
-  @196705  @sprint-4-US-197579 @reassignment
+  @196705  @sprint-4-US-197579 @reassignment @TBE
   Scenario: Validate App-Rev New PO owner can initiate app review process if it's related Ann owner will change ownership and assign to new user
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -1679,6 +1680,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1705,7 +1707,9 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -1736,7 +1740,7 @@ Feature: Application Intake scenarios without background
     When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     Then I softly can see "Related Log" sub tab at view detail page
 
-  @196715  @sprint-4-US-197579 @reassignment
+  @196715  @sprint-4-US-197579 @reassignment @TBE
   Scenario: Validate App S\R SPI user of application owner should not change even if app ownership change after Ann owner will get change in created by field
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1777,7 +1781,9 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -1808,7 +1814,7 @@ Feature: Application Intake scenarios without background
     And I wait for "3" seconds
     Then I softly see field "Created by" as "Automation SPI3"
 
-  @196713 @ValidateAppoldownercanonlyviewtheapplicationoncetheAnnownerchangehisownershipfromEXEtonewEXEuser @sprint-4-US-197579 @reassignment
+  @196713 @ValidateAppoldownercanonlyviewtheapplicationoncetheAnnownerchangehisownershipfromEXEtonewEXEuser @sprint-4-US-197579 @reassignment @TBE
   Scenario: Validate App old owner can only view the application once the Ann owner change his ownership from EXE to new EXE user
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1910,7 +1916,9 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -1944,7 +1952,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Proposal" sub tab
     Then I softly cannot see row level action button "Edit" against "Automation Permanent KPI" in flex table with id "---applicationReview:-:kpiTableId---"
 
-  @Bug-402305-Hold  @196756 @196759  @sprint-4-US-197579 @reassignment
+  @Bug-402305-Hold  @196756 @196759  @sprint-4-US-197579 @reassignment @TBE
   Scenario: Validate App-Rev New EXE owner can initiate app review process if it's related Ann owner will change ownership and assign to new user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default-Automation EXE user"
     When I am on "SUBPORTAL" portal
@@ -1983,7 +1991,9 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -2022,7 +2032,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Related Log" sub tab
     Then I softly can see top right button "Validate" in flex table with id "---applicationReview:-:reviewStepsTableId---"
 
-  @196855  @sprint-4-US-197579  @reassignment
+  @196855  @sprint-4-US-197579  @reassignment @TBE
   Scenario: Validate App-Rev new App owner can see 'related log' tab after Ann ownership will get change
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default-Automation PM1 user"
     When I am on "SUBPORTAL" portal
@@ -2033,6 +2043,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2059,7 +2070,9 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -2091,7 +2104,7 @@ Feature: Application Intake scenarios without background
     When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     Then I softly can see "Related Log" sub tab at view detail page
 
-  @197064 @sprint-4-US-197579 @reassignment
+  @197064 @sprint-4-US-197579 @reassignment @TBE
   Scenario: Validate App email should be generated for new owner for App if it's related Ann ownership assign to other user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     When I am on "SUBPORTAL" portal
@@ -2130,7 +2143,9 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds

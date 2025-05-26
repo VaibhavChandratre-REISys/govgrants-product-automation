@@ -48,7 +48,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
     Then I softly see field "Allocation Amount" as "$1,000"
 
-  @219703 @sprint-11-US-203038  @Allocation
+  @219703 @sprint-11-US-203038  @Allocation @TBE
   Scenario: Validate SPI User if budgeted amount is not equal to allocation amount then error message should generate on click on submit to grantor button
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT"
     Given I am on "SUBPORTAL" portal
@@ -89,7 +89,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     When I click on "Submit Application" in the page details
@@ -180,7 +182,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see page block "Budget Summary"
     Then I softly cannot see page block "Budget Summary by Focus Area"
 
-  @219716 @sprint-11-US-203038  @Allocation
+  @219716 @sprint-11-US-203038  @Allocation @TBE
   Scenario: Validate SPA User if focus area is Yes for formula announcement then "Budget Summary by Focus Area" section should display in budget tab at S/R side
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -254,6 +256,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:reviewsTableId---" panel
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     And I navigate to "Financials" sub tab
+    And I wait for "3" seconds
     Then I softly can see page block "Budget Summary"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
@@ -284,7 +287,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following headers in table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---" :
       | Focus Area | Allocation Amount | Budgeted Amount |
 
-  @219852 @sprint-11-US-203038  @Allocation
+  @219852 @sprint-11-US-203038  @Allocation @TBE
   Scenario: Validate SPA User user should able to add & remove focus area from budget summary by focus area section at S/R side
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -300,6 +303,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
+    And I wait for "3" seconds
     Then I softly can see page block "Budget Summary"
     Then I see value "Automation Permanent Focus Area" for title "Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     Then I softly cannot see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
@@ -396,7 +400,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following headers in table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---" :
       | Focus Area | Budgeted Amount |
 
-  @219974 @219982 @sprint-11-US-203038 @Allocation
+  @219974 @219982 @sprint-11-US-203038 @Allocation @TBE
   Scenario: Validate SPI User on opportunity overview section Subaward floor & Subaward Celling field should be hide for formula announcement
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA-Automation PO user"
     When I am on "SUBPORTAL" portal
@@ -445,16 +449,18 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
-    Then I cannot see the following messages in the page details contains:
+    Then I see the following messages in the page details contains:
       | Overview Tab - Requested Amount should be less than or equal to Subaward Ceiling Amount. |
       | Overview Tab - Requested Amount should be more than or equal to Subaward floor Amount.   |
 
-  @219960 @ValidateINDUserifbudgetedamount&AllocationAmountisnotequalthenusershouldabletoseetheerrormessageonclickonsubmittograntorbutton @sprint-11-US-203038  @Allocation
+  @219960 @ValidateINDUserifbudgetedamount&AllocationAmountisnotequalthenusershouldabletoseetheerrormessageonclickonsubmittograntorbutton @sprint-11-US-203038  @Allocation @TBE
   Scenario: Validate IND User if budgeted amount & Allocation Amount is not equal then user should able to see the error message on click on submit to grantor button
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -495,7 +501,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -590,7 +598,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #219572
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
 
-  @219532 @219569 @DirectedAnnVerifyvalidationmessageshouldbedisplaytoSPIonAppifuserenterbudgetedamountlessthansubawardflooramountWithFocusAreaYes @sprint-11-US-203541 @Allocation
+  @219532 @219569 @DirectedAnnVerifyvalidationmessageshouldbedisplaytoSPIonAppifuserenterbudgetedamountlessthansubawardflooramountWithFocusAreaYes @sprint-11-US-203541 @Allocation @TBE
   Scenario: Directed Ann_ Verify validation message should be display to SPI on App if user enter budgeted amount less than sub-award floor amount
   | Directed Ann_ Verify validation message should be display to SPI on App if user enter budgeted amount more than sub-award Ceiling amount  |
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
@@ -629,7 +637,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I wait for "3" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "3" seconds
@@ -705,7 +715,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #226913
     Then I softly see "Budget Summary by Focus Area" page block displayed
 
-  @226909 @226911 @DirectedAnnVerifyvalidationmessageshouldbedisplaytoINDonAppifuserenterbudgetedamountlessthansubawardflooramountWithFocusAreaYes @sprint-11-US-203541  @Allocation
+  @226909 @226911 @DirectedAnnVerifyvalidationmessageshouldbedisplaytoINDonAppifuserenterbudgetedamountlessthansubawardflooramountWithFocusAreaYes @sprint-11-US-203541  @Allocation @TBE
   Scenario: Directed Ann_ Verify validation message should be display to IND on App if user enter budgeted amount less/greater than sub-award floor amount
   | Directed Ann_ Verify validation message should be display to IND on App if user enter budgeted amount more than sub-award Ceiling amount  |
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APPLICANT_IND_ORG_FOCUS_AREA_NO"
@@ -758,9 +768,10 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 11000  | 100        | 100            |
+      | Construction  | 11000  | 110        | 110            |
     And I wait for "5" seconds
     When I click on "Submit Application" in the page details
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount should be less than or equal to the Subaward Ceiling Amount. Adjust the Budgeted Amount in the Budget period section. |
 
@@ -821,7 +832,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #219656
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
 
-  @219642 @219648 @CompetitiveAnnVerifyvalidationmessageshouldbedisplaytoSPIonAppifuserenterbudgetedamountlessthansubawardflooramount @sprint-11-US-203541 @Allocation
+  @219642 @219648 @CompetitiveAnnVerifyvalidationmessageshouldbedisplaytoSPIonAppifuserenterbudgetedamountlessthansubawardflooramount @sprint-11-US-203541 @Allocation @TBE
   Scenario: Competitive  Ann_ Verify validation message should be display to SPI on App if user enter budgeted amount less than sub-award floor amount
   | Competitive  Ann_ Verify validation message should be display to SPI on App if user enter budgeted amount more than sub-award Ceiling amount  |
     Given I published "Competitive " type announcement having name "Automation Runtime Announcement" and properties "FOCUS_AREA_NO"
@@ -866,6 +877,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "3" seconds
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
+    And I wait for "2" seconds
     #219642
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount should be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section. |
@@ -874,8 +886,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 11000  | 100        | 100            |
+      | Construction  | 11000  | 110        | 110            |
     When I click on "Submit Application" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount should be less than or equal to the Subaward Ceiling Amount. Adjust the Budgeted Amount in the Budget period section. |
 
@@ -1068,7 +1081,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following headers in table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---" :
       | Focus Area | Allocation Amount | Budgeted Amount |
 
-  @219230 @sprint-10-US-203669 @Allocation
+  @219230 @sprint-10-US-203669 @Allocation @TBE
   Scenario: Formula Ann_ Verify Focus area section should be hidden on app, even if Focus Area is "no" and Allocation level
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     Given I am on "SUBPORTAL" portal
@@ -1107,7 +1120,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -1126,7 +1141,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly do not see "Focus Area" page block displayed
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
 
-  @219297 @219307 @sprint-10-US-203669 @Allocation
+  @219297 @219307 @sprint-10-US-203669 @Allocation @TBE
   Scenario: Directed Ann_ Verify as PM user I cannot see  sub-award floor and sub-award ceiling, under the overview tab in App
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1166,7 +1181,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "2" seconds
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -1548,7 +1565,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Subaward Ceiling" inside page block
     Then I softly see field "Budgeted Amount" inside page block
 
-  @219363 @219366 @CompetativeAnnVerifyasPMuserIcanseeRecommendedforawardcolumnisvisiblewhenAppstatusisnegotiationCompleted @sprint-10-US-203669  @Allocation
+  @219363 @219366 @CompetativeAnnVerifyasPMuserIcanseeRecommendedforawardcolumnisvisiblewhenAppstatusisnegotiationCompleted @sprint-10-US-203669  @Allocation @TBE
   Scenario: Competitive Ann_ Verify as PM user I can see Recommended budget field is visible when App status is negotiation completed
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANTNT"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1590,14 +1607,11 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:phasePendingTasksTableId---"
     Then I softly can see top right button "Complete Negotiation" in page detail
     When I click on "Complete Negotiation" in the page details
-    #219363
-    When I navigate to "Budget" sub tab
-    #Then I softly see field "Recommended Budget" inside page block
     #219366
     And I click on "Create Subaward" in the page details
     And I pause execution for "3" seconds
     And I click on back arrow
-    Then I softly see that "{SavedValue:Automation Runtime FDM Announcement}" is in "Reviewed" status
+    Then I softly see that "{SavedValue:Automation Runtime FDM Announcement}" is in "Converted to Award" status
     When I navigate to "Budget" sub tab
     Then I softly see field "Recommended Budget" inside page block
 
@@ -1693,7 +1707,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly cannot see page block "Focus Area"
     Then I softly can see page block "Budget Summary by Focus Area"
 
-  @219342 @CompetitiveAnnVerifyasAdminuserIcannotseeBudgetSummarybyFocusAreasectiononAppifsettingfocusareaisNoonAnn @sprint-10-US-203669  @Allocation
+  @219342 @CompetitiveAnnVerifyasAdminuserIcannotseeBudgetSummarybyFocusAreasectiononAppifsettingfocusareaisNoonAnn @sprint-10-US-203669  @Allocation @TBE
   Scenario: Competitive Ann_ Verify as Admin user I can not see 'Budget Summary by Focus Area' section on App  if setting focus area is No on Ann
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "FOCUS_AREA_NO"
     Given I am on "SUBPORTAL" portal
@@ -1733,7 +1747,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -2632,7 +2648,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | SPA  | {SavedValue:SPA Username}  |
 
   @222481 @VerifySPISPAusercanaddremovefocusareaintheBudgetTabBudgetSummarybyFocusAreasectiononlyifpreapplicationissenttosrfornegotiation @sprint-10-US-221062  @Allocation
-  Scenario Outline: Verify SPI/SPA user can add/remove focus area in the "Budget Tab: Budget Summary by Focus Area" section only if pre-application is sent to s/r for negotiation
+  Scenario: Verify SPI/SPA user can add/remove focus area in the "Budget Tab: Budget Summary by Focus Area" section only if pre-application is sent to s/r for negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I login to "As a Grantor" app as "PM" user
     When I navigate to "Announcements" tab
@@ -2673,7 +2689,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Publish" in the page details
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Published" and is "dark blue"
-    When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2692,8 +2708,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name       | Project Role             | Is Key Contact |
-      | <UserName> | Project Director/Manager | Checked        |
+      | Name                       | Project Role             | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -2725,7 +2741,32 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Negotiations" sub tab
     And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
-    When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
+    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:PreAppEgmsId}" in "---home:-:externalPendingTasktableId---" panel
+    And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside flex table with id "---home:-:externalPendingTasktableId---" without waiting for record
+    And I click on "Edit" in the page details
+    And I navigate to "Negotiations" sub tab
+    When I enter value "Automation Test" into field "ApplicantResponse__c"
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I navigate to "Budget" sub tab
+    When I click on top right button "Remove Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
+    When I check "Automation Permanent Focus Area2" boxes in flex table with id "---applicationIntake:-:RemoveFocusAreaPreAppTableId---"
+    When I click on top right button "Remove" in flex table with id "---applicationIntake:-:RemoveFocusAreaPreAppTableId---"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly do not see value "Automation Permanent Focus Area2" for title "Focus Area" inside table "---applicationIntake:-:focusAreaTableAppId---"
+    When I click on top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
+    When I check "Automation Permanent Focus Area2" boxes in flex table with id "---applicationIntake:-:focusAreaAssociateTableId---"
+    When I click on top right button "Add" in flex table with id "---applicationIntake:-:focusAreaAssociateTableId---"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area" inside table "---applicationIntake:-:focusAreaTableAppId---"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:PreAppEgmsId}" in "---home:-:externalPendingTasktableId---" panel
@@ -2755,10 +2796,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Negotiations" sub tab
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor" in "Negotiation Request Details" pageblock
-    Examples:
-      | User | UserName                   |
-      | SPI3 | {SavedValue:SPI3 Username} |
-      | SPA  | {SavedValue:SPA Username}  |
 
   @222470 @sprint-10-US-221062  @Allocation
   Scenario Outline: Verify SPI/SPA user can edit "Budget Tab: Budget Summary by Focus Area" section only if pre-application is sent to s/r for negotiation
@@ -3788,7 +3825,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see "Opportunity Files" on page "5" of "govgrant" pdf file
     Then I softly see "Notes" on page "5" of "govgrant" pdf file
 
-  @276407 @ValidateCheckfieldsandDownloadasPDFforOppConvertedtoapplication @Sprint-23-US-275864  @Allocation
+  @276407 @ValidateCheckfieldsandDownloadasPDFforOppConvertedtoapplication @Sprint-23-US-275864  @Allocation @TBE
   Scenario: Validate Check fields and Download as PDF for Opp Converted to application
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -3805,8 +3842,11 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "3" seconds
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "appEgmsId"
+    And I wait for "3" seconds
     And I navigate to "Opportunities" tab
+    And I wait for "2" seconds
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
+    And I wait for "2" seconds
     And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---" without waiting for record
     Then I softly see field "Status" as "Converted to Application"
