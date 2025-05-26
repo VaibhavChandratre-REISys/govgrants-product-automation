@@ -171,6 +171,7 @@ Feature: Validate all scenarios in the Application Intake
     When I click on top right button "Add Focus Area" in flex table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     Then I softly see "No Records Found" inside flex table with id "---applicationIntake:-:AddFocusAreaTableAppId---"
     When I click modal button "Close"
+    And I wait for "2" seconds
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
