@@ -306,7 +306,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     And I logout
-#    And I wait for "5" seconds
+    And I wait for "5" seconds
 #    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
 #    And I pause execution for "180" seconds
 #    Then I refresh the page
