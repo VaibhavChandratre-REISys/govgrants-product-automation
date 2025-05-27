@@ -183,7 +183,7 @@ public class GenericSteps {
     public void iVerifyThatTheFileIsDownloaded(String usage, String fileName) {
         I.amPerforming().waitFor().makeThreadSleep(10000);
         boolean yes = false;
-        File[] list = I.amPerforming().fileHandling().toGetCompleteFilesListOnLocalDirectory(System.getProperty("user.dir") + "/target");
+        File[] list = I.amPerforming().fileHandling().toGetCompleteFilesListOnLocalDirectory(System.getProperty("user.dir") + File.separatorChar + "target");
         for (File f : list) {
             if (fileName.equalsIgnoreCase(f.getName())) {
                 yes = true;

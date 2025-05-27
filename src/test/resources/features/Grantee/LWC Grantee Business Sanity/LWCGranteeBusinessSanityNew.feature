@@ -12067,7 +12067,7 @@ Feature: Sanity scenarios New
       | userType      | attachment     | Notes           | userName   | Title |
       | GRANTEE ADMIN | Attachment.pdf | Notes for ADMIN | Product QA | Test2 |
 
-  @477676 @477677 @477679 @VerifyPOusershouldabletoseethevalidationmessagesandrejecttheSOWamendmentrequest @P2_Grantee @PO_Grantee @P3_Grantee @FO_Grantee @GRegression1
+  @477676 @477677 @477679 @VerifyPOusershouldabletoseethevalidationmessagesandrejecttheSOWamendmentrequest @P2_Grantee @PO_Grantee @P3_Grantee @FO_Grantee @EXE_Grantee @GRegression1
   Scenario Outline: Verify PO user should able to see the validation messages and reject the SOW amendment request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"

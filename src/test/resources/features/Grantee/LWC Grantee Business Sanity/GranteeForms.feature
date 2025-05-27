@@ -1562,7 +1562,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | Fill all the required data in the form before submitting. |
 
-  @478400 @478403 @ValidateProjectNarrativeAttachmentformusershouldabletoaddtheattachmentincreatedsendforreviewsubmittedforreviewreviewedstate @P2_Grantee @P1_Grantee @ADMIN_Grantee @EXE_Grantee @GRegression1
+  @478400 @478403 @ValidateProjectNarrativeAttachmentformusershouldabletoaddtheattachmentincreatedsendforreviewsubmittedforreviewreviewedstate @P1_Grantee @PO_Grantee @GRegression1
   Scenario: Validate Project Narrative Attachment form user should able to add the attachment in created, send for review submitted for review, reviewed state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"

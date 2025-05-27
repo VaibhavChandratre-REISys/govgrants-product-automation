@@ -9462,7 +9462,11 @@ Feature: Sanity scenarios
     Then I softly see value "Automation.pdf" for title "Classification" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
     Then I softly see value "Other Artifacts" for title "Classification" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
     And I click on "Download" icon for "Other Artifacts" inside flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---" without waiting for record
+    And I switch to tab number "1"
+    And I download the file
+    And I wait for "3" seconds
     Then I softly verify that the file "Automation.pdf" is downloaded
+    And I close the tab
     And I click on "Delete" icon for "Other Artifacts" inside flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---" without waiting for record
     Then I softly do not see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:nonFedNotesTableId---" by clicking "New" :
