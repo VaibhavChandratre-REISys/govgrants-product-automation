@@ -5479,7 +5479,6 @@ Feature: Sanity scenarios
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-     And I halt execution
     When I navigate to "Amendments" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     When I get the "EGMS ID"
