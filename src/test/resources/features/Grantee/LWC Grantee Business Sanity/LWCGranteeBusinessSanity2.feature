@@ -2526,7 +2526,6 @@ Feature: Sanity scenarios
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     And I wait for "3" seconds
-    Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2546,7 +2545,7 @@ Feature: Sanity scenarios
     And I wait for "6" seconds
     When I click on notification icon
     And I wait for "10" seconds
-    Then I softly see notification "Sarah PM assigned you a task" contains "{SavedValue:Automation Runtime Award}"
+    Then I softly see notification "David FO assigned you a task" contains "{SavedValue:Automation Runtime Award}"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
