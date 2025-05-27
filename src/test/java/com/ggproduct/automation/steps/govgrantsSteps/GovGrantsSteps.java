@@ -1211,6 +1211,7 @@ public final class GovGrantsSteps {
     @When("I click on notification icon")
     public void iClickOnNotificationIcon() {
         govgrants.perform().pageDetails().getNotificationIcon();
+        I.amPerforming().waitFor().ElementToDisappear(By.xpath("//div[@class='listContainer scrollable']//div[@class='forceDotsSpinner']"));
     }
 
     @And("I click on {string} button for page")

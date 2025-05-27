@@ -7319,7 +7319,7 @@ Feature: Sanity scenarios New
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
 
-  @472391 @Validatethatuserabletocreatetheapplicationfromthequalifiedleads
+  @472391 @Validatethatuserabletocreatetheapplicationfromthequalifiedleads @P2_Grantee @PM_Grantee @GRegression1
   Scenario: Validate that user able to create the application from the qualified leads
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     When I login to "As a Grantee" app as "GRANTEE PM" user
