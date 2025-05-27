@@ -9465,7 +9465,7 @@ Feature: Sanity scenarios
     And I switch to tab number "1"
     And I download the file
     And I wait for "3" seconds
-    Then I softly verify that the file "Automation.pdf" is downloaded
+    Then I softly verify that the file "govgrant.pdf" is downloaded
     And I close the tab
     And I click on "Delete" icon for "Other Artifacts" inside flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---" without waiting for record
     Then I softly do not see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"

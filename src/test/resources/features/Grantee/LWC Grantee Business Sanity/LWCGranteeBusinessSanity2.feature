@@ -2494,7 +2494,7 @@ Feature: Sanity scenarios
     And I wait for "5" seconds
     When I click on notification icon
     And I wait for "8" seconds
-    Then I softly see notification "Grantee PO assigned you a task" contains "Automation Runtime Direct"
+    Then I softly see notification "Grantee PO assigned you a task" contains "{SavedValue:Automation Runtime Award}"
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     And I enter a review as "Passed"
@@ -2546,7 +2546,7 @@ Feature: Sanity scenarios
     And I wait for "6" seconds
     When I click on notification icon
     And I wait for "10" seconds
-    Then I softly see notification "Sarah PM assigned you a task" contains "{SavedValue:Automation Runtime Direct}"
+    Then I softly see notification "Sarah PM assigned you a task" contains "{SavedValue:Automation Runtime Award}"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
@@ -2566,7 +2566,7 @@ Feature: Sanity scenarios
     And I wait for "6" seconds
     When I click on notification icon
     And I wait for "10" seconds
-    Then I softly do not see notification "Grantee PO assigned you a task" contains "{SavedValue:Automation Runtime Direct}"
+    Then I softly do not see notification "Grantee PO assigned you a task" contains "{SavedValue:Automation Runtime Award}"
 
   @471004_1 @BudgetPeriodchangeTypeARVerifytheNotificationforBudgetPeriodchangetypeofAmendmentRequets
   Scenario:Budget Period change Type AR-Verify the Notification for Budget Period change type of Amendment Requets
