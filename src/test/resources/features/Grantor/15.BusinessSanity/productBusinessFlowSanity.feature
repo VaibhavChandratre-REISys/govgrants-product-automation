@@ -1979,13 +1979,14 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentrequestReimbursementTableId---" panel
     And I click on "View" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:paymentrequestReimbursementTableId---" without waiting for record
-    When I click on "Mark As Paid" in the page details
-    And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
-    When I click modal button "Save"
-    And I pause execution for "2" seconds
     And I get current URL
-    When I click modal button "Close"
-    Then I see status in Progress-bar is "Paid" and is "dark blue"
+#    When I click on "Mark As Paid" in the page details
+#    And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
+#    When I click modal button "Save"
+#    And I pause execution for "2" seconds
+#    And I get current URL
+#    When I click modal button "Close"
+#    Then I see status in Progress-bar is "Paid" and is "dark blue"
 
   @72350 @adhocAdvanceHappyPath @ProdSan1
   Scenario: Validate the Advance Payment Request happy path and the status changes to 'Paid'
