@@ -2386,7 +2386,6 @@ Feature: Grantee Forms Scenario
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     And I click on "Edit" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I enter "SF424_FORM" values from "Application_Field_Values - backup.xlsx"
@@ -2420,7 +2419,6 @@ Feature: Grantee Forms Scenario
     And I click on "Send for Review" icon for "David FO" inside table
     Then I softly see field "Status" as "Submitted for Review"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly can see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "View" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
@@ -2455,7 +2453,6 @@ Feature: Grantee Forms Scenario
     And I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly can see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "View" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
@@ -2490,7 +2487,6 @@ Feature: Grantee Forms Scenario
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly cannot see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "View" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
@@ -2515,7 +2511,6 @@ Feature: Grantee Forms Scenario
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     Then I softly see field "Status" as "Approved"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly cannot see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "View" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
@@ -2528,7 +2523,6 @@ Feature: Grantee Forms Scenario
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly cannot see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "View" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
