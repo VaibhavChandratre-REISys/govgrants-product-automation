@@ -10873,11 +10873,11 @@ Feature: Sanity scenarios New
     Then I softly see "No Records Found" inside flex table with id "Goals"
     Then I softly see "No Records Found" inside flex table with id "KPIsGranteeRelatedAwards"
     And I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "History.pdf" as name
+    Then I softly see snapshot with name containing "Activate.pdf" as name
     Examples:
       | userType      | emailId                         |
       | GRANTEE EXE   | victor.exeqagrantee@yopmail.com |
-      | GRANTEE ADMIN | productqa@yopmail.com           |
+      | GRANTEE ADMIN | product.qa@yopmail.com           |
 
   @482166 @ValidateQualifyLeadPMusercanqualifytheleadwhichisingestedfromgrantsgov
   Scenario Outline: Validate Qualify Lead PM user can qualify the lead which is ingested from grants gov
