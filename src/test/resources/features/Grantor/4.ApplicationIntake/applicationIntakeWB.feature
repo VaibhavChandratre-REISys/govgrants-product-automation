@@ -1360,7 +1360,9 @@ Feature: Application Intake scenarios without background
     When I click toggle button to select "Applications - Expired"
     And I perform quick search for "{SavedValue:AutomationExpiredApplication}" in "---applicationIntake:-:recipientApplications---" panel
     When I click on "View" icon for "{SavedValue:AutomationExpiredApplication}" inside flex table with id "---applicationIntake:-:recipientApplications---" without waiting for record
+    And I wait for "2" seconds
     When I click on "Submit Application" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | An Application cannot be submitted after the Application Due Date. |
 

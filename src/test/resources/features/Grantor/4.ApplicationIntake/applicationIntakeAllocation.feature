@@ -3872,7 +3872,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see "Goals and Objectives" on page "5" of "govgrant" pdf file
     Then I softly see "Key Performance Indicators (KPIs)" on page "5" of "govgrant" pdf file
     Then I softly see "Opportunity Files" on page "5" of "govgrant" pdf file
-    Then I softly see "Notes" on page "6" of "govgrant" pdf file
+    Then I softly see "Notes" on page "5" of "govgrant" pdf file
 
   @274151 @VerifywhenSPIuserresubmittheapplicationafternegotiationfromFDMcheckFocusareasbudgetedtotalmustbeequaltoAllocationamountforthatfocusareainbudgetsummarysection @Sprint-23-US-273843  @Allocation
   Scenario Outline: Verify when SPI user  resubmit the application after negotiation(from FDM) check Focus area's budgeted total, must be equal to Allocation amount for that focus area in budget summary section
