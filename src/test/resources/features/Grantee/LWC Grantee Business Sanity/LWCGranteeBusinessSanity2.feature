@@ -2453,7 +2453,7 @@ Feature: Sanity scenarios
       | GRANTEE FD  | GRANTEE PM | Sarah PM user   |
       | GRANTEE PM  | GRANTEE PO | Grantee PO user |
 
-  @471004 @BudgetPeriodchangeTypeARVerifytheNotificationforBudgetPeriodchangetypeofAmendmentRequets
+  @471004 @BudgetPeriodchangeTypeARVerifytheNotificationforBudgetPeriodchangetypeofAmendmentRequets @P4_Grantee @PO_Grantee @GRegression1
   Scenario:Budget Period change Type AR-Verify the Notification for Budget Period change type of Amendment Requets
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"

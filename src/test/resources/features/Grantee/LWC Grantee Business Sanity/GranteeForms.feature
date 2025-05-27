@@ -2465,21 +2465,13 @@ Feature: Grantee Forms Scenario
     And I click on "Splitview" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see top right button "Edit" in the split screen page details
     Then I can see top right button "Validate" in the split screen page details
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:ContactModalTableIdApplication---"
-    When I click modal button "Close"
+    When I enter the following values into flex table with id "---grantee_tableId:-:applicationKeyContactFormTableId---" by clicking "Add" :
+      | Name     | Is Key Contact | Project Role    |
+      | Sarah PM | Checked        | Program Manager |
+    And I click on "Validate" in the split screen page details
     And I wait for "2" seconds
-    And I refresh the page
-    And I wait for "3" seconds
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ContactTableIdApplication---" by clicking "Edit" :
-      | Name     | Is Key Contact | Project Role                                   |
-      | Sarah PM | Checked        | Project Director/Principal Investigator(PI/PD) |
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
-    When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
-    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
     When I click on "Validate" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
