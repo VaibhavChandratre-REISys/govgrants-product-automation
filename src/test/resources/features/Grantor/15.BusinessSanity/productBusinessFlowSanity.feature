@@ -3994,7 +3994,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Approve | Reject | Forward | Send back |
 
 
-  @OwnershipReasignment @ProdSan4 @Nov
+  @OwnershipReasignment @ProdSan4 @june4
   Scenario: Validate Grants Ownership Reassignment
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4037,7 +4037,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM1" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @TaskReassignment @ProdSan4 @varerun
+  @TaskReassignment @ProdSan4 @june4
   Scenario: Validate Task Reassignment Scenario
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -4285,7 +4285,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly see field "EGMS ID" as "{SavedValue:DeskReview}"
 
-  @SF425FormsNegativeValidationCheckAndSF428ABlankvalueValidationCheckAlsoSF429Bformnegativevaluesenteredvalidationcheck @ProdSan4
+  @SF425FormsNegativeValidationCheckAndSF428ABlankvalueValidationCheckAlsoSF429Bformnegativevaluesenteredvalidationcheck @ProdSan4 @june4
   Scenario: SF425 Forms Negative Validation Check and SF 428 A Blank value Validation Check also SF429B form negative values entered validation check
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
