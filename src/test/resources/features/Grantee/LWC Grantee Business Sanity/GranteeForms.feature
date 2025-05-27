@@ -1613,11 +1613,6 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
-    And I wait for "2" seconds
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | Form validated successfully. |
-    And I close the tab
     And I wait for "1" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationPeerReview---" by clicking "New" :
@@ -1756,26 +1751,6 @@ Feature: Grantee Forms Scenario
       | Form Validated Successfully. |
     And I close the tab
     And I wait for "2" seconds
-    And I click on "Edit" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I wait for "2" seconds
-    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Project Narrative File" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I click on "Save" in the page details
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | Form validated successfully. |
-    And I close the tab
-    And I wait for "2" seconds
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | Form validated successfully. |
-    And I close the tab
-    And I wait for "1" seconds
-    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
