@@ -12087,9 +12087,9 @@ Feature: Sanity scenarios New
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Please select Amendment Request Type is required to save. |
-      | Initiated By is required to save.                         |
-      | Justification is required to save.                        |
+      | To Save, Please select Amendment Request Type is required. |
+      | To Save, Initiated By is required.                         |
+      | To Save, Justification is required.                        |
     And I enter "Grantee_ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -12104,11 +12104,11 @@ Feature: Sanity scenarios New
     And I clear the value from field "Country__c"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Address line 1 is required to save under Overview. |
-      | City is required to save under Overview.           |
-      | State is required to save under Overview.          |
-      | Zip Code is required to save under Overview.       |
-      | Country is required to save under Overview.        |
+      | To Save, Address line 1 is required in the Overview tab under the Place of Performance section. |
+      | To Save, City is required in the Overview tab under the Place of Performance section.           |
+      | To Save, State is required in the Overview tab under the Place of Performance section.          |
+      | To Save, Zip Code is required in the Overview tab under the Place of Performance section.       |
+      | To Save, Country is required in the Overview tab under the Place of Performance section.        |
     And I enter value "Automation Award" into field "GrantAwardName__c"
     And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     And I enter value "Street4" into field "Addressline1__c"
@@ -12173,10 +12173,10 @@ Feature: Sanity scenarios New
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Title is required to save.               |
-      | Description is required to save.         |
-      | Effective From Date is required to save. |
-      | Effective To Date is required to save.   |
+      | To Save, Title is required in the Information section.                   |
+      | To Save, Description is required in the Information section.             |
+      | To Save, Effective From Date is required in the Effective Dates section. |
+      | To Save, Effective To Date is required in the Effective Dates section.   |
     When I enter in modal value "Terms1" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
     When I enter in modal value "1" into field "Sequence__c"

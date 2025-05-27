@@ -9391,8 +9391,8 @@ Feature: Sanity scenarios
     Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
     Then I softly see "Created By" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
-    And I click toggle button to select "Non-Federal Programs- All"
-    When I click on parallel lines menu bar with data target value "Non-Federal Programs- All"
+    And I click toggle button to select "Non-Federal Programs - All"
+    When I click on parallel lines menu bar with data target value "Non-Federal Programs - All"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
@@ -9402,8 +9402,8 @@ Feature: Sanity scenarios
 #    And I download the file
 #    Then I see "Non-Federal Programs- All" on page "1" of "govgrants" pdf file
 #    And I switch to parent tab
-    When I click on parallel lines menu bar with data target value "Non-Federal Programs- All"
-    And I select "Refresh" from parallel lines dropdown of "Non-Federal Programs- All"
+    When I click on parallel lines menu bar with data target value "Non-Federal Programs - All"
+    And I select "Refresh" from parallel lines dropdown of "Non-Federal Programs - All"
     Then I see table is refreshing
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFederalProgramsTableId---"
     Then I softly see "Create Non Federal Program" opens in overLay window
