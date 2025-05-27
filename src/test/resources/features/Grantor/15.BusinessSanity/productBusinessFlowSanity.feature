@@ -1983,6 +1983,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
     And I pause execution for "2" seconds
+    And I get current URL
     When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 
