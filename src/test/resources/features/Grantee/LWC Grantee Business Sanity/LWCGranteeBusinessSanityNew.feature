@@ -12067,7 +12067,7 @@ Feature: Sanity scenarios New
       | userType      | attachment     | Notes           | userName   | Title |
       | GRANTEE ADMIN | Attachment.pdf | Notes for ADMIN | Product QA | Test2 |
 
-  @477676 @477677 @477679 @VerifyPOusershouldabletoseethevalidationmessagesandrejecttheSOWamendmentrequest
+  @477676 @477677 @477679 @VerifyPOusershouldabletoseethevalidationmessagesandrejecttheSOWamendmentrequest @P2_Grantee @PO_Grantee @P3_Grantee @FO_Grantee @GRegression1
   Scenario Outline: Verify PO user should able to see the validation messages and reject the SOW amendment request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -12224,6 +12224,13 @@ Feature: Sanity scenarios New
     When I click on "Start" icon for "{SavedValue:SOWEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I "Reject" in the approval decision
     Then I softly see field "Status" as "Rejected"
+    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "{SavedValue:SOWEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    And I click on "View" icon for "{SavedValue:SOWEGMSID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+    Then I softly see field "Status" as "Rejected"
     And I navigate to "Overview" sub tab
     Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly do not see top right button "Edit" inside flex table "---grantee_tableId:-:amendmentObjectiveTableId---"
@@ -12235,7 +12242,8 @@ Feature: Sanity scenarios New
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I cannot see row level action button "Edit" against "Terms and Conditions" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Examples:
       | User        |
       | GRANTEE PO  |
