@@ -1612,6 +1612,8 @@ Feature: Grantee Forms Scenario
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I click on "Delete" icon for "Attachment.pdf" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---" without waiting for record
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I close the tab
     And I wait for "1" seconds
     When I navigate to "Responsibilities" sub tab
@@ -1633,6 +1635,8 @@ Feature: Grantee Forms Scenario
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I click on "Delete" icon for "Attachment1.pdf" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---" without waiting for record
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I close the tab
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Home" tab
