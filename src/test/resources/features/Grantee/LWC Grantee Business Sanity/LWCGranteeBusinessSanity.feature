@@ -9459,9 +9459,8 @@ Feature: Sanity scenarios
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Other Artifacts" at upload file modal
     When I click modal button "Save"
-    When I click modal button "Close"
     And I wait for "2" seconds
-    And I refresh the page
+    When I click modal button "Close"
     And I wait for "5" seconds
     Then I softly see value "Automation.pdf" for title "Classification" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
     Then I softly see value "Other Artifacts" for title "Classification" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"

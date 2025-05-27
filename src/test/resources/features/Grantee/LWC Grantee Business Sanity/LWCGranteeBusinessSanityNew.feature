@@ -5881,7 +5881,7 @@ Feature: Sanity scenarios New
     Then I can see top right button "Edit" in the split screen page details
     Then I can see top right button "Validate" in the split screen page details
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationProjectNarrativeAttachmentTableId---"
-    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Project Narrative Document" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Project Narrative File" from computer
     When I click modal button "Close"
     And I click on "Validate" in the split screen page details
     And I wait for "3" seconds
