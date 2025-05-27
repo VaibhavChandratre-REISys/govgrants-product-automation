@@ -9378,7 +9378,7 @@ Feature: Sanity scenarios
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-  @476632 @ValidateNon-FederalprogramPOusercancreateandActivateNonFederalprogram
+  @476632 @ValidateNon-FederalprogramPOusercancreateandActivateNonFederalprogram @PO_Grantee @P1_Grantee @GRegression1
   Scenario: Non-Federal program PO user can create and Activate Non Federal program
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Planning" tab
