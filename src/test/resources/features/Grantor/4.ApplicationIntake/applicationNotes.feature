@@ -682,7 +682,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
 
-  @228709 @ValidatePMEXEusershouldnotabletoEditDeletenotesaddedbySRonapplicationisinReviewInitiatedstate @Sprint-12-US-226970 @Notes @TBE
+  @228709 @ValidatePMEXEusershouldnotabletoEditDeletenotesaddedbySRonapplicationisinReviewInitiatedstate @Sprint-12-US-226970 @Notes
   Scenario: Validate PM EXE user should not able to Edit Delete notes added by S R on application is in 'Review Initiated' state
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -905,7 +905,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
 
-  @218704 @218705 @ValidateSPISPAusercanaddeditdeletenotesonapplicationincreatedStatus @Sprint-09-US-204865 @Notes @TBE
+  @218704 @218705 @ValidateSPISPAusercanaddeditdeletenotesonapplicationincreatedStatus @Sprint-09-US-204865 @Notes
   Scenario: Validate SPI SPA user can add edit delete notes on application in created Status
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -988,7 +988,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     Then I softly do not see value "Notes Record Of SPA1 User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
 
-  @218713 @218731 @218712 @ValidateSPAusercantaddnotesbuteditdeletehisnotesonhisapplicationinRejectedStatus @Sprint-09-US-204865 @Notes @TBE
+  @218713 @218731 @218712 @ValidateSPAusercantaddnotesbuteditdeletehisnotesonhisapplicationinRejectedStatus @Sprint-09-US-204865 @Notes
   Scenario: Validate SPA user cant add notes but edit delete his notes on his application in Rejected Status
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1107,7 +1107,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     Then I softly do not see value "Notes Record Of SPI Test User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
 
-  @218768 @ValidateSPIusercantadnotesuteditdeletehisnotesonhisapplicationinConvertedtoAwardStatus @Sprint-09-US-204865 @Notes @TBE
+  @218768 @ValidateSPIusercantadnotesuteditdeletehisnotesonhisapplicationinConvertedtoAwardStatus @Sprint-09-US-204865 @Notes
   Scenario: Validate SPI user cant add notes but edit delete his notes on his application in Converted to Award Status
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1193,7 +1193,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     Then I softly do not see value "Notes Record Of SPI Test User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
 
-  @219091 @ValidateSPISPAusercannotaddnotesinApplicationinhisNegotiationinitiatedsateifusernotselectnotesinnegotiationtab @Sprint-09-US-204865 @Notes @TBE
+  @219091 @ValidateSPISPAusercannotaddnotesinApplicationinhisNegotiationinitiatedsateifusernotselectnotesinnegotiationtab @Sprint-09-US-204865 @Notes
   Scenario: Validate SPI SPA user can not add notes in Application in his Negotiation initiated sate if user not select notes in negotiation tab
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1293,7 +1293,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     Then I softly do not see value "Notes Record Of SPI Test User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
 
-  @218741 @218753 @220550 @220551 @ValidateSPIusercantaddnotesbuteditdeletehisnotesonhisapplicationinReviewedStatus @Sprint-09-US-204865 @Notes @TBE
+  @218741 @218753 @220550 @220551 @ValidateSPIusercantaddnotesbuteditdeletehisnotesonhisapplicationinReviewedStatus @Sprint-09-US-204865 @Notes
   Scenario: Validate SPI user cant add notes but edit/delete his notes on his application in Reviewed Status
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1432,7 +1432,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     Then I softly do not see value "Notes Record Of SPA Test User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
 
-  @220577 @ValidateinternalusercannotseeaddbuttonandcanteditdeletenotedaddedbySRuser @Sprint-09-US-204865 @Notes @TBE
+  @220577 @ValidateinternalusercannotseeaddbuttonandcanteditdeletenotedaddedbySRuser @Sprint-09-US-204865 @Notes
   Scenario: Validate internal user can not see add button and can't edit delete noted added by S R user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     When I am on "SUBPORTAL" portal

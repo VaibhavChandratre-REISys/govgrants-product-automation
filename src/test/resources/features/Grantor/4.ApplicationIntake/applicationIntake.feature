@@ -155,7 +155,7 @@ Feature: Validate all scenarios in the Application Intake
       | {SavedValue:Automation Runtime Announcement Application} | FO   |
       | {SavedValue:Automation Runtime Announcement Application} | EXE  |
 
-  @70458 @73514 @73515 @70456 @acknowledgeReqiredToSave @TBE
+  @70458 @73514 @73515 @70456 @acknowledgeReqiredToSave
   Scenario: Validate the system should throw an validation message if the application is submitted with Acknowledging it
   Validate whether user has ability to add and remove new focus area while creating an application |Validate whether system should throws a validation message on screen when user tries to remove the existing focus area while submitting an application
   Validate whether user is able to add more focus area to the table while submitting an application
@@ -204,7 +204,7 @@ Feature: Validate all scenarios in the Application Intake
     Then I see the following messages in the page details :
       | Overview Tab - Enter an Acknowledgement for project cost before submitting this Application. |
 
-  @70455 @kpiValuesAreMandatoryToSubmitApplication @TBE
+  @70455 @kpiValuesAreMandatoryToSubmitApplication
   Scenario:  To verify that if KPI value is unfilled while creating and application and upon clicking on the Submit Application on the top right corner of the page validation error must be thrown.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -334,7 +334,7 @@ Feature: Validate all scenarios in the Application Intake
     #When I perform quick search for "Automation SPA" in "---applicationReview:-:flexGridAppContactTableId---" panel
     Then I softly see value "Automation SPA" for title "Name" inside table "---applicationReview:-:flexGridAppContactTableId---"
 
-  @73944 @73945 @71409 @73947 @73950 @73948 @73949 @TBE
+  @73944 @73945 @71409 @73947 @73950 @73948 @73949
   Scenario: Validate whether User  will be able to view the following error message "Reached the Maximum number of Applications" when the limit has been reached.
   To verify Converted Opportunities should reflect under Opportunities "Converted to Application - Open" list view to External user
   | To verify ,search functionality for Opportunities Converted to Application - All section in opportunities tab
