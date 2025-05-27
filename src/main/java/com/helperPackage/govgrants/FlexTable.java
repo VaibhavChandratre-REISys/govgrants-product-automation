@@ -889,7 +889,6 @@ public final class FlexTable implements FlexTableComponent {
         I.amPerforming().click().withJavaScript(editForMoreButton);
         I.amPerforming().click().withJavaScript(richTextArea);
         I.amPerforming().textInput().toClear(richTextArea);
-        I.amPerforming().waitFor().makeThreadSleep(1000);
         I.amPerforming().textInput().in(richTextArea, fieldValue);
         I.amPerforming().click().withJavaScript(saveButtonOnModal);
     }

@@ -9473,8 +9473,8 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:nonFedNotesTableId---" by clicking "Edit" :
-      | Created By | Title                     | Description                  |
-      | Grantee PO | Notes Record for Sarah PM | Automation Notes Description |
+      | Created By | Description                  | Title                     |
+      | Grantee PO | Automation Notes Description | Notes Record for Sarah PM |
     Then I softly see value "Notes Record for Sarah PM" for title "Title" inside table "---grantee_tableId:-:nonFedNotesTableId---"
     Then I softly see value "Automation Notes Description" for title "Description" inside table "---grantee_tableId:-:nonFedNotesTableId---"
     And I navigate to "Chatter" sub tab in split screen
