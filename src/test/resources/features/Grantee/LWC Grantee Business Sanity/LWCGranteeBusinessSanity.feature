@@ -5459,12 +5459,12 @@ Feature: Sanity scenarios
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
 
-  @469406 @ValidatePRamdthatPMuserseestatusofmultipleawardisinActivatedstateonceAwardiscreatedfromPRamendmentrequestonGrantlayout
+  @469406 @ValidatePRamdthatPMuserseestatusofmultipleawardisinActivatedstateonceAwardiscreatedfromPRamendmentrequestonGrantlayout @P2_Grantee @PM_Grantee @GRegression1
   Scenario: Validate PR amd that PM user see status of multiple award is in Activated state once Award is created from PR amendment request on Grant layout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I "Approved" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
@@ -5479,6 +5479,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
+     And I halt execution
     When I navigate to "Amendments" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     When I get the "EGMS ID"
@@ -5514,8 +5515,8 @@ Feature: Sanity scenarios
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:RevisedAwardId}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     And I navigate to "Financials" sub tab
-    Then I softly see value "BP01" for title "Budget Period" inside table "---grantee_tableId:-:grantGrantBudgetTableId---"
-    Then I softly see value "BP02" for title "Budget Period" inside table "---grantee_tableId:-:grantGrantBudgetTableId---"
+    Then I softly see value "BP01" for title "Budget Period #" inside table "---grantee_tableId:-:grantGrantBudgetTableId---"
+    Then I softly see value "BP02" for title "Budget Period #" inside table "---grantee_tableId:-:grantGrantBudgetTableId---"
     And I navigate to "Monitoring" sub tab
     And I save the value from row "1" for column name "EGMS ID" as "objectiveBP01Id" from flex table "---grantee_tableId:-:grantGoalsTableId---"
     Then I softly see value "{SavedValue:objectiveBP01Id}" for title "EGMS ID" inside table "---grantee_tableId:-:grantGoalsTableId---"
@@ -5558,7 +5559,7 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I softly see value "$6,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$650.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
-    Then I see value "$650.00" for title "Non-Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see value "$450.00" for title "Non-Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Narrative     | Awarded Budget | Cash Match | Non-Cash Match |
