@@ -16288,7 +16288,7 @@ Feature: Sanity scenarios
     Then I softly see field "Are Indirect Costs Allowed?" as "No"
     Then I softly see field "Is Leverage Allowed?" as "No"
 
-  @477695 @477697 @477702 @ValidatethedependentfieldforPMuserforsectionEvaluationunderevaluationtabonopportunity
+  @477695 @477697 @477702 @ValidatethedependentfieldforPMuserforsectionEvaluationunderevaluationtabonopportunity @P3_Grantee @PM_Grantee @GRegression1
   Scenario: Validate the dependent field for PM user for section "Evaluation" under evaluation tab on opportunity
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     Given I login to "As a Grantee" app as "GRANTEE PM" user

@@ -1564,9 +1564,9 @@ Feature: Grantee Forms Scenario
 
   @478400 @478403 @ValidateProjectNarrativeAttachmentformusershouldabletoaddtheattachmentincreatedsendforreviewsubmittedforreviewreviewedstate @P2_Grantee @P1_Grantee @ADMIN_Grantee @EXE_Grantee @GRegression1
   Scenario: Validate Project Narrative Attachment form user should able to add the attachment in created, send for review submitted for review, reviewed state
-    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberProjectnarrativeForm}"
-    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212704" with properties "default-Grantee PO user"
-    When I login to "As a Grantee" app as "GRANTEE PO" user
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -1574,8 +1574,8 @@ Feature: Grantee Forms Scenario
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212704" with properties "default"
-    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001212704" with properties "default-Grantee PO user"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -1583,8 +1583,23 @@ Feature: Grantee Forms Scenario
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
-    Then I softly see field "Status" as "Created"
     When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    And I wait for "2" seconds
     And I click on "Edit" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
@@ -1598,40 +1613,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
-    And I click on "Edit" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1"
-    And I enter "SF424_FORM" values from "Application_Field_Values - backup.xlsx"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I wait for "2" seconds
-    And I upload attachment without random number "Attachment.pdf" of type "Delinquent Federal Debt" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    And I click on "Save" in the page details
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | Form validated successfully. |
-    And I close the tab
-    And I click on "Edit" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I wait for "3" seconds
-    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I click on "Save" in the page details
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | Form validated successfully. |
-    And I close the tab
-    And I click on "Edit" icon for "Project Abstract Summary" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1"
-    And I enter value "Automation1234" into field "Funding_Opportunity_Number__c"
-    And I enter value "11.123" into field "CFDA_Number__c"
-    And I enter value "Automation Application" into field "Applicant_Name__c"
-    And I enter value "Automation Test" into field "DescriptiveTitleOfProject__c"
-    And I enter value "Automation Test Execution" into field "ProjectSummary__c"
-    And I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
@@ -1738,9 +1720,9 @@ Feature: Grantee Forms Scenario
 
   @478403_1 @ValidateProjectNarrativeAttachmentformusershouldabletoaddtheattachmentincreatedsendforreviewsubmittedforreviewreviewedstate
   Scenario: Validate Project Narrative Attachment form user should able to add the attachment in created, send for review submitted for review, reviewed state
-    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberProjectnarrativeForm}"
-    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212704" with properties "default-Grantee PO user"
-    When I login to "As a Grantee" app as "GRANTEE PO" user
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -1748,8 +1730,8 @@ Feature: Grantee Forms Scenario
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212704" with properties "default"
-    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001212704" with properties "default-Grantee PO user"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -1757,8 +1739,23 @@ Feature: Grantee Forms Scenario
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
-    Then I softly see field "Status" as "Created"
     When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    And I wait for "2" seconds
     And I click on "Edit" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
@@ -1772,39 +1769,21 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
-    And I click on "Edit" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1"
-    And I enter "SF424_FORM" values from "Application_Field_Values - backup.xlsx"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I wait for "2" seconds
-    And I upload attachment without random number "Attachment.pdf" of type "Delinquent Federal Debt" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    And I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
-    And I click on "Edit" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I wait for "1" seconds
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I wait for "3" seconds
-    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative" from computer
+    And I wait for "2" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Project Narrative Document" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I click on "Save" in the page details
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | Form validated successfully. |
-    And I close the tab
-    And I click on "Edit" icon for "Project Abstract Summary" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1"
-    And I enter value "Automation1234" into field "Funding_Opportunity_Number__c"
-    And I enter value "11.123" into field "CFDA_Number__c"
-    And I enter value "Automation Application" into field "Applicant_Name__c"
-    And I enter value "Automation Test" into field "DescriptiveTitleOfProject__c"
-    And I enter value "Automation Test Execution" into field "ProjectSummary__c"
     And I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
