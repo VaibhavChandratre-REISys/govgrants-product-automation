@@ -263,8 +263,9 @@ Feature: Sanity scenarios New
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     And I wait for "2" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details :
-      | No records are selected. |
+      | Select at least one record. |
     When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
     Then I softly see the following messages in the page details :
@@ -299,23 +300,24 @@ Feature: Sanity scenarios New
       | Table has been reset. |
     #482352
     Then I softly see "Contacts" page block displayed
-    Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
+    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
     Then I softly see "Project Role" in flex table header "---grantee_tableId:-:awardContactTableId---"
     Then I softly see "Name" in flex table header "---grantee_tableId:-:awardContactTableId---"
     Then I softly see "Email" in flex table header "---grantee_tableId:-:awardContactTableId---"
     Then I softly see "Is Key Contact" in flex table header "---grantee_tableId:-:awardContactTableId---"
     Then I softly see "Is User" in flex table header "---grantee_tableId:-:awardContactTableId---"
-    Then I can see row level action button "View" against "Sarah PM" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    Then I can see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
-      | Name     | Is Key Contact |
-      | Sarah PM | UnChecked      |
+      | Name       | Is Key Contact |
+      | Victor EXE | UnChecked      |
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     Then I see the header is "Grant" in the page details
     And I save the field labeled "Application Number" as "ApplicationNumber"
     And I click on hyperlink containing value "{SavedValue:ApplicationNumber}"
     When I navigate to "Overview" sub tab
-    Then I softly see "Check" symbol against the value "Sarah PM" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly see "Check" symbol against the value "Victor EXE" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    And I wait for "3" seconds
     And I click on back arrow
     And I wait for "3" seconds
     And I click on back arrow
@@ -326,13 +328,13 @@ Feature: Sanity scenarios New
     And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Select at least one record. |
-    When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
+    When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
     And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | Contacts added successfully. |
     When I click modal button "Close"
     And I wait for "3" seconds
-    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
+    Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
     When I click on parallel lines menu bar with data target value "Contacts"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -2073,7 +2075,7 @@ Feature: Sanity scenarios New
     And I select "Refresh" from parallel lines dropdown of "Award Budget"
     Then I see table is refreshing
 
-  @482392 @ValidatePMUsertheActualTabWhenAwardisinactive
+  @482392 @484065 @ValidatePMUsertheActualTabWhenAwardisinactive @P2_Grantee @PM_Grantee @GRegression1
   Scenario: Validate PM User the Actual Tab When Award is in active
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default"
