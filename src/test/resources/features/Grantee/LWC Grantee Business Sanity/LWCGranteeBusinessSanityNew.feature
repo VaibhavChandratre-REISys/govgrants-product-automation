@@ -7423,7 +7423,7 @@ Feature: Sanity scenarios New
     And I navigate to "Messages" sub tab
     Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
 
-  @482122 @ValidateFederalContactAuditorusershouldnotcreatenewfederalcontactandshouldhaveonlyviewaccessonalreadycreatedcontact
+  @482122 @ValidateFederalContactAuditorusershouldnotcreatenewfederalcontactandshouldhaveonlyviewaccessonalreadycreatedcontact @P4_Grantee @AUDITOR_Grantee @GRegression1
   Scenario: Validate Federal Contact Auditor user should not create new federal contact and should have only view access on already created contact
     When I login to "As a Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
