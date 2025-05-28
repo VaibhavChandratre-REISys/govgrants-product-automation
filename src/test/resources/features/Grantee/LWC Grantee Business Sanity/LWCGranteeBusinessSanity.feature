@@ -16018,7 +16018,6 @@ Feature: Sanity scenarios
     And I click modal button "Save"
     And I save the field labeled "Organization" as "Organization" on modal
     And I save the field labeled "Type" as "Type" on modal
-    And I save the field labeled "Title" as "Title" on modal
     And I save the field labeled "First Name" as "FirstName" on modal
     And I save the field labeled "Last Name" as "LastName" on modal
     And I save the field labeled "Phone" as "Phone" on modal
@@ -16101,7 +16100,6 @@ Feature: Sanity scenarios
     And I click on back arrow
     Then I softly see field on modal "Type" inside page block
     Then I see field "Type" as "{SavedValue:Type}" on modal
-    Then I see field "Title" as "{SavedValue:Title}" on modal
     Then I see field "First Name" as "{SavedValue:FirstName}" on modal
     Then I see field "Last Name" as "{SavedValue:LastName}" on modal
     Then I see field "Phone" as "{SavedValue:Phone}" on modal
