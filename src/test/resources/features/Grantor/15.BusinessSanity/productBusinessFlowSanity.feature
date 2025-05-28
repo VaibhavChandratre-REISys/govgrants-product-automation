@@ -4305,6 +4305,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     And I refresh the page
     When I navigate to "Forms and Files" sub tab
+    And I get current URL
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "View" icon for "Federal Financial Report - SF-425" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
