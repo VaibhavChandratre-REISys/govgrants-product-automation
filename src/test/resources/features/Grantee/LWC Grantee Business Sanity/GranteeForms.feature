@@ -1486,7 +1486,7 @@ Feature: Grantee Forms Scenario
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Created"
     Then I softly see the following messages in the page details contains:
-      | Fill all the required data in the form before submitting. |
+      | Please validate the Forms by clicking validate button. |
 
   @478400 @478403 @ValidateProjectNarrativeAttachmentformusershouldabletoaddtheattachmentincreatedsendforreviewsubmittedforreviewreviewedstate @P1_Grantee @PO_Grantee @GRegression1
   Scenario: Validate Project Narrative Attachment form user should able to add the attachment in created, send for review submitted for review, reviewed state

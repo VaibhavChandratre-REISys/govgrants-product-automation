@@ -7446,7 +7446,9 @@ Feature: Sanity scenarios New
     When I enter in modal value "United" into field "County__c"
     When I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
     When I enter in modal value "12345" into field "MailingPostalCode"
+    When I enter in modal value "Other" into field "Role__c"
     When I click modal button "Save"
+    And I wait for "2" seconds
     And I save the field labeled "Title" as "Title" on modal
     When I click modal button "Close"
     When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
