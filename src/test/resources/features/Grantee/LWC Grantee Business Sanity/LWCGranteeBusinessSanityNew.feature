@@ -2100,6 +2100,7 @@ Feature: Sanity scenarios New
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Activated"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
     Then I softly can see "Actuals" sub tab at view detail page
     And I "Approved" of type "Funding Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
     When I navigate to "Amendments" sub tab
