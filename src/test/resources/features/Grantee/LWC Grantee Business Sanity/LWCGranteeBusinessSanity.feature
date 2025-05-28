@@ -15530,7 +15530,7 @@ Feature: Sanity scenarios
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:preAppcationBudgetTableId---"
 
   @480702 @OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application
-  Scenario Outline: Opportunities converted to Application (Manual) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Oppprotunity which is converted to Pre-application
+  Scenario Outline: Opportunities converted to Application Manual EXE user can navigate to Opportunity details page after clicking on view action for the Oppprotunity which is converted to Pre-application
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Victor EXE user"
     Given I login to "As a Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
@@ -15542,7 +15542,6 @@ Feature: Sanity scenarios
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "PRE_APPLICATION_YES"
     And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "default-Grantee PO user"
-    When I re-login to "As a Grantee" app as "<user>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Opportunities - All"

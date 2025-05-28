@@ -5859,7 +5859,7 @@ Feature: Sanity scenarios New
     And I click on "Delete" icon for "Sarah PM" inside flex table with id "---grantee_tableId:-:applicationKeyContactFormTableId---" without waiting for record
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationKeyContactFormTableId---"
 
-  @479928 @ValidateUsershouldabletovalidatethedataonsplitviewmode
+  @479928 @ValidateUsershouldabletovalidatethedataonsplitviewmode @P1_Grantee @PO_Grantee @GRegression1
   Scenario: Validate User should able to validate the data on splitview mode
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
