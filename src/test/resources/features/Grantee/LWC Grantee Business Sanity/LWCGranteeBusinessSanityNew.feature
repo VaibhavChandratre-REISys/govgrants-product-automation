@@ -7484,7 +7484,7 @@ Feature: Sanity scenarios New
     Then I see field "Last Name" as "Execution" on modal
     Then I see field "Phone" as "(896) 709-3844" on modal
     Then I see field "Mobile Phone" as "(896) 709-3440" on modal
-    Then I see field "Email" as " {SavedValue:uniqueEmailID}" on modal
+    Then I see field "Email" as "{SavedValue:uniqueEmailID}" on modal
     Then I see field "Address Line 1" as "Mail Street" on modal
     Then I see field "Address Line 2" as "Howard Lane" on modal
     Then I see field "State" as "AK: Alaska" on modal

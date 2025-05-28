@@ -14687,7 +14687,7 @@ Feature: Sanity scenarios
     Then I see the sub-header is "{SavedValue:OrganizationName}" in the page details
     Then I softly see field "Parent Organization" as "NA"
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly can see "Overview" sub tab at view detail page
@@ -14714,6 +14714,7 @@ Feature: Sanity scenarios
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:FedOrgRelatedContacts---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
     When I enter in modal value "Automation Runtime" into field "Title"
+    When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation" into field "FirstName"
     When I enter in modal value "Execution" into field "LastName"
     When I enter in modal value "8967093890" into field "Phone"
@@ -15529,7 +15530,7 @@ Feature: Sanity scenarios
     And I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---" without waiting for record
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:preAppcationBudgetTableId---"
 
-  @480702 @OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application
+  @480702 @OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application @P2_Grantee @EXE_Grantee @GRegression1
   Scenario Outline: Opportunities converted to Application Manual EXE user can navigate to Opportunity details page after clicking on view action for the Oppprotunity which is converted to Pre-application
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Victor EXE user"
     Given I login to "As a Grantee" app as "<User>" user
@@ -15989,6 +15990,7 @@ Feature: Sanity scenarios
     And I click toggle button to select "All Contacts"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:InternalContacts---"
     When I enter in modal value "Department of Product" into field "AccountId"
+    When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation Runtime" into field "FirstName"
     And I enter in modal value "Contact" into field "LastName"
     And I enter in modal value "8967894567" into field "Phone"

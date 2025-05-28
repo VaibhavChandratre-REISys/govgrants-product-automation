@@ -1442,7 +1442,7 @@ Feature: Grantee Forms Scenario
     Then I cannot see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
 
-  @481435 @ValidateusershouldnotabletoSubmittheApptograntsgovifusernotaddedthemandatoryfileinattachment
+  @481435 @ValidateusershouldnotabletoSubmittheApptograntsgovifusernotaddedthemandatoryfileinattachment @PO_Grantee @P2_Grantee @GRegression1
   Scenario: Validate user should not able to Submit the App to grants gov if user not added the mandatory file in attachment
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberProjectnarrativeForm}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269349" with properties "default"
