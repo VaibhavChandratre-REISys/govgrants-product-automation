@@ -393,16 +393,18 @@ Feature: Sanity scenarios New
     Then I softly see field on modal "Zip Code" inside page block
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | First Name is required to save.     |
-      | Last Name is required to save.      |
-      | Phone is required to save.          |
-      | Email is required to save.          |
-      | Address Line 1 is required to save. |
-      | State is required to save.          |
-      | City is required to save.           |
-      | Country is required to save.        |
-      | Zip Code is required to save.       |
+      | To Save, First Name is required in the Contact Information section.     |
+      | To Save, Last Name is required in the Contact Information section.      |
+      | To Save, Phone is required in the Contact Information section.          |
+      | To Save, Email is required in the Contact Information section.          |
+      | To Save, Address Line 1 is required in the Address Information section. |
+      | To Save, State is required in the Address Information section.          |
+      | To Save, City is required in the Address Information section.           |
+      | To Save, Country is required in the Address Information section.        |
+      | To Save, Zip Code is required in the Address Information section.       |
+      | To Save, Project Role is required in the Contact Information section.   |
     When I enter in modal value "Automation Runtime Title" into field "Title"
+    When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation Runtime" into field "FirstName"
     When I enter in modal value "Execution" into field "LastName"
     When I enter in modal value "8967093890" into field "Phone"
@@ -10555,7 +10557,7 @@ Feature: Sanity scenarios New
     Examples:
       | userType      | emailId                         |
       | GRANTEE EXE   | victor.exeqagrantee@yopmail.com |
-      | GRANTEE ADMIN | product.qa@yopmail.com           |
+      | GRANTEE ADMIN | product.qa@yopmail.com          |
 
   @482166 @ValidateQualifyLeadPMusercanqualifytheleadwhichisingestedfromgrantsgov
   Scenario Outline: Validate Qualify Lead PM user can qualify the lead which is ingested from grants gov
