@@ -14637,7 +14637,7 @@ Feature: Sanity scenarios
       | userType    |
       | GRANTEE EXE |
 
-  @482144 @482146 @482149 @ValidateNonFederalFOprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess
+  @482144 @482146 @482149 @ValidateNonFederalFOprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess @P1_Grantee @P2_Grantee @P3_Grantee @FO_Grantee @FD_Grantee @EXE_Grantee @GRegression1 @GRegression4
   Scenario Outline: Validate Non Federal FO/FD/EXE profile user should see all fields and section on Non federal Org layout in readonly View only Access
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -15991,7 +15991,7 @@ Feature: Sanity scenarios
     Then I softly can see "Field Audit" sub tab at view detail page
     Then I softly can see "Chatter" sub tab at view detail page
 
-  @482136 @ValidateAuditorusershouldhaveonlyviewaccess
+  @482136 @ValidateAuditorusershouldhaveonlyviewaccess @P4_Grantee @AUDITOR_Grantee @GRegression1
   Scenario Outline: Validate Auditor user should have only view access
     When I login to "As a Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab

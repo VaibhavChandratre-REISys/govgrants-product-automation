@@ -2210,6 +2210,10 @@ Feature: Sanity scenarios New
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Activated"
     Then I softly can see "Actuals" sub tab at view detail page
     And I "Approved" of type "Funding Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -2238,6 +2242,7 @@ Feature: Sanity scenarios New
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    Then I softly can see "Actuals" sub tab at view detail page
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     And I wait for "2" seconds
@@ -2246,6 +2251,7 @@ Feature: Sanity scenarios New
     Then I softly can see "Actuals" sub tab at view detail page
     And I create adhoc closeout "{SavedValue:Automation Runtime Award}" for status "Approved" with properties "default"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I wait for "2" seconds
     When I navigate to "Closeout" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---" without waiting for record
     When I navigate to "Overview" sub tab
