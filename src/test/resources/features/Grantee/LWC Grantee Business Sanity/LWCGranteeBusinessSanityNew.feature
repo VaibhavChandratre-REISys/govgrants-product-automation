@@ -5301,7 +5301,7 @@ Feature: Sanity scenarios New
     Then I softly see "5. If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" page block displayed
     Then I softly see "Federal Department/Agency Information" page block displayed
     Then I softly see "Name and Address of Lobbying Registrant" page block displayed
-    Then I softly see "b. Individual Performing Services (including address if different from No. 10a)" page block displayed
+    Then I softly see "Individual Performing Services (including address if different from No. 10a)" page block displayed
     Then I softly see "Disclosure of Lobbying Activities" page block displayed
     Then I softly see field "1. Type of Federal Action" inside page block
     Then I softly see field "2. Status of Federal Action" inside page block
@@ -5319,13 +5319,13 @@ Feature: Sanity scenarios New
     Then I softly see field "State" inside "Name and Address of Reporting Entity" section
     Then I softly see field "Zip" inside "Name and Address of Reporting Entity" section
     Then I softly see field "Congressional District, if known" inside "Name and Address of Reporting Entity" section
-    Then I softly see field "Name" inside "5. If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
-    Then I softly see field "Street 1" inside "5. If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
-    Then I softly see field "Street 2" inside "5. If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
-    Then I softly see field "City" inside "5. If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
-    Then I softly see field "State" inside "5. If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
-    Then I softly see field "Zip" inside "5. If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
-    Then I softly see field "Congressional District, if known" inside "5. If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
+    Then I softly see field "Name" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
+    Then I softly see field "Street 1" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
+    Then I softly see field "Street 2" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
+    Then I softly see field "City" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
+    Then I softly see field "State" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
+    Then I softly see field "Zip" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
+    Then I softly see field "Congressional District, if known" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
     Then I softly see field "6. Federal Department/Agency" inside "Federal Department/Agency Information" section
     Then I softly see field "7. Federal Program Name/Description" inside "Federal Department/Agency Information" section
     Then I softly see field "Assistance Listing Number (CFDA Number), if applicable" inside "Federal Department/Agency Information" section
@@ -5341,16 +5341,16 @@ Feature: Sanity scenarios New
     Then I softly see field "City" inside "Name and Address of Lobbying Registrant" section
     Then I softly see field "State" inside "Name and Address of Lobbying Registrant" section
     Then I softly see field "Zip" inside "Name and Address of Lobbying Registrant" section
-    Then I softly see field "Prefix" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
-    Then I softly see field "First Name" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
-    Then I softly see field "Middle Name" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
-    Then I softly see field "Last Name" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
-    Then I softly see field "Suffix" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
-    Then I softly see field "Street 1" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
-    Then I softly see field "Street 2" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
-    Then I softly see field "City" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
-    Then I softly see field "State" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
-    Then I softly see field "Zip" inside "b.  Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "Prefix" inside "Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "First Name" inside "Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "Middle Name" inside "Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "Last Name" inside "Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "Suffix" inside "Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "Street 1" inside "Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "Street 2" inside "Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "City" inside "Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "State" inside "Individual Performing Services (including address if different from No. 10a)" section
+    Then I softly see field "Zip" inside "Individual Performing Services (including address if different from No. 10a)" section
     Then I softly see field "Signature" inside "Disclosure of Lobbying Activities" section
     Then I softly see field "Prefix" inside "Disclosure of Lobbying Activities" section
     Then I softly see field "First Name" inside "Disclosure of Lobbying Activities" section
