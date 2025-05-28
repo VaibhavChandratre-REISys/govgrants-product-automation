@@ -15703,7 +15703,7 @@ Feature: Sanity scenarios
     Then I softly see field "13. Is there a maintenance of effort required?" inside page block
     Then I softly see field "14. Does the grant require pass through funding to subrecipients?" inside page block
     Then I softly see field "15. Does the grant allow indirect costs?" inside page block
-    When I hovering mouse on help text icon inside page block detail "15. Does the grant allow indirect costs?"
+    When I hovering mouse on help text icon inside page block detail for invisible element "15. Does the grant allow indirect costs?"
     Then I softly see "Are Indirect Costs Allowed? setting as selected in the Financial Details." shown as help text
     Then I softly see field "16. Is there an administrative cost limit?" inside page block
     Then I softly see field "17. How will the program be sustained, should funding end?" inside page block
