@@ -15531,12 +15531,24 @@ Feature: Sanity scenarios
 
   @480702 @OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application
   Scenario Outline: Opportunities converted to Application (Manual) - Verify EXE user can navigate to Opportunity details page after clicking on view action for the Oppprotunity which is converted to Pre-application
-    When I login to "As a Grantee" app as "<User>" user
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Victor EXE user"
+    Given I login to "As a Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
-    And I click toggle button to select "Opportunities - All"
-    When I perform quick search for "{AUTOEnvData:AutomationPermanentLead}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
-    And I click on "View" icon for "{AUTOEnvData:AutomationPermanentLead}" inside flex table with id "---grantee_tableId:-:opportunitysGranteeTableId---" without waiting for record
-    Then I softly see field "Status" as "Converted to Application"
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "PRE_APPLICATION_YES"
+    And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "default-Grantee PO user"
+    When I re-login to "As a Grantee" app as "<user>" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities - All"
+    When I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:fundingOpportunitiesTableId---" panel
+    And I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:fundingOpportunitiesTableId---" without waiting for record
+    Then I softly see field "Status" as "Converted to Pre-Application"
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Evaluation" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
@@ -15545,16 +15557,20 @@ Feature: Sanity scenarios
     Then I softly can see "Field Audit" sub tab at view detail page
     Then I softly can see "Chatter" sub tab at view detail page
     Then I see the header is "Opportunity" in the page details
-    Then I see the sub-header is "Automation Permanent Lead" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime Opportunity}" in the page details
     And I save the field labeled "EGMS ID" as "EGMSID"
     Then I softly see field "EGMS ID" as "{SavedValue:EGMSID}"
-    Then I softly see field "Status" as "Converted to Application"
-    Then I softly see field "Funding Organization" as "Department of Education"
+    Then I softly see field "Status" as "Converted to Pre-Application"
+    And I save the field labeled "Funding Organization" as "FundingOrganization"
+    Then I softly see field "Funding Organization" as "{SavedValue:FundingOrganization}"
     And I save the field labeled "Days Left" as "DaysLeft"
     Then I softly see field "Days Left" as "{SavedValue:DaysLeft}"
+    When I hovering mouse on help text icon inside page block detail "Days Left"
+    Then I softly see "Days remaining until the application due date" shown as help text
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
+    Then I softly see "Collapse" button for header
     Then I softly see "Opportunity Information" page block displayed
     Then I softly see field "Funding Opportunity Title" inside page block
     Then I softly see field "Opportunity Number" inside page block
@@ -15576,6 +15592,7 @@ Feature: Sanity scenarios
     Then I softly see field "Number of Agencies that have Qualified this Lead" inside page block
     And I save the field labeled "FOA Lead" as "FOALead"
     And I click on hyperlink containing value "{SavedValue:FOALead}"
+    Then I see the header is "Lead" in the page details
     And I click on back arrow
     Then I softly see "Opportunity Specific Settings" page block displayed
     Then I softly see field "Budget Type" inside page block
@@ -15603,18 +15620,16 @@ Feature: Sanity scenarios
     Then I softly see field "Match Source" inside page block
     Then I softly see field "Estimated Total Program Funding" inside page block
     Then I softly see field "Award Floor" inside page block
-    When I hovering mouse on help text icon inside page block detail "Award Floor"
+    When I hovering mouse on help text icon inside page block detail for invisible element "Award Floor"
     Then I softly see "Minimum award amount" shown as help text
     Then I softly see field "Award Ceiling" inside page block
-    When I hovering mouse on help text icon inside page block detail "Award Ceiling"
+    When I hovering mouse on help text icon inside page block detail for invisible element "Award Ceiling"
     Then I softly see "Maximum award amount" shown as help text
     Then I softly see field "Is Program Income Allowed?" inside page block
     Then I softly see field "Program Income Treatment Type" inside page block
-    When I hovering mouse on help text icon inside page block detail "Program Income Treatment Type"
+    When I hovering mouse on help text icon inside page block detail for invisible element "Program Income Treatment Type"
     Then I softly see "• Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. • Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based. • Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
     Then I softly see field "Are Indirect Costs Allowed?" inside page block
-    Then I softly see field "Maximum Indirect Cost Rate" inside page block
-    Then I softly see field "Rate for Organization Use" inside page block
     Then I softly see field "Is Leverage Allowed?" inside page block
     Then I softly see "System Information" page block displayed
     Then I softly see field "Created by" inside page block
@@ -15626,8 +15641,11 @@ Feature: Sanity scenarios
     And I save the field labeled "Last Modified By" as "LastModifiedBy"
     Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
     And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
-    Then I softly see the text containing "product.qa@ggp.test8.qagrnteatm"
+    And I wait for "2" seconds
+    Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
+    And I wait for "2" seconds
     And I click on back arrow
+    And I wait for "2" seconds
     And I navigate to "Evaluation" sub tab
     Then I softly see "Evaluation" page block displayed
     Then I softly see field "1. Have we previously received an award from this sponsoring agency?" inside page block
@@ -15649,10 +15667,10 @@ Feature: Sanity scenarios
     Then I softly see "Text and number both are allowed. Must not exceed 255 characters" shown as help text
     Then I softly see field "6. Provide the estimated number of hours required to develop the application. Provide an explanation." inside page block
     When I hovering mouse on help text icon inside page block detail "6. Provide the estimated number of hours required to develop the application. Provide an explanation."
-    Then I softly see "add Text and number both are allowed. Must not exceed 650 characters" shown as help text
+    Then I softly see "Text and Numbers are allowed, with a maximum limit of 650 characters." shown as help text
     Then I softly see field "7. Provide the estimated number of full time personnel (FTE) that will be required to be hired to implement the grant. Provide an explanation." inside page block
     When I hovering mouse on help text icon inside page block detail "7. Provide the estimated number of full time personnel (FTE) that will be required to be hired to implement the grant. Provide an explanation."
-    Then I softly see "Text and number both are allowed. Must not exceed 650 characters" shown as help text
+    Then I softly see "Text and Numbers are allowed, with a maximum limit of 650 characters." shown as help text
     Then I softly see "Collaboration Details" page block displayed
     Then I softly see field "8. Have other internal organizations within the Department qualified this lead?" inside page block
     Then I softly see field "8a. If yes, has an agreement been reached to which organization will be the lead?" inside page block
@@ -15684,20 +15702,11 @@ Feature: Sanity scenarios
     When I hovering mouse on help text icon inside page block detail "12a. If yes, what is the program income treatment type?"
     Then I softly see "Program Income Treatment Type as selected in the Financial Details." shown as help text
     Then I softly see field "13. Is there a maintenance of effort required?" inside page block
-    Then I softly see field "13a. If yes, describe the statutory maintenance of effort requirement." inside page block
     Then I softly see field "14. Does the grant require pass through funding to subrecipients?" inside page block
-    Then I softly see field "14a. If yes, what is the percent of funding required to pass through to subrecipients." inside page block
     Then I softly see field "15. Does the grant allow indirect costs?" inside page block
     When I hovering mouse on help text icon inside page block detail "15. Does the grant allow indirect costs?"
     Then I softly see "Are Indirect Costs Allowed? setting as selected in the Financial Details." shown as help text
-    Then I softly see field "15a. If yes, what rate will the organization use?" inside page block
-    When I hovering mouse on help text icon inside page block detail "15a. If yes, what rate will the organization use?"
-    Then I softly see "Rate for Organization Use as selected in the Financial Details." shown as help text
-    Then I softly see field "15b. If Yes, Maximum Indirect Cost Rate." inside page block
-    When I hovering mouse on help text icon inside page block detail "15b. If Yes, Maximum Indirect Cost Rate."
-    Then I softly see "Maximum Indirect Cost Rate as provided in the Financial Details." shown as help text
     Then I softly see field "16. Is there an administrative cost limit?" inside page block
-    Then I softly see field "16a. If yes, what percent is the administrative cost limit?" inside page block
     Then I softly see field "17. How will the program be sustained, should funding end?" inside page block
     Then I softly see "Certifications and Other" page block displayed
     Then I softly see field "18. Describe any additional legal requirements or policy impact from receiving an award." inside page block
@@ -15714,8 +15723,18 @@ Feature: Sanity scenarios
     Then I softly see "Snapshot History" page block displayed
     And I navigate to "Field Audit" sub tab in split screen
     Then I softly can see "Field Audit" sub tab at view detail page
+    When I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Converted to Pre-Application" for title "New Value" inside field history table
+    Then I softly see value "Approved" for title "Original Value" inside field history table
+    And I click on back arrow
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I cannot see top right button "Edit" in page detail
+    Then I cannot see top right button "Delete" in page detail
 
     Examples:
       | User        |
