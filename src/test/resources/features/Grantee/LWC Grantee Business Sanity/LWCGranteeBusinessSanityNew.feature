@@ -201,10 +201,9 @@ Feature: Sanity scenarios New
     And I enter value "Test" into field "PaymentSystem__c"
     And I enter value "123" into field "CongressionalDistrictName__c"
     And I enter value "12345" into field "VersionNumber__c"
+    Then I softly see label "Amendment Number" maximum length is "4" for input field
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details contains:
-      | Amendment Number: value outside of valid range on numeric field |
     Then I softly see field "Award Issue Date" inside page block
     Then I softly see asterisk mark on "Award Issue Date"
     Then I softly see field "Award Type" inside page block
@@ -241,6 +240,7 @@ Feature: Sanity scenarios New
     When I hovering mouse on help text icon inside page block detail "Funder Payment System"
     Then I softly see "The federal payment system providing the funds for the award." shown as help text
     Then I softly see field "Funder Payment System Sub-Account Number" inside page block
+    When I click on "Edit" in the page details
     And I enter value "1234" into field "VersionNumber__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
@@ -2134,6 +2134,7 @@ Feature: Sanity scenarios New
     And I wait for "2" seconds
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I wait for "3" seconds
     Then I softly can see "Actuals" sub tab at view detail page
     And I create adhoc closeout "{SavedValue:Automation Runtime Award}" for status "Approved" with properties "default"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
@@ -5249,15 +5250,39 @@ Feature: Sanity scenarios New
 
   @482652 @ValidatePOProfileablevalidatetheSFLLLformwithValiddata
   Scenario: Validate PO Profile able validate the SF LLL form with Valid data
-    When I login to "As a Grantee" app as "GRANTEE PO" user
+    Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySFLLL}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269344" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001269344" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001269344" with properties "default-Grantee PO user"
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{grantee_testData:AutomationGrantsGovApplicationsAllForms}" in "---grantee_tableId:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{grantee_testData:AutomationGrantsGovApplicationsAllForms}" inside table
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    And I click on "Edit" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I close the tab
     And I wait for "2" seconds
     Then I softly see value "Disclosure of Lobbying Activities (SF-LLL)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Edit" against "Disclosure of Lobbying Activities (SF-LLL)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
