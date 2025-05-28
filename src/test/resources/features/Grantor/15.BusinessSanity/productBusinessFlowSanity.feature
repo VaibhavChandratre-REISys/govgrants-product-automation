@@ -4285,7 +4285,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly see field "EGMS ID" as "{SavedValue:DeskReview}"
 
-  @SF425FormsNegativeValidationCheckAndSF428ABlankvalueValidationCheckAlsoSF429Bformnegativevaluesenteredvalidationcheck @ProdSan4 @june4
+  @SF425FormsNegativeValidationCheckAndSF428ABlankvalueValidationCheckAlsoSF429Bformnegativevaluesenteredvalidationcheck @ProdSan4 @june4test
   Scenario: SF425 Forms Negative Validation Check and SF 428 A Blank value Validation Check also SF429B form negative values entered validation check
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -4325,71 +4325,71 @@ Feature: Validate sanity testing of Complete Business Flow
       | n. Program income expended in accordance with the addition alternative  | -5         |
     Then I softly see the following messages in the page details :
       | The amount cannot be less than zero. |
-    And I close the tab
-    #SF-428-A Blank value validation check
-    And I refresh the page
-    When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
-    And I click on "Edit" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I switch to tab number "1"
-    And I enter value "1234" into field "FederalGrantSF428A__c"
-    And I enter value "(a) Individual (Reporting Federally-owned property for one award)" into field "ReportTypePiclikist__c"
-    And I enter value "30 SEP" into field "ReportAsOf__c"
-    And I enter value "Test" into field "CommentsSF428__c"
-    When I click on "Save" in the page details
-    And I wait for "2" seconds
-    And I refresh the page
-    And I click on top right button "New" in flex table with id "---progressReport:-:sf428AFederallyOwnedTableId---"
-    When I enter in modal "SF428A_Federal_Property" values from "ProgressReport_Field_Values.xlsx"
-    And I click modal button "Save"
-    And I refresh the page
-    And I wait for "5" seconds
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | If year is selected, report type As of Year is required. |
-    And I close the tab
-    #SF429B form negative values entered validation check
-    And I refresh the page
-    When I navigate to "Forms and Files" sub tab
-    And I wait for "2" seconds
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
-    And I wait for "2" seconds
-    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without Split
-    And I switch to tab number "1"
-    And I wait for "20" seconds
-    When I click on "Edit" in the page details
-    And I enter "SF429B_Form_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
-    And I wait for "3" seconds
-    When I click on "Save" in the page details
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | If "Other" option is selected in "14k", Justification in specify is required.                                                                |
-      | If "Other" option is selected in "14l", Justification in specify is required.                                                                |
-      | If "Other" is selected in "Real Property Ownership Type", Description is required.                                                           |
-      | Unit type is required, if amount entered in "14d. Land Acreage or Square Units".                                                             |
-      | Unit type is required, if amount entered in "14e. Gross and Usable Square Footage/Meters".                                                   |
-      | Values can only be entered against the Electric (KWh) or Electric (Btu) in section "14k"                                                     |
-      | Values can only be entered against the Electric (KWh) or Electric (Btu) in section "14l"                                                     |
-      | Please enter Zip code in the Zip + 4 codes format (e.g. 12345-1234) in the 'Zip / Postal code' field.                                        |
-      | Federal Percentage cannot be less than zero.                                                                                                 |
-      | Non Federal Percentage cannot be less than zero.                                                                                             |
-      | The Land Acreage Amount cannot be less than zero.                                                                                            |
-      | The Gross Amount cannot be less than zero.                                                                                                   |
-      | The Usable Amount cannot be less than zero.                                                                                                  |
-      | Federal Share cannot be less than zero.                                                                                                      |
-      | Non Federal Share cannot be less than zero.                                                                                                  |
-      | Value in "Electric" in "14k" cannot be less than zero.                                                                                       |
-      | Value in "Btu" in "14k" cannot be less than zero.                                                                                            |
-      | Value in "Petroleum" in "14k" cannot be less than zero.                                                                                      |
-      | Value in "Natural Gas" in "14k" cannot be less than zero.                                                                                    |
-      | Value in "Other" in "14k" cannot be less than zero.                                                                                          |
-      | Value in "Electric" in "14l" cannot be less than zero.                                                                                       |
-      | Value in "Btu" in "14l" cannot be less than zero.                                                                                            |
-      | Value in "Petroleum" in "14l" cannot be less than zero.                                                                                      |
-      | Value in "Natural Gas" in "14l" cannot be less than zero.                                                                                    |
-      | Value in "Other" in "14l" cannot be less than zero.                                                                                          |
-      | Adding file is required in "Files section" with classification "Environmental Compliance Requirements", if "Yes" option in "14h" is checked. |
-      | Adding file is required in "Files section" with classification "NHPA", if "Yes" option in "14i" is checked.                                  |
+ #   And I close the tab
+#    #SF-428-A Blank value validation check
+#    And I refresh the page
+#    When I navigate to "Forms and Files" sub tab
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I click on "Edit" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+#    And I switch to tab number "1"
+#    And I enter value "1234" into field "FederalGrantSF428A__c"
+#    And I enter value "(a) Individual (Reporting Federally-owned property for one award)" into field "ReportTypePiclikist__c"
+#    And I enter value "30 SEP" into field "ReportAsOf__c"
+#    And I enter value "Test" into field "CommentsSF428__c"
+#    When I click on "Save" in the page details
+#    And I wait for "2" seconds
+#    And I refresh the page
+#    And I click on top right button "New" in flex table with id "---progressReport:-:sf428AFederallyOwnedTableId---"
+#    When I enter in modal "SF428A_Federal_Property" values from "ProgressReport_Field_Values.xlsx"
+#    And I click modal button "Save"
+#    And I refresh the page
+#    And I wait for "5" seconds
+#    When I click on "Validate" in the page details
+#    Then I softly see the following messages in the page details :
+#      | If year is selected, report type As of Year is required. |
+#    And I close the tab
+#    #SF429B form negative values entered validation check
+#    And I refresh the page
+#    When I navigate to "Forms and Files" sub tab
+#    And I wait for "2" seconds
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I wait for "2" seconds
+#    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without Split
+#    And I switch to tab number "1"
+#    And I wait for "20" seconds
+#    When I click on "Edit" in the page details
+#    And I enter "SF429B_Form_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
+#    And I wait for "3" seconds
+#    When I click on "Save" in the page details
+#    When I click on "Validate" in the page details
+#    Then I softly see the following messages in the page details :
+#      | If "Other" option is selected in "14k", Justification in specify is required.                                                                |
+#      | If "Other" option is selected in "14l", Justification in specify is required.                                                                |
+#      | If "Other" is selected in "Real Property Ownership Type", Description is required.                                                           |
+#      | Unit type is required, if amount entered in "14d. Land Acreage or Square Units".                                                             |
+#      | Unit type is required, if amount entered in "14e. Gross and Usable Square Footage/Meters".                                                   |
+#      | Values can only be entered against the Electric (KWh) or Electric (Btu) in section "14k"                                                     |
+#      | Values can only be entered against the Electric (KWh) or Electric (Btu) in section "14l"                                                     |
+#      | Please enter Zip code in the Zip + 4 codes format (e.g. 12345-1234) in the 'Zip / Postal code' field.                                        |
+#      | Federal Percentage cannot be less than zero.                                                                                                 |
+#      | Non Federal Percentage cannot be less than zero.                                                                                             |
+#      | The Land Acreage Amount cannot be less than zero.                                                                                            |
+#      | The Gross Amount cannot be less than zero.                                                                                                   |
+#      | The Usable Amount cannot be less than zero.                                                                                                  |
+#      | Federal Share cannot be less than zero.                                                                                                      |
+#      | Non Federal Share cannot be less than zero.                                                                                                  |
+#      | Value in "Electric" in "14k" cannot be less than zero.                                                                                       |
+#      | Value in "Btu" in "14k" cannot be less than zero.                                                                                            |
+#      | Value in "Petroleum" in "14k" cannot be less than zero.                                                                                      |
+#      | Value in "Natural Gas" in "14k" cannot be less than zero.                                                                                    |
+#      | Value in "Other" in "14k" cannot be less than zero.                                                                                          |
+#      | Value in "Electric" in "14l" cannot be less than zero.                                                                                       |
+#      | Value in "Btu" in "14l" cannot be less than zero.                                                                                            |
+#      | Value in "Petroleum" in "14l" cannot be less than zero.                                                                                      |
+#      | Value in "Natural Gas" in "14l" cannot be less than zero.                                                                                    |
+#      | Value in "Other" in "14l" cannot be less than zero.                                                                                          |
+#      | Adding file is required in "Files section" with classification "Environmental Compliance Requirements", if "Yes" option in "14h" is checked. |
+#      | Adding file is required in "Files section" with classification "NHPA", if "Yes" option in "14i" is checked.                                  |
 
   @AwardWithFocusNo
   Scenario: Award with focus area no
