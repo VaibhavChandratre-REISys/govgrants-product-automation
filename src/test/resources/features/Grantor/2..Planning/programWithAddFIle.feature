@@ -1,4 +1,4 @@
-@programWithAddFile @grantor-regression @grantor-parallel-regression @planning @regression @intProg
+@programWithAddFile @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios for program with add file
 
   @222077 @222087  @sprint-10-US-199430 @addFiles @ExcludeAddFile
