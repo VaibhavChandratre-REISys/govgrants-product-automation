@@ -151,7 +151,7 @@ Feature: Sanity scenarios New
     When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
     Then I softly cannot see top right button "Create Pre-Application" in page detail
 
-  @482343 @482351 @482352 @482356 @482359 @482361 @482363 @482368 @482400 @ValidatePMUsertheoverviewtabofaward
+  @482343 @482351 @482352 @482356 @482359 @482361 @482363 @482368 @482400 @ValidatePMUsertheoverviewtabofaward @P2_Grantee @PM_Grantee @GRegression1 @GRegression4
   Scenario: Validate PM User the overview tab of award
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
