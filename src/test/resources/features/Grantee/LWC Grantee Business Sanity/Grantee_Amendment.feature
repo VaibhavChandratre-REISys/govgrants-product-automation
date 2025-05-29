@@ -230,7 +230,10 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I perform quick search for "Rejected" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
     When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly cannot see row level action button "Edit" against "Submitted for Approval" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly can see row level action button "View" against "Submitted for Approval" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly cannot see row level action button "Delete" against "Submitted for Approval" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
     When I perform quick search for "Not Accepted" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
     When I perform quick search for "Submitted to Grantor" in "---grantee_tableId:-:AmendmentTableId---" panel
@@ -252,7 +255,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly cannot see row level action button "Edit" against "Accepted" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
     Then I softly can see row level action button "View" against "Accepted" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
     Then I softly cannot see row level action button "Delete" against "Accepted" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Created" in "---grantee_tableId:-:AmendmentTableId---" panel
+    When I perform quick search for "{SavedValue:PriodicId}" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
     Then I softly can see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
     Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
@@ -290,7 +293,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click toggle button to select "Amendment Requests - Draft"
     When I perform quick search for "Accepted" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Created" in "---grantee_tableId:-:AmendmentTableId---" panel
+    When I perform quick search for "{SavedValue:PriodicId}" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
     Then I softly can see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
     Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
@@ -298,11 +301,17 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I perform quick search for "Rejected" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
     When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly cannot see row level action button "Edit" against "Submitted for Approval" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly can see row level action button "View" against "Submitted for Approval" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly cannot see row level action button "Delete" against "Submitted for Approval" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
     When I perform quick search for "Not Accepted" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
     When I perform quick search for "Submitted to Grantor" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly see value "Submitted to Grantor" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly cannot see row level action button "Edit" against "Submitted to Grantor" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly can see row level action button "View" against "Submitted to Grantor" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly cannot see row level action button "Delete" against "Submitted to Grantor" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
     When I perform quick search for "Reviewed" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
     Then I softly can see row level action button "Edit" against "Reviewed" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
@@ -346,7 +355,10 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
     When I perform quick search for "Not Accepted" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly cannot see row level action button "Edit" against "Not Accepted" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly can see row level action button "View" against "Not Accepted" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly cannot see row level action button "Delete" against "Not Accepted" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
     When I perform quick search for "Submitted to Grantor" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
     When I perform quick search for "Reviewed" in "---grantee_tableId:-:AmendmentTableId---" panel
@@ -375,6 +387,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Download as CSV" present in parallel dropdown
     Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:AmendmentTableId---"
+    When I perform quick search for "Created" in "---grantee_tableId:-:AmendmentTableId---" panel
     And I select value inside table "---grantee_tableId:-:AmendmentTableId---" is "5"
     Then I see "5" records inside flex table id "---grantee_tableId:-:AmendmentTableId---"
     And I save the total records from the flex table id "---grantee_tableId:-:AmendmentTableId---" as "totalRecords"
