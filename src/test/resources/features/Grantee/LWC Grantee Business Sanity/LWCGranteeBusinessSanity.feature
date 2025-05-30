@@ -5644,7 +5644,7 @@ Feature: Sanity scenarios
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:closeoutNotesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:closeoutAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Supporting Documents" from computer
-    And I wait for "8" seconds
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | File Attachment.pdf Uploaded successfully. |
     When I click modal button "Close"
@@ -5676,7 +5676,7 @@ Feature: Sanity scenarios
     Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:closeoutAddFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:closeoutAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Funder Closeout Document" from computer
-    And I wait for "8" seconds
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | File Attachment.pdf Uploaded successfully. |
     When I click modal button "Close"
@@ -5803,7 +5803,7 @@ Feature: Sanity scenarios
     Then I softly see value "govgrantsuat@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
 
-  @449379 @VerifythebudgetRedirectionRules
+  @449379 @VerifythebudgetRedirectionRules @P2_Grantee @EXE_Grantee @GRegression2
   Scenario: Verify the budget Redirection Rules
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -6885,7 +6885,7 @@ Feature: Sanity scenarios
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    And I "Created" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "GRANTEE_FO_APPROVER-<userName>"
+    And I "Created" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "<filter>"
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -6906,7 +6906,7 @@ Feature: Sanity scenarios
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID1"
     And I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -6940,7 +6940,7 @@ Feature: Sanity scenarios
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    And I "Created" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "GRANTEE_FO_APPROVER-<userName>"
+    And I "Created" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "<filter>"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -6960,7 +6960,7 @@ Feature: Sanity scenarios
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID"
     And I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -6979,9 +6979,9 @@ Feature: Sanity scenarios
     And I navigate to "Amendments" sub tab
     Then I softly see value "Approved" for title "Status" against the value "{SavedValue:AmendEGMSID2}" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
     Examples:
-      | userName        | User        |
-      | Victor EXE user | GRANTEE EXE |
-      | Grantee PO user | GRANTEE PO  |
+      | userName        | User        | filter                         |
+      | Victor EXE user | GRANTEE EXE | PERIODIC_FD_APPROVER_EXE_OWNER |
+      | Grantee PO user | GRANTEE PO  | PERIODIC_FD_APPROVER_PO_OWNER  |
 
   @462433 @462379 @VerifyPOuserAROwnercanabletoAcceptPeriodicRenewalAmendmentRequest @P1_Grantee @EXE_Grantee @GRegression1
   Scenario Outline: Verify PO user  (AR Owner) can able to Accept Periodic Renewal Amendment Request
