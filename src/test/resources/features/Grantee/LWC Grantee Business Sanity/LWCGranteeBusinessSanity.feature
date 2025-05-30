@@ -6883,6 +6883,7 @@ Feature: Sanity scenarios
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    And I wait for "2" seconds
     And I "Created" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "<filter>"
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Grants" tab
@@ -15377,13 +15378,13 @@ Feature: Sanity scenarios
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Applications" tab
     When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    Then I softly see toggle option "Pre-Application - All" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see toggle option "Pre-Application - Draft" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see toggle option "Pre-Application - Submitted" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see toggle option "Pre-Application - Converted to Application" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see toggle option "Pre-Application - Expired" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see toggle option "Pre-Application - My Records" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
-    And I click toggle button to select "Pre-Application - All"
+    Then I softly see toggle option "Pre-Applications - All" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see toggle option "Pre-Applications - Draft" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see toggle option "Pre-Applications - Submitted" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see toggle option "Pre-Applications - Converted to Application" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see toggle option "Pre-Applications - Expired" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see toggle option "Pre-Applications - My Records" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
+    And I click toggle button to select "Pre-Applications - All"
     When I perform quick search for "created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly see value "created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
@@ -15402,19 +15403,19 @@ Feature: Sanity scenarios
     Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     Then I softly see top right button "Advance Filter" inside flex table "---grantee_tableId:-:preApplicaltionTableId---"
     Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:preApplicaltionTableId---"
-    When I click on parallel lines menu bar with data target value "Pre-Application - All"
+    When I click on parallel lines menu bar with data target value "Pre-Applications - All"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Download as PDF" from parallel lines dropdown of "Pre-Application - All"
+    And I select "Download as PDF" from parallel lines dropdown of "Pre-Applications - All"
     And I wait for "7" seconds
     And I download the file
-    Then I softly see "Pre-Application - All" on page "1" of "govgrants" pdf file
+    Then I softly see "Pre-Applications - All" on page "1" of "govgrants" pdf file
     And I close the tab
-    When I click on parallel lines menu bar with data target value "Pre-Application - All"
-    And I select "Refresh" from parallel lines dropdown of "Pre-Application - All"
+    When I click on parallel lines menu bar with data target value "Pre-Applications - All"
+    And I select "Refresh" from parallel lines dropdown of "Pre-Applications - All"
     Then I see table is refreshing
-    And I click toggle button to select "Pre-Application - Draft"
+    And I click toggle button to select "Pre-Applications - Draft"
     When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
@@ -15429,15 +15430,15 @@ Feature: Sanity scenarios
     Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     And I wait for "2" seconds
-    And I click toggle button to select "Pre-Application - Submitted"
+    And I click toggle button to select "Pre-Applications - Submitted"
     When I perform quick search for "Submit to Grantor" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly see value "Submit to Grantor" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     And I wait for "2" seconds
-    And I click toggle button to select "Pre-Application - Converted to Application"
+    And I click toggle button to select "Pre-Applications - Converted to Application"
     When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     And I wait for "2" seconds
-    And I click toggle button to select "Pre-Application - My Records"
+    And I click toggle button to select "Pre-Applications - My Records"
     When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
     Then I softly see value "Created" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
