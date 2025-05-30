@@ -5644,7 +5644,6 @@ Feature: Sanity scenarios
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:closeoutNotesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:closeoutAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Supporting Documents" from computer
-    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | File Attachment.pdf Uploaded successfully. |
     When I click modal button "Close"
@@ -5676,7 +5675,6 @@ Feature: Sanity scenarios
     Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:closeoutAddFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:closeoutAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Funder Closeout Document" from computer
-    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | File Attachment.pdf Uploaded successfully. |
     When I click modal button "Close"
@@ -16149,7 +16147,7 @@ Feature: Sanity scenarios
       | userAuditor     |
       | GRANTEE AUDITOR |
 
-  @463417 @ValidatePreAppwithPMprofileifinopportunitiespreapplicationrequiredselectNOthenonlyunabletocreatepreapplication
+  @463417 @ValidatePreAppwithPMprofileifinopportunitiespreapplicationrequiredselectNOthenonlyunabletocreatepreapplication @P3_Grantee @PM_Grantee @GRegression3
   Scenario: Validate PreApp with PM profile if in opportunities pre application required select NO then only unable to create pre application
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
