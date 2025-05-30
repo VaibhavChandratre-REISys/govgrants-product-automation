@@ -5638,7 +5638,7 @@ Feature: Sanity scenarios
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:closeoutNotesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:closeoutAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Supporting Documents" from computer
-    And I wait for "5" seconds
+    And I wait for "8" seconds
     Then I softly see the following messages in the page details contains:
       | File Attachment.pdf Uploaded successfully. |
     When I click modal button "Close"
@@ -5670,7 +5670,7 @@ Feature: Sanity scenarios
     Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:closeoutAddFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:closeoutAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Funder Closeout Document" from computer
-    And I wait for "5" seconds
+    And I wait for "8" seconds
     Then I softly see the following messages in the page details contains:
       | File Attachment.pdf Uploaded successfully. |
     When I click modal button "Close"
@@ -5690,6 +5690,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:closeoutNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:closeoutNotesTableId---"
     When I click on "Validate" in the page details
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Closeout has been validated successfully. Please proceed. |
     When I click on "Submit for Approval" in the page details
@@ -5704,14 +5705,16 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
-    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
-    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
+    And I click toggle button to select "Project Period Closeout - All"
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:ProjectPeriodCloseout---" panel
+    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:ProjectPeriodCloseout---"
     Then I softly see field "Status" as "Approved"
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I softly can see top right button "Submit to Grantor" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---"
@@ -5757,7 +5760,7 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Submit to Grantor" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---"
@@ -6967,9 +6970,9 @@ Feature: Sanity scenarios
     And I navigate to "Amendments" sub tab
     Then I softly see value "Approved" for title "Status" against the value "{SavedValue:AmendEGMSID2}" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
     Examples:
-      | userName   | User        |
-      | Victor EXE | GRANTEE EXE |
-      | Grantee PO | GRANTEE PO  |
+      | userName        | User        |
+      | Victor EXE user | GRANTEE EXE |
+      | Grantee PO user | GRANTEE PO  |
 
   @462433 @462379 @VerifyPOuserAROwnercanabletoAcceptPeriodicRenewalAmendmentRequest @P1_Grantee @EXE_Grantee @GRegression1
   Scenario Outline: Verify PO user  (AR Owner) can able to Accept Periodic Renewal Amendment Request
@@ -9700,7 +9703,7 @@ Feature: Sanity scenarios
     Then I see the sub-header is "{SavedValue:Automation Runtime Organization}" in the page details
     Then I softly see field "Parent Organization" as "NA"
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Related Log" sub tab at view detail page
@@ -9747,6 +9750,7 @@ Feature: Sanity scenarios
     Then I softly see field on modal "4-Digit Zip Code Extension" inside page block
     Then I softly see field on modal "Zip Code" inside page block
     When I enter in modal value "Automation Runtime" into field "Title"
+    When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation" into field "FirstName"
     When I enter in modal value "Execution" into field "LastName"
     When I enter in modal value "8967093890" into field "Phone"
