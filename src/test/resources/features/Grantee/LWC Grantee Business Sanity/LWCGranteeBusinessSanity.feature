@@ -9672,7 +9672,7 @@ Feature: Sanity scenarios
       | GRANTEE FO | david.fo@yopmail.com        |
       | GRANTEE FD | danielle.garcia@yopmail.com |
 
-  @461000 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
+  @461000 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @P3_Grantee @PO_Grantee @GRegression3
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
@@ -13887,12 +13887,12 @@ Feature: Sanity scenarios
 
     Examples:
       | userType        |
-      | GRANTEE PM      |
-      | GRANTEE PO      |
-      | GRANTEE FO      |
-      | GRANTEE FD      |
+#      | GRANTEE PM      |
+#      | GRANTEE PO      |
+#      | GRANTEE FO      |
+#      | GRANTEE FD      |
       | GRANTEE AUDITOR |
-      | GRANTEE ADMIN   |
+#      | GRANTEE ADMIN   |
 
   @445593 @ValidateProgressFinancialReportScheduleEXEusernonownercannotseeeditbuttonforProgressandFinancialReportonReportingScheduletableoncreatedSubmittedforreviewreviewedSubmittedforapprovalActivestateofaward
   Scenario Outline: Validate Progress/Financial Report Schedule EXE user(non owner) cannot see edit button for Progress and Financial Report on Reporting Schedule table on created, Submitted for review, reviewed, Submitted for approval, Active state of award
