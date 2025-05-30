@@ -15373,7 +15373,7 @@ Feature: Sanity scenarios
     Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
     Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
 
-  @463453 @PreAppVerifyWithPMProfilePhaselevelListviewpageasperthefilterlistgettheresult @bugid-483230
+  @463453 @PreAppVerifyWithPMProfilePhaselevelListviewpageasperthefilterlistgettheresult
   Scenario: PreApp - Verify With PM Profile , Phase level List view page as per the filter list get the result.
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Applications" tab
@@ -15432,7 +15432,11 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     And I click toggle button to select "Pre-Applications - Submitted"
     When I perform quick search for "Submit to Grantor" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Submit to Grantor" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Accepted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
     And I wait for "2" seconds
     And I click toggle button to select "Pre-Applications - Converted to Application"
     When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
