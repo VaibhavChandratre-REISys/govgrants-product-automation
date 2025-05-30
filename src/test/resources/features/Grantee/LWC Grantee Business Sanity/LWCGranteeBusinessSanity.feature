@@ -15384,7 +15384,7 @@ Feature: Sanity scenarios
     Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
     Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
 
-  @463453 @PreAppVerifyWithPMProfilePhaselevelListviewpageasperthefilterlistgettheresult
+  @463453 @PreAppVerifyWithPMProfilePhaselevelListviewpageasperthefilterlistgettheresult @P4_Grantee @PM_Grantee @GRegression4
   Scenario: PreApp - Verify With PM Profile , Phase level List view page as per the filter list get the result.
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Applications" tab
