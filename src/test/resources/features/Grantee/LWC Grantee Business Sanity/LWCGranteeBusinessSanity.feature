@@ -5869,8 +5869,8 @@ Feature: Sanity scenarios
     Then I softly cannot see the following messages in the page details contains:
       | Overview Tab - Money cannot be moved across the Focus Areas during a Budget Redirection request.       |
       | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero. |
-    And I "Created" standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_WITH_BUDGET-Victor EXE user"
-    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Victor EXE user"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     And I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
