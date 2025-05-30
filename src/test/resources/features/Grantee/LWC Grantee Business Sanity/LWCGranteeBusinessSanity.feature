@@ -871,15 +871,15 @@ Feature: Sanity scenarios
       | Objectives were associated successfully. |
     And I click modal button "Close"
     And I wait for "1" seconds
-    Then I softly see value "Objective" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly see value "Automation Permanent Objective2" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
     When I click on parallel lines menu bar with data target value "Objectives"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    Then I can see row level action button "Remove" against "Objective" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I can see row level action button "Remove" against "Automation Permanent Objective2" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I cannot see row level action button "Remove" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-    And I click on "Remove" icon for "Objective" inside flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-    Then I softly do not see value "Objective" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
+    And I click on "Remove" icon for "Automation Permanent Objective2" inside flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly do not see value "Automation Permanent Objective2" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly see "Month-Year Created" in flex table header "---grantee_tableId:-:amendmentObjectiveTableId---"
