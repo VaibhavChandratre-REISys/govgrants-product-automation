@@ -4307,7 +4307,7 @@ public class GrantorPayloads {
         grantAwardData.addProperty("ZipCode", "45678");
         grantAwardData.addProperty("Country", "USA");
         grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        grantAwardData.addProperty("RequestedChangeinAwardBudget", 2000);
+        grantAwardData.addProperty("RequestedChangeinAwardBudget", 7000);
         grantAwardData.addProperty("ProposedBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         grantAwardData.addProperty("4DigitZipCodeExtension", "3456");
         grantAwardData.addProperty("OtherChangeDescription", "Automation Test");
@@ -4317,15 +4317,13 @@ public class GrantorPayloads {
 
 
         // Focus Areas
-        if(!type.equalsIgnoreCase("Funding Change")) {
             JsonArray focusAreas = new JsonArray();
             JsonObject focusArea = new JsonObject();
             focusArea.addProperty("Title", "Automation Permanent Focus Area");
-            focusArea.addProperty("StartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+            focusArea.addProperty("StartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3651, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
             focusArea.addProperty("EndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
             focusAreas.add(focusArea);
             grantAwardData.add("focusAreas", focusAreas);
-        }
 
         // Build-up Items
         JsonArray buildUpItems = new JsonArray();
@@ -4393,7 +4391,7 @@ public class GrantorPayloads {
         grantAwardData.addProperty("ZipCode", "45678");
         grantAwardData.addProperty("Country", "USA");
         grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        grantAwardData.addProperty("RequestedChangeinAwardBudget", 2000);
+        grantAwardData.addProperty("RequestedChangeinAwardBudget", 7000);
         grantAwardData.addProperty("ProposedBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         grantAwardData.addProperty("4DigitZipCodeExtension", "3456");
         grantAwardData.addProperty("OtherChangeDescription", "Automation Test");
@@ -4401,17 +4399,14 @@ public class GrantorPayloads {
         grantAwardData.addProperty("OtherAmendmentTypeDetails", "Automation Test");
         grantAwardData.addProperty("GeneralCondition", false);
 
-
         // Focus Areas
-        if(!type.equalsIgnoreCase("Funding Change")) {
             JsonArray focusAreas = new JsonArray();
             JsonObject focusArea = new JsonObject();
             focusArea.addProperty("Title", "Automation Permanent Focus Area");
-            focusArea.addProperty("StartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+            focusArea.addProperty("StartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3651, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
             focusArea.addProperty("EndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
             focusAreas.add(focusArea);
             grantAwardData.add("focusAreas", focusAreas);
-        }
 
         // Build-up Items
         JsonArray buildUpItems = new JsonArray();
@@ -4437,6 +4432,7 @@ public class GrantorPayloads {
         indirectRate.addProperty("indirectCostRateType", "Final");
         indirectRates.add(indirectRate);
         grantAwardData.add("indirectRates", indirectRates);
+
 
         // Approvers
         JsonArray approvers = new JsonArray();
