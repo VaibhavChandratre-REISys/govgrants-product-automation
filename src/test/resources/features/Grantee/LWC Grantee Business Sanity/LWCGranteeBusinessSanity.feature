@@ -738,7 +738,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "{SavedValue:BDRAMENDID}" against "Not Accepted" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I softly can see top right button "New" in page detail
 
-  @447979 @SOWamendmentVerifyuserislandondetailedpageofamendmentrequestaftersavethedataonmodal
+  @447979 @SOWamendmentVerifyuserislandondetailedpageofamendmentrequestaftersavethedataonmodal @P2_Grantee @PM_Grantee @GRegression2
   Scenario: SOW amendment - Verify user is land on detailed page of amendment request after save the data on modal
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -5805,8 +5805,8 @@ Feature: Sanity scenarios
 
   @449379 @VerifythebudgetRedirectionRules
   Scenario: Verify the budget Redirection Rules
-    And I "Created" standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_WITH_BUDGET-Victor EXE user"
-    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Victor EXE user"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
