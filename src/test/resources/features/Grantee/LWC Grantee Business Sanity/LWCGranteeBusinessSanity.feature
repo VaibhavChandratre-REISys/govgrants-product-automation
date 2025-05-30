@@ -13632,6 +13632,9 @@ Feature: Sanity scenarios
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---" by clicking "Edit" :
+      | Title                  | Target | Current Value | Current Value As Of |
+      | Automation Runtime KPI | 10     | 10            | 0                   |
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     When I enter in modal value "Terms" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
