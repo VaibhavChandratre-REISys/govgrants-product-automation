@@ -763,7 +763,8 @@ Feature: Sanity scenarios
     Then I softly can see "Actuals" sub tab at view detail page
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Title" as "AwardTitle"
-    And I wait for "2" seconds
+    And I navigate to "Monitoring" sub tab
+    And I save the value from row "1" for column name "Title" as "ObjectiveTitle" from flex table "---grantee_tableId:-:awardObjectiveTableId---"
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I enter "Grantee_ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
@@ -835,11 +836,14 @@ Feature: Sanity scenarios
       | Scope of Work Change | GranteeAmendmentType__c |
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Justification is required to save. |
+      | To Save, Justification is required. |
     When I enter values into fields
       | Value | Field         |
       | Test  | PurposeRTA__c |
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
     Then I softly see "Award Description" page block displayed
     Then I softly see field "Grant EGMS ID" as "{SavedValue:GrantEGMSID}"
     Then I softly see field "Award EGMS ID" as "{SavedValue:AwardEGMSID}"
@@ -861,10 +865,12 @@ Feature: Sanity scenarios
     Then I softly see "Objectives" page block displayed
     Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-    When I click "Associate" after selection of "Objective" in the table "---grantee_tableId:-:amendmentAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---grantee_tableId:-:amendmentAssociateObjectiveTableId---"
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Objectives were associated successfully. |
     And I click modal button "Close"
+    And I wait for "1" seconds
     Then I softly see value "Objective" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
     When I click on parallel lines menu bar with data target value "Objectives"
     And I wait for "2" seconds
@@ -16142,12 +16148,21 @@ Feature: Sanity scenarios
 
   @463417 @ValidatePreAppwithPMprofileifinopportunitiespreapplicationrequiredselectNOthenonlyunabletocreatepreapplication
   Scenario: Validate PreApp with PM profile if in opportunities pre application required select NO then only unable to create pre application
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
     When I navigate to "Opportunities" tab
     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Opportunities Not Converted to Application - All"
-    And I perform quick search for "{grantee_testData:AutomationPreApplicationSelectedNo}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
-    When I click on "View" icon for "{grantee_testData:AutomationPreApplicationSelectedNo}" inside table
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     Then I softly cannot see top right button "Create Pre-Application" in page detail
     Then I softly can see top right button "Create Application" in page detail
     Then I softly see field "Pre-Application Required?" as "No"
