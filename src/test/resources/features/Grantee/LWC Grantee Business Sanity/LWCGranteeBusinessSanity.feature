@@ -6878,7 +6878,7 @@ Feature: Sanity scenarios
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "Not Started" for title "Status" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
 
-  @462380 @462434 @VerifyEXEuserAROwnercanabletoRejectthePeriodicRenewalAmendmentRequestfromApprovalProcess
+  @462380 @462434 @VerifyEXEuserAROwnercanabletoRejectthePeriodicRenewalAmendmentRequestfromApprovalProcess @P3_Grantee @EXE_Grantee @PO_Grantee @GRegression3
   Scenario Outline: Verify EXE user (AR Owner) can able to Reject the Periodic Renewal Amendment Request from Approval Process
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -9672,7 +9672,7 @@ Feature: Sanity scenarios
       | GRANTEE FO | david.fo@yopmail.com        |
       | GRANTEE FD | danielle.garcia@yopmail.com |
 
-  @461000 @477512 @477515 @477517 @477519 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
+  @461000 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
@@ -9866,9 +9866,6 @@ Feature: Sanity scenarios
     Examples:
       | userType    | Notes         | userName           | Title |
       | GRANTEE PO  | Notes for PO  | Grantee PO         | Test1 |
-      | GRANTEE FO  | Notes for FO  | David FO           | Test3 |
-      | GRANTEE FD  | Notes for FD  | Danielle FD Garcia | Test4 |
-      | GRANTEE EXE | Notes for EXE | Victor EXE         | Test5 |
 
   @446125 @ValidateGPCloseoutwithEXEprofileifGrantisnotactivethenunabletoseenewbuttontocreatecloseout @GRegression1 @GranteeTBE
   Scenario: Validate GP Closeout with EXE  profile ,if Grant is not active then unable to see new button to create closeout

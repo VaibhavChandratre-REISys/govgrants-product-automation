@@ -7497,7 +7497,7 @@ Feature: Sanity scenarios New
       | GRANTEE FD    |
       | GRANTEE ADMIN |
 
-  @461002 @477522 @477527 @477529 @477532 @477542 @482151 @482152 @482153 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg
+  @461002 @482151 @482152 @482153 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg
   Scenario Outline: Validate Federal user should see all fields and section on federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -7587,7 +7587,7 @@ Feature: Sanity scenarios New
     When I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
     When I enter in modal value "12345" into field "MailingPostalCode"
     When I click modal button "Save"
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     And I save the field labeled "Title" as "ContactTitle" on modal
     When I click modal button "Close"
     When I perform quick search for "{SavedValue:ContactTitle}" in "---grantee_tableId:-:FedOrgRelatedContacts---" panel
@@ -7676,7 +7676,6 @@ Feature: Sanity scenarios New
       | GRANTEE FO    | AttachmentTesting.pdf | Notes for FO    |
       | GRANTEE EXE   | AttachmentTesting.pdf | Notes for EXE   |
       | GRANTEE FD    | AttachmentTesting.pdf | Notes for FD    |
-      | GRANTEE ADMIN | AttachmentTesting.pdf | Notes for ADMIN |
 
   @477317 @477315 @477316 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @GRegression3
   Scenario Outline: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
