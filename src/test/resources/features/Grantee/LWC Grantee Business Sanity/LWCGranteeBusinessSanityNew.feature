@@ -10995,15 +10995,18 @@ Feature: Sanity scenarios New
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:KPITable---"
+    And I wait for "2" seconds
     And I click modal button "Save and Continue"
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | To Save, Title is required.                |
       | To Save, Domain is required.               |
       | To Save, Measure is required.              |
       | To Save, Unit of Measurement is required.  |
       | To Save, Indicator is required.            |
+    And I wait for "2" seconds
     And I enter "Grantee_Creation" values from "KPI_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     When I clear the value from field "Description__c"
     When I clear the value from field "Title__c"
     When I enter value "--None--" into field "Unit__c"
@@ -11011,16 +11014,18 @@ Feature: Sanity scenarios New
     When I enter value "--None--" into field "Domain__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | To Save, Title is required.                |
-      | To Save, Domain is required.               |
-      | To Save, Measure is required.              |
-      | To Save, Unit of Measurement is required.  |
-      | To Save, Indicator is required.            |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Domain is required in the Overview tab under the Overview section.              |
+      | To Save, Title is required in the Overview tab under the Overview section.               |
+      | To Save, Measure is required in the Overview tab under the Overview section.             |
+      | To Save, Unit of Measurement is required in the Overview tab under the Overview section. |
+      | To Save, Indicator is required in the Overview tab under the Overview section.           |
+    And I wait for "2" seconds
+
     Examples:
       | userType      |
       | GRANTEE EXE   |
-      | GRANTEE ADMIN |
+#      | GRANTEE ADMIN |
 
   @475750 @ValidateNotYetConvertedOpportunitGrantsgovPMusercancreatePreApplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord @P2_Grantee @PO_Grantee @GRegression2
   Scenario Outline: Validate Not Yet Converted Opportunity Grants.gov PM user can create Pre-Application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record

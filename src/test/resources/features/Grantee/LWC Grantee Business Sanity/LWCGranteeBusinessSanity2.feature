@@ -7174,3 +7174,47 @@ Feature: Sanity scenarios
     And I navigate to "Chatter" sub tab in split screen
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "GRANTEE PO"
+
+    @500110 @ValidatetheheaderonKeyContactform
+    Scenario: Validate the header on Key Contact form
+      Given I delete the grantee record "{grantee_testData:GrantsGovKeyContactMandatory}"
+      And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269340" with properties "default-Grantee PO user"
+      Given I login to "As a Grantee" app as "GRANTEE PM" user
+      And I navigate to "Opportunities" tab
+      When I navigate to "Qualified" content inside "Leads" subheader on left panel
+      And I click toggle button to select "Qualified Leads - All"
+      When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+      And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+      When I click on "Convert to Opportunity" in the page details
+      And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+      And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001269340" with properties "default"
+      And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001269340" with properties "default-Grantee PO user"
+      When I navigate to "Applications" tab
+      And I navigate to "Applications" content inside "Applications" subheader on left panel
+      When I click toggle button to select "Applications - All"
+      And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+      When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+      And I click on "Edit" in the page details
+      And I enter value "123" into field "CongressionalDistrict1__c"
+      When I click on "Save" in the page details
+      And I get the "EGMS ID"
+      And I save the field labeled "EGMS ID" as "appEGMSID"
+      Then I softly see status in Progress-bar is "Created" and is "dark blue"
+      When I navigate to "Forms and Files" sub tab
+      Then I softly see value "Key Contacts" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+      Then I can see row level action button "Edit" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+      Then I can see row level action button "Preview" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+      Then I can see row level action button "View" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+      Then I can see row level action button "Splitview" against "Key Contacts" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+      And I click on "View" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+      And I switch to tab number "1"
+      Then I softly see new tab is opened
+      Then I softly can see top right button "Edit" in page detail
+      Then I softly can see top right button "Validate" in page detail
+      Then I softly see the text containing "Key Contacts"
+      Then I softly see the text containing :
+        | Agency Owner: Grants.gov |
+      Then I softly see the field "Agency Owner :" as "Grants.gov" on forms
+      Then I softly see the field "OMB Number :" as "4040-0010" on forms
+      Then I softly see the field "Version :" as "2.0" on forms
+      Then I softly see the field "OMB Expiration Date :" as "12/31/2026" on forms
