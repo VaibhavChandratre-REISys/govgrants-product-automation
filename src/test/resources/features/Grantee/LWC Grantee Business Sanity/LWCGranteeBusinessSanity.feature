@@ -13120,7 +13120,7 @@ Feature: Sanity scenarios
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     Then I softly see field "Status" as "Pending Activation"
 
-  @477292 @477301 @477293 @477294 @477295 @477296 @ValidateProgress/FinancialReportSchedulePMusernonownercannotseeeditbuttonforProgressandFinancialReportonReportingScheduletableoncreatedSubmittedforreviewreviewedSubmittedforapprovalActivestateofaward
+  @477292 @477301 @477293 @477294 @477295 @477296 @ValidateProgress/FinancialReportSchedulePMusernonownercannotseeeditbuttonforProgressandFinancialReportonReportingScheduletableoncreatedSubmittedforreviewreviewedSubmittedforapprovalActivestateofaward @P3_Grantee @PM_Grantee @ADMIN_Grantee @FO_Grantee @FD_Grantee @PO_Grantee @AUDITOR_Grantee @GRegression3 @GRegression4
   Scenario Outline: Validate Progress/Financial Report Schedule PM user(non owner) cannot see edit button for Progress and Financial Report on Reporting Schedule table on created, Submitted for review, reviewed, Submitted for approval, Active state of award
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
