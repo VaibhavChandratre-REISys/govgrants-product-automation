@@ -6446,7 +6446,7 @@ Feature: Sanity scenarios
 #    And I wait for "4" seconds
 #    Then I see "Special Conditions" on page "1" of "govgrants" pdf file
 
-  @443833 @AwardVerifywithPMprofileFilesTabofAwardPagelayout
+  @443833 @AwardVerifywithPMprofileFilesTabofAwardPagelayout @runtestpm1
   Scenario:  Award  with PM profile Files Tab of AwardPagelayout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
