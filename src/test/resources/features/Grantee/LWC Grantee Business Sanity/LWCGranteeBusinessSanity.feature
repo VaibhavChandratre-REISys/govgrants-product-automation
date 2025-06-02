@@ -6480,8 +6480,8 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "View" opens in overLay window
-    When I close "View" modal by clicking the top right x button
+    Then I softly see the image "AttachmentTesting.pdf" in page detail
+    And I click on "Close" button for view files page
     And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
