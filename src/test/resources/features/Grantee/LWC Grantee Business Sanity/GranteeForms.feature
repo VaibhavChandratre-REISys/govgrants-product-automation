@@ -1,7 +1,7 @@
 @GranteeForms
 Feature: Grantee Forms Scenario
 
-  @485407 @485428 @ValidateProjectNarrativeAttachmentFOuserasaReviewershouldabletoedittheformifeditaccessisYes
+  @485407 @485428 @ValidateProjectNarrativeAttachmentFOuserasaReviewershouldabletoedittheformifeditaccessisYes @runtestpm1
   Scenario: Validate Project Narrative Attachment FO user as a Reviewer should able to edit the form if edit access is Yes
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -1042,7 +1042,7 @@ Feature: Grantee Forms Scenario
     Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
 
-  @485425 @ValidateProjectNarrativeAttachmentAdminuserusershouldabletoseethelastmodifycolumnisupdateifonlyformiseditedbyanyuser
+  @485425 @ValidateProjectNarrativeAttachmentAdminuserusershouldabletoseethelastmodifycolumnisupdateifonlyformiseditedbyanyuser @runtestpm1
   Scenario: Validate Project Narrative Attachment Admin user user should able  to see the last modify column is update if only form is edited by any user
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberProjectnarrativeForm}"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
@@ -1186,7 +1186,7 @@ Feature: Grantee Forms Scenario
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "David FO" for title "Last Modified By Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
 
-  @485427 @478403 @ValidateProjectNarrativeAttachmentPMuserisrejecttheapplicationthensubmittograntsgovbuttonisnotdisplaytheeditaccess
+  @485427 @478403 @ValidateProjectNarrativeAttachmentPMuserisrejecttheapplicationthensubmittograntsgovbuttonisnotdisplaytheeditaccess @runtestpm1
   Scenario: Validate Project Narrative Attachment PM user is reject the application then submit to grants.gov button is not display & verify the edit access
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberProjectnarrativeForm}"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
@@ -1910,7 +1910,7 @@ Feature: Grantee Forms Scenario
     Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
 
-  @477582 @ValidateAttachmentsformPMuserNonOwnercanonlyviewfilesaddedonattachments
+  @477582 @ValidateAttachmentsformPMuserNonOwnercanonlyviewfilesaddedonattachments  @runtestpm1
   Scenario: Validate Attachments form PM user Non Owner can only view files added on attachments
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"

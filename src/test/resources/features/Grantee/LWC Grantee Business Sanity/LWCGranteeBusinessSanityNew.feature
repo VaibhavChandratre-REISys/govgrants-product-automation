@@ -2185,7 +2185,7 @@ Feature: Sanity scenarios New
     Then I softly see field "Status" as "Closed"
     Then I softly can see "Actuals" sub tab at view detail page
 
-  @482401 @ValidatePOUserthecloseouttab
+  @482401 @ValidatePOUserthecloseouttab  @runtestpm1
   Scenario: Validate PO User the closeout tab
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -5701,7 +5701,7 @@ Feature: Sanity scenarios New
     And I wait for "2" seconds
     Then I softly see field "Status" as "Created"
 
-  @485289 @ValidatePOuserAROwnercanabletoAcceptFundingChangeAmendmentRequest
+  @485289 @ValidatePOuserAROwnercanabletoAcceptFundingChangeAmendmentRequest @runtestpm1
   Scenario: Validate PO user AR Owner can able to Accept Funding Change Amendment Request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -10962,7 +10962,7 @@ Feature: Sanity scenarios New
       | userName        | userType   |
       | Grantee PO user | GRANTEE PO |
 
-  @487152 @ValidateNotYetConvertedOpportunityManualPMusercancreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNOonOpportunityrecord
+  @487152 @ValidateNotYetConvertedOpportunityManualPMusercancreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNOonOpportunityrecord  @runtestpm1
   Scenario Outline: Validate Not Yet Converted Opportunity Manual PM/PO user can create Application from Opportunity if Pre-Application Required? is selected as NO on Opportunity record
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<userName>"
     Given I login to "As a Grantee" app as "<userType>" user
@@ -10988,7 +10988,7 @@ Feature: Sanity scenarios New
       | userName        | userType   |
       | Grantee PO user | GRANTEE PO |
 
-  @477629 @477630 @ValidatePMusershouldabletoseevalidationmessagesforrequiredtosavefiledonKPI
+  @477629 @477630 @ValidatePMusershouldabletoseevalidationmessagesforrequiredtosavefiledonKPI  @runtestpm1
   Scenario Outline: Validate PM user should able to see validation messages for required to save filed on KPI
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab

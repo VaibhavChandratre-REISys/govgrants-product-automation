@@ -6085,7 +6085,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Submitted to Grantor"
 
 
-  @487159 @validateaspodetailsdisplayedonoverviewtabofopportunitiesnotconverteddetailspagewhenrecordisopenedinviewmode
+  @487159 @validateaspodetailsdisplayedonoverviewtabofopportunitiesnotconverteddetailspagewhenrecordisopenedinviewmode  @runtestpm1
   Scenario Outline: Validate as PO , details displayed on Overview Tab of Opportunities Not converted- details page when record is opened in view mode
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<userName>"
     Given I login to "As a Grantee" app as "<userType>" user
@@ -6195,7 +6195,7 @@ Feature: Sanity scenarios
       | Grantee PO user | GRANTEE PO |
 
 
-  @464039_1 @validateadminuser(AwardOwner)canabletorevisethebudgetperiodchangeamendmentrequestonclickofreviseamendmentbuttonwhenparallelARisinsubmittoGrantorstate&abletoseestatus&StepProgressbarafterrevisetheAR
+  @464039_1 @validateadminuser(AwardOwner)canabletorevisethebudgetperiodchangeamendmentrequestonclickofreviseamendmentbuttonwhenparallelARisinsubmittoGrantorstate&abletoseestatus&StepProgressbarafterrevisetheAR  @runtestpm1
   Scenario: Validate Admin user  (Award Owner) can able to Revise the Budget Period Change Amendment Request on click of Revise Amendment button when parallel AR is in Submit to Grantor state & able to see status & Step Progress bar after revise the AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -6609,7 +6609,7 @@ Feature: Sanity scenarios
     Then I softly see value "Not Accepted" for title "New Value" inside field history table
     Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
 
-    @487168 @validatepouser(awardowner)canabletocreateadhocprogressreport&abletosubmitprogressreporttograntor
+    @487168 @validatepouser(awardowner)canabletocreateadhocprogressreport&abletosubmitprogressreporttograntor @runtestpm1
   Scenario: validate  PO user (Award Owner)can able to create Adhoc Progress Report & able to submit Progress Report to Grantor
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
