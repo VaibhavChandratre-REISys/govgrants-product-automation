@@ -68,7 +68,7 @@ public final class TestSetupController {
         ScenarioController.setScenario(scenario);
 
         if ("true".equalsIgnoreCase(System.getProperty("recordVideo"))) {
-            ScreenCapture.startRecordVideo();
+//            ScreenCapture.startRecordVideo();
         }
         if ("true".equalsIgnoreCase(System.getProperty("docker"))) {
             DockerController.startDocker();
