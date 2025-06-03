@@ -488,14 +488,14 @@ public final class PageDetails {
      */
     public String getFieldValue(String fieldLabel, boolean matchLabelExactly) {
         By fieldLabelLocator = null;
-            fieldLabelLocator = By.xpath(String.format(""
-                                    // This option should work in all situations, if using the latest version of GovGrants
-                                    + "//div//label[contains(@class,'label') and %s]",
-                            matchLabelExactly
-                                    ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
-                                    : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
-                    )
-            );
+        fieldLabelLocator = By.xpath(String.format(""
+                                // This option should work in all situations, if using the latest version of GovGrants
+                                + "//div//label[contains(@class,'label') and %s]",
+                        matchLabelExactly
+                                ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
+                                : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
+                )
+        );
         String fieldValue;
         WebElement fieldData = I.amPerforming().getElementReference().of(fieldLabelLocator)
                 .findElement(By.xpath("./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::slot//lightning-formatted-text[not(@part='help-text')] | ./parent::div//li[not(@part='help-text')] | ./parent::div//span//p[not(@part='help-text')]"));
@@ -516,14 +516,14 @@ public final class PageDetails {
 
     public String getFieldValueOnModal(String fieldLabel, boolean matchLabelExactly) {
         By fieldLabelLocator = null;
-            fieldLabelLocator = By.xpath(String.format(""
-                                    // This option should work in all situations, if using the latest version of GovGrants
-                                    + "//div[@class='slds-modal__container']//div//label[contains(@class,'label') and %s]",
-                            matchLabelExactly
-                                    ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
-                                    : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
-                    )
-            );
+        fieldLabelLocator = By.xpath(String.format(""
+                                // This option should work in all situations, if using the latest version of GovGrants
+                                + "//div[@class='slds-modal__container']//div//label[contains(@class,'label') and %s]",
+                        matchLabelExactly
+                                ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
+                                : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
+                )
+        );
         String fieldValue;
         WebElement fieldData = I.amPerforming().getElementReference().of(fieldLabelLocator)
                 .findElement(By.xpath("./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::slot//lightning-formatted-text[not(@part='help-text')] | ./parent::div//li[not(@part='help-text')] | ./parent::div//div//lightning-formatted-text[not(@part='help-text')]"));

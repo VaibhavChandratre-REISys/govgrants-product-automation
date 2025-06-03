@@ -1,11 +1,13 @@
 package com.ggproduct.automation.steps.govgrantsSteps;
 
+import com.helperPackage.controller.DeviceBucket;
 import com.helperPackage.handlers.govgrants;
 import com.helperPackage.actionsfactory.api.ByUsing;
 import com.helperPackage.actionsfactory.elementfunctions.Waits;
 import com.helperPackage.controller.TestingBlazeGlobal;
 import com.helperPackage.exception.TestingBlazeCustomException;
 import com.helperPackage.objects.Elements;
+import com.helperPackage.objects.InstanceRecording;
 import com.helperPackage.register.EnvironmentFactory;
 import com.helperPackage.register.I;
 import com.helperPackage.report.LogLevel;
@@ -13,6 +15,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.assertj.core.api.ProxyableListAssert;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -509,6 +512,8 @@ public final class GovGrantsAssertionObjects {
      * @modifier aashish.pardeshi
      */
     public void assertPageMessageValue(boolean contains, List<String> unsanitizedDesiredMessages, String isSoftly) {
+        String CurrentUrl = (InstanceRecording.getInstance(DeviceBucket.class)).getDriver().getCurrentUrl();
+        System.out.println("CurrentUrl :" + CurrentUrl);
         By pageMessagesSelector = By.xpath("//c-flex-layout-page-messages//span[text()] | //span[contains(@class,'toastMessage')] | //div[@class='errorMsg']//span[@part='formatted-rich-text'] | //div[@class='successMsg']//span[@part='formatted-rich-text'] | //gnt-flex-layout-page-messages//span//lightning-formatted-text | //c-flex-layout-page-messages//span//lightning-formatted-text | //span[@class='toastMessage forceActionsText'] | //span[contains(@class,'changeOwnerErrorMessage')] | //flowruntime-error-content//lightning-formatted-rich-text//span | //div[@data-id='modalcontent1']//lightning-formatted-rich-text//span | //c-flex-layout-page-messages//lightning-formatted-rich-text//span");
 
         List<String> desiredMessages = unsanitizedDesiredMessages

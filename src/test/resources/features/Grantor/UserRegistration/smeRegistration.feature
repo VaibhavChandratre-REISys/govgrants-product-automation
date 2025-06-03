@@ -195,3 +195,29 @@ Feature: Validate all scenarios for SME Registration
     When I navigate to "{grantor_sidebar:smeReviewer}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---grantor_tableId:-:PotentialReviewerContactTableId---" panel
     When I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
+
+  @passwordcheck
+  Scenario: Validate filled details of subject matter expert fields on page of Registration Step 1 of 1
+    Given I login to "As a Grantor" app as "PM" user
+    And I wait for "6" seconds
+    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    And I wait for "6" seconds
+    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I wait for "6" seconds
+    When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
+    And I wait for "6" seconds
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I wait for "6" seconds
+    When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
+    And I wait for "6" seconds
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I wait for "6" seconds
+    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    And I wait for "6" seconds
+    When I re-login to "As a Grantor" app as "Auditor" user on "INTERNAL" portal
+    And I wait for "6" seconds
+    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    And I wait for "6" seconds
+    When I re-login to "As a Grantor" app as "Admin1" user on "INTERNAL" portal
+    And I wait for "6" seconds
+    When I re-login to "As a Grantor" app as "IND" user on "INTERNAL" portal
