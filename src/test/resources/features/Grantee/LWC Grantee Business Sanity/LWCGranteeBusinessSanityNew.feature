@@ -11025,7 +11025,7 @@ Feature: Sanity scenarios New
     Examples:
       | userType      |
       | GRANTEE EXE   |
-#      | GRANTEE ADMIN |
+      | GRANTEE ADMIN |
 
   @475750 @ValidateNotYetConvertedOpportunitGrantsgovPMusercancreatePreApplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord @P2_Grantee @PO_Grantee @GRegression2
   Scenario Outline: Validate Not Yet Converted Opportunity Grants.gov PM user can create Pre-Application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
