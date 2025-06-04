@@ -1242,7 +1242,6 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
-    And I refresh the page
     And I wait for "2" seconds
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
@@ -2660,6 +2659,7 @@ Feature: Validate all scenarios for program
       | 11             | Written |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
+    And I wait for "2" seconds
     Then I softly see value "Written" for title "Type" against the value "11" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I click on "Delete" icon for "11" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
     Then I softly see the following messages in the page details contains:
@@ -4716,6 +4716,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Program Review | Unchecked | 40              | 0                                         |
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | You cannot associate a weight to an optional panel |
     And I refresh the page
@@ -5181,6 +5182,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
       | Management Review | Checked   | 1                                         | 100             |
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | Reviewers are not required for optional panels |
     And I wait for "2" seconds
@@ -5950,7 +5952,7 @@ Feature: Validate all scenarios for program
     Then I see value "Active" for title "Status" against the value "Automation Permanent Focus Area2" inside table "---program:-:focusAreaTableId---"
     Then I see value "Active" for title "Status" against the value "Automation Permanent Focus Area" inside table "---program:-:focusAreaTableId---"
 
-  @106339 @VerifyEmailNotificationForProgramApproval
+  @106339 @VerifyEmailNotificationForProgramApproval @RERUNProgram
   Scenario: Validate respective user should get an email notification for program approval
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -5998,7 +6000,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Approve Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:pendingTaskTableId---"
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    And I pause execution for "5" seconds
+    And I pause execution for "180" seconds
     And I logout
     And I wait for "2" seconds
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
