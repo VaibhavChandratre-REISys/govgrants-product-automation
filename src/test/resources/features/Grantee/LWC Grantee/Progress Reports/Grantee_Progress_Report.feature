@@ -118,7 +118,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I save the field labeled "Submitted On" as "SubmittedOn"
     Then I softly see field "Submitted On" as "{SavedValue:SubmittedOn}"
 
-  @455424 @455425 @455422 @ProgressReportVerifyEXEusershouldseefooternavigatorafteropentheProgressReport
+  @455424 @ProgressReportVerifyEXEusershouldseefooternavigatorafteropentheProgressReport
   Scenario Outline: Progress Report_ Verify EXE user should see footer navigator after open the Progress Report
     Given I login to "As a Grantee" app as "<User>" user
     And I navigate to "Monitoring" tab
@@ -149,7 +149,69 @@ Feature: Validate all scenarios for Grantee Progress Report
     Examples:
       | User        |
       | GRANTEE EXE |
+
+  @455425 @ProgressReportVerifyEXEusershouldseefooternavigatorafteropentheProgressReport
+  Scenario Outline: Progress Report_ Verify FO user should see footer navigator after open the Progress Report
+    Given I login to "As a Grantee" app as "<User>" user
+    And I navigate to "Monitoring" tab
+    And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Progress Reports - All"
+    And I perform quick search for "{grantee_testData:progressReportStaticData}" in "---grantee_tableId:-:ProgressReports---" panel
+    When I click on "View" icon for "{grantee_testData:progressReportStaticData}" inside flex table with id "---grantee_tableId:-:ProgressReports---" without waiting for record
+    Then I see the sub-header is "{grantee_testData:progressReportStaticData}" in the page details
+    Then I softly see "Navigator" button display on footer
+    And I click on bottom button "Navigator" in page detail
+    Then I see "Pending Tasks" inside "My Tasks" is displayed
+    Then I see "Completed Tasks" inside "My Tasks" is displayed
+    Then I see "Schedules" inside "Monitoring" is displayed
+    Then I see "Progress Reports" inside "Monitoring" is displayed
+    Then I see "Financial Reports" inside "Monitoring" is displayed
+    Then I see "Awards Special Conditions" inside "Monitoring" is displayed
+    And I navigate to "Monitoring" tab
+    And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Progress Reports - All"
+    And I perform quick search for "{grantee_testData:progressReportStaticData}" in "---grantee_tableId:-:ProgressReports---" panel
+    Then I softly see value "{grantee_testData:progressReportStaticData}" for title "Award Title" inside table "---grantee_tableId:-:ProgressReports---"
+    Then I see "Pending Tasks" inside "My Tasks" is displayed
+    Then I see "Completed Tasks" inside "My Tasks" is displayed
+    Then I see "Schedules" inside "Monitoring" is displayed
+    Then I see "Progress Reports" inside "Monitoring" is displayed
+    Then I see "Financial Reports" inside "Monitoring" is displayed
+    Then I see "Awards Special Conditions" inside "Monitoring" is displayed
+    Examples:
+      | User        |
       | GRANTEE FO  |
+
+  @455422 @ProgressReportVerifyEXEusershouldseefooternavigatorafteropentheProgressReport
+  Scenario Outline: Progress Report_ Verify PM user should see footer navigator after open the Progress Report
+    Given I login to "As a Grantee" app as "<User>" user
+    And I navigate to "Monitoring" tab
+    And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Progress Reports - All"
+    And I perform quick search for "{grantee_testData:progressReportStaticData}" in "---grantee_tableId:-:ProgressReports---" panel
+    When I click on "View" icon for "{grantee_testData:progressReportStaticData}" inside flex table with id "---grantee_tableId:-:ProgressReports---" without waiting for record
+    Then I see the sub-header is "{grantee_testData:progressReportStaticData}" in the page details
+    Then I softly see "Navigator" button display on footer
+    And I click on bottom button "Navigator" in page detail
+    Then I see "Pending Tasks" inside "My Tasks" is displayed
+    Then I see "Completed Tasks" inside "My Tasks" is displayed
+    Then I see "Schedules" inside "Monitoring" is displayed
+    Then I see "Progress Reports" inside "Monitoring" is displayed
+    Then I see "Financial Reports" inside "Monitoring" is displayed
+    Then I see "Awards Special Conditions" inside "Monitoring" is displayed
+    And I navigate to "Monitoring" tab
+    And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Progress Reports - All"
+    And I perform quick search for "{grantee_testData:progressReportStaticData}" in "---grantee_tableId:-:ProgressReports---" panel
+    Then I softly see value "{grantee_testData:progressReportStaticData}" for title "Award Title" inside table "---grantee_tableId:-:ProgressReports---"
+    Then I see "Pending Tasks" inside "My Tasks" is displayed
+    Then I see "Completed Tasks" inside "My Tasks" is displayed
+    Then I see "Schedules" inside "Monitoring" is displayed
+    Then I see "Progress Reports" inside "Monitoring" is displayed
+    Then I see "Financial Reports" inside "Monitoring" is displayed
+    Then I see "Awards Special Conditions" inside "Monitoring" is displayed
+    Examples:
+      | User        |
       | GRANTEE PM  |
 
   @444513 @ValidateEXEuserProgressreportOwnercanabltocreateAdhocProgressReportabletosubmitProgressReporttoGrantor @GRegression2 @GranteeTBE

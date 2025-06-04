@@ -414,7 +414,7 @@ Feature: Validate all scenarios for closeout
     Then I softly see field "Status" as "Draft"
     Then I softly cannot see "Closeout" sub tab at view detail page
 
-  @449022 @446148 @ValidateGPCloseoutwithEXEProfileunabletoseebudgetperiodcloseout @P2_Grantee @PM_Grantee @GRegression1
+  @449022 @ValidateGPCloseoutwithEXEProfileunabletoseebudgetperiodcloseout @P2_Grantee @EXE_Grantee @GRegression4
   Scenario Outline: Validate GP Closeout with EXE Profile unable to see budget period closeout
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Closeout" tab
@@ -429,6 +429,21 @@ Feature: Validate all scenarios for closeout
     Examples:
       | userType    |
       | GRANTEE EXE |
+
+  @446148 @ValidateGPCloseoutwithPMProfileunabletoseebudgetperiodcloseout @P2_Grantee @PM_Grantee @GRegression1
+  Scenario Outline: Validate GP Closeout with PM Profile unable to see budget period closeout
+    When I login to "As a Grantee" app as "<userType>" user
+    And I navigate to "Closeout" tab
+    Then I do not see "Budget Period Closeouts" inside "Closeouts" is displayed
+    And I navigate to "Grants" tab
+    When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Awards - All"
+    When I perform quick search for "{grantee_testData:AutomationRecordforCloseout}" in "---grantee_tableId:-:awardTableId---" panel
+    And I click on "View" icon for "{grantee_testData:AutomationRecordforCloseout}" inside flex table with id "---grantee_tableId:-:awardTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly cannot see "Budget Period Closeouts" sub tab at view detail page
+    Examples:
+      | userType    |
       | GRANTEE PM  |
 
   @446128 @ValidateGPCloseoutWithEXEProfileOncecreatetheadhoccloseoutNewbuttonofcloseoutgetdisable @GRegression1 @GranteeTBE

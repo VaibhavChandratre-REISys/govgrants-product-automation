@@ -315,7 +315,7 @@ Feature: Validate all scenarios for Applications Manual
     When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
     Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
 
-  @487157 @487158 @ValidateNotYetConvertedOpportunityManualAuditorusercannotcreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord @P3_Grantee @ADMIN_Grantee @AUDITOR_Grantee @GRegression2
+  @487157 @ValidateNotYetConvertedOpportunityManualAuditorusercannotcreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord @P3_Grantee @AUDITOR_Grantee @GRegression2
   Scenario Outline: Validate Not Yet Converted Opportunity Manual Auditor user cannot create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<filter>"
     Given I login to "As a Grantee" app as "<userName>" user
@@ -340,6 +340,31 @@ Feature: Validate all scenarios for Applications Manual
     Examples:
       | filter          | userName   | userType        |
       | Sarah PM user   | GRANTEE PM | GRANTEE AUDITOR |
+
+  @487158 @ValidateNotYetConvertedOpportunityManualADMINusercannotcreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord @P3_Grantee @ADMIN_Grantee @GRegression2
+  Scenario Outline: Validate Not Yet Converted Opportunity Manual ADMIN user cannot create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<filter>"
+    Given I login to "As a Grantee" app as "<userName>" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    When I re-login to "As a Grantee" app as "<userType>" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly see field "Status" as "Approved"
+    Then I softly cannot see top right button "Create Application" in page detail
+    When I navigate to "Overview" sub tab
+    Then I softly see field "Pre-Application Required?" as "No"
+    Examples:
+      | filter          | userName   | userType        |
       | Grantee PO user | GRANTEE PO | GRANTEE ADMIN   |
 
   @472391 @Validatethatuserabletocreatetheapplicationfromthequalifiedleads @P2_Grantee @PM_Grantee @GRegression1
