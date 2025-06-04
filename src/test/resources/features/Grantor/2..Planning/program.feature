@@ -4364,6 +4364,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Required? |
       | Program Review | Check     |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | For required panel the Minimum Number of Reviews should be greater than zero. |
     #77602
@@ -4381,6 +4382,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name     | Required? |
       | Fiscal Review | Check     |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | For required panel the Minimum Number of Reviews should be greater than zero. |
     #77603
@@ -4398,6 +4400,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? |
       | Compliance Review | Check     |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | For required panel the Minimum Number of Reviews should be greater than zero. |
     #77604 #monu
@@ -4417,6 +4420,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? |
       | Compliance Review | Check     |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | For required panel the Minimum Number of Reviews should be greater than zero. |
     Examples:
@@ -4447,6 +4451,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Program Review | Unchecked | 0               | 0                                         |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     When I collapse nested table containing column value "SME Review"
@@ -4455,6 +4460,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
       | Program Review | Checked   | 0                                         | 50              |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | For required panel the Minimum Number of Reviews should be greater than zero. |
      #77477
@@ -4466,6 +4472,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name     | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Fiscal Review | Unchecked | 0               | 0                                         |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     When I collapse nested table containing column value "SME Review"
@@ -4474,6 +4481,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name     | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
       | Fiscal Review | Checked   | 0                                         | 30              |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | For required panel the Minimum Number of Reviews should be greater than zero. |
         #77478
@@ -4485,6 +4493,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Compliance Review | Unchecked | 0               | 0                                         |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     When I collapse nested table containing column value "SME Review"
@@ -4493,6 +4502,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
       | Compliance Review | Checked   | 0                                         | 30              |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | For required panel the Minimum Number of Reviews should be greater than zero. |
     #And I click on top right button "save" in flex table with id "---program:-:reviewStepTableId---"
@@ -4587,6 +4597,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name     | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Fiscal Review | Unchecked | 0               | 1                                         |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Reviewers are not required for optional panels |
     #77686
@@ -4598,6 +4609,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Compliance Review | Unchecked | 0               | 1                                         |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Reviewers are not required for optional panels |
     #77684
@@ -4609,6 +4621,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Program Review | Unchecked | 0               | 1                                         |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Reviewers are not required for optional panels |
     Examples:
