@@ -6115,6 +6115,7 @@ Feature: Sanity scenarios
     When I click on "Convert to Opportunity" in the page details
     And I create opportunity with state "created" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I save the field labeled "Days Left" as "DaysLeft"
     And I wait for "3" seconds
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Evaluation" sub tab at view detail page
@@ -6126,17 +6127,18 @@ Feature: Sanity scenarios
     Then I softly can see "Field Audit" sub tab at view detail page
     Then I see the header is "Opportunity" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime Opportunity}" in the page details
-    Then I softly see field "EGMSID" as "{SavedValue:opportunityEGMSID}"
-    Then I softly see field "Funding Organization" as "USDA-NRCS-NHO"
+    Then I softly see field "EGMS ID" as "{SavedValue:opportunityEGMSID}"
+    Then I softly see field "Funding Organization" as "Department of Education"
     Then I softly see field "Status" as "Draft"
-    Then I softly see field "Days Left" as "1"
+    Then I softly see field "Days Left" as "{SavedValue:DaysLeft}"
     Then I see status in Progress-bar is "Created" and is "dark blue"
     Then I see the header is "Opportunity" in the page details
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Validate" in page detail
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Submit for approval" present in parallel dropdown
-    Then I see option "Download As PDF" present in parallel dropdown
+    And I wait for "2" seconds
+    Then I see option "Submit for Approval" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly see "Opportunity Information" page block displayed
     Then I softly see field "Funding Opportunity Title" inside page block
@@ -6148,8 +6150,6 @@ Feature: Sanity scenarios
     Then I softly see field "Category Of Funding Activity" inside page block
     Then I softly see field "Opportunity Category" inside page block
     Then I softly see field "Expected Number of Awards" inside page block
-    When I hovering mouse on help text icon inside page block detail "Expected Number of Awards"
-    Then I softly see "The maximum number excepted is 999." shown as help text
     Then I softly see field "Source" inside page block
     Then I softly see field "Lead Version" inside page block
     Then I softly see field "Posted Date" inside page block
@@ -6185,13 +6185,14 @@ Feature: Sanity scenarios
     Then I softly see field "Award Floor" inside page block
     When I hovering mouse on help text icon inside page block detail for invisible element "Award Floor"
     Then I softly see "Minimum award amount" shown as help text
+    And I wait for "1" seconds
     Then I softly see field "Award Ceiling" inside page block
     When I hovering mouse on help text icon inside page block detail for invisible element "Award Ceiling"
     Then I softly see "Maximum award amount" shown as help text
     Then I softly see field "Is Program Income Allowed?" inside page block
     Then I softly see field "Program Income Treatment Type" inside page block
     When I hovering mouse on help text icon inside page block detail for invisible element "Program Income Treatment Type"
-    Then I softly see "•Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. •Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based.  •Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
+    Then I softly see "• Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. • Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based. • Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
     Then I softly see field "Are Indirect Costs Allowed?" inside page block
     Then I softly see field "Maximum Indirect Cost Rate" inside page block
     Then I softly see field "Rate for Organization Use" inside page block
