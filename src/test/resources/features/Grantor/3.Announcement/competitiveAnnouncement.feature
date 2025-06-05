@@ -390,7 +390,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
 
   @72323 @71972  @applicationDueDataOfAnnInHistory @FieldHistoryExclude
   Scenario: To verify field history update with respect to modification in Application Due Dates of Announcement|
-  To verify that estimated period start date & end date is displayed according to the entered budget period dates in announcemnt
+  |To verify that estimated period start date & end date is displayed according to the entered budget period dates in announcemnt|
     And I click on "Edit" in the page details
     And I enter value "1" into field "ApplicationDueDate__c"
     And I click on "Save" in the page details
@@ -411,8 +411,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Budget Period Name | Start Date | End Date   |
       | BP01               | 03/13/2030 | 04/13/2030 |
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    Then I softly see value "04/14/2030" for title "Start Date" against the value "BP02" inside table "---announcement:-:budgetPeriodTableId---"
-    Then I softly see value "04/13/2031" for title "End Date" against the value "BP02" inside table "---announcement:-:budgetPeriodTableId---"
+    Then I softly see value "4/14/2030" for title "Start Date" against the value "BP02" inside table "---announcement:-:budgetPeriodTableId---"
+    Then I softly see value "4/13/2031" for title "End Date" against the value "BP02" inside table "---announcement:-:budgetPeriodTableId---"
 
   @70563 @70556 @70554 @70606 @70718 @73545 @73547 @73564 @73566 @userCanViewAndDeleteKPI  @buglogged151548
   Scenario: To  Verify that after associating objectives, related KPIs should be automatically populate while  creating the Announcement
@@ -480,6 +480,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly can see row level action button "View" against "10.028" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click "Associate" after selection of "Test" in the table "---announcement:-:associateForRelated---"
+    And I wait for "2" seconds
     And I click on "View" icon for "Test" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
 #    Then I see the header is "Federal/NGO Program" in the page details
 #    Then I see the sub-header is "Automation Permanent NGO Program" in the page details
