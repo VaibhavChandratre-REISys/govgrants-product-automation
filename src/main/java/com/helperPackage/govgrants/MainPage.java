@@ -291,6 +291,7 @@ public final class MainPage {
      */
     public void clickMainMenuBarForLwc(String tabName) {
         By mainMenuButton = By.xpath("//div[@class='slds-no-print oneAppNavContainer']//a[@title='" + tabName + "' or @name='" + tabName + "'] | //nav//ul//li//a[text()='" + tabName + "']");
+        I.amPerforming().waitFor().ElementToBeClickable(mainMenuButton);
         I.amPerforming().click().withJavaScript(mainMenuButton);
     }
 
