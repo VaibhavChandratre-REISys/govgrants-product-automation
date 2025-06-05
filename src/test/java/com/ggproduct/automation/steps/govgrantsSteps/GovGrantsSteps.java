@@ -109,6 +109,9 @@ public final class GovGrantsSteps {
     @Given("^I login to \"([^\"]*)\" app as \"([^\"]*)\" user$")
     public void loginToggleToApp(String appName, String userType) {
         govgrants.perform().mainPage().loginWithUserType(userType);
+        if(appName.equalsIgnoreCase("Grantor") || appName.equalsIgnoreCase("Grantee")) {
+            govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
+        }
     }
 
     @Description("Re-Login to the app as any user")
@@ -128,6 +131,9 @@ public final class GovGrantsSteps {
             I.amPerforming().waitFor().makeThreadSleep(4000);
             govgrants.perform().mainPage().navigateToPortal(portalType);
             govgrants.perform().mainPage().loginWithUserType(userType);
+            if(appName.equalsIgnoreCase("Grantor") || appName.equalsIgnoreCase("Grantee")) {
+                govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
+            }
         } catch (Exception e) {
             if (I.amPerforming().checkToSee().isElementDisplayed(ByUsing.xpath("//a[@title='GovGrants Launcher Tab']"))) {
                 I.amPerforming().waitFor().makeThreadSleep(5000);

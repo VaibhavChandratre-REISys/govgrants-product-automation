@@ -10587,3 +10587,16 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Performance" sub tab
     Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---progressReport:-:kpiTableId---"
     Then I softly see value "{SavedValue:objectiveTitle}" for title "Title" inside table "---progressReport:-:objectivesTableId---"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "{SavedValue:checkList}" for title "Required" inside table "---progressReport:-:progressReportChecklistsTableId---"
+    Then I softly cannot see top right button "Add Files" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I softly see value "Other" for title "Classification" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I softly can see top right button "New" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
+    Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
+    Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"

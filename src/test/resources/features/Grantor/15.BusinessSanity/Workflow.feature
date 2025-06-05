@@ -1722,20 +1722,15 @@ Feature: Validate all scenarios of every modules flow
     
   @debug
   Scenario:
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Closeout__c/a23Da000001UNqWIAW/view"
-    And I halt execution
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:closeoutAddFilesTableId---"
-    And I wait for "7" seconds
-    And I upload attachment without random number "Attachment.pdf" of type "Supporting Documents" from computer
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details contains:
-      | File Attachment.pdf Uploaded successfully. |
+    And I login to "Grantor" app as "PM" user
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I halt execution
 
   @testCheck
   Scenario:
-    And I published "Directed" type announcement having name "Directed Permanent Archived Annoucement" and properties "default"
+    And I login to "Grantor" app as "PM" user
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I published "Directed" type announcement having name "Directed Permanent Archived Annoucement" and properties "default"
 #    And I initiated an application review for application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}" on announcement "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}" with properties "default"
 #    And I created approved FDM on application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}"
 

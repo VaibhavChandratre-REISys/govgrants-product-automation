@@ -321,13 +321,11 @@ public final class MainPage {
      * @modifier ashwini.mahore
      */
     public void setUpCustomAppDropDown(String appName) {
-        I.amPerforming().waitFor().makeThreadSleep(200);
-        if (!isAppDisplayed(appName)) {
-            I.amPerforming().waitFor().makeThreadSleep(200);
-            clickOnAppDropDown();
-            I.amPerforming().waitFor().makeThreadSleep(500);
-            I.amPerforming().click().on(getAppDropDownItem(appName));
-        }
+        I.amPerforming().waitFor().ElementToBeClickable(By.xpath("//button[@title='App Launcher']"));
+        I.amPerforming().click().on(By.xpath("//button[@title='App Launcher']"));
+        I.amPerforming().waitFor().ElementToBeClickable(By.xpath("//div[contains(@class,'appLauncherMenu')]//a[@data-label='" + appName + "']"));
+        I.amPerforming().click().withJavaScript(By.xpath("//div[contains(@class,'appLauncherMenu')]//a[@data-label='" + appName + "']"));
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
     }
 
     /**

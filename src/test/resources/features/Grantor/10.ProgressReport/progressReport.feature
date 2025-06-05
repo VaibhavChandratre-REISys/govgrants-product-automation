@@ -306,7 +306,7 @@ Feature: Validate all scenarios in Progress Report
     And I wait for "3" seconds
     When I get the "EGMS ID"
     And I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
