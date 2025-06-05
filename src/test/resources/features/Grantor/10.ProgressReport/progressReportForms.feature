@@ -7161,3 +7161,68 @@ Feature: Validate scenarios in Progress Report Forms
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
+
+  @ValidateFlexSharingScenarioForForms
+  Scenario: Validate FlexSharing Scenario For Forms
+    Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
+    Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Direct Award}" having object api name as "ProgressReports__c"
+    And I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPA" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I wait for "2" seconds
+    And I click on "Edit" in the page details
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "progID"
+    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I wait for "3" seconds
+    And I click on "View" icon for "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    And I enter "SF271_Form" values from "ProgressReport_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---progressReport:-:sf271FormTableId---" by clicking "Edit" :
+      | Classification                                       | Programs | Functions | Activities |
+      | a. Administrative expense                            | 12345    | 12345     | 12345      |
+      | b. Preliminary expense                               | 12345    | 12345     | 12345      |
+      | c. Land, structures, right-of-way                    | 12345    | 12345     | 12345      |
+      | d. Architectural engineering basic fees              | 12345    | 12345     | 12345      |
+      | e. Other architectural engineering fees              | 12345    | 12345     | 12345      |
+      | f. Project inspection fees                           | 12345    | 12345     | 12345      |
+      | g. Land development                                  | 12345    | 12345     | 12345      |
+      | h. Relocation expense                                | 12345    | 12345     | 12345      |
+      | i. Relocation payments to individuals and businesses | 12345    | 12345     | 12345      |
+      | j. Demolition and removal                            | 12345    | 12345     | 12345      |
+      | k. Construction and project improvement cost         | 12345    | 12345     | 12345      |
+      | l. Equipment                                         | 12345    | 12345     | 12345      |
+      | m. Miscellaneous cost                                | 12345    | 12345     | 12345      |
+      | o. Deductions for program income                     | 12345    | 12345     | 12345      |
+      | q. Federal share to date                             | 12345    | 12345     | 12345      |
+      | r. Rehabilitation grants (100% reimbursement)        | 12345    | 12345     | 12345      |
+      | t. Federal payments previously requested             | 12345    | 12345     | 12345      |
+      | u. Amount requested for reimbursement                | 12345    | 12345     | 12345      |
+    And I wait for "9" seconds
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I close the tab
+    And I wait for "2" seconds
+    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
+    And I click toggle button to select "Progress Reports - All"
+    And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:progressReportFlexTableId---" panel
+    When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
+    When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I click on "View" icon for "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
+    Then I see radio button "Yes" for field "SupplementalSheet__c"
+    Then I softly see field "YTD Expenditures" as "$0.00"
