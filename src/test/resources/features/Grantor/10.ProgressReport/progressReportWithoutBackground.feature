@@ -10528,3 +10528,62 @@ Feature: Validate scenarios in Progress Report without background
     And I perform quick search for "{SavedValue:progID}" in "---riskassessment:-:completedTaskTableId---" panel
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---riskassessment:-:completedTaskTableId---"
     Then I softly see value "Review Progress Report" for title "Task Type" inside table "---riskassessment:-:completedTaskTableId---"
+
+  @ValidateToCheckFlexSharingForAllTables
+  Scenario: Validate To Check FlexSharing For All Tables
+    Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation EXE user" of type "Competitive"
+    Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Direct Award}" having object api name as "ProgressReports__c"
+    And I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I click on "Edit" in the page details
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "progID"
+    And I save the field labeled "Subaward ID" as "SubAwardID"
+    And I click on "Edit" in the page details
+    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Performance" sub tab
+    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
+      | Title                    | Reported Date | Actual |
+      | Automation Permanent KPI | 7             | 7      |
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
+    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I close the tab
+    And I wait for "2" seconds
+    And I click on top right button "Add Files" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    When I enter the following values into flex table with id "---progressReport:-:progressNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    When I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
+    And I navigate to "Performance" sub tab
+    When I save the value from row "1" for column name "Title" as "KPITitle" from flex table "---progressReport:-:kpiTableId---"
+    When I save the value from row "2" for column name "Title" as "objectiveTitle" from flex table "---progressReport:-:objectivesTableId---"
+    When I navigate to "Forms and Files" sub tab
+    When I save the value from row "2" for column name "Required" as "checkList" from flex table "---progressReport:-:progressReportChecklistsTableId---"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
+    Then I softly see value "Review Progress Report" for title "Task Type" inside table "---progressReport:-:pendingTaskTableId---"
+    When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Performance" sub tab
+    Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---progressReport:-:kpiTableId---"
+    Then I softly see value "{SavedValue:objectiveTitle}" for title "Title" inside table "---progressReport:-:objectivesTableId---"

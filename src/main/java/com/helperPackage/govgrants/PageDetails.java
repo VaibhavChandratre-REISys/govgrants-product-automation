@@ -444,19 +444,19 @@ public final class PageDetails {
      */
     public String getFieldValue(String fieldLabel, boolean matchLabelExactly) {
         By fieldLabelLocator = null;
-            fieldLabelLocator = By.xpath(String.format(""
-                                    // This option should work in all situations, if using the latest version of GovGrants
-                                    + "//div//label[contains(@class,'label') and %s]",
-                            matchLabelExactly
-                                    ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
-                                    : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
-                    )
-            );
+        fieldLabelLocator = By.xpath(String.format(""
+                                // This option should work in all situations, if using the latest version of GovGrants
+                                + "//div//label[contains(@class,'label') and %s]",
+                        matchLabelExactly
+                                ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
+                                : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
+                )
+        );
         String fieldValue;
         WebElement fieldData = I.amPerforming().getElementReference().of(fieldLabelLocator)
-                .findElement(By.xpath("./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::slot//lightning-formatted-text[not(@part='help-text')] | ./parent::div//li[not(@part='help-text')] | ./parent::div//span//p[not(@part='help-text')] | ./parent::div//lightning-formatted-rich-text//span[not(@part='help-text')] | ./parent::div//lightning-formatted-text[not(@part='help-text')]"));
-        if (fieldData.findElements(By.xpath(".//input[@type='checkbox']")).size() != 0) {
-            fieldValue = I.amPerforming().checkToSee().isSelected(I.amPerforming().getElementReference().ofNested(fieldData, By.xpath(".//input[@type='checkbox']")))
+                .findElement(By.xpath("./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::slot//lightning-formatted-text[not(@part='help-text')] | ./parent::div//li[not(@part='help-text')] | ./parent::div//span//p[not(@part='help-text')] |.//ancestor::span"));
+        if (fieldData.findElements(By.xpath(".//input[@type='checkbox'] | .//input[@type='radio']")).size() != 0) {
+            fieldValue = I.amPerforming().checkToSee().isSelected(I.amPerforming().getElementReference().ofNested(fieldData, By.xpath(".//input[@type='checkbox']|.//input[@type='radio']")))
                     ? "Checked" : "Unchecked";
         } else {
             fieldValue = StringUtils.normalizeSpace(I.amPerforming().actionToGet().text(fieldData));

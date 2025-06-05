@@ -7214,7 +7214,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     And I close the tab
     And I wait for "2" seconds
-    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     And I click toggle button to select "Progress Reports - All"
@@ -7224,5 +7224,55 @@ Feature: Validate scenarios in Progress Report Forms
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "View" icon for "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
-    Then I see radio button "Yes" for field "SupplementalSheet__c"
-    Then I softly see field "YTD Expenditures" as "$0.00"
+    Then I softly see field "Final" as "Checked"
+    Then I softly see field "Cash" as "Checked"
+    Then I softly see field "3. Federal Sponsoring Agency and Organizational Element to Which This Report Is Submitted" as "Automation Organization"
+    Then I softly see field "4. Federal Grant or Other Identifying Number Assigned by Federal Agency" as "1234"
+    Then I softly see field "5. Partial Payment Request Number for This Request" as "8967589"
+    Then I softly see field "7. Financial Assistance Identification Number" as "34567"
+    Then I softly see field "From" as "7/25/2025"
+    Then I softly see field "To" as "9/13/2025"
+    Then I softly see field "Name" as "Health" in "9. Recipient Organization" pageblock
+    Then I softly see field "Street1" as "123" in "9. Recipient Organization" pageblock
+    Then I softly see field "Street2" as "Street" in "9. Recipient Organization" pageblock
+    Then I softly see field "City" as "NY" in "9. Recipient Organization" pageblock
+    Then I softly see field "County" as "NY" in "9. Recipient Organization" pageblock
+    Then I softly see field "State" as "FL: Florida" in "9. Recipient Organization" pageblock
+    Then I softly see field "Province" as "NY" in "9. Recipient Organization" pageblock
+    Then I softly see field "Country" as "USA: UNITED STATES" in "9. Recipient Organization" pageblock
+    Then I softly see field "ZIP / Postal Code" as "12345-1234" in "9. Recipient Organization" pageblock
+    Then I softly see field "Name" as "Test Automation" in "10. Payee (Where check is to be sent if different than item 9)" pageblock
+    Then I softly see field "Street1" as "123" in "10. Payee (Where check is to be sent if different than item 9)" pageblock
+    Then I softly see field "Street2" as "Str1" in "10. Payee (Where check is to be sent if different than item 9)" pageblock
+    Then I softly see field "City" as "NY" in "10. Payee (Where check is to be sent if different than item 9)" pageblock
+    Then I softly see field "County" as "NY" in "10. Payee (Where check is to be sent if different than item 9)" pageblock
+    Then I softly see field "State" as "FL: Florida" in "10. Payee (Where check is to be sent if different than item 9)" pageblock
+    Then I softly see field "Province" as "NY" in "10. Payee (Where check is to be sent if different than item 9)" pageblock
+    Then I softly see field "Country" as "USA: UNITED STATES" in "10. Payee (Where check is to be sent if different than item 9)" pageblock
+    Then I softly see field "ZIP / Postal Code" as "12345-1234" in "10. Payee (Where check is to be sent if different than item 9)" pageblock
+    Then I softly see field "Programs" as "Test Programs"
+    Then I softly see field "Functions" as "Test Functions"
+    Then I softly see field "Activities" as "Test Activities"
+    Then I softly see field "Percentage of Physical Completion of Project - Programs" as "75.00%"
+    Then I softly see field "Percentage of Physical Completion of Project - Functions" as "65.00%"
+    Then I softly see field "Percentage of Physical Completion of Project - Activities" as "85.00%"
+    Then I softly see field "Percentage of Physical Completion of Project - Total" as "55.00%"
+    Then I softly see field "Acknowledgement" as "checked"
+    Then I softly see field "Signature of Authorized Certifying Official" as "John Matthew"
+    Then I softly see field "Date Report Submitted:" as "6/5/2025"
+    Then I softly see field "Prefix:" as "Mr."
+    Then I softly see field "First Name:" as "John"
+    Then I softly see field "Middle Name:" as "rob"
+    Then I softly see field "Last Name:" as "Matthew"
+    Then I softly see field "Suffix:" as "Jr."
+    Then I softly see field "Title:" as "Associate"
+    Then I softly see field "Telephone (Area code, number, and extension)" as "(986) 987-5890"
+    And I click on "Edit" in the page details
+    And I enter value "Partial" into field "TypeOfRequest__c"
+    And I enter value "Accrual" into field "BasisOfRequest__c"
+    And I enter value "1267589" into field "PartialPaymentRequest__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Partial" as "Checked"
+    Then I softly see field "Accrual" as "Checked"
+    Then I softly see field "5. Partial Payment Request Number for This Request" as "1267589"
