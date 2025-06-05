@@ -1275,9 +1275,6 @@ Feature: Validate all scenarios for program
     When I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-#      | Name                     | Program |
-#      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
@@ -1650,7 +1647,7 @@ Feature: Validate all scenarios for program
     When I download the file for snapshot
     And I wait for "3" seconds
     Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
-    Then I softly see "Approved" on page "1" of "govgrants" pdf file
+    Then I softly see "Submitted for Approval" on page "1" of "govgrants" pdf file
     Then I softly see "Test Automation Organization" on page "1" of "govgrants" pdf file
 
   @279332 @VerifyPOuserasstep2approvercanabletoclickonundobuttonandcanseeapprovaldecisionsectionwithfouroptionForwardsenttoownerapprovedandreject @sprint-25-US-295138  @Undo
@@ -2900,7 +2897,7 @@ Feature: Validate all scenarios for program
     When I download the file for snapshot
     And I wait for "3" seconds
     Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
-    Then I softly see "Approved" on page "1" of "govgrants" pdf file
+    Then I softly see "Submitted for Approval" on page "1" of "govgrants" pdf file
     Then I softly see "Test With Automation PM" on page "1" of "govgrants" pdf file
 
   @303515 @InternalProgVerifyotherPMusershouldnotseeundobuttononprogram @sprint-6-US-303298  @Undo

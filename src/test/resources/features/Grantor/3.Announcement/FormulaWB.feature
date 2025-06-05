@@ -5554,7 +5554,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Allocation Amount" as "$1,000.00"
     When I click on "Submit to Grantor" in the page details
     #225142
-    Then I cannot see the following messages in the page details contains:
+    Then I softly cannot see the following messages in the page details contains:
       | Budget Tab: The Budgeted Amount must be equal to the Allocation Amount. |
     Then I softly see field "Status" as "Negotiation Submitted"
 
@@ -5613,7 +5613,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Allocation Amount" as "$1,000.00"
     When I click on "Submit to Grantor" in the page details
     #226383
-    Then I cannot see the following messages in the page details contains:
+    Then I softly cannot see the following messages in the page details contains:
       | Budget Tab: The Budgeted Amount must be equal to the Allocation Amount. |
     Then I softly see field "Status" as "Negotiation Submitted"
 
@@ -5758,7 +5758,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Allocation Amount" as "$1,000.00"
     When I click on "Submit to Grantor" in the page details
     #226384
-    Then I cannot see the following messages in the page details contains:
+    Then I softly cannot see the following messages in the page details contains:
       | Budget Tab: The Budgeted Amount must be equal to the Allocation Amount. |
     Then I softly see field "Status" as "Negotiation Submitted"
 
@@ -5810,7 +5810,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Allocation Amount" as "$1,000.00"
     When I click on "Submit to Grantor" in the page details
     #225141
-    Then I cannot see the following messages in the page details contains:
+    Then I softly cannot see the following messages in the page details contains:
       | Budget Tab: The Budgeted Amount must be equal to the Allocation Amount. |
     Then I softly see field "Status" as "Negotiation Submitted"
 

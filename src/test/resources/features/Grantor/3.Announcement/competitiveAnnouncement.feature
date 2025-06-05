@@ -300,9 +300,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
 
   @70479 @70481 @70503 @70422 @70507 @70542 @70543 @70425 @70424 @70426 @70419 @70417 @70418 @70506 @71951 @73408 @userDeleteSupportingDocument  @FieldHistoryExclude
   Scenario: To Verify that user can delete supporting document checklist While creating the Announcement |
-  To Verify that user can Edit fields in supporting document checklist While creating the Announcement |
-  To Verify that user can preview business forms while creating Announcement|
-  To Verify that user can Edit business forms while creating Announcement
+  |To Verify that user can Edit fields in supporting document checklist While creating the Announcement |
+  |To Verify that user can preview business forms while creating Announcement|
+  |To Verify that user can Edit business forms while creating Announcement
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - Closed and Archived"
     And I perform quick search for "Closed" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
@@ -357,6 +357,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "Edit" :
       | Created By                  | Title         | Description       |
       | {SavedValue:EXE Username}   |               | Automation Notes2 |
+    And I wait for "1" seconds
     Then I softly see the following messages in the page details :
       | Required Fields Missing |
     And I pause execution for "2" seconds

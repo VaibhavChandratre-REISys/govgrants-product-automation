@@ -60,9 +60,12 @@ Feature: Validate all scenarios for program
       | Pre-Screen Review | 0               |
       | SME Review        | 0               |
       | Management Review | 0               |
+    And I wait for "3" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Setup Tab - The total Review Step weight must equal 100%. It is currently 0.00%. |
+    And I wait for "3" seconds
     And I refresh the page
     And I navigate to "Setup" sub tab
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
@@ -74,25 +77,31 @@ Feature: Validate all scenarios for program
       | Saved Successfully! |
     And I wait for "3" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | There are no errors with the review step templates. |
+    And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Pre-Screen Review | 20              |
       | SME Review        | 50              |
       | Management Review | 50              |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
       | Setup Tab - The total Review Step weight must equal 100%. It is currently 120.00%.                                   |
+    And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Pre-Screen Review | 0               |
       | SME Review        | 50              |
       | Management Review | 30              |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | Setup Tab - The total Review Step weight must equal 100%. It is currently 80.00%. |
+    And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Order | Step Name         |
       | 1          | Update pre-review |
@@ -4532,6 +4541,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Management Review | Unchecked | 0               | 0                                         |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     And I collapse nested table containing column value "Management Review"

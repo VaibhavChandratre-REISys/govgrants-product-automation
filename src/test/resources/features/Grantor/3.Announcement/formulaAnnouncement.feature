@@ -372,7 +372,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
-    And I refresh the page
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen

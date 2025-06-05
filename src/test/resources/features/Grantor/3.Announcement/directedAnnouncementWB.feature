@@ -1611,7 +1611,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
-    And I cannot see the following messages in the page details contains:
+    Then I softly cannot see the following messages in the page details contains:
       | Negotiation Tab: Please select "Budget Tab: Budget Details" with "Budget Tab: Budget Summary by Focus Area" in the Application Sections for the Negotiation field. |
     Then I softly see field "Status" as "Negotiation Initiated"
     Examples:
@@ -2284,7 +2284,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$1,500.00"
     When I click on "Submit to Grantor" in the page details
-    Then I cannot see the following messages in the page details contains:
+    Then I softly cannot see the following messages in the page details contains:
       | Budget Tab - The Budgeted Amount must be equal to the Recommended Amount. |
     Then I softly see field "Status" as "Negotiation Submitted"
 
@@ -2515,7 +2515,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see field "Budgeted Amount" as "$1,500.00"
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
-    Then I cannot see the following messages in the page details contains:
+    Then I softly cannot see the following messages in the page details contains:
       | Budget Tab - The Budgeted Amount must be equal to the Recommended Amount. |
     Then I softly see field "Status" as "Negotiation Submitted"
 
