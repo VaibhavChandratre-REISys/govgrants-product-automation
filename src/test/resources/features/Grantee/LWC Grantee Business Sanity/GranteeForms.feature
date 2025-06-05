@@ -1155,6 +1155,7 @@ Feature: Grantee Forms Scenario
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
@@ -1168,6 +1169,7 @@ Feature: Grantee Forms Scenario
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
@@ -1182,6 +1184,7 @@ Feature: Grantee Forms Scenario
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
@@ -1194,6 +1197,7 @@ Feature: Grantee Forms Scenario
     And I enter value "Automation Test" into field "DescriptiveTitleOfProject__c"
     And I enter value "Automation Test Execution" into field "ProjectSummary__c"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
