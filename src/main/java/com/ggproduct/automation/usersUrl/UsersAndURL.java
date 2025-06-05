@@ -130,7 +130,7 @@ public class UsersAndURL implements UsersController {
                 password = "Rei@2025";
                 break;
             case "GRANTEE PM":
-                password = "gntwhcagap@25";
+                password = "Automation@2025";
                 break;
             case "GRANTEE EXE":
                 password = "gntwhcagap@25";
@@ -147,8 +147,11 @@ public class UsersAndURL implements UsersController {
             case "GRANTEE PO":
                 password = "gntwhcagap@25";
                 break;
+            case "SA":
+                password = "Automation@2026";
+                break;
             default:
-                password = "Salesforce@2025";
+                password = "Automation@2025";
         }
         return password;
     }
@@ -326,26 +329,26 @@ public class UsersAndURL implements UsersController {
 
     private String getWashingtonEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "govgrantsautomation@yopmail.com.gtrwhcagap");
-        username.put("ADMIN1", "manu.admin@ggp.test8.gtrwhcagap");
-        username.put("EXE", "test@gmaildemo.com.gtrwhcagap");
-        username.put("PM", "donald_pm@ggp.test7.atm.gtrwhcagap");
-        username.put("FO", "auto.fm@auto.com.gtrwhcagap");
-        username.put("PO", "automationpo@yopmail.com.gtrwhcagap");
-        username.put("FD", "automationfd@yopmail.com.gtrwhcagap");
-        username.put("PM1", "pm1.automation@yopmail.com.gtrwhcagap");
-        username.put("EXE1", "exe1.automation@yopmail.com.gtrwhcagap");
-        username.put("PO1", "automationpo1@yopmail.com.gtrwhcagap");
-        username.put("FO1", "fo1.automation@yopmail.com.gtrwhcagap");
-        username.put("FD1", "automationfd1@yopmail.com.gtrwhcagap");
-        username.put("SPI3", "aspi3@grants.gov.gtrwhcagap");
-        username.put("SPA", "spaautomation12@yopmail.com.gtrwhcagap");
-        username.put("SA", "asa@grants.gov.gtrwhcagap");
-        username.put("IND", "ind12.automation@yopmail.com.gtrwhcagap");
-        username.put("AUDITOR", "automationauditor@yopmail.com.gtrwhcagap");
-        username.put("SME", "sme11@yopmail.com.gtrwhcagap");
-        username.put("SPI4", "spi4@yopmail.com.gtrwhcagap");
-        username.put("SARAH PM", "sarah.pm@ggp.test8.gtrwhcagap");
+        username.put("ADMIN", "govgrantsauto@yopmail.com.ggdev2");
+        username.put("ADMIN1", "manu.admin@ggp.test8.ggdev2");
+        username.put("EXE", "test@gmaildemo.com.ggdev2");
+        username.put("PM", "donald_pm@ggp.test7.atm.ggdev2");
+        username.put("FO", "auto.fm@auto.com.ggdev2");
+        username.put("PO", "automationpo@yopmail.com.ggdev2");
+        username.put("FD", "automationfd@yopmail.com.ggdev2");
+        username.put("PM1", "pm1.automation@yopmail.com.ggdev2");
+        username.put("EXE1", "exe1.automation@yopmail.com.ggdev2");
+        username.put("PO1", "automationpo1@yopmail.com.ggdev2");
+        username.put("FO1", "fo1.automation@yopmail.com.ggdev2");
+        username.put("FD1", "automationfd1@yopmail.com.ggdev2");
+        username.put("SPI3", "automationspi31.ggdev2@yopmail.com");
+        username.put("SPA", "spaautomation12@yopmail.com.ggdev2");
+        username.put("SA", "asa@grants.gov.ggdev2");
+        username.put("IND", "ind12.automation@yopmail.com.ggdev2");
+        username.put("AUDITOR", "automationauditor@yopmail.com.ggdev2");
+        username.put("SME", "sme11@yopmail.com.ggdev2");
+        username.put("SPI4", "spi4@yopmail.com.ggdev2");
+        username.put("SARAH PM", "sarah.pm@ggp.test8.ggdev2");
 
         username.put("GRANTEE ADMIN", "product.qa@ggp.test8.gntwhcagap");
         username.put("GRANTEE ADMIN1", "qa.admin@ggp.test8.gntwhcagap");
