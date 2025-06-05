@@ -36,7 +36,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I refresh the page
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -94,7 +94,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I refresh the page
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -105,7 +105,7 @@ Feature: Validate scenarios in Progress Report Notes
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---progressReport:-:peerReviewersTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Review"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Progress Reports - All"
@@ -164,7 +164,7 @@ Feature: Validate scenarios in Progress Report Notes
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -174,7 +174,7 @@ Feature: Validate scenarios in Progress Report Notes
       | Reviewer Name            | Responsibility  | Description                 | Due Date |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---progressReport:-:peerReviewersTableId---" without waiting for record
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -187,7 +187,7 @@ Feature: Validate scenarios in Progress Report Notes
       | Passed      | ReviewComments__c |
     When I click modal button "Save"
     And I click on submit review
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
@@ -215,7 +215,7 @@ Feature: Validate scenarios in Progress Report Notes
       | Notes Record | Automation Notes  |
     Then I softly see value "Notes Record" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
     Then I softly see value "Automation EXE" for title "Created By" inside table "---progressreport:-:progressNotesTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Progress Reports - All"
@@ -277,7 +277,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I refresh the page
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -288,7 +288,7 @@ Feature: Validate scenarios in Progress Report Notes
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---progressReport:-:peerReviewersTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Review"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Progress Reports - All"
@@ -346,7 +346,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I close the tab
     And I refresh the page
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I wait for "3" seconds
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -440,7 +440,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I refresh the page
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -509,7 +509,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I refresh the page
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -574,7 +574,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I refresh the page
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -597,7 +597,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Progress Reports - All"
@@ -614,7 +614,7 @@ Feature: Validate scenarios in Progress Report Notes
     Then I softly do not see value "Notes Record3" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Progress Reports - All"
@@ -665,7 +665,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I close the tab
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -676,7 +676,7 @@ Feature: Validate scenarios in Progress Report Notes
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -708,7 +708,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -782,7 +782,7 @@ Feature: Validate scenarios in Progress Report Notes
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---progressreport:-:progressNotesTableId---"
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -793,7 +793,7 @@ Feature: Validate scenarios in Progress Report Notes
       | {SavedValue:EXE Username} | Step 1          |
     When I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -801,7 +801,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I wait for "3" seconds
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Progress Reports - All"
@@ -919,7 +919,7 @@ Feature: Validate scenarios in Progress Report Notes
     Then I softly see value "Notes Record2" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -945,7 +945,7 @@ Feature: Validate scenarios in Progress Report Notes
     Then I softly see value "Automation Notes3" for title "Description" inside table "---progressreport:-:progressNotesTableId---"
     And I click on "Delete" icon for "Notes Record3" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record3" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -958,7 +958,7 @@ Feature: Validate scenarios in Progress Report Notes
       | Passed      | ReviewComments__c |
     When I click modal button "Save"
     And I click on submit review
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
@@ -1028,7 +1028,7 @@ Feature: Validate scenarios in Progress Report Notes
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -1054,7 +1054,7 @@ Feature: Validate scenarios in Progress Report Notes
     Then I softly see value "Automation Notes3" for title "Description" inside table "---progressreport:-:progressNotesTableId---"
     And I click on "Delete" icon for "Notes Record3" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record3" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -1116,7 +1116,7 @@ Feature: Validate scenarios in Progress Report Notes
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1147,7 +1147,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -1220,7 +1220,7 @@ Feature: Validate scenarios in Progress Report Notes
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -1289,7 +1289,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I refresh the page
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -1374,7 +1374,7 @@ Feature: Validate scenarios in Progress Report Notes
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel

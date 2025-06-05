@@ -458,7 +458,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Submit to Grantor" in the page details
     And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -490,7 +490,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I cannot see top right button "Validate" in page detail
     And I close the tab
     And I refresh the page
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -873,7 +873,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -939,7 +939,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -970,7 +970,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -1071,7 +1071,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I cannot see top right button "Edit" in page detail
     And I close the tab
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -1102,7 +1102,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I cannot see top right button "Validate" in page detail
     And I close the tab
     And I refresh the page
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -1115,7 +1115,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Passed      | ReviewComments__c |
     When I click modal button "Save"
     And I click on submit review
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -1142,7 +1142,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I cannot see top right button "Validate" in page detail
     And I close the tab
     And I refresh the page
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -1174,7 +1174,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I cannot see top right button "Validate" in page detail
     And I close the tab
     And I refresh the page
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -1253,7 +1253,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I cannot see top right button "Validate" in page detail
     And I close the tab
     And I refresh the page
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -1314,7 +1314,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I cannot see top right button "Validate" in page detail
     And I close the tab
     And I refresh the page
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -1327,7 +1327,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Passed      | ReviewComments__c |
     When I click modal button "Save"
     And I click on submit review
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -1368,7 +1368,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I cannot see top right button "Validate" in page detail
     And I close the tab
     And I refresh the page
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -1415,7 +1415,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Submit to Grantor" in the page details
     And I pause execution for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -1460,7 +1460,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I cannot see top right button "Validate" in page detail
     And I close the tab
     And I refresh the page
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -1487,7 +1487,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I cannot see top right button "Validate" in page detail
     And I close the tab
     And I refresh the page
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Progress Reports - All"
@@ -2409,7 +2409,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I pause execution for "5" seconds
     #Bug393048
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
@@ -2433,7 +2433,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -2457,14 +2457,14 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I cannot see row level action button "Edit" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Progress Reports - All"
@@ -2634,7 +2634,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click modal button "Close"
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
@@ -2682,14 +2682,14 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" in flex table with id "---progressReport:-:formTableId---"
     Then I cannot see row level action button "Edit" against "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" in flex table with id "---progressReport:-:formTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Progress Reports - All"
@@ -4269,7 +4269,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -4281,7 +4281,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -4352,7 +4352,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -4364,7 +4364,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -4514,7 +4514,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -4526,7 +4526,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -4701,7 +4701,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -4713,7 +4713,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -4898,7 +4898,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -5158,7 +5158,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -5170,7 +5170,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -5308,7 +5308,7 @@ Feature: Validate scenarios in Progress Report Forms
 
   @286657 @286504 @286519 @286672 @ValidateEXEusercanseeallbelowformsunderGrantorprogressReportareflowfromInternalProgramtoAnnouncementwhenweareusingsameprogramforcreatingAnnouncement @sprint-1-US-278368  @Forms
   Scenario: Validate EXE user can see all below forms under Grantor progress Report are flow from Internal Program to Announcement when we are using same program for creating Announcement
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -5550,7 +5550,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime FDM Announcement}" and properties "Automation EXE user"
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -5596,7 +5596,7 @@ Feature: Validate scenarios in Progress Report Forms
 
   @286663 @286680 @ValidatePOusercanseeallbelowformsareflowfromProgramtoGrantwhenDirectGrantiscreatedonGrantorprogressReport @sprint-1-US-278368  @Forms
   Scenario: Validate PO user can see all below forms are flow from Program to Grant when Direct Grant is created on Grantor progress Report
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -5630,7 +5630,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Activate" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -5761,7 +5761,7 @@ Feature: Validate scenarios in Progress Report Forms
 
   @286533 @286557 @ValidatePMusercanseebelow13formsonPreviewmodalofpackageswhenuserclickonviewicononGrantorProgressReportFormsunderBusinessFormssectiononsetuptabofAnnouncement @sprint-1-US-278368  @Forms
   Scenario: Validate PM user can see below 13 forms on Preview modal of packages when user click on view icon on Grantor Progress Report Forms under Business Forms section on setup tab of Announcement
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -5941,7 +5941,7 @@ Feature: Validate scenarios in Progress Report Forms
 
   @286633 @ValidatePMusercanseebelow13formsonPreviewmodalofpackageswhenuserclickonviewicononGrantorProgressReportFormsunderBusinessFormssectiononFilestabofGrant @sprint-1-US-278368  @Forms @Buglogged-339404
   Scenario: Validate PM user can see below 13 forms on Preview modal of packages when user click on view icon on Grantor Progress Report Forms under Business Forms section on Files tab of Grant
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -6183,7 +6183,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -6195,7 +6195,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -6580,7 +6580,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -6592,7 +6592,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -6844,7 +6844,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -6856,7 +6856,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -6952,7 +6952,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Select Supplement Sheet as Yes as required form is filled. |
     And I close the tab
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -6991,7 +6991,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
@@ -7141,7 +7141,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -7153,7 +7153,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
