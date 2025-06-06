@@ -9,10 +9,7 @@ import com.helperPackage.register.I;
 import com.helperPackage.report.LogLevel;
 import org.apache.commons.io.FilenameUtils;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.awt.*;
 import java.io.File;
@@ -292,7 +289,11 @@ public final class MainPage {
     public void clickMainMenuBarForLwc(String tabName) {
         By mainMenuButton = By.xpath("//div[@class='slds-no-print oneAppNavContainer']//a[@title='" + tabName + "' or @name='" + tabName + "'] | //nav//ul//li//a[text()='" + tabName + "']");
         I.amPerforming().waitFor().ElementToBeClickable(mainMenuButton);
-        I.amPerforming().click().withJavaScript(mainMenuButton);
+        try {
+            I.amPerforming().click().withJavaScript(mainMenuButton);
+        } catch (StaleElementReferenceException e){
+            I.amPerforming().click().withJavaScript(mainMenuButton);
+        }
     }
 
     /**
