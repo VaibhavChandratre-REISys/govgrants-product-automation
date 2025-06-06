@@ -171,6 +171,7 @@ public final class GovGrantsSteps {
     @When("^I navigate to \"([^\"]*)\" tab$")
     public void navigateToMenutab(String tabName) {
         I.amPerforming().browserOperationsTo().CheckPageLoadingStatus();
+        I.amPerforming().waitFor().makeThreadSleep(2000);
         govgrants.perform().mainPage().clickMainMenuBarForLwc(tabName);
     }
 
