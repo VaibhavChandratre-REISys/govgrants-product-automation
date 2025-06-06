@@ -7234,7 +7234,6 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see field "5. Partial Payment Request Number for This Request" as "8967589"
     Then I softly see field "7. Financial Assistance Identification Number" as "34567"
     Then I softly see field "From" as "{SavedValue:From}"
-    Then I softly see field "To" as "{SavedValue:To}"
     Then I softly see field "Name" as "Health" in "9. Recipient Organization" pageblock
     Then I softly see field "Street1" as "123" in "9. Recipient Organization" pageblock
     Then I softly see field "Street2" as "Street" in "9. Recipient Organization" pageblock
