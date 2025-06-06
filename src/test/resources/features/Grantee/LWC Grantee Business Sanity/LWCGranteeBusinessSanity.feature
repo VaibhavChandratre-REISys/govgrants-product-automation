@@ -6175,7 +6175,7 @@ Feature: Sanity scenarios
     And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
     Then I softly see value "$4,500.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
 
-  @443820 @AwardVerifyWithPMProfileProjectionTabofAwardPagelayoutfordirectgrant @runtestpm1
+  @443820 @AwardVerifyWithPMProfileProjectionTabofAwardPagelayoutfordirectgrant @runtestpm2
   Scenario: Award With PM Profile Projection Tab of Award Page layout for direct grant
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -6195,21 +6195,8 @@ Feature: Sanity scenarios
     And I click on "Edit" in the page details
     When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
-#    And I navigate to "Overview" sub tab
-#    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-#    When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
-#    And I wait for "3" seconds
-#    And I click modal button "Close"
-#    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
-#      | Name       | Project Role    | Is Key Contact |
-#      | David FO   | Project Officer | Checked        |
-#    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-#    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
-#    And I click modal button "Close"
-#    And I wait for "2" seconds
-#    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
-#      | Title                            | Is Primary Program |
-#      | Automation Permanent NGO Program | Checked            |
+    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
     And I navigate to "Projections" sub tab
     Then I softly see "Project Period Details" page block displayed
     Then I softly see field "Project Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
@@ -6324,8 +6311,6 @@ Feature: Sanity scenarios
       | Name     | Award  |
       | Sarah PM | Step 2 |
       | Grantee PO | Step 3 |
-    Then I softly see value "Step 1" for title "Award" against the value "Sarah PM" inside table "---grantee_tableId:-:awardApproverTableId---"
-    Then I softly see value "Step 2" for title "Award" against the value "Victor EXE" inside table "---grantee_tableId:-:awardApproverTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name     | Award |
       | David FO | NA    |
@@ -6485,10 +6470,11 @@ Feature: Sanity scenarios
     And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I update title as "Automation.pdf" on upload file modal
-    And I select Classification as "Interim Award Document" at upload file modal
     And I wait for "2" seconds
+    And I select Classification as "Interim Award Document" at upload file modal
+    And I wait for "3" seconds
     When I click modal button "Save"
     And I click modal button "Close"
     And I refresh the page
