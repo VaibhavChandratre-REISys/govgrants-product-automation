@@ -7212,6 +7212,9 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I save the field labeled "From" as "From"
+    And I save the field labeled "To" as "To"
+    And I save the field labeled "Date Report Submitted:" as "DateReportSubmitted"
     And I close the tab
     And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -7230,8 +7233,8 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see field "4. Federal Grant or Other Identifying Number Assigned by Federal Agency" as "1234"
     Then I softly see field "5. Partial Payment Request Number for This Request" as "8967589"
     Then I softly see field "7. Financial Assistance Identification Number" as "34567"
-    Then I softly see field "From" as "7/25/2025"
-    Then I softly see field "To" as "9/13/2025"
+    Then I softly see field "From" as "{SavedValue:From}"
+    Then I softly see field "To" as "{SavedValue:To}"
     Then I softly see field "Name" as "Health" in "9. Recipient Organization" pageblock
     Then I softly see field "Street1" as "123" in "9. Recipient Organization" pageblock
     Then I softly see field "Street2" as "Street" in "9. Recipient Organization" pageblock
@@ -7259,7 +7262,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see field "Percentage of Physical Completion of Project - Total" as "55.00%"
     Then I softly see field "Acknowledgement" as "checked"
     Then I softly see field "Signature of Authorized Certifying Official" as "John Matthew"
-    Then I softly see field "Date Report Submitted:" as "6/5/2025"
+    Then I softly see field "Date Report Submitted:" as "{SavedValue:DateReportSubmitted}"
     Then I softly see field "Prefix:" as "Mr."
     Then I softly see field "First Name:" as "John"
     Then I softly see field "Middle Name:" as "rob"
