@@ -289,7 +289,7 @@ public final class MainPage {
     public void clickMainMenuBarForLwc(String tabName) {
         I.amPerforming().waitFor().ElementToBeClickable(By.xpath("//div[@class='slds-no-print oneAppNavContainer']//a[@title='" + tabName + "' or @name='" + tabName + "'] | //nav//ul//li//a[text()='" + tabName + "']"));
         try {
-            I.amPerforming().click().on(By.xpath("//div[@class='slds-no-print oneAppNavContainer']//a[@title='" + tabName + "' or @name='" + tabName + "'] | //nav//ul//li//a[text()='" + tabName + "']"));
+            I.amPerforming().click().withJavaScript(By.xpath("//div[@class='slds-no-print oneAppNavContainer']//a[@title='" + tabName + "' or @name='" + tabName + "'] | //nav//ul//li//a[text()='" + tabName + "']"));
         } catch (StaleElementReferenceException e){
             I.amPerforming().click().withJavaScript(By.xpath("//div[@class='slds-no-print oneAppNavContainer']//a[@title='" + tabName + "' or @name='" + tabName + "'] | //nav//ul//li//a[text()='" + tabName + "']"));
         }
