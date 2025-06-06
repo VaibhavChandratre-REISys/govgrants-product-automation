@@ -25284,7 +25284,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:fundingAccount} | 1000        |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I wait for "2" seconds
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
+    When I enter the following values into flex table with id "AwardLineItemsGrantee" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
     When I close "Subaward Budget Category" modal by clicking the top right x button
@@ -25294,11 +25294,11 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see value "$100.00" for title "Non-Cash Match" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I wait for "2" seconds
-    Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    Then I softly see value "$1,000.00" for title "Award Amount" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    Then I softly see value "$100.00" for title "Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    Then I softly see value "$100.00" for title "Non-Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
+    Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "AwardLineItemsGrantee"
+    Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "AwardLineItemsGrantee"
+    Then I softly see value "$1,000.00" for title "Award Amount" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
+    Then I softly see value "$100.00" for title "Cash Match" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
+    Then I softly see value "$100.00" for title "Non-Cash Match" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
     When I close "Subaward Budget Category" modal by clicking the top right x button
     And I wait for "2" seconds
     When I navigate to "Performance" sub tab
@@ -25335,13 +25335,14 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see value "$100.00" for title "Non-Cash Match" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I wait for "2" seconds
-    Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    Then I softly see value "$1,000.00" for title "Award Amount" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    Then I softly see value "$100.00" for title "Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    Then I softly see value "$100.00" for title "Non-Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
+    Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "AwardLineItemsGrantee"
+    Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "AwardLineItemsGrantee"
+    Then I softly see value "$1,000.00" for title "Award Amount" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
+    Then I softly see value "$100.00" for title "Cash Match" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
+    Then I softly see value "$100.00" for title "Non-Cash Match" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
     When I close "Subaward Budget Category" modal by clicking the top right x button
     And I wait for "2" seconds
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -25357,8 +25358,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see value "$100.00" for title "Non-Cash Match" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     And I wait for "2" seconds
-    Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    Then I softly see value "$1,000.00" for title "Award Amount" against the value "Extra Salary" inside table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    Then I softly see value "$100.00" for title "Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    Then I softly see value "$100.00" for title "Non-Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
+    Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "AwardLineItemsGrantee"
+    Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "AwardLineItemsGrantee"
+    Then I softly see value "$1,000.00" for title "Award Amount" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
+    Then I softly see value "$100.00" for title "Cash Match" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
+    Then I softly see value "$100.00" for title "Non-Cash Match" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
