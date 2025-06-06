@@ -25252,7 +25252,7 @@ Feature: Validate all scenarios of grants and award for Allocation
 
   @ValidateFlexSharingScenario
   Scenario: Validate Flex Sharing Scenario
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -25284,8 +25284,9 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:fundingAccount} | 1000        |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I wait for "2" seconds
+    And I halt execution
     When I enter the following values into flex table with id "AwardLineItemsGrantee" by clicking "New" :
-      | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
+      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
     When I close "Subaward Budget Category" modal by clicking the top right x button
     And I wait for "2" seconds
@@ -25296,7 +25297,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I wait for "2" seconds
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "AwardLineItemsGrantee"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "AwardLineItemsGrantee"
-    Then I softly see value "$1,000.00" for title "Award Amount" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
+    Then I softly see value "$1,000.00" for title "Award Budget" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
     Then I softly see value "$100.00" for title "Cash Match" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
     Then I softly see value "$100.00" for title "Non-Cash Match" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
     When I close "Subaward Budget Category" modal by clicking the top right x button
@@ -25337,7 +25338,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I wait for "2" seconds
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "AwardLineItemsGrantee"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "AwardLineItemsGrantee"
-    Then I softly see value "$1,000.00" for title "Award Amount" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
+    Then I softly see value "$1,000.00" for title "Award Budget" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
     Then I softly see value "$100.00" for title "Cash Match" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
     Then I softly see value "$100.00" for title "Non-Cash Match" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
     When I close "Subaward Budget Category" modal by clicking the top right x button
@@ -25360,6 +25361,6 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I wait for "2" seconds
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "AwardLineItemsGrantee"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "AwardLineItemsGrantee"
-    Then I softly see value "$1,000.00" for title "Award Amount" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
+    Then I softly see value "$1,000.00" for title "Award Budget" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
     Then I softly see value "$100.00" for title "Cash Match" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
     Then I softly see value "$100.00" for title "Non-Cash Match" against the value "Extra Salary" inside table "AwardLineItemsGrantee"
