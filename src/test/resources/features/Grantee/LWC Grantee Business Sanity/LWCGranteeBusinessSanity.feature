@@ -6795,24 +6795,23 @@ Feature: Sanity scenarios
     And I navigate to "Management" sub tab
     And I click on "Edit" icon for "Financial Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     And I enter in modal value "--None--" into field "ScheduleBase__c"
-    When I enter in modal value "Not Applicable" into field "Frequency__c"
     And I click modal button "Save"
     Then I see the following messages in the page details contains:
       | To Save, Schedule Base is required. |
-    And I enter in modal value "--None--" into field "Frequency__c"
     When I enter in modal value "Not Applicable" into field "Frequency__c"
-    And I wait for "3" seconds
-    When I click modal button "Close"
+    When I enter in modal value "Reporting Period" into field "ScheduleBase__c"
+    And I click modal button "Save"
+    And I wait for "1" seconds
     And I expand nested table containing column value "Financial Report"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     And I enter in modal value "--None--" into field "ScheduleBase__c"
-    When I enter in modal value "Not Applicable" into field "Frequency__c"
     And I click modal button "Save"
     Then I see the following messages in the page details contains:
       | To Save, Schedule Base is required. |
-    And I wait for "3" seconds
-    When I click modal button "Close"
+    When I enter in modal value "Not Applicable" into field "Frequency__c"
+    When I enter in modal value "Reporting Period" into field "ScheduleBase__c"
+    And I click modal button "Save"
     And I wait for "1" seconds
     And I expand nested table containing column value "Progress Report"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
