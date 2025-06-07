@@ -5038,7 +5038,385 @@ Feature: Validate sanity testing of Complete Business Flow
 
     Examples:
       | subUser | keyContact |
-      | SPI1    | James Johnson |
-#     | SPI2    | John Smith |
 #     | SPI3    | Michael Brown |
 #     | SPI4    | William Jones |
+
+  @dataCreation1
+  Scenario Outline:
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "<subUser>" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Opportunities" subheader on left panel
+    And I perform quick search for "AN-OST-R-001" in "---applicationIntake:-:qualifiedTableId---" panel
+    When I click on "View" icon for "AN-OST-R-001" inside flex table with id "---applicationIntake:-:qualifiedTableId---" without waiting for record
+    And I click on "Create Pre-Application" in the page details
+    And I wait for "6" seconds
+    When I click modal button "Save and Continue"
+    And I get the "EGMS ID"
+    And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "PreappEGMSID"
+    And I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+      | Name         | Is Key Contact |
+      | <keyContact> | Checked        |
+    And I wait for "2" seconds
+    And I navigate to "Budget" sub tab
+    Given I expand nested table containing column value "BP01"
+    And I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---preApplication:-:preApplicationAttachmentId---"
+    And I edit the following rows inline in flex table with id "PreAppLineItem" by clicking "Edit" :
+      | Title        | Budget | Other Leverage |
+      | Construction | 350000 | 35000          |
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
+    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I close the tab
+    And I wait for "2" seconds
+    When I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
+    When I click on "Accept" in the page details
+    Then I softly see field "Status" as "Accepted"
+    When I re-login to "Grants Portal" app as "<subUser>" user on "SUBPORTAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - All"
+    And I perform quick search for "{SavedValue:PreappEGMSID}" in "RecipientPreApplications" panel
+    When I click on "View" icon for "{SavedValue:PreappEGMSID}" inside table
+    And I wait for "2" seconds
+    When I click on "Create Application" in the page details
+    And I wait for "6" seconds
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    When I enter "Edition" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
+    When I navigate to "Proposal" sub tab
+    When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
+      | EGMS ID                                        | Target |
+      | Downtime from disruptions                      | 10     |
+      | GHG emissions reduction                        | 10     |
+      | Increase in ridership among underserved groups | 10     |
+      | Public-private partnerships formed             | 10     |
+      | Reduction in traffic incidents                 | 10     |
+    And I navigate to "Forms and Files" sub tab
+    And I click on "Attach" icon for "Mandatory" inside flex table with id "ApplicationChecklistsFlexGrid" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I click on "Submit Application" in the page details
+    And I wait for "3" seconds
+    Then I softly see field "Status" as "Review Initiated"
+    When I re-login to "As a Grantee" app as "PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "AN-OST-R-001" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "AN-OST-R-001" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Eligibility Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
+    When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
+    And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
+    And I click on "Next Review Step" in the page details
+    And I wait for "2" seconds
+    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+      | Form Name                        | Due in Days |
+      | Project Readiness Merit Criteria | 5           |
+      | Technical Merit Criteria         | 5           |
+    When I expand nested table containing column value "{SavedValue:appEGMSID}"
+    And I wait for "2" seconds
+    And I click on "Assign" icon for "Project Readiness Merit Criteria" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+    And I perform quick search for "Karen Mitchell" in "---applicationReview:-:panelAppTableId---" panel
+    And I check "Karen Mitchell" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click modal button "Close"
+    And I wait for "3" seconds
+    And I click on "Assign" icon for "Technical Merit Criteria" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+    And I perform quick search for "John Anderson" in "---applicationReview:-:panelAppTableId---" panel
+    And I check "John Anderson" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
+    And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "2" seconds
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---negotiation:-:internalHomePendingTableId---" panel
+    And I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---negotiation:-:internalHomePendingTableId---"
+    And I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "2" seconds
+    Then I see that "Status" is in "Review Completed" status
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---negotiation:-:internalHomePendingTableId---" panel
+    And I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---negotiation:-:internalHomePendingTableId---"
+    When I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "2" seconds
+    Then I see that "Status" is in "Review Completed" status
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "AN-OST-R-001" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "AN-OST-R-001" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Technical Merit and Project Readiness Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
+    When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
+    And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
+    And I click on "Next Review Step" in the page details
+    And I wait for "2" seconds
+    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+      | Form Name     | Due in Days |
+      | Senior Review | 5           |
+    And I click on "Assign" icon for "Wendy Frank" inside flex table with id "---applicationReview:-:reviewersTableId---"
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
+    When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "2" seconds
+    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---negotiation:-:internalHomePendingTableId---" panel
+    And I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---negotiation:-:internalHomePendingTableId---"
+    When I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "2" seconds
+    Then I see that "Status" is in "Review Completed" status
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    And I wait for "1" seconds
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I wait for "2" seconds
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "AN-OST-R-001" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "AN-OST-R-001" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Senior Review Team (SRT) Phase" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
+    When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
+    And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
+    And I click on "Next Review Step" in the page details
+    And I wait for "2" seconds
+    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+      | Form Name        | Due in Days |
+      | Secretary Review | 5           |
+    And I click on "Assign" icon for "Nicola Boris" inside flex table with id "---applicationReview:-:reviewersTableId---"
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
+    When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "2" seconds
+    When I re-login to "As a Grantor" app as "EXE2" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---negotiation:-:internalHomePendingTableId---" panel
+    And I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---negotiation:-:internalHomePendingTableId---"
+    When I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "2" seconds
+    Then I see that "Status" is in "Review Completed" status
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    And I wait for "1" seconds
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I wait for "2" seconds
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "AN-OST-R-001" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "AN-OST-R-001" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "USDOT Secretary’s Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appTableId---" panel
+    When I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:appTableId---"
+    And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
+    When I click on "Funding Decision Memo" in the page details
+    And I wait for "2" seconds
+    And I click on "Edit" in the page details
+    When I enter values into fields
+      | Value         | Field            |
+      | AuGr          | GrantCode__c     |
+      | Justification | Justification__c |
+    And I click on "Save" in the page details
+    Then I softly see field "Status" as "Created"
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
+      | Application Title      | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
+      | {SavedValue:appEGMSID} | 350000             | Yes                   | Recommended | 350000                  |
+    And I wait for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    And I get the "EGMS ID"
+    Then I softly see field "Status" as "Submitted for Approval"
+    And I wait for "2" seconds
+    When I "Approve" in the approval decision
+    And I wait for "2" seconds
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "AN-OST-R-001" in "---negotiation:-:internalHomePendingTableId---" panel
+    And I click on "Start" icon for "AN-OST-R-001" inside flex table with id "---negotiation:-:internalHomePendingTableId---"
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
+    And I wait for "3" seconds
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I click toggle button to select "All Funding Decision Memos (FDM)"
+    When I perform quick search for "AN-OST-R-001" in "---subAwardFromFDM:-:fdmTableId---" panel
+    And I click on "View" icon for "AN-OST-R-001" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
+    When I navigate to "Funding Decision Memo" sub tab
+    And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
+    When I click on top right button "Notify Selected Applicants" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
+    And I pause execution for "2" seconds
+    And I click on "Create Subaward" icon for "{SavedValue:appEGMSID}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
+    And I pause execution for "5" seconds
+    And I enter "Edition" values from "Award_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Budget" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:AwardFundingAccountTableId---" by clicking "Edit" :
+      | Funding Account             | Obligation |
+      | {SavedValue:fundingAccount} | 350000     |
+    And I navigate to "Terms" sub tab
+    When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
+    And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save"
+    And I wait for "2" seconds
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
+    When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save"
+    And I wait for "2" seconds
+    And I get the "EGMS ID"
+    And I click on "Send to Grantee" in the page details
+    Then I softly see field "Status" as "Sent to Subrecipient"
+    And I navigate to "Management" sub tab
+    When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
+    When I click on "Save and Continue" in the page details
+    And I navigate to "Assessment" sub tab
+    And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I get the "EGMS ID"
+    And I click on "Submit for Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I "Approve" in the approval decision
+    And I wait for "2" seconds
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    Then I softly see field "Status" as "Active"
+    When I re-login to "Grants Portal" app as "<subUser>" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardFromFDM:-:subrecipientPendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardFromFDM:-:subrecipientPendingTaskTableId---" without waiting for record
+    And I click on "Accept" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "Grant ID" as "GrantEGMSID"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardFromFDM:-:grantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
+    When I navigate to "Terms" sub tab
+    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I wait for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    And I wait for "2" seconds
+    When I "Approve" in the approval decision
+    And I wait for "2" seconds
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I navigate to "Grants" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
+    When I "Approve" in the approval decision
+    And I wait for "2" seconds
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardFromFDM:-:grantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---subAwardFromFDM:-:grantsTableId---" without waiting for record
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
+    When I click on "Send to Grantee" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grants Portal" app as "<subUser>" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardFromFDM:-:subrecipientPendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside table
+    And I navigate to "Files" sub tab
+    And I click on "Attach" icon for "Mandatory" inside flex table with id "SubRecipientAwardChecklists" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on "Accept after Approval" in the page details
+    And I wait for "2" seconds
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardFromFDM:-:grantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---subAwardFromFDM:-:grantsTableId---" without waiting for record
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
+    And I click on "Activate" in the page details
+    Then I softly see field "Status" as "Activated"
+
+    Examples:
+      | subUser | keyContact |
+      | SPI1    | James Johnson |
+    #     | SPI2    | John Smith |
