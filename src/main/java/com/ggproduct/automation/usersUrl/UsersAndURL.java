@@ -293,6 +293,14 @@ public class UsersAndURL implements UsersController {
         username.put("EXE2", "nicola.boris@yopmail.com");
         username.put("SPI1", "irene.koch@yopmail.com");
         username.put("SPI2", "automationruntime11083@maildrop.cc");
+        username.put("SPI3", "automationruntime10122@maildrop.cc");
+        username.put("SPI2", "automationruntime11083@maildrop.cc");
+        username.put("SPI2", "automationruntime11083@maildrop.cc");
+        username.put("SPI2", "automationruntime11083@maildrop.cc");
+        username.put("SPI2", "automationruntime11083@maildrop.cc");
+        username.put("SPI2", "automationruntime11083@maildrop.cc");
+        username.put("SPI2", "automationruntime11083@maildrop.cc");
+        username.put("SPI2", "automationruntime11083@maildrop.cc");
 
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());
