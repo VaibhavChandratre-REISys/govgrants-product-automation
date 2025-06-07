@@ -5037,6 +5037,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see field "Status" as "Activated"
 
     Examples:
-      | subUser | keyContact    |
-      | SPI1    | Irene Koch    |
+      | subUser | keyContact |
+      | SPI1    | Irene Koch |
 #      | SPI2    | James Johnson |
+#      | SPI3    | John Smith |

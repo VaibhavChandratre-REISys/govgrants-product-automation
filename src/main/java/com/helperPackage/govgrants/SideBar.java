@@ -48,8 +48,7 @@ public final class SideBar {
      * @author nauman.shahid
      */
     public void clickSideBarContent(String subHeaderName, String contentName) {
-        I.amPerforming().waitFor().makeThreadSleep(2000);
-        handleSideBarContentExpanded(subHeaderName);
+//        handleSideBarContentExpanded(subHeaderName);
           try {
                   I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
           } catch(Exception e) {
