@@ -105,10 +105,22 @@ public class UsersAndURL implements UsersController {
             case "FO":
                 password = "Salesforce@2025";
                 break;
+            case "EXE":
+                password = "Salesforce@2025";
+                break;
+            case "EXE1":
+                password = "Salesforce@2025";
+                break;
+            case "EXE2":
+                password = "Salesforce@2025";
+                break;
             case "ADMIN":
                 password = "Demo@2025";
                 break;
-            case "SPI3":
+            case "SPI1":
+                password = "Salesforce@2025";
+                break;
+            case "SPI2":
                 password = "SALESFORCE2020";
                 break;
             default:
@@ -273,25 +285,14 @@ public class UsersAndURL implements UsersController {
     private String getProLwcEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
         username.put("ADMIN", "nathan.gill.feddemo@yopmail.com");
-        username.put("ADMIN1", "manu.admin@ggp.test8.prolwcut");
-        username.put("EXE", "test@gmaildemo.com.prolwcut");
+        username.put("EXE", "john.anderson@yopmail.com");
         username.put("PM", "karen.mitchell@yopmail.com");
         username.put("FO", "rkim@yopmail.com");
-        username.put("PO", "automationpo@yopmail.com.prolwcut");
-        username.put("FD", "automationfd@yopmail.com.prolwcut");
         username.put("PM1", "pm1.automation@yopmail.com.prolwcut");
-        username.put("EXE1", "exe1.automation@yopmail.com.prolwcut");
-        username.put("PO1", "automationpo1@yopmail.com.prolwcut");
-        username.put("FO1", "fo1.automation@yopmail.com.prolwcut");
-        username.put("FD1", "automationfd1@yopmail.com.prolwcut");
-        username.put("SPI3", "automationruntime73234@maildrop.cc");
-        username.put("SPA", "spaautomation12@yopmail.com");
-        username.put("SA", "asa@grants.gov");
-        username.put("IND", "ind12.automation@yopmail.com");
-        username.put("AUDITOR", "automationauditor@yopmail.com.prolwcut");
-        username.put("SME", "sme11@yopmail.com");
-        username.put("SPI4", "spi4@yopmail.com.prolwcut");
-        username.put("SARAH PM", "sarah.pm@ggp.test8.prolwcut");
+        username.put("EXE1", "wendy.frank@yopmail.com");
+        username.put("EXE2", "nicola.boris@yopmail.com");
+        username.put("SPI1", "irene.koch@yopmail.com");
+        username.put("SPI2", "automationruntime11083@maildrop.cc");
 
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());
