@@ -4466,7 +4466,10 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
-    When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
+    And I navigate to "Home" tab
+    And I refresh the page
+    And I pause execution for "3" seconds
+    When I navigate to "Pending Grantee Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
     And I "Approve" in the approval decision
@@ -4576,3 +4579,82 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Home" tab
     And I select "My Profile" from user dropdown
     Then I see the header is "{SavedValue:Automation Runtime} Contact" in the page details
+
+  @userRegistrationDemodata
+  Scenario Outline: Scenario for user registration
+    Given I begin "Organization" registration as "Register As Organization"
+    And I pause execution for "15" seconds
+    When I click on "Agree" in the page details
+    When I click on "Agree" in the page details
+    And I pause execution for "5" seconds
+    When I click on "Save" in the page details
+    And I navigate to "Organization Profile" sub tab
+    And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "Yes" into field "SameAsOrganizationAddress__c"
+    And I enter value "Yes" into field "SameAsOrganizationAddress__c"
+    And I enter value "<orgName>" into field "OrganizationName__c"
+    And I pause execution for "3" seconds
+    When I click on "Save" in the page details
+    And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "<firstName>" into field "PrimaryRepFirstName__c"
+    And I enter value "<lastName>" into field "PrimaryRepLastName__c"
+    And I generate the random maildropEmail and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
+    And I pause execution for "3" seconds
+    When I click on "Save" in the page details
+    And I pause execution for "3" seconds
+    When I click on "Submit" in the page details
+    And I pause execution for "3" seconds
+    And I am on "INTERNAL" portal
+    And I login to "As a Grantor" app as "ADMIN" user
+    And I navigate to "Home" tab
+    And I refresh the page
+    And I pause execution for "3" seconds
+    And I navigate to "Home" tab
+    And I refresh the page
+    And I pause execution for "3" seconds
+    And I navigate to "Home" tab
+    And I refresh the page
+    And I pause execution for "3" seconds
+    When I navigate to "Pending Grantee Registrations" content inside "Organization" subheader on left panel
+    And I refresh the page
+    And I pause execution for "5" seconds
+    When I perform quick search for "<orgName>" in "{grantor_tableId:SubrecipientOrganization}" panel
+    When I click on "Start" icon for "<orgName>" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
+    And I pause execution for "3" seconds
+    And I "Approve" in the approval decision
+    And I pause execution for "3" seconds
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
+    And I click on mail with subject "Sandbox: Welcome to GovGrants 3.0 Recipient Portal"
+    And I navigate to reset password link
+    Then I set password for the user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    Then I see the header is "Subrecipient Organization" in the page details
+    Then I see the sub-header is "<orgName>" in the page details
+
+    Examples:
+      | orgName                                                   | firstName   | lastName  |
+      | Alaska Department of Transportation and Public Facilities | James       | Johnson   |
+      | Alaska State Transportation & PF                          | Robert      | Williams  |
+      | Los Angeles County Metropolitan Transportation Authority  | John        | Smith     |
+      | Pinellas Suncoast Transit Authority                       | Michael     | Brown     |
+      | Chicago Department of Transportation                      | William     | Jones     |
+      | Indiana Department of Transportation 4                    | David       | Garcia    |
+      | Baltimore City Department of Transportation               | Richard     | Martinez  |
+      | City of Moorhead                                          | Charles     | Davis     |
+      | City of Minneapolis                                       | Joseph      | Rodriguez |
+      | North Carolina DOT 2                                      | Thomas      | Wilson    |
+      | City of Manchester                                        | Christopher | Moore     |
+      | Bernalillo County                                         | Daniel      | Taylor    |
+      | State of New Hampshire DOT                                | Matthew     | Anderson  |
+      | Nevada Department of Transportation-Carson City           | Anthony     | Thomas    |
+      | Cherokee Nation                                           | Mark        | Jackson   |
+      | Choctaw Nation of Oklahoma                                | Donald      | White     |
+      | Pennsylvania Department of Transportation                 | Paul        | Harris    |
+      | Southeastern Pennsylvania Transportation Authority        | Steven      | Martin    |
+      | City of East Providence                                   | Andrew      | Thompson  |
+      | Nashville Metropolitan Transit Authority                  | Joshua      | Clark     |
+      | Tennessee Department of Transportation                    | Brian       | Cooper    |
+      | Metropolitan Government of Nashville                      | Kevin       | Turner    |
+      | City of El Paso                                           | Jason       | Murphy    |

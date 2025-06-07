@@ -100,10 +100,16 @@ public class UsersAndURL implements UsersController {
                 password = "Salesforce@2040";
                 break;
             case "PM":
-                password = "Salesforce@2040";
+                password = "Salesforce@2025";
+                break;
+            case "FO":
+                password = "Salesforce@2025";
                 break;
             case "ADMIN":
-                password = "Salesforce@2040";
+                password = "Demo@2025";
+                break;
+            case "SPI3":
+                password = "SALESFORCE2020";
                 break;
             default:
                 password = "Salesforce@2039";
@@ -266,11 +272,11 @@ public class UsersAndURL implements UsersController {
 
     private String getProLwcEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "govgrantsautomation@yopmail.com.prolwcut");
+        username.put("ADMIN", "nathan.gill.feddemo@yopmail.com");
         username.put("ADMIN1", "manu.admin@ggp.test8.prolwcut");
         username.put("EXE", "test@gmaildemo.com.prolwcut");
-        username.put("PM", "donald_pm@ggp.test7.atm.prolwcut");
-        username.put("FO", "auto.fm@auto.com.prolwcut");
+        username.put("PM", "karen.mitchell@yopmail.com");
+        username.put("FO", "rkim@yopmail.com");
         username.put("PO", "automationpo@yopmail.com.prolwcut");
         username.put("FD", "automationfd@yopmail.com.prolwcut");
         username.put("PM1", "pm1.automation@yopmail.com.prolwcut");
@@ -278,7 +284,7 @@ public class UsersAndURL implements UsersController {
         username.put("PO1", "automationpo1@yopmail.com.prolwcut");
         username.put("FO1", "fo1.automation@yopmail.com.prolwcut");
         username.put("FD1", "automationfd1@yopmail.com.prolwcut");
-        username.put("SPI3", "aspi3@grants.gov");
+        username.put("SPI3", "automationruntime73234@maildrop.cc");
         username.put("SPA", "spaautomation12@yopmail.com");
         username.put("SA", "asa@grants.gov");
         username.put("IND", "ind12.automation@yopmail.com");
