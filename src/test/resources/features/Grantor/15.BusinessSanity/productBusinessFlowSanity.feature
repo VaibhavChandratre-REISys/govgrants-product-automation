@@ -4666,8 +4666,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
-    And I perform quick search for "SMART Stage 1 - Planning and Prototyping Grants FY25" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-    When I click on "View" icon for "SMART Stage 1 - Planning and Prototyping Grants FY25" inside table
+    And I perform quick search for "AN-OST-R-001" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "AN-OST-R-001" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     And I wait for "6" seconds
@@ -5040,3 +5040,4 @@ Feature: Validate sanity testing of Complete Business Flow
       | subUser | keyContact |
       | SPI1    | James Johnson |
 #     | SPI2    | John Smith |
+#     | SPI3    | Michael Brown |
