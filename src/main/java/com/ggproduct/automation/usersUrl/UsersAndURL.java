@@ -126,6 +126,9 @@ public class UsersAndURL implements UsersController {
             case "SPI3":
                 password = "SALESFORCE2020";
                 break;
+            case "SPI4":
+                password = "SALESFORCE2020";
+                break;
             default:
                 password = "Salesforce@2039";
         }
@@ -297,7 +300,7 @@ public class UsersAndURL implements UsersController {
         username.put("SPI1", "automationruntime11083@maildrop.cc");
         username.put("SPI2", "automationruntime10122@maildrop.cc");
         username.put("SPI3", "automationruntime76529@maildrop.cc");
-        username.put("SPI2", "automationruntime11083@maildrop.cc");
+        username.put("SPI4", "automationruntime69660@maildrop.cc");
         username.put("SPI2", "automationruntime11083@maildrop.cc");
         username.put("SPI2", "automationruntime11083@maildrop.cc");
         username.put("SPI2", "automationruntime11083@maildrop.cc");
