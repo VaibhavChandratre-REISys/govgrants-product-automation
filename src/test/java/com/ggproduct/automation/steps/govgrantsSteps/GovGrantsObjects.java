@@ -105,7 +105,7 @@ public final class GovGrantsObjects {
             govgrants.perform().mainPage().clickLoginDropDownItems("Log Out");
         } else {
             govgrants.perform().mainPage().clickLoginDropDown();
-            govgrants.perform().mainPage().clickLoginDropDownItems("Logout");
+            govgrants.perform().mainPage().clickLoginDropDownItems("Log Out");
         }
     }
 
