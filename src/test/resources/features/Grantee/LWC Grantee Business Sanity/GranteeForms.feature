@@ -1219,7 +1219,9 @@ Feature: Grantee Forms Scenario
     And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
+    And I wait for "2" seconds
     When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---" with wait for record
+    And I wait for "2" seconds
     When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
       | Construction | The narrative | 5000         | 500        | 500            |
