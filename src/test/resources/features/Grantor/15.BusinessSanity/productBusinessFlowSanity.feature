@@ -4753,10 +4753,10 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
-    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-      | Form Name                        | Due in Days |
-      | Project Readiness Merit Criteria | 5           |
-      | Technical Merit Criteria         | 5           |
+#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+#      | Form Name                        | Due in Days |
+#      | Project Readiness Merit Criteria | 5           |
+#      | Technical Merit Criteria         | 5           |
     When I expand nested table containing column value "{SavedValue:appEGMSID}"
     And I wait for "2" seconds
     And I click on "Assign" icon for "Project Readiness Merit Criteria" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
@@ -4854,9 +4854,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
-    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-      | Form Name        | Due in Days |
-      | Secretary Review | 5           |
+#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+#      | Form Name        | Due in Days |
+#      | Secretary Review | 5           |
     And I click on "Assign" icon for "Nicola Boris" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -5038,8 +5038,10 @@ Feature: Validate sanity testing of Complete Business Flow
 
     Examples:
       | subUser | keyContact |
+      | SPI2    | John Smith |
 #     | SPI3    | Michael Brown |
 #     | SPI4    | William Jones |
+#     | SPI5    | William Jones |
 
   @dataCreation1
   Scenario Outline:
@@ -5133,10 +5135,10 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
-    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-      | Form Name                        | Due in Days |
-      | Project Readiness Merit Criteria | 5           |
-      | Technical Merit Criteria         | 5           |
+#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+#      | Form Name                        | Due in Days |
+#      | Project Readiness Merit Criteria | 5           |
+#      | Technical Merit Criteria         | 5           |
     When I expand nested table containing column value "{SavedValue:appEGMSID}"
     And I wait for "2" seconds
     And I click on "Assign" icon for "Project Readiness Merit Criteria" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
@@ -5418,5 +5420,4 @@ Feature: Validate sanity testing of Complete Business Flow
 
     Examples:
       | subUser | keyContact |
-      | SPI1    | James Johnson |
-    #     | SPI2    | John Smith |
+#      | SPI1    | James Johnson |
