@@ -5038,8 +5038,8 @@ Feature: Validate sanity testing of Complete Business Flow
 
     Examples:
       | subUser | keyContact |
-      | SPI2    | John Smith |
-#     | SPI3    | Michael Brown |
+#      | SPI2    | John Smith |
+      | SPI3    | Michael Brown |
 #     | SPI4    | William Jones |
 #     | SPI5    | William Jones |
 
