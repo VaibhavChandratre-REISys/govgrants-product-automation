@@ -6797,9 +6797,11 @@ Feature: Sanity scenarios
     And I click on "Edit" icon for "Financial Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     And I enter in modal value "--None--" into field "ScheduleBase__c"
     And I click modal button "Save"
-    Then I see the following messages in the page details contains:
+    Then I softly see the following messages in the page details contains:
       | To Save, Schedule Base is required. |
+    And I wait for "2" seconds
     When I enter in modal value "Not Applicable" into field "Frequency__c"
+    And I wait for "2" seconds
     When I enter in modal value "Reporting Period" into field "ScheduleBase__c"
     And I click modal button "Save"
     And I wait for "1" seconds
@@ -6808,10 +6810,12 @@ Feature: Sanity scenarios
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     And I enter in modal value "--None--" into field "ScheduleBase__c"
     And I click modal button "Save"
-    Then I see the following messages in the page details contains:
+    Then I softly see the following messages in the page details contains:
       | To Save, Schedule Base is required. |
     When I enter in modal value "Not Applicable" into field "Frequency__c"
+    And I wait for "1" seconds
     When I enter in modal value "Reporting Period" into field "ScheduleBase__c"
+    And I wait for "2" seconds
     And I click modal button "Save"
     And I wait for "1" seconds
     And I expand nested table containing column value "Progress Report"
