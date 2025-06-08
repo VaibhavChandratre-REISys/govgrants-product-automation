@@ -6663,55 +6663,55 @@ Feature: Sanity scenarios
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "progressEGMSID"
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
-#    And I click toggle button to select "Progress Reports - My Records"
-#   And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
-#    Then I softly see value "Created" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:ProgressReports---"
-#    Then I softly can see row level action button "Edit" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-#    Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-#    Then I softly can see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-#    And I click toggle button to select "Progress Reports - My Records"
-#    Then I softly do not see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:ProgressReports---"
-#    Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:ProgressReports---"
-#    Then I softly do not see value "Submitted to Grantor" for title "Status" inside table "---grantee_tableId:-:ProgressReports---"
-#    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:ProgressReports---"
-#    Then I softly see "Award EGMS ID" in flex table header "---grantee_tableId:-:ProgressReports---"
-#    Then I softly see "Grant Award Number" in flex table header "---grantee_tableId:-:ProgressReports---"
-#    Then I softly see "Award Title" in flex table header "---grantee_tableId:-:ProgressReports---"
-#    Then I softly see "Internal Organization" in flex table header "---grantee_tableId:-:ProgressReports---"
-#    Then I softly see "Report Type" in flex table header "---grantee_tableId:-:ProgressReports---"
-#    Then I softly see "Reporting Period" in flex table header "---grantee_tableId:-:ProgressReports---"
-#    Then I softly see "Frequency" in flex table header "---grantee_tableId:-:ProgressReports---"
-#    Then I softly see "Due Date" in flex table header "---grantee_tableId:-:ProgressReports---"
-#    Then I softly see "Status" in flex table header "---grantee_tableId:-:ProgressReports---"
-#    And I click toggle button to select "Progress Reports - All"
-#    And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
-#    Then I softly see value "Created" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:ProgressReports---"
-#    Then I softly can see row level action button "Edit" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-#    Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-#    Then I softly can see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-#    And I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:ProgressReports---" panel
-#    And I save the value from row "1" for column name "EGMS ID" as "submittedEGMSID" from flex table "---grantee_tableId:-:ProgressReports---"
-#    Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:submittedEGMSID}" inside table "---grantee_tableId:-:ProgressReports---"
-#    Then I softly cannot see row level action button "Edit" against "{SavedValue:submittedEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-#    Then I softly can see row level action button "View" against "{SavedValue:submittedEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-#    Then I softly cannot see row level action button "Delete" against "{SavedValue:submittedEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-#    And I click toggle button to select "Progress Reports - Approved"
-#    And I perform quick search for "Approved" in "---grantee_tableId:-:ProgressReports---" panel
-#    And I save the value from row "1" for column name "EGMS ID" as "approvedEGMSID" from flex table "---grantee_tableId:-:ProgressReports---"
-#    Then I softly see value "Approved" for title "Status" against the value "{SavedValue:approvedEGMSID}" inside table "---grantee_tableId:-:ProgressReports---"
-#    Then I softly cannot see row level action button "Edit" against "{SavedValue:approvedEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-#    Then I softly can see row level action button "View" against "{SavedValue:approvedEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-#    Then I softly cannot see row level action button "Delete" against "{SavedValue:approvedEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-#    And I click toggle button to select "Progress Reports - Draft"
-#    And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
-#    Then I softly see value "Created" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:ProgressReports---"
-#    Then I softly can see row level action button "Edit" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-#    Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-#    Then I softly can see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-#    When I click on "View" icon for "{SavedValue:progressEGMSID}" inside table
-#    Then I softly see "Collapse" button for header
+    And I navigate to "Monitoring" tab
+    When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Progress Reports - My Records"
+   And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
+    Then I softly see value "Created" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:ProgressReports---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    And I click toggle button to select "Progress Reports - My Records"
+    Then I softly do not see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:ProgressReports---"
+    Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:ProgressReports---"
+    Then I softly do not see value "Submitted to Grantor" for title "Status" inside table "---grantee_tableId:-:ProgressReports---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:ProgressReports---"
+    Then I softly see "Award EGMS ID" in flex table header "---grantee_tableId:-:ProgressReports---"
+    Then I softly see "Grant Award Number" in flex table header "---grantee_tableId:-:ProgressReports---"
+    Then I softly see "Award Title" in flex table header "---grantee_tableId:-:ProgressReports---"
+    Then I softly see "Internal Organization" in flex table header "---grantee_tableId:-:ProgressReports---"
+    Then I softly see "Report Type" in flex table header "---grantee_tableId:-:ProgressReports---"
+    Then I softly see "Reporting Period" in flex table header "---grantee_tableId:-:ProgressReports---"
+    Then I softly see "Frequency" in flex table header "---grantee_tableId:-:ProgressReports---"
+    Then I softly see "Due Date" in flex table header "---grantee_tableId:-:ProgressReports---"
+    Then I softly see "Status" in flex table header "---grantee_tableId:-:ProgressReports---"
+    And I click toggle button to select "Progress Reports - All"
+    And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
+    Then I softly see value "Created" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:ProgressReports---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    And I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:ProgressReports---" panel
+    And I save the value from row "1" for column name "EGMS ID" as "submittedEGMSID" from flex table "---grantee_tableId:-:ProgressReports---"
+    Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:submittedEGMSID}" inside table "---grantee_tableId:-:ProgressReports---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:submittedEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly can see row level action button "View" against "{SavedValue:submittedEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:submittedEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    And I click toggle button to select "Progress Reports - Approved"
+    And I perform quick search for "Approved" in "---grantee_tableId:-:ProgressReports---" panel
+    And I save the value from row "1" for column name "EGMS ID" as "approvedEGMSID" from flex table "---grantee_tableId:-:ProgressReports---"
+    Then I softly see value "Approved" for title "Status" against the value "{SavedValue:approvedEGMSID}" inside table "---grantee_tableId:-:ProgressReports---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:approvedEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly can see row level action button "View" against "{SavedValue:approvedEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:approvedEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    And I click toggle button to select "Progress Reports - Draft"
+    And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
+    Then I softly see value "Created" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:ProgressReports---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    When I click on "View" icon for "{SavedValue:progressEGMSID}" inside table
+    Then I softly see "Collapse" button for header
     Then I see the header is "Progress Report" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
     Then I softly see field "EGMS ID" as "{SavedValue:progressEGMSID}"
@@ -6923,11 +6923,11 @@ Feature: Sanity scenarios
     And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
     Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
     And I click on back arrow
-    Then I softly can see row level action button "View" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Splitview" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Preview" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Edit" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    When I click on "Edit" icon for "PSR: Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "View" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Splitview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Preview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Edit" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    When I click on "Edit" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I wait for "3" seconds
     Then I softly see new tab is opened
     And I switch to tab number "1"
@@ -6952,7 +6952,7 @@ Feature: Sanity scenarios
     Then I softly see field "Key Accomplishments:" as "Automation Key Accomplishment" in "Key Accomplishments" pageblock
     Then I softly can see top right button "Edit" in page detail
     And I close the tab
-    When I click on "View" icon for "PSR: Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I wait for "3" seconds
     Then I softly see new tab is opened
     And I switch to tab number "1"
