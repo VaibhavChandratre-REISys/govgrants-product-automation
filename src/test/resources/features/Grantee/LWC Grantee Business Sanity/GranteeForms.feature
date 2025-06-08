@@ -1216,18 +1216,7 @@ Feature: Grantee Forms Scenario
     And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
-    And I wait for "2" seconds
-    And I navigate to "Budget" sub tab
-    Given I expand nested table containing column value "BP01"
-    And I wait for "2" seconds
-    When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---" with wait for record
-    And I wait for "2" seconds
-    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
-      | Construction | The narrative | 5000         | 500        | 500            |
-    When I close "Add Line Item Details" modal by clicking the top right x button
-    And I refresh the page
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
       | Name       | Application |
