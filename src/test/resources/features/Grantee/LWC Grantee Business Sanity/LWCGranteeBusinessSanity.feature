@@ -6563,6 +6563,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Created"
     And I click on "Submit For Approval" in the page details
+    When I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -6796,29 +6797,28 @@ Feature: Sanity scenarios
     And I navigate to "Management" sub tab
     And I click on "Edit" icon for "Financial Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     And I enter in modal value "--None--" into field "ScheduleBase__c"
+    When I enter in modal value "--None--" into field "Frequency__c"
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
+      | To Save, Frequency is required. |
       | To Save, Schedule Base is required. |
-    And I wait for "2" seconds
-    When I enter in modal value "Not Applicable" into field "Frequency__c"
-    And I wait for "2" seconds
     When I enter in modal value "Reporting Period" into field "ScheduleBase__c"
-    And I click modal button "Save"
-    And I wait for "1" seconds
+    When I enter in modal value "Not Applicable" into field "Frequency__c"
+    And I click on "Save" in the page details
     And I expand nested table containing column value "Financial Report"
+    And I wait for "1" seconds
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     And I enter in modal value "--None--" into field "ScheduleBase__c"
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
       | To Save, Schedule Base is required. |
-    When I enter in modal value "Not Applicable" into field "Frequency__c"
-    And I wait for "1" seconds
     When I enter in modal value "Reporting Period" into field "ScheduleBase__c"
-    And I wait for "2" seconds
-    And I click modal button "Save"
     And I wait for "1" seconds
+    When I enter in modal value "Not Applicable" into field "Frequency__c"
+    And I click on "Save" in the page details
     And I expand nested table containing column value "Progress Report"
+    And I wait for "1" seconds
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I click on "Edit" icon for "Financial Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     When I enter in modal "Grantee_Financial_Schedules" values from "Award_Field_Values.xlsx"
@@ -10331,7 +10331,7 @@ Feature: Sanity scenarios
 
   @477320 @477322 @477321 @477323 @ValidateFinancialreportschedulesvalidationsdisplayedtoPMuseronEditFinancialreportschedulemodalwhenawardisinCreatedSubmittedforreviewReviewedActivatedstate  @runtestpm1
   Scenario Outline: Validate Financial report schedules validations displayed to PM user on Edit Financial report schedule modal when award is in Created, Submitted for review, Reviewed, Activated state
-    And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -12491,23 +12491,28 @@ Feature: Sanity scenarios
 
   @477311 @477312 @477313 @477314 @ValidateProgressreportschedulesvalidationsdisplayedtoPMuseronEditProgressreportschedulemodalwhenawardisinCreatedSubmittedforreviewReviewedActivatedstate @runtestpm1
   Scenario Outline: Validate Progress report schedules validations displayed to PM user on Edit Progress report schedule modal when award is in Created, Submitted for review, Reviewed, Activated state
-    And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I wait for "2" seconds
+    And I enter "Grantee_Creation_Schedules" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
-    When I navigate to "Awards" sub tab
+    And I navigate to "Overview" sub tab
+    When I enter value "<UEI>" into field "DUNS__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Title" as "Automation Runtime award"
     And I click on "Edit" in the page details
-    When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
+    When I enter "Grantee_Award_Edit_Schedules" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     When I navigate to "Management" sub tab
