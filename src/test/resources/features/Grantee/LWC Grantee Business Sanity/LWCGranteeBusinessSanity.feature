@@ -6577,6 +6577,11 @@ Feature: Sanity scenarios
       | Title                           | Start Date                         | End Date                         |
       | Automation Permanent Focus Area | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
     And I wait for "3" seconds
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
+    And I wait for "3" seconds
     When I navigate to "Files" sub tab
     And I wait for "3" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
