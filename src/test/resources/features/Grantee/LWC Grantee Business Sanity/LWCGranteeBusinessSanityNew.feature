@@ -2228,7 +2228,6 @@ Feature: Sanity scenarios New
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     And I wait for "2" seconds
     When I navigate to "Closeout" sub tab
-    When I navigate to "Project Period Closeout Requests" content inside "Closeouts" subheader on left panel
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     Then I softly see "Project Period Closeout Requests" page block displayed
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
