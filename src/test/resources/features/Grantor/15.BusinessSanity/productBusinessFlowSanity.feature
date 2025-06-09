@@ -3,7 +3,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @72335  @72335@activationOfFocusArea @ProdSan1
   Scenario: Validate the activation of Focus Area by User - Admin/EXE/PM and the status is Active
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
@@ -21,7 +21,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @72340 @activateKPI @ProdSan2
   Scenario: Validate the activation of KPI and the status changes to Active
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -35,7 +35,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @72337 @activationOFFundingSource @ProdSan1
   Scenario: Validate the activation of Funding Source HappyPath and the status is Active
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
     When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---fundingsource:-:fundingSourceTableId---"
@@ -54,7 +54,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @StrategicPlanCreation @ProdSan2
   Scenario: Creation of Strategic plan
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     And I click toggle button to select "Strategic Plans - Draft"
@@ -85,7 +85,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @SubrecipientContactCreation @ProdSan2
   Scenario: Subrecipient Contact Creation
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
     And I pause execution for "3" seconds
@@ -111,7 +111,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @72341 @programActivation @ProdSan1
   Scenario: Validate the activation of Internal Program and the status changes to Active
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -165,19 +165,19 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Submit For Approval" in the page details
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - All"
@@ -189,7 +189,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @ExternalProgramActivation @ProdSan2
   Scenario: Validate External Program Activation
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
@@ -213,13 +213,13 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:EXE Username} | Step 1  |
     And I click on "Submit For Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "All NGO Programs"
@@ -230,7 +230,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @65077 @publishingCompetitiveAnnouncementCA @ProdSan2
   Scenario: Validate the activation of Competitive Announcement
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
@@ -280,7 +280,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "2" seconds
     And I get the "EGMS ID"
     And I pause execution for "3" seconds
-    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
@@ -294,7 +294,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on submit review
     And I pause execution for "2" seconds
 #    When I close "Enter Review" modal by clicking the top right x button
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Draft Competitive Announcements"
@@ -465,26 +465,26 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Competitive Announcements"
@@ -495,7 +495,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @72342 @publishingDirectedAnnouncement @ProdSan2
   Scenario: Validate the activation of Directed Announcement and the status changes to published and is green
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     And I navigate to "Directed" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Directed Announcements"
@@ -546,7 +546,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "2" seconds
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I get the "EGMS ID"
-    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
@@ -560,7 +560,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click on submit review
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Directed" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Draft Directed Announcements"
@@ -731,25 +731,25 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Submit For Approval" in the page details
     And I pause execution for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Directed" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Draft Directed Announcements"
@@ -760,7 +760,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @72343_1 @publishingFormulaAnnouncementByApplicantFocusArea @ProdSan2
   Scenario: Validate the activation of Formula By Applicant Focus Area Announcement and the status changes to published and is green
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Formula Announcements"
@@ -811,7 +811,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I pause execution for "2" seconds
     And I get the "EGMS ID"
-    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
@@ -825,7 +825,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click on submit review
     And I wait for "2" seconds
-    And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Formula Announcements"
@@ -1011,26 +1011,26 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Submit For Approval" in the page details
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Formula Announcements"
@@ -1043,7 +1043,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2
   Scenario: Validate the activation of Formula By Applicant Announcement and the status changes to published and is green
-    When I login to "As a Grantor" app as "ADMIN" user
+    When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Formula Announcements"
@@ -1101,14 +1101,14 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Submit For Approval" in the page details
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "ADMIN1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN1" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Formula Announcements"
@@ -1156,7 +1156,7 @@ Feature: Validate sanity testing of Complete Business Flow
 #    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
@@ -1223,7 +1223,7 @@ Feature: Validate sanity testing of Complete Business Flow
   Scenario Outline: Validate the complete review process for an application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
-    And I login to "As a Grantor" app as "PM" user
+    And I login to "Grantor" app as "PM" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -1255,7 +1255,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -1266,7 +1266,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -1314,7 +1314,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -1325,7 +1325,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -1336,7 +1336,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -1347,7 +1347,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -1375,7 +1375,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -1386,7 +1386,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I wait for "1" seconds
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -1419,7 +1419,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Submit for Approval" in the page details
     And I get the "EGMS ID"
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -1437,7 +1437,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     And I delete the record "{SavedValue:Automation Runtime FDM Announcement}" from the object "FDM"
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
@@ -1468,7 +1468,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Automation Negotiation Iniatiation | ApplicantResponse__c |
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:phasePendingTasksTableId---" panel
@@ -1485,7 +1485,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
@@ -1531,7 +1531,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:subrecipientPendingTaskTableId---" without waiting for record
     And I click on "Accept" in the page details
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -1545,7 +1545,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
     And I pause execution for "3" seconds
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
@@ -1557,7 +1557,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on submit review
     And I wait for "1" seconds
 #    When I click modal button "Close"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -1572,28 +1572,28 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -1610,7 +1610,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Start" icon for "Record Id" inside table
     And I click on "Accept after Approval" in the page details
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -1742,9 +1742,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
 
-  @72360 @activeRiskAssessment @ProdSan2 @TBE
+  @72360 @activeRiskAssessment @ProdSan2 
   Scenario: Validate the Activation of Risk Assessment and the status changes to Active
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -1785,7 +1785,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside flex table with id "RiskAssessmentApproverRoles" without waiting for record
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
@@ -1797,7 +1797,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "5" seconds
     And I click on submit review
 #    When I click modal button "Close"
-    When I re-login to "As a Grantor" app as "DynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "DynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     And I click toggle button to select "Subaward Risk Assessments - All"
@@ -1805,19 +1805,19 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     And I click on "Complete Review" in the page details
     When I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
@@ -1834,7 +1834,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Risk Assessment" sub tab
     When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:activeOrgTableID---" panel
@@ -1862,7 +1862,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
     When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:activeOrgTableID---" panel
@@ -1894,7 +1894,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "View" icon for "Active" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---" without waiting for record
     Then I softly see field "State" as "Active"
 
-  @72349 @adhocReimbursementHappyPath @ProdSan1 @TBE1
+  @72349 @adhocReimbursementHappyPath @ProdSan1 
   Scenario: Validate the Reimbursement Payment Request happy path and the status changes to 'Paid'
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -1920,7 +1920,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Extra Salary | The narrative | 30         | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -1938,13 +1938,13 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:EXE Username} | Step 1        |
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentrequestReimbursementTableId---" panel
@@ -1956,7 +1956,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 
-  @72350 @adhocAdvanceHappyPath @ProdSan1 @TBE2
+  @72350 @adhocAdvanceHappyPath @ProdSan1 
   Scenario: Validate the Advance Payment Request happy path and the status changes to 'Paid'
     Given I activated standalone subaward "Automation Runtime award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -1991,7 +1991,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -2008,13 +2008,13 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                     | Advance |
       | {SavedValue:FO Username} | Step 1  |
     When I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Advances" content inside "Payments" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentrequestAdvancesTableId---" panel
@@ -2051,7 +2051,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId1}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -2070,13 +2070,13 @@ Feature: Validate sanity testing of Complete Business Flow
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId1}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId1}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId1}" in "---paymentRequest:-:paymentrequestReimbursementTableId---" panel
@@ -2089,7 +2089,7 @@ Feature: Validate sanity testing of Complete Business Flow
 #   To Do:- Remove the refresh step once bug resolve for refresh behavior
     Then I softly see field "Status" as "Paid"
 
-  @72351 @scheduledReimbursementPaymentRequestHappyPath @ProdSan1 @TBE4
+  @72351 @scheduledReimbursementPaymentRequestHappyPath @ProdSan1 
   Scenario Outline: Validate the Scheduled Payment Request happy path and the status changes to 'Paid' and is green
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
@@ -2113,7 +2113,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -2131,13 +2131,13 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:EXE Username} | Step 1        |
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentrequestReimbursementTableId---" panel
@@ -2213,11 +2213,11 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     Then I see value "Approved" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressReport:-:internalProgressReportFlexTableId---"
 
-  @72353 @siteVisitAcceptAndClose @ProdSan1 @TBE
+  @72353 @siteVisitAcceptAndClose @ProdSan1 
   Scenario: Validate once the Award level Site Visit is clicked on Accept and Close butted then sttaus changes to closed
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -2256,7 +2256,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
@@ -2276,14 +2276,14 @@ Feature: Validate sanity testing of Complete Business Flow
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I "Approve" in the approval decision
     And I pause execution for "3" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
@@ -2315,7 +2315,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I softly can see top right button "Submit to Grantor" in page detail
     And I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -2323,11 +2323,11 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept and Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72354 @deskReviewAcceptAndClose @ProdSan2 @TBE1
+  @72354 @deskReviewAcceptAndClose @ProdSan2 
   Scenario: Validate once the Award level Desk Review is clicked on Accept and Close butted then status changes to closed
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -2374,7 +2374,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "1" seconds
     When I click on "Submit for Approval" in the page details
     And I pause execution for "5" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:homePendingTasksTableId---" panel
@@ -2404,7 +2404,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
     And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -2412,9 +2412,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept And Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72355 @siteVisitAcceptAndCloseOrgLevel @ProdSan2 @TBE2
+  @72355 @siteVisitAcceptAndCloseOrgLevel @ProdSan2 @TBE
   Scenario: Validate once the Org Level Site Visit is clicked on Accept and Close butted then status changes to closed
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -2483,7 +2483,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I collapse nested table containing column value "Automation Finding"
     Then I softly can see top right button "Submit to Grantor" in page detail
     And I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -2492,9 +2492,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept and Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72357 @deskReviewAcceptAndCloseOrgLevel @ProdSan2 @TBE3
+  @72357 @deskReviewAcceptAndCloseOrgLevel @ProdSan2 
   Scenario: Validate once the Org level Desk Review is clicked on Accept and Close butted then status changes to closed
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -2562,7 +2562,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -2574,7 +2574,7 @@ Feature: Validate sanity testing of Complete Business Flow
   @72358 @activationOfBudgetPeriodAmendmentRequest @ProdSan2
   Scenario: Validate the Budget period amendment activation
     And I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -2614,20 +2614,20 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---amendment:-:subrecipientPendingTask---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:subrecipientPendingTask---" without waiting for record
     And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Approve Amendment Request" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
@@ -2635,7 +2635,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -2661,10 +2661,10 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see field "Status" as "Amended"
     Then I see status in Progress-bar is "Amended" and is "dark blue"
 
-  @72359 @completeCloseout @ProdSan1 @TBE4
+  @72359 @completeCloseout @ProdSan1 
   Scenario: Validate the Closeout is submitted for approval and the status changes to Submitted for Approval
     And I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation PO user" of type "Competitive"
-    When I login to "As a Grantor" app as "PO" user
+    When I login to "Grantor" app as "PO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -2698,32 +2698,32 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Override" in the page details
     When I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     And I click toggle button to select "Closeouts - All"
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:CloseoutTableId---" panel
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     Then I softly see field "Status" as "Completed"
 
-  @CompletedSchedulesCloseout @ProdSan2 @TBE
+  @CompletedSchedulesCloseout @ProdSan2 
   Scenario: Validate Complete Scheduled Closeout End to End flow
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
     When I create a post award record "Closeout" for the Award "{SavedValue:Automation Runtime Award for closeout}" having object api name as "Closeout"
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -2757,7 +2757,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -2766,13 +2766,13 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     When I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     And I click toggle button to select "Closeouts - All"
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:CloseoutTableId---" panel
@@ -2782,7 +2782,7 @@ Feature: Validate sanity testing of Complete Business Flow
   @FundingChangeAmendmentRequest @ProdSan1
   Scenario Outline: validate the end to end flow for Funding change amendment request
     And I activated standalone subaward "Automation Runtime Award" with properties "<Properties>-Automation EXE user" of type "Formula_By_Applicant"
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -2824,7 +2824,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
@@ -2841,7 +2841,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:FundingID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
@@ -2849,7 +2849,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -2869,7 +2869,7 @@ Feature: Validate sanity testing of Complete Business Flow
   @PeriodicRenewalAmendmentRequests @ProdSan2
   Scenario: validate the end to end flow for Periodic Renewal Amendment Request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -2910,7 +2910,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
@@ -2927,10 +2927,10 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
 
-  @ScopeOfWorkChangeAmendmentRequest @ProdSan2 @TBE1
+  @ScopeOfWorkChangeAmendmentRequest @ProdSan2
   Scenario Outline: Validate end to end flow for scope of work change amendment request
     Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
-    And I login to "As a Grantor" app as "PM" user
+    And I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -2963,7 +2963,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     And I click on "Start" icon for "{SavedValue:scopeWorkId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:pendingTaskTableId---" panel
@@ -2985,7 +2985,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Amendment Award} | {SavedValue:Automation Runtime Amendment Award} |
 
-  @SubrecipientKeyPersonnelChangeAmendmentRequest @ProdSan2 @TBE2
+  @SubrecipientKeyPersonnelChangeAmendmentRequest @ProdSan2
   Scenario: Validate end to end flow for key personnel change amendment request
     Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3012,7 +3012,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I wait for "3" seconds
@@ -3039,7 +3039,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @SubrecipientBudgetRedirection @ProdSan1 @TBE3
+  @SubrecipientBudgetRedirection @ProdSan1
   Scenario: Validate Subrecipient side Budget Redirection Amendment End to End flow
     And I activated standalone subaward "Automation Runtime Award" with properties "IS_BUILDUP_FUNCTIONALITY_YES" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -3075,7 +3075,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---amendment:-:pendingTaskTableId---" panel
@@ -3090,13 +3090,13 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:BUDGETREDIRECTIONID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - Approved"
@@ -3108,9 +3108,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @ValidatedDetailBudgetYesScenarioInAward @ProdSan2 @TBE4
+  @ValidatedDetailBudgetYesScenarioInAward @ProdSan2 
   Scenario: Validate Detail Budget Yes Scenario In Award
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -3159,11 +3159,11 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "5" seconds
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
 
-  @TermsandConditionAmendmentRequest @ProdSan2 @TBE
+  @TermsandConditionAmendmentRequest @ProdSan2 
   Scenario: Validate Terms and Conditions Amendment Request End to End flow
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
-    And I login to "As a Grantor" app as "PM" user
+    And I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -3201,7 +3201,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
@@ -3209,13 +3209,13 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - Approved"
@@ -3227,7 +3227,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @SubrecipientBudgetPeriodAmendmentRequest @ProdSan2 @TBE1
+  @SubrecipientBudgetPeriodAmendmentRequest @ProdSan2 
   Scenario: Validate Subrecipient Amendment Request End to End flow
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -3249,7 +3249,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:pendingTaskTableId---" panel
@@ -3266,14 +3266,14 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:EXE Username} | Step 1            |
     When I click on "Submit for Approval" in the page details
     And I pause execution for "3" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -3285,10 +3285,10 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @FundingChangeandTermsandConditions @ProdSan4 @TBE2
+  @FundingChangeandTermsandConditions @ProdSan4 
   Scenario: Validate Funding Change and Terms & Conditions End to End flow
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_BUILDUP_YES-Automation EXE user" of type "Competitive"
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -3343,7 +3343,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
@@ -3359,14 +3359,14 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:fundingAccount} | 3000                |
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:FundTermsID}" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:FundTermsID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -3378,7 +3378,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @CombinationOfSubrecipientBRandKPCandSOW @ProdSan2 @TBE3
+  @CombinationOfSubrecipientBRandKPCandSOW @ProdSan2 @TBE
   Scenario: Validate Combinations of Subrecipient BR and KPC and SOW
     Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_BUILDUP_YES-Automation PO user" of type "Formula_By_Applicant"
     When I am on "SUBPORTAL" portal
@@ -3435,7 +3435,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:budRedKPCSOWId}" in "---amendment:-:pendingTaskTableId---" panel
@@ -3449,14 +3449,14 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:EXE Username} | Step 1            |
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:budRedKPCSOWId}" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:budRedKPCSOWId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -3468,10 +3468,10 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @CarryForwardAmendmentRequest @ProdSan2 @TBE4
+  @CarryForwardAmendmentRequest @ProdSan2 @TBE
   Scenario: Validate Carry Forward Amendment Request End to End flow
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Competitive"
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3529,7 +3529,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
@@ -3580,7 +3580,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:pendingTaskTableId---" panel
@@ -3599,13 +3599,13 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:CFAmendmentId}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -3885,7 +3885,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @programRejection @ProdSan3
   Scenario: Validate the Rejectionof Internal Program and redirecting to same page
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -3935,7 +3935,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Submit For Approval" in the page details
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
@@ -3950,9 +3950,9 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send back |
 
-  @OwnershipReasignment @ProdSan4 @TBE
+  @OwnershipReasignment @ProdSan4 
   Scenario: Validate Grants Ownership Reassignment
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -3965,7 +3965,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -3982,7 +3982,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3993,7 +3993,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM1" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @TaskReassignment @ProdSan4 @TBE1
+  @TaskReassignment @ProdSan4 @TBE
   Scenario: Validate Task Reassignment Scenario
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -4029,7 +4029,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation PM1"
@@ -4041,15 +4041,15 @@ Feature: Validate sanity testing of Complete Business Flow
     And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:progID}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:progID}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @SendToOwner @ProdSan4 @TBE2
+  @SendToOwner @ProdSan4 
   Scenario: Validate Send to Owner scenario
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -4111,7 +4111,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     When I click on "Accept" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation PM1"
@@ -4123,7 +4123,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I reset the table
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -4139,11 +4139,11 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "5" seconds
     Then I softly see field "Status" as "Created"
 
-  @SitevisitOpenThroughManagementTabFromAward @ProdSan4 @TBE3
+  @SitevisitOpenThroughManagementTabFromAward @ProdSan4 
   Scenario: Validate Sitevisit Open Through Management Tab From Award
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -4188,11 +4188,11 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly see field "EGMS ID" as "{SavedValue:SitevVisitId}"
 
-  @DeskReviewOpenThroughManagementTabFromAward @ProdSan4 @TBE4
+  @DeskReviewOpenThroughManagementTabFromAward @ProdSan4 
   Scenario: Validate Desk Review Open Through Management Tab From Award
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -4236,7 +4236,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly see field "EGMS ID" as "{SavedValue:DeskReview}"
 
-  @SF425FormsNegativeValidationCheckAndSF428ABlankvalueValidationCheckAlsoSF429Bformnegativevaluesenteredvalidationcheck @ProdSan4 @TBE
+  @SF425FormsNegativeValidationCheckAndSF428ABlankvalueValidationCheckAlsoSF429Bformnegativevaluesenteredvalidationcheck @ProdSan4 
   Scenario: SF425 Forms Negative Validation Check and SF 428 A Blank value Validation Check also SF429B form negative values entered validation check
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -4338,9 +4338,9 @@ Feature: Validate sanity testing of Complete Business Flow
       | Adding file is required in "Files section" with classification "Environmental Compliance Requirements", if "Yes" option in "14h" is checked. |
       | Adding file is required in "Files section" with classification "NHPA", if "Yes" option in "14i" is checked.                                  |
 
-  @AwardWithFocusNo @ProdSan4 @TBE1
+  @AwardWithFocusNo @ProdSan4 
   Scenario: Award with focus area no
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -4399,7 +4399,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     When I click on "Accept" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -4412,13 +4412,13 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -4437,7 +4437,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     Then I softly see field "Status" as "Sent to Subrecipient after Approval"
     And I click on "Accept after Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -4465,7 +4465,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
-    And I login to "As a Grantor" app as "PM" user
+    And I login to "Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
@@ -4528,7 +4528,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details
     And I pause execution for "5" seconds
     And I am on "INTERNAL" portal
-    And I login to "As a Grantor" app as "dynamicUser" user
+    And I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:uniqueEmailID}" in "{grantor_tableId:SubrecipientIndRegistration}" panel
     When I click on "Start" icon for "{SavedValue:uniqueEmailID}" inside flex table with id "{grantor_tableId:SubrecipientIndRegistration}"
@@ -4544,7 +4544,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @SMEreviewerFlowSanity @ProdSan4
   Scenario: Scenario for SME reviewer
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     When I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     When I click on top right button "New" in flex table with id "---home:-:reviewersTableId---"
