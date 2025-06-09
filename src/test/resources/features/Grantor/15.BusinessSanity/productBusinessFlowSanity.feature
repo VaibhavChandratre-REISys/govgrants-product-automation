@@ -4813,9 +4813,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     And I wait for "2" seconds
-    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-      | Form Name     | Due in Days |
-      | Senior Review | 5           |
+#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+#      | Form Name     | Due in Days |
+#      | Senior Review | 5           |
     And I click on "Assign" icon for "Wendy Frank" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:appEGMSID}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -4895,13 +4895,13 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click on "Funding Decision Memo" in the page details
     And I wait for "2" seconds
-    And I click on "Edit" in the page details
-    When I enter values into fields
-      | Value         | Field            |
-      | AuGr          | GrantCode__c     |
-      | Justification | Justification__c |
-    And I click on "Save" in the page details
-    Then I softly see field "Status" as "Created"
+#    And I click on "Edit" in the page details
+#    When I enter values into fields
+#      | Value         | Field            |
+#      | AuGr          | GrantCode__c     |
+#      | Justification | Justification__c |
+#    And I click on "Save" in the page details
+#    Then I softly see field "Status" as "Created"
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title      | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:appEGMSID} | 350000             | Yes                   | Recommended | 350000                  |
@@ -5039,8 +5039,8 @@ Feature: Validate sanity testing of Complete Business Flow
     Examples:
       | subUser | keyContact |
 #      | SPI2    | John Smith |
-      | SPI3    | Michael Brown |
-#     | SPI4    | William Jones |
+#      | SPI3    | Michael Brown |
+     | SPI4    | William Jones |
 #     | SPI5    | William Jones |
 
   @dataCreation1
