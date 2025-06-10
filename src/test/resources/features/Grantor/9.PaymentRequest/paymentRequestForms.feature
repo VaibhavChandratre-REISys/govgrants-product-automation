@@ -1380,6 +1380,8 @@ Feature: Payment Request Forms scenarios
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
+    And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Advances" content inside "Payments" subheader on left panel

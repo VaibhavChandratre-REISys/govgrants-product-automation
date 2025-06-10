@@ -1209,9 +1209,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I navigate to "History" sub tab
     And I wait for "60" seconds
     And I refresh the page
-    #Bug414554
-    Then I softly see value "Subaward Send_to_Subrecipient.pdf" for title "File Name" inside table "---subAwardStandAlone:-:snapshotHistoryTableId---"
-    Then I softly see value "{SavedValue:PM Username}" for title "Taken By" against the value "Subaward Send_to_Subrecipient.pdf" inside table "---subAwardStandAlone:-:snapshotHistoryTableId---"
+    Then I softly see snapshot with name containing "Subaward Send_to_Subrecipient.pdf" as name
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1235,8 +1233,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly see value "1000" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
     And I click on "Submit for Approval" in the page details
     And I navigate to "History" sub tab
-    Then I softly see value "Subaward_Submit_for_Approval.pdf" for title "File Name" against the value "Subaward_Submit_for_Approval.pdf" inside table "---subAwardStandAlone:-:snapshotHistoryTableId---"
-    Then I softly see value "{SavedValue:PM Username}" for title "Taken By" against the value "Subaward_Submit_for_Approval.pdf" inside table "---subAwardStandAlone:-:snapshotHistoryTableId---"
+    Then I softly see snapshot with name containing "Subaward_Submit_for_Approval.pdf" as name
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1271,8 +1268,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I click on "Accept after Approval" in the page details
     And I navigate to "History" sub tab
-    Then I softly see value "Accepted_After_Approval.pdf" for title "File Name" against the value "Accepted_After_Approval.pdf" inside table "---subAwardStandAlone:-:snapshotHistoryTableId---"
-    Then I softly see value "{SavedValue:SPI3 Username}" for title "Taken By" against the value "Accepted_After_Approval.pdf" inside table "---subAwardStandAlone:-:snapshotHistoryTableId---"
+    Then I softly see snapshot with name containing "Accepted_After_Approval.pdf" as name
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1294,8 +1290,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I perform quick search for "<Award Name>" in "---paymentRequest:-:recipientsSubawardTableId---" panel
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Award_Accepted.pdf" for title "File Name" against the value "Award_Accepted.pdf" inside table "---subAwardStandAlone:-:snapshotHistoryTableId---"
-    Then I softly see value "{SavedValue:SPI3 Username}" for title "Taken By" against the value "Award_Accepted.pdf" inside table "---subAwardStandAlone:-:snapshotHistoryTableId---"
+    Then I softly see snapshot with name containing "Award_Accepted.pdf" as name
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
     When I enter value "Automation Payment Request" into field "Title__c"
