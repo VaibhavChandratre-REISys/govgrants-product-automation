@@ -10549,7 +10549,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---progressreport:-:GrantsSubAwardsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    And I halt execution
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Monitoring" tab

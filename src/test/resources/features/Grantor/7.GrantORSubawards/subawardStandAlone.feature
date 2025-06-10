@@ -86,6 +86,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Performance" sub tab
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" in the table "SelectAwardGoals"
+    And I click modal button "Close"
+    And I wait for "2" seconds
     Then I see that "Automation Permanent Objective2" has been added in flextable with Id "---subAwardStandAlone:-:objectivesTableId---"
 
   @51135 @allKPIAssociation @smoke
