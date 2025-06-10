@@ -754,7 +754,7 @@ Feature: Validate scenarios in Progress Report without background
     And I wait for "2" seconds
     And I click on "View" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     And I wait for "1" seconds
-    Then I softly see field "Frequency" as "Frequency Quarterly"
+    Then I softly see field "Frequency" as "Quarterly"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |

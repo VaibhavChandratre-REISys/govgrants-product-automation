@@ -1326,3 +1326,125 @@ Feature: Payment Request Forms scenarios
       | Please enter Zip code in the Zip + 4 codes format (e.g. 12345-1234) in the 'Zip / Postal code' field.                      |
       | The estimated federal cash outlays that will be made during period covered by the advance cannot be less than zero.        |
       | The estimated balance of federal cash on hand as of beginning of advance period cannot be less than zero.                  |
+
+  @FlexSharingScenarioforpaymentForms
+  Scenario: Validate Flex Sharing Payement Forms
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
+    And I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPA" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---paymentRequest:-:recipientGrantTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    When I navigate to "Actuals" sub tab
+    And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
+    When I enter value "Automation Runtime Payment Request" into field "Title__c"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "PayreqId"
+    And I navigate to "Financials" sub tab
+    And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
+      | Budget Category | Advance Requested This Action |
+      | Construction    | 100                           |
+    When I navigate to "Forms and Files" sub tab
+    When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
+    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Request for Advance or Reimbursement - SF-270" for title "Form Name" inside table "---paymentRequest:-:paymentRequestFormsTableId---"
+    And I click on "Edit" icon for "Request for Advance or Reimbursement - SF-270" inside flex table with id "---paymentRequest:-:paymentRequestFormsTableId---" without waiting for record
+    And I switch to tab number "1"
+    And I wait for "2" seconds
+    And I select below checkbox options for field "AdvanaceorReimbursement__c"
+      | Advance |
+    And I enter "SF270_Form" values from "PaymentRequest_Field_Values.xlsx"
+    And I edit the following rows inline in flex table with id "---paymentRequest:-:sf270ComputationAmountTableId---" by clicking "Edit" :
+      | Classification                                   | Programs | Functions | Activities |
+      | a. Total program outlays to date                 | 12345    | 12345     | 12345      |
+      | b. Less: Cumulative program income               | 12345    | 12345     | 12345      |
+      | d. Estimated net cash outlays for advance period | 12345    | 12345     | 12345      |
+      | f. Non-Federal share of amount on line e         | 12345    | 12345     | 12345      |
+      | g. Federal share of amount on line e             | 12345    | 12345     | 12345      |
+      | h. Federal payments previously requested         | 12345    | 12345     | 12345      |
+      | 1st month                                        | 12345    | 12345     | 12345      |
+      | 2nd month                                        | 12345    | 12345     | 12345      |
+      | 3rd month                                        | 12345    | 12345     | 12345      |
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I halt execution
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    And I navigate to "Advances" content inside "Payments" subheader on left panel
+    When I click toggle button to select "Advances - All"
+    When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:subrecipientPaymentrequestAdvancesTableId---" panel
+    When I click on "View" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:subrecipientPaymentrequestAdvancesTableId---" without waiting for record
+    When I navigate to "Forms and Files" sub tab
+    And I click on "View" icon for "Request for Advance or Reimbursement - SF-270" inside flex table with id "---paymentRequest:-:paymentRequestFormsTableId---" without waiting for record
+    And I switch to tab number "1"
+    And I wait for "2" seconds
+    Then I softly see field "Advance" as "checked"
+    Then I softly see field "Final" as "Checked"
+    Then I softly see field "Cash" as "Checked"
+    Then I softly see field "3. Federal Sponsoring Agency and organizational Element to which this Report is submitted" as "TEST12345"
+    Then I softly see field "4. Federal Grant or Other Identifying Number assigned by Federal Agency" as "123456789"
+    Then I softly see field "5. Partial Payment Request Number for this Request" as "2121323223"
+    Then I softly see field "7. Financial Assistance Identification Number" as "2121323223"
+    Then I softly see field "From" as "6/10/2026"
+    Then I softly see field "To" as "6/10/2027" in "8. Period Covered by this Request" pageblock
+    Then I softly see field "Name" as "TEST Organization" in "9. Recipient Organization" pageblock
+    Then I softly see field "Street1" as "123" in "9. Recipient Organization" pageblock
+    Then I softly see field "Street2" as "Street 2" in "9. Recipient Organization" pageblock
+    Then I softly see field "City" as "NY: New York" in "9. Recipient Organization" pageblock
+    Then I softly see field "County" as "NY" in "9. Recipient Organization" pageblock
+    Then I softly see field "State" as "FL: Florida" in "9. Recipient Organization" pageblock
+    Then I softly see field "Province" as "NY" in "9. Recipient Organization" pageblock
+    Then I softly see field "Country" as "USA: UNITED STATES" in "9. Recipient Organization" pageblock
+    Then I softly see field "Zip / Postal Code" as "12345-1234" in "9. Recipient Organization" pageblock
+    Then I softly see field "Name" as "TEST Organization" in "10. Payee (Where check is to be sent if different than item 9)" pageblock
+    Then I softly see field "Street1" as "123" in "10. Payee (Where check is to be sent if different than item 9)" pageblock
+    Then I softly see field "Street2" as "Street 2" in "10. Payee (Where check is to be sent if different than item 9)" pageblock
+    Then I softly see field "City" as "NY: New York" in "10. Payee (Where check is to be sent if different than item 9)" pageblock
+    Then I softly see field "County" as "NY" in "10. Payee (Where check is to be sent if different than item 9)" pageblock
+    Then I softly see field "State" as "FL: Florida" in "10. Payee (Where check is to be sent if different than item 9)" pageblock
+    Then I softly see field "Province" as "NY" in "10. Payee (Where check is to be sent if different than item 9)" pageblock
+    Then I softly see field "Country" as "USA: UNITED STATES" in "10. Payee (Where check is to be sent if different than item 9)" pageblock
+    Then I softly see field "Zip / Postal Code" as "12345-1234" in "10. Payee (Where check is to be sent if different than item 9)" pageblock
+    Then I softly see field "Programs" as "12345" in "Programs / Functions / Activities" pageblock
+    Then I softly see field "Functions" as "12345" in "Programs / Functions / Activities" pageblock
+    Then I softly see field "Activities" as "12345" in "Programs / Functions / Activities" pageblock
+    Then I softly see field "Total Program Outlays To Date (As of Date)" as "1/1/2027" in "Programs / Functions / Activities" pageblock
+    Then I softly see value "$12,345.00" for title "Programs" against the value "a. Total program outlays to date" inside table "---paymentRequest:-:sf270ComputationAmountTableId---"
+    Then I softly see value "$12,345.00" for title "Functions" against the value "a. Total program outlays to date" inside table "---paymentRequest:-:sf270ComputationAmountTableId---"
+    Then I softly see value "$12,345.00" for title "Activities" against the value "a. Total program outlays to date" inside table "---paymentRequest:-:sf270ComputationAmountTableId---"
+    Then I softly see value "$37,035.00" for title "Total" against the value "a. Total program outlays to date" inside table "---paymentRequest:-:sf270ComputationAmountTableId---"
+    Then I softly see field "12a. Estimated Federal cash outlays that will be made during period covered by the advance" as "$12,345.00" in "12. Alternate Computation for Advances Only" pageblock
+    Then I softly see field "12b. Less: Estimated balance of Federal cash on hand as of beginning of advance period" as "$12,345.00" in "12. Alternate Computation for Advances Only" pageblock
+    Then I softly see field "12c. Amount Requested (Line 12a minus line 12b)" as "$0.00" in "12. Alternate Computation for Advances Only" pageblock
+    Then I softly see field "Acknowledgement" as "checked"
+    Then I softly see field "Signature of Authorized Certifying official" as "John Mathews" in "13. Certification" pageblock
+    Then I softly see field "Date Request Submitted" as "6/10/2025" in "13. Certification" pageblock
+    Then I softly see field "Prefix" as "Mr." in "13. Certification" pageblock
+    Then I softly see field "First Name" as "John" in "13. Certification" pageblock
+    Then I softly see field "Middle Name" as "Andrew" in "13. Certification" pageblock
+    Then I softly see field "Last Name" as "Mathews" in "13. Certification" pageblock
+    Then I softly see field "Suffix" as "Jr." in "13. Certification" pageblock
+    Then I softly see field "Title" as "Associate" in "13. Certification" pageblock
+    Then I softly see field "Telephone (Area Code, Number, Extension)" as "(212) 234-2342" in "13. Certification" pageblock
+    And I select below checkbox options for field "AdvanaceorReimbursement__c"
+      | Reimbursement |
+    And I enter value "Partial" into field "TypeOfRequest__c"
+    And I enter value "1267589" into field "FederalAwardIdentifier__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Reimbursement" as "checked"
+    Then I softly see field "Partial" as "Checked"
+    Then I softly see field "4. Federal Grant or Other Identifying Number assigned by Federal Agency" as "1267589"
