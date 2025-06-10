@@ -5704,7 +5704,7 @@ Feature: Sanity scenarios New
 
   @485289 @ValidatePOuserAROwnercanabletoAcceptFundingChangeAmendmentRequest @runtestpm1
   Scenario: Validate PO user AR Owner can able to Accept Funding Change Amendment Request
-    And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal

@@ -6728,7 +6728,7 @@ Feature: Sanity scenarios
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Performance" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
-    Then I softly can see "Forms & Files" sub tab at view detail page
+    Then I softly can see "Forms and Files" sub tab at view detail page
     Then I softly can see "History" sub tab at view detail page
     Then I softly can see "Messages" sub tab at view detail page
     Then I softly see "Report Overview" page block displayed
@@ -6905,9 +6905,9 @@ Feature: Sanity scenarios
       | Sarah PM | Step 2          |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
-      And I wait for "2" seconds
-      When I navigate to "Forms and Files" sub tab
-      And I wait for "3" seconds
+    And I wait for "2" seconds
+    When I navigate to "Forms and Files" sub tab
+    And I wait for "3" seconds
     Then I softly see "Forms" page block displayed
     Then I softly see "Progress Report Files" page block displayed
     Then I softly see "Notes" page block displayed
@@ -6923,11 +6923,11 @@ Feature: Sanity scenarios
     And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
     Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
     And I click on back arrow
-    Then I softly can see row level action button "View" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Splitview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Preview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Edit" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    When I click on "Edit" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Splitview" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Preview" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    When I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I wait for "3" seconds
     Then I softly see new tab is opened
     And I switch to tab number "1"
@@ -6952,7 +6952,7 @@ Feature: Sanity scenarios
     Then I softly see field "Key Accomplishments:" as "Automation Key Accomplishment" in "Key Accomplishments" pageblock
     Then I softly can see top right button "Edit" in page detail
     And I close the tab
-    When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    When I click on "View" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I wait for "3" seconds
     Then I softly see new tab is opened
     And I switch to tab number "1"
@@ -6984,7 +6984,7 @@ Feature: Sanity scenarios
     Then I softly see field "Submitted On:" inside page block
     And I close the tab
     And I navigate to "Quickview" sub tab in split screen
-    When I click on "Splitview" icon for "PSR: Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    When I click on "Splitview" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Download As PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
@@ -6994,7 +6994,7 @@ Feature: Sanity scenarios
     And I click on back arrow
     And I click on hyperlink containing value "{SavedValue:progressEGMSID}"
     Then I softly see field "Status" as "Reviewed"
-    When I navigate to "Forms & Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     Then I see "Upload" button is disabled at modal under library
     When I upload file "AttachmentTesting.pdf" into library
@@ -7082,7 +7082,6 @@ Feature: Sanity scenarios
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
-#    Bug -463671
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | The Report has been validated successfully. |
@@ -7111,11 +7110,11 @@ Feature: Sanity scenarios
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:progressReportApprovers---"
     Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:progressReportApprovers---"
     Then I softly cannot see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:progressReportApprovers---"
-    When I navigate to "Forms & Files" sub tab
-    Then I softly can see row level action button "View" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Splitview" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Preview" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly cannot see row level action button "Edit" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Splitview" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Preview" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly cannot see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
@@ -7194,11 +7193,11 @@ Feature: Sanity scenarios
     Then I softly can see "Quickview" sub tab at view detail page
     And I navigate to "Field Audit" sub tab in split screen
     Then I softly can see "Field Audit" sub tab at view detail page
-    When I navigate to "Forms & Files" sub tab
-    Then I softly can see row level action button "View" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Splitview" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Preview" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Edit" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Splitview" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Preview" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I navigate to "Chatter" sub tab in split screen
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "GRANTEE PO"
