@@ -408,6 +408,7 @@ Feature: Validate all scenarios in Progress Report
     Given I click on "Submit to Grantor" in the page details
     And I save the field labeled "Subaward ID" as "SubawardID"
     And I click "{SavedValue:SubawardID}" lookup link
+    And I wait for "2" seconds
     When I navigate to "Performance" sub tab
     Then I softly see value "{SavedValue:Record Id}" for title "EGMS ID" against the value "Submitted to Grantor" inside table "---progressReport:-:recipientAwardProgressReportTableId---"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal

@@ -2691,8 +2691,11 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
     And I navigate to "Budget" sub tab
     And I save the field labeled "Budget Period" as "BudgetPeriod"
+    And I wait for "2" seconds
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I wait for "2" seconds
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
@@ -2717,8 +2720,11 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
     And I navigate to "Budget" sub tab
     And I save the field labeled "Cumulative Obligation" as "BudgetPeriodAmount"
+    And I wait for "2" seconds
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I wait for "2" seconds
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
