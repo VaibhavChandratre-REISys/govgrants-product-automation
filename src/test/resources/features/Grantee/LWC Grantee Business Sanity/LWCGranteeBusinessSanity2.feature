@@ -6637,7 +6637,7 @@ Feature: Sanity scenarios
     Then I softly see value "Not Accepted" for title "New Value" inside field history table
     Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
 
-    @487168 @validatepouser(awardowner)canabletocreateadhocprogressreport&abletosubmitprogressreporttograntor @runtestpm1
+    @487168_2 @validatepouser(awardowner)canabletocreateadhocprogressreport&abletosubmitprogressreporttograntor @runtestpm1
   Scenario: validate  PO user (Award Owner)can able to create Adhoc Progress Report & able to submit Progress Report to Grantor
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
