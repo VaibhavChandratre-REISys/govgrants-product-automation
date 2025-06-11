@@ -5168,7 +5168,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #     And I click on "Save" in the page details
 #     When I click on "Back" in the page details
     And I navigate to "Quickview" sub tab in split screen
-    And I click on "Splitview" icon for "General Review Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Splitview" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "DeskReview_Field_Values.xlsx"

@@ -973,7 +973,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click modal button "Save and Continue"
     When I navigate to "Overview" sub tab
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
