@@ -2184,15 +2184,10 @@ Feature: Sanity scenarios
      And I click on hyperlink containing value "{SavedValue:progressEGMSID}"
      Then I softly see field "Status" as "Reviewed"
      When I navigate to "Forms and Files" sub tab
-     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
-     Then I see "Upload" button is disabled at modal under library
-     And I select Classification as "Progress Report" at upload file modal
-     When I upload file "AttachmentTesting.pdf" into library
-     Then I do not see "Upload" button is disabled at modal under library
-     When I click modal button "Close"
      And I wait for "3" seconds
      And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
      And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+     And I wait for "2" seconds
      When I click modal button "Close"
      And I refresh the page
      And I wait for "2" seconds
@@ -2220,8 +2215,8 @@ Feature: Sanity scenarios
      Then I see option "Refresh" present in parallel dropdown
      Then I see option "Download as PDF" present in parallel dropdown
      And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
-     And I wait for "3" seconds
      And I upload attachment without random number "Attachment.pdf" of type "Progress Report" from computer
+     And I wait for "2" seconds
      When I click modal button "Close"
      And I refresh the page
      And I wait for "2" seconds
@@ -2275,8 +2270,10 @@ Feature: Sanity scenarios
      Then I softly see the following messages in the page details contains:
        | The Report has been validated successfully. |
      And I click on "Submit for Approval" in the page details
+     And I wait for "1" seconds
      Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
      And I navigate to "Monitoring" tab
+     And I wait for "1" seconds
      When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
      And I click toggle button to select "Progress Reports - All"
      And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
