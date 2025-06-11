@@ -150,6 +150,9 @@ public class UsersAndURL implements UsersController {
             case "SA":
                 password = "Automation@2026";
                 break;
+            case "PO":
+                password = "Grantor@123";
+                break;
             default:
                 password = "Automation@2025";
         }
