@@ -128,8 +128,6 @@ Feature: Validate all scenarios in the home tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
-    #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
-    #And I save the contact name as "Automation Runtime Contact"
     When I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
     Then I see value "{SavedValue:Automation Runtime} Contact" for title "Full Name" inside table "---home:-:reviewersTableId---"
     Then I see value "New" for title "Status" inside table "---home:-:reviewersTableId---"
@@ -151,9 +149,8 @@ Feature: Validate all scenarios in the home tab
     And I enter "Creation" values from "PotentialReviewersContact_Field_Values.xlsx"
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
+    And I pause execution for "2" seconds
     When I click modal button "Save"
-#    And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
-#    And I save the contact name as "Automation Runtime Contact"
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
     #Bug441757
@@ -179,8 +176,6 @@ Feature: Validate all scenarios in the home tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
-    #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
-#    And I save the contact name as "Automation Runtime Contact"
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
     Then I can see row level action button "View" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---home:-:reviewersTableId---"
@@ -332,8 +327,6 @@ Feature: Validate all scenarios in the home tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
-    #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
-#    And I save the contact name as "Automation Runtime Contact"
     And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
     When I click on "Edit" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
     And I click modal button "Save"
@@ -894,8 +887,6 @@ Feature: Validate all scenarios in the home tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
-    #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
-#    And I save the contact name as "Automation Runtime Contact"
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
@@ -925,8 +916,6 @@ Feature: Validate all scenarios in the home tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
-    #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
-#    And I save the contact name as "Automation Runtime Contact"
     And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
     Then I softly see value "{SavedValue:Automation Runtime} Contact" for title "Full Name" inside table "---home:-:reviewersTableId---"
     Then I softly see value "{SavedValue:uniqueEmailID}" for title "Email" inside table "---home:-:reviewersTableId---"
