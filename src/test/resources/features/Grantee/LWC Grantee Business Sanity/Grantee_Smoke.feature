@@ -1819,7 +1819,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "Last Modified By" as "LastModifiedBy"
     Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
     And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
-    Then I softly see the text containing "grantee.po@yopmail.com.qagrnteatm"
+      Then I softly see the text containing "grantee.po@yopmail.com.qagrnteatm"
     And I click on back arrow
     And I navigate to "Evaluation" sub tab
     Then I softly see "Evaluation" page block displayed

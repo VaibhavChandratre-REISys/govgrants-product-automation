@@ -2036,8 +2036,9 @@ Feature: Sanity scenarios
      When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
        | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
        | Sarah PM      | Fiscal Reviewer | Automation Description | 5        | No                   |
+     And I wait for "2" seconds
      Then I softly see the following messages in the page details contains:
-       | Saved Successfully! |
+       | Saved Successfully! | 
      Then I softly can see row level action button "Edit" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
      Then I softly can see row level action button "Send for Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
      Then I softly can see row level action button "Delete" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
