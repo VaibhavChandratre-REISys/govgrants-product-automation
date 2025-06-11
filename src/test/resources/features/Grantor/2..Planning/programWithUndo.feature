@@ -844,7 +844,7 @@ Feature: Validate all scenarios for program
     When I select radio button "Approve" in the approval decision
     And I submit the approval in the approval decision
     Then I see the following messages in the page details contains:
-      | Comments are Required. |
+      | Comments are required. |
 
   @279442 @VerifyusershouldnotseeactiveprogramtaskinpendingtaskfterpproverclickonUndobutton @sprint-25-US-295138  @Undo
   Scenario: Verify user should not see active program task in pending task after approver click on Undo button
@@ -1275,9 +1275,6 @@ Feature: Validate all scenarios for program
     When I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
@@ -2366,9 +2363,10 @@ Feature: Validate all scenarios for program
     And I pause execution for "3" seconds
     When I select radio button "Approve" in the approval decision
     And I submit the approval in the approval decision
+    And I pause execution for "2" seconds
     #Bug431809
     Then I softly see the following messages in the page details contains:
-      | Comments are Required. |
+      | Comments are required. |
 
   @279561 @VerifyusershouldnotseeactiveprogramtaskinpendingtaskafterapproveclickonUndobutton @sprint-3-US-291914  @Undo
   Scenario: Verify user should not see active program task in pending task after approver click on Undo button
@@ -3231,11 +3229,10 @@ Feature: Validate all scenarios for program
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     And I "Reject" in the approval decision
-    And I refresh the page
     And I wait for "2" seconds
     Then I softly see field "Status" as "Rejected"
     Then I cannot see top right button "Undo" in page detail
-    And I click on "Download As PDF" in the page details
+    And I click on "Download as PDF" in the page details
     And I wait for "7" seconds
     And I download the file
     And I wait for "3" seconds

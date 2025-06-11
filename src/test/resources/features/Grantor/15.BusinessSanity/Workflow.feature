@@ -1720,7 +1720,7 @@ Feature: Validate all scenarios of every modules flow
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
     And I halt execution
     
-  @debug
+  @debuggg
   Scenario:
     Given I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/PreApplication__c/a31Da000000kwuDIAQ/view"

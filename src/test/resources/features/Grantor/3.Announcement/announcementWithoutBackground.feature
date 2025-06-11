@@ -271,6 +271,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Fiscal Review     | 25              |
       | Program Review    | 25              |
       | Compliance Review | 50              |
+    And I wait for "2" seconds
     And I refresh the page
     Then I see value "25.00%" for title "Form Weight (%)" against the value "Program Review" inside table "---announcement:-:AnnouncementReviewPanel---"
     Then I see value "25.00%" for title "Form Weight (%)" against the value "Fiscal Review" inside table "---announcement:-:AnnouncementReviewPanel---"
@@ -309,6 +310,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Program Review | 75              |
     And I pause execution for "3" seconds
     And I click on top right button "Validate" in flex table with id "---announcement:-:AnnouncementReviewPanel---"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Setup Tab - SME Review: The total Review Form weight must equal 100% for a weighted step. It is currently 150.00%. |
     And I pause execution for "3" seconds
@@ -379,6 +381,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "3" seconds
     And I click modal button "Close"
     And I click on top right button "Validate" in flex table with id "---announcement:-:AnnouncementReviewPanel---"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Setup Tab - SME Review: The total Review Form weight must equal 100% for a weighted step. It is currently 60.00%. |
       | Setup Tab - SME Review - Fiscal Review: The total section weight must equal 100% or 0%. It is currently 180%.     |
@@ -394,6 +397,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click modal button "Close"
     And I pause execution for "3" seconds
     And I click on top right button "Validate" in flex table with id "---announcement:-:AnnouncementReviewPanel---"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Setup Tab - SME Review: The total Review Form weight must equal 100% for a weighted step. It is currently 60.00%.                                   |
       | Setup Tab - SME Review - Fiscal Review: A score cannot be associated to a question in the Budget section because it does not have a weight.         |
@@ -418,6 +422,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Fiscal Review | 100             |
     And I pause execution for "3" seconds
     When I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
     And I click on top right button "Validate" in flex table with id "---announcement:-:AnnouncementReviewPanel---"
     Then I softly see the following messages in the page details :
       | There are no errors with the review step templates. |
@@ -434,6 +439,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "3" seconds
     And I click modal button "Close"
     And I click on top right button "Validate" in flex table with id "---announcement:-:AnnouncementReviewPanel---"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Setup Tab - SME Review: The total Review Form weight must equal 100% for a weighted step. It is currently 60.00%.       |
       | Setup Tab - Management Review - Management Review: The total section weight must equal 100% or 0%. It is currently 80%. |
@@ -545,6 +551,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I refresh the page
     And I pause execution for "3" seconds
     And I click on top right button "Validate" in flex table with id "---announcement:-:AnnouncementReviewPanel---"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | There are no errors with the review step templates. |
     And I pause execution for "3" seconds
@@ -2507,6 +2514,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
@@ -2882,6 +2890,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I enter "Creation Second Modal4" values from "Announcement_Field_Values.xlsx"
     And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
@@ -3374,7 +3383,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I wait for "3" seconds
     When I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
     And I wait for "3" seconds
     When I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
@@ -4883,6 +4892,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I enter in modal "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
     And I pause execution for "3" seconds
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
@@ -5158,7 +5168,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #     And I click on "Save" in the page details
 #     When I click on "Back" in the page details
     And I navigate to "Quickview" sub tab in split screen
-    And I click on "Splitview" icon for "General Review Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Splitview" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "DeskReview_Field_Values.xlsx"
@@ -7611,8 +7621,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject         | From Address               | To Address                | CC Address | Attention To | Email Subject   | Preview |
-      | Action menu | Automation Test | exe.automation@yopmail.com | pm.automation@yopmail.com |            |              | Automation Test |         |
+      | Actions     | Subject         | From Address               | To Address                | CC Address | Attention To | Email Subject   | Preview                    |
+      | Action menu | Automation Test | exe.automation@yopmail.com | pm.automation@yopmail.com |            |              | Automation Test | Automation Test Email Body |
     And I refresh the page
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
@@ -7875,6 +7885,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click modal button "Continue"
     When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
@@ -8116,8 +8127,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject         | From Address              | To Address                 | CC Address | Attention To | Email Subject   | Preview |
-      | Action menu | Automation Test | pm.automation@yopmail.com | exe.automation@yopmail.com |            |              | Automation Test |         |
+      | Actions     | Subject         | From Address              | To Address                 | CC Address | Attention To | Email Subject   | Preview                    |
+      | Action menu | Automation Test | pm.automation@yopmail.com | exe.automation@yopmail.com |            |              | Automation Test | Automation Test Email Body |
     #329981
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -8136,8 +8147,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     And I navigate to "Messages" sub tab
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject             | From Address             | To Address                 | CC Address | Attention To | Email Subject       | Preview |
-      | Action menu | Automation Test PM1 | automationpo@yopmail.com | pm1.automation@yopmail.com |            |              | Automation Test PM1 |         |
+      | Actions     | Subject             | From Address             | To Address                 | CC Address | Attention To | Email Subject       | Preview                        |
+      | Action menu | Automation Test PM1 | automationpo@yopmail.com | pm1.automation@yopmail.com |            |              | Automation Test PM1 | Automation Test PM1 Email Body |
 
   @329982 @329983 @ValidateAnnouncementFOusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384 @SystemEmail @ExcludeSendEmail
   Scenario: Validate Announcement FO user should able to see "Attention To" Column under messages section in messages tab
@@ -8158,8 +8169,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject              | From Address              | To Address                  | CC Address | Attention To | Email Subject        | Preview |
-      | Action menu | Automation Test EXE1 | fo.automation@yopmail.com | exe1.automation@yopmail.com |            |              | Automation Test EXE1 |         |
+      | Actions     | Subject              | From Address              | To Address                  | CC Address | Attention To | Email Subject        | Preview                         |
+      | Action menu | Automation Test EXE1 | fo.automation@yopmail.com | exe1.automation@yopmail.com |            |              | Automation Test EXE1 | Automation Test EXE1 Email Body |
     #329983
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -8178,8 +8189,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject             | From Address             | To Address                 | CC Address | Attention To | Email Subject       | Preview |
-      | Action menu | Automation Test FO1 | automationfd@yopmail.com | fo1.automation@yopmail.com |            |              | Automation Test FO1 |         |
+      | Actions     | Subject             | From Address             | To Address                 | CC Address | Attention To | Email Subject       | Preview                        |
+      | Action menu | Automation Test FO1 | automationfd@yopmail.com | fo1.automation@yopmail.com |            |              | Automation Test FO1 | Automation Test FO1 Email Body |
 
   @329984 @ValidateforAnnouncementAdminusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384
   Scenario: Validate for Announcement Admin user should able to see "Attention To" Column under messages section in messages tab
@@ -8208,8 +8219,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject             | From Address                    | To Address                 | CC Address | Attention To | Email Subject       | Preview |
-      | Action menu | Automation Test FO1 | govgrantsautomation@yopmail.com | fo1.automation@yopmail.com |            |              | Automation Test FO1 |         |
+      | Actions     | Subject             | From Address                    | To Address                 | CC Address | Attention To | Email Subject       | Preview                        |
+      | Action menu | Automation Test FO1 | govgrantsautomation@yopmail.com | fo1.automation@yopmail.com |            |              | Automation Test FO1 | Automation Test FO1 Email Body |
 
   @329986 @ValidateforAnnouncementEXEusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384
   Scenario: Validate for Announcement EXE user should able to see "Attention To" Column under messages section in messages tab

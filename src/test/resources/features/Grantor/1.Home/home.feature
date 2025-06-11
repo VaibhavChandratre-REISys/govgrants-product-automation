@@ -128,14 +128,12 @@ Feature: Validate all scenarios in the home tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
-    #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
-    #And I save the contact name as "Automation Runtime Contact"
-    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
-    Then I see value "{SavedValue:Automation Runtime Contact} Contact" for title "Full Name" inside table "---home:-:reviewersTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
+    Then I see value "{SavedValue:Automation Runtime} Contact" for title "Full Name" inside table "---home:-:reviewersTableId---"
     Then I see value "New" for title "Status" inside table "---home:-:reviewersTableId---"
-    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
-    Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime Contact} Contact" in flex table with id "---home:-:reviewersTableId---"
-    Given I delete the record "{SavedValue:Automation Runtime Contact}" from the object "CONTACT"
+    When I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
+    Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---home:-:reviewersTableId---"
+    Given I delete the record "{SavedValue:Automation Runtime}" from the object "CONTACT"
     Examples:
       | User  |
       | ADMIN |
@@ -151,17 +149,16 @@ Feature: Validate all scenarios in the home tab
     And I enter "Creation" values from "PotentialReviewersContact_Field_Values.xlsx"
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
+    And I pause execution for "2" seconds
     When I click modal button "Save"
-#    And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
-#    And I save the contact name as "Automation Runtime Contact"
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
     #Bug441757
-    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
+    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
     And I pause execution for "5" seconds
     And I click "Send" button in modal
     Then I see the text "Email Sent Successfully" in modal
-    Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
+    Given I delete the record "{SavedValue:Automation Runtime} Contact" from the object "CONTACT"
 
     Examples:
       | User  |
@@ -179,12 +176,10 @@ Feature: Validate all scenarios in the home tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
-    #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
-#    And I save the contact name as "Automation Runtime Contact"
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
-    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
-    Then I can see row level action button "View" against "{SavedValue:Automation Runtime Contact} Contact" in flex table with id "---home:-:reviewersTableId---"
-    Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
+    When I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
+    Then I can see row level action button "View" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---home:-:reviewersTableId---"
+    Given I delete the record "{SavedValue:Automation Runtime} Contact" from the object "CONTACT"
     Examples:
       | User  |
       | ADMIN |
@@ -332,10 +327,8 @@ Feature: Validate all scenarios in the home tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
-    #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
-#    And I save the contact name as "Automation Runtime Contact"
-    And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
-    When I click on "Edit" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
+    When I click on "Edit" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
     And I click modal button "Save"
     Then I see value "New" for title "Status" inside table "---home:-:reviewersTableId---"
 
@@ -894,20 +887,18 @@ Feature: Validate all scenarios in the home tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
-    #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
-#    And I save the contact name as "Automation Runtime Contact"
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
-    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
+    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
     #Bug441757
     And I pause execution for "5" seconds
     And I click "Send" button in modal
     When I close "Reviewers" modal by clicking the top right x button
     When I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
     Then I see value "Invitation Sent" for title "Status" inside table "---home:-:reviewersTableId---"
-    Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
+    Given I delete the record "{SavedValue:Automation Runtime} Contact" from the object "CONTACT"
     Examples:
       | User  |
       | ADMIN |
@@ -925,19 +916,17 @@ Feature: Validate all scenarios in the home tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
-    #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
-#    And I save the contact name as "Automation Runtime Contact"
-    And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
-    Then I softly see value "{SavedValue:Automation Runtime Contact} Contact" for title "Full Name" inside table "---home:-:reviewersTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
+    Then I softly see value "{SavedValue:Automation Runtime} Contact" for title "Full Name" inside table "---home:-:reviewersTableId---"
     Then I softly see value "{SavedValue:uniqueEmailID}" for title "Email" inside table "---home:-:reviewersTableId---"
     Then I softly see value "New" for title "Status" inside table "---home:-:reviewersTableId---"
     Then I softly see value "Test Automation Organization" for title "Sponsoring Agency" inside table "---home:-:reviewersTableId---"
     #34674 #Bug441757
-    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
+    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
     And I pause execution for "5" seconds
     And I click "Send" button in modal
     Then I see the text "Email Sent Successfully" in modal
-    Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
+    Given I delete the record "{SavedValue:Automation Runtime} Contact" from the object "CONTACT"
 
   @201744 @201746 @201748 @ValidateSPIusershouldnotabletoeditfollowingfieldsFirstNameLastNameEmaildUserRolealreadyread-onlyonexternalprofileuser @sprint-5-US-200038
   Scenario Outline: Validate SPI user should not able to edit following fields a. First Name b. Last Name c. Email d. User Role already read-only on external profile user
