@@ -1425,7 +1425,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see field "Programs" as "12345" in "Programs / Functions / Activities" pageblock
     Then I softly see field "Functions" as "12345" in "Programs / Functions / Activities" pageblock
     Then I softly see field "Activities" as "12345" in "Programs / Functions / Activities" pageblock
-    Then I softly see field "Total Program Outlays To Date (As of Date)" as "{Date:M/d/yyyy::d+570}" in "Programs / Functions / Activities" pageblock
+    Then I softly see field "Total Program Outlays To Date" as "{Date:M/d/yyyy::d+570}" in "Programs / Functions / Activities" pageblock
     Then I softly see value "$12,345.00" for title "Programs" against the value "a. Total program outlays to date" inside table "---paymentRequest:-:sf270ComputationAmountTableId---"
     Then I softly see value "$12,345.00" for title "Functions" against the value "a. Total program outlays to date" inside table "---paymentRequest:-:sf270ComputationAmountTableId---"
     Then I softly see value "$12,345.00" for title "Activities" against the value "a. Total program outlays to date" inside table "---paymentRequest:-:sf270ComputationAmountTableId---"
