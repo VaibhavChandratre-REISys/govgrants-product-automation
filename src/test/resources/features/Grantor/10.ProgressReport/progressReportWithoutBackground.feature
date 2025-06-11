@@ -10535,9 +10535,9 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---riskassessment:-:completedTaskTableId---"
     Then I softly see value "Review Progress Report" for title "Task Type" inside table "---riskassessment:-:completedTaskTableId---"
 
-  @ValidateToCheckFlexSharingForAllTables
+  @ValidateToCheckFlexSharingForProgressReportAllTables
   Scenario: Validate To Check FlexSharing For All Tables
-    Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation EXE user" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
     When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Direct Award}" having object api name as "ProgressReports__c"
     And I login to "Grantor" app as "PM" user
@@ -10546,17 +10546,33 @@ Feature: Validate scenarios in Progress Report without background
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "{SavedValue:Automation Runtime Direct Award}" in "---progressReport:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside table
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---progressreport:-:GrantsSubAwardsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    And I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
+    And I click on "Upload Template" icon for "Progress Report" inside flex table with id "---progressreport:-:grantChecklistsTableId---" with wait for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "View" for title "Template Link" against the value "Progress Report" inside table "---progressreport:-:grantChecklistsTableId---"
+    And I save the value from row "3" for column name "Template Link" as "TemplateLink" from flex table "---progressreport:-:grantChecklistsTableId---"
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside flex table with id "---progressreport:-:GrantsSubAwardsTableId---" without waiting for record
+    When I navigate to "Performance" sub tab
+    And I save the value from row "1" for column name "EGMS ID" as "strategicPlanEGMSID" from flex table "GrantorAwardGoalsObjectives"
+    And I save the value from row "2" for column name "EGMS ID" as "objectiveEGMSID" from flex table "GrantorAwardGoalsObjectives"
+    And I save the value from row "1" for column name "Title" as "KPIEGMSID" from flex table "GrantorAwardKeyOutcomes"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" in the page details
     When I navigate to "Forms and Files" sub tab
+    Then I softly see value "{SavedValue:TemplateLink}" for title "Template Link" inside table "---progressReport:-:progressReportChecklistsTableId---"
+    And I click on hyperlink containing value "{SavedValue:TemplateLink}"
+    And I download the file
+    And I wait for "3" seconds
+    Then I softly verify that the file "govgrant.pdf" is downloaded
+    And I close the tab
+    And I wait for "2" seconds
+    And I click on "Edit" in the page details
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
@@ -10565,13 +10581,30 @@ Feature: Validate scenarios in Progress Report without background
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
+    Then I softly see value "View" for title "Subrecipient Document Link" against the value "Mandatory" inside table "---progressReport:-:progressReportChecklistsTableId---"
+    And I save the value from row "1" for column name "Subrecipient Document Link" as "SubrecipientDocumentLink" from flex table "---progressreport:-:progressReportChecklistsTableId---"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Performance" sub tab
+    Then I softly see value "{SavedValue:KPIEGMSID}" for title "Title" inside table "---progressReport:-:kpiTableId---"
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
+    Then I softly see value "{SavedValue:strategicPlanEGMSID}" for title "Title" inside table "AwardStrategicGoalsObjectives"
+    Then I softly see value "{SavedValue:objectiveEGMSID}" for title "Title" inside table "AwardStrategicGoalsObjectives"
+    And I click on hyperlink containing value "{SavedValue:strategicPlanEGMSID}"
+    Then I see the header is "Strategic Plan" in the page details
+    Then I see the sub-header is "Automation Permanent Strategic Plan" in the page details
+    And I wait for "2" seconds
+    And I click on back arrow
+    And I wait for "2" seconds
+    And I click on hyperlink containing value "{SavedValue:objectiveEGMSID}"
+    Then I see the header is "Objective" in the page details
+    Then I see the sub-header is "Automation Permanent Objective" in the page details
+    And I wait for "2" seconds
+    And I click on back arrow
+    And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -10593,7 +10626,7 @@ Feature: Validate scenarios in Progress Report without background
     When I save the value from row "2" for column name "Title" as "objectiveTitle" from flex table "---progressReport:-:objectivesTableId---"
     When I navigate to "Forms and Files" sub tab
     When I save the value from row "2" for column name "Required" as "checkList" from flex table "---progressReport:-:progressReportChecklistsTableId---"
-    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -10602,8 +10635,32 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Performance" sub tab
     Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---progressReport:-:kpiTableId---"
     Then I softly see value "{SavedValue:objectiveTitle}" for title "Title" inside table "---progressReport:-:objectivesTableId---"
+    And I click on hyperlink containing value "{SavedValue:strategicPlanEGMSID}"
+    Then I see the header is "Strategic Plan" in the page details
+    Then I see the sub-header is "Automation Permanent Strategic Plan" in the page details
+    And I wait for "2" seconds
+    And I click on back arrow
+    And I wait for "2" seconds
+    And I click on hyperlink containing value "{SavedValue:objectiveEGMSID}"
+    Then I see the header is "Objective" in the page details
+    Then I see the sub-header is "Automation Permanent Objective" in the page details
+    And I wait for "2" seconds
+    And I click on back arrow
+    And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "{SavedValue:checkList}" for title "Required" inside table "---progressReport:-:progressReportChecklistsTableId---"
+    And I click on hyperlink containing value "{SavedValue:TemplateLink}"
+    And I download the file
+    And I wait for "3" seconds
+    Then I softly verify that the file "govgrant.pdf" is downloaded
+    And I close the tab
+    And I wait for "2" seconds
+    And I click on hyperlink containing value "{SavedValue:SubrecipientDocumentLink}"
+    And I download the file
+    And I wait for "3" seconds
+    Then I softly verify that the file "govgrant.pdf" is downloaded
+    And I close the tab
+    And I wait for "2" seconds
     Then I softly cannot see top right button "Add Files" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"
     Then I softly see value "Other" for title "Classification" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"

@@ -1402,8 +1402,8 @@ Feature: Payment Request Forms scenarios
     Then I softly see field "4. Federal Grant or Other Identifying Number assigned by Federal Agency" as "123456789"
     Then I softly see field "5. Partial Payment Request Number for this Request" as "2121323223"
     Then I softly see field "7. Financial Assistance Identification Number" as "2121323223"
-    Then I softly see field "From" as "6/10/2026"
-    Then I softly see field "To" as "6/10/2027" in "8. Period Covered by this Request" pageblock
+    Then I softly see field "From" as "{Date:M/d/yyyy::d+1}"
+    Then I softly see field "To" as "{Date:M/d/yyyy::d+1}" in "8. Period Covered by this Request" pageblock
     Then I softly see field "Name" as "TEST Organization" in "9. Recipient Organization" pageblock
     Then I softly see field "Street1" as "123" in "9. Recipient Organization" pageblock
     Then I softly see field "Street2" as "Street 2" in "9. Recipient Organization" pageblock
