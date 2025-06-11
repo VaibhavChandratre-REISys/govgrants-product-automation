@@ -81,7 +81,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Construction    | 1000         | 10         | 90             |
     Then I see that "$10.00" has been added in flextable with Id "---subAwardStandAlone:-:subAwardBudgetTableId---"
 
-  @51134 @allObjectiveAssociation @TBE
+  @51134 @allObjectiveAssociation
   Scenario: Validate the association of Objective to Award
     When I navigate to "Performance" sub tab
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:objectivesTableId---"
@@ -267,7 +267,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @51147 @67814 @65491 @65415 @allSendToRecipientAndAcceptanceBySRBeforeApproval @smoke @TBE
+  @51147 @67814 @65491 @65415 @allSendToRecipientAndAcceptanceBySRBeforeApproval @smoke
   Scenario Outline: Validate the award send to recipient and acceptance by recipient before approval
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -472,7 +472,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @51142 @65492 @51143 @65798 @allSubmissionForApproval @allApproval @TBE
+  @51142 @65492 @51143 @65798 @allSubmissionForApproval @allApproval
   Scenario Outline: Validate award submission for approval and approval of award | To verify that the status of the subaward in SR side from sent to subrecipient to Accepted
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1122,7 +1122,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I save the total records from the flex table id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" as "totalRecords"
     Then I see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
 
-  @53911 @66200 @67817 @66318 @68036 @69318 @ValidateAdvancePaymentRequestcreation @TBE
+  @53911 @66200 @67817 @66318 @68036 @69318 @ValidateAdvancePaymentRequestcreation
   Scenario Outline: Advance Payment Request creation when Advance Payment Allowed selected as Yes
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1650,7 +1650,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66883 @errorIfKPITargetValueNotEnterBeforeSendToApproval @TBE
+  @66883 @errorIfKPITargetValueNotEnterBeforeSendToApproval
   Scenario Outline: To validate that if KPI value is not entered before approval it should give a validation error
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5273,7 +5273,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @68587 @verifySubrecepientCanEditAndSaveAward @smoke @TBE
+  @68587 @verifySubrecepientCanEditAndSaveAward @smoke
   Scenario Outline: Validate that Subaward sent to the Subrecipient can be Edited and Viewed by all the member of the Same Org and the Changes made must be affected in the Subaward of all profile.
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -6228,7 +6228,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66016 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnThe(PMUser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePageandcompareamountonpdf @TBE
+  @66016 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnThe(PMUser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePageandcompareamountonpdf
   Scenario Outline: Validate After “Accept After Approval ” Button Is Clicked On The (PMUser) View Noga Button Appears On The Top Right Corner Of The Page and compare amount on pdf
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -6473,7 +6473,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @349938 @VerifyPMusershouldseeBudgetedamountreadonlycolumnincreatedSenttoSrbeforeaapproval @sprint-15-US @TBE
+  @349938 @VerifyPMusershouldseeBudgetedamountreadonlycolumnincreatedSenttoSrbeforeaapproval @sprint-15-US
   Scenario: Verify PM user should see 'Budgeted amount' read only column in created, Sent to S/r before a approval
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"

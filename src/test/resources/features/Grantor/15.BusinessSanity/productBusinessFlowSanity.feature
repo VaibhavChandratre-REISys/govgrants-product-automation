@@ -759,7 +759,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     Then I softly see status in Progress-bar is "Published" and is "dark blue"
 
-  @72343_1 @publishingFormulaAnnouncementByApplicantFocusArea @ProdSan2
+  @72343_1 @publishingFormulaAnnouncementByApplicantFocusArea @ProdSan2 @TBE
   Scenario: Validate the activation of Formula By Applicant Focus Area Announcement and the status changes to published and is green
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1039,10 +1039,10 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     When I navigate to "Overview" sub tab
     And I click on "Publish" in the page details
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I softly see field "Status" as "Published"
 
-  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2
+  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2 @TBE
   Scenario: Validate the activation of Formula By Applicant Announcement and the status changes to published and is green
     When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -1116,6 +1116,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     And I click on "Publish" in the page details
+    And I wait for "5" seconds
     Then I softly see field "Status" as "Published"
 
   @72344 @preApplicationSubmittedToGrantor @ProdSan2
