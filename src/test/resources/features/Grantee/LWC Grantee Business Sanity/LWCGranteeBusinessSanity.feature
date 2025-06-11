@@ -2198,7 +2198,7 @@ Feature: Sanity scenarios
      And I wait for "2" seconds
      Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:progressReportFileTableId---"
      Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
-     Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id"---grantee_tableId:-:progressReportFileTableId---"
+     Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
      Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
      Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
      And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---"
@@ -2210,7 +2210,7 @@ Feature: Sanity scenarios
      And I refresh the page
      And I wait for "2" seconds
      Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:progressReportFileTableId---"
-     Then I softly see value "Financial Report" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
+     Then I softly see value "Progress Report" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
      When I click on parallel lines menu bar with data target value "Progress Report Files"
      And I wait for "2" seconds
      Then I see option "Refresh" present in parallel dropdown
