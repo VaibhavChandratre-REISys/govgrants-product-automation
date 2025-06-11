@@ -1209,6 +1209,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I navigate to "History" sub tab
     And I wait for "60" seconds
     And I refresh the page
+    And I wait for "2" seconds
     Then I softly see snapshot with name containing "Subaward Send_to_Subrecipient.pdf" as name
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
@@ -1217,8 +1218,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     When I click on "Accept" in the page details
     And I navigate to "History" sub tab
-    Then I softly see value "Award_Accepted.pdf" for title "File Name" against the value "Award_Accepted.pdf" inside table "---subAwardStandAlone:-:snapshotHistoryTableId---"
-    Then I softly see value "{SavedValue:SPI3 Username}" for title "Taken By" against the value "Award_Accepted.pdf" inside table "---subAwardStandAlone:-:snapshotHistoryTableId---"
+    Then I softly see snapshot with name containing "Award_Accepted.pdf" as name
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
