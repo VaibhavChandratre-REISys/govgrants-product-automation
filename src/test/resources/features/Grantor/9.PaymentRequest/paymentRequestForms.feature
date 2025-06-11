@@ -1443,6 +1443,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see field "Suffix" as "Jr." in "13. Certification" pageblock
     Then I softly see field "Title" as "Associate" in "13. Certification" pageblock
     Then I softly see field "Telephone (Area Code, Number, Extension)" as "(212) 234-2342" in "13. Certification" pageblock
+    And I click on "Edit" in the page details
     And I select below checkbox options for field "AdvanaceorReimbursement__c"
       | Reimbursement |
     And I enter value "Partial" into field "TypeOfRequest__c"
