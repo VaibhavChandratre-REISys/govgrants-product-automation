@@ -1207,7 +1207,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I switch to tab number "1"
     And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
+    And I click on "Save" in the page details
     And I wait for "3" seconds
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
