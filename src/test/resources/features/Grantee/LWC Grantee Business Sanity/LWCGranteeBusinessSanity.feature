@@ -12936,6 +12936,7 @@ Feature: Sanity scenarios
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
+    And I wait for "2" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     When I click on "Validate" in the page details
