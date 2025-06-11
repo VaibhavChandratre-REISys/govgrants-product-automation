@@ -48,8 +48,8 @@ public class setup {
     public void deleteMe() {
        if (StringUtils.containsIgnoreCase(EnvironmentFactory.getEnvironmentName(), "GRANTOR"))
             grantorWebServices.deleteRecordInHooks();
-       else if (StringUtils.containsIgnoreCase(EnvironmentFactory.getEnvironmentName(), "GRANTEE"))
-           granteeWebServices.deleteRecordInHooks();
+//       else if (StringUtils.containsIgnoreCase(EnvironmentFactory.getEnvironmentName(), "GRANTEE"))
+//           granteeWebServices.deleteRecordInHooks();
 //        It will deactivate the activated users.
         //ProjectWebServices.changeUserActivationStatus("automationinternal", false);
     }

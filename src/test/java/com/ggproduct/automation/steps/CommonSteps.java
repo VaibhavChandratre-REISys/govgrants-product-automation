@@ -121,10 +121,10 @@ public class CommonSteps {
         govgrants.perform().pageDetails().leftNavigationContaninigValue(actionIcon,leftNavigationButton);
     }
 
-    @And("^I delete the grantee record \"([^\"]*)\"$")
-    public void iDeleteTheRecord(String recordName) {
-        projectManager.deletionApiForGrantee(recordName);
-    }
+//    @And("^I delete the grantee record \"([^\"]*)\"$")
+//    public void iDeleteTheRecord(String recordName) {
+//        projectManager.deletionApiForGrantee(recordName);
+//    }
 
     @Then("^I (softly see|see) field with quotes \"(.*?)\" inside page block$")
     public void iSoftlySeeFieldWithQuotesOtherInsidePageBlock(String shouldBeDisplayed, String fieldLabel) {
