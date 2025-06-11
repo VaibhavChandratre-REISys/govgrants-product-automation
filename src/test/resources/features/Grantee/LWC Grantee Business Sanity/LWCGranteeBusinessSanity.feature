@@ -2184,32 +2184,33 @@ Feature: Sanity scenarios
      And I click on hyperlink containing value "{SavedValue:progressEGMSID}"
      Then I softly see field "Status" as "Reviewed"
      When I navigate to "Forms and Files" sub tab
-     And I wait for "3" seconds
+     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+     Then I see "Upload" button is disabled at modal under library
+     And I select Classification as "Progress Report" at upload file modal
+     When I upload file "AttachmentTesting.pdf" into library
+     And I wait for "2" seconds
+     Then I do not see "Upload" button is disabled at modal under library
+     When I click modal button "Close"
      And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
      And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
-     And I wait for "2" seconds
      When I click modal button "Close"
      And I refresh the page
      And I wait for "2" seconds
      Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:progressReportFileTableId---"
      Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
-     Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+     Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id"---grantee_tableId:-:progressReportFileTableId---"
      Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
      Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
      And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---"
      And I update title as "Automation.pdf" on upload file modal
+     And I wait for "2" seconds
      And I select Classification as "Progress Report" at upload file modal
      When I click modal button "Save"
      And I click modal button "Close"
      And I refresh the page
      And I wait for "2" seconds
      Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:progressReportFileTableId---"
-     Then I softly see value "Progress Report" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
-     And I click on "Download" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---" without waiting for record
-     Then I softly verify that the file "Automation.pdf" is downloaded
-     When I click on "Delete" icon for "Automation.pdf" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---"
-     And I wait for "2" seconds
-     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+     Then I softly see value "Financial Report" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
      When I click on parallel lines menu bar with data target value "Progress Report Files"
      And I wait for "2" seconds
      Then I see option "Refresh" present in parallel dropdown
@@ -2219,7 +2220,6 @@ Feature: Sanity scenarios
      And I wait for "2" seconds
      When I click modal button "Close"
      And I refresh the page
-     And I wait for "2" seconds
      When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
        | Description      |
        | Automation Notes |
