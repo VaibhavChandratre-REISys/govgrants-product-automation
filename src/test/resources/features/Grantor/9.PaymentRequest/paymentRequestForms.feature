@@ -1435,7 +1435,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see field "12c. Amount Requested (Line 12a minus line 12b)" as "$0.00" in "12. Alternate Computation for Advances Only" pageblock
     Then I softly see field "Acknowledgement" as "checked"
     Then I softly see field "Signature of Authorized Certifying official" as "John Mathews" in "13. Certification" pageblock
-    Then I softly see field "Date Request Submitted" as "6/10/2025" in "13. Certification" pageblock
+    Then I softly see field "Date Request Submitted" as "{Date:M/d/yyyy::d+0}" in "13. Certification" pageblock
     Then I softly see field "Prefix" as "Mr." in "13. Certification" pageblock
     Then I softly see field "First Name" as "John" in "13. Certification" pageblock
     Then I softly see field "Middle Name" as "Andrew" in "13. Certification" pageblock
