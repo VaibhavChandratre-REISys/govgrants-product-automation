@@ -1147,7 +1147,6 @@ Feature: Validate sanity testing of Complete Business Flow
       | Construction  | 5000   | 5000       | 50             | 100            |
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
