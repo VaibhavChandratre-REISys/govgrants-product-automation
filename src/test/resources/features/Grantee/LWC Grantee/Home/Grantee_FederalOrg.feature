@@ -169,7 +169,7 @@ Feature: Validate all scenarios for Federal Organization
     When I navigate to "History" sub tab
     Then I softly see "Snapshot History" page block displayed
 
-  @461002 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg
+  @461002 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg @P3_Grantee @PO_Grantee @GRegression3
   Scenario Outline: Validate Federal PO user should see all fields and section on federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
