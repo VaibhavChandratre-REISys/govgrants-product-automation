@@ -10538,8 +10538,6 @@ Feature: Validate scenarios in Progress Report without background
   @ValidateToCheckFlexSharingForProgressReportAllTables
   Scenario: Validate To Check FlexSharing For All Tables
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
-    Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
-    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Direct Award}" having object api name as "ProgressReports__c"
     And I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -10560,21 +10558,23 @@ Feature: Validate scenarios in Progress Report without background
     And I save the value from row "2" for column name "EGMS ID" as "objectiveEGMSID" from flex table "GrantorAwardGoalsObjectives"
     And I save the value from row "1" for column name "Title" as "KPIEGMSID" from flex table "GrantorAwardKeyOutcomes"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Direct Award}" having object api name as "ProgressReports__c"
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "{SavedValue:TemplateLink}" for title "Template Link" inside table "---progressReport:-:progressReportChecklistsTableId---"
-    And I click on hyperlink containing value "{SavedValue:TemplateLink}"
-    And I download the file
+    And I click on hyperlink for the field "ContentVersionLink__c" containing value "{SavedValue:TemplateLink}"
+    And I download the file without rename
     And I wait for "3" seconds
-    Then I softly verify that the file "govgrant.pdf" is downloaded
+    Then I softly verify that the file "Attachment.pdf" is downloaded
     And I close the tab
     And I wait for "2" seconds
     And I click on "Edit" in the page details
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
-    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on "Save" in the page details
@@ -10649,16 +10649,16 @@ Feature: Validate scenarios in Progress Report without background
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "{SavedValue:checkList}" for title "Required" inside table "---progressReport:-:progressReportChecklistsTableId---"
-    And I click on hyperlink containing value "{SavedValue:TemplateLink}"
-    And I download the file
+    And I click on hyperlink for the field "ContentVersionLink__c" containing value "{SavedValue:TemplateLink}"
+    And I download the file without rename
     And I wait for "3" seconds
-    Then I softly verify that the file "govgrant.pdf" is downloaded
+    Then I softly verify that the file "Attachment.pdf" is downloaded
     And I close the tab
     And I wait for "2" seconds
-    And I click on hyperlink containing value "{SavedValue:SubrecipientDocumentLink}"
-    And I download the file
+    And I click on hyperlink for the field "ContentVersionSubrecipientLink__c" containing value "{SavedValue:SubrecipientDocumentLink}"
+    And I download the file without rename
     And I wait for "3" seconds
-    Then I softly verify that the file "govgrant.pdf" is downloaded
+    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
     And I close the tab
     And I wait for "2" seconds
     Then I softly cannot see top right button "Add Files" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"

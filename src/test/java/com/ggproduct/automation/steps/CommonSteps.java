@@ -14,6 +14,8 @@ import jdk.jfr.Description;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
+import java.io.File;
+
 public class CommonSteps {
     ProjectManager projectManager;
 
@@ -155,6 +157,18 @@ public class CommonSteps {
     @And("I click on {string} button for snapshot view")
     public void iClickOnButtonForSnapshotView(String buttonName) {
         projectManager.clickOnuttonForSnapshotView(buttonName);
+    }
+
+    @And("I click on hyperlink for the field {string} containing value {string}")
+    public void iClickOnHyperlinkForTheFieldContainingValue(String fieldAPIName, String Value) {
+        projectManager.clickOnHyperlinkForTheFieldContainingValue(fieldAPIName, Value);
+    }
+
+    @And("I download the file without rename")
+    public void iDownloadTheFileWithoutRename() {
+        I.amPerforming().fileHandling().DownloadAnyFilefromTab();
+        File targetDir = new File(System.getProperty("user.dir") + File.separator + "target");
+        I.amPerforming().waitFor().makeThreadSleep(2000);
     }
 }
 

@@ -1025,8 +1025,8 @@ public final class FlexTable implements FlexTableComponent {
      * @author aashish p.
      * @modifier saranjit.modak added xpath
      */
-    public void clickOnLinkInsideTable(String tableId, String linkText) {
-        I.amPerforming().click().on(By.xpath("//*[@id='" + tableId + "']//a[contains(text(),'" + linkText + "')]|//*[@id='" + tableId + "']//span[contains(text(),'" + linkText + "')]"));
+    public void clickOnLinkInsideTable(String tableId, String linkText, String title) {
+        I.amPerforming().click().on(By.xpath(" "));
     }
 
 

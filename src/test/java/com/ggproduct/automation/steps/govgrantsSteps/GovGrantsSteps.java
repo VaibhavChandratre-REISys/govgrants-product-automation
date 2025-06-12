@@ -885,8 +885,8 @@ public final class GovGrantsSteps {
     }
 
     @And("^I click on Link containing value \"([^\"]*)\" in flex table id \"([^\"]*)\"$")
-    public void clickOnLink(String linkText, String tableId) {
-        govgrants.perform().flexTable().clickOnLinkInsideTable(tableId, linkText);
+    public void clickOnLink(String linkText, String tableId, String title) {
+        govgrants.perform().flexTable().clickOnLinkInsideTable(tableId, linkText, title);
     }
 
     @When("^I hovering mouse on enhanced charts id \"([^\"]*)\" and charts type \"([^\"]*)\"$")
