@@ -7449,7 +7449,7 @@ Feature: Payment Request scenarios without background
     And I wait for "2" seconds
     Then I softly can see top right button "Add Files" in flex table with id "---paymentRequest:-:advanceFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---paymentRequest:-:advanceFilesTableId---"
-    Then I softly see value "Others" for title "Classification" inside table "---paymentRequest:-:advanceFilesTableId---"
+    Then I softly see value "Invoice" for title "Classification" inside table "---paymentRequest:-:advanceFilesTableId---"
     Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---paymentRequest:-:advanceFilesTableId---"
     Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---paymentRequest:-:advanceFilesTableId---"
     Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---paymentRequest:-:advanceFilesTableId---"
