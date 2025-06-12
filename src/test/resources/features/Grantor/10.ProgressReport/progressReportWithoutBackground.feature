@@ -10572,12 +10572,10 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly verify that the file "Attachment.pdf" is downloaded
     And I close the tab
     And I wait for "2" seconds
-    And I click on "Edit" in the page details
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
