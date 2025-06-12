@@ -25248,4 +25248,4 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Actuals" sub tab
     Then I softly see field "Spent" as "$500.00"
     Then I softly see field "Balance" as "$500.00"
-    Then I softly see value "$500.00" for title "Spent" against the value "Construction" inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
+    Then I softly see value "$500.00" for title "Spent" against the value "Construction" inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---" 
