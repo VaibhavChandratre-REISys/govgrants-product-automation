@@ -7401,7 +7401,7 @@ Feature: Payment Request scenarios without background
     And I close the tab
     And I wait for "2" seconds
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "AttachmentTesting.pdf" of type "Others" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "View" for title "Subrecipient Document Link" inside table "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---"
@@ -7449,7 +7449,7 @@ Feature: Payment Request scenarios without background
     And I wait for "2" seconds
     Then I softly can see top right button "Add Files" in flex table with id "---paymentRequest:-:advanceFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---paymentRequest:-:advanceFilesTableId---"
-    Then I softly see value "Other" for title "Classification" inside table "---paymentRequest:-:advanceFilesTableId---"
+    Then I softly see value "Others" for title "Classification" inside table "---paymentRequest:-:advanceFilesTableId---"
     Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---paymentRequest:-:advanceFilesTableId---"
     Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---paymentRequest:-:advanceFilesTableId---"
     Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---paymentRequest:-:advanceFilesTableId---"
