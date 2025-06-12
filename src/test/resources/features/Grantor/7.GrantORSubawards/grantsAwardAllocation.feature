@@ -25358,8 +25358,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see value "$100.00" for title "Non-Cash Match" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     And I wait for "2" seconds
-    Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "AwardLineItems"
-    Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "AwardLineItems"
+    Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "AwardLineItems"
+    Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "AwardLineItems"
     Then I softly see value "$1,000.00" for title "Award Amount" against the value "Extra Salary" inside table "AwardLineItems"
     Then I softly see value "$100.00" for title "Cash Match" against the value "Extra Salary" inside table "AwardLineItems"
     Then I softly see value "$100.00" for title "Non-Cash Match" against the value "Extra Salary" inside table "AwardLineItems"
