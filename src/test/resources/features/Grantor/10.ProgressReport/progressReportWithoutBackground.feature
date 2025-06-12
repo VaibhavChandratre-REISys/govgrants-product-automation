@@ -10625,7 +10625,7 @@ Feature: Validate scenarios in Progress Report without background
     When I save the value from row "1" for column name "Title" as "KPITitle" from flex table "---progressReport:-:kpiTableId---"
     When I save the value from row "2" for column name "Title" as "objectiveTitle" from flex table "---progressReport:-:objectivesTableId---"
     When I navigate to "Forms and Files" sub tab
-    When I save the value from row "2" for column name "Required" as "checkList" from flex table "---progressReport:-:progressReportChecklistsTableId---"
+    When I save the value from row "1" for column name "Required" as "checkList" from flex table "---progressReport:-:progressReportChecklistsTableId---"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

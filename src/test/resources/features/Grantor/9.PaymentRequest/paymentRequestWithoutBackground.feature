@@ -7269,3 +7269,23 @@ Feature: Payment Request scenarios without background
     When I click on "Submit to Grantor" in the page details
     Then I see the following messages in the page details contains:
       | Files Tab - Complete each mandatory item listed in the checklist before submitting this Payment Request. |
+
+  @ValidateFlexSharingRelatedScenarioForPaymentrequestAllTables
+  Scenario: Validate FlexSharing Related Scenario For Payment Request All Tables
+    Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
+    And I login to "Grantor" app as "PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Direct Award}" in "---progressReport:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside table
+    And I navigate to "Files" sub tab
+    And I click on "Upload Template" icon for "Advance Request" inside flex table with id "---progressreport:-:grantChecklistsTableId---" with wait for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "View" for title "Template Link" against the value "Advance Request" inside table "---progressreport:-:grantChecklistsTableId---"
+    And I save the value from row "4" for column name "Template Link" as "TemplateLink" from flex table "---progressreport:-:grantChecklistsTableId---"
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside flex table with id "---progressreport:-:GrantsSubAwardsTableId---" without waiting for record
+    And I halt execution
