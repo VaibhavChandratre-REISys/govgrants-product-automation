@@ -646,7 +646,7 @@ Feature: Validate all scenarios of grants and award with undo
     And I navigate to "History" sub tab
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
 
-  @286441 @sprint-1-US-295145  @Undo
+  @286441 @sprint-1-US-295145  @Undo @TBE
   Scenario:Verify PO  as step 2 approver if I click on Undo button then approved award  task got in cancelled from completed task table of approver
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -1754,7 +1754,7 @@ Feature: Validate all scenarios of grants and award with undo
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:completeTaskTableId---" panel
     Then I softly see value "Completed" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---subAwardStandAlone:-:completeTaskTableId---"
 
-  @286517 @sprint-1-US-295145  @Undo
+  @286517 @sprint-1-US-295145  @Undo @TBE
   Scenario: Verify step 4 approver can sent to owner the award after click on Undo button and update the approver on award so Undo will display to updated approver after approved the award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
