@@ -1216,8 +1216,9 @@ Feature: Grantee Forms Scenario
     And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
-    And I wait for "3" seconds
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
+    And I wait for "3" seconds
     When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
       | Name       | Application |
       | Grantee PO | Step 1      |
