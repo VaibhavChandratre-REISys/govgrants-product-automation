@@ -11412,7 +11412,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE ADMIN |
 
   @440272 @VerifyWithAdminProfileAbletocreateActivateDeactivethefocusarea @Grantee_Smoke2
-  Scenario: Verify With Admin Profile ,Able to create/Activate/Deactive  the focus area.
+  Scenario: Verify With Admin Profile ,Able to create/Activate/Deactive the focus area.
     When I login to "As a Grantee" app as "GRANTEE ADMIN" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
