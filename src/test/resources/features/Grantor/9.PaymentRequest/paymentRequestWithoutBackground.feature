@@ -7352,6 +7352,8 @@ Feature: Payment Request scenarios without background
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see value "View" for title "Template Link" against the value "Advance Request" inside table "---progressreport:-:grantChecklistsTableId---"
     And I save the value from row "4" for column name "Template Link" as "TemplateLink" from flex table "---progressreport:-:grantChecklistsTableId---"
     When I navigate to "Subawards" sub tab
