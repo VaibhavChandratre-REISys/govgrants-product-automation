@@ -7347,6 +7347,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:Automation Runtime Direct Award}" in "---progressReport:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside table
     And I navigate to "Files" sub tab
+    And I wait for "2" seconds
     And I click on "Upload Template" icon for "Advance Request" inside flex table with id "---progressreport:-:grantChecklistsTableId---" with wait for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
@@ -7355,4 +7356,102 @@ Feature: Payment Request scenarios without background
     And I save the value from row "4" for column name "Template Link" as "TemplateLink" from flex table "---progressreport:-:grantChecklistsTableId---"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside flex table with id "---progressreport:-:GrantsSubAwardsTableId---" without waiting for record
-    And I halt execution
+    And I navigate to "Budget" sub tab
+    And I save the value from row "1" for column name "EGMS ID" as "fundingAccountId" from flex table "---subAwardStandAlone:-:fundingAccountsTableId---"
+    And I save the value from row "1" for column name "Encumbrance" as "Encumbrance" from flex table "---subAwardStandAlone:-:fundingAccountsTableId---"
+    Then I softly see value "$1,000.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    Then I softly see value "$100.00" for title "Cash Match" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    Then I softly see value "$100.00" for title "Non-Cash Match" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    Then I softly see value "$200.00" for title "Total Match" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    Then I softly see value "$1,200.00" for title "Total Project Cost" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Direct Award}" in "---paymentRequest:-:recipientGrantTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    When I navigate to "Actuals" sub tab
+    And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
+    When I enter value "Automation Runtime Payment Request" into field "Title__c"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "PayreqId"
+    And I navigate to "Financials" sub tab
+    And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
+      | Budget Category | Advance Requested This Action |
+      | Construction    | 10                            |
+    Then I softly see value "$1,000.00" for title "Awarded Budget" against the value "Construction" inside table "---paymentRequest:-:budgetTableId---"
+    Then I softly see value "$1,000.00" for title "Subaward Balance" against the value "Construction" inside table "---paymentRequest:-:budgetTableId---"
+    Then I softly see value "$1,000.00" for title "Advance Request Balance" against the value "Construction" inside table "---paymentRequest:-:budgetTableId---"
+    Then I softly see value "$10.00" for title "Advance Requested This Action" against the value "Construction" inside table "---paymentRequest:-:budgetTableId---"
+    Then I softly see value "$10.00" for title "Total Advance" against the value "Construction" inside table "---paymentRequest:-:budgetTableId---"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "{SavedValue:TemplateLink}" for title "Template Link" inside table "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---"
+    And I click on hyperlink for the field "ContentVersionLink__c" containing value "{SavedValue:TemplateLink}"
+    And I download the file without rename
+    And I wait for "3" seconds
+    Then I softly verify that the file "Attachment.pdf" is downloaded
+    And I close the tab
+    And I wait for "2" seconds
+    When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
+    And I upload attachment "AttachmentTesting.pdf" of type "Others" from computer
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "View" for title "Subrecipient Document Link" inside table "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---"
+    And I save the value from row "1" for column name "Subrecipient Document Link" as "SubrecipientDocumentLink" from flex table "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---"
+    And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    When I enter the following values into flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    When I click on "Submit to Grantor" in the page details
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:PayreqId}" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Financials" sub tab
+    Then I softly see value "{SavedValue:fundingAccountId}" for title "Funding Account" inside table "---paymentRequest:-:fundingAccountsAdvTableId---"
+    Then I softly see value "{SavedValue:Encumbrance}" for title "Encumbrance Balance" inside table "---paymentRequest:-:fundingAccountsAdvTableId---"
+    And I click on hyperlink containing value "{SavedValue:fundingAccountId}"
+    Then I see the header is "Funding Account" in the page details
+    Then I see the sub-header is "Automation Permanent Funding Account" in the page details
+    And I wait for "2" seconds
+    And I click on back arrow
+    And I wait for "2" seconds
+    Then I softly see value "$1,000.00" for title "Awarded Budget" against the value "Construction" inside table "---paymentRequest:-:budgetTableId---"
+    Then I softly see value "$1,000.00" for title "Subaward Balance" against the value "Construction" inside table "---paymentRequest:-:budgetTableId---"
+    Then I softly see value "$1,000.00" for title "Advance Request Balance" against the value "Construction" inside table "---paymentRequest:-:budgetTableId---"
+    Then I softly see value "$10.00" for title "Advance Requested This Action" against the value "Construction" inside table "---paymentRequest:-:budgetTableId---"
+    Then I softly see value "$10.00" for title "Total Advance" against the value "Construction" inside table "---paymentRequest:-:budgetTableId---"
+    When I navigate to "Forms and Files" sub tab
+    And I click on hyperlink for the field "ContentVersionLink__c" containing value "{SavedValue:TemplateLink}"
+    And I download the file without rename
+    And I wait for "3" seconds
+    Then I softly verify that the file "Attachment.pdf" is downloaded
+    And I close the tab
+    And I wait for "2" seconds
+    And I click on hyperlink for the field "ContentVersionSubrecipientLink__c" containing value "{SavedValue:SubrecipientDocumentLink}"
+    And I download the file without rename
+    And I wait for "3" seconds
+    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
+    And I close the tab
+    And I wait for "2" seconds
+    Then I softly can see top right button "Add Files" in flex table with id "---paymentRequest:-:advanceFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---paymentRequest:-:advanceFilesTableId---"
+    Then I softly see value "Other" for title "Classification" inside table "---paymentRequest:-:advanceFilesTableId---"
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---paymentRequest:-:advanceFilesTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---paymentRequest:-:advanceFilesTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---paymentRequest:-:advanceFilesTableId---"
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---paymentRequest:-:advanceFilesTableId---"
+    Then I softly can see top right button "New" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
+    Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
+    Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
