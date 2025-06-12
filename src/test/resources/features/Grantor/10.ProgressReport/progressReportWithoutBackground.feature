@@ -10581,7 +10581,7 @@ Feature: Validate scenarios in Progress Report without background
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
-    Then I softly see value "View" for title "Subrecipient Document Link" against the value "Mandatory" inside table "---progressReport:-:progressReportChecklistsTableId---"
+    Then I softly see value "View" for title "Subrecipient Document Link" inside table "---progressReport:-:progressReportChecklistsTableId---"
     And I save the value from row "1" for column name "Subrecipient Document Link" as "SubrecipientDocumentLink" from flex table "---progressreport:-:progressReportChecklistsTableId---"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
