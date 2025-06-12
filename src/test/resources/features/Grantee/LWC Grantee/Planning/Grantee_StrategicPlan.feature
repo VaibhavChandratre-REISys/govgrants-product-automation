@@ -132,7 +132,7 @@ Feature: Validate all scenarios for Strategic Plan
       | User            | RecordId                            |
       | GRANTEE AUDITOR | Automation Permanent Strategic Plan |
 
-  @476594 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate
+  @476594 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate @TBE
   Scenario Outline: Strategic Plan - Verify PO as Non owner user cannot edit any data on Strategic plan record created by PM user when SP is in Created, Active state
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab
@@ -387,7 +387,7 @@ Feature: Validate all scenarios for Strategic Plan
       | User          | RecordId                            |
       | GRANTEE PO    | Automation Permanent Strategic Plan |
 
-  @476595 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate
+  @476595 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate @TBE
   Scenario Outline: Strategic Plan - Verify PM as Non owner user cannot edit any data on Strategic plan record created by PM user when SP is in Created, Active state
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab
@@ -642,7 +642,7 @@ Feature: Validate all scenarios for Strategic Plan
       | User          | RecordId                            |
       | GRANTEE PM    | Automation Permanent Strategic Plan |
 
-  @476596 @476597 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate
+  @476596 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate @TBE
   Scenario Outline: Strategic Plan - Verify FO as Non owner user cannot edit any data on Strategic plan record created by PM user when SP is in Created, Active state
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab

@@ -182,7 +182,7 @@ Feature: Validate all scenarios for Federal Organization
     Then I see the sub-header is "Agency For International Development" in the page details
     Then I softly see field "Parent Organization" as "NA"
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Related Log" sub tab at view detail page
@@ -319,6 +319,7 @@ Feature: Validate all scenarios for Federal Organization
     Then I can see row level action button "Edit" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     Then I can see row level action button "Download" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     And I click on "Delete" icon for "<attachment>" inside flex table with id "---grantee_tableId:-:federalFilesTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I see the following messages in the page details :
       | File <attachment> deleted successfully. |
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:fedNotesTableId---"
