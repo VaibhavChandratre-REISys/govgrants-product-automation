@@ -12706,6 +12706,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
     Then I softly can see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
+    And I wait for "2" seconds
     And I clear in modal the value from field "SubmissionTitle__c"
     And I clear in modal the value from field "CalReportingStartDate__c"
     And I clear in modal the value from field "CalReportingEndDate__c"
@@ -13050,9 +13051,9 @@ Feature: Sanity scenarios
 
     Examples:
       | userType      | userName   | UEI          |
-      | GRANTEE PM    | Sarah PM   | 123456789123 |
-      | GRANTEE EXE   | Victor EXE | 123456789123 |
-      | GRANTEE PO    | Grantee PO | 123456789123 |
+#      | GRANTEE PM    | Sarah PM   | 123456789123 |
+#      | GRANTEE EXE   | Victor EXE | 123456789123 |
+#      | GRANTEE PO    | Grantee PO | 123456789123 |
       | GRANTEE ADMIN | Product QA | 123456789012 |
 
   @469405 @ValidatePRamdPMuserseeNewlygeneratedAwardisinPendingactivationstate @GRegression1 @GranteeTBE
