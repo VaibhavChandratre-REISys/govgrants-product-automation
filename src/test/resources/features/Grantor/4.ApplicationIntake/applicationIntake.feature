@@ -141,7 +141,7 @@ Feature: Validate all scenarios in the Application Intake
     When I click toggle button to select "Applications - Submitted"
     When I perform quick search for "<Application Name>" in "---applicationIntake:-:recipientApplications---" panel
     Then I softly see "<Application Name>" inside flex table with id "---applicationIntake:-:recipientApplications---"
-    Given I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
+    Given I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -306,7 +306,7 @@ Feature: Validate all scenarios in the Application Intake
     When I click on "Submit Application" in the page details
     And I navigate to "Overview" sub tab
     Then I softly see field "Submitted By" as "{SavedValue:SPI3 Username}"
-    Given I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    Given I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"

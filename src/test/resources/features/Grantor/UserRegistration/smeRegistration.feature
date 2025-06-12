@@ -3,7 +3,7 @@ Feature: Validate all scenarios for SME Registration
 
   @34872 @34840 @VerifyPageDetailsOnRegistrationStep1of1-SMEReviewerRegistration @smoke
   Scenario: Validate all expected fields are getting populated on page of Registration Step 1 of 1 while SME reviewer registration
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
@@ -36,7 +36,7 @@ Feature: Validate all scenarios for SME Registration
 
   @34991 @VerifySubjectMatterExpertFieldsDetails-SMEReviewerRegistration @smoke
   Scenario: Validate filled details of subject matter expert fields on page of Registration Step 1 of 1
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
@@ -66,7 +66,7 @@ Feature: Validate all scenarios for SME Registration
 
   @34834 @34836 @34831 @VerifyCreatedSMEUserDetails-SMEReviewerRegistration @smoke
   Scenario: Validate created SME user details on modal after clicking on view row level action
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
@@ -91,7 +91,7 @@ Feature: Validate all scenarios for SME Registration
     When I click modal button "Close"
     When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---grantor_tableId:-:PotentialReviewerContactTableId---" panel
     Then I softly see value "Invitation Sent" for title "Status" inside table "---grantor_tableId:-:PotentialReviewerContactTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---grantor_tableId:-:PotentialReviewerContactTableId---" panel
@@ -104,7 +104,7 @@ Feature: Validate all scenarios for SME Registration
 
   @35013 @VerifyCreatedSMEUserAtActivePartneruser-SMEReviewerRegistration @smoke  @wip
   Scenario: Validate created SME user should get reflected at salesforce page inside Active Partnet usersall expected fields are getting populated on page of Registration Step 1 of 1 while SME reviewer registration
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "{grantor_sidebar:smeReviewer}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
@@ -130,7 +130,7 @@ Feature: Validate all scenarios for SME Registration
 
   @33847 @VerifyInternalSubricepientAndSMEReviewerContact
   Scenario: Validate user is able to see all expected contacts
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
     When I perform quick search for "Automation PM" in "{grantor_tableId:InternalContactsTableId}" panel
@@ -145,7 +145,7 @@ Feature: Validate all scenarios for SME Registration
 
   @33837 @VerifySystemDisplayAllRelatedTasks
   Scenario: Validate user is able to see all expected contacts
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "{grantor_sidebar:PendingTaskLink}" content inside "{grantor_sidebar:MyTasksLinkName}" subheader on left panel
     Then I softly see "Pending Tasks (Assigned To Me)" page block displayed
@@ -161,7 +161,7 @@ Feature: Validate all scenarios for SME Registration
 
   @94345 @validatingEmailNotificationForSMEReviewer
   Scenario: To verify Email notification should be received to SME contact after sending invitation by internal  user
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I enter in modal "smeReviewerRegistration" values from "Registration_Field_Values.xlsx"
@@ -183,7 +183,7 @@ Feature: Validate all scenarios for SME Registration
 
   @35012 @VerifySMEReviewerDetailPage-SMEReviewerRegistration @wip @smoke   @onhold
   Scenario: Validate all details of created Sme Reviewer
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "{grantor_sidebar:smeReviewer}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"

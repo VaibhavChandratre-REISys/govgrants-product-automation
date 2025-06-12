@@ -17,7 +17,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When I click on "Save" in the page details
     And I wait for "2" seconds
     And I get the "EGMS ID"
-    Given I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    Given I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -29,7 +29,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-    Given I login to "As a Grantor" app as "Auditor" user
+    Given I login to "Grantor" app as "Auditor" user
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
@@ -42,7 +42,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
@@ -70,7 +70,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | Automation Negotiation Iniatiation | ApplicantResponse__c |
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "Auditor" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Auditor" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Negotiations" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:negotiationPendingTaskTableId---" panel
@@ -81,7 +81,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-    Given I login to "As a Grantor" app as "Auditor" user
+    Given I login to "Grantor" app as "Auditor" user
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
@@ -134,7 +134,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
-    When I re-login to "As a Grantor" app as "Auditor" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Auditor" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -193,7 +193,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
-    When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -242,7 +242,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I wait for "5" seconds
-    Given I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    Given I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -262,7 +262,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"

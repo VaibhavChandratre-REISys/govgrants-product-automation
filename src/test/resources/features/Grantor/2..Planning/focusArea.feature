@@ -3,7 +3,7 @@ Feature: Validate all scenarios in Focus Area
 
   @34512 @creationOfFocusArea @smoke @training
   Scenario: Creation of Focus Area by User - Admin/EXE/PM
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
@@ -13,7 +13,7 @@ Feature: Validate all scenarios in Focus Area
 
   @50963 @editionOfFocusArea
   Scenario: Edition of Focus Area by User - Admin/EXE/PM
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
@@ -25,7 +25,7 @@ Feature: Validate all scenarios in Focus Area
 
   @50961 @addAttachmentToFocusArea
   Scenario Outline: Addition of Attachment to Focus Area by User - Admin/EXE/PM
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
@@ -54,7 +54,7 @@ Feature: Validate all scenarios in Focus Area
 
   @34729 @activateFocusArea @smoke
   Scenario: Activate Focus Area by User - Admin/EXE/PM
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
@@ -66,14 +66,14 @@ Feature: Validate all scenarios in Focus Area
 
   @52455 @creationOFFocusAreaFOUser
   Scenario: Negative Scenario-Verify that FO is not able to create focus area
-    Given I login to "As a Grantor" app as "FO" user
+    Given I login to "Grantor" app as "FO" user
     When I navigate to "Planning" tab
     And I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     Then  I cannot see top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
 
   @53219 @userFOEditfocusArea
   Scenario: Negative Case-Verfiy that FO user cannot Edit  the record
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
@@ -81,7 +81,7 @@ Feature: Validate all scenarios in Focus Area
     When I click modal button "Save and Continue"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click toggle button to select "Focus Areas - Draft"
@@ -90,14 +90,14 @@ Feature: Validate all scenarios in Focus Area
 
   @52620 @userFODeletefocusArea
   Scenario: Negative Case-Verfiy that FO user cannot Delete the record
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
     When I enter value "Automation Runtime Focus Area" into field "Title__c"
     When I click modal button "Save and Continue"
     When I click on "Save" in the page details
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click toggle button to select "Focus Areas - Draft"
@@ -106,7 +106,7 @@ Feature: Validate all scenarios in Focus Area
 
   @53220 @deactivatingfocusArea
   Scenario: Verfiy deactivating focus area by user - Admin/EXE/PM
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
@@ -120,7 +120,7 @@ Feature: Validate all scenarios in Focus Area
 
   @53221 @foUserdeactivatingfocusArea
   Scenario: Negative Case- Verfiy that other users (other than Admin, EXE, PM) can not deactivate focus area
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
@@ -130,7 +130,7 @@ Feature: Validate all scenarios in Focus Area
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     When I click on "Activate" in the page details
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click toggle button to select "Focus Areas - Active"
@@ -140,7 +140,7 @@ Feature: Validate all scenarios in Focus Area
 
   @52476 @closedfocusAreaListView
   Scenario: Verfiy that user can see Closed Focus Area under Inactive Focus Area list view (Admin/EXE/PM)
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
@@ -162,7 +162,7 @@ Feature: Validate all scenarios in Focus Area
   @106643 @109276 @VerifyAssociatedFocusAreaAtRlatedGrantRecord
   Scenario: Validate user should be able to see associated focus area at grant record for program
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I pause execution for "3" seconds
@@ -184,7 +184,7 @@ Feature: Validate all scenarios in Focus Area
   @106615 @VerifyCorrespondingAnnouncement
   Scenario: Validate user should be able to see related announcement associated with program
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Active"
@@ -196,7 +196,7 @@ Feature: Validate all scenarios in Focus Area
 
   @109436 @ValidateEditOfBusinessForm
   Scenario Outline: Validate expected user is able to edit business form on internal program
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -222,7 +222,7 @@ Feature: Validate all scenarios in Focus Area
 
   @109641 @109606 @ValidateDeletionOfReviewerFromInternalProgram
   Scenario: Validate user is able to delete associated Reviewer at internal program
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"

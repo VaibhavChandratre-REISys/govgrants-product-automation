@@ -3,7 +3,7 @@ Feature: Validate all scenarios for static data creation
 
   @creationAndActivationOfFocusArea @smoke
   Scenario: Creation and Activation of Focus Area
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
@@ -15,7 +15,7 @@ Feature: Validate all scenarios for static data creation
 
   @creationAndActivationOfFundingSource
   Scenario: Creation and activation of Funding Source
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
     When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---fundingsource:-:fundingSourceTableId---"
@@ -37,7 +37,7 @@ Feature: Validate all scenarios for static data creation
 
   @creationAndActivateFundingAccount
   Scenario: Activation of Funding Source
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     When I navigate to "Planning" tab
     When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---fundingsource:-:fundingSourceTableId---"
@@ -55,7 +55,7 @@ Feature: Validate all scenarios for static data creation
 
   @creationAndActivationOfkpi
   Scenario Outline: Creation And activation of kpi
-    When I login to "As a Grantor" app as "<User>" user
+    When I login to "Grantor" app as "<User>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -75,7 +75,7 @@ Feature: Validate all scenarios for static data creation
 
   @creationAndActivationOfProgram
   Scenario Outline: Creation and activation of program
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -109,19 +109,19 @@ Feature: Validate all scenarios for static data creation
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 2  |
     And I click on "Submit For Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -136,7 +136,7 @@ Feature: Validate all scenarios for static data creation
 
   @creationOfStrategicPlanAndGoalsAndObjective
   Scenario: Creation of Strategic plan and goals and objective
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     And I click toggle button to select "Strategic Plans - Draft"

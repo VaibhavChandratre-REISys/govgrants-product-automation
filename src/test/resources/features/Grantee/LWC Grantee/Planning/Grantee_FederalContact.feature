@@ -3,7 +3,7 @@ Feature: Validate all scenarios for Federal Contact
 
   @482122 @ValidateFederalContactAuditorusershouldnotcreatenewfederalcontactandshouldhaveonlyviewaccessonalreadycreatedcontact @P4_Grantee @AUDITOR_Grantee @GRegression1
   Scenario: Validate Federal Contact Auditor user should not create new federal contact and should have only view access on already created contact
-    When I login to "As a Grantor" app as "GRANTEE PM" user
+    When I login to "Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Contacts" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:fedContactTableId---"
@@ -85,7 +85,7 @@ Feature: Validate all scenarios for Federal Contact
 
   @482130 @ValidatePMusershouldabletosaveandcreateinternalcontact
   Scenario Outline: Validate PO/FO/EXE/FD/ADMIN user should able to save and create internal contact
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     Then I see "External" inside "Contacts" is displayed
     Then I see "Internal" inside "Contacts" is displayed
@@ -255,7 +255,7 @@ Feature: Validate all scenarios for Federal Contact
 
   @482131 @ValidatePMusershouldabletosaveandcreateinternalcontact
   Scenario Outline: Validate EXE user should able to save and create internal contact
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     Then I see "External" inside "Contacts" is displayed
     Then I see "Internal" inside "Contacts" is displayed
@@ -425,7 +425,7 @@ Feature: Validate all scenarios for Federal Contact
 
   @482132 @ValidatePMusershouldabletosaveandcreateinternalcontact
   Scenario Outline: Validate FO user should able to save and create internal contact
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     Then I see "External" inside "Contacts" is displayed
     Then I see "Internal" inside "Contacts" is displayed
@@ -595,7 +595,7 @@ Feature: Validate all scenarios for Federal Contact
 
   @482133 @ValidatePMusershouldabletosaveandcreateinternalcontact
   Scenario Outline: Validate FD user should able to save and create internal contact
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     Then I see "External" inside "Contacts" is displayed
     Then I see "Internal" inside "Contacts" is displayed
@@ -765,7 +765,7 @@ Feature: Validate all scenarios for Federal Contact
 
   @482134 @ValidatePMusershouldabletosaveandcreateinternalcontact
   Scenario Outline: Validate ADMIN user should able to save and create internal contact
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     Then I see "External" inside "Contacts" is displayed
     Then I see "Internal" inside "Contacts" is displayed
@@ -935,7 +935,7 @@ Feature: Validate all scenarios for Federal Contact
 
   @482130 @ValidatePMusershouldabletosaveandcreateinternalcontact
   Scenario Outline: Validate PO user should able to save and create internal contact
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     Then I see "External" inside "Contacts" is displayed
     Then I see "Internal" inside "Contacts" is displayed
@@ -1105,7 +1105,7 @@ Feature: Validate all scenarios for Federal Contact
 
   @482131 @ValidatePMusershouldabletosaveandcreateinternalcontact
   Scenario Outline: Validate EXE user should able to save and create internal contact
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     Then I see "External" inside "Contacts" is displayed
     Then I see "Internal" inside "Contacts" is displayed
@@ -1275,7 +1275,7 @@ Feature: Validate all scenarios for Federal Contact
 
   @482132 @ValidatePMusershouldabletosaveandcreateinternalcontact
   Scenario Outline: Validate FO user should able to save and create internal contact
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     Then I see "External" inside "Contacts" is displayed
     Then I see "Internal" inside "Contacts" is displayed
@@ -1445,7 +1445,7 @@ Feature: Validate all scenarios for Federal Contact
 
   @482133 @ValidatePMusershouldabletosaveandcreateinternalcontact
   Scenario Outline: Validate FD user should able to save and create internal contact
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     Then I see "External" inside "Contacts" is displayed
     Then I see "Internal" inside "Contacts" is displayed
@@ -1615,7 +1615,7 @@ Feature: Validate all scenarios for Federal Contact
 
   @482134 @ValidatePMusershouldabletosaveandcreateinternalcontact
   Scenario Outline: Validate ADMIN user should able to save and create internal contact
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     Then I see "External" inside "Contacts" is displayed
     Then I see "Internal" inside "Contacts" is displayed

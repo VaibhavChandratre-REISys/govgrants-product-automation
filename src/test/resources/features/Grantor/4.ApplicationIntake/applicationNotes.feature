@@ -43,7 +43,7 @@ Feature: Application Intake scenarios without background
       | Construction  | 1000   | 100        | 100            | 100            |
     When I click on "Submit Application" in the page details
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
-    And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -58,7 +58,7 @@ Feature: Application Intake scenarios without background
     Then I softly see value "Notes Record Of PM User" for title "Title" inside table "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -75,7 +75,7 @@ Feature: Application Intake scenarios without background
     Then I softly can see row level action button "Delete" against "Notes Record Of EXE User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -94,7 +94,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Delete" against "Notes Record Of EXE User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -116,7 +116,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Delete" against "Notes Record Of EXE User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -144,7 +144,7 @@ Feature: Application Intake scenarios without background
   Scenario: Validate PM PO EXE ADMIN FD user should be able to 'Add' notes but Edit Delete their own notes on application is in Review Initiated state
     Given I published "Formula" type announcement having name "Automation Runtime Announcement Application Intake" and properties "BY_APPLICANT_FOCUS_AREA_NEGOTIATION_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Intake}" on announcement "{SavedValue:Automation Runtime Announcement Application Intake}" with properties "default"
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -159,7 +159,7 @@ Feature: Application Intake scenarios without background
     Then I softly see value "Notes Record Of PM User" for title "Title" inside table "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -176,7 +176,7 @@ Feature: Application Intake scenarios without background
     Then I softly can see row level action button "Delete" against "Notes Record Of EXE User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -195,7 +195,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Delete" against "Notes Record Of EXE User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -216,7 +216,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Delete" against "Notes Record Of EXE User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -240,7 +240,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     #228699
-    And I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -266,7 +266,7 @@ Feature: Application Intake scenarios without background
     Given I published "Formula" type announcement having name "Automation Runtime Announcement Application Intake" and properties "BY_APPLICANT_FOCUS_AREA_NEGOTIATION_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Intake}" on announcement "{SavedValue:Automation Runtime Announcement Application Intake}" with properties "default"
     And I created approved FDM on application "{SavedValue:Automation Runtime Announcement Application Intake}"
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -284,7 +284,7 @@ Feature: Application Intake scenarios without background
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" against the value "Notes Record Of PM User" inside table "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -301,7 +301,7 @@ Feature: Application Intake scenarios without background
     Then I softly can see row level action button "Delete" against "Notes Record Of EXE User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -325,7 +325,7 @@ Feature: Application Intake scenarios without background
   Scenario: Validate PM PO EXE FO FD user should be able to Add notes but Edit Delete their own notes on application is in Negotiation Initiated state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
-    And I login to "As a Grantor" app as "dynamicUser" user
+    And I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -368,7 +368,7 @@ Feature: Application Intake scenarios without background
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" against the value "Notes Record Of PM User" inside table "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -385,7 +385,7 @@ Feature: Application Intake scenarios without background
     Then I softly can see row level action button "Delete" against "Notes Record Of EXE User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -404,7 +404,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Delete" against "Notes Record Of EXE User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -425,7 +425,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Delete" against "Notes Record Of EXE User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -453,7 +453,7 @@ Feature: Application Intake scenarios without background
   Scenario: Validate PM PO EXE FD user should be able to Add notes but EditDelete their own notes on application is in Negotiation submitted state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
-    And I login to "As a Grantor" app as "dynamicUser" user
+    And I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -493,7 +493,7 @@ Feature: Application Intake scenarios without background
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Negotiation Submitted"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -511,7 +511,7 @@ Feature: Application Intake scenarios without background
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" against the value "Notes Record Of PM User" inside table "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -528,7 +528,7 @@ Feature: Application Intake scenarios without background
     Then I softly can see row level action button "Delete" against "Notes Record Of EXE User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -547,7 +547,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Delete" against "Notes Record Of EXE User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -568,7 +568,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Delete" against "Notes Record Of EXE User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -596,7 +596,7 @@ Feature: Application Intake scenarios without background
   Scenario: Validate PM PO EXE FO FD user should not able to Add notes notes on application is in converted to award state
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Intake}" on announcement "{SavedValue:Automation Runtime Announcement Application Intake}" with properties "default"
-    And I login to "As a Grantor" app as "PM" user
+    And I login to "Grantor" app as "PM" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -629,7 +629,7 @@ Feature: Application Intake scenarios without background
     Then I softly see value "Notes Record Of PM User" for title "Title" inside table "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -642,7 +642,7 @@ Feature: Application Intake scenarios without background
     Then I softly see value "Notes Record Of PM User" for title "Title" inside table "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -655,7 +655,7 @@ Feature: Application Intake scenarios without background
     Then I softly see value "Notes Record Of PM User" for title "Title" inside table "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -668,7 +668,7 @@ Feature: Application Intake scenarios without background
     Then I softly see value "Notes Record Of PM User" for title "Title" inside table "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -732,7 +732,7 @@ Feature: Application Intake scenarios without background
       | Construction  | 1000   | 100        | 100            | 100            |
     When I click on "Submit Application" in the page details
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -749,7 +749,7 @@ Feature: Application Intake scenarios without background
     Then I softly see value "Notes Record Of SPI User" for title "Title" inside table "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of SPI User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of SPI User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -765,7 +765,7 @@ Feature: Application Intake scenarios without background
   Scenario: Validate PM PO EXE user should be able to Add notes but Edit Delete their own notes on application is in 'Complete Negotiation' state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
-    And I login to "As a Grantor" app as "dynamicUser" user
+    And I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -805,7 +805,7 @@ Feature: Application Intake scenarios without background
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Negotiation Submitted"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -824,7 +824,7 @@ Feature: Application Intake scenarios without background
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" against the value "Notes Record Of PM User" inside table "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -841,7 +841,7 @@ Feature: Application Intake scenarios without background
     Then I softly can see row level action button "Delete" against "Notes Record Of EXE User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -860,7 +860,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Delete" against "Notes Record Of EXE User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -881,7 +881,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Delete" against "Notes Record Of EXE User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    And I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -1049,7 +1049,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:recipientApplications---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside table
     When I click on "Submit Application" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -1154,7 +1154,7 @@ Feature: Application Intake scenarios without background
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -1240,7 +1240,7 @@ Feature: Application Intake scenarios without background
       | Notes Record Of SPI User | Automation Notes |
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -1369,7 +1369,7 @@ Feature: Application Intake scenarios without background
       | Created By      | Title                    | Description      |
       | Automation SPI3 | Notes Record Of SPI User | Automation Notes |
     #220550
-    And I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -1383,7 +1383,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Delete" against "Notes Record Of SPA User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of SPI User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of SPI User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -1477,7 +1477,7 @@ Feature: Application Intake scenarios without background
       | Notes Record Of SPI User | Automation Notes |
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
-    And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -1551,7 +1551,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:recipientApplications---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside table
     When I click on "Submit Application" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -1592,7 +1592,7 @@ Feature: Application Intake scenarios without background
   Scenario: Validate SPI SPA user can add notes in Application in his Negotiation initiated sate
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
-    And I login to "As a Grantor" app as "dynamicUser" user
+    And I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -1655,7 +1655,7 @@ Feature: Application Intake scenarios without background
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Negotiation Submitted"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -1746,7 +1746,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:recipientApplications---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside table
     When I click on "Submit Application" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -1858,7 +1858,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:recipientApplications---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside table
     When I click on "Submit Application" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -1899,7 +1899,7 @@ Feature: Application Intake scenarios without background
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Negotiation Submitted"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -1997,7 +1997,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:recipientApplications---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside table
     When I click on "Submit Application" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"

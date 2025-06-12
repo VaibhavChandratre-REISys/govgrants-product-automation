@@ -3,7 +3,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
 
   @34735 @creationOfKPI
   Scenario Outline: Creation of KPI
-    When I login to "As a Grantor" app as "<User>" user
+    When I login to "Grantor" app as "<User>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -19,7 +19,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
 
   @51028 @editionOfKPI
   Scenario Outline: Edition of KPI
-    When I login to "As a Grantor" app as "<User>" user
+    When I login to "Grantor" app as "<User>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -36,7 +36,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
 
   @51029 @addAttachmentToKPI
   Scenario Outline: Addition of Attachment to KPI
-    When I login to "As a Grantor" app as "<User>" user
+    When I login to "Grantor" app as "<User>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -66,7 +66,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
 
   @34736 @kpiHappyPath @smoke
   Scenario Outline: Happy Path of KPI
-    When I login to "As a Grantor" app as "<User>" user
+    When I login to "Grantor" app as "<User>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -93,7 +93,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
 
   @kpiCreationPM
   Scenario: Negative Case - Verify that other users (Other than Admin/EXE) are not able to create KPI
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     Then  I cannot see top right button "New" in flex table with id "---keyperformanceindicator:-:kpiTableId---"
@@ -101,7 +101,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
   @52625 @userFOEditKPI
   Scenario: Negative Case-Verfiy that PM user cannot Edit the record
     Given I am on "INTERNAL" portal
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -110,7 +110,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -120,7 +120,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
   @52622 @userFODeleteKPI
   Scenario: Negative Case-Verfiy that PM user cannot Delete the record
     Given I am on "INTERNAL" portal
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -129,7 +129,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -139,7 +139,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
   @52623 @deactivateKPI
   Scenario Outline: Negative Case-Verfiy that EXE can deactivate the record
     Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "<User>" user
+    When I login to "Grantor" app as "<User>" user
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -158,7 +158,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
   @52536 @deactivateKPIFOUser
   Scenario Outline:  Negative Case- Verfiy that other users (other than Admin, EXE) can not deactivate KPI
     Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "<User>" user
+    When I login to "Grantor" app as "<User>" user
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -167,7 +167,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     When I click on "Activate" in the page details
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) -Active"
@@ -181,7 +181,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
   @52535 @closedKPIListView
   Scenario: Verfiy that user can see Closed KPI under Inactive KPI list view.
     Given I am on "INTERNAL" portal
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -201,7 +201,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
 
   @105456 @VerifyActiveStrategicPlan
   Scenario: Validate user is able to see activated strategic plan
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     And I click toggle button to select "Strategic Plans - All"
@@ -210,7 +210,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
 
   @106645 @VerifyRelatedObjectiveDetails @smoke
   Scenario: Validate user is able to see related objective
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -223,7 +223,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I save the field labeled "Title" as "KPINAME"
     And I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     And I click toggle button to select "Strategic Plans - Draft"

@@ -3,7 +3,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 
   @289790 @289791 @289792 @289793 @289797 @289798 @289808 @289809 @291842 @VerifywhenPmapprovercanclickonundobuttoninOrganizationalSiteVisitrecordwhenrecordisinApprovedstate @sprint-2-US-288691  @Undo @FieldHistoryExclude
   Scenario: Verify when Pm approver can click on undo button in Organizational Site Visit record when record is in Approved state
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -50,7 +50,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
     And I pause execution for "5" seconds
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -58,7 +58,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -66,7 +66,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -74,7 +74,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -128,7 +128,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -137,7 +137,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     #289792
     Then I can see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -154,7 +154,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 
   @289794 @289799 @289803 @VerifythatwhenExeapproverForwardtheOrganizationalSiteVisitApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-2-US-288691  @Undo
   Scenario:Verify that when Exe approver Forward the Organizational Site Visit Approval task , Forwarded Approver will see UNDO button and not previous One.
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -200,7 +200,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
     And I pause execution for "5" seconds
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -209,7 +209,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -218,7 +218,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -242,7 +242,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 
   @289800 @289801 @VerifythatPMapproveruserwillnotseeUNDObuttoninSendtoSrstateofOrganizationalSiteVisitrecord @sprint-2-US-288691  @Undo
   Scenario: Verify that PM approver user will not see UNDO button in Send to S/r state of Organizational Site Visit record.
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -291,7 +291,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
     And I pause execution for "5" seconds
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -300,7 +300,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -309,7 +309,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -318,7 +318,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -362,7 +362,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 
   @289802 @VerifythatAdminapproveruserwillnotseeUNDObuttoninClosedstateofOrganizationalSiteVisit @sprint-2-US-288691  @Undo
   Scenario: Verify that Admin approver user will not see UNDO button in Closed state of Organizational Site Visit
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -405,7 +405,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
     And I pause execution for "5" seconds
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -414,7 +414,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -449,7 +449,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly can see top right button "Submit to Grantor" in page detail
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -460,7 +460,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 
   @289804 @VerifythatafterPOuserclickonUndobuttonEmailwillbesenttoPreviousApproverandOwnerofOrganizationalSiteVisitrecord @sprint-2-US-288691  @Undo
   Scenario:Verify that after POuser click on Undo button Email will be sent to Previous Approver and Owner of Organizational Site Visit record
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -506,7 +506,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
     And I pause execution for "5" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -515,7 +515,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -524,7 +524,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -624,7 +624,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 
   @289805 @VerifythatafterEXEuserclickonUndobuttonAllthetablesofOrganizationalSiteVisitwillnotgetaffected @sprint-2-US-288691  @Undo
   Scenario:Verify that after EXE user click on Undo button All the tables of Organizational Site Visit will not get affected
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -669,7 +669,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
     And I pause execution for "5" seconds
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -678,7 +678,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -687,7 +687,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -715,7 +715,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 
   @290426 @304192 @290427 @VerifyPOusercannotseeundobuttoninnotifiedstateofOrganizationalSiteVisit @sprint-2-US-288691  @Undo
   Scenario:Verify PO user can not see undo button in notified state of Organizational Site Visit
-    When I login to "As a Grantor" app as "PO" user
+    When I login to "Grantor" app as "PO" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -767,7 +767,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #290427
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -776,7 +776,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -785,7 +785,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -794,7 +794,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -815,7 +815,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 
  @289807 @VerifyAuditorusercannotseeundobuttoninapprovedstateofOrganizationalSiteVisit @sprint-2-US-288691 @Undo @366345
   Scenario:Verify Auditor user can not see undo button in approved state of Organizational Site Visit
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -860,7 +860,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
     And I pause execution for "5" seconds
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -869,7 +869,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -878,7 +878,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -887,7 +887,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I can see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "Auditor" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Auditor" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -896,7 +896,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 
  @342521 @342527 @342529 @342544 @VerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinCreatedState @sprint-2-US-288691 @Undo @366345
   Scenario: Verify that Undo Button will not visible to any user when Organization Site visit is in Created State
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -922,7 +922,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see field "Status" as "Notified"
     #342527
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -936,7 +936,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see field "Status" as "Notified"
     #342527
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -944,7 +944,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     #342529
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -958,7 +958,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     #342529
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -991,28 +991,28 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #342544
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #342544
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #342544
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #342544
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1021,7 +1021,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1031,7 +1031,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see field "Status" as "Approved"
     #342548
     Then I can see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1045,7 +1045,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see field "Status" as "Approved"
     #342548
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1055,7 +1055,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 
  @342554 @342559 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinSubmitforReviewState @sprint-13-US-331643 @Undo @366345
   Scenario: Verify that Undo Button will not visible to any user when Organization Site visit is in Submit for ReviewState.
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1085,7 +1085,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I click on "Send for Review" icon for "{SavedValue:PO Username}" inside table
     Then I softly see field "Status" as "Submitted for Review"
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1098,13 +1098,13 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
     Then I softly see field "Status" as "Submitted for Review"
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see field "Status" as " Submitted for Review"
     Then I cannot see top right button "Undo" in page detail
-    And I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -1115,7 +1115,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1123,7 +1123,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342559
     Then I softly see field "Status" as "Reviewed"
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1140,7 +1140,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342559
     Then I softly see field "Status" as "Reviewed"
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1150,7 +1150,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 
  @342571 @342575 @342584 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisininSendtoSrState @sprint-13-US-331643 @Undo @366345
   Scenario:OSV->Verify that Undo Button will not visible to any user when Organization Site visit is in in Send to S/r State
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1192,7 +1192,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
     And I pause execution for "5" seconds
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1200,7 +1200,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1208,26 +1208,26 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I can see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     And I click on "Send to Subrecipient" in the page details
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1257,27 +1257,27 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see field "Status" as "Submitted to Grantor"
     #342575
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     #342575
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     #342575
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -1287,21 +1287,21 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     #342584
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     #342584
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     #342584
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1311,7 +1311,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 
   @308890 @OSVVerifythatUNDOiconorbuttonisnotavailableontheactionbuttonsofOrganizationSiteVisitrecordontablethatispresentonsidebarorphaselevelorthatonOrganization @sprint-7-US-306815  @Undo
   Scenario:OSV-Verify that UNDO icon or button is not available on the action buttons of Organization Site Visit record on table that is present on side bar or phase level or that on Organization
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1361,7 +1361,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 
  @308900 @310751 @OSVVerifythatapproverundobuttonvisibilitywillchangeasperpositionofapproverofOrgSiteVisitlastormiddle @sprint-7-US-306815  @Undo
   Scenario:OSV-Verify that approver undo button visibility will change as per position of approver of Org Site Visit last or middle
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1410,7 +1410,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I click on "Submit for Approval" in the page details
     And I pause execution for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1419,7 +1419,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1428,7 +1428,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1459,7 +1459,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
       | {SavedValue:FO Username} | Step 3     |
     When I click on "Submit for Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1468,7 +1468,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1477,7 +1477,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1489,7 +1489,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 
   @310537 @ValidateOrgSVthatUNDOiconorbuttonisnotavailableontheactionbuttonsofOrgSVRecordrecorontablethatispresentonsidebarorphaselevelorthatongrantAward @Undo
   Scenario: Validate Org SV that UNDO icon or button is not available on the action buttons of Org SV Record record on table that is present on side bar or phase level or that on grant Award
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1538,7 +1538,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
     And I pause execution for "5" seconds
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1546,7 +1546,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1554,7 +1554,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1562,7 +1562,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1590,7 +1590,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 
   @310669 @ValidateOrgSVthatUndoButtonnotvisibleinForceClosedstate @Undo
   Scenario: Validate Org SV that Undo Button not visible in Force Closed state
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1632,7 +1632,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
     And I pause execution for "5" seconds
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1641,7 +1641,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1675,7 +1675,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I collapse nested table containing column value "Automation Finding"
     Then I softly can see top right button "Submit to Grantor" in page detail
     And I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -1686,7 +1686,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 
   @308929 @ValidateIfOwnerandlaststepapproverofOrgSiteVisitaresameandSiteVisitisApprovedtheOwnershipReassignmentofDeskReviewischangedinthisstatewillnewOwnerSeeUNDObutton @Undo
   Scenario: Validate If Owner and last step approver of Org Site Visit are same and Site Visit is Approved and the Ownership Reassignment of Desk Review is changed in this state will new Owner See UNDO button
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1735,7 +1735,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
     And I pause execution for "5" seconds
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1743,7 +1743,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1751,7 +1751,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1759,7 +1759,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1767,7 +1767,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -1785,7 +1785,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel

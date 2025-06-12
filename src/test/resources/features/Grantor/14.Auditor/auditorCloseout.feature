@@ -4,7 +4,7 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
    @69175 @auditorCannotCreateCloseout @smoke
   Scenario: Validate Auditor should not be  able to  Create Closeout Request
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "AUDITOR" user
+    When I login to "Grantor" app as "AUDITOR" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -16,7 +16,7 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
   @69176 @auditorCannotViewOverriddenCloseout
   Scenario: Validate Auditor cannot have view access to "Submitted for Approval Status" Closeout Record
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -50,7 +50,7 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
       | Extra Salary | The narrative | 500        | 1        | Feet        | 0                 | 0                        | 100        | 100            |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -64,13 +64,13 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
       | Name                      | Reimbursement |
       | {SavedValue:EXE Username} | Step 1        |
     When I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I perform quick search for "Record Id" in "---paymentRequest:-:paymentrequestReimbursementTableId---" panel
@@ -80,7 +80,7 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
     When I click modal button "Save"
     And I click modal button "Close"
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "DynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "DynamicUser" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
     And I click toggle button to select "Project Period Closeouts - All"
@@ -103,7 +103,7 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -113,7 +113,7 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
     When I click on "Save" in the page details
     When I click on "Override" in the page details
     And I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
     And I click toggle button to select "Project Period Closeouts - All"
@@ -123,7 +123,7 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
    @69177 @auditorCannotEditCreatedCloseoutRecordbyPM
   Scenario: Validate Auditor should not be  able to  Edit Closeout Request record created by PM
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -136,7 +136,7 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     When I get the "EGMS ID"
     When I click on "Save" in the page details
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
     And I click toggle button to select "Project Period Closeouts - All"

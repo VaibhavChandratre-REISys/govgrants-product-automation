@@ -18,7 +18,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "4" seconds
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Advances" content inside "Payments" subheader on left panel
     When I click toggle button to select "Advances - All"
@@ -37,7 +37,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I refresh the page
     When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:activeOrgTableID---" panel
@@ -65,7 +65,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
     When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---auditor:-:subrecipientOrgTableId---" panel
@@ -77,7 +77,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     Then I softly cannot see top right button "Provide Access" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 #   Added steps due to org risk ass break if we don't create risk assessment
     And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:activeOrgTableID---" panel
@@ -100,7 +100,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
   @69180 @auditorMonitoringSchedule
   Scenario Outline: Validate Auditor should have view Monitoring Scheduled Activities of award
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -122,7 +122,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
 
   @69181 @auditorCannotCreateOrgSiteVisitDeskReview @smoke
   Scenario Outline: Validate Auditor should have view / read  only access to Organizational level Site Visit
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     And I pause execution for "7" seconds
@@ -138,7 +138,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
   @69303 @auditordownloadRiskAssessmentInXLS @skipOnJenkins
   Scenario Outline: Verify User with Auditor profile has ability to download XLS files of record and View the record
     Given I activated standalone subaward "Automation Runtime Award" with properties "default"
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Monitoring" tab
     And I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     When I click on top right parallel lines bar for "Risk Assessments - All"
@@ -154,7 +154,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
   @69869 @auditorCannotCreateAwardLevelSiteVisit
   Scenario: Validate Auditor should not be able to Create, Edit, Delete and Accept and Close the Award Level Site Visit
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -169,7 +169,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I enter "Edition" values from "SiteVisit_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     Given I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
     And I click toggle button to select "Site Visit Reports - All"
@@ -181,7 +181,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
    @70076 @69870 @auditorCannotCreateDeleteAwardLevelDeskReview
   Scenario Outline: Validate Auditor should not be able to delete the  created state Award Level Desk Review | Validate Auditor should not be able to Create, Accept and Close the Award Level Desk Review
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Competitive"
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -191,7 +191,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalRelatedAwards1---"
     Given I navigate to "Management" sub tab
     Then I softly cannot see top right button "Initiate Desk Review" in flex table with id "GrantorDeskReviewAward"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -206,7 +206,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I enter "Edition" values from "DeskReview_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
-    When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
     Given I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     And I click toggle button to select "Desk Review Reports - All"
@@ -222,7 +222,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
   @69872 @69979 @auditorCannotCreateAwardLevelRiskAssessment
   Scenario Outline: Validate Auditor should not be able to Create Award Level Risk Assessment/ Validate whether Auditor can View the active Risk assessment from Monitoring Tab
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -253,19 +253,19 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
     When I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -316,12 +316,12 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I click on "Submit to Grantor" in the page details
     And I pause execution for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---"
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Progress Reports - All"
@@ -334,7 +334,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
   Scenario: Validate approver user is not allowed to reassign tasks their tasks to Auditor.
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -384,7 +384,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
 
   @70324 @auditorCannotEdit/CompletePeerReviewProcess
   Scenario: Validate whether the complete Review Button is available for Auditor user to complete peer review process
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -440,19 +440,19 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
     And I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Draft"
@@ -468,7 +468,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     Then I softly see that "{SavedValue:FO Username}" has been added in flextable with Id "---subAwardStandAlone:-:peerReviewersTableId---"
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---"
     Then I softly see that "Sent for Review" has been added in flextable with Id "---subAwardStandAlone:-:peerReviewersTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
@@ -478,7 +478,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel

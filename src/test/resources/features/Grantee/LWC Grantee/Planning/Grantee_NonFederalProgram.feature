@@ -312,7 +312,7 @@ Feature: Validate all scenarios for Non Federal Program
 
   @477545 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts
   Scenario Outline: Validate Non federal PO user should see all fields and section for non federal contact's
-    When I login to "As a Grantor" app as "<User>" user
+    When I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Contacts" subheader on left panel
     Then I softly see "Federal Contacts" page block displayed
@@ -456,7 +456,7 @@ Feature: Validate all scenarios for Non Federal Program
 
   @477546 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts
   Scenario Outline: Validate Non federal EXE user should see all fields and section for non federal contact's
-    When I login to "As a Grantor" app as "<User>" user
+    When I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Contacts" subheader on left panel
     Then I softly see "Federal Contacts" page block displayed
@@ -600,7 +600,7 @@ Feature: Validate all scenarios for Non Federal Program
 
   @477548 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts
   Scenario Outline: Validate Non federal FO user should see all fields and section for non federal contact's
-    When I login to "As a Grantor" app as "<User>" user
+    When I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Contacts" subheader on left panel
     Then I softly see "Federal Contacts" page block displayed
@@ -744,7 +744,7 @@ Feature: Validate all scenarios for Non Federal Program
 
   @477549 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts
   Scenario Outline: Validate Non federal FD user should see all fields and section for non federal contact's
-    When I login to "As a Grantor" app as "<User>" user
+    When I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Contacts" subheader on left panel
     Then I softly see "Federal Contacts" page block displayed
@@ -888,7 +888,7 @@ Feature: Validate all scenarios for Non Federal Program
 
   @477550 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts
   Scenario Outline: Validate Non federal ADMIN user should see all fields and section for non federal contact's
-    When I login to "As a Grantor" app as "<User>" user
+    When I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Contacts" subheader on left panel
     Then I softly see "Federal Contacts" page block displayed

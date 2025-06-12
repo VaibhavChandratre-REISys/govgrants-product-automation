@@ -3,7 +3,7 @@ Feature: Validate all scenarios for Internal Org
 
   @482129 @ValidatetheAuditoruserinternalOrganizationallsectionandfields
   Scenario: the Auditor user internal Organization all section and fields
-    When I login to "As a Grantor" app as "GRANTEE AUDITOR" user
+    When I login to "Grantor" app as "GRANTEE AUDITOR" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organizations" subheader on left panel
     And I click on "View" icon for "Test Automation Organization" inside flex table with id "---grantee_tableId:-:InternalOrganizations---" without waiting for record
@@ -245,7 +245,7 @@ Feature: Validate all scenarios for Internal Org
 
   @482124 @VerifytheinternalOrganizationallsectionandfields @GRegression1
   Scenario Outline: Verify the PO internal Organization all section and fields
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organizations" subheader on left panel
     And I click on "View" icon for "Test Automation Organization" inside flex table with id "---grantee_tableId:-:InternalOrganizations---" without waiting for record
@@ -474,7 +474,7 @@ Feature: Validate all scenarios for Internal Org
 
   @482126 @VerifytheinternalOrganizationallsectionandfields @GRegression1
   Scenario Outline: Verify the internal Organization all section and fields
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organizations" subheader on left panel
     And I click on "View" icon for "Test Automation Organization" inside flex table with id "---grantee_tableId:-:InternalOrganizations---" without waiting for record
@@ -703,7 +703,7 @@ Feature: Validate all scenarios for Internal Org
 
   @482127 @VerifytheinternalOrganizationallsectionandfields @GRegression1
   Scenario Outline: Verify the FD internal Organization all section and fields
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organizations" subheader on left panel
     And I click on "View" icon for "Test Automation Organization" inside flex table with id "---grantee_tableId:-:InternalOrganizations---" without waiting for record
@@ -932,7 +932,7 @@ Feature: Validate all scenarios for Internal Org
 
   @497967 @Validateauditoruserdonotseeinlineeditbuttonforfederalinternalorginternalcontactfederalnonfederalorgandnonfederalcontactbutnotabletoedittherecord @P3_Grantee @GRegression1
   Scenario: Validate auditor user do not see inline edit button for federal, internal org, internal contact federal, non federal org and non-federal contact but not able to edit the record
-    When I login to "As a Grantor" app as "GRANTEE PM" user
+    When I login to "Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"

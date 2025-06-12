@@ -3,7 +3,7 @@ Feature: Validate all scenarios for Federal Organization
 
   @460983 @ValidateFederalOrgAuditorprofileusershouldseeallfieldsandsectionreadonlyonfederalOrglayoutViewonlyaccess @P4_Grantee @AUDITOR_Grantee @GRegression2
   Scenario: Validate Federal Org Auditor profile user should see all fields and section readonly on federal Org layout Viewonly access
-    When I login to "As a Grantor" app as "GRANTEE AUDITOR" user
+    When I login to "Grantor" app as "GRANTEE AUDITOR" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on advance filter of table id "---grantee_tableId:-:fedOrgTableId---" for LWC
@@ -171,7 +171,7 @@ Feature: Validate all scenarios for Federal Organization
 
   @461002 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg
   Scenario Outline: Validate Federal PO user should see all fields and section on federal Org
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on advance filter of table id "---grantee_tableId:-:fedOrgTableId---" for LWC
@@ -348,7 +348,7 @@ Feature: Validate all scenarios for Federal Organization
 
   @482151 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg
   Scenario Outline: Validate Federal FO user should see all fields and section on federal Org
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on advance filter of table id "---grantee_tableId:-:fedOrgTableId---" for LWC
@@ -525,7 +525,7 @@ Feature: Validate all scenarios for Federal Organization
 
   @482152 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg
   Scenario Outline: Validate Federal FD user should see all fields and section on federal Org
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on advance filter of table id "---grantee_tableId:-:fedOrgTableId---" for LWC
@@ -702,7 +702,7 @@ Feature: Validate all scenarios for Federal Organization
 
   @482153 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg
   Scenario Outline: Validate Federal EXE user should see all fields and section on federal Org
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on advance filter of table id "---grantee_tableId:-:fedOrgTableId---" for LWC

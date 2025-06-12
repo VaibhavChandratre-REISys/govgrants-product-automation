@@ -4,7 +4,7 @@ Feature: Validate all scenarios for Auditor Profile in Amendment Request module
   @69172 @auditorCannotCreateAmendmentRequest @smoke
   Scenario: Validate Auditor should not be  able to  Create Amendment request
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
-    Given I login to "As a Grantor" app as "Auditor" user
+    Given I login to "Grantor" app as "Auditor" user
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -19,7 +19,7 @@ Feature: Validate all scenarios for Auditor Profile in Amendment Request module
   @69174 @auditorViewAccessToAmendmentRequest
   Scenario: Validate Auditor should have view Amendment Request Record that is created by PM user - Budget Period Change
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -41,7 +41,7 @@ Feature: Validate all scenarios for Auditor Profile in Amendment Request module
     When I click on "Edit" in the page details
     And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
-    When I re-login to "As a Grantor" app as "Auditor" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Auditor" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     When I click toggle button to select "Amendment Requests - All"
@@ -50,7 +50,7 @@ Feature: Validate all scenarios for Auditor Profile in Amendment Request module
 
   @69871 @audiorCanViewAmendmentRecordsofAllStatus
   Scenario: Validate whether Audior Profile all the amendment records created by PM profile
-    Given I login to "As a Grantor" app as "AUDITOR" user
+    Given I login to "Grantor" app as "AUDITOR" user
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     When I click toggle button to select "Amendment Requests - All"
@@ -60,7 +60,7 @@ Feature: Validate all scenarios for Auditor Profile in Amendment Request module
   @Terms&conditionAmendment @ValidatePeriodicRenewalAmendmentRequestrowLevelButtonsforTerms&Conditions
   Scenario: Validate Periodic Renewal Amendment Request row level buttons for Terms & Conditions
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -93,7 +93,7 @@ Feature: Validate all scenarios for Auditor Profile in Amendment Request module
     Then I softly can see row level action button "Edit" against "Automation Special Conditions" in flex table with id "---amendment:-:AmendmentSpecialConditionTableId---"
     Then I softly can see row level action button "Delete" against "Automation Special Conditions" in flex table with id "---amendment:-:AmendmentSpecialConditionTableId---"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"

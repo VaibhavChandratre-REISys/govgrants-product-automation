@@ -42,7 +42,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
     When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
@@ -72,7 +72,7 @@ Feature: Pre-Application scenarios without background
     Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -87,7 +87,7 @@ Feature: Pre-Application scenarios without background
     Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -102,7 +102,7 @@ Feature: Pre-Application scenarios without background
     Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -117,7 +117,7 @@ Feature: Pre-Application scenarios without background
     Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -174,7 +174,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
     When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
@@ -188,7 +188,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see value "Notes Record Of PM User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -209,7 +209,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see value "Notes Record Of EXE User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of EXE User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of EXE User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -230,7 +230,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see value "Notes Record Of PO User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of PO User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of PO User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -251,7 +251,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see value "Notes Record Of FO User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of FO User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of FO User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -315,7 +315,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
     When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
@@ -349,7 +349,7 @@ Feature: Pre-Application scenarios without background
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -411,7 +411,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
     When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
@@ -444,7 +444,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Negotiation In Progress"
-    When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---negotiation:-:phasePendingTasksTableId---" panel
@@ -456,7 +456,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     #226079
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -514,7 +514,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
     When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
@@ -534,7 +534,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see value "Notes Record Of Grantor User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -589,7 +589,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
     When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -605,7 +605,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see value "Notes Record Of FD User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of FD User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of FD User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
@@ -626,7 +626,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see value "Notes Record Of Grantor User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -684,7 +684,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
     When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -700,7 +700,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see value "Notes Record Of FD User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of FD User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of FD User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
@@ -715,7 +715,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Negotiation Initiated"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"

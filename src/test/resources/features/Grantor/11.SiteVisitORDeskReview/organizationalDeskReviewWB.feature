@@ -3,7 +3,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 
   @235434 @ValidateDeskReviewPOusercanbletoreassigndeskreviewownershipfromPOtootherPOuserCreatedstateofdeskreview @sprint-14-US-234219  @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PO user can able to reassign desk review ownership from PO to other PO user in 'Created' state of desk review
-    Given I login to "As a Grantor" app as "PO" user
+    Given I login to "Grantor" app as "PO" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -19,7 +19,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "DeskReviewID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -91,7 +91,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "PO1" user
+    When I login to "Grantor" app as "PO1" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -117,7 +117,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 
   @235438 @ValidateDeskReviewEXEusercanabletoreassigndeskreviewownershipfromEXEtootherEXEuserinNotifiedstateofdeskreview @sprint-14-US-234219  @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review EXE user can able to reassign desk review ownership from EXE to other EXE user in 'Notified' state of desk review
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -137,7 +137,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I save the field labeled "EGMS ID" as "DeskReviewID"
     And I click on "Notify" in the page details
     Then I softly see status in Progress-bar is "Notified" and is "dark blue"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -209,7 +209,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "EXE1" user
+    When I login to "Grantor" app as "EXE1" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -235,7 +235,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 
   @235444 @ValidateDeskReviewFOusercanabletoreassigndeskreviewownershipfromFOtootherFOuserInProgressstateofdeskreview @sprint-14-US-234219  @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review FO user can able to reassign desk review ownership from FO to other FO user 'In Progress' state of desk review
-    Given I login to "As a Grantor" app as "FO" user
+    Given I login to "Grantor" app as "FO" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -258,7 +258,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -277,7 +277,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:DeskReviewID}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -304,7 +304,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 
   @236022 @ValidateDeskReviewPMusercanabletoreassigndeskreviewownershipfromPMtootherPMuserInProgressstateofdeskreview @sprint-14-US-234219  @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PM user can able to reassign desk review ownership from PM to other PM user 'In Progress' state of desk review
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -326,7 +326,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -398,7 +398,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "PM1" user
+    When I login to "Grantor" app as "PM1" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -425,7 +425,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 
   @236039 @ValidateDeskreviewEXEusercanabletochangeownershipinApprovedstateofdeskreview @sprint-14-US-234219  @reassignment @FieldHistoryExclude
   Scenario: Validate Desk review EXE user can able to change ownership in 'Approved' state of desk review
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -467,7 +467,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I "Approve" in the approval decision
     And I pause execution for "5" seconds
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -539,7 +539,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "EXE1" user
+    When I login to "Grantor" app as "EXE1" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -560,7 +560,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 
   @236049 @ValidateDeskReviewPOusercanabletochangeownershipinsenttosubrecipientstateofdeskreview @sprint-14-US-234219  @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PO user can able to change ownership in 'sent to subrecipient' state of desk review
-    Given I login to "As a Grantor" app as "PO" user
+    Given I login to "Grantor" app as "PO" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -604,7 +604,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Send to Subrecipient" in the page details
     And I pause execution for "3" seconds
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -623,7 +623,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:DeskReviewID}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -644,7 +644,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 
   @236065 @ValidateDeskReviewFOusercanabletochangetheownershipSubmittoGrantorstateofdeskreview @sprint-14-US-234219  @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review FO user can able to change the ownership in 'Submit to Grantor'state of desk review
-    Given I login to "As a Grantor" app as "FO" user
+    Given I login to "Grantor" app as "FO" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -716,7 +716,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Submit to Grantor" in the page details
     #Bug428393
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -735,7 +735,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:DeskReviewID}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -757,7 +757,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 
   @236076 @ValidateDeskReviewPMusercanabletoseetochangeownershipinClosedstateofdeskreview @sprint-14-US-234219  @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PM user can able to see to change ownership in 'Closed' state of desk review
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -822,7 +822,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -830,7 +830,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I click on "Start" icon for "{SavedValue:DeskReviewID}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---" without waiting for record
     And I click on "Accept And Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -901,7 +901,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "PM1" user
+    When I login to "Grantor" app as "PM1" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -922,7 +922,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 
   @236172 @236184 @ValidateDeskReviewPOusecanabletoreassignownershipofdeskreviewfromPOtootherPOuserinSentforreviewstateofdeskreview @sprint-14-US-234219  @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PO user can able to reassign ownership of desk review from PO to other PO user in 'Sent for review' state of desk review
-    Given I login to "As a Grantor" app as "PO" user
+    Given I login to "Grantor" app as "PO" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -952,7 +952,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---orgLevelDeskReview:-:orgDeskReviewPeerReviewTableId---"
     Then I softly see field "Status" as "Submitted for Review"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -971,7 +971,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:DeskReviewID}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1000,7 +1000,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation PO" for title "Original Value" inside field history table
     And I click on back arrow
     #236184
-    And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
@@ -1037,7 +1037,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 
   @236174 @ValidateDeskReviewFOusercanabletoreassignownershipofdeskreviewfromFOtootheFOuserinReviewedstateofdeskreview @sprint-14-US-234219  @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review FO user can able to reassign ownership of desk review from FO to other FO user in 'Reviewed' state of desk review
-    Given I login to "As a Grantor" app as "FO" user
+    Given I login to "Grantor" app as "FO" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1066,7 +1066,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---orgLevelDeskReview:-:orgDeskReviewPeerReviewTableId---"
     Then I softly see field "Status" as "Submitted for Review"
-    And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
@@ -1080,7 +1080,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click modal button "Save"
     And I click on submit review
 #    When I close "Site Visit Reviewers" modal by clicking the top right x button
-    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1092,7 +1092,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I click on "View" icon for "{SavedValue:DeskReviewID}" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -1164,7 +1164,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "FO1" user
+    When I login to "Grantor" app as "FO1" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1191,7 +1191,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 
   @236178 @ValidateDeskReviewEXEusercanabletodobusinessflowafterreassignownershipofdeskreviewfromEXEtootherEXEuserinINprogressstateofdeskreview @sprint-14-US-234219  @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review EXE user can able to do business flow after reassign ownership of desk review from EXE to other EXE user in 'IN progress' state of desk review
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1213,7 +1213,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -1232,7 +1232,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:DeskReviewID}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1306,7 +1306,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I refresh the page
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -1317,7 +1317,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 
   @236185 @ValidateDeskReviewSubmittedGrantoremailisgeneratedfornewownerofSVwhenS\RuserSubmitDRtograntorafterchangeownershipofDR @sprint-14-US-234219  @reassignment
   Scenario: Validate Desk Review 'Submitted Grantor' email is generated for new owner of SV when S\R user submit DR to grantor after change ownership of DR
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1369,7 +1369,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
     And I navigate to "Related Log" sub tab
     And I save the value from row "1" for column name "Title" as "Automation Desk Review Org level" from flex table "---orgLevelDeskReview:-:deskreviewPanelId---"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -1484,7 +1484,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 
   @236190 @ValidateDeskReviewReviewApproverSentBackemailshoulddisplayfornewownerifapproversendbackdeskreviewafterownershipgetchangeofDR @sprint-14-US-234219  @reassignment
   Scenario: Validate Desk Review 'Review Approver Sent Back' email should display for new owner if approver send back desk review after ownership get change of DR
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1524,7 +1524,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I refresh the page
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -1596,7 +1596,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -1639,7 +1639,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 
   @235442 @VallidateDeskReviewFDusercanabletoreassignownershipfromFDtootherFDuserinNotifiedstateofdeskreview @sprint-14-US-234219  @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review FD user can able to reassign ownership from FD to other FD user in 'Notified' state of desk review
-    Given I login to "As a Grantor" app as "FD" user
+    Given I login to "Grantor" app as "FD" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1659,7 +1659,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I save the field labeled "EGMS ID" as "DeskReviewID"
     And I click on "Notify" in the page details
     Then I softly see status in Progress-bar is "Notified" and is "dark blue"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -1730,7 +1730,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 #      The EGMS Team
 #      """
     Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "FD1" user
+    When I login to "Grantor" app as "FD1" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1757,7 +1757,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 
   @236027 @ValidateDeskReviewFDusercanabletochangeownershipinSubmittedforApprovalstateofdeskreview @sprint-14-US-234219  @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review FD user can able to change ownership in 'Submitted for Approval' state of desk review
-    Given I login to "As a Grantor" app as "FD" user
+    Given I login to "Grantor" app as "FD" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1797,7 +1797,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I refresh the page
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -1816,7 +1816,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:DeskReviewID}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1837,7 +1837,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 
   @236192 @ValidateDeskReviewifDR1ownerFD1changehisownershiptoFD2thenFD1againcreateDR2thentheownerofSV2isFD1onlynotnewownerincreatedstateofDR @sprint-14-US-234219  @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review if DR1 owner FD1 change his ownership to FD2 and then FD1 again create DR2 then then owner of SV2 is FD1 only not new owner in created state of DR
-    Given I login to "As a Grantor" app as "FD" user
+    Given I login to "Grantor" app as "FD" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1853,7 +1853,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "DeskReviewID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -1924,7 +1924,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 #      The EGMS Team
 #      """
     Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "FD1" user
+    When I login to "Grantor" app as "FD1" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel

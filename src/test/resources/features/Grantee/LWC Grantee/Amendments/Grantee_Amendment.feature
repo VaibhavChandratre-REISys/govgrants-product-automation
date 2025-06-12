@@ -10947,7 +10947,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
 
   @485301 @VerifythatAuditoruserhavingonlyviewaccessonBudgetperiodChangeamendmentrequestonBPARlayout
   Scenario:Verify that Auditor user having only view access on Budget period Change amendment request on BP AR layout
-    When I login to "As a Grantor" app as "GRANTEE AUDITOR" user
+    When I login to "Grantor" app as "GRANTEE AUDITOR" user
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"

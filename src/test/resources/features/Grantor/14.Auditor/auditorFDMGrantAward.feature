@@ -4,7 +4,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
   @69168 @auditorCannotCreateGrantandSubaward @smoke @buglogged100983
   Scenario: Validate Auditor should not be able to  Create/Edit Grant/subaward
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
-    Given I login to "As a Grantor" app as "AUDITOR" user
+    Given I login to "Grantor" app as "AUDITOR" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -17,7 +17,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
   @69169 @auditorCannotEDitActiveGrantAward
   Scenario: Validate Auditor do not have Edit permission for Grant/Subaward
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
-    Given I login to "As a Grantor" app as "AUDITOR" user
+    Given I login to "Grantor" app as "AUDITOR" user
     And I navigate to "Grants" tab
     And I pause execution for "3" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -34,7 +34,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
   @69170 @auditorCanViewActiveGrantAward
   Scenario: Validate Auditor should have view / read  only access to Active Grant/Award
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
-    Given I login to "As a Grantor" app as "AUDITOR" user
+    Given I login to "Grantor" app as "AUDITOR" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -49,7 +49,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
   @69304 @auditorCandownloadasPDF
   Scenario: Validate Verify User with Auditor profile has ability to download PDF files of record.
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
-    Given I login to "As a Grantor" app as "AUDITOR" user
+    Given I login to "Grantor" app as "AUDITOR" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -64,7 +64,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
   Scenario Outline: Validate Auditor should not be  able to Edit/Approve FDM
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NO_RISK_ASSESSMENT-Automation PO user"
     And I initiated an application review for application "<Application Name>" on announcement "<Announcement Name>" with properties "default"
-    Given I login to "As a Grantor" app as "PO" user
+    Given I login to "Grantor" app as "PO" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -120,7 +120,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -134,7 +134,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I click alert button "OK"
     And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -147,7 +147,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I click alert button "OK"
     And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -160,7 +160,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I click alert button "OK"
     And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -188,7 +188,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -201,7 +201,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I click alert button "OK"
     And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I wait for "1" seconds
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -234,7 +234,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     And I click on "Submit for Approval" in the page details
     And I get the "EGMS ID"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:pendingTaskTableId---" panel

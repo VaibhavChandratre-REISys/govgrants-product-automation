@@ -3,7 +3,7 @@ Feature: Validate all scenarios in the home tab
 
   @Add1 @56710 @56708 @internalOrganizationViewADMINEditPMView @smoke
   Scenario: Validate whether all7 users have view access to Internal Organization
-    Given I login to "As a Grantor" app as "Admin" user
+    Given I login to "Grantor" app as "Admin" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
     Then I softly can see row level action button "View" against "Test Automation Organization" in flex table with id "---home:-:internalOrganizationId---"
@@ -11,7 +11,7 @@ Feature: Validate all scenarios in the home tab
     Then I softly can see row level action button "Edit" against "Test Automation Organization" in flex table with id "---home:-:internalOrganizationId---"
     When I click on "View" icon for "Test Automation Organization" inside table without waiting for record
     Then I softly see that "Internal Organization" is in "Active" status
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
@@ -35,7 +35,7 @@ Feature: Validate all scenarios in the home tab
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---home:-:internalOrganizationAddfile---"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
     Then I softly can see row level action button "View" against "Test Automation Organization" in flex table with id "---home:-:internalOrganizationId---"
@@ -46,7 +46,7 @@ Feature: Validate all scenarios in the home tab
 
   @56709 @ValidateViewEditAccessOfInternalOrganization @smoke
   Scenario Outline: Validate system allows Edit access to Internal Organizations to the ADMIN/DA
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
     Then I softly can see row level action button "Edit" against "Test Automation Organization" in flex table with id "---home:-:internalOrganizationId---"
@@ -58,7 +58,7 @@ Feature: Validate all scenarios in the home tab
 
   @56712 @56713 @activeINDandsubrecipientOrganizationView
   Scenario Outline: Validate whether all users have view access to Subrecipient Organization and Active Individual Subrecipients
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---home:-:subrecipientActiveAccountId---" panel
@@ -77,7 +77,7 @@ Feature: Validate all scenarios in the home tab
 
   @56715 @56714 @activeIndividualSubrecipientsEdit
   Scenario Outline: Validate whether ADMIN/DA have Edit access to Active Individual Subrecipients and Subrecipient Organizations
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---home:-:subrecipientActiveAccountId---" panel
@@ -90,7 +90,7 @@ Feature: Validate all scenarios in the home tab
 
   @56717 @56716 @56718 @internalContactsViewCreateEdit @smoke
   Scenario Outline: Validate that Internal contacts are accessible across agencies and can be create, Edit and view access to Contacts by any Internal users
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
     And I pause execution for "3" seconds
@@ -120,7 +120,7 @@ Feature: Validate all scenarios in the home tab
 
   @56721 @56720 @smeReviewersContactViewAndCreate @smoke
   Scenario Outline: Verifying all Internal Users has View access to SME Reviewers Contact
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     When I click on top right button "New" in flex table with id "---home:-:reviewersTableId---"
@@ -144,7 +144,7 @@ Feature: Validate all scenarios in the home tab
 
   @56722 @smeReviewersContactSendInvitation
   Scenario Outline: Verify the system allows all Internal users to Send Invitation to SME Reviewer
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     When I click on top right button "New" in flex table with id "---home:-:reviewersTableId---"
@@ -171,7 +171,7 @@ Feature: Validate all scenarios in the home tab
 
   @56723 @activeSMEReviewersContactDetailPageView
   Scenario Outline: Verify that system allows user to see the detail page of Active SME Reviewer contact
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     When I click on top right button "New" in flex table with id "---home:-:reviewersTableId---"
@@ -193,7 +193,7 @@ Feature: Validate all scenarios in the home tab
 
   @56725 @56724 @56726 @termsandConditionsViewCreateAdminEdit @smoke
   Scenario Outline: Verifying all Internal Users has View, Create and Edit access to Terms and Conditions
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Planning" tab
     And I navigate to "Terms and Conditions" content inside "Setup" subheader on left panel
     When I click on top right button "New" in flex table with id "---home:-:termsAndConditionsTableId---"
@@ -214,7 +214,7 @@ Feature: Validate all scenarios in the home tab
 
   @56727 @einRegistration
   Scenario Outline: Validate whether all users have view access to EINRegistration
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "EIN Registration" content inside "Useful Links" subheader on left panel
     Then I navigate to url "https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online"
@@ -226,7 +226,7 @@ Feature: Validate all scenarios in the home tab
 
   @56728 @UEIRegistration
   Scenario Outline: Validate whether ADMIN have view access to DUNSRegistration
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
 #    Then I softly can see "History" sub tab at view detail page
     And I navigate to "UEI Registration" content inside "Useful Links" subheader on left panel
@@ -238,7 +238,7 @@ Feature: Validate all scenarios in the home tab
 
   @56729 @samgovRegistration
   Scenario Outline: Validate whether all users have view access to SAM.Gov Registration
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "SAM.gov Registration" content inside "Useful Links" subheader on left panel
     Then I navigate to url "https://www.sam.gov/SAM/"
@@ -250,7 +250,7 @@ Feature: Validate all scenarios in the home tab
 
   @56730 @contactUs
   Scenario Outline: Validate whether all users have view access to Contactview
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Contact Us" content inside "Technical Support" subheader on left panel
     And I see "Customer_Support" in current url
@@ -262,7 +262,7 @@ Feature: Validate all scenarios in the home tab
 
   @56732 @subrecipientOrganizationEdition @smoke
   Scenario Outline: Validate whether ADMIN and DA users can Edit the Subrecipient Organization
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---home:-:subrecipientActiveAccountId---" panel
@@ -277,7 +277,7 @@ Feature: Validate all scenarios in the home tab
 
  @56733 @internalContactsEdition @smoke
   Scenario Outline: Validate whether all Internal Users can edit the Contacts
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
     And I pause execution for "3" seconds
@@ -297,7 +297,7 @@ Feature: Validate all scenarios in the home tab
 
   @56719 @56734 @subrecipientContactsCreateEdit @smoke
   Scenario Outline: Verifying if the Internal Users has create and Edit access to Subrecipient Contact
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
     And I pause execution for "3" seconds
@@ -324,7 +324,7 @@ Feature: Validate all scenarios in the home tab
 
   @56735 @smereviewersContactEdition
   Scenario Outline: Verifying all Internal Users has Edit access to SME Contact
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     When I click on top right button "New" in flex table with id "---home:-:reviewersTableId---"
@@ -345,7 +345,7 @@ Feature: Validate all scenarios in the home tab
 
   @56736 @56737 @additionalAddressesCreationEdition
   Scenario: Validate whether ADMIN can Create and Edition of Additional Addresses
-    Given I login to "As a Grantor" app as "ADMIN" user
+    Given I login to "Grantor" app as "ADMIN" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
     When I click on "View" icon for "Test Automation Organization" inside table without waiting for record
@@ -363,7 +363,7 @@ Feature: Validate all scenarios in the home tab
 
   @56739 @56907 @relatedContactsCreationEdition
   Scenario Outline: The Internal Users should be able to Create and Edit Related Contacts
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
     When I click on "View" icon for "Test Automation Organization" inside table without waiting for record
@@ -394,7 +394,7 @@ Feature: Validate all scenarios in the home tab
 
   @56738 @deletionOfRelatedContact
   Scenario:  Validate whether the admin is able to Delete Related Contacts
-    Given I login to "As a Grantor" app as "ADMIN" user
+    Given I login to "Grantor" app as "ADMIN" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
 #    And I select value inside table "---home:-:internalOrganizationId---" is "All"
@@ -418,7 +418,7 @@ Feature: Validate all scenarios in the home tab
 
   @56740 @56741 @56742 @dunsNumberCreationEditionAndDeletion @smoke
   Scenario: Validate whether ADMIN and DA users can Create, Edit and delete the DUNS Number
-    Given I login to "As a Grantor" app as "ADMIN" user
+    Given I login to "Grantor" app as "ADMIN" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
     When I click on "View" icon for "Test Automation Organization" inside table without waiting for record
@@ -434,7 +434,7 @@ Feature: Validate all scenarios in the home tab
 
   @56743 @deleteIndirectCostRate @buglogged151630 @wip
   Scenario: Validate whether ADMIN and DA users can delete the Indirect Cost Rates
-    Given I login to "As a Grantor" app as "ADMIN" user
+    Given I login to "Grantor" app as "ADMIN" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
     When I click on "View" icon for "Test Automation Organization" inside table without waiting for record
@@ -451,7 +451,7 @@ Feature: Validate all scenarios in the home tab
 
   @56883 @56912 @adminOrPMEditAccessToOwnOrgInternalOrganizationPageHeader
   Scenario Outline: Validate whether Users with Admin/ PM profiles can edit their own organizations and Internal organization page has Header
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
     #56883 #monu
@@ -467,14 +467,14 @@ Feature: Validate all scenarios in the home tab
 
   @56911 @foUserCannotEditOrg
   Scenario: Validate whether Fo User Can edit Internal Organizations
-    Given I login to "As a Grantor" app as "FO" user
+    Given I login to "Grantor" app as "FO" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
     Then I cannot see row level action button "Edit" against "Test Automation Organization" in flex table with id "---home:-:internalOrganizationId---"
 
   @57340 @thirdPartyVerification @nonFunctional
   Scenario Outline: Verifying if the Internal Users has Edit access to Subrecipient Contact
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---home:-:subrecipientActiveAccountId---" panel
@@ -486,7 +486,7 @@ Feature: Validate all scenarios in the home tab
 
   @57341 @listpageViewChildOrganizations
   Scenario Outline:: Verify system allows access to all Internal users to view the List page
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
     #When I perform quick search for "Teaching and Learning" in "---home:-:internalOrganizationId---" panel
@@ -502,7 +502,7 @@ Feature: Validate all scenarios in the home tab
 
   @57342 @agencyBelongsToOneParent
   Scenario Outline: Verify whether an Agency belongs to only one Parent
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
     Then I see values "Test Automation Organization" and "Agency" inside table
@@ -512,7 +512,7 @@ Feature: Validate all scenarios in the home tab
 
   @57343 @individualSubrecipientContactCreation @buglogged138607
   Scenario Outline: Validate whether ADMIN/DA have can new address details to Ind Subrecipient org
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "{user:OldfullName}" in "---home:-:indActiveAccountId---" panel
@@ -527,7 +527,7 @@ Feature: Validate all scenarios in the home tab
 
   @57344 @57345 @homePendingTaskCompletedAndTaskCount
   Scenario: Validate whether user is able to view the total count of pending Tasks assigned to user and Pending Task and Completed Task on the left Navigation shows Pending Tasks across all the Modules
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -560,7 +560,7 @@ Feature: Validate all scenarios in the home tab
     When I perform quick search for "Automation Permanent KPI" in "---program:-:associateKPITableId---" panel
     When I click "Associate" after selection of "Automation Permanent KPI" in the table "---program:-:associateKPITableId---"
     And I click on "Submit For Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
@@ -574,7 +574,7 @@ Feature: Validate all scenarios in the home tab
 
   @57346 @subrecipientOrganizationDUNSandEINS
   Scenario Outline: Verify whether the Organization has at least one DUNS Numbers
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -631,7 +631,7 @@ Feature: Validate all scenarios in the home tab
     And I close the tab
     When I click on "Submit Application" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    Given I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
+    Given I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
     When I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---home:-:subrecipientActiveAccountId---" panel
@@ -664,7 +664,7 @@ Feature: Validate all scenarios in the home tab
 
  @57349 @viewActiveIndividualOrganizations
   Scenario Outline: The Internal Users should be able to view all the Active Individual Subrecipients that are registered in the system and may be recipients of grants
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "{user:OldfullName}" in "---home:-:indActiveAccountId---" panel
@@ -677,7 +677,7 @@ Feature: Validate all scenarios in the home tab
 
   @58245 @verifyReassignFunctionality @reassign @smoke
   Scenario: The Reassign on the left Navigation allows the reassignment of tasks.
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -713,13 +713,13 @@ Feature: Validate all scenarios in the home tab
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
@@ -742,7 +742,7 @@ Feature: Validate all scenarios in the home tab
 
   @59016 @validateFilesOnHome
   Scenario: Addition of Attachment to Focus Area by User - Admin/EXE/PM
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
@@ -759,7 +759,7 @@ Feature: Validate all scenarios in the home tab
 
   @62102 @pageBlockSections
   Scenario Outline: Verify whether the Overview Tab has the sections: Related Contacts and Indirect rates
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
     When I click on "View" icon for "Test Automation Organization" inside flex table with id "---home:-:internalOrganizationId---" with wait for record
@@ -774,7 +774,7 @@ Feature: Validate all scenarios in the home tab
 
   @62103 @pageBlockSectionsRelatedLog
   Scenario Outline:  Validate whether the Related Log displays Active Federal/NGO Applications (Grantee) and Active Federal/NGO Grants (Grantee).
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
     When I click on "View" icon for "Test Automation Organization" inside flex table with id "---home:-:internalOrganizationId---" with wait for record
@@ -791,7 +791,7 @@ Feature: Validate all scenarios in the home tab
 
   @62104 @indProfileEditAccess
   Scenario: Verify other than Admin and Ind Profile Users, other users cannot edit the Ind subrecipient profile Information
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "{user:OldfullName}" in "---home:-:indActiveAccountId---" panel
@@ -801,7 +801,7 @@ Feature: Validate all scenarios in the home tab
   Scenario: The Pending Task on the left Navigation shows Pending Tasks that are created for Subrecipient Users
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -848,7 +848,7 @@ Feature: Validate all scenarios in the home tab
 
   @62255 @CreatedNotes  @onhold @wip
   Scenario: Verify created notes on Home Tab
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     When I navigate to "Home" tab
     And I click on "My_Workspace_Notes"
     And I click on user notes content with icon name "plus"
@@ -858,7 +858,7 @@ Feature: Validate all scenarios in the home tab
 
   @62254 @PerformGlobalSearchOnHomeTab
   Scenario: Verify Global search on Home Tab
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -876,7 +876,7 @@ Feature: Validate all scenarios in the home tab
 
   @62912 @VerifyrecentlyViewedRecordAndDetailsOnMiniPageLayoutAndHoverLink  @wip
   Scenario: The Internal User should be able to view the recently viewed record and details on the Mini pagelayout and the hover link  will take to the record
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
     When I click on "View" icon for "Test Automation Organization" inside table without waiting for record
@@ -886,7 +886,7 @@ Feature: Validate all scenarios in the home tab
 
   @62911 @VerifyStatusIsNewForInvitation/BulkInvitationISentStatusChanges
   Scenario Outline: Validate once Contact has registered the status will be New , when the Invitation/Bulk Invitation is sent, the status changes from Invitation Sent
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     When I click on top right button "New" in flex table with id "---home:-:reviewersTableId---"
@@ -916,7 +916,7 @@ Feature: Validate all scenarios in the home tab
 
   @33882 @34674 @validatingcreateSMEReviewer
   Scenario: To verify internal user able to Create new SME reviewer
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     When I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     #33882

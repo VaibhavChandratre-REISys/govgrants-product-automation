@@ -3,7 +3,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
 
   @68181 @auditorCannotCreateEditInternalOrganizations @smoke
   Scenario Outline: Validate Auditor should not be  able to Create/Edit internal organization.
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
     Then I softly cannot see top right button "New" in flex table with id "---home:-:internalOrganizationId---"
@@ -15,7 +15,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
 
   @69119 @auditorCanViewInternalOrganizations
   Scenario Outline: Validate Auditor should have view / read  only access to record.
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
     #When I perform quick search for "Test Automation Organization" in "---home:-:internalOrganizationId---" panel
@@ -27,7 +27,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
 
   @69121 @auditorCanViewSubrecipientOrganization
   Scenario Outline: Validate Auditor should have view / read  only access to record for subrecipient organization
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---home:-:subrecipientActiveAccountId---" panel
@@ -45,7 +45,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
 
   @69122 @auditorCannotEditSubrecipientOrganization
   Scenario Outline:  Auditor should not be  able to  Edit subrecipient organization
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---home:-:subrecipientActiveAccountId---" panel
@@ -56,7 +56,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
 
   @69123 @auditorCanViewIndividualOrganization
   Scenario Outline: Validate Auditor should have view / read  only access to record for Individual organization
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "{user:fullName}" in "---home:-:indActiveAccountId---" panel
@@ -68,7 +68,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
 
   @69124 @auditorCannotEditSubrecipientOrganization @smoke
   Scenario Outline:  Auditor should not be  able to  Edit Individual organization
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "{user:fullName}" in "---home:-:indActiveAccountId---" panel
@@ -80,7 +80,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
 
   @69125 @auditorCannotCreateEditContact
   Scenario Outline: Validate Auditor should not be  able to Create/Edit any Contact
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     #Bug432799
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
@@ -100,7 +100,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
 
   @69126 @auditorCanViewCreatedContact
   Scenario: Validate Auditor should have view / read  only access to record.
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
     When I click on top right button "New" in flex table with id "---home:-:internalContactTableId---"
@@ -109,7 +109,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
     And I save the contact name as "Automation Runtime Contact"
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:internalContactTableId---" panel
@@ -119,7 +119,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
 
   @69144 @69132 @69128 @auditorCannotSendInvitationCanViewSMEReviewersContactDetails
   Scenario Outline: Verify Auditor Cannot create SME conatct and do not have access to send invitation (Bulk or single clicking paper aeroplane icon)/ Verify Auditor can view / read  only access to SME Reviewers Contact details
-    Given I login to "As a Grantor" app as "<User>" user
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     Then I softly cannot see top right button "New" in flex table with id "ActiveAccountReviewer"
@@ -140,14 +140,14 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
 
   @69129 @auditorReassign
   Scenario: Verify Auditor profile would not have tasks assigned,  Re assign will populate no tasks to reassign
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     When I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     Then I do not see value "AUDITOR" inside auto search result after enterring into field "name__r.name"
 
   @69120 @69130 @auditorPendingTaskSummaryPhase
   Scenario: Validate Auditor should have no pending task in any of the filter.| Verify Auditor do not have any pending tasks by any phase and by any due date filter.
-    Given I login to "As a Grantor" app as "AUDITOR" user
+    Given I login to "Grantor" app as "AUDITOR" user
     When I navigate to "Planning" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     Then I softly see "No records found" inside flex table with id "---home:-:planningPendingTaskTableId---"
@@ -156,7 +156,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
 
   @69131 @auditorCompletedTask
   Scenario: Verify Auditor does not have any completed tasks
-    Given I login to "As a Grantor" app as "AUDITOR" user
+    Given I login to "Grantor" app as "AUDITOR" user
     And I navigate to "Home" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     Then I softly see "No Records Found" inside flex table with id "---home:-:completedAssignedToMe---"
@@ -167,7 +167,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     Given I delete the record "Automation Runtime Contact Contact" from the object "CONTACT"
     Given I delete the record "Automation Runtime Contact385484316 Contact" from the object "CONTACT"
     Given I delete the record "Automation Runtime Contact4568176243 Contact" from the object "CONTACT"
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
     When I click on top right button "New" in flex table with id "SubrecipientContacts"
@@ -190,7 +190,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     When I click on "Edit" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "SubrecipientContacts"
     And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
     And I click modal button "Save"
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
     And I check button "New" is not present in table with id "SubrecipientContacts"
@@ -204,7 +204,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
 
   @69143 @auditorViewSubrecipientContacts
   Scenario: Validate Auditor should have view / read  only access to subrecipient contacts
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
     When I click on top right button "New" in flex table with id "SubrecipientContacts"
@@ -232,7 +232,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
     And I click modal button "Save"
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Home" tab
     #Bug434186
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
@@ -243,7 +243,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
 
   @69129 @validateAuditorReassign
   Scenario: Verify Auditor profile would not have tasks assigned  Re assign will populate no tasks to reassign
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     When I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     Then I do not see value "AUDITOR" inside auto search result after enterring into field "name__r.name"

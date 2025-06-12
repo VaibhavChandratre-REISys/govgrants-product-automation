@@ -158,7 +158,7 @@ Feature: Validate all scenarios in the Pre-Application
     When I click on "View" icon for "<Announcement Name>" inside table
     And I get the "EGMS ID"
     Then I softly cannot see top right button "Create Application" in page detail
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
@@ -208,7 +208,7 @@ Feature: Validate all scenarios in the Pre-Application
     And I close the tab
     When I click on "Submit Application" in the page details
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
-    Given I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
+    Given I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -301,13 +301,13 @@ Feature: Validate all scenarios in the Pre-Application
     When I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I perform quick search for "Record Id" in "---preApplication:-:preApplicationsGrantorTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
     Then I softly cannot see top right button "Reject" in page detail
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
@@ -359,7 +359,7 @@ Feature: Validate all scenarios in the Pre-Application
     And I perform quick search for "<Announcement Name>" in "RecipientPreApplications" panel
     When I click on "View" icon for "<Announcement Name>" inside table
     Then I softly cannot see top right button "Create Application" in page detail
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record id" in "---preApplication:-:pendingTaskTableId---" panel
@@ -401,7 +401,7 @@ Feature: Validate all scenarios in the Pre-Application
     And I close the tab
     When I click on "Submit Application" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    Given I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    Given I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     When I click toggle button to select "All Competitive Announcements"

@@ -2,7 +2,7 @@
 Feature: Validate all scenarios in Strategic Plan
 
   Background: To setup data
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     And I click toggle button to select "Strategic Plans - Draft"
@@ -96,7 +96,7 @@ Feature: Validate all scenarios in Strategic Plan
     And I click on "Save" in the page details
     Then I softly see field "Strategic Plan Status" as "Draft"
     #105394 #monu
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     And I click toggle button to select "Strategic Plans - Draft"

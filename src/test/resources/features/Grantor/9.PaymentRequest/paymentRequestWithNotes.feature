@@ -28,7 +28,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -55,7 +55,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     And I wait for "2" seconds
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -82,7 +82,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     And I wait for "2" seconds
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -109,7 +109,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     And I wait for "2" seconds
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -136,7 +136,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     And I wait for "2" seconds
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -191,7 +191,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -206,7 +206,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record1 | Automation Notes1 |
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -221,7 +221,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record2 | Automation Notes2 |
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -236,7 +236,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record3 | Automation Notes3 |
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -257,7 +257,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -277,7 +277,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     And I wait for "2" seconds
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -296,7 +296,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes" for title "Description" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -343,7 +343,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -358,7 +358,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record1 | Automation Notes1 |
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -373,7 +373,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record2 | Automation Notes2 |
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -388,7 +388,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record3 | Automation Notes3 |
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -409,7 +409,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -425,7 +425,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes" for title "Description" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -445,7 +445,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes" for title "Description" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -494,7 +494,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -509,7 +509,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record1 | Automation Notes1 |
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -524,7 +524,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record2 | Automation Notes2 |
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -539,7 +539,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record3 | Automation Notes3 |
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -560,14 +560,14 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
     Then I see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I perform quick search for "Record Id" in "---paymentRequest:-:paymentrequestReimbursementTableId---" panel
@@ -588,7 +588,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes" for title "Description" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -608,7 +608,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes" for title "Description" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -651,7 +651,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -672,7 +672,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes2" for title "Description" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -698,7 +698,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes2" for title "Description" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -724,7 +724,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes2" for title "Description" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -779,7 +779,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -800,7 +800,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes2" for title "Description" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -826,7 +826,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes2" for title "Description" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -852,7 +852,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes2" for title "Description" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -878,7 +878,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes2" for title "Description" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -924,7 +924,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
     And I get the "EGMS ID"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -933,7 +933,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Forms and Files" sub tab
     Then I cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -942,7 +942,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Forms and Files" sub tab
     Then I cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -951,7 +951,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Forms and Files" sub tab
     Then I cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -988,7 +988,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1003,7 +1003,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record1 | Automation Notes1 |
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1018,7 +1018,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record2 | Automation Notes2 |
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1033,7 +1033,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record3 | Automation Notes3 |
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -1049,7 +1049,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -1058,7 +1058,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I refresh the page
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Rejected" and is "Red"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1078,7 +1078,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes" for title "Description" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1098,7 +1098,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes" for title "Description" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1135,7 +1135,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I get the "EGMS ID"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -1144,7 +1144,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Forms and Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -1153,7 +1153,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Forms and Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -1185,7 +1185,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -1203,7 +1203,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Forms and Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -1212,7 +1212,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Forms and Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -1221,7 +1221,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Forms and Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -1232,7 +1232,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I navigate to "Forms and Files" sub tab
     #236273
     Then I softly cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -1242,7 +1242,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I navigate to "Forms and Files" sub tab
     #236273
     Then I softly cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -1275,7 +1275,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -1291,7 +1291,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -1300,7 +1300,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see field "Status" as "Rejected"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -1308,7 +1308,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "View" icon for "Record Id" inside flex table with id "---paymentRequest:-:paymentrequestReimbursementTableId---" without waiting for record
     And I navigate to "Forms and Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -1317,7 +1317,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Forms and Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -1355,7 +1355,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -1366,7 +1366,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record1 | Automation Notes1 |
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -1377,7 +1377,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record2 | Automation Notes2 |
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -1388,7 +1388,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record3 | Automation Notes3 |
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1420,7 +1420,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -1433,7 +1433,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I wait for "3" seconds
     When I navigate to "Open Items" sub tab
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -1447,7 +1447,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes" for title "Description" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -1461,7 +1461,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes" for title "Description" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"
@@ -1503,7 +1503,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1524,7 +1524,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -1532,7 +1532,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I "Approve" in the approval decision
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I perform quick search for "Record Id" in "---paymentRequest:-:paymentrequestReimbursementTableId---" panel
@@ -1548,7 +1548,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1563,7 +1563,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1602,7 +1602,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1616,7 +1616,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record1 | Automation Notes1 |
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1630,7 +1630,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record2 | Automation Notes2 |
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1644,7 +1644,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record3 | Automation Notes3 |
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1676,7 +1676,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -1688,7 +1688,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I refresh the page
     When I navigate to "Open Items" sub tab
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1707,7 +1707,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes" for title "Description" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1726,7 +1726,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes" for title "Description" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1776,7 +1776,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -1787,7 +1787,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I cannot see top right button "New" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -1798,7 +1798,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I cannot see top right button "New" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -1845,7 +1845,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -1861,7 +1861,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -1872,7 +1872,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I cannot see top right button "New" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -1883,7 +1883,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I cannot see top right button "New" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -1894,7 +1894,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I cannot see top right button "New" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -1902,7 +1902,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I "Approve" in the approval decision
     And I wait for "2" seconds
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -1914,7 +1914,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I cannot see top right button "New" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -1925,7 +1925,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I cannot see top right button "New" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -1969,7 +1969,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -1979,7 +1979,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record1 | Automation Notes1 |
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -1989,7 +1989,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record2 | Automation Notes2 |
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -1999,7 +1999,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record3 | Automation Notes3 |
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -2015,7 +2015,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -2025,7 +2025,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I refresh the page
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Rejected" and is "Red"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -2041,7 +2041,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes" for title "Description" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -2057,7 +2057,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes" for title "Description" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -2109,7 +2109,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -2125,7 +2125,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -2133,7 +2133,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I "Approve" in the approval decision
     And I wait for "2" seconds
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -2150,7 +2150,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I cannot see top right button "New" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -2161,7 +2161,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I cannot see top right button "New" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -2205,7 +2205,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -2215,7 +2215,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record1 | Automation Notes1 |
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -2225,7 +2225,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record2 | Automation Notes2 |
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -2235,7 +2235,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record3 | Automation Notes3 |
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -2269,7 +2269,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -2297,7 +2297,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes" for title "Description" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -2312,7 +2312,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes" for title "Description" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -2355,7 +2355,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -2374,7 +2374,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation PM" for title "Created By" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     And I save the value from row "1" for column name "Created Date" as "CreatedDate" from flex table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -2387,7 +2387,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I navigate to "Forms and Files" sub tab
     Then I cannot see row level action button "Edit" against "Automation PM" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     Then I cannot see row level action button "Delete" against "Automation PM" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -2400,7 +2400,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I navigate to "Forms and Files" sub tab
     Then I cannot see row level action button "Edit" against "Automation PM" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     Then I cannot see row level action button "Delete" against "Automation PM" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -2570,7 +2570,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     And I wait for "3" seconds
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -2609,7 +2609,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes" for title "Description" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -2670,7 +2670,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -2704,7 +2704,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -2769,7 +2769,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -2785,7 +2785,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -2793,7 +2793,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I "Approve" in the approval decision
     And I wait for "2" seconds
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -2858,7 +2858,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -2874,7 +2874,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -2959,7 +2959,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" without waiting for record
     And I wait for "3" seconds
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -2993,7 +2993,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I softly see value "Automation Notes" for title "Description" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -3052,7 +3052,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -3073,7 +3073,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -3126,7 +3126,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -3160,7 +3160,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -3226,7 +3226,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -3247,7 +3247,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -3255,7 +3255,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I "Approve" in the approval decision
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantor" app as "Auditor" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Auditor" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -3303,7 +3303,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -3324,7 +3324,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -3332,7 +3332,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I "Approve" in the approval decision
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I perform quick search for "Record Id" in "---paymentRequest:-:paymentrequestReimbursementTableId---" panel
@@ -3385,7 +3385,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "SARAH PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "SARAH PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     And I click toggle button to select "Reimbursements - All"

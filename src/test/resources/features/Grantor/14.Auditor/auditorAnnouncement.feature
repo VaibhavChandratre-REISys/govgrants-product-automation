@@ -3,7 +3,7 @@ Feature: Validate all scenarios for Auditor Profile in Announcement Module
 
   @69159 @auditorCannotCreateAnnouncement @Bug429010
   Scenario: Validate Auditor should not be able to  Create/Edit Announcement
-    Given I login to "As a Grantor" app as "AUDITOR" user
+    Given I login to "Grantor" app as "AUDITOR" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Formula Announcements"
@@ -20,7 +20,7 @@ Feature: Validate all scenarios for Auditor Profile in Announcement Module
 
   @69160 @otherUsersCanCreateAnnouncement
   Scenario Outline: Verify that other than Auditor user all other users can create a Announcement
-    When I login to "As a Grantor" app as "<User>" user
+    When I login to "Grantor" app as "<User>" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Formula Announcements"
@@ -42,7 +42,7 @@ Feature: Validate all scenarios for Auditor Profile in Announcement Module
   @69161 @auditorProfileCannotEditAnnouncement @buglogged151660
   Scenario Outline: Validate Auditor user should not be able to Edit Announcement
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
-    When I login to "As a Grantor" app as "<User>" user
+    When I login to "Grantor" app as "<User>" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I pause execution for "3" seconds
@@ -57,7 +57,7 @@ Feature: Validate all scenarios for Auditor Profile in Announcement Module
   @69162 @auditorCompetitiveAnnouncement @buglogged151660
   Scenario: Validate Auditor should not be able to Create/Edit/Review/Approve announcement
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
-    When I login to "As a Grantor" app as "Auditor" user
+    When I login to "Grantor" app as "Auditor" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Published Competitive Announcements"

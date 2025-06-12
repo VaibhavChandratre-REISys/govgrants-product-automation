@@ -1531,7 +1531,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
-    When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:fundingOpportunitiesTableId---" panel
@@ -1727,7 +1727,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "PRE_APPLICATION_YES"
     And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
-    When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     And I click toggle button to select "Opportunities - All"
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
@@ -5607,7 +5607,7 @@ Feature: Grantee Smoke scenarios
 
   @443756 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg @Grantee_Smoke1
   Scenario Outline: Validate Federal user should see all fields and section on federal Org
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on advance filter of table id "---grantee_tableId:-:fedOrgTableId---" for LWC
@@ -5784,7 +5784,7 @@ Feature: Grantee Smoke scenarios
 
   @443755 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @Grantee_Smoke3 @GranteeTest1
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"
@@ -5997,7 +5997,7 @@ Feature: Grantee Smoke scenarios
 
   @443676 @495305 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts @Grantee_Smoke3 @Grantee_Smoke2
   Scenario Outline: Validate Non federal PM user should see all fields and section for non federal contact's
-    When I login to "As a Grantor" app as "<User>" user
+    When I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Contacts" subheader on left panel
     Then I softly see "Federal Contacts" page block displayed
@@ -6141,7 +6141,7 @@ Feature: Grantee Smoke scenarios
 
   @495304 @443672 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact @Grantee_Smoke1 @Grantee_Smoke2
   Scenario Outline: federal_ Verify user should see all fields and section for federal contact's
-    When I login to "As a Grantor" app as "<User>" user
+    When I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Contacts" subheader on left panel
     Then I softly see "Federal Contacts" page block displayed
@@ -6291,7 +6291,7 @@ Feature: Grantee Smoke scenarios
 
   @442181 @ValidatePMusershouldabletosaveandcreateinternalcontact @Grantee_Smoke1
   Scenario Outline: Validate PM user should able to save and create internal contact
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     Then I see "External" inside "Contacts" is displayed
     Then I see "Internal" inside "Contacts" is displayed
@@ -8132,7 +8132,7 @@ Feature: Grantee Smoke scenarios
 
   @482123 @VerifytheinternalOrganizationallsectionandfields @Grantee_Smoke1 @GranteeTest1
   Scenario Outline: Verify the as the PM user internal Organization all section and fields
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organizations" subheader on left panel
     And I click on "View" icon for "Test Automation Organization" inside flex table with id "---grantee_tableId:-:InternalOrganizations---" without waiting for record
@@ -11402,7 +11402,7 @@ Feature: Grantee Smoke scenarios
 
   @494959 @ValidateAdminandPMusershouldabletocreateNonFederalOrgExternalOrg @Grantee_Smoke2
   Scenario Outline: Validate Admin and PM user should able to create Non-Federal Org External Org
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"
@@ -11475,7 +11475,7 @@ Feature: Grantee Smoke scenarios
 
   @495301 @Validatethepermissionsofinternalcontact @Grantee_Smoke2
   Scenario Outline: Validate the permissions of internal contact
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
     And I click toggle button to select "All Contacts"
@@ -12474,7 +12474,7 @@ Feature: Grantee Smoke scenarios
 
   @494963 @ValidatePOFOFDEXEAuditorusershouldnotabletocreateNonFederalOrgExternalOrg @Grantee_Smoke3
   Scenario: Validate PO FO FD EXE Auditor user should not able to create Non-Federal Org External Org
-    When I login to "As a Grantor" app as "GRANTEE PM" user
+    When I login to "Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -13087,7 +13087,7 @@ Feature: Grantee Smoke scenarios
 
   @494967 @ValidateAdminPMPOFOFDEXEAuditorusershouldnotabletocreateFederalOrgExternalOrg @Grantee_Smoke3
   Scenario Outline: Validate Admin/PM/PO/FO/FD/EXE/Auditor user should not able to create Federal Org External Org
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:fedOrgTableId---"
@@ -13103,7 +13103,7 @@ Feature: Grantee Smoke scenarios
 
   @494954 @ValidatePOFOFDAuditorPMEXEAdminusershouldnotabletocreateinternalOrg @Grantee_Smoke3
   Scenario Outline: Validate PO/FO/FD/Auditor/PM/EXE/Admin user should not able to create internal Org
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organizations" subheader on left panel
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:InternalOrganizations---"

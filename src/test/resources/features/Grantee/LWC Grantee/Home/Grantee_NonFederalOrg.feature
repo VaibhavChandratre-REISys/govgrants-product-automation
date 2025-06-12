@@ -3,7 +3,7 @@ Feature: Validate all scenarios for Non Federal Organization
 
   @460982 @ValidateNonFederalAuditorprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess
   Scenario Outline: Validate Non Federal Auditor profile user should see all fields and section on Non federal Org layout in readonly View only Access
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -233,7 +233,7 @@ Feature: Validate all scenarios for Non Federal Organization
 
   @461000 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @P3_Grantee @PO_Grantee @GRegression3
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
-    When I login to "As a Grantor" app as "GRANTEE PM" user
+    When I login to "Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"
@@ -428,7 +428,7 @@ Feature: Validate all scenarios for Non Federal Organization
 
   @482144 @ValidateNonFederalFOprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess @P3_Grantee @FO_Grantee @GRegression4
   Scenario Outline: Validate Non Federal FO profile user should see all fields and section on Non federal Org layout in readonly View only Access
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -675,7 +675,7 @@ Feature: Validate all scenarios for Non Federal Organization
 
   @482146 @ValidateNonFederalFOprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess @P2_Grantee @FD_Grantee @GRegression4
   Scenario Outline: Validate Non Federal FD profile user should see all fields and section on Non federal Org layout in readonly View only Access
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -922,7 +922,7 @@ Feature: Validate all scenarios for Non Federal Organization
 
   @482149 @ValidateNonFederalEXEprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess @P1_Grantee @EXE_Grantee @GRegression1
   Scenario Outline: Validate Non Federal EXE profile user should see all fields and section on Non federal Org layout in readonly View only Access
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -1169,7 +1169,7 @@ Feature: Validate all scenarios for Non Federal Organization
 
   @477510 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
-    When I login to "As a Grantor" app as "<userType>" user
+    When I login to "Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"

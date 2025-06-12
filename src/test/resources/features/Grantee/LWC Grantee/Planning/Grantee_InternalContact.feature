@@ -3,7 +3,7 @@ Feature: Validate all scenarios for Internal Contact
 
   @482136 @ValidateAuditorusershouldhaveonlyviewaccess @P4_Grantee @AUDITOR_Grantee @GRegression1
   Scenario Outline: Validate Auditor user should have only view access
-    When I login to "As a Grantor" app as "GRANTEE PM" user
+    When I login to "Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
     And I click toggle button to select "All Contacts"

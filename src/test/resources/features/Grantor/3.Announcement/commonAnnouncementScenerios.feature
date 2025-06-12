@@ -2,7 +2,7 @@
 Feature: Validate all common scenarios in the  Announcement tab
 
   Background: Create Announcement
-    When I login to "As a Grantor" app as "PO" user
+    When I login to "Grantor" app as "PO" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Formula Announcements"
@@ -30,7 +30,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I pause execution for "5" seconds
     Then I softly see field "Subrecipient Match (%)" as "10.00%"
     And I pause execution for "5" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
@@ -199,7 +199,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I wait for "2" seconds
     And I get the "EGMS ID"
-    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
@@ -212,7 +212,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I click modal button "Save"
     And I click on submit review
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Formula Announcements"
@@ -382,7 +382,7 @@ Feature: Validate all common scenarios in the  Announcement tab
 
   @45773 @announcementOtherNotAbleToDelete
   Scenario: Validate that other users are not able to delete created announcement
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
@@ -390,7 +390,7 @@ Feature: Validate all common scenarios in the  Announcement tab
 
   @45774 @announcementOtherNotAbleToEdit
   Scenario: Validate that other users are not able to Edit created announcement
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel

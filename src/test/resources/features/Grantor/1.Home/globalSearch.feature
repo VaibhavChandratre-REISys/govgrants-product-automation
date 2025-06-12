@@ -3,7 +3,7 @@ Feature: Validate all scenarios for the global search
 
   @387431 @387434 @ValidateEXEuserisabletoseetheglobalsearchbarforanannouncement @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate EXE user is able to see the global search bar for an announcement
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
     Then I softly see global search display at top of the page
     #387434
@@ -12,7 +12,7 @@ Feature: Validate all scenarios for the global search
 
   @387457 @ValidatetherecordownerisabletoedittheaccessforrecordwhenannouncementisintheCreatedsubmitforrevieworinUnpublishedstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate the record owner is able to edit the access for record when announcement is in the Created, submit for review or in Unpublished state
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
@@ -69,7 +69,7 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
     And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
     Then I softly see field "Status" as "Submitted for Review"
-    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
@@ -82,7 +82,7 @@ Feature: Validate all scenarios for the global search
     When I click modal button "Save"
     And I click on submit review
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Draft Competitive Announcements"
@@ -101,13 +101,13 @@ Feature: Validate all scenarios for the global search
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Competitive Announcements"
@@ -125,7 +125,7 @@ Feature: Validate all scenarios for the global search
 
   @387461 @ValidatethatNonOwneruserdoesnthaveaneditoptioninanystageofannouncementandwillgeterrormessageonpage @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that Non-Owner user doesn't have an edit option in any stage of announcement and will get error message on page
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
@@ -138,7 +138,7 @@ Feature: Validate all scenarios for the global search
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     And I select "Announcements" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
@@ -185,7 +185,7 @@ Feature: Validate all scenarios for the global search
     When I navigate to "Responsibilities" sub tab
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     Then I softly see field "Status" as "Submitted for Review"
-    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     And I select "Announcements" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
@@ -206,7 +206,7 @@ Feature: Validate all scenarios for the global search
     When I click modal button "Save"
     And I click on submit review
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Draft Competitive Announcements"
@@ -214,7 +214,7 @@ Feature: Validate all scenarios for the global search
     And I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     Given I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     And I select "Announcements" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
@@ -223,7 +223,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Draft Competitive Announcements"
@@ -241,7 +241,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     And I select "Announcements" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
@@ -255,7 +255,7 @@ Feature: Validate all scenarios for the global search
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Competitive Announcements"
@@ -263,7 +263,7 @@ Feature: Validate all scenarios for the global search
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     And I select "Announcements" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
@@ -272,7 +272,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Competitive Announcements"
@@ -280,7 +280,7 @@ Feature: Validate all scenarios for the global search
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I click on "Unpublish" in the page details
     Then I softly see field "Status" as "Under Revision"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     And I select "Announcements" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
@@ -289,7 +289,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Competitive Announcements"
@@ -297,7 +297,7 @@ Feature: Validate all scenarios for the global search
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
@@ -335,7 +335,7 @@ Feature: Validate all scenarios for the global search
 
   @387477 @Validateuserisnotabletochangetheownerinanystateofannouncementandwillgettheerrormessageandnonowneruserisnotabletoseethechangeowneroption  @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate user is not able to change the owner in any state of announcement and will get the error message and non-owner user is not able to see the change owner option
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
@@ -355,7 +355,7 @@ Feature: Validate all scenarios for the global search
     And I click on row level action button "Change Owner" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
     Then I softly see "Change Owner" opens in overLay window
     When I click modal button "Cancel"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     And I select "Announcements" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
@@ -363,7 +363,7 @@ Feature: Validate all scenarios for the global search
 
   @387731 @ValidatePMuserhaveeditaccessforrecordonlywheneditaccesssettingisyesforpeerreviewerwhenannouncementisasubmitforreviewstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate PM user have edit access for record only when edit access setting is yes for peer reviewer when announcement is a submit for review state
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
@@ -415,7 +415,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside table
     Then I softly see field "Status" as "Submitted for Review"
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     And I select "Announcements" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
@@ -426,7 +426,7 @@ Feature: Validate all scenarios for the global search
 
   @387762 @ValidatePMuserdoesnothaveeditaccessforpeerreviewthenPMuserwillgeterrormessageforannouncementwhenannouncementisinthesubmitforreviewstateorinReviewedstates @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate PM user does not have edit access for peer review then PM user will get error message for announcement when announcement is in the submit for review state or in Reviewed states
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
@@ -478,7 +478,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside table
     Then I softly see field "Status" as "Submitted for Review"
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     And I select "Announcements" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
@@ -490,7 +490,7 @@ Feature: Validate all scenarios for the global search
 
   @387769 @Validateuserisabletoseethen5mostrecentlyusedrecordsinthedropdownlistwhenuserclicksonsearchinputboxforannouncement @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate user is able to see the 5 most recently used records in the dropdown list when user clicks on search input box for announcement
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
     And I select "Announcements" from dropdown for Global search
     And I click on global search box
@@ -498,7 +498,7 @@ Feature: Validate all scenarios for the global search
 
   @387772 @Validatethatuserisabletoseetheallthelistofmodulesafterclickingonsuggestedforyousectionforannouncement @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that user is able to see the all the list of modules after clicking on 'suggested for you section' for announcement
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
     Then I softly see dropdown option "All" under the "Suggested For You" section
     Then I softly see dropdown option "Amendment Requests" under the "Suggested For You" section
@@ -526,7 +526,7 @@ Feature: Validate all scenarios for the global search
 
   @388883 @388920 @ValidatethatEXEuserisabletoseetheglobalsearchbarforanInternalProgram @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that EXE user is able to see the global search bar for an Internal Program
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     Then I softly see global search display at top of the page
     #388920
@@ -535,7 +535,7 @@ Feature: Validate all scenarios for the global search
 
   @388932 @Validatethatuserisabletoseethe5mostrecentlyusedrecordsinthedropdownlistwhenuserclicksonsearchinputboxforInternalProgram @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that user is able to see the 5 most recently used records in the dropdown list when user clicks on search input box for Internal Program
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     And I select "Programs" from dropdown for Global search
     And I click on global search box
@@ -543,7 +543,7 @@ Feature: Validate all scenarios for the global search
 
   @388921 @ValidatethattherecordownerisabletoedittheaccessforrecordwhenInternalProgramisintheCreatedsubmitforreviewandBeingAmendedstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that the record owner is able to edit the access for record when Internal Program is in the Created, submit for review and Being Amended state
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -600,7 +600,7 @@ Feature: Validate all scenarios for the global search
     Then I can see top right button "Cancel" in page detail
     And I click on "Save" in the page details
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
@@ -612,7 +612,7 @@ Feature: Validate all scenarios for the global search
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - All"
@@ -632,13 +632,13 @@ Feature: Validate all scenarios for the global search
     And I click on "Submit For Approval" in the page details
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - All"
@@ -658,7 +658,7 @@ Feature: Validate all scenarios for the global search
 
   @388924 @ValidatethatNonOwneruserdoesnthaveaneditoptioninanystateofInternalProgramandwillgeterrormessageonpage @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that Non-Owner user doesn't have an edit option in any state of Internal Program and will get error message on page
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -670,7 +670,7 @@ Feature: Validate all scenarios for the global search
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I select "Programs" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
@@ -680,7 +680,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - All"
@@ -713,7 +713,7 @@ Feature: Validate all scenarios for the global search
       | Automation FO | Fiscal Reviewer | Automation Test Description | 10       |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     Then I softly see field "Status" as "Submitted for Review"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I select "Programs" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
@@ -722,7 +722,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
@@ -734,7 +734,7 @@ Feature: Validate all scenarios for the global search
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - All"
@@ -742,7 +742,7 @@ Feature: Validate all scenarios for the global search
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I click on "Complete Review" in the page details
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I select "Programs" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
@@ -751,7 +751,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - All"
@@ -761,7 +761,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Submit For Approval" in the page details
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I select "Programs" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
@@ -782,7 +782,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - All"
@@ -790,7 +790,7 @@ Feature: Validate all scenarios for the global search
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I select "Programs" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
@@ -802,7 +802,7 @@ Feature: Validate all scenarios for the global search
 
   @388926 @ValidatethatuserisnotabletochangetheownerinanystateofInternalProgramandwillgettheerrormessageandnonowneruseisnotabletoseethechangeowneroption @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that user is not able to change the owner in any state of Internal Program and will get the error message and non-owner user is not able to see the change owner option
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -826,7 +826,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see the following messages in the page details contains:
       | You cannot change the owner from this screen. Click Cancel, and navigate to Home. Then select Ownership Reassignment. |
     When I click modal button "Cancel"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I select "Programs" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
@@ -835,7 +835,7 @@ Feature: Validate all scenarios for the global search
 
   @388928 @ValidateEXEhaveeditaccessforrecordonlywheneditaccesssettingisyesforpeerreviewerwhenInternalProgramisasubmitforreviewstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Validte EXE have edit access for record only when edit access setting is yes for peer reviewer when Internal Program is a submit for review state
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -874,7 +874,7 @@ Feature: Validate all scenarios for the global search
       | Automation EXE | Fiscal Reviewer | Automation Test Description | 10       | Yes                  |
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
     Then I softly see field "Status" as "Submitted for Review"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I select "Programs" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
@@ -885,7 +885,7 @@ Feature: Validate all scenarios for the global search
 
   @388930 @ValidateEXEuserdoesnothaveeditaccessforpeerreviewthenEXEuserwillgeterrormessageforInternalProgramwhenInternalProgramisinthesubmitforreviewstateorinReviewedstates @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate EXE user does not have edit access for peer review then EXE user will get error message for Internal Program when Internal Program is in the submit for review state or in Reviewed states
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -924,7 +924,7 @@ Feature: Validate all scenarios for the global search
       | Automation EXE | Fiscal Reviewer | Automation Test Description | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
     Then I softly see field "Status" as "Submitted for Review"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I select "Programs" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
@@ -936,7 +936,7 @@ Feature: Validate all scenarios for the global search
 
   @388935 @ValidatethatuserisabletoseetheallthelistofmodulesafterclickingonsuggestedforyousectionforInternalProgram @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that user is able to see the all the list of modules after clicking on 'suggested for you section' for Internal Program
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     Then I softly see dropdown option "All" under the "Suggested For You" section
     Then I softly see dropdown option "Amendment Requests" under the "Suggested For You" section
@@ -964,7 +964,7 @@ Feature: Validate all scenarios for the global search
 
   @388990 @388995 @ValidatehatEXEuserisabletoseetheglobalsearchbarforanAward @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that EXE user is able to see the global search bar for an Award
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     Then I softly see global search display at top of the page
     #388995
@@ -973,7 +973,7 @@ Feature: Validate all scenarios for the global search
 
   @388859 @ValidatewhenanyuserglobalsearchanyrecordbyusingEGMSIDoranykeyword&clickonrecordandfindingtheresultthenthatrecordshouldopeninconsoletab @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate when any user global search any record by using EGMS ID or any keywords & click on record and finding the result then that record should open in console tab
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
@@ -994,7 +994,7 @@ Feature: Validate all scenarios for the global search
 
   @388949 @ValidatethatwhenanyuserglobalsearchanyrecordbyusingEGMSIDoranykeyword&clickonrecordandfindingtheresultthenthatrecordshouldopeninconsoletab @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that when any user global search any record by using EGMS ID or any keywords & click on record and finding the result then that record should open in console tab
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -1014,7 +1014,7 @@ Feature: Validate all scenarios for the global search
 
   @388862 @ValidateuserredirecttothatrecordwhenusercliconanyhyperlinkprovidedEGMSIDInternalOrganizationCreatedbyonobjectsafterglobalsearchtheanyrecordforannouncement @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate user redirect to that record when user click on any hyperlink provided EGMS ID Internal Organization Created by on objects after global search the any record for announcement
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
@@ -1043,7 +1043,7 @@ Feature: Validate all scenarios for the global search
 
   @388952 @ValidateuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedEGMSIDInternalOrganizationCreatedbyonobjectsafterglobalsearchtheanyrecordforinternalProgram @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate user redirect to that record when user click on any hyperlink provided EGMS ID Internal Organization Created by on objects after global search the any record for internal Program
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -1071,7 +1071,7 @@ Feature: Validate all scenarios for the global search
 
   @387802 @ValidatethatuserisabletoexpandtheresultbyannouncementmoduleandFilter/RefinethetheresultbyconfiguredColumnsforanannouncement @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that user is able to expand the result by announcement module and Filter/Refine the the result by configured Columns for an announcement
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
@@ -1104,7 +1104,7 @@ Feature: Validate all scenarios for the global search
 
   @388940 @ValidatethatuserisabletoexpandtheresultbyplanningmoduleandFilterRefinethetheresultbyconfiguredColumnsforanInternalProgram @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that user is able to expand the result by planning module and Filter/Refine the the result by configured Columns for an Internal Program.
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -1136,7 +1136,7 @@ Feature: Validate all scenarios for the global search
 
   @387857 @ValidatethatadminuserwillseeallthelistofobjectsinthesearchresultwhicharementioninthelistReferDescriptionforglobalsearch @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that admin user will see all the list of objects in the 'search result' which are mention in the list (Refer Description) for global search
-    When I login to "As a Grantor" app as "ADMIN" user
+    When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
     And I perform quick search inside global search "Announcement"
     And I click on "Show more" button on left navigation for global search
@@ -1153,7 +1153,7 @@ Feature: Validate all scenarios for the global search
 
   @388946 @ValidatePMuserisabletoseethetableforextraobjectswhicharepresentinthesearchresultforPlanningmodule @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate PM user is able to see the table for extra objects which are present in the search result for Planning module
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     And I select "Programs" from dropdown for Global search
     And I perform quick search inside global search "Programs"
@@ -1167,7 +1167,7 @@ Feature: Validate all scenarios for the global search
 
   @388338 @387972 @ValidateEXEuserisabletoseethetableforextraobjectswhicharepresentinthesearchresultforannouncementmodule @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate EXE user is able to see the table for extra objects which are present in the search result for announcement module
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
     And I perform quick search inside global search "Announcement"
     And I click on "Show more" button on left navigation for global search
@@ -1192,7 +1192,7 @@ Feature: Validate all scenarios for the global search
 
   @388863 @ValidatethatrecordscountsshouldbeupdatedformatchingresultsformoduleslistedonfixedsidebarofleftnavigationafterglobalsearchanyrecordbyEGMSIDororganizationname&countremainsame0fornonmatchingrecords @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that records counts should be updated for matching results for modules listed on fixed sidebar of left navigation after global search any record by EGMS ID or organization name & count remain same (0) for non matching records
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
@@ -1217,7 +1217,7 @@ Feature: Validate all scenarios for the global search
 
   @388961 @ValidaterecordscountsshouldbeupdatedformatchingresultsformoduleslistedonfixedsidebarofleftnavigationafterglobalsearchanyrecordbyEGMSIDororganizationnamecountremainsame0fornonmatchingrecords @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate records counts should be updated for matching results for modules listed on fixed sidebar of left navigation after global search any record by EGMS ID or organization name & count remain same (0) for non matching records
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -1241,7 +1241,7 @@ Feature: Validate all scenarios for the global search
 
   @388882 @ValidateusescansortanyobjectsafterglobalsearchanyrecordbyEGMSIDCreatedDateRelevanceAnnouncementNameInternalOrganizationApplicationDueDateStatus @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate user can sort any objects after global search any record by EGMS ID, Created Date, Relevance, Announcement Name, Internal Organization, Application Due Date, Status
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
     And I select "Announcements" from dropdown for Global search
     And I perform quick search inside global search "Announcements"
@@ -1254,7 +1254,7 @@ Feature: Validate all scenarios for the global search
 
   @388972 @ValidatethatusercansortanyobjectsafterglobalsearchanyrecordbyEGMSIDCreatedDateRelevanceInternalProgramInternalOrganizationApplicationDueDateStatus @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that user can sort any objects after global search any record by EGMS ID, Created Date, Relevance, Internal Program, Internal Organization, Application Due Date, Status
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I select "Programs" from dropdown for Global search
     And I perform quick search inside global search "Programs"
     Then I softly see options "Relevance" inside "Relevance" dropdown
@@ -1267,7 +1267,7 @@ Feature: Validate all scenarios for the global search
   @389538 @ValidateEXEuserisabletoseetheglobalsearchbarforanannouncement @sprint-2-US-386939  @GlobalSearch
   Scenario: VerifythattherecordownerisabletoedittheaccessforrecordwhenCloseoutRequestisintheCreatedAcknowledgedbySRSenttoreviewReviewedOverriddenorinUnpublishedstate
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1302,7 +1302,7 @@ Feature: Validate all scenarios for the global search
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     And I select "Closeout" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:closeoutRequestNo}"
@@ -1317,7 +1317,7 @@ Feature: Validate all scenarios for the global search
       | Automation PM | Fiscal Reviewer | Automation Description | 5        |
     When I click on "Send for Review" icon for "{SavedValue:PM Username}" inside flex table with id "---closeout:-:closeoutPeerReviewTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Review"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:closeoutRequestNo}" in "---announcement:-:pendingTaskTableId---" panel
@@ -1328,7 +1328,7 @@ Feature: Validate all scenarios for the global search
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     And I select "Closeout" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:closeoutRequestNo}"
@@ -1357,7 +1357,7 @@ Feature: Validate all scenarios for the global search
   @389558 @VerifythatPeerreviewerhaveeditaccessforrecordonlywheneditaccesssettingisyesforpeerreviewerwhenCloseoutisasubmittedforreviewandReviewedstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that Peer reviewer have edit access for record only when edit access setting is yes for peer reviewer when Closeout is a submitted for review and Reviewed state.
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1386,7 +1386,7 @@ Feature: Validate all scenarios for the global search
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     And I select "Closeout" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:CloseoutID}"
@@ -1398,7 +1398,7 @@ Feature: Validate all scenarios for the global search
       | Automation PM | Fiscal Reviewer | Automation Description | 5        | Yes                  |
     When I click on "Send for Review" icon for "{SavedValue:PM Username}" inside flex table with id "---closeout:-:closeoutPeerReviewTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Review"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     And I select "Closeout" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:CloseoutID}"
@@ -1410,7 +1410,7 @@ Feature: Validate all scenarios for the global search
   @389644 @VerifythatuserisabletoexpandtheresultbyCloseoutandFilterRefinetheresultbyconfigureColumnsforanCloseout @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user is able to expand the result by Closeout and Filter/Refine the the result by configured Columns for an Closeout.
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1446,7 +1446,7 @@ Feature: Validate all scenarios for the global search
   @389645 @VerifythatuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedEGMSIDGrantEGMSIDCreatedByonobjectsafterglobalsearchtheanyrecordf0orCloseout @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user redirect to that record when user click on any hyperlink provided (e.g. -EGMS ID, Grant EGMS ID, Created By) on objects after global search the any record for Closeout.
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1478,7 +1478,7 @@ Feature: Validate all scenarios for the global search
 
   @390081 @VerifythattherecordownerisabletoedittheaccessforrecordwhenFundingSourceisintheCreatedstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Funding Source is in the Created state
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
     When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---fundingsource:-:fundingSourceTableId---"
@@ -1502,7 +1502,7 @@ Feature: Validate all scenarios for the global search
 
   @390082 @VerifythatNonOwneruserdoesnthaveaneditoptioninanystageofFundingsourcesandwillgeterrormessageonpage @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that Non-Owner user doesn't have an edit option in any stage of Funding sources and will get error message on page.
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
     And I click toggle button to select "Internal Funding Sources - Draft"
@@ -1514,7 +1514,7 @@ Feature: Validate all scenarios for the global search
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "FundingSourcesID"
     Then I softly see field "Status" as "Created"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I select "Funding Sources" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:FundingSourcesID}"
@@ -1524,7 +1524,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
     And I click toggle button to select "Internal Funding Sources - All"
@@ -1537,7 +1537,7 @@ Feature: Validate all scenarios for the global search
     And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Activate" in the page details
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I select "Funding Sources" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:FundingSourcesID}"
@@ -1547,7 +1547,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
     And I click toggle button to select "Internal Funding Sources - All"
@@ -1555,7 +1555,7 @@ Feature: Validate all scenarios for the global search
     And I click on "View" icon for "{SavedValue:FundingSourcesID}" inside table
     When I click on "Deactivate" in the page details
     Then I softly see field "State" as "Closed"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I select "Funding Sources" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:FundingSourcesID}"
@@ -1567,7 +1567,7 @@ Feature: Validate all scenarios for the global search
 
   @390084 @VerifythatuserisabletoexpandtheresultbyFundingSourceandFilterRefinethetheresultbyconfiguredColumnsforafundingSource @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user is able to expand the result by FundingSource and Filter/Refine the the result by configured Columns for a funding Source
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
     When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---fundingsource:-:fundingSourceTableId---"
@@ -1595,7 +1595,7 @@ Feature: Validate all scenarios for the global search
 
   @390085 @VerifythatuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedEGMSIDCreatedbyonobjectsafteglobalsearchtheanyrecordforFundingSources @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID, Created by ) on objects after global search the any record for Funding Sources.
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
     When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---fundingsource:-:fundingSourceTableId---"
@@ -1624,7 +1624,7 @@ Feature: Validate all scenarios for the global search
 
   @390107 @SubrecipientOrganizationVerifythattheAdminisabletoedittheaccessfororganizationwhenOrganizationiintheactivestate @sprint-2-US-386939  @GlobalSearch
   Scenario: Subrecipient Organization -> Verify that the Admin is able to edit the access for organization when Organization is in the active state.
-    When I login to "As a Grantor" app as "Admin" user
+    When I login to "Grantor" app as "Admin" user
     And I navigate to "Home" tab
     And I select "Organizations" from dropdown for Global search
     And I perform quick search inside global search "Automation Permanent Organization for Risk Assessment"
@@ -1636,7 +1636,7 @@ Feature: Validate all scenarios for the global search
 
   @390112 @SubrecipientOrganizationVerifythaNonwneruserdoesnthaveaneditoptioninanyOrganizationandwillgeterrormessageonpage @sprint-2-US-386939  @GlobalSearch
   Scenario: Subrecipient Organization -> Verify that Non-owner user doesn't have an edit option in any Organization and will get error message on page.
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     And I select "Organizations" from dropdown for Global search
     And I perform quick search inside global search "Automation Permanent Organization for Risk Assessment"
@@ -1649,7 +1649,7 @@ Feature: Validate all scenarios for the global search
   @390139 @390140-1 @VerifythattherecordownerisabletoedittheaccessforrecordwhenAmendmentisintheCreatedAcknowledgedstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Amendment is in the Created, Acknowledged state
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1686,7 +1686,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Created"
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I perform quick search inside global search "{SavedValue:budgetPChangeId}"
     And I click on row level action button "Edit" against "{SavedValue:budgetPChangeId}" in global search with id "Amendment Requests"
@@ -1694,14 +1694,14 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
     And I perform quick search for "Record Id" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Send to Subrecipient" in the page details
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I perform quick search inside global search "{SavedValue:budgetPChangeId}"
     And I click on row level action button "Edit" against "{SavedValue:budgetPChangeId}" in global search with id "Amendment Requests"
@@ -1716,14 +1716,14 @@ Feature: Validate all scenarios for the global search
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Acknowledge" in the page details
     Then I softly see field "Status" as "Acknowledged"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I perform quick search inside global search "{SavedValue:budgetPChangeId}"
     And I click on row level action button "Edit" against "{SavedValue:budgetPChangeId}" in global search with id "Amendment Requests"
     Then I softly see field "Status" as "Acknowledged"
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I perform quick search inside global search "{SavedValue:budgetPChangeId}"
     And I click on row level action button "Edit" against "{SavedValue:budgetPChangeId}" in global search with id "Amendment Requests"
@@ -1731,13 +1731,13 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I perform quick search inside global search "{SavedValue:budgetPChangeId}"
     And I click on row level action button "Edit" against "{SavedValue:budgetPChangeId}" in global search with id "Amendment Requests"
@@ -1745,13 +1745,13 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I perform quick search inside global search "{SavedValue:budgetPChangeId}"
     And I click on row level action button "Edit" against "{SavedValue:budgetPChangeId}" in global search with id "Amendment Requests"
@@ -1759,7 +1759,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -1803,7 +1803,7 @@ Feature: Validate all scenarios for the global search
     When I click on "Save" in the page details
     And I wait for "2" seconds
     And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -1811,7 +1811,7 @@ Feature: Validate all scenarios for the global search
     When I click on "Override" in the page details
     When I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -1825,7 +1825,7 @@ Feature: Validate all scenarios for the global search
     When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---closeout:-:grantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---closeout:-:grantsTableId---"
     Then I softly see field "Status" as "Closed/Completed"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I select "Amendment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:budgetPChangeId}"
@@ -1838,7 +1838,7 @@ Feature: Validate all scenarios for the global search
   @390140-2 @VerifythattherecordownerisabletoedittheaccessforrecordwhenAmendmentisintheCreatedAcknowledgedstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Amendment is in the Created, Acknowledged state
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1877,7 +1877,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Acknowledge" in the page details
     Then I softly see field "Status" as "Acknowledged"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
@@ -1886,7 +1886,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     When I click on "Reject" in the page details
     Then I softly see field "Status" as "Rejected"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I perform quick search inside global search "{SavedValue:budgetPChangeId}"
     And I click on row level action button "Edit" against "{SavedValue:budgetPChangeId}" in global search with id "Amendment Requests"
@@ -1898,7 +1898,7 @@ Feature: Validate all scenarios for the global search
   @390145 @VerifythatuserisabletoexpandtheresultbyAmendmentmoduleandFilterRefinetheresultbyconfiguredColumnsforanAmendment @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user is able to expand the result by Amendment module and Filter/Refine the the result by configured Columns for an Amendment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1941,7 +1941,7 @@ Feature: Validate all scenarios for the global search
   @390150 @VerifythatuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedegEGMSIDonobjectsafterglobalsearchtheanyrecordforamendment @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID ) on objects after global search the any record for amendment.
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1998,7 +1998,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Save" in the page details
     And I close the tab
     And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -2016,7 +2016,7 @@ Feature: Validate all scenarios for the global search
     Given I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -2025,7 +2025,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -2034,7 +2034,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -2050,7 +2050,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -2059,7 +2059,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -2079,7 +2079,7 @@ Feature: Validate all scenarios for the global search
       | Automation Permanent KPI | 95     | 7             |
     And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -2089,7 +2089,7 @@ Feature: Validate all scenarios for the global search
       | Name                        | Progress Report |
       | {SavedValue:PM Username} | Step 1          |
     Given I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -2098,14 +2098,14 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -2149,7 +2149,7 @@ Feature: Validate all scenarios for the global search
     Given I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -2167,7 +2167,7 @@ Feature: Validate all scenarios for the global search
       | Automation Permanent KPI | 95     | 7             |
     And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -2177,7 +2177,7 @@ Feature: Validate all scenarios for the global search
       | Name                        | Progress Report |
       | {SavedValue:PM Username}    | Step 1          |
     Given I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -2206,7 +2206,7 @@ Feature: Validate all scenarios for the global search
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -2218,7 +2218,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -2228,7 +2228,7 @@ Feature: Validate all scenarios for the global search
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Performance" sub tab
     Then I see value "Force Closed" for title "Status" against the value "{SavedValue:progID}" inside table "---progressreport:-:grantorProgressReportsTableId---"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -2258,7 +2258,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -2301,7 +2301,7 @@ Feature: Validate all scenarios for the global search
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I wait for "3" seconds
-    And I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -2310,7 +2310,7 @@ Feature: Validate all scenarios for the global search
 
   @390190 @390201 @VerifythattherecordownerisabletoedittheaccessforrecordwhenRiskAssessmentisintheCreatedsubmitforrevieworinReviewedstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Risk Assessment is in the Created, submit for review or in Reviewed state
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -2343,7 +2343,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Created"
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Risk Assessment" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:riskID}"
@@ -2352,7 +2352,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Subaward Risk Assessments - All"
@@ -2376,7 +2376,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Submitted for Review"
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Risk Assessment" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:riskID}"
@@ -2385,7 +2385,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---riskassessment:-:pendingTaskTableId---" panel
@@ -2395,7 +2395,7 @@ Feature: Validate all scenarios for the global search
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Subaward Risk Assessments - All"
@@ -2412,7 +2412,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Reviewed"
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Risk Assessment" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:riskID}"
@@ -2421,7 +2421,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Subaward Risk Assessments - All"
@@ -2429,7 +2429,7 @@ Feature: Validate all scenarios for the global search
     And I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Risk Assessment" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:riskID}"
@@ -2438,7 +2438,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
@@ -2446,7 +2446,7 @@ Feature: Validate all scenarios for the global search
     And I "Approve" in the approval decision
     And I wait for "2" seconds
     Then I softly see field "Status" as "Active"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Risk Assessment" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:riskID}"
@@ -2455,7 +2455,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -2479,7 +2479,7 @@ Feature: Validate all scenarios for the global search
       | {SavedValue:FO Username} | Step 1          |
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
@@ -2487,7 +2487,7 @@ Feature: Validate all scenarios for the global search
     And I "Approve" in the approval decision
     And I wait for "2" seconds
     Then I softly see field "Status" as "Active"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Risk Assessment" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:riskID}"
@@ -2499,7 +2499,7 @@ Feature: Validate all scenarios for the global search
 
   @390220 @VerifythatPMRevieweruserhaveeditaccessforrecordonlywheneditaccesssettingisyesforpeerreviewerwhenRiskAssessmentisasubmitforreviewstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that PM Reviewer user have edit access for record only when edit access setting is yes for peer reviewer when Risk Assessment is a submit for review state
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -2532,7 +2532,7 @@ Feature: Validate all scenarios for the global search
       | {SavedValue:PM Username} | Fiscal Reviewer | Automation Test Description | 7        | Yes                  |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "RiskAssessmentApproverRoles" without waiting for record
     Then I softly see field "Status" as "Submitted for Review"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Risk Assessment" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:riskID}"
@@ -2543,7 +2543,7 @@ Feature: Validate all scenarios for the global search
 
   @390222 @VerifythatPMRevieweruserhaveeditaccessforrecordonlywheneditaccesssettingisyesforpeerreviewerwhenRiskAssessmentisasubmitforreviewstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that PM Reviewer user have edit access for record only when edit access setting is yes for peer reviewer when Risk Assessment is a submit for review state
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -2576,7 +2576,7 @@ Feature: Validate all scenarios for the global search
       | {SavedValue:PM Username} | Fiscal Reviewer | Automation Test Description | 7        | NO                 |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "RiskAssessmentApproverRoles" without waiting for record
     Then I softly see field "Status" as "Submitted for Review"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Risk Assessment" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:riskID}"
@@ -2588,7 +2588,7 @@ Feature: Validate all scenarios for the global search
 
   @390224 @VerifythatuserisabletoexpandtheresultbyRiskAssessmentmoduleandFilterRefinethetheresultbyconfiguredColumnsforanRiskAssessment @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that user is able to expand the result by Risk Assessment module and Filter/Refine the the result by configured Columns for an Risk Assessment.
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -2632,7 +2632,7 @@ Feature: Validate all scenarios for the global search
 
   @390225 @VerifythatuserisabletoexpandtheresultbyRiskAssessmentmoduleandFilterRefinethetheresultbyconfiguredColumnsforanRiskAssessment @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that user is able to expand the result by Risk Assessment module and Filter/Refine the the result by configured Columns for an Risk Assessment.
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -2691,7 +2691,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I pause execution for "4" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Payment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:paymentEGMSID}"
@@ -2720,7 +2720,7 @@ Feature: Validate all scenarios for the global search
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "paymentEGMSID"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Payment Request" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:paymentEGMSID}"
@@ -2759,7 +2759,7 @@ Feature: Validate all scenarios for the global search
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "paymentEGMSID"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Payment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:paymentEGMSID}"
@@ -2769,7 +2769,7 @@ Feature: Validate all scenarios for the global search
 
   @390367 @390372 @SubrecipientOrganizationVerifythattheAdminisabletoedittheaccessforrecordwhenExternalOrganizationisintheApprovedstate @sprint-2-US-386939  @GlobalSearch
   Scenario:Subrecipient Organization ->Verify that the Admin is able to edit the access for record when External Organization is in the Approved state
-    When I login to "As a Grantor" app as "ADMIN" user
+    When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
     And I select "Organizations" from dropdown for Global search
     And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgApproved}"
@@ -2778,7 +2778,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Active"
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     And I select "Organizations" from dropdown for Global search
     And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgApproved}"
@@ -2791,7 +2791,7 @@ Feature: Validate all scenarios for the global search
 
   @390379 @SubrecipientOrganizationVerifythatNonOwneruserdoesnthaveaneditoptioninanystageofExternalSROrganizationandwillgeterrormessageonpage @sprint-2-US-386939  @GlobalSearch
   Scenario:Subrecipient Organization -> Verify that Non-Owner user doesn't have an edit option in any stage of External S/R Organization and will get error message on page
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     And I select "External Registration" from dropdown for Global search
     And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgInProgress}"
@@ -2833,7 +2833,7 @@ Feature: Validate all scenarios for the global search
 
   @389520 @389525 @389537 @389536 @VerifythatthereviewownerisabletoeditSubmitDeclinetheaccessforrecordwhenReviewsareinsentforreviewstate @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that the review owner is able to edit/Submit/Decline the access for record when Reviews are in sent for review state.
-    When I login to "As a Grantor" app as "FO" user
+    When I login to "Grantor" app as "FO" user
     And I navigate to "Applications" tab
     And I select "Reviews" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}"
@@ -2867,7 +2867,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see the text "Reviews" on left navigation for global search
     Then I softly see the text "Grants" on left navigation for global search
     Then I softly see the text "Amendment Requests" on left navigation for global search
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I select "Reviews" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}"
@@ -2898,7 +2898,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see that "Status" is in "Review Declined" status
     Then I cannot see top right button "Edit" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I select "Reviews" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}"
@@ -2910,7 +2910,7 @@ Feature: Validate all scenarios for the global search
   @390386 @390389 @ValidateEXEuserisabletoseetheglobalsearchbarforSubrecipientOrganziation @sprint-2-US-386939 @GlobalSearch
   Scenario Outline: subrecipient organization ->Verify that user is able to expand the result by External S/R org module and Filter/Refine the the result by configured Columns for an External S/R org.
   |subrecipient Organization -> Verify that user redirect to that record when user click on any hyperlink provided (e.g. - Acc Name ) on objects after global search the any record for External S/R org.|
-    When I login to "As a Grantor" app as "<User>" user
+    When I login to "Grantor" app as "<User>" user
     And I select "Organizations" from dropdown for Global search
     And I perform quick search inside global search "SAN DIEGO ELECTRICAL TRAINING TRUST"
     Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Account Name" inside table "Organizations"
@@ -2949,7 +2949,7 @@ Feature: Validate all scenarios for the global search
   |Verify that PM user have edit access for record only when edit access setting is yes for peer reviewer when org desk review is a submit for review state.|
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -2973,7 +2973,7 @@ Feature: Validate all scenarios for the global search
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
     When I click on "Save" in the page details
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -2992,7 +2992,7 @@ Feature: Validate all scenarios for the global search
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
     And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
@@ -3016,7 +3016,7 @@ Feature: Validate all scenarios for the global search
       | {SavedValue:PO Username} | Fiscal Reviewer | Review Financial details | 10       | Yes                  |
     And I click on "Send for Review" icon for "{SavedValue:PO Username}" inside table
     Then I softly see field "Status" as "Submitted for Review"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
     And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
@@ -3032,7 +3032,7 @@ Feature: Validate all scenarios for the global search
       | Passed | ReviewComments__c |
     When I click modal button "Save"
     And I pause execution for "5" seconds
-    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
     And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
@@ -3065,7 +3065,7 @@ Feature: Validate all scenarios for the global search
     When I click on "Start" icon for "{SavedValue:DeskReview}" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
@@ -3077,7 +3077,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I softly cannot see top right button "Save" in page detail
     Then I softly cannot see top right button "Cancel" in page detail
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
     And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
@@ -3093,7 +3093,7 @@ Feature: Validate all scenarios for the global search
   |Org Site Visit -> Verify that PM user have edit access for record only when edit access setting is yes for peer reviewer when Org Site Visit is a submit for review state.|
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default-Automation EXE user" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Competitive"
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -3114,7 +3114,7 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
     And I click on "Save" in the page details
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -3133,7 +3133,7 @@ Feature: Validate all scenarios for the global search
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
@@ -3152,7 +3152,7 @@ Feature: Validate all scenarios for the global search
       | {SavedValue:PO Username} | Fiscal Reviewer | Review Financial details | 10       | Yes                  |
     And I click on "Send for Review" icon for "{SavedValue:PO Username}" inside table
     Then I softly see field "Status" as "Submitted for Review"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
@@ -3168,7 +3168,7 @@ Feature: Validate all scenarios for the global search
       | Passed | ReviewComments__c |
     When I click modal button "Save"
     And I pause execution for "5" seconds
-    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
@@ -3190,14 +3190,14 @@ Feature: Validate all scenarios for the global search
     And I close the tab
     When I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
     And I click on "Start" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" without waiting for record
     And I "Approve" in the approval decision
     And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -3205,7 +3205,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Start" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" without waiting for record
     And I "Approve" in the approval decision
     And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
@@ -3218,14 +3218,14 @@ Feature: Validate all scenarios for the global search
     When I click on "Start" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---" without waiting for record
     And I click on "Accept and Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
@@ -3239,7 +3239,7 @@ Feature: Validate all scenarios for the global search
   |Org Site Visit ->Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID, S/R POC ) on objects after global search the any record for Org site visit.|
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default-Automation EXE user" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Competitive"
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -3283,7 +3283,7 @@ Feature: Validate all scenarios for the global search
   |Org site visit -> Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID, S/R POC ) on objects after global search the any record for Org desk review.|
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -3329,7 +3329,7 @@ Feature: Validate all scenarios for the global search
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     And I delete the record "{SavedValue:Automation Runtime FDM Announcement}" from the object "FDM"
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
@@ -3374,7 +3374,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Submitted On" inside refine by filter
     Then I softly see "Status" inside refine by filter
     And I refresh the page
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I select "Applications" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AppID}"
     And I click on row level action button "Edit" against "{SavedValue:AppID}" in global search with id "Applications"
@@ -3420,7 +3420,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Save" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I select "Pre-Applications" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:PreAppID}"
     And I click on hyperlink for global search containing value "{SavedValue:PreAppID}"
@@ -3454,7 +3454,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Owner First Name" inside refine by filter
     Then I softly see "Owner Last Name" inside refine by filter
     Then I softly see "Status" inside refine by filter
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I select "Pre-Applications" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:PreAppID}"
     And I click on row level action button "Edit" against "{SavedValue:PreAppID}" in global search with id "Pre-Applications"
@@ -3466,7 +3466,7 @@ Feature: Validate all scenarios for the global search
   |Subrecipient Contact -> Verify that Non-Owner user doesn't have an edit option in any stage of Subrecipient Contact and will get error message on page.|
   |Subrecipient Contact -> Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID ) on objects after global search the any record for S/R contact.|
   |subrecipient contact -> Verify that user is able to expand the result by S/R Contact module and Filter/Refine the the result by configured Columns for an S/R Contact|
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I select "Contacts" from dropdown for Global search
     And I perform quick search inside global search "{user:NewUser}"
     #390886
@@ -3500,7 +3500,7 @@ Feature: Validate all scenarios for the global search
     And I click on row level action button "Edit" against "{user:InactiveUser}" in global search with id "Contacts"
     #390875
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
     And I pause execution for "3" seconds
@@ -3524,7 +3524,7 @@ Feature: Validate all scenarios for the global search
 
   @393746 @ValidateEXEuserisabletoseetheglobalsearchbarforanannouncement @sprint-2-US-386939 @GlobalSearch
   Scenario: Verify that Column label should correctly displayed and clickable on that object when user global search any record by using EGMS ID or any keyword
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
@@ -3549,7 +3549,7 @@ Feature: Validate all scenarios for the global search
 
   @389003  @sprint-2-US-386939  @GlobalSearch
   Scenario Outline: Verify that the record owner is able to edit the access for record when Award is in the Created, submit for review, Reviewed, Accepted state
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -3608,7 +3608,7 @@ Feature: Validate all scenarios for the global search
       | Risk Assessment | Name                     |
       | Step 1          | {SavedValue:PM Username} |
     And I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
@@ -3643,7 +3643,7 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
     And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
     Then I softly see field "Status" as "Submitted for Review"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
@@ -3654,7 +3654,7 @@ Feature: Validate all scenarios for the global search
     When I click modal button "Save"
     And I click on submit review
     Then I softly see value "Submitted" for title "Status" against the value "{SavedValue:FO Username}" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3679,7 +3679,7 @@ Feature: Validate all scenarios for the global search
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     When I click on "Accept" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -3692,7 +3692,7 @@ Feature: Validate all scenarios for the global search
 
   @389008  @sprint-2-US-386939  @GlobalSearch
   Scenario Outline: Verify that Non-Owner user doesn't have an edit option in any stage of award and will get error message on page.
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -3704,7 +3704,7 @@ Feature: Validate all scenarios for the global search
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -3714,7 +3714,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3765,7 +3765,7 @@ Feature: Validate all scenarios for the global search
       | Step 1          | {SavedValue:PM Username} |
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
@@ -3794,7 +3794,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Review"
     And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I wait for "3" seconds
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
@@ -3814,7 +3814,7 @@ Feature: Validate all scenarios for the global search
     When I click modal button "Save"
     And I click on submit review
     Then I softly see value "Submitted" for title "Status" against the value "{SavedValue:FO Username}" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3825,7 +3825,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
     And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -3835,7 +3835,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3850,7 +3850,7 @@ Feature: Validate all scenarios for the global search
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     When I click on "Accept" in the page details
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -3860,7 +3860,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3874,7 +3874,7 @@ Feature: Validate all scenarios for the global search
     And I pause execution for "2" seconds
     And I refresh the page
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -3883,7 +3883,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3893,7 +3893,7 @@ Feature: Validate all scenarios for the global search
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I "Approve" in the approval decision
     And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I wait for "3" seconds
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
@@ -3901,7 +3901,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3918,7 +3918,7 @@ Feature: Validate all scenarios for the global search
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I click on "Accept after Approval" in the page details
     And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -3927,7 +3927,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3937,7 +3937,7 @@ Feature: Validate all scenarios for the global search
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Activate" in the page details
     Then I softly see that "Subaward" is in "Activated" status
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -3952,7 +3952,7 @@ Feature: Validate all scenarios for the global search
 
   @389011 @sprint-2-US-386939  @GlobalSearch @bug-451578
   Scenario: Verify that user is not able to change the owner in any state of Award and will get the error message and non-owner user is not able to see the change owner option
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -3972,7 +3972,7 @@ Feature: Validate all scenarios for the global search
     And I click on row level action button "Change Owner" against "{SavedValue:GrantEGMSID}" in global search with id "Grants"
     Then I softly see "Change Owner" opens in overLay window
     When I click modal button "Cancel"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -3981,7 +3981,7 @@ Feature: Validate all scenarios for the global search
 
   @389017 @sprint-2-US-386939  @GlobalSearch
   Scenario Outline: Verify that PM user as Reviewer have edit access for record only when edit access setting is yes for peer reviewer when award is a submit for review state.
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -4035,7 +4035,7 @@ Feature: Validate all scenarios for the global search
       | Risk Assessment | Name                     |
       | Step 1          | {SavedValue:PM Username} |
     And I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
@@ -4063,7 +4063,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Review"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I wait for "3" seconds
     And I navigate to "Grants" tab
     And I wait for "3" seconds
@@ -4079,7 +4079,7 @@ Feature: Validate all scenarios for the global search
 
   @389023 @sprint-2-US-386939  @GlobalSearch
   Scenario Outline: Verify that if PM user does not have edit access for peer review then PM user will get error message for award when award is in the submit for review state or in Reviewed states
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -4133,7 +4133,7 @@ Feature: Validate all scenarios for the global search
       | Risk Assessment | Name                     |
       | Step 1          | {SavedValue:PM Username} |
     And I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
@@ -4161,7 +4161,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Review"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I wait for "3" seconds
     And I navigate to "Grants" tab
     And I wait for "3" seconds
@@ -4178,7 +4178,7 @@ Feature: Validate all scenarios for the global search
 
   @389027 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user is able to see the 5 most recently used records in the dropdown list when user clicks on search input box for awardbox for announcement
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     And I wait for "3" seconds
     And I select "Grants" from dropdown for Global search
@@ -4187,7 +4187,7 @@ Feature: Validate all scenarios for the global search
 
   @389031 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user is able to see the all the list of modules after clicking on 'suggested for you section' for award.
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     Then I softly see dropdown option "All" under the "Suggested For You" section
     Then I softly see dropdown option "Amendment Requests" under the "Suggested For You" section
@@ -4220,7 +4220,7 @@ Feature: Validate all scenarios for the global search
 
   @389048 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that PO user is able to see the table for extra objects which are present in the search result for subaward module
-    When I login to "As a Grantor" app as "PO" user
+    When I login to "Grantor" app as "PO" user
     And I navigate to "Grants" tab
     And I wait for "3" seconds
     And I select "Grants" from dropdown for Global search
@@ -4235,7 +4235,7 @@ Feature: Validate all scenarios for the global search
 
   @389053 @389043  @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID) on objects after global search the any record for announcement.
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -4272,7 +4272,7 @@ Feature: Validate all scenarios for the global search
 
   @389060 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user can sort any objects after global search any record (Eg: EGMS ID, Relevance, Program)
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     And I select "Subawards" from dropdown for Global search
     And I perform quick search inside global search "awards"
@@ -4287,7 +4287,7 @@ Feature: Validate all scenarios for the global search
 
   @389314  @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Grant is in the Created state
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -4307,7 +4307,7 @@ Feature: Validate all scenarios for the global search
 
   @389322 @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID , Internal Organization, Owner First Name, Owner Last Name ) on objects after global search the any record for Grant.
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -4333,7 +4333,7 @@ Feature: Validate all scenarios for the global search
 
   @389323 @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that user can sort any objects after global search any record by (Relevance, EGMS ID, Grant Title, Internal organization, External organization,  Project period) Status.
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     And I select "Grants" from dropdown for Global search
     And I perform quick search inside global search "Grants"
@@ -4350,7 +4350,7 @@ Feature: Validate all scenarios for the global search
 
   @389324 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user is able to expand the result by Grant module and Filter/Refine the the result by configured Columns for an Grant.
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -4384,7 +4384,7 @@ Feature: Validate all scenarios for the global search
 
   @389327 @389335 @389342 @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that the record owner is able to edit the access for record when Focus Area is in the Created state
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
@@ -4422,7 +4422,7 @@ Feature: Validate all scenarios for the global search
 
   @389343 @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that Non-Owner user doesn't have an edit option in any stage of Focus Area and will get error message on page.
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
@@ -4430,7 +4430,7 @@ Feature: Validate all scenarios for the global search
     When I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FocusEGMSID"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I select "Focus Areas" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:FocusEGMSID}"
@@ -4438,14 +4438,14 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click toggle button to select "Focus Areas - Draft"
     When I perform quick search for "{SavedValue:Automation Runtime Focus Area}" in "---focusarea:-:focusAreaTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Focus Area}" inside table
     When I click on "Activate" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I select "Focus Areas" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:FocusEGMSID}"
@@ -4453,14 +4453,14 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click toggle button to select "Focus Areas - All"
     When I perform quick search for "{SavedValue:Automation Runtime Focus Area}" in "---focusarea:-:focusAreaTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Focus Area}" inside table
     And I click on "Deactivate" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I select "Focus Areas" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:FocusEGMSID}"
@@ -4471,7 +4471,7 @@ Feature: Validate all scenarios for the global search
   Scenario Outline: Verify that the record owner is able to edit the access for record when funding decision memo(FDM) is in the Created state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
-    And I login to "As a Grantor" app as "dynamicUser" user
+    And I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -4504,7 +4504,7 @@ And I wait for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "5" seconds
     And I save the value from row "1" for column name "EGMS ID" as "AppId1" from flex table "---applicationReview:-:applicationAssignTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -4517,7 +4517,7 @@ And I wait for "2" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -4563,7 +4563,7 @@ And I wait for "2" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -4576,7 +4576,7 @@ And I wait for "2" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -4589,7 +4589,7 @@ And I wait for "2" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -4602,7 +4602,7 @@ And I wait for "2" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -4632,7 +4632,7 @@ And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -4645,7 +4645,7 @@ And I wait for "2" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -4695,7 +4695,7 @@ And I wait for "2" seconds
     Then I softly see the text "Announcements" on left navigation for global search
     Then I softly see the text "Closeouts" on left navigation for global search
     Then I softly see the text "Amendment Requests" on left navigation for global search
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I select "Funding Decision Memos (FDM)s" from dropdown for Global search
     And I perform quick search inside global search "AN-"
@@ -4709,7 +4709,7 @@ And I wait for "2" seconds
 
   @389463 @389464 @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that the record owner is able to edit the access for record when KPI is in the Created state
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -4725,7 +4725,7 @@ And I wait for "2" seconds
     And I click on row level action button "Edit" against "{SavedValue:KPIEGMSID}" in global search with id "Key Performance Indicators (KPI)s"
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I select "Key Performance Indicators (KPI)s" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:KPIEGMSID}"
@@ -4734,14 +4734,14 @@ And I wait for "2" seconds
     Then I cannot see top right button "Cancel" in page detail
     #389464
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - All"
     When I perform quick search for "{SavedValue:KPIEGMSID}" in "---keyperformanceindicator:-:kpiTableId---" panel
     And I click on "View" icon for "{SavedValue:KPIEGMSID}" inside table
     When I click on "Activate" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I select "Key Performance Indicators (KPI)s" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:KPIEGMSID}"
@@ -4749,14 +4749,14 @@ And I wait for "2" seconds
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - All"
     When I perform quick search for "{SavedValue:KPIEGMSID}" in "---keyperformanceindicator:-:kpiTableId---" panel
     And I click on "View" icon for "{SavedValue:KPIEGMSID}" inside table
     And I click on "Deactivate" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I select "Key Performance Indicators (KPI)s" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:KPIEGMSID}"
@@ -4768,7 +4768,7 @@ And I wait for "2" seconds
 
   @389465 @389466 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user is able to expand the result by KPI module and Filter/Refine the the result by configured Columns for an KPI.
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "Grantor" app as "EXE" user
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -4796,7 +4796,7 @@ And I wait for "2" seconds
 
   @389475 @389483  @389486 @389479 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Strategic plan is in the Created state
-    When I login to "As a Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     And I click toggle button to select "Strategic Plans - Draft"
@@ -4831,7 +4831,7 @@ And I wait for "2" seconds
     And I wait for "3" seconds
      #389486
     Then I softly see field "Status" as "Draft"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I select "Strategic Plans" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:StrategicEGMSID}"
@@ -4844,7 +4844,7 @@ And I wait for "2" seconds
 
   @389495 @389502 @389505 @sprint-2-US-386939  @GlobalSearch @bug-451476
   Scenario: Verify that the Admin is able to edit the access for terms and condition when terms and condition is in the New and active state state
-    When I login to "As a Grantor" app as "ADMIN" user
+    When I login to "Grantor" app as "ADMIN" user
     When I navigate to "Planning" tab
     And I navigate to "Terms and Conditions" content inside "Setup" subheader on left panel
     When I click on top right button "New" in flex table with id "---home:-:termsAndConditionsTableId---"
@@ -4879,7 +4879,7 @@ And I wait for "2" seconds
     And I wait for "3" seconds
        #389505
     Then I softly see field "EGMS ID" as "{SavedValue:EGMSID}"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I select "Terms and Conditions" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:EGMSID}"

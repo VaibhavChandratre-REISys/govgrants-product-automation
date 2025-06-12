@@ -69,7 +69,7 @@ Feature: Payment Request Forms scenarios
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId1}" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -86,13 +86,13 @@ Feature: Payment Request Forms scenarios
     When I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId1}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId1}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Reimbursements" content inside "Payments" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId1}" in "---paymentRequest:-:paymentrequestReimbursementTableId---" panel
@@ -417,7 +417,7 @@ Feature: Payment Request Forms scenarios
 
   @286321 @ValidatePMusercanseebelowformafterexpandinggridofnewpackageGrantorPaymentRequestonPackagessectionofFormsPackagessectionundersetupofPlanningmodule @sprint-1-US-278368  @Forms
   Scenario: Validate PM user can see below form after expanding grid of new package Grantor Payment Request on Packages section of Forms & Packages section under setup of Planning module
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Forms and Packages" content inside "Setup" subheader on left panel
     When I perform quick search for "Grantor Payment Request Forms" in "---program:-:packagesTableId---" panel
@@ -430,7 +430,7 @@ Feature: Payment Request Forms scenarios
 
   @293600 @ValidatePMusercanseeReportTypeonformsforSiteVisitOrganizationDeskReviewPreapplicationApplicationonFormssectionofFormsPackagessectionundersetupofPlanningmodule @sprint-3-US-288713  @Forms
   Scenario: Validate PM user can see Report Type on forms for Site Visit Organization Desk Review Pre-application Application on Forms section of Forms & Packages section under setup of Planning module
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Forms and Packages" content inside "Setup" subheader on left panel
     And I select value inside table "---program:-:formsPackagesFormsTableId---" is "All"
@@ -456,7 +456,7 @@ Feature: Payment Request Forms scenarios
 
   @293601 @293603 @ValidatePMusercanseeReportTypeclmonSiteVisitformswhenuserclickonviewicononGrantorSiteVisitFormsunderBusinessFormssectiononsetuptabofInternalProgram @sprint-3-US-288713  @Forms
   Scenario: Validate PM user can see Report Type clm on Site Visit forms when user click on view icon on Grantor Site Visit Forms under Business Forms section on setup tab of Internal Program
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -487,7 +487,7 @@ Feature: Payment Request Forms scenarios
 
   @293602 @ValidateEXEusercanseeReportTypeclmonOrganizationDeskReviewformwhenuserclickonviewicononOrganizationDeskReviewunderBusinessFormssectiononsetuptabofInternalProgram @sprint-3-US-288713  @Forms
   Scenario: Validate EXE user can see Report Type clm on Organization Desk Review form when user click on view icon on Organization Desk Review under Business Forms section on setup tab of Internal Program
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -511,7 +511,7 @@ Feature: Payment Request Forms scenarios
 
   @293604 @ValidateAdminusercanseeReportTypeclmonApplicationwhenuserclickviewicononGrantorApplicationFormsunderBusinessFormssectiononsetuptabofInternalProgram @sprint-3-US-288713  @Forms
   Scenario: Validate Admin user can see Report Type clm on Application when user click on view icon on Grantor Application Forms under Business Forms section on setup tab of Internal Program
-    When I login to "As a Grantor" app as "ADMIN" user
+    When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -533,7 +533,7 @@ Feature: Payment Request Forms scenarios
 
   @293607 @ValidatePOusercanseeReportTypeonGrantorPreapplicationFormsGrantorApplicationFormsGrantorSiteVisitFormsOrganizationDeskreviewonPackagessectionofFormsandPackagessectionundersetupofPlanningmodule @sprint-3-US-288713  @Forms
   Scenario: Validate PO user can see Report Type on Grantor Pre-application Forms, Grantor Application Forms, Grantor Site Visit Forms, Organization Desk review on Packages section of Forms & Packages section under setup of Planning module
-    When I login to "As a Grantor" app as "PO" user
+    When I login to "Grantor" app as "PO" user
     And I navigate to "Planning" tab
     When I navigate to "Forms and Packages" content inside "Setup" subheader on left panel
     When I perform quick search for "Grantor Site Visit" in "---program:-:packagesTableId---" panel
@@ -571,7 +571,7 @@ Feature: Payment Request Forms scenarios
 
   @293613 @ValidateEXEusercanseeReportTypeclmonSiteVisitformswhenuserclickonviewicononGrantorSiteVisitFormsunderBusinessFormssectiononsetuptabofAnnouncement @sprint-3-US-288713  @Forms
   Scenario: Validate EXE user can see Report Type clm on Site Visit forms  when user click on view icon on Grantor Site Visit Forms under Business Forms section on setup tab of Announcement
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -636,7 +636,7 @@ Feature: Payment Request Forms scenarios
 
   @293617 @293620 @ValidatePOusecanseeReportTypeclmonOrganizationDeskReviewformswhenuserclickonviewicononOrganizationDeskReviewFormsunderBusinessFormssectiononsetuptabofAnnouncement @sprint-3-US-288713 @Forms
   Scenario: Validate PO user can see Report Type clm on Organization Desk Review forms when user click on view icon on Organization Desk Review Forms under Business Forms section on setup tab of Announcement
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -710,7 +710,7 @@ Feature: Payment Request Forms scenarios
 
   @293619 @ValidatePMusercanseeReportTypeclmonPreapplicationformswhenuserclickonviewicononGrantorPreapplicationFormsunderBusinessFormssectiononsetuptabofAnnouncement @sprint-3-US-288713 @Forms
   Scenario: validate PM user can see Report Type clm on Pre-application forms when user click on view icon on Grantor Pre-application Forms under Business Forms section on setup tab of Announcement
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -769,7 +769,7 @@ Feature: Payment Request Forms scenarios
 
   @293621 @ValidateEXEandSPIusercanseeReportTypeclmonSiteVisitformswhenuserclickonviewicononGrantorSiteVisitFormsunderDefaultPackagessectiononFilestabofGrant @sprint-3-US-288713  @Forms
   Scenario: Validate EXE and SPI user can see Report Type clm on Site Visit forms when user click on view icon on Grantor Site Visit Forms under Default Packages section on Files tab of Grant
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -801,7 +801,7 @@ Feature: Payment Request Forms scenarios
     And I wait for "3" seconds
     And I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -888,7 +888,7 @@ Feature: Payment Request Forms scenarios
 
   @293623 @ValidatePOandSPAusercanseeReportTypeclmonOrganizationDeskReviewformswhenuserclickonviewicononOrganizationDeskReviewFormsunderBusinessFormssectiononFilestabofGrant @sprint-3-US-288713  @Forms
   Scenario: Validate PO and SPA user can see Report Type clm on Organization Desk Review forms when user click on view icon on Organization Desk Review Forms under Business Forms section on Files tab of Grant
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -920,7 +920,7 @@ Feature: Payment Request Forms scenarios
     And I wait for "3" seconds
     And I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -1046,7 +1046,7 @@ Feature: Payment Request Forms scenarios
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
@@ -1110,7 +1110,7 @@ Feature: Payment Request Forms scenarios
     When I click on "Submit Application" in the page details
     And I wait for "3" seconds
     Then I see field "Status" as "Submitted to Grantor"
-    Given I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    Given I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -1128,7 +1128,7 @@ Feature: Payment Request Forms scenarios
   Scenario: Validate FO and SPA user can see Report Type clm on Site Visit Form under All Forms section on Reports & Outcomes tab of Site Visit
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "FO" user
+    When I login to "Grantor" app as "FO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1162,7 +1162,7 @@ Feature: Payment Request Forms scenarios
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
@@ -1202,7 +1202,7 @@ Feature: Payment Request Forms scenarios
   Scenario: Validate FD and IND user can see Report Type clm on Desk Review Form under All Forms section on Reports & Outcomes tab of Desk review
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
-    When I login to "As a Grantor" app as "FD" user
+    When I login to "Grantor" app as "FD" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1235,7 +1235,7 @@ Feature: Payment Request Forms scenarios
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
