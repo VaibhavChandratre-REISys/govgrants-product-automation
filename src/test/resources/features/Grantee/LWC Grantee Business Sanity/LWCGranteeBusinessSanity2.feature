@@ -7125,7 +7125,7 @@ Feature: Sanity scenarios
       When I navigate to "Responsibilities" sub tab
       Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
       Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:progressReportApprovers---"
-      Then I softly cannot see row level action button "Edit" against "Grantee po" in flex table with id "---grantee_tableId:-:progressReportApprovers---"
+      Then I softly cannot see row level action button "Edit" against "Grantee PO" in flex table with id "---grantee_tableId:-:progressReportApprovers---"
       Then I softly cannot see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:progressReportApprovers---"
       When I navigate to "Forms and Files" sub tab
       Then I softly can see row level action button "View" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
