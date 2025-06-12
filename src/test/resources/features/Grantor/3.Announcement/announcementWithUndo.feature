@@ -1092,8 +1092,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I pause execution for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Reject" in the approval decision
-    And I pause execution for "2" seconds
-    Then I refresh the page
     Then I see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
 
