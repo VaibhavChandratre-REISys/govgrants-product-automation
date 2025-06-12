@@ -176,7 +176,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
 
-  @279308 @VerifyFDasstep3approvercanseeundobuttonafterapprovedtheinternalprogram @sprint-25-US-295138  @Undo
+  @279308 @VerifyFDasstep3approvercanseeundobuttonafterapprovedtheinternalprogram @sprint-25-US-295138  @Undo @vrushrerun
   Scenario: Verify FD as step 3 approver can see undo button after approved the internal program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -240,7 +240,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
 
-  @279314 @279321 @279415 @VerifyFOasstep4approvercanseeundobuttonafterapprovedtheinternalprogram @sprint-25-US-295138  @Undo @buglogged-356843
+  @279314 @279321 @279415 @VerifyFOasstep4approvercanseeundobuttonafterapprovedtheinternalprogram @sprint-25-US-295138  @Undo @buglogged-356843 @vrushrerun
   Scenario:Verify FO as step 4 approver can see undo button after approved the internal program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -568,7 +568,7 @@ Feature: Validate all scenarios for program
     And I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
     Then I softly see value "Cancelled" for title "Status" against the value "{SavedValue:ProgramEGMSID}" inside table "---program:-:completedTaskTableId---"
 
-  @279369 @Verifyifforwardedapproverapprovetheprogramthentheforwardedapproveronlycanseeundobutton @sprint-25-US-295138  @Undo
+  @279369 @Verifyifforwardedapproverapprovetheprogramthentheforwardedapproveronlycanseeundobutton @sprint-25-US-295138  @Undo @vrushrerun
   Scenario: Verify if forwarded approver approve the program then the forwarded approver only can see undo button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -697,7 +697,7 @@ Feature: Validate all scenarios for program
     Then I see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
 
-  @279383 @VerifyFDuserasstep1approvershouldnotseeUndobuttoninsenttoownerstateofprogramfromapproval @sprint-25-US-295138  @Undo
+  @279383 @VerifyFDuserasstep1approvershouldnotseeUndobuttoninsenttoownerstateofprogramfromapproval @sprint-25-US-295138  @Undo @vrushrerun
   Scenario:Verify FD user as step 1 approver should not see Undo button in sent to owner state of program from approval
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -898,7 +898,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:programsTableId---"
 
-  @279468 @VerifyAuditorprofileusershouldnotseeUndobuttononprogram @sprint-25-US-295138  @Undo
+  @279468 @VerifyAuditorprofileusershouldnotseeUndobuttononprogram @sprint-25-US-295138  @Undo @vrushrerun
   Scenario:  Verify Auditor profile user should not see Undo button on program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1070,7 +1070,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Being Amended"
     Then I cannot see top right button "Undo" in page detail
 
-  @279435 @Verifystep2approvercansenttoownertheprogramafterclickonUndobuttonandupdatetheapproveronprogramsoUndowilldisplaytoupdatedapproverafterapprovedtheprogram @sprint-25-US-295138  @Undo
+  @279435 @Verifystep2approvercansenttoownertheprogramafterclickonUndobuttonandupdatetheapproveronprogramsoUndowilldisplaytoupdatedapproverafterapprovedtheprogram @sprint-25-US-295138  @Undo @vrushrerun
   Scenario:Verify step 2 approver can sent to owner the program after click on Undo button and update the approver on program so Undo will display to updated approver after approved the program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1355,7 +1355,7 @@ Feature: Validate all scenarios for program
      The EGMS Team
       """
 
-   @279491 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-295138  @Undo
+   @279491 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-295138  @Undo @vrushrerun
   Scenario:Verify reassign approver should see Undo button after forwarded approver change approval task ownership
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1575,7 +1575,7 @@ Feature: Validate all scenarios for program
     And I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
 
-  @299539 @Verifyhesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-25-US-295138  @Undo @snapExecution
+  @299539 @Verifyhesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-25-US-295138  @Undo @snapExecution @vrushrerun
   Scenario: Verify the snapshot is generated in snapshot history section when last approver click undo action
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1791,7 +1791,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
 
-  @279507 @279509 @VerifyFDasstep4approvercanseeundobuttonafterapprovedtheExternalprogram @sprint-3-US-291914  @Undo
+  @279507 @279509 @VerifyFDasstep4approvercanseeundobuttonafterapprovedtheExternalprogram @sprint-3-US-291914  @Undo @vrushrerun
   Scenario:  Verify FD as step 4 approver can see undo button after approved the External program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1858,7 +1858,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
 
-  @279514 @VerifyEXEuserasstep3approvercanabletoclickonundobuttonandcanseeapprovaldecisionsectionwithfouroptionForwardsenttoownerapprovedandreject @sprint-3-US-291914  @Undo
+  @279514 @VerifyEXEuserasstep3approvercanabletoclickonundobuttonandcanseeapprovaldecisionsectionwithfouroptionForwardsenttoownerapprovedandreject @sprint-3-US-291914  @Undo @vrushrerun
   Scenario: Verify EXE user as step 3 approver can able to click on undo button and can see approval decision section with four option Forward, sent to owner, approved and reject
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2083,7 +2083,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
 
-   @279528 @VerifyIfFDasstep4approverclickonUndobuttonthenemailshouldbegeneratedforallpreviousassignapproverandprogramowner @sprint-25-US-291914  @Undo
+   @279528 @VerifyIfFDasstep4approverclickonUndobuttonthenemailshouldbegeneratedforallpreviousassignapproverandprogramowner @sprint-25-US-291914  @Undo @vrushrerun
   Scenario:Verify If FD as step 4 approver click on Undo button then email should be generated for all previous assign approver and program owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2460,7 +2460,7 @@ Feature: Validate all scenarios for program
     When I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-  @290228 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-291914  @Undo
+  @290228 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-291914  @Undo @vrushrerun
   Scenario:Verify reassign approver should see Undo button after forwarded approver change approval task ownership
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2583,7 +2583,7 @@ Feature: Validate all scenarios for program
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
 
-  @279537 @Verifystep4approvercansenttoownertheprogramafterclickonUndobuttonandupdatetheapproveronprogramsoUndowilldisplaytoupdatedapproverafterapprovedtheprogram @sprint-25-US-291914  @Undo
+  @279537 @Verifystep4approvercansenttoownertheprogramafterclickonUndobuttonandupdatetheapproveronprogramsoUndowilldisplaytoupdatedapproverafterapprovedtheprogram @sprint-25-US-291914  @Undo @vrushrerun
   Scenario:Verify step 4 approver can sent to owner the program after click on Undo button and update the approver on program so Undo will display to updated approver after approved the program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2791,7 +2791,7 @@ Feature: Validate all scenarios for program
      The EGMS Team
       """
 
-  @279522 @Verifyifforwardedapproverapprovetheprogramthentheforwardedapproveronlycanseeundobutton @sprint-25-US-291914  @Undo
+  @279522 @Verifyifforwardedapproverapprovetheprogramthentheforwardedapproveronlycanseeundobutton @sprint-25-US-291914  @Undo @vrushrerun
   Scenario: Verify if forwarded approver approve the program then the forwarded approver only can see undo button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3042,7 +3042,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     Then I softly see field "Status" as "Approved"
 
-  @312499 @312505 @ValidateInternalProgIseeIcaneditandupdatethefiledwhenundoisinprogress @Undo @snapExecution
+  @312499 @312505 @ValidateInternalProgIseeIcaneditandupdatethefiledwhenundoisinprogress @Undo @snapExecution @vrushrerun
   Scenario: Validate Internal Prog I see I can edit and update the filed when undo is in progress
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3166,7 +3166,7 @@ Feature: Validate all scenarios for program
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Internal Program - submit for approval.pdf" as name
 
-  @281733 @InternalProgramVerifyuserseealltablesdisplaycorrectlyindownloadedPDFforprogramafterUndo @sprint-25-US-280680  @Undo
+  @281733 @InternalProgramVerifyuserseealltablesdisplaycorrectlyindownloadedPDFforprogramafterUndo @sprint-25-US-280680  @Undo @vrushrerun
   Scenario: Validate Internal Prog I see I can edit and update the filed when undo is in progress
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab

@@ -757,7 +757,7 @@ Feature: Validate all scenarios for program
       | Title                           |
       | Automation Permanent Focus Area |
 
-  @105920 @VerifyErrorMessageForFocusArea
+  @105920 @VerifyErrorMessageForFocusArea @vrushrerun
   Scenario: Validate user is able to see error message for focus area after making program detail changes
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -803,7 +803,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details :
       | Setup Tab - Remove all the Focus Areas associated with this program if the Focus Area Required is "No". |
 
-  @34737 @76116 @76117 @76113 @76115 @75894 @75888 @75891 @programObjectiveAssociation
+  @34737 @76116 @76117 @76113 @76115 @75894 @75888 @75891 @programObjectiveAssociation @vrushrerun
   Scenario Outline: Validate the Association of Objective to the Internal Program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
@@ -1138,7 +1138,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
     Then I softly see value "Created" for title "Original Value" inside field history table
 
-  @34754 @programApproval @smoke
+  @34754 @programApproval @smoke @vrushrerun
   Scenario: Validate the approval of Internal Program
     And I click on "Edit" in the page details
     And I wait for "10" seconds
@@ -2609,7 +2609,7 @@ Feature: Validate all scenarios for program
       | Setup Tab - Management Review - Management Review: A score cannot be associated to a question in the Strategic Alignment section because it does not have a weight.        |
       | Setup Tab - Management Review - Management Review: A weighted form must contain weighted sections.                                                                         |
 
-  @77290 @77289 @77292 @77291  @PDFAdditionModificationDeletionInApproach
+  @77290 @77289 @77292 @77291  @PDFAdditionModificationDeletionInApproach @vrushrerun
   Scenario Outline: To verify user allow to download PDF for review question in Approach of Review Panel Categories in Program review form for SME review step in planning phase
   | To verify user able to add new review question with success message in Approach of Review Panel Categories in Program review form for SME review step in planning phase
   | To verify user able to modify review question in Approach of Review Panel Categories in Program review form for SME review step in planning phase
@@ -5371,7 +5371,7 @@ Feature: Validate all scenarios for program
       | Objective                      | Question 2                                                                                                                                      |
       | Automation Permanent Objective | Does the budget outline how program income will be used and tracked? Are the proposed program income uses consistent with program requirements? |
 
-  @77199 @validatingDownloadPDFSMEReviewPanelCategory
+  @77199 @validatingDownloadPDFSMEReviewPanelCategory @vrushrerun
   Scenario Outline:To verify user is able to download review panel category for SME review step in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -6061,7 +6061,7 @@ Feature: Validate all scenarios for program
       | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 30.00%. |
       | Setup Tab - The total Review Step weight must equal 100%. It is currently 130.00%.                                       |
 
-  @passed @109651 @VerifyValidationMessageForReviewFormStepWeightLessThan100%
+  @passed @109651 @VerifyValidationMessageForReviewFormStepWeightLessThan100% @vrushrerun
   Scenario: validate user is able to see validation message when step weight is les than 100%
     And I navigate to "Setup" sub tab
     And I wait for "1" seconds
