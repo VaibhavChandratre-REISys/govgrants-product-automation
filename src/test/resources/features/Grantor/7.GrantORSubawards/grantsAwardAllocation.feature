@@ -25285,7 +25285,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I wait for "2" seconds
     When I enter the following values into flex table with id "AwardLineItems" by clicking "New" :
-      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
+      | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
     When I close "Subaward Budget Category" modal by clicking the top right x button
     And I wait for "2" seconds
