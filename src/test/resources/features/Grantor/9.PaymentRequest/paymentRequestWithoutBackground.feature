@@ -7407,7 +7407,7 @@ Feature: Payment Request scenarios without background
     Then I softly see value "View" for title "Subrecipient Document Link" inside table "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---"
     And I save the value from row "1" for column name "Subrecipient Document Link" as "SubrecipientDocumentLink" from flex table "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---"
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     And I click modal button "Close"
     And I wait for "2" seconds
     When I enter the following values into flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" by clicking "New" :
