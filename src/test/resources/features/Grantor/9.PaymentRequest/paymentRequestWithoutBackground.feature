@@ -7270,8 +7270,8 @@ Feature: Payment Request scenarios without background
     Then I see the following messages in the page details contains:
       | Files Tab - Complete each mandatory item listed in the checklist before submitting this Payment Request. |
 
-  @ValidateGrantreassignemntBeforeSubmitPaymentRequestToCheckRecordgoesToNewOwner @reassignment @TBE
-  Scenario: Validate Grant Reassignemnt Before Submit Payment Request To Check Record goes To NewOwner
+  @ValidateGrantreassignemntBeforeSubmitPaymentRequestToCheckRecordNotVisibleToNewOwner @reassignment @TBE
+  Scenario: Validate Grant Reassignemnt Before Submit Payment Request To Check Record not visible To New Owner
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -7326,12 +7326,12 @@ Feature: Payment Request scenarios without background
     When I click on "View" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:subrecipientPaymentrequestAdvancesTableId---" without waiting for record
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
-    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
