@@ -332,7 +332,7 @@ Feature: Validate all scenarios for Strategic Plan
     Then I can see row level action button "View" against "{SavedValue:Files}" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:Files}" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:Files}" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
-    Then  I can see top right button "New" in flex table with id "---grantee_tableId:-:strategicPlansNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:strategicPlansNotesTableId---"
     And I save the value from row "1" for column name "Title" as "Notes" from flex table "---grantee_tableId:-:strategicPlansNotesTableId---"
     Then I cannot see row level action button "Download" against "{SavedValue:Notes}" in flex table with id "---grantee_tableId:-:strategicPlansNotesTableId---"
     Then I cannot see row level action button "View" against "{SavedValue:Notes}" in flex table with id "---grantee_tableId:-:strategicPlansNotesTableId---"
@@ -561,7 +561,7 @@ Feature: Validate all scenarios for Strategic Plan
     Then I can see row level action button "View" against "{SavedValue:StrategicPlan}" in flex table with id "---grantee_tableId:-:StrategicPlans---"
     And I click on "View" icon for "{SavedValue:StrategicPlan}" inside table
     Then I cannot see top right button "Edit" in page detail
-    Then I cannot see top right button "Deactivate" in page detail
+    Then I can see top right button "Deactivate" in page detail
     And I navigate to "Overview" sub tab
     Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
     And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:StrategicGoalsandObjective---"
@@ -1071,7 +1071,7 @@ Feature: Validate all scenarios for Strategic Plan
     Then I can see row level action button "View" against "{SavedValue:StrategicPlan}" in flex table with id "---grantee_tableId:-:StrategicPlans---"
     And I click on "View" icon for "{SavedValue:StrategicPlan}" inside table
     Then I cannot see top right button "Edit" in page detail
-    Then I cannot see top right button "Deactivate" in page detail
+    Then I can see top right button "Deactivate" in page detail
     And I navigate to "Overview" sub tab
     Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
     And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:StrategicGoalsandObjective---"
