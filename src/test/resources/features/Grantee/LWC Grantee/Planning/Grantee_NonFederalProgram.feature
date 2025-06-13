@@ -423,7 +423,7 @@ Feature: Validate all scenarios for Non Federal Program
     Then I see field "Last Name" as "Execution" on modal
     Then I see field "Phone" as "(896) 709-3844" on modal
     Then I see field "Mobile Phone" as "(896) 709-3440" on modal
-    Then I see field "Email" as " {SavedValue:uniqueEmailID}" on modal
+    Then I see field "Email" as "{SavedValue:uniqueEmailID}" on modal
     And I click on top right button "Edit" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     When I enter in modal value "Automation Runtime Test" into field "Title"
     When I enter in modal value "Automation1" into field "FirstName"
