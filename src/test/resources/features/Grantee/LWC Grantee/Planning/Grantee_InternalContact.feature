@@ -318,7 +318,7 @@ Feature: Validate all scenarios for Internal Contact
       | userType      |
       | GRANTEE PO    |
 
-  @482131 @ValidatePMusershouldabletosaveandcreateinternalcontact @TBE1
+  @482131 @ValidatePMusershouldabletosaveandcreateinternalcontact @EXE_Grantee @P1_Grantee @GRegression1
   Scenario Outline: Validate EXE user should able to save and create internal contact
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -490,7 +490,7 @@ Feature: Validate all scenarios for Internal Contact
       | userType      |
       | GRANTEE EXE   |
 
-  @482132 @ValidatePMusershouldabletosaveandcreateinternalcontact @TBE1
+  @482132 @ValidatePMusershouldabletosaveandcreateinternalcontact @FO_Grantee @P3_Grantee @GRegression3
   Scenario Outline: Validate FO user should able to save and create internal contact
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -662,7 +662,7 @@ Feature: Validate all scenarios for Internal Contact
       | userType      |
       | GRANTEE FO    |
 
-  @482133 @ValidatePMusershouldabletosaveandcreateinternalcontact @TBE1
+  @482133 @ValidatePMusershouldabletosaveandcreateinternalcontact @P3_Grantee @FD_Grantee @GRegression3
   Scenario Outline: Validate FD user should able to save and create internal contact
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -834,7 +834,7 @@ Feature: Validate all scenarios for Internal Contact
       | userType      |
       | GRANTEE FD    |
 
-  @482134 @ValidatePMusershouldabletosaveandcreateinternalcontact @TBE1
+  @482134 @ValidatePMusershouldabletosaveandcreateinternalcontact @P2_Grantee @ADMIN_Grantee @GRegression2
   Scenario Outline: Validate ADMIN user should able to save and create internal contact
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
