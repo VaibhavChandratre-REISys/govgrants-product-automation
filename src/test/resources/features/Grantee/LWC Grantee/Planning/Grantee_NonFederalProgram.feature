@@ -439,7 +439,7 @@ Feature: Validate all scenarios for Non Federal Program
     Then I see field "Last Name" as "Execution1" on modal
     Then I see field "Phone" as "(896) 709-3855" on modal
     Then I see field "Mobile Phone" as "(896) 709-3455" on modal
-    Then I see field "Email" as " {SavedValue:uniqueEmailID}" on modal
+    Then I see field "Email" as "{SavedValue:uniqueEmailID}" on modal
     And I click on hyperlink for modal containing value "Test With Automation PM"
     Then I see the header is "Non-Federal Organization" in the page details
     Then I see the sub-header is "Test With Automation PM" in the page details
