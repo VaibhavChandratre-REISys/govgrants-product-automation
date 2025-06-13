@@ -6241,7 +6241,6 @@ Feature: Sanity scenarios
     And I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
-    And I wait for "3" seconds
     When I navigate to "Amendments" sub tab
     And I wait for "3" seconds
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
@@ -6259,10 +6258,10 @@ Feature: Sanity scenarios
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
+    And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:AmendEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "{SavedValue:AmendEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I wait for "2" seconds
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
@@ -6624,8 +6623,8 @@ Feature: Sanity scenarios
     Then I softly see value "Not Accepted" for title "New Value" inside field history table
     Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
 
-    @487168 @validatepouser(awardowner)canabletocreateadhocprogressreport&abletosubmitprogressreporttograntor @runtestpm1
-  Scenario: validate  PO user (Award Owner)can able to create Adhoc Progress Report & able to submit Progress Report to Grantor
+    @487168 @validatepouser(awardowner)canabletocreateadhocprogressreport&abletosubmitprogressreporttograntor @EXE_Grantee @GRegression3
+    Scenario: validate  PO user (Award Owner)can able to create Adhoc Progress Report & able to submit Progress Report to Grantor
       And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
       And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
       And I activate the award for title "{SavedValue:Automation Runtime award}"
