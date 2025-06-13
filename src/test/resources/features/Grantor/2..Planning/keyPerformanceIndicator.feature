@@ -11,7 +11,6 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I enter "Creation" values from "KPI_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
-    And I halt execution
     Then I see status in Progress-bar is "Created" and is "dark blue"
     Examples:
       | User  |

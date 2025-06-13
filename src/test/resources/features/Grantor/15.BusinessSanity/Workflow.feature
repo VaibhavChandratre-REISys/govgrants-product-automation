@@ -1611,7 +1611,6 @@ Feature: Validate all scenarios of every modules flow
     And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
     And I wait for "2" seconds
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
-    And I halt execution
 #    And I "Submitted for Approval" award from application for opportunity "{SavedValue:Automation Runtime}" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
 #    And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
 #    And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
@@ -1670,7 +1669,6 @@ Feature: Validate all scenarios of every modules flow
 #    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
 #    And I save the field labeled "EGMS ID" as "AwardEGMSID1"
 #    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD"
-    And I halt execution
 
   @orgRegister
     Scenario:
@@ -1718,13 +1716,11 @@ Feature: Validate all scenarios of every modules flow
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
-    And I halt execution
-    
+
   @debuggg
   Scenario:
     Given I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/PreApplication__c/a31Da000000kwuDIAQ/view"
-    And I halt execution
     When I navigate to "Setup" sub tab
     And I click on "Edit" icon for "BP01" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetPeriodDetails---"
     When I enter in modal value "300" into field "BudgetEndDate__c"
@@ -1741,7 +1737,6 @@ Feature: Validate all scenarios of every modules flow
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:preAppAssociateFocusAreaTableId---"
     And I click modal button "Close"
     Then I softly can see row level action button "Delete" against "BP02" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
-    And I halt execution
 
   @testCheck
   Scenario:
