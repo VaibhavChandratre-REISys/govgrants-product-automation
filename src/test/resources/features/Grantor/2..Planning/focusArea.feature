@@ -23,7 +23,7 @@ Feature: Validate all scenarios in Focus Area
     And I click on "Save" in the page details
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @50961 @addAttachmentToFocusArea @vrushrerun
+  @50961 @addAttachmentToFocusArea 
   Scenario Outline: Addition of Attachment to Focus Area by User - Admin/EXE/PM
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Planning" tab
@@ -181,7 +181,7 @@ Feature: Validate all scenarios in Focus Area
     And I navigate to "Budget" sub tab
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---focusarea:-:SubAwardFocusAreaTableId---"
 
-  @106615 @VerifyCorrespondingAnnouncement @vrushrerun
+  @106615 @VerifyCorrespondingAnnouncement 
   Scenario: Validate user should be able to see related announcement associated with program
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     Given I login to "As a Grantor" app as "dynamicUser" user

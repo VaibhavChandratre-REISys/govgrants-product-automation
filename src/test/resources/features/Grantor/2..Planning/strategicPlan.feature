@@ -10,7 +10,7 @@ Feature: Validate all scenarios in Strategic Plan
     And I enter in modal "StrategicPlanCreation" values from "StrategicPlan_Field_Values.xlsx"
     And I click modal button "Save and Continue"
 
-  @50954 @50955 @33798 @50956 @editionOfStrategicPlan @vrushrerun
+  @50954 @50955 @33798 @50956 @editionOfStrategicPlan 
   Scenario: Edition of Strategic Plan by user - Admin/EXE/PM
     Then I softly see that "Status" is in "Draft" status
     When I enter value "Automation Test Description" into field "StrategyDescription__c"

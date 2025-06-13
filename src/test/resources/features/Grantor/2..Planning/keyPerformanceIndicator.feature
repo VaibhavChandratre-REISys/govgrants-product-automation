@@ -1,7 +1,7 @@
 @kpi @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios in Key Performance Indicator(KPI)
 
-  @34735 @creationOfKPI
+  @34735 @creationOfKPI @vrushrerun
   Scenario Outline: Creation of KPI
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -11,13 +11,14 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I enter "Creation" values from "KPI_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
+    And I halt execution
     Then I see status in Progress-bar is "Created" and is "dark blue"
     Examples:
       | User  |
       | ADMIN |
       | EXE   |
 
-  @51028 @editionOfKPI
+  @51028 @editionOfKPI @vrushrerun
   Scenario Outline: Edition of KPI
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -64,7 +65,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
       | ADMIN |
       | EXE   |
 
-  @34736 @kpiHappyPath @smoke
+  @34736 @kpiHappyPath @smoke @vrushrerun
   Scenario Outline: Happy Path of KPI
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -136,7 +137,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     When I perform quick search for "{SavedValue:Automation Runtime KPI}" in "---keyperformanceindicator:-:kpiTableId---" panel
     Then I cannot see row level action button "Delete" against "{SavedValue:Automation Runtime KPI}" in flex table with id "---keyperformanceindicator:-:kpiTableId---"
 
-  @52623 @deactivateKPI
+  @52623 @deactivateKPI @vrushrerun
   Scenario Outline: Negative Case-Verfiy that EXE can deactivate the record
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "<User>" user
@@ -178,7 +179,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
       | User |
       | EXE  |
 
-  @52535 @closedKPIListView
+  @52535 @closedKPIListView @vrushrerun
   Scenario: Verfiy that user can see Closed KPI under Inactive KPI list view.
     Given I am on "INTERNAL" portal
     Given I login to "As a Grantor" app as "EXE" user
@@ -208,7 +209,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     When I perform quick search for "Automation Permanent Strategic Plan" in "---strategicplan:-:StrategicPlansTableId---" panel
     Then I see value "Active" for title "Status" against the value "Automation Permanent Strategic Plan" inside table "---strategicplan:-:StrategicPlansTableId---"
 
-  @106645 @VerifyRelatedObjectiveDetails @smoke
+  @106645 @VerifyRelatedObjectiveDetails @smoke @vrushrerun
   Scenario: Validate user is able to see related objective
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab

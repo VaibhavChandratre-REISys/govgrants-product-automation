@@ -381,7 +381,7 @@ public class UsersAndURL implements UsersController {
         password.put("PO", "FwLwc@02oct");
         password.put("IND", "FwLwc@02oct");
         password.put("FD", "FwLwc@13june");
-        password.put("AUDITOR", "FwLwc@02march");
+        password.put("AUDITOR", "FwLwc@13june");
         password.put("FO1", "FwLwc@02march");
         password.put("PO1", "FwLwc@02march");
         password.put("EXE1", "FwLwc@march12");
