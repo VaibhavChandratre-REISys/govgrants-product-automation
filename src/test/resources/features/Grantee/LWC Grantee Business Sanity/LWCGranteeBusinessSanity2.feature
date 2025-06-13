@@ -6223,7 +6223,7 @@ Feature: Sanity scenarios
       | Grantee PO user | GRANTEE PO |
 
 
-    @464039 @validateadminuser(AwardOwner)canabletorevisethebudgetperiodchangeamendmentrequestonclickofreviseamendmentbuttonwhenparallelARisinsubmittoGrantorstate&abletoseestatus&StepProgressbarafterrevisetheAR  @runtestpm1
+   @464039 @validateadminuser(AwardOwner)canabletorevisethebudgetperiodchangeamendmentrequestonclickofreviseamendmentbuttonwhenparallelARisinsubmittoGrantorstate&abletoseestatus&StepProgressbarafterrevisetheAR  @runtestpm1
   Scenario: Validate Admin user  (Award Owner) can able to Revise the Budget Period Change Amendment Request on click of Revise Amendment button when parallel AR is in Submit to Grantor state & able to see status & Step Progress bar after revise the AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
