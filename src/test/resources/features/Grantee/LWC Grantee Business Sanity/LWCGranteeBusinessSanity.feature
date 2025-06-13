@@ -12221,74 +12221,26 @@ Feature: Sanity scenarios
 
   @445591 @ValidateProgress/FinancialReportSchedulePMusercanseeeditbuttonforProgressreportandFinancialReportonReportingScheduletableoncreatedSubmittedforreviewreviewedapprovedActivestateaward
   Scenario: Validate Progress/Financial Report Schedule PM user can see edit button for Progress report and Financial Report on Reporting Schedule table on created, Submitted for review, reviewed, approved, Active state award
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
-    And I wait for "2" seconds
-    And I enter "Grantee_Creation_Schedules" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
-    And I navigate to "Overview" sub tab
-    When I enter value "123456789123" into field "DUNS__c"
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
-    And I navigate to "Awards" sub tab
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    And I navigate to "Overview" sub tab
-    And I save the field labeled "Award Title" as "Automation Runtime award"
-    And I click on "Edit" in the page details
-    When I enter "Grantee_Award_Edit_Schedules" values from "Award_Field_Values.xlsx"
-    And I click on "Save" in the page details
     And I wait for "2" seconds
-    And I navigate to "Projections" sub tab
-    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
-    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
     When I navigate to "Management" sub tab
     Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
     Then I softly can see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
     Then I softly can see row level action button "View" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
     Then I softly can see row level action button "Edit" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
-    And I navigate to "Overview" sub tab
-    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
-    And I wait for "3" seconds
-    And I click modal button "Close"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
-      | Name       | Project Role    | Is Key Contact |
-      | Victor EXE | Project Officer | Checked        |
-    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
-    And I click modal button "Close"
-    And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
-      | Title                            | Is Primary Program |
-      | Automation Permanent NGO Program | Checked            |
-    And I navigate to "Projections" sub tab
-    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-    And I click modal button "Close"
-    And I refresh the page
-    And I wait for "2" seconds
-    And I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
-    And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
-      | Title                           | Start Date                         | End Date                         |
-      | Automation Permanent Focus Area | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
-    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
-    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Budget | Cash Match | Other Leverage |
-      | Construction | The narrative | 5000         | 500        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
-    And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---" by clicking "Edit" :
-      | Focus Area Name                 | Projected Program Income ($) | Program Income Justification |
-      | Automation Permanent Focus Area | 1000                         | Automation Test              |
-    When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15             | 30              | 10                             | Final                   |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
@@ -12303,50 +12255,38 @@ Feature: Sanity scenarios
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" without waiting for record
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
     And I wait for "2" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I click on "Complete Review" in the page details
     And I navigate to "Management" sub tab
+    And I wait for "2" seconds
     Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
     Then I softly can see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
     Then I softly can see row level action button "View" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
     Then I softly can see row level action button "Edit" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
-      | Victor EXE | Step 1 |
-    And I navigate to "Monitoring" sub tab
-    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
-    And I click modal button "Close"
-    And I wait for "3" seconds
-    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
-    And I click modal button "Close"
-    And I wait for "3" seconds
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    When I enter in modal value "Terms" into field "Title__c"
-    When I enter in modal value "Terms Description" into field "Description__c"
-    When I enter in modal value "1" into field "Sequence__c"
-    And I click modal button "Save"
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
     And I wait for "3" seconds
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
+    And I wait for "2" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     When I click on "Validate" in the page details

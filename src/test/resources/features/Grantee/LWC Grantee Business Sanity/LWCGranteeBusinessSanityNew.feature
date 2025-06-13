@@ -5749,8 +5749,9 @@ Feature: Sanity scenarios New
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
