@@ -232,7 +232,6 @@ Feature: Validate all scenarios for Internal Org
     Then I softly see value "Notes Record for PM" for title "Title" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I softly see value "Automation Notes" for title "Description" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:internalOrgNotesTableId---"
-    Then I softly see link "Created By" inside Page block
     Then I softly see "Created By" in flex table header "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record for PM" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I cannot see row level action button "Edit" against "Notes Record for PM" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"

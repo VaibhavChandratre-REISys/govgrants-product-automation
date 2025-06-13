@@ -387,7 +387,7 @@ Feature: Validate all scenarios for Strategic Plan
       | User          | RecordId                            |
       | GRANTEE PO    | Automation Permanent Strategic Plan |
 
-  @476595 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate @TBE
+  @476595 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate @PM_Grantee @P3_Grantee @GRegression3
   Scenario Outline: Strategic Plan - Verify PM as Non owner user cannot edit any data on Strategic plan record created by PM user when SP is in Created, Active state
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab
@@ -897,7 +897,7 @@ Feature: Validate all scenarios for Strategic Plan
       | User          | RecordId                            |
       | GRANTEE FO    | Automation Permanent Strategic Plan |
 
-  @476597 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate @TBE
+  @476597 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate @ADMIN_Grantee @P3_Grantee @GRegression3
   Scenario Outline: Strategic Plan - Verify ADMIN as Non owner user cannot edit any data on Strategic plan record created by PM user when SP is in Created, Active state
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab
