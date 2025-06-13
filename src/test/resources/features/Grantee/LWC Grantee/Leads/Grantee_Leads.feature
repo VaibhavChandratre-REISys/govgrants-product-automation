@@ -1160,7 +1160,7 @@ Feature: Validate all scenarios for Leads
       | User        |
       | GRANTEE EXE |
 
-  @482166 @ValidateQualifyLeadPMusercanqualifytheleadwhichisingestedfromgrantsgov @TBE1
+  @482166 @ValidateQualifyLeadPMusercanqualifytheleadwhichisingestedfromgrantsgov @PO_Grantee @P1_Grantee @GRegression1
   Scenario Outline: Validate Qualify Lead PM user can qualify the lead which is ingested from grants gov
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
     Given I login to "As a Grantee" app as "<userType>" user

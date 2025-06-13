@@ -1,7 +1,7 @@
 @GranteeInternalOrg
 Feature: Validate all scenarios for Internal Org
 
-  @482129 @ValidatetheAuditoruserinternalOrganizationallsectionandfields @TBE1
+  @482129 @ValidatetheAuditoruserinternalOrganizationallsectionandfields
   Scenario: the Auditor user internal Organization all section and fields
     When I login to "As a Grantor" app as "GRANTEE AUDITOR" user
     When I navigate to "Home" tab
@@ -472,7 +472,7 @@ Feature: Validate all scenarios for Internal Org
       | userType   | CreatedNotes | NotesRecord     | NotesRecord1     |
       | GRANTEE PO | Grantee PO   | Notes Record PO | Notes Record PO1 |
 
-  @482125 @VerifytheinternalOrganizationallsectionandfields @GRegression1 @TBE1
+  @482125 @VerifytheinternalOrganizationallsectionandfields @PO_Grantee @P3_Grantee @GRegression3
   Scenario Outline: Verify the PO internal Organization all section and fields
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -701,7 +701,7 @@ Feature: Validate all scenarios for Internal Org
       | userType   | CreatedNotes | NotesRecord     | NotesRecord1     |
       | GRANTEE FO | David FO     | Notes Record FO | Notes Record FO1 |
 
-  @482126 @VerifytheinternalOrganizationallsectionandfields @GRegression1 @TBE1
+  @482126 @VerifytheinternalOrganizationallsectionandfields @EXE_Grantee @P2_Grantee @GRegression2
   Scenario Outline: Verify the internal Organization all section and fields
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -930,7 +930,7 @@ Feature: Validate all scenarios for Internal Org
       | userType    | CreatedNotes | NotesRecord      | NotesRecord1      |
       | GRANTEE EXE | Victor EXE   | Notes Record EXE | Notes Record EXE1 |
 
-  @482127 @VerifytheinternalOrganizationallsectionandfields @GRegression1 @TBE1
+  @482127 @VerifytheinternalOrganizationallsectionandfields @FD_Grantee @P3_Grantee @GRegression3
   Scenario Outline: Verify the FD internal Organization all section and fields
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
