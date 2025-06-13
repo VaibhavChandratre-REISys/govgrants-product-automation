@@ -146,7 +146,7 @@ Feature: Validate all scenarios for Internal Contact
       | userAuditor     |
       | GRANTEE AUDITOR |
 
-  @482130 @ValidatePMusershouldabletosaveandcreateinternalcontact
+  @482130 @ValidatePMusershouldabletosaveandcreateinternalcontact @PO_Grantee @P2_Grantee @GRegression2
   Scenario Outline: Validate PO/FO/EXE/FD/ADMIN user should able to save and create internal contact
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab

@@ -472,7 +472,7 @@ Feature: Validate all scenarios for Internal Org
       | userType   | CreatedNotes | NotesRecord     | NotesRecord1     |
       | GRANTEE PO | Grantee PO   | Notes Record PO | Notes Record PO1 |
 
-  @482124 @VerifytheinternalOrganizationallsectionandfields @GRegression1
+  @482125 @VerifytheinternalOrganizationallsectionandfields @GRegression1
   Scenario Outline: Verify the PO internal Organization all section and fields
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
