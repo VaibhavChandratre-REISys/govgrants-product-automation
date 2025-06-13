@@ -132,7 +132,7 @@ Feature: Validate all scenarios for Strategic Plan
       | User            | RecordId                            |
       | GRANTEE AUDITOR | Automation Permanent Strategic Plan |
 
-  @476594 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate @TBE
+  @476594 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate
   Scenario Outline: Strategic Plan - Verify PO as Non owner user cannot edit any data on Strategic plan record created by PM user when SP is in Created, Active state
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab
@@ -561,7 +561,7 @@ Feature: Validate all scenarios for Strategic Plan
     Then I can see row level action button "View" against "{SavedValue:StrategicPlan}" in flex table with id "---grantee_tableId:-:StrategicPlans---"
     And I click on "View" icon for "{SavedValue:StrategicPlan}" inside table
     Then I cannot see top right button "Edit" in page detail
-    Then I can see top right button "Deactivate" in page detail
+    Then I cannot see top right button "Deactivate" in page detail
     And I navigate to "Overview" sub tab
     Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
     And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:StrategicGoalsandObjective---"
@@ -611,7 +611,7 @@ Feature: Validate all scenarios for Strategic Plan
     Then I can see row level action button "View" against "Automation Permanent Strategic Plan" in flex table with id "---grantee_tableId:-:StrategicPlans---"
     And I click on "View" icon for "<RecordId>" inside table
     Then I cannot see top right button "Edit" in page detail
-    Then I cannot see top right button "Deactivate" in page detail
+    Then I can see top right button "Deactivate" in page detail
     And I navigate to "Overview" sub tab
     Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
     And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:StrategicGoalsandObjective---"
@@ -642,7 +642,7 @@ Feature: Validate all scenarios for Strategic Plan
       | User          | RecordId                            |
       | GRANTEE PM    | Automation Permanent Strategic Plan |
 
-  @476596 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate @TBE
+  @476596 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate
   Scenario Outline: Strategic Plan - Verify FO as Non owner user cannot edit any data on Strategic plan record created by PM user when SP is in Created, Active state
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab
@@ -1071,7 +1071,7 @@ Feature: Validate all scenarios for Strategic Plan
     Then I can see row level action button "View" against "{SavedValue:StrategicPlan}" in flex table with id "---grantee_tableId:-:StrategicPlans---"
     And I click on "View" icon for "{SavedValue:StrategicPlan}" inside table
     Then I cannot see top right button "Edit" in page detail
-    Then I can see top right button "Deactivate" in page detail
+    Then I cannot see top right button "Deactivate" in page detail
     And I navigate to "Overview" sub tab
     Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
     And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:StrategicGoalsandObjective---"
@@ -1121,7 +1121,7 @@ Feature: Validate all scenarios for Strategic Plan
     Then I can see row level action button "View" against "Automation Permanent Strategic Plan" in flex table with id "---grantee_tableId:-:StrategicPlans---"
     And I click on "View" icon for "<RecordId>" inside table
     Then I cannot see top right button "Edit" in page detail
-    Then I cannot see top right button "Deactivate" in page detail
+    Then I can see top right button "Deactivate" in page detail
     And I navigate to "Overview" sub tab
     Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
     And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:StrategicGoalsandObjective---"
