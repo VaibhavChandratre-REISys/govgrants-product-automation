@@ -455,7 +455,7 @@ Feature: Validate all scenarios for Non Federal Program
       | User          |
       | GRANTEE PO    |
 
-  @477546 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts @TBE1
+  @477546 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts
   Scenario Outline: Validate Non federal EXE user should see all fields and section for non federal contact's
     When I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -600,7 +600,7 @@ Feature: Validate all scenarios for Non Federal Program
       | User          |
       | GRANTEE EXE   |
 
-  @477548 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts @TBE1
+  @477548 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts
   Scenario Outline: Validate Non federal FO user should see all fields and section for non federal contact's
     When I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -745,7 +745,7 @@ Feature: Validate all scenarios for Non Federal Program
       | User          |
       | GRANTEE FO    |
 
-  @477549 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts @TBE1
+  @477549 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts
   Scenario Outline: Validate Non federal FD user should see all fields and section for non federal contact's
     When I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -890,7 +890,7 @@ Feature: Validate all scenarios for Non Federal Program
       | User          |
       | GRANTEE FD    |
 
-  @477550 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts @TBE1
+  @477550 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts
   Scenario Outline: Validate Non federal ADMIN user should see all fields and section for non federal contact's
     When I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
