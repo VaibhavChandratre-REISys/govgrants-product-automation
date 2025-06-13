@@ -347,17 +347,17 @@ Feature: Validate all scenarios for Non Federal Program
     Then I softly see field on modal "Email" inside page block
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Organization is required to save.   |
-      | Project Role is required to save.   |
-      | First Name is required to save.     |
-      | Last Name is required to save.      |
-      | Phone is required to save.          |
-      | Email is required to save.          |
-      | Address Line 1 is required to save. |
-      | State is required to save.          |
-      | City is required to save.           |
-      | Country is required to save.        |
-      | Zip Code is required to save.       |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, First Name is required in the Contact Information section.     |
+      | To Save, Last Name is required in the Contact Information section.      |
+      | To Save, Phone is required in the Contact Information section.          |
+      | To Save, Email is required in the Contact Information section.          |
+      | To Save, Address Line 1 is required in the Address Information section. |
+      | To Save, State is required in the Address Information section.          |
+      | To Save, City is required in the Address Information section.           |
+      | To Save, Country is required in the Address Information section.        |
+      | To Save, Zip Code is required in the Address Information section.       |
     And I wait for "2" seconds
     When I enter in modal value "Automation Runtime" into field "Title"
     When I enter in modal value "Test With Automation PM" into field "AccountId"
@@ -444,6 +444,7 @@ Feature: Validate all scenarios for Non Federal Program
     Then I see the header is "Non-Federal Organization" in the page details
     Then I see the sub-header is "Test With Automation PM" in the page details
     And I click on back arrow
+    And I wait for "2" seconds
     And I click modal button "Close"
     And I perform quick search for "{SavedValue:Title}" in "---grantee_tableId:-:nonFedContactTableId---" panel
     Then I softly see that "{SavedValue:Title}" has been added in flextable with Id "---grantee_tableId:-:nonFedContactTableId---"
@@ -491,17 +492,17 @@ Feature: Validate all scenarios for Non Federal Program
     Then I softly see field on modal "Email" inside page block
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Organization is required to save.   |
-      | Project Role is required to save.   |
-      | First Name is required to save.     |
-      | Last Name is required to save.      |
-      | Phone is required to save.          |
-      | Email is required to save.          |
-      | Address Line 1 is required to save. |
-      | State is required to save.          |
-      | City is required to save.           |
-      | Country is required to save.        |
-      | Zip Code is required to save.       |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, First Name is required in the Contact Information section.     |
+      | To Save, Last Name is required in the Contact Information section.      |
+      | To Save, Phone is required in the Contact Information section.          |
+      | To Save, Email is required in the Contact Information section.          |
+      | To Save, Address Line 1 is required in the Address Information section. |
+      | To Save, State is required in the Address Information section.          |
+      | To Save, City is required in the Address Information section.           |
+      | To Save, Country is required in the Address Information section.        |
+      | To Save, Zip Code is required in the Address Information section.       |
     And I wait for "2" seconds
     When I enter in modal value "Automation Runtime" into field "Title"
     When I enter in modal value "Test With Automation PM" into field "AccountId"
@@ -588,6 +589,7 @@ Feature: Validate all scenarios for Non Federal Program
     Then I see the header is "Non-Federal Organization" in the page details
     Then I see the sub-header is "Test With Automation PM" in the page details
     And I click on back arrow
+    And I wait for "2" seconds
     And I click modal button "Close"
     And I perform quick search for "{SavedValue:Title}" in "---grantee_tableId:-:nonFedContactTableId---" panel
     Then I softly see that "{SavedValue:Title}" has been added in flextable with Id "---grantee_tableId:-:nonFedContactTableId---"
@@ -635,17 +637,17 @@ Feature: Validate all scenarios for Non Federal Program
     Then I softly see field on modal "Email" inside page block
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Organization is required to save.   |
-      | Project Role is required to save.   |
-      | First Name is required to save.     |
-      | Last Name is required to save.      |
-      | Phone is required to save.          |
-      | Email is required to save.          |
-      | Address Line 1 is required to save. |
-      | State is required to save.          |
-      | City is required to save.           |
-      | Country is required to save.        |
-      | Zip Code is required to save.       |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, First Name is required in the Contact Information section.     |
+      | To Save, Last Name is required in the Contact Information section.      |
+      | To Save, Phone is required in the Contact Information section.          |
+      | To Save, Email is required in the Contact Information section.          |
+      | To Save, Address Line 1 is required in the Address Information section. |
+      | To Save, State is required in the Address Information section.          |
+      | To Save, City is required in the Address Information section.           |
+      | To Save, Country is required in the Address Information section.        |
+      | To Save, Zip Code is required in the Address Information section.       |
     And I wait for "2" seconds
     When I enter in modal value "Automation Runtime" into field "Title"
     When I enter in modal value "Test With Automation PM" into field "AccountId"
@@ -732,6 +734,7 @@ Feature: Validate all scenarios for Non Federal Program
     Then I see the header is "Non-Federal Organization" in the page details
     Then I see the sub-header is "Test With Automation PM" in the page details
     And I click on back arrow
+    And I wait for "2" seconds
     And I click modal button "Close"
     And I perform quick search for "{SavedValue:Title}" in "---grantee_tableId:-:nonFedContactTableId---" panel
     Then I softly see that "{SavedValue:Title}" has been added in flextable with Id "---grantee_tableId:-:nonFedContactTableId---"
@@ -779,17 +782,17 @@ Feature: Validate all scenarios for Non Federal Program
     Then I softly see field on modal "Email" inside page block
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Organization is required to save.   |
-      | Project Role is required to save.   |
-      | First Name is required to save.     |
-      | Last Name is required to save.      |
-      | Phone is required to save.          |
-      | Email is required to save.          |
-      | Address Line 1 is required to save. |
-      | State is required to save.          |
-      | City is required to save.           |
-      | Country is required to save.        |
-      | Zip Code is required to save.       |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, First Name is required in the Contact Information section.     |
+      | To Save, Last Name is required in the Contact Information section.      |
+      | To Save, Phone is required in the Contact Information section.          |
+      | To Save, Email is required in the Contact Information section.          |
+      | To Save, Address Line 1 is required in the Address Information section. |
+      | To Save, State is required in the Address Information section.          |
+      | To Save, City is required in the Address Information section.           |
+      | To Save, Country is required in the Address Information section.        |
+      | To Save, Zip Code is required in the Address Information section.       |
     And I wait for "2" seconds
     When I enter in modal value "Automation Runtime" into field "Title"
     When I enter in modal value "Test With Automation PM" into field "AccountId"
@@ -876,6 +879,7 @@ Feature: Validate all scenarios for Non Federal Program
     Then I see the header is "Non-Federal Organization" in the page details
     Then I see the sub-header is "Test With Automation PM" in the page details
     And I click on back arrow
+    And I wait for "2" seconds
     And I click modal button "Close"
     And I perform quick search for "{SavedValue:Title}" in "---grantee_tableId:-:nonFedContactTableId---" panel
     Then I softly see that "{SavedValue:Title}" has been added in flextable with Id "---grantee_tableId:-:nonFedContactTableId---"
@@ -923,17 +927,17 @@ Feature: Validate all scenarios for Non Federal Program
     Then I softly see field on modal "Email" inside page block
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Organization is required to save.   |
-      | Project Role is required to save.   |
-      | First Name is required to save.     |
-      | Last Name is required to save.      |
-      | Phone is required to save.          |
-      | Email is required to save.          |
-      | Address Line 1 is required to save. |
-      | State is required to save.          |
-      | City is required to save.           |
-      | Country is required to save.        |
-      | Zip Code is required to save.       |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, First Name is required in the Contact Information section.     |
+      | To Save, Last Name is required in the Contact Information section.      |
+      | To Save, Phone is required in the Contact Information section.          |
+      | To Save, Email is required in the Contact Information section.          |
+      | To Save, Address Line 1 is required in the Address Information section. |
+      | To Save, State is required in the Address Information section.          |
+      | To Save, City is required in the Address Information section.           |
+      | To Save, Country is required in the Address Information section.        |
+      | To Save, Zip Code is required in the Address Information section.       |
     And I wait for "2" seconds
     When I enter in modal value "Automation Runtime" into field "Title"
     When I enter in modal value "Test With Automation PM" into field "AccountId"
@@ -1020,6 +1024,7 @@ Feature: Validate all scenarios for Non Federal Program
     Then I see the header is "Non-Federal Organization" in the page details
     Then I see the sub-header is "Test With Automation PM" in the page details
     And I click on back arrow
+    And I wait for "2" seconds
     And I click modal button "Close"
     And I perform quick search for "{SavedValue:Title}" in "---grantee_tableId:-:nonFedContactTableId---" panel
     Then I softly see that "{SavedValue:Title}" has been added in flextable with Id "---grantee_tableId:-:nonFedContactTableId---"

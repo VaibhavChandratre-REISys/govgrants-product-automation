@@ -230,15 +230,17 @@ Feature: Validate all scenarios for Internal Contact
     Then I softly see fields "MailingPostalCode" is in edit mode
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Project Role is required to save.   |
-      | First Name is required to save.     |
-      | Last Name is required to save.      |
-      | Email is required to save.          |
-      | Address Line 1 is required to save. |
-      | State is required to save.          |
-      | City is required to save.           |
-      | Country is required to save.        |
-      | Zip Code is required to save.       |
+      | To Save, Organization is required in the Contact Information section.   |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, First Name is required in the Contact Information section.     |
+      | To Save, Last Name is required in the Contact Information section.      |
+      | To Save, Phone is required in the Contact Information section.          |
+      | To Save, Email is required in the Contact Information section.          |
+      | To Save, Address Line 1 is required in the Address Information section. |
+      | To Save, State is required in the Address Information section.          |
+      | To Save, City is required in the Address Information section.           |
+      | To Save, Country is required in the Address Information section.        |
+      | To Save, Zip Code is required in the Address Information section.       |
     When I enter in modal value "Department of Product" into field "AccountId"
     When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation Runtime" into field "FirstName"
@@ -400,15 +402,17 @@ Feature: Validate all scenarios for Internal Contact
     Then I softly see fields "MailingPostalCode" is in edit mode
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Project Role is required to save.   |
-      | First Name is required to save.     |
-      | Last Name is required to save.      |
-      | Email is required to save.          |
-      | Address Line 1 is required to save. |
-      | State is required to save.          |
-      | City is required to save.           |
-      | Country is required to save.        |
-      | Zip Code is required to save.       |
+      | To Save, Organization is required in the Contact Information section.   |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, First Name is required in the Contact Information section.     |
+      | To Save, Last Name is required in the Contact Information section.      |
+      | To Save, Phone is required in the Contact Information section.          |
+      | To Save, Email is required in the Contact Information section.          |
+      | To Save, Address Line 1 is required in the Address Information section. |
+      | To Save, State is required in the Address Information section.          |
+      | To Save, City is required in the Address Information section.           |
+      | To Save, Country is required in the Address Information section.        |
+      | To Save, Zip Code is required in the Address Information section.       |
     When I enter in modal value "Department of Product" into field "AccountId"
     When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation Runtime" into field "FirstName"
@@ -570,15 +574,17 @@ Feature: Validate all scenarios for Internal Contact
     Then I softly see fields "MailingPostalCode" is in edit mode
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Project Role is required to save.   |
-      | First Name is required to save.     |
-      | Last Name is required to save.      |
-      | Email is required to save.          |
-      | Address Line 1 is required to save. |
-      | State is required to save.          |
-      | City is required to save.           |
-      | Country is required to save.        |
-      | Zip Code is required to save.       |
+      | To Save, Organization is required in the Contact Information section.   |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, First Name is required in the Contact Information section.     |
+      | To Save, Last Name is required in the Contact Information section.      |
+      | To Save, Phone is required in the Contact Information section.          |
+      | To Save, Email is required in the Contact Information section.          |
+      | To Save, Address Line 1 is required in the Address Information section. |
+      | To Save, State is required in the Address Information section.          |
+      | To Save, City is required in the Address Information section.           |
+      | To Save, Country is required in the Address Information section.        |
+      | To Save, Zip Code is required in the Address Information section.       |
     When I enter in modal value "Department of Product" into field "AccountId"
     When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation Runtime" into field "FirstName"
@@ -740,15 +746,17 @@ Feature: Validate all scenarios for Internal Contact
     Then I softly see fields "MailingPostalCode" is in edit mode
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Project Role is required to save.   |
-      | First Name is required to save.     |
-      | Last Name is required to save.      |
-      | Email is required to save.          |
-      | Address Line 1 is required to save. |
-      | State is required to save.          |
-      | City is required to save.           |
-      | Country is required to save.        |
-      | Zip Code is required to save.       |
+      | To Save, Organization is required in the Contact Information section.   |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, First Name is required in the Contact Information section.     |
+      | To Save, Last Name is required in the Contact Information section.      |
+      | To Save, Phone is required in the Contact Information section.          |
+      | To Save, Email is required in the Contact Information section.          |
+      | To Save, Address Line 1 is required in the Address Information section. |
+      | To Save, State is required in the Address Information section.          |
+      | To Save, City is required in the Address Information section.           |
+      | To Save, Country is required in the Address Information section.        |
+      | To Save, Zip Code is required in the Address Information section.       |
     When I enter in modal value "Department of Product" into field "AccountId"
     When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation Runtime" into field "FirstName"
@@ -910,15 +918,17 @@ Feature: Validate all scenarios for Internal Contact
     Then I softly see fields "MailingPostalCode" is in edit mode
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Project Role is required to save.   |
-      | First Name is required to save.     |
-      | Last Name is required to save.      |
-      | Email is required to save.          |
-      | Address Line 1 is required to save. |
-      | State is required to save.          |
-      | City is required to save.           |
-      | Country is required to save.        |
-      | Zip Code is required to save.       |
+      | To Save, Organization is required in the Contact Information section.   |
+      | To Save, Project Role is required in the Contact Information section.   |
+      | To Save, First Name is required in the Contact Information section.     |
+      | To Save, Last Name is required in the Contact Information section.      |
+      | To Save, Phone is required in the Contact Information section.          |
+      | To Save, Email is required in the Contact Information section.          |
+      | To Save, Address Line 1 is required in the Address Information section. |
+      | To Save, State is required in the Address Information section.          |
+      | To Save, City is required in the Address Information section.           |
+      | To Save, Country is required in the Address Information section.        |
+      | To Save, Zip Code is required in the Address Information section.       |
     When I enter in modal value "Department of Product" into field "AccountId"
     When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation Runtime" into field "FirstName"
