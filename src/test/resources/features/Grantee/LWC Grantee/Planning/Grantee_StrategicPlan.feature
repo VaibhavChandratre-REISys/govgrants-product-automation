@@ -241,7 +241,7 @@ Feature: Validate all scenarios for Strategic Plan
     Then I softly see field "Activities" as "Automation Test Description"
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:strategicObjectivesKPITableId---"
-    When I click "Add" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
+    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
@@ -496,7 +496,7 @@ Feature: Validate all scenarios for Strategic Plan
     Then I softly see field "Activities" as "Automation Test Description"
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:strategicObjectivesKPITableId---"
-    When I click "Add" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
+    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
@@ -751,7 +751,7 @@ Feature: Validate all scenarios for Strategic Plan
     Then I softly see field "Activities" as "Automation Test Description"
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:strategicObjectivesKPITableId---"
-    When I click "Add" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
+    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
@@ -1006,7 +1006,7 @@ Feature: Validate all scenarios for Strategic Plan
     Then I softly see field "Activities" as "Automation Test Description"
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:strategicObjectivesKPITableId---"
-    When I click "Add" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
+    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
