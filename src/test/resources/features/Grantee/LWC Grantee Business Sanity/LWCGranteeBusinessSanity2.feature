@@ -6228,8 +6228,8 @@ Feature: Sanity scenarios
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    And I "Approved" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
-    And I "Created" of type "Budget Period Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
+    And I "Approved" of type "Budget Period Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "BUDGET_PERIOD_CHANGE_GRANTEE_PO"
+    And I "Created" of type "Budget Period Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "BUDGET_PERIOD_CHANGE_GRANTEE_PO"
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
