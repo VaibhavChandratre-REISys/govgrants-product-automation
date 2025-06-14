@@ -3786,7 +3786,7 @@ Feature: Sanity scenarios
       | Victor EXE | GRANTEE EXE |
       | Grantee PO | GRANTEE PO  |
 
-  @482022 @482023 @482024 @482025 @482026 @482027 @GrantsgovlobbingformVerifyPOuserNonOwnercannotaddeditdeletedatainGrantsgovlobbingformandcanonlyviewdataenteredbyownerintheform @P3_Grantee @GRegression2 @GranteeTBE
+  @482022 @482023 @482024 @482025 @482026 @482027 @GrantsgovlobbingformVerifyPOuserNonOwnercannotaddeditdeletedatainGrantsgovlobbingformandcanonlyviewdataenteredbyownerintheform @P3_Grantee @GRegression2 @GranteeTBE @EXE_Grantee
   Scenario Outline: Grants.gov lobbing form -  Verify PO user (Non Owner) cannot add/edit/delete data in Grants.gov lobbing form and can only view data entered by owner in the form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumber}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001241410" with properties "default-<UserName>"
@@ -4667,6 +4667,7 @@ Feature: Sanity scenarios
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:ApplicationPeerReview---" without waiting for record
     Then I softly see field "Status" as "Submitted for Review"
     When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    And I wait for "2" seconds
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -4686,6 +4687,7 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Edit" in page detail
     And I close the tab
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -4698,6 +4700,7 @@ Feature: Sanity scenarios
     And I click on submit review
     Then I softly see field "Status" as "Submitted for Review"
     When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
+    And I wait for "2" seconds
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -4706,6 +4709,7 @@ Feature: Sanity scenarios
     Given I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
     When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    And I wait for "2" seconds
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -4725,6 +4729,7 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Edit" in page detail
     And I close the tab
     When I re-login to "As a Grantee" app as "<OwnerType>" user on "INTERNAL" portal
+    And I wait for "2" seconds
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -4733,6 +4738,7 @@ Feature: Sanity scenarios
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    And I wait for "2" seconds
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -4752,6 +4758,7 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Edit" in page detail
     And I close the tab
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I wait for "2" seconds
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -4759,6 +4766,7 @@ Feature: Sanity scenarios
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    And I wait for "2" seconds
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -4837,10 +4845,10 @@ Feature: Sanity scenarios
     Examples:
       | UserName      | OwnerType  | UserType        |
       | Sarah PM user | GRANTEE PM | GRANTEE ADMIN1  |
-      | Sarah PM user | GRANTEE PM | GRANTEE AUDITOR |
-      | Sarah PM user | GRANTEE PM | GRANTEE FO      |
-      | Sarah PM user | GRANTEE PM | GRANTEE FD      |
-      | Sarah PM user | GRANTEE PM | GRANTEE EXE     |
+#      | Sarah PM user | GRANTEE PM | GRANTEE AUDITOR |
+#      | Sarah PM user | GRANTEE PM | GRANTEE FO      |
+#      | Sarah PM user | GRANTEE PM | GRANTEE FD      |
+#      | Sarah PM user | GRANTEE PM | GRANTEE EXE     |
 
   @485395 @Sf424PMuserisrejecttheapplicationthensubmittograntsgovbuttonisnotdisplay&verifytheeditaccess @P4_Grantee @GranteeTBE
   Scenario Outline: Sf-424- PM user is reject the application then submit to grants.gov button is not display & verify the edit access

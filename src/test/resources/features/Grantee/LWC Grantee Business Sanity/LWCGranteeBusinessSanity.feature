@@ -6173,7 +6173,7 @@ Feature: Sanity scenarios
     And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
     Then I softly see value "$4,500.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
 
-  @443820 @AwardVerifyWithPMProfileProjectionTabofAwardPagelayoutfordirectgrant @runtestpm2
+  @443820 @AwardVerifyWithPMProfileProjectionTabofAwardPagelayoutfordirectgrant @Gregression2 @PM_Grantee @P2_Grantee
   Scenario: Award With PM Profile Projection Tab of Award Page layout for direct grant
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -6252,7 +6252,7 @@ Feature: Sanity scenarios
     Then I can see row level action button "Delete" against "Rate" in flex table with id "---grantee_tableId:-:awardIndirectRateTableId---"
 
 
-  @443830 @AwardVerifywithPMprofileResponsiblitiesTabofAwardPagelayout @runtestpm1
+  @443830 @AwardVerifywithPMprofileResponsiblitiesTabofAwardPagelayout @Gregression2 @PM_Grantee @P2_Grantee
   Scenario: Award with PM profile Responsiblities Tab of Award Page layout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
