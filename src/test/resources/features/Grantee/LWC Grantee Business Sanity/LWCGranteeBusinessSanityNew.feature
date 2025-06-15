@@ -2185,7 +2185,7 @@ Feature: Sanity scenarios New
     Then I softly see field "Status" as "Closed"
     Then I softly can see "Actuals" sub tab at view detail page
 
-  @482401 @ValidatePOUserthecloseouttab  @runtestpm1
+  @482401 @ValidatePOUserthecloseouttab @P2_Grantee @Gregression2 @PO_Grantee
   Scenario: Validate PO User the closeout tab
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -10971,7 +10971,7 @@ Feature: Sanity scenarios New
       | userName        | userType   |
       | Grantee PO user | GRANTEE PO |
 
-  @487152 @ValidateNotYetConvertedOpportunityManualPMusercancreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNOonOpportunityrecord  @runtestpm1
+  @487152 @ValidateNotYetConvertedOpportunityManualPMusercancreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNOonOpportunityrecord  @P1_Grantee @PO_Grantee @GRegression1
   Scenario Outline: Validate Not Yet Converted Opportunity Manual PM/PO user can create Application from Opportunity if Pre-Application Required? is selected as NO on Opportunity record
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<userName>"
     Given I login to "As a Grantee" app as "<userType>" user
@@ -10997,7 +10997,7 @@ Feature: Sanity scenarios New
       | userName        | userType   |
       | Grantee PO user | GRANTEE PO |
 
-  @477629 @477630 @ValidatePMusershouldabletoseevalidationmessagesforrequiredtosavefiledonKPI  @runtestpm1
+  @477629 @477630 @ValidatePMusershouldabletoseevalidationmessagesforrequiredtosavefiledonKPI  @P2_Grantee @EXE_Grantee @Gregression2
   Scenario Outline: Validate PM user should able to see validation messages for required to save filed on KPI
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab

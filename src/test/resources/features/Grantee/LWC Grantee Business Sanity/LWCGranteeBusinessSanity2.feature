@@ -3786,7 +3786,7 @@ Feature: Sanity scenarios
       | Victor EXE | GRANTEE EXE |
       | Grantee PO | GRANTEE PO  |
 
-  @482022 @482023 @482024 @482025 @482026 @482027 @GrantsgovlobbingformVerifyPOuserNonOwnercannotaddeditdeletedatainGrantsgovlobbingformandcanonlyviewdataenteredbyownerintheform @P3_Grantee @GRegression2 @GranteeTBE @EXE_Grantee
+  @482022 @482023 @482024 @482025 @482026 @482027 @GrantsgovlobbingformVerifyPOuserNonOwnercannotaddeditdeletedatainGrantsgovlobbingformandcanonlyviewdataenteredbyownerintheform @P3_Grantee @GRegression3 @GranteeTBE @PO_Grantee
   Scenario Outline: Grants.gov lobbing form -  Verify PO user (Non Owner) cannot add/edit/delete data in Grants.gov lobbing form and can only view data entered by owner in the form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumber}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001241410" with properties "default-<UserName>"
@@ -5413,7 +5413,7 @@ Feature: Sanity scenarios
       | GRANTEE PM | GRANTEE ADMIN1  |
       | GRANTEE PM | GRANTEE AUDITOR |
 
-  @477449 @477450 @BudgetNarrativeattachmentformVerifyvalidationdisplayedtoPMuseronBudgetNarrativeattachmentform @P2_Grantee @GranteeTBE
+  @477449 @477450 @BudgetNarrativeattachmentformVerifyvalidationdisplayedtoPMuseronBudgetNarrativeattachmentform @P2_Grantee @GranteeTBE @Gregression2 @PM_Grantee
   Scenario Outline:Budget Narrative attachment form - Verify validation displayed to PM user on Budget Narrative attachment form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default-<UserName>"
@@ -6120,7 +6120,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Submitted to Grantor"
 
 
-  @487159 @validateaspodetailsdisplayedonoverviewtabofopportunitiesnotconverteddetailspagewhenrecordisopenedinviewmode  @runtestpm1
+  @487159 @validateaspodetailsdisplayedonoverviewtabofopportunitiesnotconverteddetailspagewhenrecordisopenedinviewmode  @P2_Grantee @Gregression2 @PO_Grantee
   Scenario Outline: Validate as PO , details displayed on Overview Tab of Opportunities Not converted- details page when record is opened in view mode
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<userName>"
     Given I login to "As a Grantee" app as "<userType>" user
@@ -6631,7 +6631,7 @@ Feature: Sanity scenarios
     Then I softly see value "Not Accepted" for title "New Value" inside field history table
     Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
 
-    @487168 @validatepouser(awardowner)canabletocreateadhocprogressreport&abletosubmitprogressreporttograntor @EXE_Grantee @GRegression3
+    @487168 @validatepouser(awardowner)canabletocreateadhocprogressreport&abletosubmitprogressreporttograntor @PO_Grantee @GRegression1 @P1_Grantee
     Scenario: validate  PO user (Award Owner)can able to create Adhoc Progress Report & able to submit Progress Report to Grantor
       And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
       And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
