@@ -6276,85 +6276,85 @@ Feature: Sanity scenarios
     Then I softly see "Peer Reviewers" page block displayed
     Then I softly see "Approvers" page block displayed
     Then I softly see "Owner" page block displayed
-#    When I enter the following values into flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" by clicking "New" :
-#      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
-#      | David FO      | Fiscal Reviewer | Automation Description | 5        | No                   |
-#    Then I softly see the following messages in the page details contains:
-#      | Saved Successfully! |
-#    Then I softly can see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
-#    Then I softly can see row level action button "Send for Review" against "David FO" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
-#    Then I softly can see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
-#    And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" without waiting for record
-#    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-#    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-#    And I navigate to "Responsibilities" sub tab
-#    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" without waiting for record
-#    And I enter a review as "Passed"
-#    When I click modal button "Save"
-#    And I click on submit review
-#    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
-#    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-#    When I navigate to "Awards" sub tab
-#    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-#    And I click on "Complete Review" in the page details
-#    And I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-#      | Name     | Award  |
-#      | Sarah PM | Step 2 |
-#      | Grantee PO | Step 3 |
-#    When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-#      | Name     | Award |
-#      | David FO | NA    |
-#    When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-#     | Award |
-#     | Step 3 |
-#    Then I softly see the following messages in the page details contains:
-#      | Required fields missing |
-#    And I refresh the page
-#    And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
-#      | Name     | Award  |
-#      | Sarah PM | Step 1 |
-#    Then I softly see the following messages in the page details contains:
-#      | You cannot specify the same step for multiple users for Award. |
-#    And I refresh the page
-#    And I wait for "2" seconds
-#    When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
-#      | Name     | Award |
-#      | Sarah PM | NA    |
-#      | Grantee PO | NA    |
-#    When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
-#      | Name       | Award |
-#      | Victor EXE | NA    |
-#    And I click on "Submit For Approval" in the page details
-#    Then I softly see the following messages in the page details contains:
-#      | Responsibilities - At least one approver is required |
-#    When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
-#      | Name     | Award  |
-#      | Sarah PM | Step 1 |
-#    When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
-#      | Name       | Award  |
-#      | Victor EXE | Step 2 |
-#    Then I softly see the following messages in the page details contains:
-#      | Saved Successfully! |
-#    Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:awardApproverTableId---"
-#    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:awardApproverTableId---"
-#    Then I softly see link "Victor EXE" inside Page block
-#    And I click on hyperlink containing value "Victor EXE"
-#    Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
-#     And I click on back arrow
-#    Then I softly see link "Sarah PM" inside Page block
-#    And I click on hyperlink containing value "Sarah PM"
-#    Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
-#    And I click on back arrow
-    Then I softly see value "Owner" for title "Responsibility" against the value "Sarah PM" inside table "---grantee_tableId:-:awardOwnerTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" by clicking "New" :
+      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
+      | David FO      | Fiscal Reviewer | Automation Description | 5        | No                   |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    Then I softly can see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
+    Then I softly can see row level action button "Send for Review" against "David FO" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
+    Then I softly can see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
+    And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" without waiting for record
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" without waiting for record
+    And I enter a review as "Passed"
+    When I click modal button "Save"
+    And I click on submit review
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I click on "Complete Review" in the page details
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
+      | Name     | Award  |
+      | Sarah PM | Step 2 |
+      | Grantee PO | Step 3 |
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
+      | Name     | Award |
+      | David FO | NA    |
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
+     | Award |
+     | Step 3 |
+    Then I softly see the following messages in the page details contains:
+      | Required fields missing |
+    And I refresh the page
+    And I wait for "2" seconds
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
+    Then I softly see the following messages in the page details contains:
+      | You cannot specify the same step for multiple users for Award. |
+    And I refresh the page
+    And I wait for "2" seconds
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
+      | Name     | Award |
+      | Sarah PM | NA    |
+      | Grantee PO | NA    |
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
+      | Name       | Award |
+      | Victor EXE | NA    |
+    And I click on "Submit For Approval" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Responsibilities - At least one approver is required |
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
+      | Name       | Award  |
+      | Victor EXE | Step 2 |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:awardApproverTableId---"
+    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:awardApproverTableId---"
+    Then I softly see link "Victor EXE" inside Page block
+    And I click on hyperlink containing value "Victor EXE"
+    Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
+     And I click on back arrow
+    Then I softly see link "Sarah PM" inside Page block
+    And I click on hyperlink containing value "Sarah PM"
+    Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
+    And I click on back arrow
+    Then I softly see value "Owner" for title "Name" against the value "Sarah PM" inside table "---grantee_tableId:-:awardOwnerTableId---"
     And I click on hyperlink containing value "Sarah PM"
     Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
 
@@ -6527,7 +6527,7 @@ Feature: Sanity scenarios
     When I navigate to "Files" sub tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
 
-  @443834 @AwardVerifywithPMprofileCloseoutTabofAwardPagelayout @P2_Grantee @GranteeTBE @runtestpm1
+  @443834 @AwardVerifywithPMprofileCloseoutTabofAwardPagelayout  @GranteeTBE @Gregression2 @PM_Grantee @P2_Grantee
   Scenario: Award - Verify with PM profile Closeout  Tab of Award Page layout.
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
