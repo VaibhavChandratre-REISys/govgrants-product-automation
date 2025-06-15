@@ -1,7 +1,7 @@
 @GranteeForms
 Feature: Grantee Forms Scenario
 
-  @485407 @485428 @ValidateProjectNarrativeAttachmentFOuserasaReviewershouldabletoedittheformifeditaccessisYes @runtestpm1
+  @485407 @485428 @ValidateProjectNarrativeAttachmentFOuserasaReviewershouldabletoedittheformifeditaccessisYes @Gregression2 @P2_Grantee @FO_Grantee
   Scenario: Validate Project Narrative Attachment FO user as a Reviewer should able to edit the form if edit access is Yes
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -217,7 +217,7 @@ Feature: Grantee Forms Scenario
     And I close the tab
     And I click on "Edit" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
-    And I enter "SF424_FORM" values from "Application_Field_Values - backup.xlsx"
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Delinquent Federal Debt" from computer
@@ -233,6 +233,7 @@ Feature: Grantee Forms Scenario
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I wait for "3" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative" from computer
+    And I wait for "2" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
