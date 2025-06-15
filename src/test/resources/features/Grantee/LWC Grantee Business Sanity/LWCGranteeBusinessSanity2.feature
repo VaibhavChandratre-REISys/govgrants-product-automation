@@ -4598,7 +4598,7 @@ Feature: Sanity scenarios
       | UserType   |
       | GRANTEE PM |
 
-  @485370 @485371 @485364 @485365 @485361 @Sf424VerifyAdminusershouldabletoviewaccessforforminallstateofApplication @P2_Grantee @GranteeTBE
+  @485370 @485371 @485364 @485365 @485361 @Sf424VerifyAdminusershouldabletoviewaccessforforminallstateofApplication @P2_Grantee @GranteeTBE @ADMIN_Grantee @GRegression2
   Scenario Outline: Sf-424-Verify Admin user should able to view access for form in all  state of Application
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
