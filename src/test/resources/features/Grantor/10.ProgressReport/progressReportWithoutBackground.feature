@@ -1088,7 +1088,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    And I wait for "3" seconds
     Then I see the following messages in the page details contains:
       | File Attachment.pdf Uploaded successfully. |
     Examples:
