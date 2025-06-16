@@ -3,7 +3,7 @@ Feature: Grantee Smoke scenarios
 
   @470406 @ValidatetheflowofasPMuserisabletocreateandqualifythemanuallead @Grantee_Smoke1
   Scenario Outline: Validate the flow of as PM/PO user is able to create and qualify the manual lead
-    Given I login to "As a Grantee" app as "<User>" user
+    Given I login to "Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -185,7 +185,7 @@ Feature: Grantee Smoke scenarios
 
   @482113 @ValidatetheflowofasPMuserisabletocreateandqualifythemanuallead @Grantee_Smoke2
   Scenario Outline: Validate the flow of as PM/PO user is able to create and qualify the manual lead
-    Given I login to "As a Grantee" app as "<User>" user
+    Given I login to "Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -367,7 +367,7 @@ Feature: Grantee Smoke scenarios
 
   @488703 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads @Grantee_Smoke3
   Scenario Outline: Verify As FO user should not see new button for not yet qualify lead and edit access on not yet qualify leads
-    Given I login to "As a Grantee" app as "GRANTEE EXE" user
+    Given I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -384,7 +384,7 @@ Feature: Grantee Smoke scenarios
     When I click modal button "OK"
     Then I softly see field "State" as "Posted"
     Then I can see top right button "Qualify Lead" in page detail
-    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Leads Not Yet Qualified - All"
@@ -405,7 +405,7 @@ Feature: Grantee Smoke scenarios
   @487215 @ValidateNotYetConvertedOpportunityManualPMusercancreatePre-applicationfromOpportunityifPre-ApplicationRequiredisselectedasYesonOpportunityrecord @Grantee_Smoke1
   Scenario Outline: Validate Not Yet Converted Opportunity Manual PM user can create Pre-application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<userName>"
-    Given I login to "As a Grantee" app as "<userType>" user
+    Given I login to "Grantee" app as "<userType>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -433,7 +433,7 @@ Feature: Grantee Smoke scenarios
   @487151 @ValidateNotYetConvertedOpportunityManualPMusercancreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNOonOpportunityrecord @Grantee_Smoke2
   Scenario Outline: Validate Not Yet Converted Opportunity Manual PM user can create Application from Opportunity if Pre-Application Required? is selected as NO on Opportunity record
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<userName>"
-    Given I login to "As a Grantee" app as "<userType>" user
+    Given I login to "Grantee" app as "<userType>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -458,7 +458,7 @@ Feature: Grantee Smoke scenarios
 
   @485372 @ValidatePMusercanseeProgressreportschedulesfromawardinMonitoringschedules @Grantee_Smoke1 @wip
   Scenario Outline: Validate PM user can see Progress report schedules from award in Monitoring schedules
-    When I login to "As a Grantee" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
@@ -723,7 +723,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "{SavedValue:EGMS ID10}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID11}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -734,7 +734,7 @@ Feature: Grantee Smoke scenarios
     When I click modal button "Save"
     And I click on submit review
     And I wait for "3" seconds
-    When I re-login to "As a Grantee" app as "<userType>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<userType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -875,7 +875,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "{SavedValue:EGMS ID10}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID11}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
-    And I re-login to "As a Grantee" app as "<userType>" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "<userType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -944,7 +944,7 @@ Feature: Grantee Smoke scenarios
 
   @483166 @ValidatePMusertheflowofNotyetqualifiedlead @Grantee_Smoke1
   Scenario Outline: Validate PM user the flow of Not yet qualified lead
-    Given I login to "As a Grantee" app as "<User>" user
+    Given I login to "Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -1085,7 +1085,7 @@ Feature: Grantee Smoke scenarios
   @482165 @ValidateQualifyLeadPMusercanqualifytheleadwhichisingestedfromgrantsgov @Grantee_Smoke1 @GranteeTest
   Scenario Outline: Validate Qualify Lead PM user can qualify the lead which is ingested from grants gov
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
-    Given I login to "As a Grantee" app as "<userType>" user
+    Given I login to "Grantee" app as "<userType>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -1180,7 +1180,7 @@ Feature: Grantee Smoke scenarios
 
   @477625 @ValidatePMusershouldabletoCreateActivatetheKPI @Grantee_Smoke1
   Scenario Outline: Validate PM user should able to Create & Activate the KPI
-    When I login to "As a Grantee" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -1271,8 +1271,8 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Related Log" sub tab
     Then I softly see "No Records Found" inside flex table with id "Goals"
     Then I softly see "No Records Found" inside flex table with id "KPIsGranteeRelatedAwards"
-#    And I navigate to "History" sub tab
-#    Then I softly see snapshot with name containing "History.pdf" as name
+    And I navigate to "History" sub tab
+    Then I softly see snapshot with name containing "History.pdf" as name
     Examples:
       | userType   | emailId                 |
       | GRANTEE PM | sarah.pm.23@yopmail.com |
@@ -1281,7 +1281,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Budget Narrative attachment form - Verify PM user can add files in Budget narrative attachment in View mode and successfully submit application to grants.gov
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -1331,14 +1331,14 @@ Feature: Grantee Smoke scenarios
     And I close the tab
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -1354,7 +1354,7 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    When I login to "As a Grantee" app as "<User>" user
+    When I login to "Grantee" app as "<User>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -1494,7 +1494,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:SOWEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -1521,7 +1521,7 @@ Feature: Grantee Smoke scenarios
   Scenario Outline: Opportunities converted to Pre-Application (Grants.gov) - Verify PM user can navigate to Opportunity details page after clicking on view action for the Opportunity which is converted to Pre-application
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -1531,7 +1531,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
-    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:fundingOpportunitiesTableId---" panel
@@ -1717,7 +1717,7 @@ Feature: Grantee Smoke scenarios
   Scenario Outline: Opportunities converted to pre-Application (Grants.gov) - Verify PM user can navigate to Opportunity details page from Opportunities Converted to Pre-Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -1727,7 +1727,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "PRE_APPLICATION_YES"
     And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
-    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     And I click toggle button to select "Opportunities - All"
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
@@ -1911,7 +1911,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Not Yet Converted Opportunity Grantsgov PM user can create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberProjectnarrativeForm}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212704" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -1942,7 +1942,7 @@ Feature: Grantee Smoke scenarios
   Scenario Outline: Validate Not Yet Converted Opportunity Grants.gov PM user can create Pre-Application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001271854" with properties "default"
-    Given I login to "As a Grantee" app as "<userName>" user
+    Given I login to "Grantee" app as "<userName>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -1974,7 +1974,7 @@ Feature: Grantee Smoke scenarios
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     And I "Approved" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -2058,13 +2058,13 @@ Feature: Grantee Smoke scenarios
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -2141,7 +2141,7 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    When I login to "As a Grantee" app as "<User>" user
+    When I login to "Grantee" app as "<User>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -2280,7 +2280,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I click on "Send for Review" icon for "Victor EXE" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -2290,7 +2290,7 @@ Feature: Grantee Smoke scenarios
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
-    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -2301,14 +2301,14 @@ Feature: Grantee Smoke scenarios
     And I click on "Complete Review" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -2370,7 +2370,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Files" sub tab
     Then I softly see value "{SavedValue:Classification}" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -2381,7 +2381,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
-    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -2513,7 +2513,7 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    When I login to "As a Grantee" app as "<User>" user
+    When I login to "Grantee" app as "<User>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -2651,7 +2651,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I click on "Send for Review" icon for "Victor EXE" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -2661,7 +2661,7 @@ Feature: Grantee Smoke scenarios
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
-    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -2672,14 +2672,14 @@ Feature: Grantee Smoke scenarios
     And I click on "Complete Review" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -2737,7 +2737,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Files" sub tab
     Then I softly see value "{SavedValue:Classification}" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -2748,7 +2748,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
-    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -2875,7 +2875,7 @@ Feature: Grantee Smoke scenarios
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     And I "Approved" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3005,7 +3005,7 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
-    When I login to "As a Grantee" app as "<User>" user
+    When I login to "Grantee" app as "<User>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3108,7 +3108,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    When I re-login to "As a Grantee" app as "<Non Owner>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<Non Owner>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -3117,7 +3117,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Files" sub tab
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -3132,21 +3132,21 @@ Feature: Grantee Smoke scenarios
       | Victor EXE | Step 2            |
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:SOWEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:SOWEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:SOWEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:SOWEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -3180,7 +3180,7 @@ Feature: Grantee Smoke scenarios
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
     And I "Approved" of type "Budget Period Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "BUDGET_PERIOD_CHANGE_GRANTEE_PO"
-    When I login to "As a Grantee" app as "GRANTEE PO" user
+    When I login to "Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3232,7 +3232,7 @@ Feature: Grantee Smoke scenarios
     And I click on "Amend Award" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID2"
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3263,7 +3263,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     Then I softly do not see value "{SavedValue:AwardEGMSID2}" for title "Award EGMS ID" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     Then I softly can see row level action button "View" against "{SavedValue:AwardEGMSID}" in flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-    And I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -3285,7 +3285,7 @@ Feature: Grantee Smoke scenarios
     And I click on "Amend Award" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID3"
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3343,7 +3343,7 @@ Feature: Grantee Smoke scenarios
   @463431 @PreAppVerifyWithPOprofileAbletoaddpeerreviewerwithAllowrecordEditingYes @Grantee_Smoke1 @GRegression1
   Scenario:PreApp - Verify With PO profile , Able to add peer reviewer with Allow record Editing - Yes.
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
-    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    Given I login to "Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -3364,7 +3364,7 @@ Feature: Grantee Smoke scenarios
       | Reviewer Name | Responsibility  | Description            | Due Date | Allow Record Editing |
       | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---" without waiting for record
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:preAppEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -3383,7 +3383,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "3" seconds
     Then I softly see value "Submitted" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:preApplicationPeerReviewTableId---"
     Then I softly cannot see row level action button "Enter Review" against "David FO" in flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Pre-Applications - All"
@@ -3400,7 +3400,7 @@ Feature: Grantee Smoke scenarios
   @463441 @ValidatePreAppwithPMprofileabletoaproverwithsingleapprover @Grantee_Smoke1
   Scenario: Validate PreApp with PM profile ,Able to aprover with single approver
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "COSTSHARING_NO"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -3427,7 +3427,7 @@ Feature: Grantee Smoke scenarios
       | Pre-Application has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I see status in Progress-bar is "Submitted For Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -3436,7 +3436,7 @@ Feature: Grantee Smoke scenarios
     And I select user "Victor EXE" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -3444,7 +3444,7 @@ Feature: Grantee Smoke scenarios
     And I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
     And I wait for "100" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -3452,7 +3452,7 @@ Feature: Grantee Smoke scenarios
     When I click on "View" icon for "{SavedValue:PreappEGMSID}" inside table
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -3463,7 +3463,7 @@ Feature: Grantee Smoke scenarios
   @463418 @ValidatePreAppwithPOprofileifinopportunitiespreapplicationrequiredselectYesthenonlyabletocreatepreapplication @Grantee_Smoke2
   Scenario: Validate PreApp with PO profile if in opportunities pre application required select Yes then only able to create pre application
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
-    When I login to "As a Grantee" app as "GRANTEE PO" user
+    When I login to "Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -3492,7 +3492,7 @@ Feature: Grantee Smoke scenarios
   Scenario Outline: Verify PM user as (AR Owner same as Award Owner) can able to create Funding Change AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
-    When I login to "As a Grantee" app as "<User>" user
+    When I login to "Grantee" app as "<User>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3872,7 +3872,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Email Subject" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
     Then I softly see "Preview" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
     When I get the "EGMS ID"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -3882,7 +3882,7 @@ Feature: Grantee Smoke scenarios
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
-    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -3923,7 +3923,7 @@ Feature: Grantee Smoke scenarios
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -3933,7 +3933,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
     Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -3943,7 +3943,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
     Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -4117,7 +4117,7 @@ Feature: Grantee Smoke scenarios
 
   @445639 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke1
   Scenario Outline: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
-    When I login to "As a Grantee" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
@@ -4339,7 +4339,7 @@ Feature: Grantee Smoke scenarios
       | {SavedValue:EGMS ID2} | 25                          | {SavedValue:ReportingPeriodEndDate} |
     Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:M/d/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -4350,7 +4350,7 @@ Feature: Grantee Smoke scenarios
     When I click modal button "Save"
     And I click on submit review
     And I wait for "3" seconds
-    When I re-login to "As a Grantee" app as "<userType>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<userType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -4535,7 +4535,7 @@ Feature: Grantee Smoke scenarios
 
   @445640 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke1
   Scenario Outline: Validate Financial Report Schedule user can edit Financial report schedule on Created Submitted for review Reviewed Activated award
-    When I login to "As a Grantee" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
@@ -4751,7 +4751,7 @@ Feature: Grantee Smoke scenarios
       | {SavedValue:EGMS ID2} | 25                          | {SavedValue:ReportingPeriodEndDate} |
     Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:M/d/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -4761,7 +4761,7 @@ Feature: Grantee Smoke scenarios
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
-    When I re-login to "As a Grantee" app as "<userType>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<userType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -4934,7 +4934,7 @@ Feature: Grantee Smoke scenarios
 
   @445435 @ValidateNonFederalprogramPMusercancreateandActivateNonFederalprogram @Grantee_Smoke1
   Scenario: Validate Non-Federal program PM user can create and Activate Non Federal program
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
     When I navigate to "External" content inside "Programs" subheader on left panel
     And I wait for "10" seconds
@@ -5097,7 +5097,7 @@ Feature: Grantee Smoke scenarios
 
   @443880 @ValidatePMusershouldabletoseevalidationmessagesforrequiredtosavefiledonKPI @Grantee_Smoke2
   Scenario Outline: Validate PM user should able to see validation messages for required to save filed on KPI
-    When I login to "As a Grantee" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -5133,7 +5133,7 @@ Feature: Grantee Smoke scenarios
 
   @443850 @ValidatewithPMProfileIfindirectgrantkeepsettingYESthenInApprovedActivestateabletoseetheaccessofsection @Grantee_Smoke1
   Scenario: Validate with PM Profile in direct grant keep setting YES then In Approved Active state able to see the access of section
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
@@ -5248,25 +5248,25 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -5341,7 +5341,7 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    When I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -5438,7 +5438,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Edit" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     When I navigate to "Closeout" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
-    And I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -5467,7 +5467,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Notes Record EXE User" for title "Title" inside table "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
-    And I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -5496,7 +5496,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Notes Record EXE User" for title "Title" inside table "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -5525,7 +5525,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Notes Record EXE User" for title "Title" inside table "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
-    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -5554,7 +5554,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Notes Record EXE User" for title "Title" inside table "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
-    And I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -5583,7 +5583,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Notes Record EXE User" for title "Title" inside table "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
-    And I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -5607,7 +5607,7 @@ Feature: Grantee Smoke scenarios
 
   @443756 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg @Grantee_Smoke1
   Scenario Outline: Validate Federal user should see all fields and section on federal Org
-    When I login to "Grantor" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on advance filter of table id "---grantee_tableId:-:fedOrgTableId---" for LWC
@@ -5784,7 +5784,7 @@ Feature: Grantee Smoke scenarios
 
   @443755 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @Grantee_Smoke3 @GranteeTest1
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
-    When I login to "Grantor" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"
@@ -5997,7 +5997,7 @@ Feature: Grantee Smoke scenarios
 
   @443676 @495305 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts @Grantee_Smoke3 @Grantee_Smoke2
   Scenario Outline: Validate Non federal PM user should see all fields and section for non federal contact's
-    When I login to "Grantor" app as "<User>" user
+    When I login to "Grantee" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Contacts" subheader on left panel
     Then I softly see "Federal Contacts" page block displayed
@@ -6141,7 +6141,7 @@ Feature: Grantee Smoke scenarios
 
   @495304 @443672 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact @Grantee_Smoke1 @Grantee_Smoke2
   Scenario Outline: federal_ Verify user should see all fields and section for federal contact's
-    When I login to "Grantor" app as "<User>" user
+    When I login to "Grantee" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Contacts" subheader on left panel
     Then I softly see "Federal Contacts" page block displayed
@@ -6291,7 +6291,7 @@ Feature: Grantee Smoke scenarios
 
   @442181 @ValidatePMusershouldabletosaveandcreateinternalcontact @Grantee_Smoke1
   Scenario Outline: Validate PM user should able to save and create internal contact
-    When I login to "Grantor" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     When I navigate to "Home" tab
     Then I see "External" inside "Contacts" is displayed
     Then I see "Internal" inside "Contacts" is displayed
@@ -6463,7 +6463,7 @@ Feature: Grantee Smoke scenarios
 
   @440386 @ValidatePMusercancreateandActivateStrategicplan @Grantee_Smoke1
   Scenario Outline: Validate PM user can create and Activate Strategic plan
-    When I login to "As a Grantee" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     And I click toggle button to select "Strategic Plans - Draft"
@@ -6636,7 +6636,7 @@ Feature: Grantee Smoke scenarios
 
   @476278 @ValidatePMusercancreateandActivateStrategicplan @Grantee_Smoke2
   Scenario Outline: Validate PM user can create and Activate Strategic plan
-    When I login to "As a Grantee" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     And I click toggle button to select "Strategic Plans - Draft"
@@ -6809,7 +6809,7 @@ Feature: Grantee Smoke scenarios
 
   @440274 @ValidateFocusAreaWithEXEProfileAbletocreateActivateDeactivethefocusarea @Grantee_Smoke2
   Scenario: Validate Focus Area With EXE Profile Able to create Activate Deactive the focus area
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    When I login to "Grantee" app as "GRANTEE EXE" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
@@ -6860,18 +6860,18 @@ Feature: Grantee Smoke scenarios
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "History" sub tab
-#    Then I softly see snapshot with name containing "Activate.pdf" as name
+    Then I softly see snapshot with name containing "Activate.pdf" as name
     And I click on "Deactivate" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
     Then I see field "Status" as "Inactive"
-#    And I refresh the page
-#    And I wait for "5" seconds
-#    And I navigate to "History" sub tab
-#    Then I softly see snapshot with name containing "Deactivate.pdf" as name
+    And I refresh the page
+    And I wait for "5" seconds
+    And I navigate to "History" sub tab
+    Then I softly see snapshot with name containing "Deactivate.pdf" as name
 
   @440215 @FocusAreaVerifyOnlyAdminEXEPMprofileabletoseetheNEWbuttontocreatetheFocusareas @Grantee_Smoke1
   Scenario Outline: Focus Area - Verify Only Admin ,EXE ,PM profile able to see the NEW button to create the Focus areas.
-    When I login to "As a Grantee" app as "<User>" user
+    When I login to "Grantee" app as "<User>" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:GranteeProjectTableId---"
@@ -6886,7 +6886,7 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime award" with properties "INDIRECT_COST_NO"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -7010,7 +7010,7 @@ Feature: Grantee Smoke scenarios
       | Saved Successfully! |
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---" without waiting for record
     And I pause execution for "3" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:HomePendingTask---" panel
@@ -7027,7 +7027,7 @@ Feature: Grantee Smoke scenarios
     When I click modal button "Save"
     And I click on submit review
     And I wait for "3" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
@@ -7051,7 +7051,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Submit for Approval" in the page details
     Then I see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:HomePendingTask---" panel
@@ -7062,7 +7062,7 @@ Feature: Grantee Smoke scenarios
     And I select user "David FO" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:HomePendingTask---" panel
@@ -7071,7 +7071,7 @@ Feature: Grantee Smoke scenarios
     When I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
     And I wait for "100" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
@@ -7083,7 +7083,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Overridden"
     When I click on "Submit for Approval" in the page details
     Then I see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:HomePendingTask---" panel
@@ -7091,7 +7091,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
     And I click toggle button to select "Project Period Closeout - All"
@@ -7145,7 +7145,7 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    When I login to "As a Grantee" app as "<User>" user
+    When I login to "Grantee" app as "<User>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -7283,7 +7283,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I click on "Send for Review" icon for "Victor EXE" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -7293,7 +7293,7 @@ Feature: Grantee Smoke scenarios
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
-    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -7304,14 +7304,14 @@ Feature: Grantee Smoke scenarios
     And I click on "Complete Review" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -7373,7 +7373,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Files" sub tab
     Then I softly see value "{SavedValue:Classification}" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -7385,7 +7385,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
-    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -7515,7 +7515,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate with PO profile on Click edit action other attachment form get open
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -7626,7 +7626,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate PM Profile on click Check status button Validated Success response able to see
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -7676,14 +7676,14 @@ Feature: Grantee Smoke scenarios
     And I close the tab
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -7708,7 +7708,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate PM user is able to submit the application to grants gov without filling form if form is optional on application
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -7773,20 +7773,20 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -7801,7 +7801,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate PM user is able to submit the application form to grants.gov with valid data on form (Project/Performance Site Location(s))
     Given I delete the grantee record "{grantee_testData:GrantsGovProjectPerformanceMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269345" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -7934,20 +7934,20 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "100.00%" for title "Percentage" against the value "Project/Performance Site Location(s)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -7974,7 +7974,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate Project abstract summary PO user should able to see the tracking number after submission to grants gov verify record decision
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
-    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    Given I login to "Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -8033,14 +8033,14 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "100.00%" for title "Percentage" against the value "Project Abstract Summary" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -8063,7 +8063,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Project Narrative Attachment form -Verify PM user should to submit the application to grants.gov when if user not filled the optional form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -8106,20 +8106,20 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -8132,7 +8132,7 @@ Feature: Grantee Smoke scenarios
 
   @482123 @VerifytheinternalOrganizationallsectionandfields @Grantee_Smoke1 @GranteeTest1
   Scenario Outline: Verify the as the PM user internal Organization all section and fields
-    When I login to "Grantor" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organizations" subheader on left panel
     And I click on "View" icon for "Test Automation Organization" inside flex table with id "---grantee_tableId:-:InternalOrganizations---" without waiting for record
@@ -8361,7 +8361,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate with PM Profile check access on award when award state is Active
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -8396,19 +8396,19 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -8478,7 +8478,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate able to create pre application with Grants.Gov Lead PM Profile
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -8506,7 +8506,7 @@ Feature: Grantee Smoke scenarios
   @490622 @ValidatethatPMuserseeConverttoOpportunitybuttononOppprotunitylayoutabletoconverttheleadtoopportunityagainorganizationswhohavequalifiedthelead @Grantee_Smoke1 @GRegression1
   Scenario: Validate that PM user see "Convert to Opportunity" button on Oppprotunity layout & able to convert the lead to opportunity again organizations who have qualified the lead
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -8521,7 +8521,7 @@ Feature: Grantee Smoke scenarios
       | The Funding Opportunity has been validated successfully. |
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -8543,7 +8543,7 @@ Feature: Grantee Smoke scenarios
       | The Funding Opportunity has been validated successfully. |
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:opportunityEGMSID1}" in "---grantee_tableId:-:PendingTask---" panel
@@ -8562,7 +8562,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate Budget Information Non Construction Program that PM user see Check status button & able to submit to grants.Gov
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySF424A}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269351" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -8637,20 +8637,20 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "100.00%" for title "Percentage" against the value "Budget Information for Non-Construction Programs (SF-424A)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -8675,7 +8675,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate SF424 PM user should able to submit the application to grants gov Grants gov lead
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -8714,14 +8714,14 @@ Feature: Grantee Smoke scenarios
     And I close the tab
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -8747,7 +8747,7 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "SECOND_FOCUS_WITH_BUDGET"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    When I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -8798,7 +8798,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate PM Profile able validate the SF LLL form with Valid data
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySFLLL}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269344" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -8915,7 +8915,7 @@ Feature: Grantee Smoke scenarios
   Scenario Outline: Validate Budget Redirection AR- PM user should able to activate new award through BR AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<OwnerType>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
-    When I login to "As a Grantee" app as "<UserType>" user
+    When I login to "Grantee" app as "<UserType>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -9004,7 +9004,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Collapse" button for header
     Then I softly see field "EGMS ID" as "{SavedValue:BDRAMENDID}"
     Then I softly see field "Status" as "Created"
-    Then I softly see field "Initiated By" as "Grantor"
+    Then I softly see field "Initiated By" as "Grantee"
     Then I softly see field "Amendment Type" as "Budget Redirection"
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Delete" in page detail
@@ -9132,7 +9132,7 @@ Feature: Grantee Smoke scenarios
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     Then I softly see that "Sent for Review" has been added in flextable with Id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I get the "EGMS ID"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -9144,7 +9144,7 @@ Feature: Grantee Smoke scenarios
     When I click modal button "Save"
     And I click on submit review
     And I wait for "3" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -9156,7 +9156,7 @@ Feature: Grantee Smoke scenarios
     When I click modal button "Save"
     And I click on submit review
     And I wait for "3" seconds
-    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -9290,7 +9290,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "History" sub tab
 #    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
 #    Then I softly see snapshot with name containing "Complete Review.pdf" as name
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -9301,7 +9301,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
     Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -9312,7 +9312,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
     Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -9352,7 +9352,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
     Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -9381,7 +9381,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I navigate to "Amendments" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
-    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -9393,7 +9393,7 @@ Feature: Grantee Smoke scenarios
     Then I can see top right button "Delete" in page detail
     When I click on "Delete" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -9413,7 +9413,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Accepted"
     And I click on "Amend Award" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
-    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -9427,7 +9427,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID2"
-    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -9514,7 +9514,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate PM user Financial report Owner can able to create Adhoc Financial Report  able to submit Financial Report to Grantor
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -9661,7 +9661,7 @@ Feature: Grantee Smoke scenarios
     Then I softly do not see value "Sarah PM" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     And I click on "Send for Review" icon for "Grantee PO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -9678,7 +9678,7 @@ Feature: Grantee Smoke scenarios
     And I click on submit review
     Then I softly see value "Submitted" for title "Status" against the value "Grantee PO" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly cannot see row level action button "Enter Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Financial Reports - Draft"
@@ -9880,7 +9880,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "{SavedValue:financialEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -9890,7 +9890,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "{SavedValue:financialEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Financial Reports - All"
@@ -9954,7 +9954,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate with PO Profile Once approved the application able to see Submit grants Gov Button on application page layout top right corner and able to continue
     Given I delete the grantee record "{grantee_testData:GrantsGovKeyContactMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269340" with properties "default-Grantee PO user"
-    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    Given I login to "Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -10015,14 +10015,14 @@ Feature: Grantee Smoke scenarios
       | Application has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -10071,7 +10071,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate PM user should not able to validate form with incorrect UEI  If enter less than 12 digit UEI
     Given I delete the grantee record "{grantee_testData:GrantsGovProjectPerformanceMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269345" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -10112,7 +10112,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate Assurances for Non-Construction Programs SF-424B with PO Profile Once approved the application able to see Submit grants.Gov Button on application page layout top right corner and able to continue
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySF424B}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269346" with properties "default-Grantee PO user"
-    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    Given I login to "Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -10177,14 +10177,14 @@ Feature: Grantee Smoke scenarios
       | Application has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -10232,7 +10232,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate Grants gov lobbing form Mandatory PM user can successfully submit the form to Grants.gov after entering valid data in Grants gov lobbing form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001271854" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -10414,14 +10414,14 @@ Feature: Grantee Smoke scenarios
     Then I cannot see top right button "Validate" in page detail
     And I close the tab
     And I wait for "1" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -10460,7 +10460,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate with PM Profile Once approved the application able to see Submit grants.Gov Button on application page layout top right corner and able to continue
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySFLLL}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269344" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -10520,14 +10520,14 @@ Feature: Grantee Smoke scenarios
       | Application has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -10574,7 +10574,7 @@ Feature: Grantee Smoke scenarios
   @486506 @ValidateFDPOnonrecordownerusershouldabletoseetheapplicationissubmittedtoGrantorManuallead @Grantee_Smoke3
   Scenario: Validate FD PO non record owner user should able to see the application is submitted to Grantor Manual lead
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -10594,7 +10594,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
-    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - My Records"
@@ -10671,7 +10671,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Messages" sub tab
     Then I softly see "Messages" page block displayed
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
@@ -10682,7 +10682,7 @@ Feature: Grantee Smoke scenarios
       | Danielle FD Garcia | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:ApplicationPeerReview---" without waiting for record
     And I wait for "2" seconds
-    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
@@ -10718,7 +10718,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
-    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -10729,7 +10729,7 @@ Feature: Grantee Smoke scenarios
     When I click modal button "Save"
     And I click on submit review
     And I wait for "2" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -10738,7 +10738,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Submitted for Review"
     Then I softly can see top right button "Complete Review" in page detail
     And I click on "Complete Review" in the page details
-    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
@@ -10777,7 +10777,7 @@ Feature: Grantee Smoke scenarios
       | Notes Record | Automation Notes |
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
@@ -10788,7 +10788,7 @@ Feature: Grantee Smoke scenarios
       | Application has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
@@ -10815,14 +10815,14 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
@@ -10849,7 +10849,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
@@ -10863,7 +10863,7 @@ Feature: Grantee Smoke scenarios
     And I click modal button "Save"
     And I click modal button "Close"
     Then I softly see field "Status" as "Submitted to Grantor"
-    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
@@ -10891,13 +10891,13 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     Then I can see top right button "Record Decision" in page detail
-    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
@@ -10923,14 +10923,14 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     When I click on "Revise" in the page details
     Then I softly see field "Status" as "Revision in Progress"
-    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
@@ -10973,7 +10973,7 @@ Feature: Grantee Smoke scenarios
   Scenario Outline: Validate PO user as (AR Owner)can able to create Combination AR on active Award & able to see impact on Grant Award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
-    When I login to "As a Grantee" app as "<User>" user
+    When I login to "Grantee" app as "<User>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -11098,14 +11098,14 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "EGMS ID" as "AmendEGMSID"
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -11255,7 +11255,7 @@ Feature: Grantee Smoke scenarios
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     And I "Created" of type "Other" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "STEP_FOUR_APPROVER-Victor EXE user"
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    When I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -11275,7 +11275,7 @@ Feature: Grantee Smoke scenarios
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID1"
     And I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -11283,7 +11283,7 @@ Feature: Grantee Smoke scenarios
     When I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
     And I wait for "100" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -11291,26 +11291,26 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -11322,14 +11322,14 @@ Feature: Grantee Smoke scenarios
     Then I softly see the following messages in the page details contains:
       | Successfully Re-Assigned |
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -11356,7 +11356,7 @@ Feature: Grantee Smoke scenarios
   @482429 @ValidateDirectGrantAwardPOuserPousershouldabletoActivatetheawadafteractivateawardverifythenewbuttoncloseoutAmendmentProgressReportFinancialReport @Grantee_Smoke1
   Scenario: Validate Direct Grant Award PO user Verify Po user should able to Activate the award & after activate award verify the new button closeout Amendment Progress Report Financial Report
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
-    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    Given I login to "Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -11402,7 +11402,7 @@ Feature: Grantee Smoke scenarios
 
   @494959 @ValidateAdminandPMusershouldabletocreateNonFederalOrgExternalOrg @Grantee_Smoke2
   Scenario Outline: Validate Admin and PM user should able to create Non-Federal Org External Org
-    When I login to "Grantor" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"
@@ -11413,7 +11413,7 @@ Feature: Grantee Smoke scenarios
 
   @440272 @VerifyWithAdminProfileAbletocreateActivateDeactivethefocusarea @Grantee_Smoke2
   Scenario: Verify With Admin Profile ,Able to create/Activate/Deactive the focus area.
-    When I login to "As a Grantee" app as "GRANTEE ADMIN" user
+    When I login to "Grantee" app as "GRANTEE ADMIN" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
@@ -11475,7 +11475,7 @@ Feature: Grantee Smoke scenarios
 
   @495301 @Validatethepermissionsofinternalcontact @Grantee_Smoke2
   Scenario Outline: Validate the permissions of internal contact
-    When I login to "Grantor" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
     And I click toggle button to select "All Contacts"
@@ -11528,7 +11528,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate Key Personal Change AR PM user should able to approved the AR & should able to create verify activate new award
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -11752,7 +11752,7 @@ Feature: Grantee Smoke scenarios
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Recor1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     When I get the "EGMS ID"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -11779,7 +11779,7 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see row level action button "Send for Review" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly see value "Submitted" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    When I re-login to "As a Grantee" app as "Grantee PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "Grantee PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -11829,7 +11829,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
     Then I softly see that "{SavedValue:KPCEGMSID}" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -11840,7 +11840,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
     Then I softly see that "{SavedValue:KPCEGMSID}" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -11850,7 +11850,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
     Then I softly see that "{SavedValue:KPCEGMSID}" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -11860,7 +11860,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
     Then I softly see that "{SavedValue:KPCEGMSID}" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "Grantee PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "Grantee PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -12002,7 +12002,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate PM user see validation messages if user try to save the invalid data on form and not able to submit application Project Performance Site Locations
     Given I delete the grantee record "{grantee_testData:GrantsGovProjectPerformanceMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269345" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -12107,7 +12107,7 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -12231,7 +12231,7 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -12354,7 +12354,7 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime Award" with properties "NON_CONSTRUCTION"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -12474,7 +12474,7 @@ Feature: Grantee Smoke scenarios
 
   @494963 @ValidatePOFOFDEXEAuditorusershouldnotabletocreateNonFederalOrgExternalOrg @Grantee_Smoke3
   Scenario: Validate PO FO FD EXE Auditor user should not able to create Non-Federal Org External Org
-    When I login to "Grantor" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -12497,7 +12497,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Overview" sub tab
     And I wait for "2" seconds
     And I save the field labeled "Organization Name" as "OrganizationName"
-    And I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -12506,7 +12506,7 @@ Feature: Grantee Smoke scenarios
     Then I can see row level action button "View" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
-    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -12515,7 +12515,7 @@ Feature: Grantee Smoke scenarios
     Then I can see row level action button "View" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
-    And I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -12524,7 +12524,7 @@ Feature: Grantee Smoke scenarios
     Then I can see row level action button "View" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
-    And I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -12533,7 +12533,7 @@ Feature: Grantee Smoke scenarios
     Then I can see row level action button "View" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
-    And I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -12548,7 +12548,7 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
-    When I login to "As a Grantee" app as "GRANTEE PO" user
+    When I login to "Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -12713,7 +12713,7 @@ Feature: Grantee Smoke scenarios
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     And I click on "Send for Review" icon for "Sarah PM" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     And I pause execution for "3" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -12732,7 +12732,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "1" seconds
     Then I softly see value "Submitted" for title "Status" against the value "Sarah PM" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly cannot see row level action button "Enter Review" against "Sarah PM" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Financial Reports - Draft"
@@ -12942,7 +12942,7 @@ Feature: Grantee Smoke scenarios
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -12952,7 +12952,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "{SavedValue:financialEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -12962,7 +12962,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "{SavedValue:financialEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -12972,7 +12972,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "{SavedValue:financialEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -12982,7 +12982,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "{SavedValue:financialEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Financial Reports - All"
@@ -13046,7 +13046,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Chatter" sub tab in split screen
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "Grantee PO"
-    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Financial Reports - All"
@@ -13087,7 +13087,7 @@ Feature: Grantee Smoke scenarios
 
   @494967 @ValidateAdminPMPOFOFDEXEAuditorusershouldnotabletocreateFederalOrgExternalOrg @Grantee_Smoke3
   Scenario Outline: Validate Admin/PM/PO/FO/FD/EXE/Auditor user should not able to create Federal Org External Org
-    When I login to "Grantor" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:fedOrgTableId---"
@@ -13103,7 +13103,7 @@ Feature: Grantee Smoke scenarios
 
   @494954 @ValidatePOFOFDAuditorPMEXEAdminusershouldnotabletocreateinternalOrg @Grantee_Smoke3
   Scenario Outline: Validate PO/FO/FD/Auditor/PM/EXE/Admin user should not able to create internal Org
-    When I login to "Grantor" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organizations" subheader on left panel
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:InternalOrganizations---"
@@ -13122,7 +13122,7 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -13375,7 +13375,7 @@ Feature: Grantee Smoke scenarios
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     And I click on "Send for Review" icon for "Grantee PO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -13394,7 +13394,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "3" seconds
     Then I softly see value "Submitted" for title "Status" against the value "Grantee PO" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly cannot see row level action button "Enter Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - All"
@@ -13658,7 +13658,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -13669,7 +13669,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -13680,7 +13680,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -13691,7 +13691,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - All"
@@ -13757,7 +13757,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate From App PM user Award Owner can able to create Sceduled Progress Report & able to submit Progress Report to Grantor
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -14019,7 +14019,7 @@ Feature: Grantee Smoke scenarios
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     And I click on "Send for Review" icon for "Grantee PO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     And I pause execution for "3" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -14038,7 +14038,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "3" seconds
     Then I softly see value "Submitted" for title "Status" against the value "Grantee PO" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly cannot see row level action button "Enter Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - All"
@@ -14301,7 +14301,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -14312,7 +14312,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -14323,7 +14323,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -14334,7 +14334,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - All"
@@ -14401,7 +14401,7 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -14526,7 +14526,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate Tabs and data displayed to PM user on award record when all settings are Yes
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -14994,7 +14994,7 @@ Feature: Grantee Smoke scenarios
 
   @495308 @443894 @443895 @463566 @Validatethecommonfunctionalitylikefiledauditchatterglobalsearchnotification @Grantee_Smoke3
   Scenario: Validate the common functionality like filed audit chatter global search notification
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -15041,14 +15041,14 @@ Feature: Grantee Smoke scenarios
     And I perform quick search inside global search "{SavedValue:KPIID}"
     Then I softly can see row level action button "Edit" against "{SavedValue:KPIID}" in global search with id "Key Performance Indicators (KPI)s"
     Then I softly can see row level action button "Change Owner" against "{SavedValue:KPIID}" in global search with id "Key Performance Indicators (KPI)s"
-    And I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I select "Search: Key Performance Indicators (KPI)s" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:KPIID}"
     Then I softly cannot see row level action button "Change Owner" against "{SavedValue:KPIID}" in global search with id "Key Performance Indicators (KPI)s"
     Then I softly can see row level action button "Edit" against "{SavedValue:KPIID}" in global search with id "Key Performance Indicators (KPI)s"
     #463566
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
@@ -15065,7 +15065,7 @@ Feature: Grantee Smoke scenarios
       | David FO      | Fiscal Reviewer | Test        | 5        | No                   |
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
     Then I softly see value "Sent for Review" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -15075,7 +15075,7 @@ Feature: Grantee Smoke scenarios
 
   @495297 @443859 @443900 @ValidateonlyadminEXEandPMusershouldseenewbuttontocreateKPI @Grantee_Smoke2
   Scenario Outline:Validate only admin, EXE and PM user should see new button to create KPI
-    When I login to "As a Grantee" app as "<userName>" user
+    When I login to "Grantee" app as "<userName>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -15179,7 +15179,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate Attachments form PM user can add files in Attachments form in View mode and successfully submit application to grants gov
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatoryAttachments}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001271853" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -15393,14 +15393,14 @@ Feature: Grantee Smoke scenarios
     Then I cannot see row level action button "Delete" against "2mb_File3.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I cannot see row level action button "Edit" against "2mb_File3.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I can see row level action button "Download" against "2mb_File3.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -15426,7 +15426,7 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    When I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -15501,7 +15501,7 @@ Feature: Grantee Smoke scenarios
   Scenario: Validate Progress Report the approver steps for progress report & verify the validation
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -15593,7 +15593,7 @@ Feature: Grantee Smoke scenarios
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime Award}" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE AUDITOR" user
+    When I login to "Grantee" app as "GRANTEE AUDITOR" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -15680,7 +15680,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see that "Acknowledgement:" rendered in view mode only
     Then I softly see that "Submitted By:" rendered in view mode only
     Then I softly see that "Submitted On:" rendered in view mode only
-    And I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -15773,7 +15773,7 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -15819,7 +15819,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID11}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID12}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID13}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"

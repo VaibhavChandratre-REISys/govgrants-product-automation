@@ -1673,7 +1673,7 @@ Feature: Validate all scenarios of every modules flow
     And I halt execution
 
   @orgRegister
-    Scenario:
+  Scenario:
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
@@ -1719,7 +1719,7 @@ Feature: Validate all scenarios of every modules flow
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
     And I halt execution
-    
+
   @debug
   Scenario:
     And I login to "Grantor" app as "PM" user
@@ -1733,4 +1733,20 @@ Feature: Validate all scenarios of every modules flow
 #    And I published "Directed" type announcement having name "Directed Permanent Archived Annoucement" and properties "default"
 #    And I initiated an application review for application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}" on announcement "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}" with properties "default"
 #    And I created approved FDM on application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}"
+
+  @InternalUserPwdCheck
+  Scenario Outline: test
+    When I login to "Grantee" app as "<InternalUser>" user
+    When I navigate to "Home" tab
+
+    Examples:
+      | InternalUser    |
+      | GRANTEE ADMIN   |
+      | GRANTEE ADMIN1  |
+      | GRANTEE EXE     |
+      | GRANTEE PM      |
+      | GRANTEE FO      |
+      | GRANTEE PO      |
+      | GRANTEE FD      |
+      | GRANTEE AUDITOR |
 

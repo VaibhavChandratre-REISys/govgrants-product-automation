@@ -124,28 +124,28 @@ public class UsersAndURL implements UsersController {
         String password;
         switch (userLevel.toUpperCase()) {
             case "GRANTEE ADMIN":
-                password = "Rei@2025";
-                break;
-            case "GRANTEE ADMIN1":
-                password = "Rei@2025";
-                break;
-            case "GRANTEE PM":
                 password = "Automation@2025";
                 break;
+            case "GRANTEE ADMIN1":
+                password = "Automation@2025";
+                break;
+            case "GRANTEE PM":
+                password = "Grantor@123";
+                break;
             case "GRANTEE EXE":
-                password = "gntwhcagap@25";
+                password = "Grantor@123";
                 break;
             case "GRANTEE FO":
-                password = "gntwhcagap@25";
+                password = "Grantor@123";
                 break;
             case "GRANTEE FD":
-                password = "gntwhcagap@25";
+                password = "Grantor@123";
                 break;
             case "GRANTEE AUDITOR":
-                password = "gntwhcagap@25";
+                password = "Automation@2025";
                 break;
             case "GRANTEE PO":
-                password = "gntwhcagap@25";
+                password = "Grantor@123";
                 break;
             case "SA":
                 password = "Automation@2026";
@@ -353,14 +353,14 @@ public class UsersAndURL implements UsersController {
         username.put("SPI4", "spi4@yopmail.com.ggdev2");
         username.put("SARAH PM", "sarah.pm@ggp.test8.ggdev2");
 
-        username.put("GRANTEE ADMIN", "product.qa@ggp.test8.gntwhcagap");
-        username.put("GRANTEE ADMIN1", "qa.admin@ggp.test8.gntwhcagap");
-        username.put("GRANTEE PM", "sarah.pm@ggp.test8.gntwhcagap");
-        username.put("GRANTEE EXE", "victor.exe@ggp.test8.gntwhcagap");
-        username.put("GRANTEE FO", "david.fo@ggp.test8.gntwhcagap");
-        username.put("GRANTEE FD", "danielle.garcia@ggp.test8.gntwhcagap");
-        username.put("GRANTEE PO", "grantee.po@yopmail.com.gntwhcagap");
-        username.put("GRANTEE AUDITOR", "automationauditor@yopmail.com.gntwhcagap");
+        username.put("GRANTEE ADMIN", "product.qa@ggp.test8.ggdev2");
+        username.put("GRANTEE ADMIN1", "qa.admin@ggp.test8.ggdev2");
+        username.put("GRANTEE PM", "sarah.pm@ggp.test8.ggdev2");
+        username.put("GRANTEE EXE", "victor.exe@ggp.test8.ggdev2");
+        username.put("GRANTEE FO", "david.fo@ggp.test8.ggdev2");
+        username.put("GRANTEE FD", "danielle.garcia@ggp.test8.ggdev2");
+        username.put("GRANTEE PO", "grantee.po@yopmail.com.ggdev2");
+        username.put("GRANTEE AUDITOR", "automationauditor@yopmail.com.ggdev2");
 
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());
