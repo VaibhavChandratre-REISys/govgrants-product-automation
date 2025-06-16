@@ -180,7 +180,7 @@ Feature: Grantee Forms Scenario
     Then I can see row level action button "View" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Splitview" against "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
 
-  @485414 @485415 @485416 @485417 @485418 @ValidateProjectNarrativeAttachmentEXEusershouldabletoviewaccessinallstateofApplicationforform
+  @485414 @485415 @485416 @485417 @485418 @ValidateProjectNarrativeAttachmentEXEusershouldabletoviewaccessinallstateofApplicationforform @P2_Grantee @EXE_Grantee @Gregression2
   Scenario: Validate Project Narrative Attachment EXE user should able to view access in all state of Application for form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"

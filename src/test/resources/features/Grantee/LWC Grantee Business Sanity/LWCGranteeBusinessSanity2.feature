@@ -7260,3 +7260,132 @@ Feature: Sanity scenarios
       Then I softly see the field "OMB Number :" as "4040-0010" on forms
       Then I softly see the field "Version :" as "2.0" on forms
       Then I softly see the field "OMB Expiration Date :" as "12/31/2026" on forms
+
+
+   @486556 @validatenonamendmentrequestowner(FD)View&editaccess
+  Scenario: Validate non amendment request owner (FD)View & edit access
+     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
+     Given I login to "As a Grantee" app as "GRANTEE PO" user
+     And I navigate to "Opportunities" tab
+     When I navigate to "Qualified" content inside "Leads" subheader on left panel
+     And I click toggle button to select "Qualified Leads - All"
+     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+     When I click on "Convert to Opportunity" in the page details
+     And I wait for "3" seconds
+     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
+     And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default-Grantee PO user"
+     And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+     And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+     And I save the field labeled "Grant Number" as "GrantNumber"
+     When I navigate to "Awards" sub tab
+     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+     And I navigate to "Overview" sub tab
+     And I save the field labeled "Budget Period" as "BudgetPeriod"
+     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+     And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
+     And I save the field labeled "EGMS ID" as "AwardEGMSID"
+     And I wait for "2" seconds
+     When I navigate to "Amendments" sub tab
+     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
+     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+     And I enter "Grantee_Other_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+     And I click modal button "Save and Continue"
+     And I wait for "2" seconds
+     And I enter "Grantee_Other_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+     And I click on "Save" in the page details
+     And I wait for "2" seconds
+     And I get the "EGMS ID"
+     And I save the field labeled "EGMS ID" as "OTHAMENDID"
+     When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+     And I wait for "2" seconds
+     And I navigate to "Grants" tab
+     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:AmendmentTableId---"
+     Then I softly see "Award EGMS ID" in flex table header "---grantee_tableId:-:AmendmentTableId---"
+     Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:AmendmentTableId---"
+     Then I softly see "Amendment Type" in flex table header "---grantee_tableId:-:AmendmentTableId---"
+     Then I softly see "Initiated By" in flex table header "---grantee_tableId:-:AmendmentTableId---"
+     Then I softly see "Status" in flex table header "---grantee_tableId:-:AmendmentTableId---"
+     And I click toggle button to select "Amendment Requests - My Records"
+     When I perform quick search for "{SavedValue:OTHAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+     Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
+     When I perform quick search for "Created" in "---grantee_tableId:-:AmendmentTableId---" panel
+     Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
+     Then I softly do not see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
+     Then I softly do not see value "Submitted to Grantor" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
+     And I click toggle button to select "Amendment Requests - All"
+     When I perform quick search for "{SavedValue:OTHAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+     Then I softly can see row level action button "View" against "{SavedValue:OTHAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+     Then I softly can see row level action button "Edit" against "{SavedValue:OTHAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+     Then I softly can see row level action button "Delete" against "{SavedValue:OTHAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+     And I click toggle button to select "Amendment Requests - Draft"
+     When I perform quick search for "{SavedValue:OTHAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+     Then I softly can see row level action button "View" against "{SavedValue:OTHAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+     Then I softly can see row level action button "Edit" against "{SavedValue:OTHAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+     Then I softly can see row level action button "Delete" against "{SavedValue:OTHAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+     And I navigate to "Grants" tab
+     And I wait for "2" seconds
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+     And I save the field labeled "Grant Number" as "GrantNumber"
+     When I navigate to "Awards" sub tab
+     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+     And I wait for "2" seconds
+     When I navigate to "Amendments" sub tab
+     Then I softly see top right button "View" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
+     Then I see the header is "Amendment Request" in the page details
+     Then I softly see "Collapse" button for header
+     Then I softly see field "EGMS ID" as "{SavedValue:OTHAMENDID}"
+     Then I softly see field "Status" as "Created"
+     Then I softly see field "Initiated By" as "Grantor"
+     Then I softly see field "Amendment Type" as "Other"
+     Then I cannot see top right button "Edit" in page detail
+     Then I cannot see top right button "Delete" in page detail
+     Then I cannot see top right button "Submit for Approval" in page detail
+     Then I softly can see "Overview" sub tab at view detail page
+     Then I softly can see "Responsibilities" sub tab at view detail page
+     Then I softly can see "Files" sub tab at view detail page
+     Then I softly can see "History" sub tab at view detail page
+     Then I softly can see "Messages" sub tab at view detail page
+     When I navigate to "Overview" sub tab
+     Then I softly see "Details" page block displayed
+     Then I softly see "Other Changes" page block displayed
+     Then I softly see "General Condition" page block displayed
+     Then I softly see "Special Conditions" page block displayed
+     Then I softly see "System Information" page block displayed
+     Then I softly see field "Grant EGMS ID" as "{SavedValue:GrantEGMSID}"
+     Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
+     Then I softly see field "Grant Number" as "{SavedValue:GrantNumber}"
+     Then I softly see field "Grant Award Number" as "{SavedValue:GrantAwardNumber}"
+     Then I softly see field "Award EGMS ID" as "{SavedValue:AwardEGMSID}"
+     Then I softly see link "{SavedValue:AwardEGMSID}" inside Page block
+     And I wait for "2" seconds
+     When I save the field labeled "Description of Other Changes" as "DescriptionofOtherChanges"
+     When I save the field labeled "Justification for Purpose and Summary" as "JustificationforPurposeandSummary"
+     When I save the field labeled "If Other amendment type, explain" as "IfOtheramendmenttypeexplain"
+     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+     Then I softly see "Description" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+     When I navigate to "Responsibilities" sub tab
+     Then I softly see "Peer Reviewers" page block displayed
+     Then I softly see "Approvers" page block displayed
+     And I navigate to "History" sub tab
+     Then I softly see "Approval History" page block displayed
+     Then I softly see "Snapshot History" page block displayed
+     And I navigate to "Field Audit" sub tab in split screen
+     Then I softly can see "Field Audit" sub tab at view detail page
+     And I navigate to "Chatter" sub tab in split screen
+     Then I softly see the text containing "Post"
