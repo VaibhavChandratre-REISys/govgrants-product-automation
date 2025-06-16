@@ -55,9 +55,10 @@ Feature: Validate all scenarios for Auditor Profile in Amendment Request module
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     When I click toggle button to select "Amendment Requests - All"
     And I perform quick search for "Funding Change" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    And I wait for "2" seconds
     Then I see values "Funding Change" and "State" inside table
 
-  @Terms&conditionAmendment @ValidatePeriodicRenewalAmendmentRequestrowLevelButtonsforTerms&Conditions
+  @Terms&conditionAmendment @ValidatePeriodicRenewalAmendmentRequestrowLevelButtonsforTerms&Conditions @Bug-Ticket-530918
   Scenario: Validate Periodic Renewal Amendment Request row level buttons for Terms & Conditions
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
