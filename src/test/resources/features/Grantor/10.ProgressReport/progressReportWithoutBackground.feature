@@ -7670,7 +7670,7 @@ Feature: Validate scenarios in Progress Report without background
 
     Then I see the mail text is as follows :
       """
-     Hello Automation PM1,
+     Hello Automation PM,
      This email is to notify you that the Progress Report #{SavedValue:progID} of Grant #{SavedValue:GrantEGMSID} has been submitted by Automation and it is waiting for you to be reviewed.
 
       Report Details:
