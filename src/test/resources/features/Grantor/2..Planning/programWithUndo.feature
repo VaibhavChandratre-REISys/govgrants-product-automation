@@ -3160,7 +3160,6 @@ Feature: Validate all scenarios for program
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    And I refresh the page
     And I wait for "10" seconds
     And I refresh the page
     And I navigate to "History" sub tab

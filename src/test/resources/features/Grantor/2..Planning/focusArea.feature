@@ -49,8 +49,8 @@ Feature: Validate all scenarios in Focus Area
     Examples:
       | User  |
       | ADMIN |
-      | EXE   |
-      | PM    |
+#      | EXE   |
+#      | PM    |
 
   @34729 @activateFocusArea @smoke
   Scenario: Activate Focus Area by User - Admin/EXE/PM

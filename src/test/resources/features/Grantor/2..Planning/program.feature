@@ -862,6 +862,7 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:addReviewersTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:PM Username} |
+    And I pause execution for "6" seconds
     When I enter the following values into flex table with id "---program:-:addReviewersTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:PO Username} |
