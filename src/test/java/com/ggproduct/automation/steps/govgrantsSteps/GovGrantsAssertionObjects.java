@@ -42,20 +42,39 @@ public final class GovGrantsAssertionObjects {
     public void assertStatusProgressBar(String status, String desiredColor, boolean isSoftly) {
         String trueColor = "";
         int waitTime = 0;
-        try {
-            while (waitTime < 15) {
-                TestingBlazeGlobal.setVariable("highlightElements", "off");
-                trueColor = govgrants.perform().pageDetails().getColorOfProgressBarStatus(status);
-                if (desiredColor.equalsIgnoreCase(trueColor)) {
-                    break;
-                }
-                I.amPerforming().waitFor().makeThreadSleep(1000);
-                waitTime++;
-                System.out.println("Waiting for : " + waitTime);
-            }
-        } catch (Exception ex) {
+     if(status.equalsIgnoreCase("Published")){
+         try {
+             while (waitTime < 45) {
+                 TestingBlazeGlobal.setVariable("highlightElements", "off");
+                 trueColor = govgrants.perform().pageDetails().getColorOfProgressBarStatus(status);
+                 if (desiredColor.equalsIgnoreCase(trueColor)) {
+                     break;
+                 }
+                 I.amPerforming().waitFor().makeThreadSleep(1000);
+                 waitTime++;
+                 System.out.println("Waiting for : " + waitTime);
+                 I.amPerforming().browserOperationsTo().refreshPage();
+             }
+         } catch (Exception ex) {
 
-        }
+         }
+     } else {
+         try {
+             while (waitTime < 15) {
+                 TestingBlazeGlobal.setVariable("highlightElements", "off");
+                 trueColor = govgrants.perform().pageDetails().getColorOfProgressBarStatus(status);
+                 if (desiredColor.equalsIgnoreCase(trueColor)) {
+                     break;
+                 }
+                 I.amPerforming().waitFor().makeThreadSleep(1000);
+                 waitTime++;
+                 System.out.println("Waiting for : " + waitTime);
+             }
+         } catch (Exception ex) {
+
+         }
+     }
+
         String errorMessage = "Progress bar status with text '" + status + "' is not " + desiredColor + ".\n" +
                 "It was found to be " + trueColor + ".";
 
