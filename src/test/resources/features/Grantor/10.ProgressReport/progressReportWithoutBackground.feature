@@ -755,7 +755,7 @@ Feature: Validate scenarios in Progress Report without background
     And I wait for "2" seconds
     And I click on "View" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     And I wait for "1" seconds
-    Then I softly see field "Frequency" as "Frequency Quarterly"
+    Then I softly see field "Frequency" as "Quarterly"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
@@ -8150,7 +8150,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:progID}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:progID}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @197638 @ValidateusershouldabletoseeemailinyopmailwhenPRissubmittedtograntor @sprint-12-US-226646  @reassignment
+  @197638 @ValidateusershouldabletoseeemailinyopmailwhenPRissubmittedtograntor @sprint-12-US-226646  @reassignment @buglogged532154
   Scenario: Validate user should able to see email in yopmail when PR is submitted to grantor
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -8239,7 +8239,7 @@ Feature: Validate scenarios in Progress Report without background
       The EGMS Team
       """
 
-  @198104 @ValidateusershouldabletoseeemailinyopmailwhenPRPeerreviewiscompleted @sprint-12-US-226646  @reassignment @buglogged-256649
+  @198104 @ValidateusershouldabletoseeemailinyopmailwhenPRPeerreviewiscompleted @sprint-12-US-226646  @reassignment @buglogged-256649 @buglogged532154
   Scenario: Validate user should able to see email in yopmail when PR Peer review is completed
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation EXE user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -8835,7 +8835,7 @@ Feature: Validate scenarios in Progress Report without background
       The EGMS Team
       """
 
-  @197651 @ValidateusershouldabletoseetheyopmailwhenPRissendbacktosubrecepient @sprint-11-US-224734  @reassignment @buglogged-256649
+  @197651 @ValidateusershouldabletoseetheyopmailwhenPRissendbacktosubrecepient @sprint-11-US-224734  @reassignment @buglogged-256649 @buglogged532154
   Scenario: Validate user should able to see the yopmail when PR is send back to subrecepient
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"

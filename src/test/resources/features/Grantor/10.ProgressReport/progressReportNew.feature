@@ -5868,7 +5868,8 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
-    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
+    And I save the field labeled "Project Period" as "updatedBudgetPeriod"
+   And I save the field labeled "Budget Period" as "previousBudgetPeriod"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | Start Date         | End Date           |
       | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} |
