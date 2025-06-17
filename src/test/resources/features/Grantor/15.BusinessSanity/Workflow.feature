@@ -1723,7 +1723,9 @@ Feature: Validate all scenarios of every modules flow
   @debug
   Scenario:
     And I login to "Grantor" app as "PM" user
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to url "https://test8-internal--ggdev2.sandbox.lightning.force.com/lightning/r/Announcement__c/a1bDk000001WmuLIAS/view"
+    And I halt execution
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     And I halt execution
 
   @testCheck

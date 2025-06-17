@@ -294,8 +294,27 @@ public final class PageDetails {
      * @return * @modified meenakshi.jha updated xpath at 240 line(10/15/2020)
      */
     public WebElement getSpecificStatusFromProgressBar(String statusName) {
-        By progressBarStatusLocator = By.xpath("//lightning-progress-step[@data-id='" + statusName + "' and contains(@class,'active')] | //c-step-progressbar//span[text()='" + statusName + "']/ancestor::li[contains(@class,'active')]");
-        return I.amPerforming().getElementReference().of(progressBarStatusLocator);
+        if(statusName.equalsIgnoreCase("Published")){
+            By progressBarStatusLocator = By.xpath("//lightning-progress-step[@data-id='" + statusName + "' and contains(@class,'active')] | //c-step-progressbar//span[text()='" + statusName + "']/ancestor::li[contains(@class,'active')]");
+            try {
+                I.amPerforming().checkToSee().isElementDisplayed(I.amPerforming().getElementReference().of(progressBarStatusLocator));
+            } catch(Exception e){
+                for(int i = 0; i<2; i++){
+                    try{
+                        if(I.amPerforming().checkToSee().isElementDisplayed(I.amPerforming().getElementReference().of(progressBarStatusLocator))){
+                            break;
+                        }
+                    } catch(Exception xe){
+                        I.amPerforming().browserOperationsTo().refreshPage();
+                        I.amPerforming().waitFor().makeThreadSleep(2000);
+                    }
+                }
+            }
+            return I.amPerforming().getElementReference().of(progressBarStatusLocator);
+        } else{
+            By progressBarStatusLocator = By.xpath("//lightning-progress-step[@data-id='" + statusName + "' and contains(@class,'active')] | //c-step-progressbar//span[text()='" + statusName + "']/ancestor::li[contains(@class,'active')]");
+            return I.amPerforming().getElementReference().of(progressBarStatusLocator);
+        }
     }
 
 
