@@ -24464,11 +24464,6 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "Total Commitment" inside page block detail
     Then I softly see "Budgeted Amount" inside page block detail
     Then I softly see "Match this Budget Period" inside page block detail
-#    Then I softly see that "New Obligation" rendered in view mode only
-#    Then I softly see that "Cumulative Obligation" rendered in view mode only
-#    Then I softly see that "Total Commitment" rendered in view mode only
-#    Then I softly see that "Budgeted Amount" rendered in view mode only
-#    Then I softly see that "Match this Budget Period" rendered in view mode only
 
     Examples:
       | User  | UserName              |
