@@ -5329,7 +5329,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
     Then I softly can see top right button "Submit for Approval" in page detail
 
-  @198041 @ValidatePOusercansubmittheawardriskassessmentforapprovalpostrevieweraddcommentswhenownershipistransferredforRAwhichisinSubmittedforReviewstatus @sprint-12-US-226646  @reassignment
+  @198041 @ValidatePOusercansubmittheawardriskassessmentforapprovalpostrevieweraddcommentswhenownershipistransferredforRAwhichisinSubmittedforReviewstatus @sprint-12-US-226646  @reassignment @Bug-Ticket-532346
   Scenario: Validate PO user can submit the award risk assessment for approval post reviewer add comments when ownership is transferred for a RA which is in Submitted for Review status
     Given I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -5437,7 +5437,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Submit for Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @198047 @ValidateFDprofileusercanrejecttheawardrisassessmentforstep1approvalswhenownershipistransferredforRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment
+  @198047 @ValidateFDprofileusercanrejecttheawardrisassessmentforstep1approvalswhenownershipistransferredforRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment @Bug-Ticket-532353
   Scenario: Validate FD profile user can reject the award risk assessment for step 1 approvals when ownership is transferred for a RA which is in Submitted for approval status
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -5619,7 +5619,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly do not see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
     Then I softly do not see value "Create Risk Assessment for Subaward" for title "Task Type" inside table "---home:-:internalHomePendingTaskTableId---"
 
-  @198046 @ValidateEXEprofileusercanapprovetheawardriskassessmentforstep2approvalswhenownershipistransferredforRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment
+  @198046 @ValidateEXEprofileusercanapprovetheawardriskassessmentforstep2approvalswhenownershipistransferredforRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment @Bug-Ticket-532353
   Scenario: Validate EXE profile user can approve the award risk assessment for step 2 approvals when ownership is transferred for a RA which is in Submitted for approval status
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5873,7 +5873,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Automation PM1" for title "New Value" inside table "---subAwardStandAlone:-:historyTableId---"
     Then I softly see value "Automation PM" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
 
-  @198628 @ValidatePMprofileusercansendbacktheawardriskassessmentforstep2approvalswhenownershipistransferredforaRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment @FieldHistoryExclude
+  @198628 @ValidatePMprofileusercansendbacktheawardriskassessmentforstep2approvalswhenownershipistransferredforaRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment @FieldHistoryExclude @Bug-Ticket-532353
   Scenario: Validate PM profile user can send back the award risk assessment for step 2 approvals when ownership is transferred for a RA which is in Submitted for approval status
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6245,7 +6245,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @223678 @ValidateRiskAssessmentIfapeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityFiscalreviewervalidatereassignmentfails @sprint-12-US-226646  @reassignment
+  @223678 @ValidateRiskAssessmentIfapeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityFiscalreviewervalidatereassignmentfails @sprint-12-US-226646  @reassignment @Bug-Ticket-532353
   Scenario: Validate Risk Assessment If a peer reviewer is already added for similar role and reviewer tries to reassign such task to other reviewer with same responsibility (Fiscal reviewer)validate reassignment fails
     Given I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -6354,7 +6354,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "2" seconds
     Then I softly see field "Status" as "Active"
 
-  @201483 @ValidateEmailNotificationissentADMINoldowner&newownerwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646  @reassignment @FieldHistoryExclude
+  @201483 @ValidateEmailNotificationissentADMINoldowner&newownerwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646  @reassignment @FieldHistoryExclude @Bug-Ticket-532353
   Scenario: Validate Email Notification is sent to ADMIN old owner & new owner with respect to ownership transfer of a Active Risk Assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6831,7 +6831,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team.
       """
 
-  @223375 @ValidateRiskAssessmentModuleusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-10-US-205576  @reassignment
+  @223375 @ValidateRiskAssessmentModuleusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-10-US-205576  @reassignment @Bug-Ticket-532353
   Scenario: Validate Risk Assessment Module user should able to reassign the task to new user of more than 10 records & 1 email should be triggered for all records
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -7336,7 +7336,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team
       """
 
-  @116331 @ValidateRiskAssessmentsarereadonlyforSRUser @Sprint-23-US-273843 @Allocation
+  @116331 @ValidateRiskAssessmentsarereadonlyforSRUser @Sprint-23-US-273843 @Allocation @Bug-Ticket-532415
   Scenario: Validate Risk Assessments are read only for SR User
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -7700,7 +7700,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
-    Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
+    Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:organizationprofileviewTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -7778,7 +7778,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Expired" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
     And I perform quick search for "{SavedValue:RAEGMSID1}" in "---riskassessment:-:organizationprofileviewTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID1}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
-    Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID1}" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
+    Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID1}" inside table "---riskassessment:-:organizationprofileviewTableId---"
 
   @116310 @ValidateAwardOwnerhasthepermissiontorevisetheawardRiskAssessmentuntilawardactivation @Sprint-23-US-273843  @Allocation
   Scenario Outline: Validate Award Owner has the permission to revise the award Risk Assessment until award activation
