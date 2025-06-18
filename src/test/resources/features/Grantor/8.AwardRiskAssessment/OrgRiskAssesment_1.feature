@@ -147,12 +147,12 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
-    And I checkout to yopmail with mailid "automationspi1@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     And I pause execution for "40" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
     """
-      Sandbox: Notification: Access has been granted to reviseOrganization Risk Assessment
+      Sandbox: Provide or Decline Permission to Revise Risk Assessmentfor Subrecipient Organization Automation Permanent Organization for RiskAssessment
       """
 
   @62670 @62303 @62304 @62306 @62305 @grantorProvidedAccessForRevisionRequest  @GrantorAddedAttachmentsSentForRevisionRequestOfOrgLevelRA @EffectiveDatAandExpirationDatesForOrgLRAIsInCraetedStatus  @OrgLRAOnceActiveThenCreatedDateIsTodaysDate @requestRevisionButtonAvailability
