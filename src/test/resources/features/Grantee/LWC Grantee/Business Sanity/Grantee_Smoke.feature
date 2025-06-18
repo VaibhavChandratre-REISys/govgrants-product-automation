@@ -12103,7 +12103,7 @@ Feature: Grantee Smoke scenarios
       | Please validate the Forms by clicking validate button. |
 
   @491632 @ValidatePMProfileimpactofdrawdownByAwardonFundingchangeamendmentWithdrawdownWithSpent @Grantee_Smoke1
-  Scenario: Validate PM Profile impact of drawdown By Award on  Funding change amendment With drawdown With Spent
+  Scenario: Validate PM Profile impact of drawdown By Award on Funding change amendment With drawdown With Spent
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"

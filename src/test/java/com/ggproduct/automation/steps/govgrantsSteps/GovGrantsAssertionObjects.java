@@ -42,20 +42,20 @@ public final class GovGrantsAssertionObjects {
     public void assertStatusProgressBar(String status, String desiredColor, boolean isSoftly) {
         String trueColor = "";
         int waitTime = 0;
-         try {
-             while (waitTime < 15) {
-                 TestingBlazeGlobal.setVariable("highlightElements", "off");
-                 trueColor = govgrants.perform().pageDetails().getColorOfProgressBarStatus(status);
-                 if (desiredColor.equalsIgnoreCase(trueColor)) {
-                     break;
-                 }
-                 I.amPerforming().waitFor().makeThreadSleep(1000);
-                 waitTime++;
-                 System.out.println("Waiting for : " + waitTime);
-             }
-         } catch (Exception ex) {
+        try {
+            while (waitTime < 15) {
+                TestingBlazeGlobal.setVariable("highlightElements", "off");
+                trueColor = govgrants.perform().pageDetails().getColorOfProgressBarStatus(status);
+                if (desiredColor.equalsIgnoreCase(trueColor)) {
+                    break;
+                }
+                I.amPerforming().waitFor().makeThreadSleep(1000);
+                waitTime++;
+                System.out.println("Waiting for : " + waitTime);
+            }
+        } catch (Exception ex) {
 
-         }
+        }
 
         String errorMessage = "Progress bar status with text '" + status + "' is not " + desiredColor + ".\n" +
                 "It was found to be " + trueColor + ".";
@@ -444,11 +444,27 @@ public final class GovGrantsAssertionObjects {
     ******************************************************************************************* */
     public void assertFieldValue(String fieldLabel, boolean matchesExactly, String fieldValue, boolean isSoftly) {
         String foundValue = null;
-        for (int i = 0; i < 2 && !fieldValue.equalsIgnoreCase(foundValue); i++) {
-            try {
-                foundValue = govgrants.perform().pageDetails().getFieldValue(fieldLabel, matchesExactly);
-            } catch (Exception e) {
-                foundValue = null;
+        if (fieldValue.equalsIgnoreCase("Published")) {
+         try{
+             foundValue = govgrants.perform().pageDetails().getFieldValue(fieldLabel, matchesExactly);
+         }catch(Exception e) {
+             for (int i = 0; i < 10; i++) {
+                 foundValue = govgrants.perform().pageDetails().getFieldValue(fieldLabel, matchesExactly);
+                 if (foundValue.equalsIgnoreCase("Published")) {
+                     break;
+                 } else {
+                     I.amPerforming().browserOperationsTo().refreshPage();
+                     I.amPerforming().waitFor().makeThreadSleep(3000);
+                 }
+             }
+         }
+        } else {
+            for (int i = 0; i < 2 && !fieldValue.equalsIgnoreCase(foundValue); i++) {
+                try {
+                    foundValue = govgrants.perform().pageDetails().getFieldValue(fieldLabel, matchesExactly);
+                } catch (Exception e) {
+                    foundValue = null;
+                }
             }
         }
 
@@ -4163,11 +4179,11 @@ public final class GovGrantsAssertionObjects {
 
         if (usage.equalsIgnoreCase("see")) {
             Assert.assertTrue(isPageBlockDisplayedWithQuotes(fieldLabel1));
-        }else if (usage.equalsIgnoreCase("softly see")) {
+        } else if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isPageBlockDisplayedWithQuotes(fieldLabel1)).isTrue();
-        }  else if (usage.equalsIgnoreCase("do not see")) {
+        } else if (usage.equalsIgnoreCase("do not see")) {
             Assert.assertFalse(isPageBlockDisplayedWithQuotes(fieldLabel1));
-        } else{
+        } else {
             I.amPerforming().assertionsTo().assertThat(isPageBlockDisplayedWithQuotes(fieldLabel1)).isFalse();
         }
     }
@@ -4187,11 +4203,11 @@ public final class GovGrantsAssertionObjects {
     public void assertotificationText(String usage, String text) {
         if (usage.equalsIgnoreCase("see")) {
             Assert.assertTrue(isNotificationText(text));
-        }else if (usage.equalsIgnoreCase("softly see")) {
+        } else if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isNotificationText(text)).isTrue();
-        }  else if (usage.equalsIgnoreCase("do not see")) {
+        } else if (usage.equalsIgnoreCase("do not see")) {
             Assert.assertFalse(isNotificationText(text));
-        } else{
+        } else {
             I.amPerforming().assertionsTo().assertThat(isNotificationText(text)).isFalse();
         }
     }
@@ -4209,13 +4225,13 @@ public final class GovGrantsAssertionObjects {
 
     public void assertFieldAvailableOnModal(String usage, String field, String text) {
         if (usage.equalsIgnoreCase("see")) {
-            Assert.assertTrue(isFieldAvailableOnModal(field,text));
-        }else if (usage.equalsIgnoreCase("softly see")) {
-            I.amPerforming().assertionsTo().assertThat(isFieldAvailableOnModal(field,text)).isTrue();
-        }  else if (usage.equalsIgnoreCase("do not see")) {
-            Assert.assertFalse(isFieldAvailableOnModal(field,text));
-        } else{
-            I.amPerforming().assertionsTo().assertThat(isFieldAvailableOnModal(field,text)).isFalse();
+            Assert.assertTrue(isFieldAvailableOnModal(field, text));
+        } else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isFieldAvailableOnModal(field, text)).isTrue();
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isFieldAvailableOnModal(field, text));
+        } else {
+            I.amPerforming().assertionsTo().assertThat(isFieldAvailableOnModal(field, text)).isFalse();
         }
     }
 
@@ -4233,11 +4249,11 @@ public final class GovGrantsAssertionObjects {
     public void assertDefaultToggleAs(String usage, String defaultToggle, String tableId) {
         if (usage.equalsIgnoreCase("see")) {
             Assert.assertTrue(isDefaultToggleAs(defaultToggle, tableId));
-        }else if (usage.equalsIgnoreCase("softly see")) {
+        } else if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isDefaultToggleAs(defaultToggle, tableId)).isTrue();
-        }  else if (usage.equalsIgnoreCase("do not see")) {
+        } else if (usage.equalsIgnoreCase("do not see")) {
             Assert.assertFalse(isDefaultToggleAs(defaultToggle, tableId));
-        } else{
+        } else {
             I.amPerforming().assertionsTo().assertThat(isDefaultToggleAs(defaultToggle, tableId)).isFalse();
         }
     }
@@ -4256,11 +4272,11 @@ public final class GovGrantsAssertionObjects {
     public void assertLabelMaximumLengthIsForInputField(String usage, String labelName, String length) {
         if (usage.equalsIgnoreCase("see")) {
             Assert.assertTrue(isMaximumLengthIsForInputField(labelName, length));
-        }else if (usage.equalsIgnoreCase("softly see")) {
+        } else if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isMaximumLengthIsForInputField(labelName, length)).isTrue();
-        }  else if (usage.equalsIgnoreCase("do not see")) {
+        } else if (usage.equalsIgnoreCase("do not see")) {
             Assert.assertFalse(isMaximumLengthIsForInputField(labelName, length));
-        } else{
+        } else {
             I.amPerforming().assertionsTo().assertThat(isMaximumLengthIsForInputField(labelName, length)).isFalse();
         }
     }

@@ -1723,9 +1723,11 @@ Feature: Validate all scenarios of every modules flow
   @debug
   Scenario:
     And I login to "Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--ggdev2.sandbox.lightning.force.com/lightning/r/Announcement__c/a1bDk000001WmuLIAS/view"
+    And I wait for "10" seconds
+    And I navigate to url "https://test8-internal--ggdev2.sandbox.lightning.force.com/lightning/r/Announcement__c/a1bDk000001Wp43IAC/view"
     And I halt execution
-    Then I see status in Progress-bar is "Published" and is "dark blue"
+#    And I click on "Publish" in the page details
+    Then I softly see field "Status" as "Published"
     And I halt execution
 
   @testCheck
