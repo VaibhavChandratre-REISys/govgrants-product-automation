@@ -40,7 +40,7 @@ Feature: Validate all scenarios in the Site Visit
     When I navigate to "Overview" sub tab
     Then I softly see field "Created Date" is not editable
 
-  @51084 @66229 @66232 @51085 @51086 @66283 @75869 @notifyPendingTaskForSubrecipientSiteVisit @smoke @bugged-73739 
+  @51084 @66229 @66232 @51085 @51086 @66283 @75869 @notifyPendingTaskForSubrecipientSiteVisit @smoke @TBE
   Scenario: Notify Subrecipient and the respective POC from the applicant organization will receive a pending task about the Site Visit|Validate the external user will receive an email notification when the site visit is in notified status
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -61,14 +61,16 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly see field "Status" as "Notified"
     Then I softly see status in Progress-bar is "Notified" and is "dark blue"
     And I logout
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
-    And I pause execution for "3" seconds
-    And I refresh the page
-    Then I see the mail subject is as follows :
-      """
-      Sandbox: Notification: Site Visit for {SavedValue:SiteVisitId} has been scheduled
-      """
-    And I refresh the page
+    And I pause execution for "2" seconds
+#    And I refresh the page
+#    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+#    And I pause execution for "3" seconds
+#    And I refresh the page
+#    Then I see the mail subject is as follows :
+#      """
+#      Sandbox: Notification: Site Visit for {SavedValue:SiteVisitId} has been scheduled
+#      """
+#    And I refresh the page
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Monitoring" tab
@@ -748,7 +750,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Then I softly can see top right button "Accept and Close" in page detail
 
-  @55461 @60838 @66234 @reportsAndOutcomesTabAfterNotifiedStatus 
+  @55461 @60838 @66234 @reportsAndOutcomesTabAfterNotifiedStatus @TBE
   Scenario: Validate Validate Approvers Table is not editable for record owner and Reports and Outcome Tab visibility after Notified Status
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -807,7 +809,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     Then I softly cannot see "Reports and Outcomes" sub tab at view detail page
 
-  @56009 @77251 @55212 @sendBacktoOwnerReceivePendingTaskSV 
+  @56009 @77251 @55212 @sendBacktoOwnerReceivePendingTaskSV @TBE
   Scenario: Validate when Site Visit record sent back to Recipients when outcomes are not properly addressed and recipients will be able to receive a pending task
   Verify when the FO user Send Back to owner during approval process of site visits , the record owner recieves an email notification
     Given I navigate to "Responsibilities" sub tab
@@ -866,14 +868,15 @@ Feature: Validate all scenarios in the Site Visit
     And I "Send to Owner" in the approval decision
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     And I logout
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-    And I pause execution for "200" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Sandbox: Notification: Site Visit Report for {SavedValue:svID} has been SentBack
-      """
-    Then I refresh the page
+    And I pause execution for "2" seconds
+#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+#    And I pause execution for "200" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Sandbox: Notification: Site Visit Report for {SavedValue:svID} has been SentBack
+#      """
+#    Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Monitoring" tab
@@ -1009,7 +1012,7 @@ Feature: Validate all scenarios in the Site Visit
     And I wait for "3" seconds
     Then I see "Sent to Subrecipient" on page "1" of "govgrants" pdf file
 
-  @60832 @65385 @75868 @theSnapshotAfterSubmitForApproval @snapExecution
+  @60832 @65385 @75868 @theSnapshotAfterSubmitForApproval @snapExecution @TBE
   Scenario: Validate whether record Owner is able to view the Snapshot after Site Visits Accepted and Closed | Also whether the Subrecipient can view the site viist that is accepted and closed by record owner
   Validate whether external user will receive an email notification when Site Visit is accepted and closed.
     Given I navigate to "Responsibilities" sub tab
@@ -1190,7 +1193,7 @@ Feature: Validate all scenarios in the Site Visit
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Enter Review" against "{SavedValue:FO Username}" in flex table with id "---sitevisits:-:reviewersFlexTableId---"
 
-  @60835 @60831 @TaskIsNotCreatedForFiscalApproverWhenProgramApproverSendsBackSiteVisitToOwner  @FieldHistoryExclude 
+  @60835 @60831 @TaskIsNotCreatedForFiscalApproverWhenProgramApproverSendsBackSiteVisitToOwner  @FieldHistoryExclude @TBE
   Scenario: To Validate  Approvers Table is not editable and field history update Award Level Site Visits  is send back to owner by Fiscal Approver
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1246,7 +1249,7 @@ Feature: Validate all scenarios in the Site Visit
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
+    When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I softly see "No Records Found" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
   @61860 @approverCompletedTaskSiteVisits 

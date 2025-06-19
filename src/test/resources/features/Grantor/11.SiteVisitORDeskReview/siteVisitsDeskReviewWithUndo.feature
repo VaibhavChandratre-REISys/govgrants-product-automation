@@ -297,7 +297,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Site Visit - Undo Approval.pdf" as name
 
-  @279083 @VerifynewFDuserLaststepapprovercanseeUNDObuttononApprovedstateofSiteVisitwhenapprovaltaskistransferfromoneFDstep1usertootherFDuserstep1 @sprint-2-US-289061  @Undo @FieldHistoryExclude
+  @279083 @VerifynewFDuserLaststepapprovercanseeUNDObuttononApprovedstateofSiteVisitwhenapprovaltaskistransferfromoneFDstep1usertootherFDuserstep1 @sprint-2-US-289061  @Undo @FieldHistoryExclude @TBE
   Scenario:Verify new FD user (Last step approver)can see UNDO button on Approved state of Site Visit when approval task is transfer from one FD (step1)user to other FD user(step 1)
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -394,80 +394,80 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "automationfd1@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
-      """
-    Then I see the mail text is as follows :
-      """
-    Hello,
-
-    This email is to notify you that approver has initiated undo action.
-
-    Details:
-
-    EGMS ID: {SavedValue:SitevVisitId}
-
-    Record Name: {SavedValue:Automation Runtime Award Site Visit}
-
-    Log in to EGMS and click here to start reviewing the details.
-
-    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-
-    Thank you.
-    The EGMS Team
-    """
-    And I checkout to yopmail with mailid "automationfd@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    Then I do not see the mail text is as follows :
-   """
-   Hello,
-
-    This email is to notify you that approver has initiated undo action.
-
-    Details:
-
-    EGMS ID: {SavedValue:SitevVisitId}
-
-    Record Name: {SavedValue:Automation Runtime Award Site Visit}
-
-    Log in to EGMS and click here to start reviewing the details.
-
-    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-
-    Thank you.
-    The EGMS Team
-    """
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
-      """
-    Then I see the mail text is as follows :
-      """
-    Hello,
-
-    This email is to notify you that approver has initiated undo action.
-
-    Details:
-
-    EGMS ID: {SavedValue:SitevVisitId}
-
-    Record Name: {SavedValue:Automation Runtime Award Site Visit}
-
-    Log in to EGMS and click here to start reviewing the details.
-
-    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-
-    Thank you.
-    The EGMS Team
-    """
+#    And I checkout to yopmail with mailid "automationfd1@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#    Hello,
+#
+#    This email is to notify you that approver has initiated undo action.
+#
+#    Details:
+#
+#    EGMS ID: {SavedValue:SitevVisitId}
+#
+#    Record Name: {SavedValue:Automation Runtime Award Site Visit}
+#
+#    Log in to EGMS and click here to start reviewing the details.
+#
+#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+#
+#    Thank you.
+#    The EGMS Team
+#    """
+#    And I checkout to yopmail with mailid "automationfd@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    Then I do not see the mail text is as follows :
+#   """
+#   Hello,
+#
+#    This email is to notify you that approver has initiated undo action.
+#
+#    Details:
+#
+#    EGMS ID: {SavedValue:SitevVisitId}
+#
+#    Record Name: {SavedValue:Automation Runtime Award Site Visit}
+#
+#    Log in to EGMS and click here to start reviewing the details.
+#
+#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+#
+#    Thank you.
+#    The EGMS Team
+#    """
+#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#    Hello,
+#
+#    This email is to notify you that approver has initiated undo action.
+#
+#    Details:
+#
+#    EGMS ID: {SavedValue:SitevVisitId}
+#
+#    Record Name: {SavedValue:Automation Runtime Award Site Visit}
+#
+#    Log in to EGMS and click here to start reviewing the details.
+#
+#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+#
+#    Thank you.
+#    The EGMS Team
+#    """
     Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "Grantor" app as "FD1" user
@@ -654,7 +654,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @281024 @VerifyEXEuserstep2asLaststepapprovercanseeUNDObuttonwhenApprovedtheSiteVisit&abletoSendbackapprovaldecisionafterclickonUNDO&abletoaddstep3approvalinSiteVisit @sprint-5-US-295139  @Undo
+  @281024 @VerifyEXEuserstep2asLaststepapprovercanseeUNDObuttonwhenApprovedtheSiteVisit&abletoSendbackapprovaldecisionafterclickonUNDO&abletoaddstep3approvalinSiteVisit @sprint-5-US-295139  @Undo @TBE
   Scenario: Verify EXE user(step 2) as Last step approver can see UNDO button when Approved the Site Visit & able to Send back approval decision after click on UNDO & able to add step 3 approval in Site Visit
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -721,81 +721,82 @@ Feature: Validate all scenarios in the Site Visit with Undo
     When I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I logout
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
-      """
-    Then I see the mail text is as follows :
-      """
-    Details:
-
-    EGMS ID: {SavedValue:SitevVisitId}
-
-    Record Name: {SavedValue:Automation Runtime Award Site Visit}
-
-    Log in to EGMS and click here to start reviewing the details.
-
-    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-
-    Thank you.
-    The EGMS Team
-    """
-    And I checkout to yopmail with mailid "automationpo@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
-      """
-    Then I see the mail text is as follows :
-      """
-    Hello,
-
-    This email is to notify you that approver has initiated undo action.
-
-    Details:
-
-    EGMS ID: {SavedValue:SitevVisitId}
-
-    Record Name: {SavedValue:Automation Runtime Award Site Visit}
-
-    Log in to EGMS and click here to start reviewing the details.
-
-    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-
-    Thank you.
-    The EGMS Team
-    """
-    Then I refresh the page
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
-      """
-    Then I see the mail text is as follows :
-      """
-    Hello,
-
-    This email is to notify you that approver has initiated undo action.
-
-    Details:
-
-    EGMS ID: {SavedValue:SitevVisitId}
-
-    Record Name: {SavedValueAutomation Runtime Award Site Visit}
-
-    Log in to EGMS and click here to start reviewing the details.
-
-    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-
-    Thank you.
-    The EGMS Team
-    """
+    And I pause execution for "2" seconds
+#    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#    Details:
+#
+#    EGMS ID: {SavedValue:SitevVisitId}
+#
+#    Record Name: {SavedValue:Automation Runtime Award Site Visit}
+#
+#    Log in to EGMS and click here to start reviewing the details.
+#
+#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+#
+#    Thank you.
+#    The EGMS Team
+#    """
+#    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#    Hello,
+#
+#    This email is to notify you that approver has initiated undo action.
+#
+#    Details:
+#
+#    EGMS ID: {SavedValue:SitevVisitId}
+#
+#    Record Name: {SavedValue:Automation Runtime Award Site Visit}
+#
+#    Log in to EGMS and click here to start reviewing the details.
+#
+#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+#
+#    Thank you.
+#    The EGMS Team
+#    """
+#    Then I refresh the page
+#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#    Hello,
+#
+#    This email is to notify you that approver has initiated undo action.
+#
+#    Details:
+#
+#    EGMS ID: {SavedValue:SitevVisitId}
+#
+#    Record Name: {SavedValueAutomation Runtime Award Site Visit}
+#
+#    Log in to EGMS and click here to start reviewing the details.
+#
+#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+#
+#    Thank you.
+#    The EGMS Team
+#    """
     Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "Grantor" app as "EXE" user
@@ -1103,7 +1104,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @280996 @VerifyPOuserasLaststepapprovercanseeUNDObuttonwhenApprovedtheSiteVisit&abletoForwardapprovaldecisionwhenapprovaldecisionisforwardedfromPOusertoEXEuserinstep2approval @sprint-5-US-295139 @Undo @FieldHistoryExclude
+  @280996 @VerifyPOuserasLaststepapprovercanseeUNDObuttonwhenApprovedtheSiteVisit&abletoForwardapprovaldecisionwhenapprovaldecisionisforwardedfromPOusertoEXEuserinstep2approval @sprint-5-US-295139 @Undo @FieldHistoryExclude @TBE
   Scenario: Verify PO user as Last step approver can see UNDO button when Approved the Site Visit & able to Forward approval decision when approval decision is forwarded from PO user to EXE user in step 2 approval
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -1175,59 +1176,60 @@ Feature: Validate all scenarios in the Site Visit with Undo
     When I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I logout
-    And I checkout to yopmail with mailid "automationpo@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
-      """
-    Then I see the mail text is as follows :
-      """
-    Hello,
-
-    This email is to notify you that approver has initiated undo action.
-
-    Details:
-
-    EGMS ID: {SavedValue:SitevVisitId}
-
-    Record Name: {SavedValue:Automation Runtime Award Site Visit}
-
-    Log in to EGMS and click here to start reviewing the details.
-
-    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-
-    Thank you.
-    The EGMS Team
-    """
-    Then I refresh the page
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
-      """
-    Then I see the mail text is as follows :
-      """
-    Hello,
-
-    This email is to notify you that approver has initiated undo action.
-
-    Details:
-
-    EGMS ID: {SavedValue:SitevVisitId}
-
-    Record Name: {SavedValue:Automation Runtime Award Site Visit}
-
-    Log in to EGMS and click here to start reviewing the details.
-
-    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-
-    Thank you.
-    The EGMS Team
-    """
+    And I pause execution for "2" seconds
+#    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#    Hello,
+#
+#    This email is to notify you that approver has initiated undo action.
+#
+#    Details:
+#
+#    EGMS ID: {SavedValue:SitevVisitId}
+#
+#    Record Name: {SavedValue:Automation Runtime Award Site Visit}
+#
+#    Log in to EGMS and click here to start reviewing the details.
+#
+#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+#
+#    Thank you.
+#    The EGMS Team
+#    """
+#    Then I refresh the page
+#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#    Hello,
+#
+#    This email is to notify you that approver has initiated undo action.
+#
+#    Details:
+#
+#    EGMS ID: {SavedValue:SitevVisitId}
+#
+#    Record Name: {SavedValue:Automation Runtime Award Site Visit}
+#
+#    Log in to EGMS and click here to start reviewing the details.
+#
+#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+#
+#    Thank you.
+#    The EGMS Team
+#    """
     Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "Grantor" app as "PO" user

@@ -206,7 +206,7 @@ Feature: Validate all scenarios in the Announcement with Undo
    The EGMS Team
   """
 
-  @283969 @VerifythatwhenExeapproverForwardtheAnnouncementApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-4-US-295141  @Undo @TBE
+  @283969 @VerifythatwhenExeapproverForwardtheAnnouncementApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-4-US-295141  @Undo
   Scenario: Verify that when Exe approver Forward the Announcement Approval task , Forwarded Approver will see UNDO button and not previous One
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -495,7 +495,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I softly cannot see top right button "Publish" in page detail
     Then I softly cannot see top right button "Revise" in page detail
 
-  @284672 @VerifywhenallApproversapprovetheAnnouncementandlastapproverclickonundobuttononlylastapproverstaskshouldgetcancelledfromcompletedtask @sprint-4-US-295141  @Undo @TBE
+  @284672 @VerifywhenallApproversapprovetheAnnouncementandlastapproverclickonundobuttononlylastapproverstaskshouldgetcancelledfromcompletedtask @sprint-4-US-295141  @Undo
   Scenario: Verify when all  Approvers approve the Announcement and last approver click on undo button, only last approver's task should get cancelled  from completed task
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -999,7 +999,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Revise" in the page details
     Then I cannot see top right button "Undo" in page detail
 
-  @285610 @283964 @VerifythatwhenPMuserafterclickofRejectButtonWillnotSeeUndoButton @sprint-4-US-295141  @Undo @TBE
+  @285610 @283964 @VerifythatwhenPMuserafterclickofRejectButtonWillnotSeeUndoButton @sprint-4-US-295141  @Undo
   Scenario: Verify that when PM user after click of Reject Button Will not See Undo Button
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab

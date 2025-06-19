@@ -2208,7 +2208,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId2}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I do not see value "{SavedValue:PayreqId2}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @197785 @Validatepaymentrequestownershouldnotchangeevenifawardownerchangehisownershipinbetweenpaymentrequestisinprogress @sprint-4  @reassignment @TBE
+  @197785 @Validatepaymentrequestownershouldnotchangeevenifawardownerchangehisownershipinbetweenpaymentrequestisinprogress @sprint-4  @reassignment
   Scenario: Validate  payment request owner should not change even if award owner change his ownership in between payment request is in progress
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2267,7 +2267,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @197787 @Validateawardownerchangehisownershipthencreatedpaymentrequestonthatthenownerofpaymentrequestshouldbenewuser @sprint-4  @reassignment @TBE
+  @197787 @Validateawardownerchangehisownershipthencreatedpaymentrequestonthatthenownerofpaymentrequestshouldbenewuser @sprint-4  @reassignment
   Scenario: Validate award owner change his ownership then created payment request on that then owner of payment request should be new user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -7270,7 +7270,7 @@ Feature: Payment Request scenarios without background
     Then I see the following messages in the page details contains:
       | Files Tab - Complete each mandatory item listed in the checklist before submitting this Payment Request. |
 
-  @ValidateGrantreassignemntBeforeSubmitPaymentRequestToCheckRecordNotVisibleToNewOwner @reassignment @TBE
+  @ValidateGrantreassignemntBeforeSubmitPaymentRequestToCheckRecordNotVisibleToNewOwner @reassignment
   Scenario: Validate Grant Reassignemnt Before Submit Payment Request To Check Record not visible To New Owner
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal

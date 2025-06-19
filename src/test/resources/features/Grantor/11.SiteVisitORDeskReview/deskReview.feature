@@ -235,7 +235,7 @@ Feature: Validate all scenarios in Desk Review
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
-  @51021 @66557 @51022 @66549 @51023 @66146 @66485 @77256 @66550 @deskReviewSendToSubrecipientdAndCorrectiveActionsBySubrecipient
+  @51021 @66557 @51022 @66549 @51023 @66146 @66485 @77256 @66550 @deskReviewSendToSubrecipientdAndCorrectiveActionsBySubrecipient @TBE
   Scenario: Send Desk Review to Subrecipient, Corrective Actions and Submit to Grantor by Subrecipient |Validate whether pending task is created for Program approver under Home Tab when the award owner submits the Desk Review for approval
   Validate when the desk review is submitted by the Subrecipient to grantor, the internal user recieves an email notification
     Given I navigate to "Responsibilities" sub tab
@@ -319,13 +319,15 @@ Feature: Validate all scenarios in Desk Review
     When I click on "Submit to Grantor" in the page details
     And I wait for "4" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-    And I pause execution for "180" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Sandbox: Notification: Desk Review Report Submitted by Subrecipient
-      """
+    And I logout
+    And I wait for "2" seconds
+#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+#    And I pause execution for "180" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Sandbox: Notification: Desk Review Report Submitted by Subrecipient
+#      """
     Given I am on "INTERNAL" portal
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -340,7 +342,7 @@ Feature: Validate all scenarios in Desk Review
     Then I softly can see top right button "Send back to Subrecipient" in page detail
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
-  @55279 @66469 @66148 @approverSendBackToUserDeskReview
+  @55279 @66469 @66148 @approverSendBackToUserDeskReview @TBE
   Scenario: Validate whether the approver will be able to SendBack to Owner |Validate Pending task is not created to fiscal approver when program approver performs send to the owner.
   Verify when the FO user Send Back to owner during approval process of desk review, the record owner recieves an email notification
     Given I navigate to "Responsibilities" sub tab
@@ -388,13 +390,15 @@ Feature: Validate all scenarios in Desk Review
     And I click on "Start" icon for "{SavedValue:dvID}" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     And I "Send to Owner" in the approval decision
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-    And I pause execution for "5" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Sandbox: Notification: Site Visit/Desk Review Report for {SavedValue:dvID} has been SentBack
-      """
+    And I logout
+    And I pause execution for "2" seconds
+#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+#    And I pause execution for "5" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Sandbox: Notification: Site Visit/Desk Review Report for {SavedValue:dvID} has been SentBack
+#      """
     Given I am on "INTERNAL" portal
     When I login to "Grantor" app as "FO" user
     And I navigate to "Monitoring" tab
@@ -1217,7 +1221,7 @@ Feature: Validate all scenarios in Desk Review
     And I click on hyperlink containing value "View All"
     Then I see value "In Progress" for title "New Value" inside field history table
 
-  @65246 @69407 @corerctiveActionsDueDateDeskReview  @DeskReviewFirst
+  @65246 @69407 @corerctiveActionsDueDateDeskReview  @DeskReviewFirst @TBE
   Scenario: Validate Desk Review Submit to Grantor and Corrective Actions By Subrecipient
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :

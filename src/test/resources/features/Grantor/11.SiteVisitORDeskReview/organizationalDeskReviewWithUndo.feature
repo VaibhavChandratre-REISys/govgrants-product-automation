@@ -617,7 +617,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     The EGMS Team
     """
 
-  @296068 @296094 @VerifythatafterEXEuserclickonUndobuttonAllthetablesofOrganizationalDeskReviewwillnotgetaffected @sprint-4-US-288692  @Undo @snapExecution
+  @296068 @296094 @VerifythatafterEXEuserclickonUndobuttonAllthetablesofOrganizationalDeskReviewwillnotgetaffected @sprint-4-US-288692  @Undo @snapExecution @TBE
   Scenario:Verify that after EXE user click on Undo button All the tables of Organizational Desk Review will not get affected
     Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -711,7 +711,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     And I click on hyperlink containing value "Organizational Desk Review - Undo Approval.pdf"
     And I click on "Download" button for snapshot view
     And I wait for "3" seconds
-    When I download the file for snapshot
+    When I download the file
     And I wait for "3" seconds
     Then I softly see "{SavedValue:DeskReviewID}" on page "1" of "govgrants" pdf file
     Then I softly see following details in "govgrants" pdf file:
@@ -1060,7 +1060,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
      The EGMS Team.
       """
 
-  @296153 @296154 @VerifythatwhenExeapproverForwardtheOrganizationalDeskReviewApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-4-US-288692 @Undo
+  @296153 @296154 @VerifythatwhenExeapproverForwardtheOrganizationalDeskReviewApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-4-US-288692 @Undo @TBE
   Scenario:Verify that when Exe approver Forward the Organizational Desk Review Approval task , Forwarded Approver will see UNDO button and not previous One
     Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
