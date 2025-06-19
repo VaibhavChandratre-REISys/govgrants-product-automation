@@ -813,7 +813,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #304142
     Then I cannot see top right button "Undo" in page detail
 
- @289807 @VerifyAuditorusercannotseeundobuttoninapprovedstateofOrganizationalSiteVisit @sprint-2-US-288691 @Undo @366345
+  @289807 @VerifyAuditorusercannotseeundobuttoninapprovedstateofOrganizationalSiteVisit @sprint-2-US-288691 @Undo @366345
   Scenario:Verify Auditor user can not see undo button in approved state of Organizational Site Visit
     When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -888,13 +888,14 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I wait for "3" seconds
     Then I can see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "Auditor" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
- @342521 @342527 @342529 @342544 @VerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinCreatedState @sprint-2-US-288691 @Undo @366345
+  @342521 @342527 @342529 @342544 @VerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinCreatedState @sprint-2-US-288691 @Undo @366345
   Scenario: Verify that Undo Button will not visible to any user when Organization Site visit is in Created State
     When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -923,6 +924,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342527
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -930,6 +932,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342527
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -937,6 +940,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342527
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -945,6 +949,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342529
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -952,6 +957,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342529
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -959,6 +965,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342529
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -985,6 +992,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342544
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -992,6 +1000,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342544
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -999,6 +1008,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342544
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1006,6 +1016,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342544
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1032,6 +1043,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342548
     Then I can see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1046,6 +1058,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342548
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1053,7 +1066,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342548
     Then I cannot see top right button "Undo" in page detail
 
- @342554 @342559 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinSubmitforReviewState @sprint-13-US-331643 @Undo @366345
+  @342554 @342559 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinSubmitforReviewState @sprint-13-US-331643 @Undo @366345
   Scenario: Verify that Undo Button will not visible to any user when Organization Site visit is in Submit for ReviewState.
     When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1086,6 +1099,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see field "Status" as "Submitted for Review"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1099,6 +1113,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see field "Status" as "Submitted for Review"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1116,6 +1131,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I click modal button "Save"
     And I click on submit review
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1124,6 +1140,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see field "Status" as "Reviewed"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1141,14 +1158,15 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see field "Status" as "Reviewed"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
      #342559
-     Then I softly see field "Status" as " Submitted for Review"
-     Then I cannot see top right button "Undo" in page detail
+    Then I softly see field "Status" as " Submitted for Review"
+    Then I cannot see top right button "Undo" in page detail
 
- @342571 @342575 @342584 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisininSendtoSrState @sprint-13-US-331643 @Undo @366345
+  @342571 @342575 @342584 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisininSendtoSrState @sprint-13-US-331643 @Undo @366345
   Scenario:OSV->Verify that Undo Button will not visible to any user when Organization Site visit is in in Send to S/r State
     When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1209,6 +1227,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I wait for "3" seconds
     Then I can see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1216,18 +1235,21 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1258,6 +1280,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342575
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1265,6 +1288,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342575
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1272,6 +1296,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342575
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1288,6 +1313,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342584
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1295,6 +1321,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342584
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1302,6 +1329,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342584
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
@@ -1359,7 +1387,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     Then I softly cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
 
- @308900 @310751 @OSVVerifythatapproverundobuttonvisibilitywillchangeasperpositionofapproverofOrgSiteVisitlastormiddle @sprint-7-US-306815  @Undo
+  @308900 @310751 @OSVVerifythatapproverundobuttonvisibilitywillchangeasperpositionofapproverofOrgSiteVisitlastormiddle @sprint-7-US-306815  @Undo
   Scenario:OSV-Verify that approver undo button visibility will change as per position of approver of Org Site Visit last or middle
     When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
