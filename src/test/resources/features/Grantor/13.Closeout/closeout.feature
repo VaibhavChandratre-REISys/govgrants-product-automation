@@ -503,6 +503,7 @@ Feature: Validate all scenarios in Closeout
     And I softly see value "Automation Test Description" for title "Reason" inside table "---closeout:-:closeoutTableId---"
     And I softly see value "Created" for title "Status" inside table "---closeout:-:closeoutTableId---"
     And I click on "View" icon for "Created" inside flex table with id "---closeout:-:closeoutTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Open Items" sub tab at view detail page
     Then I softly can see "Checklist" sub tab at view detail page

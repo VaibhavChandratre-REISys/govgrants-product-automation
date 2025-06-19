@@ -457,6 +457,7 @@ Feature: Validate all scenarios in Closeout
     And I enter value "Automation Test justification" into field "Justification__c"
     And I pause execution for "3" seconds
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Override Justification" as "Automation Test justification"
     When I click on "Override" in the page details
     And I click on "Submit for Approval" in the page details
@@ -4032,6 +4033,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+    And I pause execution for "3" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I pause execution for "5" seconds
     And I click modal button "Close"
