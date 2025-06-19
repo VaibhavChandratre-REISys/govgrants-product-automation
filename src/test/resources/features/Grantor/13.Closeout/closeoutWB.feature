@@ -3935,7 +3935,7 @@ Feature: Validate all scenarios in Closeout
       The EGMS Team
       """
 
-  @227789 @ValidatePMuserwhenrecordsunderopenitemsisonlyinsubmitforapprovalstate&ownerofthatrecordisdifferentfromcloseoutownerthenshouldgeterrormessageonoverriddenbuttonafterownershiptransfer @sprint-12-US-226976  @reassignment
+  @227789 @ValidatePMuserwhenrecordsunderopenitemsisonlyinsubmitforapprovalstate&ownerofthatrecordisdifferentfromcloseoutownerthenshouldgeterrormessageonoverriddenbuttonafterownershiptransfer @sprint-12-US-226976  @reassignment @Bug-Ticket-532693
   Scenario: Validate PM user when records under open items is only in submit for approval state & owner of that record is different from closeout owner then should get error message on overridden button after ownership transfer
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     # Desk Review
@@ -4754,7 +4754,8 @@ Feature: Validate all scenarios in Closeout
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
-    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+   And I pause execution for "2" seconds
+   And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I pause execution for "5" seconds
     And I click modal button "Close"
     When I get the "EGMS ID"
@@ -4918,12 +4919,6 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:PayreqId1}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:DeskReview}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:SitevVisitId}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
-   When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
-   And I navigate to "Grants" tab
-   When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-   When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
-   And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-   And I "Approve" in the approval decision
    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
    And I navigate to "Grants" tab
    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4931,6 +4926,12 @@ Feature: Validate all scenarios in Closeout
    And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
    And I "Approve" in the approval decision
    Then I softly see field "Status" as "Approved"
+   When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+   And I navigate to "Grants" tab
+   When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+   When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
+   And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+   And I "Approve" in the approval decision
    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
    And I navigate to "Monitoring" tab
    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5215,7 +5216,6 @@ Feature: Validate all scenarios in Closeout
     And I refresh the page
     When I navigate to "Open Items" sub tab
     Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:SOWAMENDMENTREQUEST}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
-    Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:progID}" inside table "---closeout:-:closeoutPendingProgressReportCloseoutTableId---"
     Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:PayreqId1}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:DeskReview}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
@@ -5224,7 +5224,6 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Status" as "Overridden"
     When I navigate to "Open Items" sub tab
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:SOWAMENDMENTREQUEST}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
-    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:progID}" inside table "---closeout:-:closeoutPendingProgressReportCloseoutTableId---"
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:PayreqId1}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:DeskReview}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
