@@ -875,6 +875,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I see value "Optional" for title "Required" against the value "Active" inside table "---orgRiskAssessment:-:orgriskSupportingDocTableId---"
+    Then I softly see value "View" for title "Template Link" inside table "---orgRiskAssessment:-:orgriskSupportingDocTableId---"
 
   @61061 @61995 @61059 @CreatedDateOfRAdisplayedOnOverviewTabAdditionOfAttachment @organizationalDeskReviewSecond
   Scenario: Validate the Created Date of Desk Review display on Overview Tab and Adding Attachments- Organizational Desk Review
