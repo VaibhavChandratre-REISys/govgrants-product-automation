@@ -1012,7 +1012,7 @@ Feature: Validate all scenarios in the Site Visit
     And I wait for "3" seconds
     Then I see "Sent to Subrecipient" on page "1" of "govgrants" pdf file
 
-  @60832 @65385 @75868 @theSnapshotAfterSubmitForApproval @snapExecution @TBE
+  @60832 @65385 @75868 @theSnapshotAfterSubmitForApproval @snapExecution
   Scenario: Validate whether record Owner is able to view the Snapshot after Site Visits Accepted and Closed | Also whether the Subrecipient can view the site viist that is accepted and closed by record owner
   Validate whether external user will receive an email notification when Site Visit is accepted and closed.
     Given I navigate to "Responsibilities" sub tab
@@ -1104,14 +1104,14 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "Accept and Close" in the page details
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     And I logout
-#    When I pause execution for "120" seconds
-#    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
-#    And I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Site Visit Closed
-#      """
-#    Then I refresh the page
+    When I pause execution for "120" seconds
+    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Site Visit Closed
+      """
+    Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Monitoring" tab

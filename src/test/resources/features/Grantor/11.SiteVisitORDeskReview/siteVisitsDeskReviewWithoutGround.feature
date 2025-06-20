@@ -90,13 +90,17 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "Upload Template" icon for "Automation" inside flex table with id "---sitevisits:-:siteVisitSupportingDocumentChecklist---" with wait for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I click in table hyperlink containing value "View"
     And I wait for "2" seconds
     And I download the file without rename
     And I wait for "3" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded
-    And I wait for "5" seconds
+    And I wait for "3" seconds
     And I click on "Close" button for view files page
+    And I wait for "2" seconds
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
     When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
