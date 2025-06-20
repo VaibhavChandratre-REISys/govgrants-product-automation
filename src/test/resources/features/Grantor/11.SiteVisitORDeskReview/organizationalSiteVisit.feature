@@ -180,13 +180,13 @@ Feature: Validate all scenarios in Organizational Site Visit
     Then I softly see that "{SavedValue:Automation Runtime Site Visit Org level}" is in "Notified" status
     And I logout
     And I wait for "2" seconds
-#    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
-#    And I pause execution for "120" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Site Visit for {SavedValue:SiteVisitId} has been scheduled
-#      """
+    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I pause execution for "120" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Site Visit for {SavedValue:SiteVisitId} has been scheduled
+      """
     Given I am on "INTERNAL" portal
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Monitoring" tab
@@ -336,7 +336,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @54890 @54889 @siteVisitapprovalAndSendToSubrecipientOrgLevel  @smoke @TBE
+  @54890 @54889 @siteVisitapprovalAndSendToSubrecipientOrgLevel @smoke @TBE
   Scenario: Approval and Send Site Visit to Subrecipient Org Level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"

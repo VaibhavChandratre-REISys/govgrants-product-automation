@@ -96,6 +96,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I wait for "3" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded
     And I wait for "5" seconds
+    And I click on "Close" button for view files page
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
     When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
