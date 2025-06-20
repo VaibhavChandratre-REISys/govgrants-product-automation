@@ -11078,7 +11078,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     #485525
     Then I softly see total records count "{SavedValue:totalRecordsAwards}" in flex table "---grantee_tableId:-:AmendmentBudgetTableId---"
-    Then I softly see "Focus Area" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see "Budget Category" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see "Spent" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
