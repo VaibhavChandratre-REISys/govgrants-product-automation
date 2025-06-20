@@ -368,6 +368,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
     And I click on "View" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
+    And I wait for "2" seconds
     And I navigate to "Responsibilities" sub tab
     Then I see value "Automation PM1" for title "Name" inside table "---sitevisits:-:siteVisitOwnerTableId---"
     And I navigate to "History" sub tab
@@ -1959,56 +1960,56 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     And I pause execution for "2" seconds
     And I logout
     And I pause execution for "2" seconds
-#    And I checkout to yopmail with mailid "automationfd@yopmail.com"
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Notification: Owner Reassignment Report
-#      """
-#    Then I see the mail text is as follows :
-#      """
-#      Hello,
-#
-#     The record(s) below have been reassigned from [Automation FD] to [Automation FD1] successfully. Please find the details below:
-#
-#      EGMS ID Assigned By Module Name
-#      {SavedValue:SitevVisitId} Automation ADMIN Site Visit /Desk Review
-#
-#      Because these records have been reassigned, the original reviewer may have only view access to the record.
-#
-#      Log in to EGMS and click on EGMS IDs to access the assigned record.
-#
-#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-#
-#      Thank you,
-#      The EGMS Team
-#      """
-#    Given I am on "INTERNAL" portal
-#    And I checkout to yopmail with mailid "automationfd1@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Notification: Owner Reassignment Report
-#      """
-#    Then I see the mail text is as follows :
-#      """
-#      Hello,
-#
-#     The record(s) below have been reassigned from [Automation FD] to [Automation FD1] successfully. Please find the details below:
-#
-#      EGMS ID Assigned By Module Name
-#      {SavedValue:SitevVisitId} Automation ADMIN Site Visit /Desk Review
-#
-#      Because these records have been reassigned, the original reviewer may have only view access to the record.
-#
-#      Log in to EGMS and click on EGMS IDs to access the assigned record.
-#
-#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-#
-#      Thank you,
-#      The EGMS Team
-#      """
+    And I checkout to yopmail with mailid "automationfd@yopmail.com"
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Notification: Owner Reassignment Report
+      """
+    Then I see the mail text is as follows :
+      """
+      Hello,
+
+     The record(s) below have been reassigned from [Automation FD] to [Automation FD1] successfully. Please find the details below:
+
+      EGMS ID Assigned By Module Name
+      {SavedValue:SitevVisitId} Automation ADMIN Site Visit /Desk Review
+
+      Because these records have been reassigned, the original reviewer may have only view access to the record.
+
+      Log in to EGMS and click on EGMS IDs to access the assigned record.
+
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+
+      Thank you,
+      The EGMS Team
+      """
+    Given I am on "INTERNAL" portal
+    And I checkout to yopmail with mailid "automationfd1@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Notification: Owner Reassignment Report
+      """
+    Then I see the mail text is as follows :
+      """
+      Hello,
+
+     The record(s) below have been reassigned from [Automation FD] to [Automation FD1] successfully. Please find the details below:
+
+      EGMS ID Assigned By Module Name
+      {SavedValue:SitevVisitId} Automation ADMIN Site Visit /Desk Review
+
+      Because these records have been reassigned, the original reviewer may have only view access to the record.
+
+      Log in to EGMS and click on EGMS IDs to access the assigned record.
+
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+
+      Thank you,
+      The EGMS Team
+      """
     Given I am on "INTERNAL" portal
     When I login to "Grantor" app as "FD1" user
     And I navigate to "Home" tab
