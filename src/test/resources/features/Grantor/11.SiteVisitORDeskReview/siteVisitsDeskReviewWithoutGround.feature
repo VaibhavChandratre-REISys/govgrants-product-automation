@@ -99,7 +99,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I wait for "3" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded
     And I wait for "3" seconds
-    And I click on "Close" button for view files page
+    And I close the tab
     And I wait for "2" seconds
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
