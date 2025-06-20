@@ -9380,6 +9380,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
     And I wait for "2" seconds
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
@@ -9426,7 +9427,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
     And I click on "Save" in the page details
     #@485587
-    Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see value "{SavedValue:TermsId}" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see "Description" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
@@ -10918,7 +10919,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
   @485516 @485517 @485521 @485524 @485525 @ValidateFCAmdthatPOuserseeDetailssectiontheirFieldsunderOverviewTabinFundingChangeAmendmentRequestlayout
   Scenario: Validate FC Amd that PO user see Details section & their Fields under Overview Tab in Funding Change Amendment Request layout
     And I "Created" standalone subaward "Automation Runtime award" with properties "CASH_MATCH_NON_CASH_MATCH_PO_OWNER"
-    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "NON_CASH_MATCH_BUDGET"
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -10956,6 +10957,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see field "Status" as "Activated"
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I enter "Grantee_FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
@@ -10988,7 +10990,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I save the value from row "3" for column name "Award  Budget" as "AwardBudgetAwardPageLevel" from flex table "---grantee_tableId:-:AwardBudgetTableId---"
     And I save the value from row "3" for column name "Cash Match" as "CashMatchAwardPageLevel" from flex table "---grantee_tableId:-:AwardBudgetTableId---"
     And I save the value from row "3" for column name "Non-Cash Match" as "NonCashMatchBudgetAwardPageLevel" from flex table "---grantee_tableId:-:AwardBudgetTableId---"
-    And I save the value from row "3" for column name "Total Match" as "TotalMatchAwardPageLevel" from flex table "---grantee_tableId:-:AwardBudgetTableId---"
+#   I have commented below step due to the Bug - 532819 once resolve will uncomment
+#    And I save the value from row "3" for column name "Total Match" as "TotalMatchAwardPageLevel" from flex table "---grantee_tableId:-:AwardBudgetTableId---"
     And I save the value from row "3" for column name "Other Leverage" as "OtherLeverageAwardPageLevel" from flex table "---grantee_tableId:-:AwardBudgetTableId---"
     And I save the value from row "3" for column name "Total Project Cost" as "TotalProjectCostAwardPageLevel" from flex table "---grantee_tableId:-:AwardBudgetTableId---"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
@@ -10997,7 +11000,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I save the value from row "1" for column name "Award Budget" as "AwardBudgetAward" from flex table "---grantee_tableId:-:awardLineItemsTableId---"
     And I save the value from row "1" for column name "Cash Match" as "CashMatchAward" from flex table "---grantee_tableId:-:awardLineItemsTableId---"
     And I save the value from row "1" for column name "Non-Cash Match" as "NonCashMatchBudgetAward" from flex table "---grantee_tableId:-:awardLineItemsTableId---"
-    And I save the value from row "1" for column name "Total Match" as "TotalMatchAward" from flex table "---grantee_tableId:-:awardLineItemsTableId---"
+#   I have commented below step due to the Bug - 532819 once resolve will uncomment
+#    And I save the value from row "1" for column name "Total Match" as "TotalMatchAward" from flex table "---grantee_tableId:-:awardLineItemsTableId---"
     And I save the value from row "1" for column name "Other Leverage" as "OtherLeverageAward" from flex table "---grantee_tableId:-:awardLineItemsTableId---"
     And I save the value from row "1" for column name "Total Project Cost" as "TotalProjectCostAward" from flex table "---grantee_tableId:-:awardLineItemsTableId---"
     When I click modal button "Close"
@@ -11019,8 +11023,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I save the field labeled "EGMS ID" as "amendmentEGMSID"
     Then I softly see field "Grant EGMS ID" as "{SavedValue:GrantEGMSID}"
     Then I softly see field "Award EGMS ID" as "{SavedValue:AwardEGMSID}"
-    Then I softly see field "Grant Number" as "1234"
-    Then I softly see field "Grant Award Number" as "1234 - 0"
+    Then I softly see field "Grant Number" as "{SavedValue:GrantNumber}"
+    Then I softly see field "Grant Award Number" as "{SavedValue:GrantAwardNumber}"
     And I save the field labeled "Impact" as "Impact"
     Then I softly see field "Impact" as "{SavedValue:Impact}"
     And I save the field labeled "Justification" as "Justification"
