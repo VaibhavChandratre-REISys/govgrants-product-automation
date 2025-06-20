@@ -341,6 +341,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I click on "Save" in the page details
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award for Amendment Request}"
     When I click on "Edit" in the page details
+    And I wait for "3" seconds
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
@@ -395,6 +396,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "Amend Subaward" in the page details
     And I wait for "2" seconds
     When I click on "Activate" in the page details
+    And I wait for "3" seconds
     And I navigate to "Management" sub tab
     Then I see value "In Progress" for title "Status" against the value "{SavedValue:DeskReviewID}" inside table "---deskreview:-:managementInitiateDRtableid---"
 
