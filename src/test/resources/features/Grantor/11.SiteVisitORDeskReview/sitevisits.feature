@@ -62,15 +62,15 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly see status in Progress-bar is "Notified" and is "dark blue"
     And I logout
     And I pause execution for "2" seconds
-#    And I refresh the page
-#    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
-#    And I pause execution for "3" seconds
-#    And I refresh the page
-#    Then I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Site Visit for {SavedValue:SiteVisitId} has been scheduled
-#      """
-#    And I refresh the page
+    And I refresh the page
+    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I pause execution for "3" seconds
+    And I refresh the page
+    Then I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Site Visit for {SavedValue:SiteVisitId} has been scheduled
+      """
+    And I refresh the page
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Monitoring" tab
@@ -869,14 +869,14 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     And I logout
     And I pause execution for "2" seconds
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "200" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Site Visit Report for {SavedValue:svID} has been SentBack
-#      """
-#    Then I refresh the page
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "200" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Site Visit Report for {SavedValue:svID} has been SentBack
+      """
+    Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Monitoring" tab

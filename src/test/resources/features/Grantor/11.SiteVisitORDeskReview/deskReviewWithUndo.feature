@@ -1091,8 +1091,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     #284439
     And I navigate to "History" sub tab
     Then I softly see column "Assigned To" at position "2" contains text "{SavedValue:EXE Username}"
-    #Bug443987
-    Then I softly see column "Date" at position "1" contains text "Step : Re-approval (Pending for approval) "
+    Then I softly see column "Date" at position "1" contains text "Step : Re-approval (Pending for approval)"
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"

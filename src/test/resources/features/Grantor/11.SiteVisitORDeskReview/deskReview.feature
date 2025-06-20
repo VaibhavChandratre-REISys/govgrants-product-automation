@@ -321,13 +321,13 @@ Feature: Validate all scenarios in Desk Review
     Then I softly see field "Status" as "Submitted to Grantor"
     And I logout
     And I wait for "2" seconds
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "180" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Desk Review Report Submitted by Subrecipient
-#      """
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "180" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Desk Review Report Submitted by Subrecipient
+      """
     Given I am on "INTERNAL" portal
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -392,13 +392,13 @@ Feature: Validate all scenarios in Desk Review
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     And I logout
     And I pause execution for "2" seconds
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "5" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Site Visit/Desk Review Report for {SavedValue:dvID} has been SentBack
-#      """
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "5" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Site Visit/Desk Review Report for {SavedValue:dvID} has been SentBack
+      """
     Given I am on "INTERNAL" portal
     When I login to "Grantor" app as "FO" user
     And I navigate to "Monitoring" tab
