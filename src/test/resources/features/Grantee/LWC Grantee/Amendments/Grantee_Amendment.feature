@@ -9325,7 +9325,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | User       |
       | GRANTEE FO |
 
-  @485539 @485544 @485545 @485586 @485587 @485589 @485591 @BPCAmdVerifythatFOuserseeDetailssection&theirFieldsunderOverviewTabinBudgetPeriodChangeAmendmentRequestlayout
+  @485539 @485544 @485545 @485586 @485587 @485589 @485591 @BPCAmdVerifythatFOuserseeDetailssection&theirFieldsunderOverviewTabinBudgetPeriodChangeAmendmentRequestlayout @P2_Grantee @PO_Grantee @GRegression2
   Scenario Outline:BPC Amd-->Verify that FO user see Details section & their Fields under Overview Tab in Budget Period Change Amendment Request layout
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -10916,7 +10916,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
-  @485516 @485517 @485521 @485524 @485525 @ValidateFCAmdthatPOuserseeDetailssectiontheirFieldsunderOverviewTabinFundingChangeAmendmentRequestlayout
+  @485516 @485517 @485521 @485524 @485525 @ValidateFCAmdthatPOuserseeDetailssectiontheirFieldsunderOverviewTabinFundingChangeAmendmentRequestlayout @P2_Grantee @PO_Grantee @GRegression2
   Scenario: Validate FC Amd that PO user see Details section & their Fields under Overview Tab in Funding Change Amendment Request layout
     And I "Created" standalone subaward "Automation Runtime award" with properties "CASH_MATCH_NON_CASH_MATCH_PO_OWNER"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "NON_CASH_MATCH_BUDGET"
