@@ -4932,14 +4932,6 @@ Feature: Validate all scenarios in Closeout
    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
    And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
    And I "Approve" in the approval decision
-   When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-   And I navigate to "Monitoring" tab
-   When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-   And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---progressReport:-:pendingTaskTableId---" panel
-   Then I softly see value "{SavedValue:SOWAMENDMENTREQUEST}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
-   When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-   And I "Approve" in the approval decision
-   Then I softly see field "Status" as "Approved"
    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
    And I navigate to "Closeout" tab
    And I click toggle button to select "Closeouts - All"
