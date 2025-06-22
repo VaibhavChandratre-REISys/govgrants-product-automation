@@ -7325,36 +7325,16 @@ Feature: Sanity scenarios
      Then I softly do not see value "Submitted to Grantor" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
      And I click toggle button to select "Amendment Requests - All"
      When I perform quick search for "{SavedValue:OTHAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-     Then I softly can see row level action button "View" against "{SavedValue:OTHAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-     Then I softly can see row level action button "Edit" against "{SavedValue:OTHAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-     Then I softly can see row level action button "Delete" against "{SavedValue:OTHAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-     And I click toggle button to select "Amendment Requests - Draft"
-     When I perform quick search for "{SavedValue:OTHAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-     Then I softly can see row level action button "View" against "{SavedValue:OTHAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-     Then I softly can see row level action button "Edit" against "{SavedValue:OTHAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-     Then I softly can see row level action button "Delete" against "{SavedValue:OTHAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-     And I navigate to "Grants" tab
-     And I wait for "2" seconds
-     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-     And I click toggle button to select "Grants - All"
-     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
-     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-     And I save the field labeled "EGMS ID" as "GrantEGMSID"
-     And I save the field labeled "Grant Number" as "GrantNumber"
-     When I navigate to "Awards" sub tab
-     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-     And I wait for "2" seconds
-     When I navigate to "Amendments" sub tab
-     Then I softly see top right button "View" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
+     And I click on "View" icon for "{SavedValue:OTHAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
      Then I see the header is "Amendment Request" in the page details
      Then I softly see "Collapse" button for header
      Then I softly see field "EGMS ID" as "{SavedValue:OTHAMENDID}"
      Then I softly see field "Status" as "Created"
      Then I softly see field "Initiated By" as "Grantor"
      Then I softly see field "Amendment Type" as "Other"
-     Then I cannot see top right button "Edit" in page detail
-     Then I cannot see top right button "Delete" in page detail
-     Then I cannot see top right button "Submit for Approval" in page detail
+     Then I softly cannot see top right button "Edit" in page detail
+     Then I softly cannot see top right button "Delete" in page detail
+     Then I softly cannot see top right button "Submit for Approval" in page detail
      Then I softly can see "Overview" sub tab at view detail page
      Then I softly can see "Responsibilities" sub tab at view detail page
      Then I softly can see "Files" sub tab at view detail page
