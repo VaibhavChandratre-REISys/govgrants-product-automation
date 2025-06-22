@@ -3275,6 +3275,7 @@ Feature: Sanity scenarios
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     When I login to "As a Grantee" app as "GRANTEE FO" user
+    And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
