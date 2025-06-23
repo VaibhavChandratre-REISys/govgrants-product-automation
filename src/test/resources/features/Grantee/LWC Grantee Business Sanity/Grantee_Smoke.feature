@@ -15449,16 +15449,16 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Resize" button for page
     Then I softly see "Collapse" button for page
     When I navigate to "Forms and Files" sub tab
-    Then I softly cannot see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Splitview" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Preview" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    When I click on "Splitview" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly cannot see row level action button "Edit" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "View" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Splitview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Preview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    When I click on "Splitview" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly cannot see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Download as PDF" in the split screen page details
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
-    When I click on "View" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I switch to tab number "1"
     Then I see the header is "Progress Report" in the page details
     And I save the field labeled "Award" as "Award"
@@ -15500,7 +15500,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Obstacles" for the field "Automation Test Obstacles"
     Then I softly see value "Plans" for the field "Automation Test Plans"
     When I navigate to "Forms and Files" sub tab
-    When I click on "View" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I switch to tab number "2"
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
@@ -15536,16 +15536,16 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Resize" button for page
     Then I softly see "Collapse" button for page
     When I navigate to "Forms and Files" sub tab
-    Then I softly cannot see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Splitview" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Preview" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    When I click on "Splitview" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly cannot see row level action button "Edit" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "View" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Splitview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Preview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    When I click on "Splitview" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly cannot see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Download as PDF" in the split screen page details
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
-    When I click on "View" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I switch to tab number "3"
     Then I see the header is "Progress Report" in the page details
     And I save the field labeled "Award" as "Award"
@@ -15587,7 +15587,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Obstacles" for the field "Automation Test Obstacles"
     Then I softly see value "Plans" for the field "Automation Test Plans"
     When I navigate to "Forms and Files" sub tab
-    When I click on "View" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I switch to tab number "4"
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
