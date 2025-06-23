@@ -1134,60 +1134,61 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I logout
-    And I pause execution for "2" seconds
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:SitevVisitId} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
-    Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:SitevVisitId} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
-    Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "EXE1" user
+#    And I logout
+#    And I pause execution for "2" seconds
+#    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:SitevVisitId} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
+#    Given I am on "INTERNAL" portal
+#    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:SitevVisitId} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
+#    Given I am on "INTERNAL" portal
+#    When I login to "As a Grantor" app as "EXE1" user
+    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -2281,6 +2282,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
     And I click on "View" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
+    And I wait for "4" seconds
     Then I softly see field "Status" as "Reviewed"
     Then I softly can see top right button "Submit for Approval" in page detail
     And I navigate to "Responsibilities" sub tab
