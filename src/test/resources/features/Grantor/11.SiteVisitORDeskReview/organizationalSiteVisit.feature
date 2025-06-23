@@ -1835,7 +1835,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
     And I pause execution for "3" seconds
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel

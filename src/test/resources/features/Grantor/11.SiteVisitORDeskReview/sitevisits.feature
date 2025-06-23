@@ -62,7 +62,7 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly see status in Progress-bar is "Notified" and is "dark blue"
     And I logout
     And I checkout to yopmail with mailid "automationspi31@yopmail.com"
-    And I pause execution for "3" seconds
+    And I pause execution for "180" seconds
     And I refresh the page
     Then I see the mail subject is as follows :
       """
@@ -1112,7 +1112,9 @@ Feature: Validate all scenarios in the Site Visit
     And I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Monitoring" tab
+    And I click toggle button to select "Site Visit Reports - All"
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    And I wait for "3" seconds
     When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I click on Menu icon present on top right corner of the page
@@ -1131,8 +1133,8 @@ Feature: Validate all scenarios in the Site Visit
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "ApplicantSiteVisitReports" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "ApplicantSiteVisitReports"
+    And I perform quick search for "Record Id" in "ApplicantSiteVisitReports" panel
+    When I click on "View" icon for "Record Id" inside flex table with id "ApplicantSiteVisitReports"
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
 
   @60839 @56013 @60837 @60840 @peerReviewerCanNotEdit/EnterReviewComments @smoke 

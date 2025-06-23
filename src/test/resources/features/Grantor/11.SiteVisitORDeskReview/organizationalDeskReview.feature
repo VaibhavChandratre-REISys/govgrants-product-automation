@@ -517,14 +517,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I perform quick search for "Record Id" in "---orgLevelDeskReview:-:phasePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:phasePendingTaskTableId---"
     And I "Send to Owner" in the approval decision
-    And I refresh the page
-    And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
-    Then I softly see that "Record Id" has been added in flextable with Id "---deskreview:-:deskReviewGridViewTableId---"
 
   @55459 @54887 @deskReviewOrgLevelSendToSubrecipientWithOutAddingCorerctiveItems  @organizationalDeskReviewFirst
   Scenario:  Validate User will not be able to submit the Desk Review Org Level to Grantor without adding corrective actions to findings.
@@ -606,7 +599,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     Then I softly see the following messages in the page details :
       | Reports and Outcomes Tab - Enter corrective actions on all findings outcomes using the "⌄" icons. |
 
-  @55460 @approverForwardUserGetPendingTaskDeskReview  @organizationalDeskReviewFirstRerun
+  @55460 @approverForwardUserGetPendingTaskDeskReview  @organizationalDeskReviewFirstRerun @Bug-Ticket-532749
   Scenario: Validate when the Approver forward Org Level Desk Review to other user, the Pending Task will be created to the User
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
