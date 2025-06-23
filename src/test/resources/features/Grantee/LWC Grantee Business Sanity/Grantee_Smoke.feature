@@ -15547,7 +15547,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
     When I click on "View" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I switch to tab number "3"
-    Then I see the header is "Progress Report" in the page details
+    Then I see the header is "Performance Progress Report" in the page details
     And I save the field labeled "Award" as "Award"
     Then I softly see link "{SavedValue:Award}" inside Page block
     And I click on hyperlink containing value "{SavedValue:Award}"
