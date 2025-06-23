@@ -64,7 +64,7 @@ Feature: Validate all common scenarios in the  Announcement tab
       | Overview Tab - You must invite at least one applicant before submitting this Announcement.                            |
       | Overview Tab - Provide the Application Due Date.                                                                      |
       | Overview Tab - Select Eligible Applicant Types in the Eligibility Details section.                                    |
-      | Responsibilities - At least one approver is required                                                                  |
+      | Responsibilities - At least one approver is required.                                                                  |
     When I click on "Edit" in the page details
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
     When I click on "Save" in the page details
