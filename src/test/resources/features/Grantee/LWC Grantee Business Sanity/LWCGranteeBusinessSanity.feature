@@ -9040,7 +9040,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Delete" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Send for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
 
-  @462458 @ValidatePMusercanseeonclickofAmendmentRequestseeoptionfromGrantphaseabletoclickonAmedmentRequestLink
+  @462458_1 @ValidatePMusercanseeonclickofAmendmentRequestseeoptionfromGrantphaseabletoclickonAmedmentRequestLink
   Scenario: Validate PM user can see on click of Amendment Request see options from Grant phase & able to click on Amedment Request Link
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
