@@ -445,19 +445,16 @@ public final class GovGrantsAssertionObjects {
     public void assertFieldValue(String fieldLabel, boolean matchesExactly, String fieldValue, boolean isSoftly) {
         String foundValue = null;
         if (fieldValue.equalsIgnoreCase("Published")) {
-         try{
-             foundValue = govgrants.perform().pageDetails().getFieldValue(fieldLabel, matchesExactly);
-         }catch(Exception e) {
-             for (int i = 0; i < 10; i++) {
-                 foundValue = govgrants.perform().pageDetails().getFieldValue(fieldLabel, matchesExactly);
-                 if (foundValue.equalsIgnoreCase("Published")) {
-                     break;
-                 } else {
-                     I.amPerforming().browserOperationsTo().refreshPage();
-                     I.amPerforming().waitFor().makeThreadSleep(3000);
-                 }
-             }
-         }
+            foundValue = govgrants.perform().pageDetails().getFieldValue(fieldLabel, matchesExactly);
+            for (int i = 0; i < 10; i++) {
+                foundValue = govgrants.perform().pageDetails().getFieldValue(fieldLabel, matchesExactly);
+                if (foundValue.equalsIgnoreCase("Published")) {
+                    break;
+                } else {
+                    I.amPerforming().browserOperationsTo().refreshPage();
+                    I.amPerforming().waitFor().makeThreadSleep(3000);
+                }
+            }
         } else {
             for (int i = 0; i < 2 && !fieldValue.equalsIgnoreCase(foundValue); i++) {
                 try {

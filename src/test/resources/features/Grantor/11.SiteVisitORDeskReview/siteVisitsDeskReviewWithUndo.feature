@@ -297,7 +297,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Site Visit - Undo Approval.pdf" as name
 
-  @279083 @VerifynewFDuserLaststepapprovercanseeUNDObuttononApprovedstateofSiteVisitwhenapprovaltaskistransferfromoneFDstep1usertootherFDuserstep1 @sprint-2-US-289061  @Undo @FieldHistoryExclude @TBE
+  @279083 @VerifynewFDuserLaststepapprovercanseeUNDObuttononApprovedstateofSiteVisitwhenapprovaltaskistransferfromoneFDstep1usertootherFDuserstep1 @sprint-2-US-289061  @Undo @FieldHistoryExclude
   Scenario:Verify new FD user (Last step approver)can see UNDO button on Approved state of Site Visit when approval task is transfer from one FD (step1)user to other FD user(step 1)
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -655,7 +655,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @281024 @VerifyEXEuserstep2asLaststepapprovercanseeUNDObuttonwhenApprovedtheSiteVisit&abletoSendbackapprovaldecisionafterclickonUNDO&abletoaddstep3approvalinSiteVisit @sprint-5-US-295139  @Undo @TBE
+  @281024 @VerifyEXEuserstep2asLaststepapprovercanseeUNDObuttonwhenApprovedtheSiteVisit&abletoSendbackapprovaldecisionafterclickonUNDO&abletoaddstep3approvalinSiteVisit @sprint-5-US-295139  @Undo
   Scenario: Verify EXE user(step 2) as Last step approver can see UNDO button when Approved the Site Visit & able to Send back approval decision after click on UNDO & able to add step 3 approval in Site Visit
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -1105,7 +1105,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @280996 @VerifyPOuserasLaststepapprovercanseeUNDObuttonwhenApprovedtheSiteVisit&abletoForwardapprovaldecisionwhenapprovaldecisionisforwardedfromPOusertoEXEuserinstep2approval @sprint-5-US-295139 @Undo @FieldHistoryExclude @TBE
+  @280996 @VerifyPOuserasLaststepapprovercanseeUNDObuttonwhenApprovedtheSiteVisit&abletoForwardapprovaldecisionwhenapprovaldecisionisforwardedfromPOusertoEXEuserinstep2approval @sprint-5-US-295139 @Undo @FieldHistoryExclude
   Scenario: Verify PO user as Last step approver can see UNDO button when Approved the Site Visit & able to Forward approval decision when approval decision is forwarded from PO user to EXE user in step 2 approval
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"

@@ -617,7 +617,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     The EGMS Team
     """
 
-  @296068 @296094 @VerifythatafterEXEuserclickonUndobuttonAllthetablesofOrganizationalDeskReviewwillnotgetaffected @sprint-4-US-288692  @Undo @snapExecution @TBE
+  @296068 @296094 @VerifythatafterEXEuserclickonUndobuttonAllthetablesofOrganizationalDeskReviewwillnotgetaffected @sprint-4-US-288692  @Undo @snapExecution
   Scenario:Verify that after EXE user click on Undo button All the tables of Organizational Desk Review will not get affected
     Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1060,7 +1060,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
      The EGMS Team.
       """
 
-  @296153 @296154 @VerifythatwhenExeapproverForwardtheOrganizationalDeskReviewApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-4-US-288692 @Undo @TBE
+  @296153 @296154 @VerifythatwhenExeapproverForwardtheOrganizationalDeskReviewApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-4-US-288692 @Undo
   Scenario:Verify that when Exe approver Forward the Organizational Desk Review Approval task , Forwarded Approver will see UNDO button and not previous One
     Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab

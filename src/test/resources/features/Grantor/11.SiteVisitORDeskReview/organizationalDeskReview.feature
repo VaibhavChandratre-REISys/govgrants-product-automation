@@ -455,7 +455,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:phasePendingTaskTableId---"
     Then I can see top right button "Accept And Close" in page detail
 
-  @55416 @56041 @55997 @submittingForApprovalSendBacktoOwnerReceivePendingTaskDROrgLevel  @organizationalDeskReviewFirst @TBE
+  @55416 @56041 @55997 @submittingForApprovalSendBacktoOwnerReceivePendingTaskDROrgLevel  @organizationalDeskReviewFirst
   Scenario: Validate user view the Submit for Approval button when record sent back to Recipients when outcomes are not properly addressed and recipients will be able to receive a pending task
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -867,7 +867,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Complete Review" in the page details
     Then I see status in Progress-bar is "In Progress" and is "dark blue"
 
-  @55998 @UploadsupportingDocumentChecklistFromWorkSpace  @RunAfterJuly @organizationalDeskReviewFirst @TBE
+  @55998 @UploadsupportingDocumentChecklistFromWorkSpace  @RunAfterJuly @organizationalDeskReviewFirst
   Scenario: User will be able to review the supporting document checklist submitted by the subrecipient
     When I navigate to "Files" sub tab
     When I click on "Upload Template" icon for "Active" inside flex table with id "---orgRiskAssessment:-:orgriskSupportingDocTableId---"
@@ -904,7 +904,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     Then I softly see value "Automation.pdf" for title "Title" inside table "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
     Then I softly see value "Other" for title "Classification" inside table "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
 
-  @61992 @RecordOwnerCanViewSnapshotAfterODRIsSubmittedForApproval @TBE
+  @61992 @RecordOwnerCanViewSnapshotAfterODRIsSubmittedForApproval
   Scenario: Validate Record Owner user is able to take Snapshot after Org Desk Review is Submitted for Approval status - Org Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -966,7 +966,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I wait for "3" seconds
     Then I softly see "{SavedValue:siteEGMSID}" on page "1" of "govgrants" pdf file
 
-  @61990 @RecordOwnerCanViewCompletedTask  @organizationalDeskReviewSecond @TBE
+  @61990 @RecordOwnerCanViewCompletedTask  @organizationalDeskReviewSecond
   Scenario: Validate whether user is able to view the Completed task once approved under Monitoring Tab - Org Level Desk review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -1199,7 +1199,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     Then I softly see the following messages in the page details contains:
       | Due date must be future date |
 
-  @65072 @foUserCannotDeleteCreatedOrgDesskReview  @organizationalDeskReviewSecond @TBE
+  @65072 @foUserCannotDeleteCreatedOrgDesskReview  @organizationalDeskReviewSecond
   Scenario: Validate the other than record onwer FO user cannot delete the created Org Level Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"

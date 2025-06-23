@@ -813,7 +813,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #304142
     Then I cannot see top right button "Undo" in page detail
 
-  @289807 @VerifyAuditorusercannotseeundobuttoninapprovedstateofOrganizationalSiteVisit @sprint-2-US-288691 @Undo @366345 @TBE
+  @289807 @VerifyAuditorusercannotseeundobuttoninapprovedstateofOrganizationalSiteVisit @sprint-2-US-288691 @Undo @366345
   Scenario:Verify Auditor user can not see undo button in approved state of Organizational Site Visit
     When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -895,7 +895,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @342521 @342527 @342529 @342544 @VerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinCreatedState @sprint-2-US-288691 @Undo @366345 @TBE
+  @342521 @342527 @342529 @342544 @VerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinCreatedState @sprint-2-US-288691 @Undo @366345
   Scenario: Verify that Undo Button will not visible to any user when Organization Site visit is in Created State
     When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1066,7 +1066,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342548
     Then I cannot see top right button "Undo" in page detail
 
-  @342554 @342559 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinSubmitforReviewState @sprint-13-US-331643 @Undo @366345 @TBE
+  @342554 @342559 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinSubmitforReviewState @sprint-13-US-331643 @Undo @366345
   Scenario: Verify that Undo Button will not visible to any user when Organization Site visit is in Submit for ReviewState.
     When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1166,7 +1166,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see field "Status" as " Submitted for Review"
     Then I cannot see top right button "Undo" in page detail
 
-  @342571 @342575 @342584 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisininSendtoSrState @sprint-13-US-331643 @Undo @366345 @TBE
+  @342571 @342575 @342584 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisininSendtoSrState @sprint-13-US-331643 @Undo @366345
   Scenario:OSV->Verify that Undo Button will not visible to any user when Organization Site visit is in in Send to S/r State
     When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1712,7 +1712,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I see status in Progress-bar is "Closed" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @308929 @ValidateIfOwnerandlaststepapproverofOrgSiteVisitaresameandSiteVisitisApprovedtheOwnershipReassignmentofDeskReviewischangedinthisstatewillnewOwnerSeeUNDObutton @Undo @TBE
+  @308929 @ValidateIfOwnerandlaststepapproverofOrgSiteVisitaresameandSiteVisitisApprovedtheOwnershipReassignmentofDeskReviewischangedinthisstatewillnewOwnerSeeUNDObutton @Undo
   Scenario: Validate If Owner and last step approver of Org Site Visit are same and Site Visit is Approved and the Ownership Reassignment of Desk Review is changed in this state will new Owner See UNDO button
     When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab

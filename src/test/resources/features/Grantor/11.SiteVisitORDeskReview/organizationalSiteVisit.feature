@@ -152,7 +152,7 @@ Feature: Validate all scenarios in Organizational Site Visit
       | Program Approver Name    |
       | {SavedValue:PM Username} |
 
-  @54454 @54456 @75862 @conductAndnotifySubrecipientSiteVisitOrgLevel @smoke @TBE
+  @54454 @54456 @75862 @conductAndnotifySubrecipientSiteVisitOrgLevel @smoke
   Scenario: Conduct Site Visit and Notify Subrecipient about the Site Visit Org Level | Validate the external user will receive an email notification when the org level site visit is in notified status
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -226,7 +226,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:homePendingTaskTableId---"
     Then I see that "{SavedValue:Automation Runtime Site Visit Org level}" is in "Notified" status
 
-  @54570 @formFillingSiteVisitOrgLevel @TBE
+  @54570 @formFillingSiteVisitOrgLevel
   Scenario: Filling up of form in Site Visit Org Level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -336,7 +336,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @54890 @54889 @siteVisitapprovalAndSendToSubrecipientOrgLevel @smoke @TBE
+  @54890 @54889 @siteVisitapprovalAndSendToSubrecipientOrgLevel @smoke
   Scenario: Approval and Send Site Visit to Subrecipient Org Level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -421,7 +421,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I click on "Send to Subrecipient" in the page details
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
 
-  @56355 @55206 @siteVisitSubmitToGrantorAndCorrectiveActionsBySubrecipient @smoke @TBE
+  @56355 @55206 @siteVisitSubmitToGrantorAndCorrectiveActionsBySubrecipient @smoke
   Scenario: Validate the Site Visit Submit to Grantor and Corrective Actions By Subrecipients
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -529,7 +529,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @55462 @61403 @viewnapshotOrgSiteVisitAcceptButtonAfterSRecipientsSubmission @TBE
+  @55462 @61403 @viewnapshotOrgSiteVisitAcceptButtonAfterSRecipientsSubmission
   Scenario: Validate User will be able to view the SnapshotSite Visit Accept button after review the submission by Recipients
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -647,7 +647,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I wait for "5" seconds
     Then I see "Closed" on page "1" of "govgrants" pdf file
 
-  @59011 @56004 @sendBacktoOwnerReceivePendingTaskSVOrgLevel @TBE
+  @59011 @56004 @sendBacktoOwnerReceivePendingTaskSVOrgLevel
   Scenario:  Validate when Site Visit record sent back to Recipients when outcomes are not properly addressed and recipients will be able to receive a pending task
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -726,7 +726,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Then I softly see that "{SavedValue:Automation Runtime Site Visit Org level}" has been added in flextable with Id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
     Then I softly see value "In Progress" for title "Status" against the value "{SavedValue:Automation Runtime Site Visit Org level}" inside table "---orgLevelSiteVisits:-:siteVisitsPanelId---"
 
-  @55464 @siteVisitsOrgLevelWithOutAddingCorerctiveItems @TBE
+  @55464 @siteVisitsOrgLevelWithOutAddingCorerctiveItems
   Scenario: User will not be able to submit the Site Visits Org Level to Grantor without adding corrective actions to findings.
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1000,7 +1000,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Then I see the following messages in the page details :
       | Reports and Outcomes Tab - Complete all data in the form. |
 
-  @56005 @uploadsupportingDocumentChecklistFromWorkSpace @TBE
+  @56005 @uploadsupportingDocumentChecklistFromWorkSpace
   Scenario: User will be able to review the supporting document checklist submitted by the subrecipient
     When I navigate to "Files" sub tab
     And I click on "Upload Template" icon for "Automation" inside flex table with id "---orgRiskAssessment:-:orgriskSupportingDocTableId---" with wait for record
@@ -1145,7 +1145,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on hyperlink containing value "View All"
     Then I see value "In Progress" for title "New Value" inside field history table
 
-  @61400 @61401 @ViewSnapshotandApproversTableIsNotEditableAfterSiteVisitsIsSubmittedToApproval @TBE
+  @61400 @61401 @ViewSnapshotandApproversTableIsNotEditableAfterSiteVisitsIsSubmittedToApproval
   Scenario: Validate Record Owner user is able to view the Snapshot and Approvers Table is not editable for record owner and award owner end when the status of Org Level Site Visits is Submitted to Approval
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1250,7 +1250,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 #    When I close "Site Visit Reviewers" modal by clicking the top right x button
     Then I cannot see top right button "Edit" in page detail
 
-  @56007 @PeerReviewAfterSVIsAcceptedAndClosed @TBE
+  @56007 @PeerReviewAfterSVIsAcceptedAndClosed
   Scenario: Validate peer review  process and also system does not allow the peer reviewer to edit/Enter review comments if the Org Level Site Visits marked as complete review by the Record owner
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1315,7 +1315,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
     Then I softly cannot see row level action button "Enter Review" against "{SavedValue:PO Username}" in flex table with id "SiteVisitReviewerRoles"
 
-  @61406 @61405 @66273 @CreatedDatedisplayedOnOverviewTabAddAttchments @TBE
+  @61406 @61405 @66273 @CreatedDatedisplayedOnOverviewTabAddAttchments
   Scenario: Validate whether the PM user can add the attachments to Org Level Site Visits and view the Created Date on Overview Tab |Validate whether record owner has access to delete the asoociated Contact and Application- Org Site visits
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1506,7 +1506,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I perform quick search for "Record Id" in "SiteVisit" panel
     Then I softly see "No Records Found" inside flex table with id "SiteVisit"
 
-  @65152 @historyOfOrgSiteVisitsendbacktoOwner @smoke @FieldHistoryExclude @TBE
+  @65152 @historyOfOrgSiteVisitsendbacktoOwner @smoke @FieldHistoryExclude
   Scenario: Validate History Field is getting Updated at Award owner End when Org Site Visit status is Submitted to Grantor.
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1669,7 +1669,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Then I softly see the following messages in the page details contains:
       | Due date must be future date |
 
-  @65154 @foUserCannotDeleteCreatedOrgSiteVisit @TBE
+  @65154 @foUserCannotDeleteCreatedOrgSiteVisit
   Scenario: Validate whether other than record owner Fo user can delete the created Org Level Site Visit
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1875,7 +1875,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Then I see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @148043 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtSiteVisitOrgLevel-RnRFunctionality @TBE
+  @148043 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtSiteVisitOrgLevel-RnRFunctionality
   Scenario: Verify validation user cannot add the same step for different approver on Organization site visit
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"

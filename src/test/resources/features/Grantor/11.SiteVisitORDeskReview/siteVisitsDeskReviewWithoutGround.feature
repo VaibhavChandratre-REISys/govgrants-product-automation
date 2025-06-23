@@ -54,7 +54,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I wait for "2" seconds
     Then I softly see that "100.00%" has been added in flextable with Id "---sitevisits:-:reportsTableId---"
 
-  @56010 @Userwillbeabletoreviewthesupportingdocumentchecklistsubmittedbythesubrecipient @TBE
+  @56010 @Userwillbeabletoreviewthesupportingdocumentchecklistsubmittedbythesubrecipient
   Scenario: User will be able to review the supporting document checklist submitted by the subrecipient and Filling up of form in Site Visit
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -152,7 +152,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly see value "Mandatory" for title "Required" inside table "---sitevisits:-:siteVisitSupportingDocumentChecklist---"
     Then I softly see value "Active" for title "Status" inside table "---sitevisits:-:siteVisitSupportingDocumentChecklist---"
 
-  @61178 @addAttachmentToSiteVisit @TBE
+  @61178 @addAttachmentToSiteVisit
   Scenario: Validate whether PM will be able to add any specific docuements required along with the supporting documents details under the attachments section
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -295,7 +295,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Management" sub tab
     Then I see value "In Progress" for title "Status" against the value "{SavedValue:SiteVisitID}" inside table "---sitevisits:-:grantorSiteVisitsTableID---"
 
-  @66714 @inProgressSiteVisitAmendedForDeskReviews  @smoke @TBE
+  @66714 @inProgressSiteVisitAmendedForDeskReviews  @smoke
   Scenario: Validate In-progress award level desk review are carried forward to newly created award after amendment - bpc
     Given I activated standalone subaward "Automation Runtime Award for Amendment Request" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award for Associate Amendment Request" with properties "default" of type "Formula_By_Applicant"

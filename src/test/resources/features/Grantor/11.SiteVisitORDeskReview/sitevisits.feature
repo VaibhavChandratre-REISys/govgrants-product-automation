@@ -40,7 +40,7 @@ Feature: Validate all scenarios in the Site Visit
     When I navigate to "Overview" sub tab
     Then I softly see field "Created Date" is not editable
 
-  @51084 @66229 @66232 @51085 @51086 @66283 @75869 @notifyPendingTaskForSubrecipientSiteVisit @smoke @TBE
+  @51084 @66229 @66232 @51085 @51086 @66283 @75869 @notifyPendingTaskForSubrecipientSiteVisit @smoke
   Scenario: Notify Subrecipient and the respective POC from the applicant organization will receive a pending task about the Site Visit|Validate the external user will receive an email notification when the site visit is in notified status
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -750,7 +750,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Then I softly can see top right button "Accept and Close" in page detail
 
-  @55461 @60838 @66234 @reportsAndOutcomesTabAfterNotifiedStatus @TBE
+  @55461 @60838 @66234 @reportsAndOutcomesTabAfterNotifiedStatus
   Scenario: Validate Validate Approvers Table is not editable for record owner and Reports and Outcome Tab visibility after Notified Status
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -809,7 +809,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     Then I softly cannot see "Reports and Outcomes" sub tab at view detail page
 
-  @56009 @77251 @55212 @sendBacktoOwnerReceivePendingTaskSV @TBE
+  @56009 @77251 @55212 @sendBacktoOwnerReceivePendingTaskSV
   Scenario: Validate when Site Visit record sent back to Recipients when outcomes are not properly addressed and recipients will be able to receive a pending task
   Verify when the FO user Send Back to owner during approval process of site visits , the record owner recieves an email notification
     Given I navigate to "Responsibilities" sub tab
@@ -1193,7 +1193,7 @@ Feature: Validate all scenarios in the Site Visit
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Enter Review" against "{SavedValue:FO Username}" in flex table with id "---sitevisits:-:reviewersFlexTableId---"
 
-  @60835 @60831 @TaskIsNotCreatedForFiscalApproverWhenProgramApproverSendsBackSiteVisitToOwner  @FieldHistoryExclude @TBE
+  @60835 @60831 @TaskIsNotCreatedForFiscalApproverWhenProgramApproverSendsBackSiteVisitToOwner  @FieldHistoryExclude
   Scenario: To Validate  Approvers Table is not editable and field history update Award Level Site Visits  is send back to owner by Fiscal Approver
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
