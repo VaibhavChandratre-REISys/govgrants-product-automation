@@ -6127,7 +6127,8 @@ Feature: Sanity scenarios
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     When I navigate to "Amendments" sub tab
-     And I enter "Grantee_BPC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I enter "Grantee_BPC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
      And I click modal button "Save and Continue"
      And I enter "Grantee_BPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
      When I click on "Save" in the page details
