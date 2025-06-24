@@ -1334,8 +1334,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I click modal button "Save and Continue"
     And I pause execution for "5" seconds
+    And I click modal button "Save and Continue"
+    And I pause execution for "2" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -2791,7 +2792,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I enter value "Automation PM" in reassign lookup
     Then I softly do not see "Automation PM" inside auto search result
 
-  @PGAnnWBExecute @195230 @ValidateoldAnnownershouldnotabletoseeAnntaskinMyTasktableonceownershiptaskreassigntootheruser @sprint-4  @reassignment
+  @195230 @ValidateoldAnnownershouldnotabletoseeAnntaskinMyTasktableonceownershiptaskreassigntootheruser @sprint-4  @reassignment
   Scenario: Validate old Ann owner should not able to see Ann task in My Task table once ownership task reassign to other user
     When I login to "Grantor" app as "PM1" user
     And I navigate to "Announcements" tab
