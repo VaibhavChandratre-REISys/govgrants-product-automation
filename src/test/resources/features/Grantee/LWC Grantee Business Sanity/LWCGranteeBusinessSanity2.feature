@@ -6110,12 +6110,12 @@ Feature: Sanity scenarios
 
 
    @464039 @validateadminuser(AwardOwner)canabletorevisethebudgetperiodchangeamendmentrequestonclickofreviseamendmentbuttonwhenparallelARisinsubmittoGrantorstate&abletoseestatus&StepProgressbarafterrevisetheAR  @runtestpm1
-  Scenario: Validate Admin user  (Award Owner) can able to Revise the Budget Period Change Amendment Request on click of Revise Amendment button when parallel AR is in Submit to Grantor state & able to see status & Step Progress bar after revise the AR
+  Scenario: Validate Admin user (Award Owner) can able to Revise the Budget Period Change Amendment Request on click of Revise Amendment button when parallel AR is in Submit to Grantor state & able to see status & Step Progress bar after revise the AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    And I "Approved" of type "Budget Period Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "BUDGET_PERIOD_CHANGE_GRANTEE_PO"
-    And I "Created" of type "Budget Period Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "BUDGET_PERIOD_CHANGE_GRANTEE_PO"
+    And I "Approved" of type "Budget Period Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
+    And I "Created" of type "Budget Period Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
