@@ -6130,8 +6130,11 @@ Feature: Sanity scenarios
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I enter "Grantee_BPC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
      And I click modal button "Save and Continue"
+     And I wait for "2" seconds
      And I enter "Grantee_BPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
      When I click on "Save" in the page details
+     And I wait for "2" seconds
+     And I navigate to "Overview" sub tab
      Then I softly see field "Status" as "Created"
      And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
