@@ -1,7 +1,7 @@
 @competitiveAnnouncementsWB @grantor-regression @grantor-parallel-regression @announcement @regression
 Feature: Validate all scenarios in the Competitive Announcement tab
 
-  @237875 @238363 @VerifyvalidationmessageisnotdisplayedtoexeuserwhenenteredrecommendedbudgetisequaltotheBudgetedAmountonFDMrecordwhichiscreatedfromCompetitiveannouncement @sprint-14-US-224179 @Allocation @TBE1
+  @237875 @238363 @VerifyvalidationmessageisnotdisplayedtoexeuserwhenenteredrecommendedbudgetisequaltotheBudgetedAmountonFDMrecordwhichiscreatedfromCompetitiveannouncement @sprint-14-US-224179 @Allocation
   Scenario Outline: Verify validation message is not displayed to exe user when entered recommended budget is equal to the Budgeted Amount on FDM record which is created from Competitive announcement
   | Verify validation message is not displayed to PM user when entered recommended budget is equal the Budgeted Amount on FDM record which is created from Competitive announcement with Negotiation as Yes |
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "<Filter>"
@@ -181,7 +181,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | {SavedValue:Automation Runtime Announcement} | NEGOTIATION_NO-Automation EXE user | EXE  |
       | {SavedValue:Automation Runtime Announcement} | default                            | PM   |
 
-  @237868 @VerifyvalidationmessageisdisplayedtoPOuserwhenenteredrecommendedbudgetislessthantheBudgetedAmountonFDMrecordwhichiscreatedfromCompetitiveannouncement @sprint-14-US-224179 @Allocation @TBE1
+  @237868 @VerifyvalidationmessageisdisplayedtoPOuserwhenenteredrecommendedbudgetislessthantheBudgetedAmountonFDMrecordwhichiscreatedfromCompetitiveannouncement @sprint-14-US-224179 @Allocation
   Scenario Outline: Verify validation message is displayed to PO user when entered recommended budget is less than the Budgeted Amount on FDM record which is created from Competitive announcement
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "NEGOTIATION_NO-Automation PO user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -1017,7 +1017,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PO   |
 
-  @227723 @CompAnnVerifyAdminwhennegotiationisinitiatedduringFDMorfromapplayoutthenusershouldgetvalidationonUIonsendtosubrecipientbuttonwhenthebudgetedAmountisnotequaltotheRecommendedBudget @sprint-13-US-224612  @Allocation @TBE1
+  @227723 @CompAnnVerifyAdminwhennegotiationisinitiatedduringFDMorfromapplayoutthenusershouldgetvalidationonUIonsendtosubrecipientbuttonwhenthebudgetedAmountisnotequaltotheRecommendedBudget @sprint-13-US-224612  @Allocation
   Scenario Outline: Comp Ann Admin when negotiation is initiated during FDM or from app layout then user should get validation on UI on send to subrecipient button when the budgeted Amount is not equal to the Recommended Budget
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-Automation ADMIN user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -1085,6 +1085,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1098,6 +1099,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1111,6 +1113,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -1154,6 +1157,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -1207,7 +1211,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Name                            | User  |
       | {SavedValue:Automation Runtime Announcement} | ADMIN |
 
-  @234899 @CompAnnVerifyPOusershouldseevalidationonsendtosrbuttonwhennegotiationisinitiatedSMEreviewstepwhenuserselectonlybudgetsummarybyFocusAreasectionfornegotiation @sprint-13-US-224612  @Allocation @TBE1
+  @234899 @CompAnnVerifyPOusershouldseevalidationonsendtosrbuttonwhennegotiationisinitiatedSMEreviewstepwhenuserselectonlybudgetsummarybyFocusAreasectionfornegotiation @sprint-13-US-224612  @Allocation
   Scenario Outline: Comp Ann PO user should see validation on send to sr button when negotiation is initiated SME review step when user select only budget summary by Focus Area section for negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-Automation PO user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -1249,7 +1253,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Name                            |
       | {SavedValue:Automation Runtime Announcement} |
 
-  @235268 @CompAnnVerifyEXEcanseethevalidationfor1appwhenthebudgetedAmountisnotequaltotheRecommendedBudgetwhenuserclickonsendtosubrecipientbuttonevenifRecommendedBudget&budgetedamountissameforotherapponsameFDM @sprint-13-US-224612  @Allocation @TBE1
+  @235268 @CompAnnVerifyEXEcanseethevalidationfor1appwhenthebudgetedAmountisnotequaltotheRecommendedBudgetwhenuserclickonsendtosubrecipientbuttonevenifRecommendedBudget&budgetedamountissameforotherapponsameFDM @sprint-13-US-224612  @Allocation
   Scenario Outline:Comp Ann EXE can see the validation for 1 app when the budgeted Amount is not equal to the Recommended Budget when user click on send to subrecipient button even if  Recommended Budget & budgeted amount is same for other app on same FDM
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-Automation EXE user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -1472,7 +1476,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Name                            | Application2                     | User |
       | {SavedValue:Automation Runtime Announcement} | Automation Runtime Application_2 | EXE  |
 
-  @227577 @CompAnnVerifyPOusercanseethevalidationwhenthebudgetedAmountisnotequaltotheRecommendedBudgetwhenusertriedtoconverttoawardonFDMlayout @sprint-13-US-224612  @Allocation @TBE1
+  @227577 @CompAnnVerifyPOusercanseethevalidationwhenthebudgetedAmountisnotequaltotheRecommendedBudgetwhenusertriedtoconverttoawardonFDMlayout @sprint-13-US-224612  @Allocation
   Scenario Outline:Comp Ann PO user can see the validation when the budgeted Amount is not equal to the Recommended Budget when user tried to convert to award on FDM layout
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-Automation PO user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"

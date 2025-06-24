@@ -249,7 +249,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see the following messages in the page details :
       | Overview Tab - Application Due Date cannot be in the past. |
 
-  @71445 @71580 @71593 @userCanValidateGeneratedErrorMessage @TBE1
+  @71445 @71580 @71593 @userCanValidateGeneratedErrorMessage
   Scenario: To validate system generates error message,when user giving form weight but review steps weight is 0 in Announcement
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -281,7 +281,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---announcement:-:AnnouncementReviewPanel---" without waiting for record
     Then I softly can see top right button "New" in flex table with id "---announcement:-:AnnouncementReviewPanel---"
 
-  @71150 @71578 @71303 @71051 @71054 @71497 @71500 @71503 @71523 @71518 @71151 @71152 @71540 @71153 @71056 @71314 @71307 @verifyTotalReviewFormWeight @smoke @TBE1
+  @71150 @71578 @71303 @71051 @71054 @71497 @71500 @71503 @71523 @71518 @71151 @71152 @71540 @71153 @71056 @71314 @71307 @verifyTotalReviewFormWeight @smoke
   Scenario: To validate system generated error message when total Review Form  weight(%) is more than 100 % while creating Announcement
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -486,7 +486,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Delete" icon for "Review form question Edited" inside flex table with id "---announcement:-:reviewPanelQuestionsTableId---" without waiting for record
     Then I softly do not see value "Review form question Edited" for title "Question" inside table "---announcement:-:reviewPanelQuestionsTableId---"
 
-  @71293 @71295 @71440 @71416 @verifyUserCanAddReviewers @TBE1
+  @71293 @71295 @71440 @71416 @verifyUserCanAddReviewers
   Scenario: To verify that user is allow to add reviewers to review forms while creating Announcement | To verify default review forms & reviewer section are populated on Draft announcement
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -643,7 +643,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I perform quick search for "{SavedValue:annId}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     Then I softly see value "{SavedValue:annId}" for title "EGMS ID" inside table "---applicationIntake:-:activeOpportunitiesTableId---"
 
-  @73866 @73870  @viewQualifiedOpportunitySPA @TBE1
+  @73866 @73870  @viewQualifiedOpportunitySPA
   Scenario: To verify user allow to view Qualified opportunity  in opportunity tab
   | To verify, searched functionality for Qualified Opportunities :All section for opportunities phase
     Given I published "Directed" type announcement having name "Automation Runtime Announcement for Application Intake" and properties "default"
@@ -1248,7 +1248,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly cannot see row level action button "Edit" against "{SavedValue:AnnEGMSID}" in flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     Then I softly cannot see row level action button "Delete" against "{SavedValue:AnnEGMSID}" in flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
 
-  @194755 @Validateonlyownerofannouncementrecordcaninitiatethereview @sprint-4  @reassignment @TBE1
+  @194755 @Validateonlyownerofannouncementrecordcaninitiatethereview @sprint-4  @reassignment
   Scenario: Validate only owner of announcement record can initiate the review
     When I login to "Grantor" app as "PM1" user
     And I navigate to "Announcements" tab
@@ -1385,7 +1385,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly can see row level action button "Initiate Review Process" against "{SavedValue:AnnEGMSID}" in flex table with id "---applicationReview:-:announcementListTableId---"
 
-  @194756 @Validateowneristransferredbeforeinitiatingthereviewonlynewreassignedownershouldbeabletoinitiatethereview @sprint-4  @reassignment @TBE1
+  @194756 @Validateowneristransferredbeforeinitiatingthereviewonlynewreassignedownershouldbeabletoinitiatethereview @sprint-4  @reassignment
   Scenario: Validate owner is transferred before initiating the review only new reassigned owner should be able to initiate the review
     When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -3094,7 +3094,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Save" in the page details
     And I close the tab
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
@@ -3346,7 +3346,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "Step 1" for title "Announcement" against the value "Automation PO" inside table "---announcement:-:approversTableId---"
     Then I softly see value "NA" for title "Announcement" against the value "Automation PO1" inside table "---announcement:-:approversTableId---"
 
-  @217675 @ValidateAnnValidateapprovercanreassignthetaskifhe/shewasdefinedonthecurrentmodule @sprint-12-US-226646  @reassignment @OnHoldDueToApproverNotAdded @TBE1
+  @217675 @ValidateAnnValidateapprovercanreassignthetaskifhe/shewasdefinedonthecurrentmodule @sprint-12-US-226646  @reassignment @OnHoldDueToApproverNotAdded
   Scenario: Validate Ann Validate approver can reassign the task if he/she was defined on the current module
     When I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -3645,7 +3645,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I cannot see row level action button "Edit" against "Pre-Screen" in flex table with id "---announcement:-:annReviewFormsTableId---"
     Then I cannot see row level action button "Delete" against "Pre-Screen" in flex table with id "---announcement:-:annReviewFormsTableId---"
 
-  @195209  @sprint-12-US-226646  @reassignment @TBE1
+  @195209  @sprint-12-US-226646  @reassignment
   Scenario: Validate  email should be generated for new owner once old owner reassign Ann ownership task to new user
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3770,7 +3770,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team
       """
 
-  @194721 @194718  @sprint-11-US-224734  @reassignment @TBE1
+  @194721 @194718  @sprint-11-US-224734  @reassignment
   Scenario: Validate email should get reached to "SA"(previous owner) when ownership of record is changed
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -4862,7 +4862,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       """
 
 
-  @223528  @sprint-11-US-217998  @reassignment @TBE1
+  @223528  @sprint-11-US-217998  @reassignment
   Scenario: Validate Announcement Module if Announcement record is in submitted for review state & submitted review by reviewer after changing the ownership of announcement then email should be send to the new owner
     When I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -4969,7 +4969,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team
       """
 
-  @224442 @ValidateReassignmentTaskallsimultaneousreassignmenttaskownershipshouldreassignedtonewowner&ValidatePass&failedtableinyopmail @sprint-11-US-217998  @reassignment @TBE1
+  @224442 @ValidateReassignmentTaskallsimultaneousreassignmenttaskownershipshouldreassignedtonewowner&ValidatePass&failedtableinyopmail @sprint-11-US-217998  @reassignment
   Scenario: Validate Reassignment Task all simultaneous reassignment task ownership should reassigned to new owner & Validate Pass & failed table in yopmail
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -5152,7 +5152,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
     And I switch to tab number "1"
-    Given I enter "Form Fields 1" values from "DeskReview_Field_Values.xlsx"
+    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
     And I wait for "2" seconds
@@ -6637,7 +6637,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on submit review
     Then I softly see that "Submitted" has been added in flextable with Id "---announcement:-:reviewersTableId---"
 
-  @227763 @234373 @CompAnnPOusershouldseevalidationonsendtosrbuttonwhennegotiationisinitiatedduringFDMuserwhenuserselectonlybudgetsummarybyFocusAreasectionfornegotiationwhenbudgetedamountisnotequaltorecommendedamount @sprint-13-US-224612  @Allocation @TBE1
+  @227763 @234373 @CompAnnPOusershouldseevalidationonsendtosrbuttonwhennegotiationisinitiatedduringFDMuserwhenuserselectonlybudgetsummarybyFocusAreasectionfornegotiationwhenbudgetedamountisnotequaltorecommendedamount @sprint-13-US-224612  @Allocation
   Scenario Outline: Comp Ann PO user should see validation on send to s/r button when negotiation is initiated during FDM user when user select only budget summary by Focus Area section for negotiation when budgeted amount is not equal to recommended amount
   | Direct Ann>>Verify PO user should see validation on send to s/r button when negotiation is initiated during FDM user when user select only budget summary by Focus Area section for negotiation|
     Given I published "<AnnouncementType>" type announcement having name "Automation Runtime Announcement" and properties "default-Automation PO user"
@@ -6883,7 +6883,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see the following messages in the page details contains:
       | If the Focus Area Required is Yes, then the Advance Payment Allowed must be selected as No. |
 
-  @204082 @204086 @204090 @ValidatePMusershouldabletoaddsupportingdocumentinsteadofuploadingdocumentinsupportingdocumentchecklistsection @Sprint-7-US-203239  @SuppDoc @TBE1
+  @204082 @204086 @204090 @ValidatePMusershouldabletoaddsupportingdocumentinsteadofuploadingdocumentinsupportingdocumentchecklistsection @Sprint-7-US-203239  @SuppDoc
   Scenario Outline: Validate PM user should able to add supporting document instead of uploading document in supporting document checklist section
     When I login to "Grantor" app as "<User>" user
     And I navigate to "Announcements" tab
@@ -6949,7 +6949,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see "Upload File" inside page block detail
     Then I softly see "Description" inside page block detail
 
-  @204154 @204155 @ValidatePMusershouldhavetwooptionsifuserclickonClassificationinUploadFilefromComputer @Sprint-7-US-203239  @SuppDoc @TBE1
+  @204154 @204155 @ValidatePMusershouldhavetwooptionsifuserclickonClassificationinUploadFilefromComputer @Sprint-7-US-203239  @SuppDoc
   Scenario: Validate PM user should have two options if user click on Classification in Upload File from Computer
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -6979,7 +6979,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
 
-  @204160 @ValidateinsupportingdocumentchecklistusershouldabletoselectthesectionAppliesTotillPlanningAnnouncementPreApplicaitionandApplication @Sprint-7-US-203239  @SuppDoc @TBE1
+  @204160 @ValidateinsupportingdocumentchecklistusershouldabletoselectthesectionAppliesTotillPlanningAnnouncementPreApplicaitionandApplication @Sprint-7-US-203239  @SuppDoc
   Scenario: Validate in supporting document checklist user should able to select the section "Applies To" till Planning Announcement Pre-Applicaition and Application
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -7428,7 +7428,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
 
-  @336717 @Sprint-13-US-341529-332637 @SystemEmail @TBE1
+  @336717 @Sprint-13-US-341529-332637 @SystemEmail
   Scenario: Validate Announcement FO user should not able to see email to Notify Announcement owner of send back in System Emails section in messages tab when send back Ann to record owner
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -7711,7 +7711,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "automationpo@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
     Then I softly see value "automationfd@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
 
-  @336725 @ValidateAnnouncementEXEusershouldnotabletoviewemailontableemailgeneratedafterPublishtheAnninSystemEmailssectionincollabtab @Sprint-13-US-341529-332637 @SystemEmail @TBE1
+  @336725 @ValidateAnnouncementEXEusershouldnotabletoviewemailontableemailgeneratedafterPublishtheAnninSystemEmailssectionincollabtab @Sprint-13-US-341529-332637 @SystemEmail
   Scenario: Validate Announcement EXE user should not able to view email on table & email generated after Publish the Ann in System Emails section in collab tab
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation EXE user"
     When I login to "Grantor" app as "EXE" user
@@ -7725,7 +7725,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I refresh the page
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
-    And I checkout to yopmail with mailid "automationspi30@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
     Then I refresh the page
     And I pause execution for "100" seconds
     And I click on mail with subject "Sandbox: Notification: New Opportunity #{SavedValue:AnnEGMSID}hasbeen Published"
