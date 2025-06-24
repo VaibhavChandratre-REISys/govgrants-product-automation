@@ -6115,7 +6115,6 @@ Feature: Sanity scenarios
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     And I "Approved" of type "Budget Period Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
-    And I "Created" of type "Budget Period Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -6128,10 +6127,12 @@ Feature: Sanity scenarios
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     When I navigate to "Amendments" sub tab
-    And I wait for "3" seconds
-    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    When I get the "EGMS ID"
-    And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
+     And I enter "Grantee_BPC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+     And I click modal button "Save and Continue"
+     And I enter "Grantee_BPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+     When I click on "Save" in the page details
+     Then I softly see field "Status" as "Created"
+     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
       | Title                           | End Date                            |
       | Automation Permanent Focus Area | {SavedValue:NewBudgetPeriodEndDate} |
@@ -6166,7 +6167,6 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I can see top right button "Record Decision" in page detail
     Then I can see top right button "Revise Amendment" in page detail
-    When I click on "Revise Amendment" in the page details
     And I click on "Revise Amendment" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to revise the amendment request? The amendment request will require an approval again after being revised." is displayed
     And I click "OK" on modal confirmation box
