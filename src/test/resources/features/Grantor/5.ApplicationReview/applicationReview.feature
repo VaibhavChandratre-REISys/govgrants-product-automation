@@ -753,6 +753,7 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "SME Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "SME Review" inside flex table with id "---announcement:-:reviewStepTableId---"
+    And I wait for "5" seconds
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
       | Form Name      | Due in Days |
       | Program Review | 7           |
@@ -951,6 +952,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    And I wait for "5" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
       | Program Review    | 5           |
@@ -1483,6 +1485,7 @@ Feature: Validate all scenarios in the Application Review
     And I softly see value "SME Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     And I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "SME Review" inside flex table with id "---announcement:-:reviewStepTableId---"
+    And I wait for "5" seconds
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
       | Form Name      | Due in Days | Minimum # of Reviews Required |
       | Program Review | 7           | 1                             |
@@ -1513,6 +1516,7 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "SME Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "SME Review" inside flex table with id "---announcement:-:reviewStepTableId---"
+    And I wait for "5" seconds
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
       | Form Name     | Due in Days |
       | Fiscal Review | 7           |
@@ -1543,6 +1547,7 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "SME Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "Management Review" inside flex table with id "---announcement:-:reviewStepTableId---"
+    And I wait for "5" seconds
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
       | Form Name         | Due in Days |
       | Management Review | 7           |
@@ -1763,6 +1768,7 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "SME Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "SME Review" inside flex table with id "---announcement:-:reviewStepTableId---"
+    And I wait for "5" seconds
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
       | Form Name         | Due in Days | Required? | Minimum # of Reviews Required |
       | Compliance Review | 7           | Unchecked | 0                             |
@@ -1826,6 +1832,7 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "SME Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---announcement:-:reviewStepTableId---"
+    And I wait for "5" seconds
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
       | Form Name  | Required? | Minimum # of Reviews Required | Due in Days |
       | Pre-Screen | Checked   | 1                             | 7           |
@@ -1914,6 +1921,7 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "SME Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---announcement:-:reviewStepTableId---"
+    And I wait for "5" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -1961,6 +1969,7 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "SME Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---announcement:-:reviewStepTableId---"
+    And I wait for "5" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -2005,6 +2014,7 @@ Feature: Validate all scenarios in the Application Review
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
       | Program Review    | 5           |
@@ -2247,6 +2257,7 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "SME Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---announcement:-:reviewStepTableId---"
+    And I wait for "5" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -3285,6 +3296,7 @@ Feature: Validate all scenarios in the Application Review
     And I edit the following rows inline in flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---" by clicking "Edit" :
       | Application Title   | Comments           |
       | <Announcement Name> | Automation Testing |
+    And I wait for "2" seconds
     Then I softly see "Saved successfully!" inside flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---"
     Then I softly see value "Automation Testing" for title "Comments" inside table "---grantor_tableId:-:RecommendedApplicationTableId---"
     #80056 #monu

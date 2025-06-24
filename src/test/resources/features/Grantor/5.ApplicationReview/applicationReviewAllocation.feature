@@ -3178,7 +3178,9 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I wait for "3" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Completed"
+    And I wait for "2" seconds
     When I click on "Funding Decision Memo" in the page details
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab

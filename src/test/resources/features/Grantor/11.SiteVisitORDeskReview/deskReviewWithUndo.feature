@@ -2371,3 +2371,25 @@ Feature: Validate all scenarios in Desk Review with Undo
     Thank you.
     The EGMS Team
     """
+
+  @tghhh
+  Scenario Outline: Test
+    And I login to "As a Grantor" app as "dynamicUser" user
+    When I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "Automation Runtime Announcement Application Review115230" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "Automation Runtime Announcement Application Review115230" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I navigate to "Related Log" sub tab
+    And I wait for "5" seconds
+    When I click on "View" icon for "SME Review" inside flex table with id "---announcement:-:reviewStepTableId---"
+    And I wait for "5" seconds
+    And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
+      | Form Name      | Due in Days | Minimum # of Reviews Required |
+      | Program Review | 7           | 1                             |
+    Then I softly see the following messages in the page details :
+      | Saved Successfully! |
+    Then I softly see value "7" for title "Due in Days" inside table "---applicationReview:-:reviewStepFormId---"
+    Examples:
+      | Announcement Name                                               |
+      | Automation Runtime Announcement Application Review115230 |

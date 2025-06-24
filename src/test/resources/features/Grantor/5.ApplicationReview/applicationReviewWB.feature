@@ -2401,6 +2401,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I edit the following rows inline in flex table with id "---applicationReview:-:rejectedApplicationTableId---" by clicking "Edit" :
       | Application Title  | Comments           |
       | <Application Name> | Automation Testing |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     Then I see value "Automation Testing" for title "Comments" inside table "---applicationReview:-:rejectedApplicationTableId---"
@@ -9973,6 +9974,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:EGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
     When I click on "Request Negotiations" in the page details
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Cancel Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
@@ -10076,6 +10078,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:EGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
     When I click on "Request Negotiations" in the page details
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Cancel Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
@@ -11556,6 +11559,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:EGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
     When I click on "Request Negotiations" in the page details
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Back to Current Review Step" in the page details
     Then I see the sub-header is "Management Review" in the page details
@@ -11742,6 +11746,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:EGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
     When I click on "Request Negotiations" in the page details
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Cancel Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
@@ -16223,7 +16228,6 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see the following messages in the page details contains:
       | Rejection of the FDM is not allowed because at least one application in the FDM is converted to award. |
     When I "Send to Owner" in the approval decision
-    And I refresh the page
     And I wait for "5" seconds
     Then I softly see field "Status" as "Created"
 

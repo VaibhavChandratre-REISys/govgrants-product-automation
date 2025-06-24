@@ -1300,7 +1300,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I wait for "6" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    Then I softly see field "Recommendation" as "Recommendation"
+    Then I softly see field "Recommendation" as "Recommended"
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
@@ -2327,6 +2327,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I navigate to "Quickview" sub tab in split screen
+    And I wait for "2" seconds
     And I click on "Edit" in the split screen page details
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -3315,6 +3316,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "5" seconds
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"
     And I navigate to "Negotiations" sub tab
