@@ -808,6 +808,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "---orgLevelDeskReview:-:deskreviewPanelId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
+    And I wait for "4" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
