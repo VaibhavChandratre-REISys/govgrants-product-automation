@@ -470,7 +470,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I wait for "3" seconds
     And I click on "Save" in the split screen page details
@@ -939,7 +939,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
@@ -998,7 +1000,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
@@ -3388,6 +3392,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Related Log" sub tab
     And I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "Management Review" inside flex table with id "---announcement:-:reviewStepTableId---"
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Completed"
     When I click on "Funding Decision Memo" in the page details
     And I wait for "2" seconds
@@ -3628,6 +3633,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Related Log" sub tab
     And I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "Management Review" inside flex table with id "---announcement:-:reviewStepTableId---"
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Completed"
     When I click on "Funding Decision Memo" in the page details
     And I pause execution for "5" seconds
@@ -3681,7 +3687,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I pause execution for "3" seconds
     When I click on "Submit Application" in the page details
@@ -6035,7 +6043,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "2" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I switch to tab number "1"
+    And I wait for "3" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
 #    And I click on "Back" in the page details
     And I switch to parent tab
@@ -6638,6 +6648,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "5" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
       | Management Review | 5           |
@@ -6728,7 +6739,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I get the "EGMS ID"
@@ -7236,7 +7249,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "2" seconds
     And I click on "Splitview " icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
@@ -7654,7 +7669,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
