@@ -354,9 +354,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Step Order | Step Name           | Description | Step Weight (%) |
       | 4          | Program Review Form | Test        | 70.00%          |
     And I pause execution for "2" seconds
-    Then I softly see value "Program Review Form" for title "Form Name" inside table "---announcement:-:annReviewFormsTableId---"
+    Then I softly see value "Program Review Form" for title "Form Name" inside table "---announcement:-:AnnouncementReviewPanel---"
     And I pause execution for "3" seconds
-    And I click on "Delete" icon for "Program Review Form" inside flex table with id "---announcement:-:annReviewFormsTableId---" without waiting for record
+    And I click on "Delete" icon for "Program Review Form" inside flex table with id "---announcement:-:AnnouncementReviewPanel---" without waiting for record
     And I pause execution for "3" seconds
     Then I softly see the following messages in the page details :
       | Record deleted successfully. |
@@ -2651,7 +2651,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     Then I can see row level action button "View" against "{SavedValue:AnnEGMSID}" in flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:AnnEGMSID}" in flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
-#    Then I cannot see row level action button "Delete" against "{SavedValue:AnnEGMSID}" in flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:AnnEGMSID}" in flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
 
   @195225 @ValidatenewAnnownershouldbedisplayforownersectionunderresponsibilitytabafterownershiptaskreassigntonewuser @sprint-4  @reassignment @TBE1
   Scenario: Validate new Ann owner should be display for owner section under responsibility tab after ownership task reassign to new user
