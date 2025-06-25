@@ -3690,12 +3690,14 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Forms and Files" sub tab
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
@@ -7004,14 +7006,14 @@ Feature: Validate all scenarios in the Application Review without background
     #190944
     And I click on "Edit" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
-#    #190957
-#    Then I softly see field "Status" as "Negotiation Initiated"
-#    When I navigate to "Overview" sub tab
-#    #190983
-#    Then I softly see fields "ProjectAbstract__c" is in edit mode
-#    When I navigate to "Forms and Files" sub tab
-#    Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
-#    Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
+    #190957
+    Then I softly see field "Status" as "Negotiation Initiated"
+    When I navigate to "Overview" sub tab
+    #190983
+    Then I softly see fields "ProjectAbstract__c" is in edit mode
+    When I navigate to "Forms and Files" sub tab
+    Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
+    Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
 
   @190934 @ValidateSPAusershouldabletoeditthefieldatsubrecipientsideoncegrantorsendtheapplicationtosubrecipient @Sprint-1
   Scenario: Validate SPA user should able to edit the field at subrecipient side once grantor send the application to subrecipient
@@ -10048,7 +10050,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
     When I click on "Request Negotiations" in the page details
     And I wait for "2" seconds
-    When I click on "Save" in the page details
+#    When I click on "Save" in the page details
     When I click on "Cancel Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Cancelled" in "Negotiation Request Details" pageblock
@@ -10152,7 +10154,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
     When I click on "Request Negotiations" in the page details
     And I wait for "2" seconds
-    When I click on "Save" in the page details
+#    When I click on "Save" in the page details
     When I click on "Cancel Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Cancelled" in "Negotiation Request Details" pageblock
@@ -11633,7 +11635,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
     When I click on "Request Negotiations" in the page details
     And I wait for "2" seconds
-    When I click on "Save" in the page details
+#    When I click on "Save" in the page details
     When I click on "Back to Current Review Step" in the page details
     Then I see the sub-header is "Management Review" in the page details
     Then I softly see field "Status" as "In Progress"
@@ -11822,7 +11824,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
     When I click on "Request Negotiations" in the page details
     And I wait for "2" seconds
-    When I click on "Save" in the page details
+#    When I click on "Save" in the page details
     When I click on "Cancel Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Cancelled" in "Negotiation Request Details" pageblock
