@@ -13714,18 +13714,18 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see that "Reviewer" is in "Automation PM" status
     And I close the tab
     Then I softly see "Average Score" in flex table header "---applicationReview:-:reviewFormsTableId---"
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-#    When I click toggle button to select "Application Reviews - All"
-#    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
-#    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
-#    And I navigate to "Related Log" sub tab
-#    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-#    And I wait for "2" seconds
-##    When I expand nested table containing column value "<Application Name>"
-#    Then I softly do not see "Average Score" in flex table header "---applicationReview:-:reviewFormsTableId---"
-#    Then I delete the record "{SavedValue:Automation Runtime Competitive Announcement}" from the object "announcement"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
+#    When I expand nested table containing column value "<Application Name>"
+    Then I softly do not see "Average Score" in flex table header "---applicationReview:-:reviewFormsTableId---"
+    Then I delete the record "{SavedValue:Automation Runtime Competitive Announcement}" from the object "announcement"
 
     Examples:
       | Announcement Name                                        | Application Name                                         |
@@ -18310,23 +18310,23 @@ Feature: Validate all scenarios in the Application Review without background
     #236762
     Then I softly see "Recommendations" in flex table header "---applicationReview:-:reviewFormsTableId---"
     Then I softly see "Average Score" in flex table header "---applicationReview:-:reviewFormsTableId---"
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-#    When I click toggle button to select "Application Reviews - All"
-#    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
-#    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
-#    And I navigate to "Related Log" sub tab
-#    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-#    And I wait for "2" seconds
-#    When I expand nested table containing column value "<Application Name>"
-#    And I click on "Automation FO: Review Completed - Recommended" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
-#    Then I see the page contains text "Only the announcement record owner or the assigned reviewer can view the reviewer's response. If you need access to the reviewer's response, please contact technical support."
-#    And I close the tab
-#    And I wait for "3" seconds
-#   #236762
-#    Then I softly do not see "Average Score" in flex table header "---applicationReview:-:reviewFormsTableId---"
-#    Then I delete the record "{SavedValue:Automation Runtime Competitive Announcement}" from the object "announcement"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
+    When I expand nested table containing column value "<Application Name>"
+    And I click on "Automation FO: Review Completed - Recommended" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+    Then I see the page contains text "Only the announcement record owner or the assigned reviewer can view the reviewer's response. If you need access to the reviewer's response, please contact technical support."
+    And I close the tab
+    And I wait for "3" seconds
+   #236762
+    Then I softly do not see "Average Score" in flex table header "---applicationReview:-:reviewFormsTableId---"
+    Then I delete the record "{SavedValue:Automation Runtime Competitive Announcement}" from the object "announcement"
     Examples:
       | Announcement Name                                        | Application Name                                         |
       | {SavedValue:Automation Runtime Competitive Announcement} | {SavedValue:Automation Runtime Competitive Announcement} |

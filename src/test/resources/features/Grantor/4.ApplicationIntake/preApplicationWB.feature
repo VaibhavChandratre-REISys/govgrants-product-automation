@@ -1041,9 +1041,11 @@ Feature: Pre-Application scenarios without background
     Then I softly can see top right button "Accept" in page detail
     Then I softly can see top right button "Reject" in page detail
     When I click on "Request Negotiation" in the page details
+    And I wait for "3" seconds
      #174858
     Then I softly can see "Negotiations" sub tab at view detail page
     And I navigate to "Negotiations" sub tab
+    And I wait for "3" seconds
      #174876
     Then I softly can see page block "Negotiation Request Details"
     Then I softly can see page block "Explanation of Negotiations Needed"
@@ -3096,7 +3098,9 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Leverage Allowed?" as "Yes"
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
+    And I wait for "2" seconds
     And I click on "Create Pre-Application" in the page details
+    And I wait for "5" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -4365,7 +4369,9 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
+    And I wait for "2" seconds
     And I click on "Create Pre-Application" in the page details
+    And I wait for "5" seconds
     When I click modal button "Save and Continue"
     And I wait for "1" seconds
     And I click on "Save" in the page details
