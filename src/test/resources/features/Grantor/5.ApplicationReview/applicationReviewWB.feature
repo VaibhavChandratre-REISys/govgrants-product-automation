@@ -470,7 +470,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I wait for "5" seconds
     And I get the "EGMS ID"

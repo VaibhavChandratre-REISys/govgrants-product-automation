@@ -3296,7 +3296,7 @@ Feature: Validate all scenarios in the Application Review
     And I edit the following rows inline in flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---" by clicking "Edit" :
       | Application Title   | Comments           |
       | <Announcement Name> | Automation Testing |
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     Then I softly see "Saved successfully!" inside flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---"
     Then I softly see value "Automation Testing" for title "Comments" inside table "---grantor_tableId:-:RecommendedApplicationTableId---"
     #80056 #monu
