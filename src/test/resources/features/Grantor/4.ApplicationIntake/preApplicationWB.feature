@@ -4519,7 +4519,6 @@ Feature: Pre-Application scenarios without background
     And I wait for "2" seconds
     And I click on "Create Pre-Application" in the page details
     And I wait for "4" seconds
-    And I wait for "5" seconds
     When I click modal button "Save and Continue"
     And I wait for "1" seconds
     And I click on "Save" in the page details
