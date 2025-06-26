@@ -184,6 +184,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---announcement:-:AnnouncementServiceArea1TableId---" without waiting for record
     When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Budget period added successfully. |
     And I save the value from row "1" for column name "Start Date" as "startDate" from flex table "---announcement:-:budgetPeriodTableId---"
@@ -300,9 +301,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
 
   @70479 @70481 @70503 @70422 @70507 @70542 @70543 @70425 @70424 @70426 @70419 @70417 @70418 @70506 @71951 @73408 @userDeleteSupportingDocument  @FieldHistoryExclude
   Scenario: To Verify that user can delete supporting document checklist While creating the Announcement |
-  To Verify that user can Edit fields in supporting document checklist While creating the Announcement |
-  To Verify that user can preview business forms while creating Announcement|
-  To Verify that user can Edit business forms while creating Announcement
+  |To Verify that user can Edit fields in supporting document checklist While creating the Announcement |
+  |To Verify that user can preview business forms while creating Announcement|
+  |To Verify that user can Edit business forms while creating Announcement
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - Closed and Archived"
     And I perform quick search for "Closed" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
@@ -357,6 +358,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "Edit" :
       | Created By                  | Title         | Description       |
       | {SavedValue:EXE Username}   |               | Automation Notes2 |
+    And I wait for "1" seconds
     Then I softly see the following messages in the page details :
       | Required Fields Missing |
     And I pause execution for "2" seconds
@@ -389,7 +391,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
 
   @72323 @71972  @applicationDueDataOfAnnInHistory @FieldHistoryExclude
   Scenario: To verify field history update with respect to modification in Application Due Dates of Announcement|
-  To verify that estimated period start date & end date is displayed according to the entered budget period dates in announcemnt
+  |To verify that estimated period start date & end date is displayed according to the entered budget period dates in announcemnt|
     And I click on "Edit" in the page details
     And I enter value "1" into field "ApplicationDueDate__c"
     And I click on "Save" in the page details
@@ -410,8 +412,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Budget Period Name | Start Date | End Date   |
       | BP01               | 03/13/2030 | 04/13/2030 |
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    Then I softly see value "04/14/2030" for title "Start Date" against the value "BP02" inside table "---announcement:-:budgetPeriodTableId---"
-    Then I softly see value "04/13/2031" for title "End Date" against the value "BP02" inside table "---announcement:-:budgetPeriodTableId---"
+    Then I softly see value "4/14/2030" for title "Start Date" against the value "BP02" inside table "---announcement:-:budgetPeriodTableId---"
+    Then I softly see value "4/13/2031" for title "End Date" against the value "BP02" inside table "---announcement:-:budgetPeriodTableId---"
 
   @70563 @70556 @70554 @70606 @70718 @73545 @73547 @73564 @73566 @userCanViewAndDeleteKPI  @buglogged151548
   Scenario: To  Verify that after associating objectives, related KPIs should be automatically populate while  creating the Announcement
@@ -479,6 +481,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly can see row level action button "View" against "10.028" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click "Associate" after selection of "Test" in the table "---announcement:-:associateForRelated---"
+    And I wait for "2" seconds
     And I click on "View" icon for "Test" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
 #    Then I see the header is "Federal/NGO Program" in the page details
 #    Then I see the sub-header is "Automation Permanent NGO Program" in the page details
@@ -1312,7 +1315,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @announcementRejectPendingTaskForNextApproverCA @announcementPostRejectionCheckInListViewCA @announcementPostRejectCompletedTaskForUserCA @announcementPostRejectPendingTaskForUserCA
+  @announcementRejectPendingTaskForNextApproverCA @announcementPostRejectionCheckInListViewCA @announcementPostRejectCompletedTaskForUserCA @announcementPostRejectPendingTaskForUserCA @Bug-Ticket-530694
   Scenario Outline: Validate that after rejection of an Announcement task get added to it's completed task table. || Validate that after rejection from 1st approver, 2nd user should not get pending task || Validate that after rejection of an Announcement task get deleted from pending task table.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"

@@ -16,6 +16,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I enter "Edition1" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -1483,6 +1484,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Undo" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "History" sub tab
+    And I wait for "2" seconds
     Then I softly see column "Date" at position "1" contains text "Step : Re - approval (Pending for approval) "
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     Then I softly see snapshot with name containing "Snapshot_Announcement_Submission.pdf" as name

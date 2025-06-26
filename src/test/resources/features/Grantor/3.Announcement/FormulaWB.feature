@@ -973,6 +973,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click modal button "Save and Continue"
     When I navigate to "Overview" sub tab
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
@@ -5554,7 +5555,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Allocation Amount" as "$1,000.00"
     When I click on "Submit to Grantor" in the page details
     #225142
-    Then I cannot see the following messages in the page details contains:
+    Then I softly cannot see the following messages in the page details contains:
       | Budget Tab: The Budgeted Amount must be equal to the Allocation Amount. |
     Then I softly see field "Status" as "Negotiation Submitted"
 
@@ -5613,7 +5614,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Allocation Amount" as "$1,000.00"
     When I click on "Submit to Grantor" in the page details
     #226383
-    Then I cannot see the following messages in the page details contains:
+    Then I softly cannot see the following messages in the page details contains:
       | Budget Tab: The Budgeted Amount must be equal to the Allocation Amount. |
     Then I softly see field "Status" as "Negotiation Submitted"
 
@@ -5758,7 +5759,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Allocation Amount" as "$1,000.00"
     When I click on "Submit to Grantor" in the page details
     #226384
-    Then I cannot see the following messages in the page details contains:
+    Then I softly cannot see the following messages in the page details contains:
       | Budget Tab: The Budgeted Amount must be equal to the Allocation Amount. |
     Then I softly see field "Status" as "Negotiation Submitted"
 
@@ -5810,7 +5811,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Allocation Amount" as "$1,000.00"
     When I click on "Submit to Grantor" in the page details
     #225141
-    Then I cannot see the following messages in the page details contains:
+    Then I softly cannot see the following messages in the page details contains:
       | Budget Tab: The Budgeted Amount must be equal to the Allocation Amount. |
     Then I softly see field "Status" as "Negotiation Submitted"
 
@@ -6999,3 +7000,89 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Examples:
       | Announcement Name                                    | Application Name                                     |
       | {SavedValue:Automation Runtime Formula Announcement} | {SavedValue:Automation Runtime Formula Announcement} |
+
+  @testtt
+  Scenario: Test
+#    When I login to "As a Grantor" app as "EXE" user
+#    And I navigate to "Announcements" tab
+#    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+#    And I click toggle button to select "Draft Competitive Announcements"
+#    And I perform quick search for "AN-TAO modified-15285" in "---announcement:-:competitiveAnnouncementTableId---" panel
+#    And I click on "Edit" icon for "AN-TAO modified-15285" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+#    And I navigate to "Files" sub tab
+#    And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "Edit" :
+#      | Created By                  | Title         | Description       |
+#      | {SavedValue:EXE Username}   |               | Automation Notes2 |
+#    And I wait for "1" seconds
+#    Then I softly see the following messages in the page details :
+#      | Required Fields Missing |
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Competitive Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I pause execution for "5" seconds
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I pause execution for "3" seconds
+    When I navigate to "Announcements" tab
+    And I click toggle button to select "Announcements - Closed and Archived"
+    And I perform quick search for "Closed" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
+    Then I softly see value "Closed" for title "Status" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
+    When I click on "View" icon for "Closed" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
+    When I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Competitive Announcements"
+    And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    When I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    And I navigate to "Setup" sub tab
+    Then I softly see value "Automation" for title "Description" inside table "---announcement:-:annChecklist---"
+    Then I softly see value "Grantor Application Forms" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
+    Then I softly see value "Organization Desk Review" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
+    Then I softly see value "Grantor Progress Report Forms" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
+    And I click on "Edit" icon for "Grantor Application Forms" inside flex table with id "---announcement:-:businessFormlistTableId---" without waiting for record
+    And I click on remove for lookup from field "PackageConfig__c"
+    And I enter in modal value "Grantor Application Forms" into field "PackageConfig__c"
+    And I click modal button "Save"
+    Then I softly see value "Grantor Application Forms" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
+    When I enter the following values into flex table with id "---announcement:-:annChecklist---" by clicking "Add" :
+      | Description                 | Required  | Applies To | Status |
+      | Automation test description | Mandatory | Award      | Active |
+    And I pause execution for "3" seconds
+    When I click on "Upload Template" icon for "Automation test description" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
+    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    When I close "Add Files" modal by clicking the top right x button
+    Then I softly see value "Mandatory" for title "Required" inside table "---announcement:-:annChecklist---"
+    Then I softly see value "Award" for title "Applies To" inside table "---announcement:-:annChecklist---"
+    Then I softly see value "Active" for title "Status" inside table "---announcement:-:annChecklist---"
+    Given I edit the following rows inline in flex table with id "---announcement:-:annChecklist---" by clicking "Edit" :
+      | Required  | Description                   | Applies To | Status |
+      | Mandatory | Automation test description02 | Award      | Active |
+    Then I softly see value "Automation test description02" for title "Description" inside table "---announcement:-:annChecklist---"
+    When I click on "Delete" icon for "Automation test description02" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
+    Then I softly do not see value "Automation test description02" for title "Description" inside table "---announcement:-:annChecklist---"
+    And I navigate to "Setup" sub tab
+    When I click on "Preview" icon for "Organization Desk Review" inside flex table with id "---announcement:-:businessFormlistTableId---" without waiting for record
+    Then I softly see field "Package Name" as "Organization Desk Review"
+    And I close "Preview Package" modal by clicking the top right x button
+    And I navigate to "Files" sub tab
+    When I enter the following values into flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
+    And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "Edit" :
+      | Created By                  | Title         | Description       |
+      | {SavedValue:EXE Username}   | Notes Record1 | Automation Notes1 |
+    Then I softly see value "Notes Record1" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
+    Then I softly see value "Automation Notes1" for title "Description" inside table "---announcement:-:AnnouncementNotestableId---"
+    And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "Edit" :
+      | Created By                  | Title         | Description       |
+      | {SavedValue:EXE Username}   |               | Automation Notes2 |
+    And I wait for "1" seconds
+    Then I softly see the following messages in the page details :
+      | Required Fields Missing |

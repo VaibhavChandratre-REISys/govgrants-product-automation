@@ -25,7 +25,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I perform quick search for "Created" in "---auditor:-:paymentrequestAdvancesTableId---" panel
     Then I see value "Created" for title "Status" inside table "---auditor:-:paymentrequestAdvancesTableId---"
 
-  @69179 @69942 @auditorOrgRiskAssessment @smoke
+  @69179 @69942 @auditorOrgRiskAssessment @smoke @Bug-Ticket-531004
   Scenario: Validate Auditor should have view / read  only access to Organizational Risk Assessment |Validate Auditor should not be  able to Provide revision access
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
     Given I am on "SUBPORTAL" portal

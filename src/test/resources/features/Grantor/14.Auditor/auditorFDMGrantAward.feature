@@ -55,7 +55,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     And I click toggle button to select "Grants - All"
     And I perform quick search for "{SavedValue:Automation Runtime award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    And I click on "Download As PDF" in the page details
+    And I click on "Download as PDF" in the page details
     And I wait for "7" seconds
     And I download the file
     Then I see "Active" on page "1" of "govgrants" pdf file

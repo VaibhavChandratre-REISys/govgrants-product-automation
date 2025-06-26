@@ -121,7 +121,7 @@ public class RegistrationPage extends ProjectManager {
             I.amPerforming().click().on(mailSubject);
         } catch (Exception e) {
             for (int i = 0; i < 18; i++) {
-                I.amPerforming().click().on(By.xpath("//span[text()='Refresh']/parent::button[@type='button'] | //button[@id='refresh']"));
+                I.amPerforming().click().on(By.xpath("//span[text()='Refresh']/parent::button[@type='button'] | //button[@id='refresh'] | //span[text()='Refresh Mailbox']/parent::button[@type='button']"));
               try {
                   if (I.amPerforming().checkToSee().isElementDisplayed(mailSubject)) {
                       I.amPerforming().click().on(mailSubject);

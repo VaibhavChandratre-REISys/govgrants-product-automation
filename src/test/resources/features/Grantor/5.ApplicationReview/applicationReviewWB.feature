@@ -463,14 +463,18 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Forms and Files" sub tab
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I wait for "5" seconds
     And I get the "EGMS ID"
@@ -896,6 +900,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     #81349 #meenakshi
     And I switch to tab number "1"
@@ -931,13 +936,18 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Forms and Files" sub tab
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
@@ -989,14 +999,19 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Forms and Files" sub tab
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     And I wait for "3" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
@@ -2196,7 +2211,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80509 @80510 @verifyPromoteToFDMButtonOnApplicationPhase
+  @80509 @80510 @verifyPromoteToFDMButtonOnApplicationPhase @Bug-Ticket-533832
   Scenario Outline: Verify user is able to see Promote to FDM button after rejection of application
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -2332,8 +2347,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
+    And I wait for "3" seconds
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     And I wait for "5" seconds
     And I navigate to "Announcements" tab
@@ -2401,6 +2417,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I edit the following rows inline in flex table with id "---applicationReview:-:rejectedApplicationTableId---" by clicking "Edit" :
       | Application Title  | Comments           |
       | <Application Name> | Automation Testing |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     Then I see value "Automation Testing" for title "Comments" inside table "---applicationReview:-:rejectedApplicationTableId---"
@@ -3385,6 +3402,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Related Log" sub tab
     And I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "Management Review" inside flex table with id "---announcement:-:reviewStepTableId---"
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Completed"
     When I click on "Funding Decision Memo" in the page details
     And I wait for "2" seconds
@@ -3625,6 +3643,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Related Log" sub tab
     And I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "Management Review" inside flex table with id "---announcement:-:reviewStepTableId---"
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Completed"
     When I click on "Funding Decision Memo" in the page details
     And I pause execution for "5" seconds
@@ -3671,14 +3690,18 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Forms and Files" sub tab
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I pause execution for "3" seconds
     When I click on "Submit Application" in the page details
@@ -6032,7 +6055,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "2" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I switch to tab number "1"
+    And I wait for "3" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
 #    And I click on "Back" in the page details
     And I switch to parent tab
@@ -6150,6 +6175,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
       | Management Review | 5           |
@@ -6190,10 +6216,12 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly can see top right button "Funding Decision Memo" in page detail
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Completed"
     And I wait for "3" seconds
     When I click on "Funding Decision Memo" in the page details
@@ -6232,8 +6260,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     And I wait for "2" seconds
     And I navigate to "Funding Decision Memo" sub tab
+    And I wait for "2" seconds
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     Then I softly can see "Negotiations" sub tab at view detail page
 
     Examples:
@@ -6635,6 +6664,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "5" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
       | Management Review | 5           |
@@ -6674,10 +6704,12 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly can see top right button "Funding Decision Memo" in page detail
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Completed"
     And I pause execution for "3" seconds
     When I click on "Funding Decision Memo" in the page details
@@ -6718,14 +6750,18 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Forms and Files" sub tab
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I get the "EGMS ID"
@@ -6879,6 +6915,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
       | Management Review | 5           |
@@ -6918,6 +6955,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly can see top right button "Funding Decision Memo" in page detail
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -7226,14 +7264,18 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview " icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
@@ -7481,7 +7523,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:appTableId---" panel
     Then I softly cannot see row level action button "Request Negotiation" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationReview:-:appTableId---"
 
-  @134200 @Validatemailisgeneratedtoallreviewersassignedtotheapplicationwithinthereviewstep @Sprint-1
+  @134200 @Validatemailisgeneratedtoallreviewersassignedtotheapplicationwithinthereviewstep @Sprint-1 @Bug-Ticket-533920
   Scenario:Validate mail is generated to all reviewers assigned to the application within the review step
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7644,14 +7686,18 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
@@ -7818,16 +7864,20 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I pause execution for "2" seconds
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I pause execution for "2" seconds
     When I click on "Submit to Grantor" in the page details
@@ -8098,13 +8148,19 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I pause execution for "2" seconds
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
+    And I wait for "3" seconds
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I pause execution for "2" seconds
 #    When I click on "Back" in the page details
@@ -8140,7 +8196,9 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly cannot see top right button "Edit" in page detail
     #134406
 #    When I click on "Back" in the page details
+    And I wait for "3" seconds
     When I click on "Request Negotiations" in the page details
+    And I wait for "3" seconds
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
     And I navigate to "Negotiations" sub tab
@@ -8259,14 +8317,19 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I wait for "5" seconds
     When I click on "Submit to Grantor" in the page details
@@ -8447,14 +8510,18 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
@@ -8899,14 +8966,18 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Forms and Files" sub tab
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I wait for "5" seconds
     When I click on "Submit Application" in the page details
@@ -9189,14 +9260,18 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Forms and Files" sub tab
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
@@ -9935,6 +10010,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
@@ -9973,7 +10049,8 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:EGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
     When I click on "Request Negotiations" in the page details
-    When I click on "Save" in the page details
+    And I wait for "2" seconds
+#    When I click on "Save" in the page details
     When I click on "Cancel Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Cancelled" in "Negotiation Request Details" pageblock
@@ -10076,7 +10153,8 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:EGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
     When I click on "Request Negotiations" in the page details
-    When I click on "Save" in the page details
+    And I wait for "2" seconds
+#    When I click on "Save" in the page details
     When I click on "Cancel Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Cancelled" in "Negotiation Request Details" pageblock
@@ -11556,7 +11634,8 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:EGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
     When I click on "Request Negotiations" in the page details
-    When I click on "Save" in the page details
+    And I wait for "2" seconds
+#    When I click on "Save" in the page details
     When I click on "Back to Current Review Step" in the page details
     Then I see the sub-header is "Management Review" in the page details
     Then I softly see field "Status" as "In Progress"
@@ -11704,7 +11783,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
+    And I wait for "3" seconds
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
@@ -11742,7 +11823,8 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:EGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
     When I click on "Request Negotiations" in the page details
-    When I click on "Save" in the page details
+    And I wait for "2" seconds
+#    When I click on "Save" in the page details
     When I click on "Cancel Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Cancelled" in "Negotiation Request Details" pageblock
@@ -16223,8 +16305,9 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see the following messages in the page details contains:
       | Rejection of the FDM is not allowed because at least one application in the FDM is converted to award. |
     When I "Send to Owner" in the approval decision
-    And I refresh the page
     And I wait for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Created"
 
     Examples:
@@ -16684,7 +16767,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PO user | PO   |
 
-  @204101 @204106  @Sprint-08-US-202799
+  @204101 @204106  @Sprint-08-US-202799 @Bug-Ticket-533920
   Scenario Outline: Validate Announcement owner as PM user should see notification in yopmail for Rejected FDM when FDM is rejected by approver
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -21129,7 +21212,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @196969 @ValidateApp-RevVenewownercancreateFDMonManagementreviewlayoutafterit'srelatedAnnownershipwillassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment
+  @196969 @ValidateApp-RevVenewownercancreateFDMonManagementreviewlayoutafterit'srelatedAnnownershipwillassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment @Bug-Ticket-533920
   Scenario Outline: Validate App-Rev new owner can create FDM on Management review layout after it's related Ann ownership will assign to new user
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -21459,12 +21542,17 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details

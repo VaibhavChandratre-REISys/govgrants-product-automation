@@ -1720,7 +1720,7 @@ Feature: Validate all scenarios of every modules flow
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
     And I halt execution
     
-  @debug
+  @debuggg
   Scenario:
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Closeout__c/a23Da000001UNqWIAW/view"
@@ -1739,3 +1739,39 @@ Feature: Validate all scenarios of every modules flow
 #    And I initiated an application review for application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}" on announcement "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}" with properties "default"
 #    And I created approved FDM on application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}"
 
+  @InternalUserPwdCheck
+  Scenario Outline: test
+    When I login to "As a Grantor" app as "<InternalUser>" user
+    When I navigate to "Home" tab
+
+    Examples:
+      | InternalUser |
+      | ADMIN     |
+      | EXE       |
+      | PM        |
+      | FO        |
+      | PO        |
+      | FD        |
+      | PM1       |
+      | EXE1      |
+      | PO1       |
+      | FO1       |
+      | FD1       |
+      | SARAH PM  |
+      | ADMIN1    |
+
+
+  @ExternalUserPwdCheck
+  Scenario Outline: test
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "<ExternalUser>" user
+    When I navigate to "Opportunities" tab
+
+    Examples:
+      | ExternalUser |
+      | SPI3         |
+      | SPA          |
+      | SA           |
+      | IND          |
+      | SPI4         |
+      | SME          |

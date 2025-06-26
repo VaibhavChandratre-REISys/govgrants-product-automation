@@ -671,6 +671,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I enter in modal value "Yes" into field "IsNegotiationsAllowed__c"
     And I wait for "2" seconds
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     And I save the field labeled "Announcement Name" as "Automation Runtime FDM Announcement"
     When I click on "Edit" in the page details
@@ -1009,7 +1010,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
-    And I cannot see the following messages in the page details contains:
+    Then I softly cannot see the following messages in the page details contains:
       | Negotiation Tab: Please select "Budget Tab: Budget Details" with "Budget Tab: Budget Summary by Focus Area" in the Application Sections for the Negotiation field. |
     Then I softly see field "Status" as "Negotiation Initiated"
 
