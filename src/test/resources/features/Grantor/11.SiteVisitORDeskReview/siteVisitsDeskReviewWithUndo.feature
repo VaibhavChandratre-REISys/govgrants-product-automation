@@ -297,7 +297,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Site Visit - Undo Approval.pdf" as name
 
-  @279083 @VerifynewFDuserLaststepapprovercanseeUNDObuttononApprovedstateofSiteVisitwhenapprovaltaskistransferfromoneFDstep1usertootherFDuserstep1 @sprint-2-US-289061  @Undo @FieldHistoryExclude
+  @279083 @VerifynewFDuserLaststepapprovercanseeUNDObuttononApprovedstateofSiteVisitwhenapprovaltaskistransferfromoneFDstep1usertootherFDuserstep1 @sprint-2-US-289061  @Undo @FieldHistoryExclude @SiteandDeskRerunagain
   Scenario:Verify new FD user (Last step approver)can see UNDO button on Approved state of Site Visit when approval task is transfer from one FD (step1)user to other FD user(step 1)
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"

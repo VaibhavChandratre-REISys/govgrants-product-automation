@@ -399,6 +399,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       """
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "PM1" user
+    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel

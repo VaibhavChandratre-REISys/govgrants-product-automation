@@ -886,7 +886,6 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Reject" in the approval decision
-    And I refresh the page
     And I wait for "2" seconds
     Then I softly see field "Status" as "Rejected"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -945,6 +944,7 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1219,7 +1219,6 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     And I "Reject" in the approval decision
-    And I refresh the page
     Then I softly see field "Status" as "Rejected"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
@@ -1474,6 +1473,7 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 200        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab

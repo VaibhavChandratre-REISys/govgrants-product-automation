@@ -147,12 +147,12 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
-    And I checkout to yopmail with mailid "automationspi1@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     And I pause execution for "40" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
     """
-      Sandbox: Notification: Access has been granted to reviseOrganization Risk Assessment
+      Sandbox: Provide or Decline Permission to Revise Risk Assessmentfor Subrecipient Organization Automation Permanent Organization for RiskAssessment
       """
 
   @62670 @62303 @62304 @62306 @62305 @grantorProvidedAccessForRevisionRequest  @GrantorAddedAttachmentsSentForRevisionRequestOfOrgLevelRA @EffectiveDatAandExpirationDatesForOrgLRAIsInCraetedStatus  @OrgLRAOnceActiveThenCreatedDateIsTodaysDate @requestRevisionButtonAvailability
@@ -202,7 +202,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     Then I can see top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @62672 @62671 @validateRequestNewAssessmentButtonAvailbility @validateExpiredRAWhenSecIsActive  @smoke
+  @62672 @62671 @validateRequestNewAssessmentButtonAvailbility @validateExpiredRAWhenSecIsActive  @smoke @Bug-Ticket-532462
   Scenario: Validate as soon as user can activate the second Risk Assessment the first Risk Assessment will go in Expired State
     |Validate once Signing Authority user clicks on Request New Assessment Button then the button is hidden from Flex table|
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record

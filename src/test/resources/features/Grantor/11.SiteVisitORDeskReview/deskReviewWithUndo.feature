@@ -453,7 +453,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I can see top right button "Send to Subrecipient" in page detail
     Then I can see top right button "Undo" in page detail
 
-  @279028 @279033 @verifyiflastApproverandOwnerofDeskreviewissameRobertPOthenPOwillseeUNDOandSendtoSrbutton @sprint-25-US-297269  @Undo
+  @279028 @279033 @verifyiflastApproverandOwnerofDeskreviewissameRobertPOthenPOwillseeUNDOandSendtoSrbutton @sprint-25-US-297269  @Undo @Bug-Ticket-528330
   Scenario: verify if last Approver and Owner of Desk review is same, Robert PO then PO will see UNDO and Send to S/r button
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant_Focus_Area"
@@ -1092,7 +1092,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I navigate to "History" sub tab
     Then I softly see column "Assigned To" at position "2" contains text "{SavedValue:EXE Username}"
     #Bug443987
-    Then I softly see column "Date" at position "1" contains text "Step : Re-approval (Pending for approval) "
+    Then I softly see column "Date" at position "1" contains text "Step : Re-approval (Pending for approval)"
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
