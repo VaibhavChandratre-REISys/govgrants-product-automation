@@ -16652,9 +16652,6 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Created"
     Then I softly see field "Initiated By" as "Grantor"
     Then I softly see field "Amendment Type" as "Other"
-    Then I can see top right button "Edit" in page detail
-    Then I can see top right button "Delete" in page detail
-    Then I can see top right button "Submit for Approval" in page detail
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
     Then I softly can see "Files" sub tab at view detail page
@@ -16686,6 +16683,9 @@ Feature: Sanity scenarios
     Then I softly do not see fields "AreTCspartofNGAAttachments__c" is visible
     Then I softly do not see fields "FederalTCLink__c" is visible
     And I click on "Save" in the page details
+    Then I can see top right button "Edit" in page detail
+    Then I can see top right button "Delete" in page detail
+    Then I can see top right button "Submit for Approval" in page detail
     When I save the field labeled "Description of Other Changes" as "DescriptionofOtherChanges"
     When I save the field labeled "Justification for Purpose and Summary" as "JustificationforPurposeandSummary"
     When I save the field labeled "If Other amendment type, explain" as "IfOtheramendmenttypeexplain"
@@ -16843,9 +16843,6 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Created"
     Then I softly see field "Initiated By" as "Grantor"
     Then I softly see field "Amendment Type" as "Other"
-    Then I cannot see top right button "Edit" in page detail
-    Then I cannot see top right button "Delete" in page detail
-    Then I cannot see top right button "Submit for Approval" in page detail
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
     Then I softly can see "Files" sub tab at view detail page
