@@ -8,8 +8,8 @@ Feature: Validate all scenarios for SME Registration
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I enter in modal "smeReviewerRegistration" values from "Registration_Field_Values.xlsx"
-    And I generate the random EmailID and save as "uniqueEmailID" for maildrop
-    And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter in modal value "{SavedValue:uniqueEmailID1}" into field "Email"
     And I click modal button "Save"
     And I wait for "4" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---grantor_tableId:-:PotentialReviewerContactTableId---" panel
@@ -18,7 +18,8 @@ Feature: Validate all scenarios for SME Registration
     And I click "Send" button in modal
     And I wait for "3" seconds
     And I pause execution for "180" seconds
-    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
+    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
     #34840 #monu
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Legal Disclaimer 1 of 2" in the page details
@@ -32,7 +33,7 @@ Feature: Validate all scenarios for SME Registration
     Then I softly see fields "ExternalReviewerLastName__c" is in edit mode
     Then I softly see fields "ExternalReviewerLastName__c" is in edit mode
     Then I softly see fields "ExternalReviewerPhone__c" is in edit mode
-    Then I softly see field "Email" as "{SavedValue:uniqueEmailID}"
+    Then I softly see field "Email" as "{SavedValue:uniqueEmailID1}"
 
   @34991 @VerifySubjectMatterExpertFieldsDetails-SMEReviewerRegistration @smoke
   Scenario: Validate filled details of subject matter expert fields on page of Registration Step 1 of 1
@@ -41,8 +42,8 @@ Feature: Validate all scenarios for SME Registration
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I enter in modal "smeReviewerRegistration" values from "Registration_Field_Values.xlsx"
-    And I generate the random EmailID and save as "uniqueEmailID"
-    And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter in modal value "{SavedValue:uniqueEmailID1}" into field "Email"
     And I click modal button "Save"
     And I wait for "4" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---grantor_tableId:-:PotentialReviewerContactTableId---" panel
@@ -51,7 +52,8 @@ Feature: Validate all scenarios for SME Registration
     And I wait for "2" seconds
     And I refresh the page
     And I pause execution for "180" seconds
-    And I navigate to yopmail portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Notification: Invitation to be a user of EGMS"
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
+    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Notification: Invitation to be a user of EGMS"
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Legal Disclaimer 1 of 2" in the page details
     When I click on "Agree" in the page details
@@ -71,8 +73,8 @@ Feature: Validate all scenarios for SME Registration
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I enter in modal "smeReviewerRegistration" values from "Registration_Field_Values.xlsx"
-    And I generate the random EmailID and save as "uniqueEmailID"
-    And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter in modal value "{SavedValue:uniqueEmailID1}" into field "Email"
     And I click modal button "Save"
     And I wait for "4" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---grantor_tableId:-:PotentialReviewerContactTableId---" panel
@@ -109,6 +111,8 @@ Feature: Validate all scenarios for SME Registration
     When I navigate to "{grantor_sidebar:smeReviewer}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I enter "smeReviewerRegistration" values from "Registration_Field_Values.xlsx"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "Email"
     And I click modal button "Save"
     And I save the contact name as "Automation Runtime Contact"
     And I refresh the page
@@ -117,7 +121,7 @@ Feature: Validate all scenarios for SME Registration
     And I click modal button "Send"
     And I refresh the page
     And I pause execution for "62" seconds
-    And I navigate to yopmail portal for "smereviewer@yopmail.com"
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Legal Disclaimer 1 of 2" in the page details
     When I click on "Agree" in the page details
@@ -165,18 +169,19 @@ Feature: Validate all scenarios for SME Registration
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I enter in modal "smeReviewerRegistration" values from "Registration_Field_Values.xlsx"
-    And I generate the random EmailID and save as "uniqueEmailID"
-    And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter in modal value "{SavedValue:uniqueEmailID1}" into field "Email"
     And I click modal button "Save"
     And I wait for "4" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---grantor_tableId:-:PotentialReviewerContactTableId---" panel
     When I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I click "Send" button in modal
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "{SavedValue:uniqueEmailID}"
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
+    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Notification: You have been Invited to Register in the"
     And I pause execution for "200" seconds
     Then I refresh the page
-    And I see the mail subject is as follows :
+    And I see the maildrop subject is as follows :
       """
       Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)
       """
@@ -188,6 +193,8 @@ Feature: Validate all scenarios for SME Registration
     When I navigate to "{grantor_sidebar:smeReviewer}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I enter "smeReviewerRegistration" values from "Registration_Field_Values.xlsx"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter in modal value "{SavedValue:uniqueEmailID1}" into field "Email"
     And I click modal button "Save"
     And I save the contact name as "Automation Runtime Contact"
     And I wait for "6" seconds
