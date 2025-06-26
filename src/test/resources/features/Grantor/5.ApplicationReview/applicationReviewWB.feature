@@ -2211,7 +2211,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80509 @80510 @verifyPromoteToFDMButtonOnApplicationPhase
+  @80509 @80510 @verifyPromoteToFDMButtonOnApplicationPhase @Bug-Ticket-533832
   Scenario Outline: Verify user is able to see Promote to FDM button after rejection of application
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7523,7 +7523,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:appTableId---" panel
     Then I softly cannot see row level action button "Request Negotiation" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationReview:-:appTableId---"
 
-  @134200 @Validatemailisgeneratedtoallreviewersassignedtotheapplicationwithinthereviewstep @Sprint-1
+  @134200 @Validatemailisgeneratedtoallreviewersassignedtotheapplicationwithinthereviewstep @Sprint-1 @Bug-Ticket-533920
   Scenario:Validate mail is generated to all reviewers assigned to the application within the review step
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -16767,7 +16767,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PO user | PO   |
 
-  @204101 @204106  @Sprint-08-US-202799
+  @204101 @204106  @Sprint-08-US-202799 @Bug-Ticket-533920
   Scenario Outline: Validate Announcement owner as PM user should see notification in yopmail for Rejected FDM when FDM is rejected by approver
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -21212,7 +21212,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @196969 @ValidateApp-RevVenewownercancreateFDMonManagementreviewlayoutafterit'srelatedAnnownershipwillassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment
+  @196969 @ValidateApp-RevVenewownercancreateFDMonManagementreviewlayoutafterit'srelatedAnnownershipwillassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment @Bug-Ticket-533920
   Scenario Outline: Validate App-Rev new owner can create FDM on Management review layout after it's related Ann ownership will assign to new user
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
