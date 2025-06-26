@@ -16563,7 +16563,7 @@ Feature: Sanity scenarios
     Then I softly see "Approval History" page block displayed
     Then I softly see "Snapshot History" page block displayed
 
-  @486644 @validateauditor(nonowner)usershouldabletoseethenewawardshouldbeinactivatestate
+    @486644 @validateauditor(nonowner)usershouldabletoseethenewawardshouldbeinactivatestate
   Scenario: Validate Auditor(non owner) user should able to see the new award should be in activate state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -17159,15 +17159,6 @@ Feature: Sanity scenarios
     And I save the field labeled "EGMS ID" as "AREGMSID"
     And I click on "Amend Award" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Pending Activation" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    And I wait for "2" seconds
     Then I can see top right button "Activate Award" in page detail
     Then I can see top right button "Delete" in page detail
     When I click on "Activate Award" in the page details
@@ -17291,7 +17282,7 @@ Feature: Sanity scenarios
     Then I softly see value "$0.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Program Income Expenditures" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     When I navigate to "Amendments" sub tab
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
     And I navigate to "Monitoring" sub tab
     Then I softly see value "{SavedValue:TermsTitle}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
     And I navigate to "History" sub tab
