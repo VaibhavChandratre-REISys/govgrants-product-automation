@@ -4723,10 +4723,10 @@ Feature: Sanity scenarios
     Examples:
       | UserName      | OwnerType  | UserType        |
       | Sarah PM user | GRANTEE PM | GRANTEE ADMIN1  |
-#      | Sarah PM user | GRANTEE PM | GRANTEE AUDITOR |
-#      | Sarah PM user | GRANTEE PM | GRANTEE FO      |
-#      | Sarah PM user | GRANTEE PM | GRANTEE FD      |
-#      | Sarah PM user | GRANTEE PM | GRANTEE EXE     |
+      | Sarah PM user | GRANTEE PM | GRANTEE AUDITOR |
+      | Sarah PM user | GRANTEE PM | GRANTEE FO      |
+      | Sarah PM user | GRANTEE PM | GRANTEE FD      |
+      | Sarah PM user | GRANTEE PM | GRANTEE EXE     |
 
   @485395 @Sf424PMuserisrejecttheapplicationthensubmittograntsgovbuttonisnotdisplay&verifytheeditaccess @P4_Grantee @GranteeTBE
   Scenario Outline: Sf-424- PM user is reject the application then submit to grants.gov button is not display & verify the edit access
