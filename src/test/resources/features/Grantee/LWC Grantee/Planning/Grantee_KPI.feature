@@ -343,22 +343,25 @@ Feature: Validate all scenarios for KPI
       | userType   | EmailId                     |
       | GRANTEE FD | danielle.garcia@yopmail.com |
 
-  @477629 @ValidatePMusershouldabletoseevalidationmessagesforrequiredtosavefiledonKPI
+  @477629 @ValidatePMusershouldabletoseevalidationmessagesforrequiredtosavefiledonKPI @P2_Grantee @EXE_Grantee @GRegression2
   Scenario Outline: Validate EXE user should able to see validation messages for required to save filed on KPI
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:KPITable---"
+    And I wait for "2" seconds
     And I click modal button "Save and Continue"
-    Then I softly see the following messages in the page details :
-      | Title is required to save.               |
-      | Domain is required to save.              |
-      | Measure is required to save.             |
-      | Unit of Measurement is required to save. |
-      | Indicator is required to save.           |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Title is required.                |
+      | To Save, Domain is required.               |
+      | To Save, Measure is required.              |
+      | To Save, Unit of Measurement is required.  |
+      | To Save, Indicator is required.            |
+    And I wait for "2" seconds
     And I enter "Grantee_Creation" values from "KPI_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     When I clear the value from field "Description__c"
     When I clear the value from field "Title__c"
     When I enter value "--None--" into field "Unit__c"
@@ -366,32 +369,36 @@ Feature: Validate all scenarios for KPI
     When I enter value "--None--" into field "Domain__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Domain is required to save under Overview.              |
-      | Title is required to save under Overview.               |
-      | Measure is required to save under Overview.             |
-      | Unit of Measurement is required to save under Overview. |
-      | Indicator is required to save under Overview.           |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Domain is required in the Overview tab under the Overview section.              |
+      | To Save, Title is required in the Overview tab under the Overview section.               |
+      | To Save, Measure is required in the Overview tab under the Overview section.             |
+      | To Save, Unit of Measurement is required in the Overview tab under the Overview section. |
+      | To Save, Indicator is required in the Overview tab under the Overview section.           |
+
     Examples:
       | userType      |
       | GRANTEE EXE   |
 
-  @477630 @ValidatePMusershouldabletoseevalidationmessagesforrequiredtosavefiledonKPI
+  @477630 @ValidatePMusershouldabletoseevalidationmessagesforrequiredtosavefiledonKPI @P2_Grantee @ADMIN_Grantee @GRegression2
   Scenario Outline: Validate ADMIN user should able to see validation messages for required to save filed on KPI
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:KPITable---"
+    And I wait for "2" seconds
     And I click modal button "Save and Continue"
-    Then I softly see the following messages in the page details :
-      | Title is required to save.               |
-      | Domain is required to save.              |
-      | Measure is required to save.             |
-      | Unit of Measurement is required to save. |
-      | Indicator is required to save.           |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Title is required.                |
+      | To Save, Domain is required.               |
+      | To Save, Measure is required.              |
+      | To Save, Unit of Measurement is required.  |
+      | To Save, Indicator is required.            |
+    And I wait for "2" seconds
     And I enter "Grantee_Creation" values from "KPI_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     When I clear the value from field "Description__c"
     When I clear the value from field "Title__c"
     When I enter value "--None--" into field "Unit__c"
@@ -399,12 +406,13 @@ Feature: Validate all scenarios for KPI
     When I enter value "--None--" into field "Domain__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Domain is required to save under Overview.              |
-      | Title is required to save under Overview.               |
-      | Measure is required to save under Overview.             |
-      | Unit of Measurement is required to save under Overview. |
-      | Indicator is required to save under Overview.           |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Domain is required in the Overview tab under the Overview section.              |
+      | To Save, Title is required in the Overview tab under the Overview section.               |
+      | To Save, Measure is required in the Overview tab under the Overview section.             |
+      | To Save, Unit of Measurement is required in the Overview tab under the Overview section. |
+      | To Save, Indicator is required in the Overview tab under the Overview section.           |
+
     Examples:
       | userType      |
       | GRANTEE ADMIN |

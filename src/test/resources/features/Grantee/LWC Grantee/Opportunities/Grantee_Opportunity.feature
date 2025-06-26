@@ -1796,3 +1796,113 @@ Feature: Validate all scenarios for Opportunity
     Examples:
       | userType        |
       | GRANTEE AUDITOR |
+
+  @487159 @validateaspodetailsdisplayedonoverviewtabofopportunitiesnotconverteddetailspagewhenrecordisopenedinviewmode  @P2_Grantee @Gregression2 @PO_Grantee
+  Scenario Outline: Validate as PO , details displayed on Overview Tab of Opportunities Not converted- details page when record is opened in view mode
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<userName>"
+    Given I login to "As a Grantee" app as "<userType>" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I create opportunity with state "created" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I save the field labeled "Days Left" as "DaysLeft"
+    And I wait for "3" seconds
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Evaluation" sub tab at view detail page
+    Then I softly can see "Responsibilities" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    Then I softly can see "Chatter" sub tab at view detail page
+    Then I softly can see "Field Audit" sub tab at view detail page
+    Then I see the header is "Opportunity" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime Opportunity}" in the page details
+    Then I softly see field "EGMS ID" as "{SavedValue:opportunityEGMSID}"
+    Then I softly see field "Funding Organization" as "Department of Education"
+    Then I softly see field "Status" as "Draft"
+    Then I softly see field "Days Left" as "{SavedValue:DaysLeft}"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    Then I see the header is "Opportunity" in the page details
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Validate" in page detail
+    And I click on Menu icon present on top right corner of the page
+    And I wait for "2" seconds
+    Then I see option "Submit for Approval" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Take Snapshot" present in parallel dropdown
+    Then I softly see "Opportunity Information" page block displayed
+    Then I softly see field "Funding Opportunity Title" inside page block
+    Then I softly see field "Opportunity Number" inside page block
+    When I hovering mouse on help text icon inside page block detail "Opportunity Number"
+    Then I softly see "Text and number both are allowed. Must not exceed 255 characters" shown as help text
+    Then I softly see field "Internal Organization" inside page block
+    Then I softly see field "Funding Instrument Type" inside page block
+    Then I softly see field "Category Of Funding Activity" inside page block
+    Then I softly see field "Opportunity Category" inside page block
+    Then I softly see field "Expected Number of Awards" inside page block
+    Then I softly see field "Source" inside page block
+    Then I softly see field "Lead Version" inside page block
+    Then I softly see field "Posted Date" inside page block
+    Then I softly see field "Last Update Date" inside page block
+    Then I softly see "Lead Information" page block displayed
+    Then I softly see field "FOA Lead" inside page block
+    Then I softly see field "Number of Agencies that have Qualified this Lead" inside page block
+    And I save the field labeled "FOA Lead" as "FOALead"
+    And I click on hyperlink containing value "{SavedValue:FOALead}"
+    And I click on back arrow
+    Then I softly see "Opportunity Specific Settings" page block displayed
+    Then I softly see field "Budget Type" inside page block
+    Then I softly see field "Estimated Project Period Start Date" inside page block
+    Then I softly see field "Estimated Project Period End Date" inside page block
+    Then I softly see field "Pre-Application Required?" inside page block
+    Then I softly see field "Pre-Application Due Date" inside page block
+    Then I softly see field "Letter of Intent Required" inside page block
+    Then I softly see field "Letter of Intent Due Date" inside page block
+    Then I softly see field "Application Due Date" inside page block
+    Then I softly see field "Anticipated Award Date" inside page block
+    Then I softly see "External Programs" page block displayed
+    Then I softly see "Eligibility" page block displayed
+    Then I softly see field "Eligible Applicants" inside page block
+    Then I softly see field "Additional Information on Eligibility" inside page block
+    Then I softly see "Additional Information" page block displayed
+    Then I softly see field "Description" inside page block
+    Then I softly see field "Link to Additional Information" inside page block
+    Then I softly see field "Grantor Contact Information" inside page block
+    Then I softly see field "Funding Organization Grants System" inside page block
+    Then I softly see "Financial Details" page block displayed
+    Then I softly see field "Is Match Required?" inside page block
+    Then I softly see field "Estimated Total Program Funding" inside page block
+    Then I softly see field "Award Floor" inside page block
+    When I hovering mouse on help text icon inside page block detail for invisible element "Award Floor"
+    Then I softly see "Minimum award amount" shown as help text
+    And I wait for "1" seconds
+    Then I softly see field "Award Ceiling" inside page block
+    When I hovering mouse on help text icon inside page block detail for invisible element "Award Ceiling"
+    Then I softly see "Maximum award amount" shown as help text
+    Then I softly see field "Is Program Income Allowed?" inside page block
+    Then I softly see field "Program Income Treatment Type" inside page block
+    When I hovering mouse on help text icon inside page block detail for invisible element "Program Income Treatment Type"
+    Then I softly see "• Additive: Program income realized is added to (i.e., supplements) the funds committed to the project by the awarding agency. The program income funds shall be used to support related objectives. • Deductive: Program income realized is deducted from the total allowable costs in determining the net allowable costs on which the federal or other sponsor share of costs is based. • Matching: Program income realized is used to finance the non-federal share of the project (i.e., meet cost sharing commitments)." shown as help text
+    Then I softly see field "Are Indirect Costs Allowed?" inside page block
+    Then I softly see field "Maximum Indirect Cost Rate" inside page block
+    Then I softly see field "Rate for Organization Use" inside page block
+    Then I softly see field "Is Leverage Allowed?" inside page block
+    Then I softly see "System Information" page block displayed
+    Then I softly see field "Created by" inside page block
+    And I save the field labeled "Created by" as "Createdby"
+    Then I softly see link "{SavedValue:Createdby}" inside Page block
+    Then I softly see field "Created Date" inside page block
+    Then I softly see field "Last Modified Date" inside page block
+    Then I softly see field "Last Modified by" inside page block
+    And I save the field labeled "Last Modified By" as "LastModifiedBy"
+    Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
+    And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
+    Then I softly see the text containing "grantee.po@yopmail.com.qagrnteatm"
+    And I click on back arrow
+    Examples:
+      | userName        | userType   |
+      | Grantee PO user | GRANTEE PO |

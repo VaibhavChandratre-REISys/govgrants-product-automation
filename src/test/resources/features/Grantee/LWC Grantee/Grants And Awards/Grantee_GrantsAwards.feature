@@ -493,8 +493,8 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
 
     Examples:
-      | userName        | User        | ForwardUser | User1       | Approval   |
-      | Victor EXE user | GRANTEE EXE | Sarah PM    | GRANTEE PM  | Victor EXE |
+      | userName        | User        | ForwardUser | User1      | Approval   |
+      | Victor EXE user | GRANTEE EXE | Sarah PM    | GRANTEE PM | Victor EXE |
 
   @443839 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject @EXE_Grantee @P2_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Award - Verify with EXE Profile ,If in direct grant keep setting NO then able to complete the approval process for Forward /send to owner/Reject
@@ -648,8 +648,8 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
 
     Examples:
-      | userName        | User        | ForwardUser | User1       | Approval   |
-      | Sarah PM user   | GRANTEE PM  | Victor EXE  | GRANTEE EXE | Sarah PM   |
+      | userName      | User       | ForwardUser | User1       | Approval |
+      | Sarah PM user | GRANTEE PM | Victor EXE  | GRANTEE EXE | Sarah PM |
 
   @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell @GRegression2 @GranteeTBE
   Scenario: Award - Verify with PM Profile ,After activate the award able to see the Actual Tab in pending Closeout ,closed and amended state as well
@@ -2136,23 +2136,18 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see value "Automation Permanent Focus Area" for title "Focus Area Name" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly can see row level action button "Show Financial Transactions" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
-  @443820 @AwardVerifyWithPMProfileProjectionTabofAwardPagelayoutfordirectgrant
+  @443820 @AwardVerifyWithPMProfileProjectionTabofAwardPagelayoutfordirectgrant @Gregression2 @PM_Grantee @P2_Grantee
   Scenario: Award With PM Profile Projection Tab of Award Page layout for direct grant
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
-    And I wait for "2" seconds
-    And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
-    And I navigate to "Overview" sub tab
-    When I enter value "123456789123" into field "DUNS__c"
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
-    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
-    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
-    And I navigate to "Awards" sub tab
+    When I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
@@ -2161,21 +2156,8 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "Edit" in the page details
     When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I navigate to "Overview" sub tab
-    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
-    And I wait for "3" seconds
-    And I click modal button "Close"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
-      | Name       | Project Role    | Is Key Contact |
-      | Victor EXE | Project Officer | Checked        |
-    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
-    And I click modal button "Close"
-    And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
-      | Title                            | Is Primary Program |
-      | Automation Permanent NGO Program | Checked            |
+    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
     And I navigate to "Projections" sub tab
     Then I softly see "Project Period Details" page block displayed
     Then I softly see field "Project Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
@@ -2185,6 +2167,9 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see fields "BudgetPeriodEndDate__c" is in edit mode
     And I click on "Save" in the page details
     Then I softly see "Focus Area" page block displayed
+    Then I can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+    Then I can see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+    And I click on "Remove" icon for "Automation Permanent Focus Area" inside flex table with id "---grantee_tableId:-:ProjectTableId---"
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -2225,30 +2210,27 @@ Feature: Validate all scenarios for Grants & Awards
       | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
+    And I wait for "2" seconds
     Then I can see row level action button "Edit" against "Rate" in flex table with id "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I can see row level action button "Delete" against "Rate" in flex table with id "---grantee_tableId:-:awardIndirectRateTableId---"
 
-  @443830 @AwardVerifywithPMprofileResponsiblitiesTabofAwardPagelayout
+  @443830 @AwardVerifywithPMprofileResponsiblitiesTabofAwardPagelayout @Gregression2 @PM_Grantee @P2_Grantee
   Scenario: Award with PM profile Responsiblities Tab of Award Page layout
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
-    And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
-    And I navigate to "Overview" sub tab
-    When I enter value "123456789123" into field "DUNS__c"
-    And I click on "Save" in the page details
-    And I navigate to "Awards" sub tab
+    When I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Title" as "Automation Runtime award"
-    And I click on "Edit" in the page details
-    When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
-    And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     Then I softly see "Peer Reviewers" page block displayed
     Then I softly see "Approvers" page block displayed
@@ -2283,13 +2265,9 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "Complete Review" in the page details
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name     | Award  |
-      | Sarah PM | Step 1 |
-    When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
-      | Victor EXE | Step 2 |
-    Then I softly see value "Step 1" for title "Award" against the value "Sarah PM" inside table "---grantee_tableId:-:awardApproverTableId---"
-    Then I softly see value "Step 2" for title "Award" against the value "Victor EXE" inside table "---grantee_tableId:-:awardApproverTableId---"
+      | Sarah PM   | Step 2 |
+      | Grantee PO | Step 3 |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name     | Award |
       | David FO | NA    |
@@ -2302,14 +2280,15 @@ Feature: Validate all scenarios for Grants & Awards
     And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
       | Name     | Award  |
-      | Sarah PM | Step 2 |
+      | Sarah PM | Step 1 |
     Then I softly see the following messages in the page details contains:
       | You cannot specify the same step for multiple users for Award. |
     And I refresh the page
     And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
-      | Name     | Award |
-      | Sarah PM | NA    |
+      | Name       | Award |
+      | Sarah PM   | NA    |
+      | Grantee PO | NA    |
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
       | Name       | Award |
       | Victor EXE | NA    |
@@ -2338,49 +2317,34 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on hyperlink containing value "Sarah PM"
     Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
 
-  @443832 @AwardVerifywithPMprofileMonitioringTabofAwardPagelayout
+  @443832 @AwardVerifywithPMprofileMonitioringTabofAwardPagelayout @Gregression2 @PM_Grantee @P2_Grantee
   Scenario: Award with PM profile Monitioring Tab of Award Page layout
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
-    And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
-    And I navigate to "Overview" sub tab
-    When I enter value "123456789123" into field "DUNS__c"
-    And I click on "Save" in the page details
-    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
-    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
-    And I navigate to "Awards" sub tab
+    When I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Title" as "Automation Runtime award"
-    And I click on "Edit" in the page details
-    When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I navigate to "Overview" sub tab
-    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
-    And I click modal button "Close"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
-      | Name       | Project Role    | Is Key Contact |
-      | Victor EXE | Project Officer | Checked        |
-    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
-    And I click modal button "Close"
-    And I wait for "3" seconds
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
-      | Title                            | Is Primary Program |
-      | Automation Permanent NGO Program | Checked            |
     And I navigate to "Monitoring" sub tab
     Then I softly see "Objectives" page block displayed
     Then I softly see "Key Performance Indicators (KPIs)" page block displayed
     Then I softly see "Special Conditions" page block displayed
     And I navigate to "Monitoring" sub tab
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    Then I can see row level action button "Remove" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    And I click on "Remove" icon for "Automation Permanent Objective" inside flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    Then I softly see the following messages in the page details contains:
+      | Record removed successfully. |
+    And I wait for "2" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     Then I softly see the following messages in the page details contains:
@@ -2388,11 +2352,15 @@ Feature: Validate all scenarios for Grants & Awards
     And I click modal button "Close"
     Then I softly can see row level action button "Remove" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     And I wait for "3" seconds
-    Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    Then I can see row level action button "Remove" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    And I click on "Remove" icon for "Automation Runtime KPI" inside flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    Then I softly see the following messages in the page details contains:
+      | Record removed successfully. |
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
     Then I softly see the following messages in the page details contains:
-      | KPIs added succesfully. |
+      | KPIs added successfully. |
     And I click modal button "Close"
     Then I softly can see row level action button "View" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     Then I softly can see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
@@ -2513,7 +2481,7 @@ Feature: Validate all scenarios for Grants & Awards
     When I navigate to "Files" sub tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
 
-  @443834 @AwardVerifywithPMprofileCloseoutTabofAwardPagelayout @P2_Grantee @GranteeTBE
+  @443834 @AwardVerifywithPMprofileCloseoutTabofAwardPagelayout @Gregression2 @PM_Grantee @P2_Grantee
   Scenario: Award - Verify with PM profile Closeout  Tab of Award Page layout.
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -3040,8 +3008,8 @@ Feature: Validate all scenarios for Grants & Awards
 #    And I wait for "4" seconds
 #    Then I see "Financial Transactions" on page "1" of "govgrants" pdf file
     Examples:
-      | userType    | userName         |
-      | GRANTEE PM  | Sarah PM user    |
+      | userType   | userName      |
+      | GRANTEE PM | Sarah PM user |
 
   @443845 @ValidateAwardWithPMProfileIfPeerreviewerFDProfilenotsubmitthereviewthenawardownernotabletoseecompletereviewbuttonontoprightcornerandrowlevelsendforreview @GRegression3 @GranteeTBE
   Scenario: Validate Award With PM Profile If Peer reviewer FD Profile not submit the review then award owner not able to see complete review button on top right corner and row level send for review
@@ -3194,8 +3162,8 @@ Feature: Validate all scenarios for Grants & Awards
 #    And I wait for "6" seconds
 #    Then I softly see "Report Non Cash Match" on page "1" of "govgrants" pdf file
     Examples:
-      | userType    | userName        |
-      | GRANTEE PM  | Sarah PM user   |
+      | userType   | userName      |
+      | GRANTEE PM | Sarah PM user |
 
   @443846 @ValidateAwardwithPMprofileoncereviewerFDSubmitthereviewawardownerabletocompletethereview @GRegression1 @GranteeTBE
   Scenario: Validate Award with PM profile, once reviewer (FD) Submit the review award owner able to complete the review
