@@ -414,7 +414,7 @@ Feature: Validate all scenarios for closeout
     Then I softly see field "Status" as "Draft"
     Then I softly cannot see "Closeout" sub tab at view detail page
 
-  @484027 @484035 @ValidateApplicationGPCloseoutwithEXEprofileifGrantisnotactivethenunabletoseenewbuttontocreatecloseout @TBE1
+  @484027 @484035 @ValidateApplicationGPCloseoutwithEXEprofileifGrantisnotactivethenunabletoseenewbuttontocreatecloseout @P2_Grantee @PM_Grantee @GRegression2
   Scenario: Validate application GP Closeout with PM  profile ,if Grant is not active then unable to see new button to create closeout
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -762,7 +762,7 @@ Feature: Validate all scenarios for closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:PhasePendingTask---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PhasePendingTask---"
 
-  @484040 @ValidateAPPGPCloseoutwithPMProfileOnactivegrantabletoseeNewbuttontocreateadhoccloseout @TBE1
+  @484040 @ValidateAPPGPCloseoutwithPMProfileOnactivegrantabletoseeNewbuttontocreateadhoccloseout @P2_Grantee @PM_Grantee @GRegression2
   Scenario: Validate App GP Closeout with PM Profile On active grant able to see New button to create adhoc closeout
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"

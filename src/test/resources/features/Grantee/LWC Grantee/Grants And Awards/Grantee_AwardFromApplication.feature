@@ -4752,7 +4752,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I select "Refresh" from parallel lines dropdown of "Project Period Closeout Requests"
     Then I see table is refreshing
 
-  @482393 @ValidatePMUsertheexpendituredetailssection @TBE1
+  @482393 @ValidatePMUsertheexpendituredetailssection @P2_Grantee @PM_Grantee @GRegression2
   Scenario: Validate PM User the expenditure details section
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
