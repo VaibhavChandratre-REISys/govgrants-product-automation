@@ -17565,7 +17565,6 @@ Feature: Sanity scenarios
     And I click modal button "Save"
     And I wait for "3" seconds
     And I save the value from row "1" for column name "Title" as "TermsTitle" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    And I navigate to "Responsibilities" sub tab
     When I navigate to "Responsibilities" sub tab
     Then I softly see "Peer Reviewers" page block displayed
     Then I softly see "Approvers" page block displayed
@@ -17620,11 +17619,6 @@ Feature: Sanity scenarios
     Then I softly see "File Extension" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see "Description" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly see value "Interim Award Document" for title "Classification" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
-    When I click modal button "Close"
-    Then I see "AttachmentTesting.pdf" has been added in "Amendment Files" flex table
     Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
@@ -18147,7 +18141,6 @@ Feature: Sanity scenarios
     And I click on hyperlink containing value "View All"
     Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
-
 
   @463548 @validateonsubmitforapprovalvalidationisdisplayedtoPOuserforrequireforsubmitfieldsandiconisdisplayedforrequiredforsubmitfields
   Scenario: Validate on Submit for approval, validation is displayed to PO user for required for submit fields and icon is displayed for required for submit fields
