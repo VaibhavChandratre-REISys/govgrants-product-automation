@@ -18155,7 +18155,6 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     When I click on "Edit" in the page details
-    And I clear the value from field "Opportunity Category"
     And I clear the value from field "Funding Instrument Type"
     And I clear the value from field "Category Of Funding Activity"
     And I clear the value from field "Eligible Applicants."
