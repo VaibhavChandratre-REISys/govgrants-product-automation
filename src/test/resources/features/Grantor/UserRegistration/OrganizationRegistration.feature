@@ -140,7 +140,7 @@ Feature: Validate all registration related scenarios
     And I enter "Individual_PrimaryDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     And I wait for "2" seconds
-    Then I softly do not see fields "PaymentAddressLine1__c" is visible
+    Then I softly do not see fields "PaymentAddressline1__c" is visible
     Then I softly do not see fields "PaymentAddressCity__c" is visible
     Then I softly do not see fields "PaymentAddressState__c" is visible
     Then I softly do not see fields "PaymentAddressZipCode__c" is visible
@@ -323,7 +323,7 @@ Feature: Validate all registration related scenarios
     When I enter value as "{SavedValue:uniqueEmailID1}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
-    Then I softly see field "Primary Email" as "individualregistration@yopmail.com"
+    Then I softly see field "Primary Email" as "{SavedValue:uniqueEmailID1}"
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter "CreationWithOnlyPaymentDetail" values from "UserRegistration_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -453,6 +453,7 @@ Feature: Validate all registration related scenarios
     When I click on "Save" in the page details
     Then I softly see field "Primary Email" as "{SavedValue:uniqueEmailID1}"
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
@@ -916,13 +917,13 @@ Feature: Validate all registration related scenarios
     Then I softly see fields "PrimaryRepFirstName__c" is visible
     Then I softly see fields "PrimaryRepLastName__c" is visible
     Then I softly see fields "PrimaryRepAddress1__c" is visible
-    Then I softly see fields " PrimaryRepCity__c" is visible
+    Then I softly see fields "PrimaryRepCity__c" is visible
     Then I softly see fields "PrimaryRepState__c" is visible
     Then I softly see fields "PrimaryRepZipCode__c" is visible
-    Then I softly see fields " PrimaryRepCountry__c" is visible
+    Then I softly see fields "PrimaryRepCountry__c" is visible
     Then I softly see fields "PrimaryRepPhone__c" is visible
     Then I softly see fields "SameAsOrganizationAddress__c" is visible
-    Then I softly see fields "PaymentAddressLine1__c" is visible
+    Then I softly see fields "PaymentAddressline1__c" is visible
     Then I softly see fields "PaymentAddressCity__c" is visible
     Then I softly see fields "PaymentAddressState__c" is visible
     Then I softly see fields "PaymentAddressZipCode__c" is visible
@@ -973,7 +974,7 @@ Feature: Validate all registration related scenarios
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "No" into field "SameAsOrganizationAddress__c"
     And I wait for "3" seconds
-    Then I softly see fields "PaymentAddressLine1__c" is visible
+    Then I softly see fields "PaymentAddressline1__c" is visible
     Then I softly see fields "PaymentAddressCity__c" is visible
     Then I softly see fields "PaymentAddressState__c" is visible
     Then I softly see fields "PaymentAddressZipCode__c" is visible
