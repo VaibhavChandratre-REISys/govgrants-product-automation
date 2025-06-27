@@ -228,7 +228,7 @@ Feature: Validate all scenarios for Federal Contact
       | User          |
       | GRANTEE ADMIN |
 
-  @477554 @ValidateFederalContactEXEusershouldcreatenewfederalcontact @TBE1
+  @477554 @ValidateFederalContactEXEusershouldcreatenewfederalcontact @P2_Grantee @EXE_Grantee @GRegression2
   Scenario Outline: Validate Federal Contact EXE user should create new federal contact
     When I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -373,7 +373,7 @@ Feature: Validate all scenarios for Federal Contact
       | User          |
       | GRANTEE EXE   |
 
-  @477556 @ValidateFederalContactFOusershouldcreatenewfederalcontact @TBE1
+  @477556 @ValidateFederalContactFOusershouldcreatenewfederalcontact @P3_Grantee @FO_Grantee @GRegression3
   Scenario Outline: Validate Federal Contact FO user should create new federal contact
     When I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -518,7 +518,7 @@ Feature: Validate all scenarios for Federal Contact
       | User          |
       | GRANTEE FO    |
 
-  @477564 @ValidateFederalContactFDusershouldcreatenewfederalcontact @TBE
+  @477564 @ValidateFederalContactFDusershouldcreatenewfederalcontact @P3_Grantee @FD_Grantee @GRegression3
   Scenario Outline: Validate Federal Contact FD user should create new federal contact
     When I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab

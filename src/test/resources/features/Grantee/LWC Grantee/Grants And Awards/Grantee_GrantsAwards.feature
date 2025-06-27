@@ -3318,7 +3318,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
 
-  @482389 @ValidatePMUsertheAwardbudgetfromprojectiontabverifythevalidation @TBE
+  @482389 @ValidatePMUsertheAwardbudgetfromprojectiontabverifythevalidation @P2_Grantee @PM_Grantee @GRegression2
   Scenario: Validate PM User the Award budget from projection tab & verify the validation
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"

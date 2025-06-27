@@ -80,7 +80,7 @@ Feature: Grantee Forms Scenario
     Then I softly do not see value "Project Narrative Attachment Form" for title "ID" inside table "FOA Leads"
     Then I softly do not see value "Project Narrative Attachment Form" for title "Program Name" inside table "Programs"
 
-  @485410 @ValidateProjectNarrativeAttachmentFOuserasaReviewershouldnotabletoedittheformifeditaccessisNo @TBE1
+  @485410 @ValidateProjectNarrativeAttachmentFOuserasaReviewershouldnotabletoedittheformifeditaccessisNo @P2_Grantee @FO_Grantee @GRegression2
   Scenario: Validate Project Narrative Attachment FO user as a Reviewer should not able to edit the form if edit access is No
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumber}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001241410" with properties "default"
