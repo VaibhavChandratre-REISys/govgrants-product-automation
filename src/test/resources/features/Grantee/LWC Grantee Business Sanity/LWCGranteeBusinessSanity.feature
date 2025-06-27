@@ -16563,7 +16563,7 @@ Feature: Sanity scenarios
     Then I softly see "Approval History" page block displayed
     Then I softly see "Snapshot History" page block displayed
 
-    @486644 @validateauditor(nonowner)usershouldabletoseethenewawardshouldbeinactivatestate
+  @486644 @validateauditor(nonowner)usershouldabletoseethenewawardshouldbeinactivatestate
   Scenario: Validate Auditor(non owner) user should able to see the new award should be in activate state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
