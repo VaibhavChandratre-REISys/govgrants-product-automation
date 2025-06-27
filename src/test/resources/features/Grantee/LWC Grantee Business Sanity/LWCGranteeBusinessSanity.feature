@@ -17407,7 +17407,7 @@ Feature: Sanity scenarios
 
   @446130 @validatewithpmprofileabletocreateschedulecloseout
   Scenario: Validate with PM Profile able to create schedule closeout
-    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     And I create schedule closeout "{SavedValue:Automation Runtime Award}" for status "Created" with properties "default"
