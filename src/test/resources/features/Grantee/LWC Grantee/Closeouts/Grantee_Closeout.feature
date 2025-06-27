@@ -1276,7 +1276,7 @@ Feature: Validate all scenarios for closeout
     Then I softly can see top right button "Submit to Grantor" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---"
