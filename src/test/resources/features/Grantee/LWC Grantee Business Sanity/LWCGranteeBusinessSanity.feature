@@ -18159,6 +18159,7 @@ Feature: Sanity scenarios
     And I clear the value from field "Category Of Funding Activity"
     And I clear the value from field "Eligible Applicants."
     And I select value "--None--" into field "Opportunity Category"
+    And I select value "Yes" into field "Is Leverage Allowed?"
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
