@@ -18163,16 +18163,20 @@ Feature: Sanity scenarios
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
-      |Overview Tab - Provide a value for Opportunity Category.|
+      | Overview Tab - Provide a value for Opportunity Category. |
       | Overview Tab - Select the Eligible Applicants. |
       | Overview Tab - Provide a value for Budget Type. |
       | Overview Tab - Provide the Estimated Project Period Start Date for this opportunity. |
-      |Overview Tab - Provide the Estimated Project Period End Date for this opportunity. |
+      | Overview Tab - Provide the Estimated Project Period End Date for this opportunity. |
       | Overview Tab - Provide a value for Pre-Application Required.|
-      |Overview Tab - Provide a value for Letter of Intent Required. |
+      | Overview Tab - Provide a value for Letter of Intent Required. |
       | Overview Tab - Select a value for Funding Instrument Type. |
+      | Overview Tab - Provide a value for Match Source when Match Required is Yes. |
+      | Overview Tab - Provide a value for Cost Sharing or Matching Requirement when Match Required is Yes. |
+      | Overview Tab - Provide a value for Required Match (%) when Match Required is Yes. |
+      | Overview Tab - Provide a value for Program Income Allowed.  |
       | Evaluation Tab - Provide a value for Previously received an award from this sponsoring agency. |
-      | Evaluation Tab - Provide a value for Required Skill Sets.|
+      | Evaluation Tab - Provide a value for Required resources and required skill sets.|
       | Evaluation Tab - Provide a value for Necessary Systems and Financial Tools. |
       | Evaluation Tab - Provide a value for Business and Technical Domain Knowledge. |
       | Evaluation Tab - Provide a value for whether the Grant requires collaboration with other internal organizations within the Department. |
