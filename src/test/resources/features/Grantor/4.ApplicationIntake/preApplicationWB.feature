@@ -286,6 +286,7 @@ Feature: Pre-Application scenarios without background
       | Construction  | 5000   | 5000       | 50             | 100            |
     And I get the "EGMS ID"
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -682,6 +683,7 @@ Feature: Pre-Application scenarios without background
 #   And I click on "Back" in the page details
     And I switch to parent tab
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     When I click on "Submit to Grantor" in the page details

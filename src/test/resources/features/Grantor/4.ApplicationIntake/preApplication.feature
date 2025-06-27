@@ -124,6 +124,7 @@ Feature: Validate all scenarios in the Pre-Application
   Validate Announcement owner will be able to view the Accept and Reject button |Validate the subrecipient users able to create application from the approved Pre Application
   Validate Announcement Owner will be able to view the pending task under announcement tab after every pre application submission happens. |Validate pre-application is converted to Application |Verify whether PM, FO,EXE internal user is able to view Accepted Pre Application
   Validate SPI user will not able to create application before Pre-Application is Accepted by Grantor | Validate the SPI user can view the Accepted pre-applications under Pre-Applications - Submitted table list
+    When I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
