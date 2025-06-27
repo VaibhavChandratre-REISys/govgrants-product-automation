@@ -1178,7 +1178,7 @@ Feature: Grantee Smoke scenarios
       | userType   |
       | GRANTEE PM |
 
-  @477625 @ValidatePMusershouldabletoCreateActivatetheKPI @Grantee_Smoke1
+   @477625 @ValidatePMusershouldabletoCreateActivatetheKPI @Grantee_Smoke1
   Scenario Outline: Validate PM user should able to Create & Activate the KPI
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
