@@ -18140,3 +18140,45 @@ Feature: Sanity scenarios
     And I click on hyperlink containing value "View All"
     Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
+
+
+  @463548 @validateonsubmitforapprovalvalidationisdisplayedtoPOuserforrequireforsubmitfieldsandiconisdisplayedforrequiredforsubmitfields
+  Scenario: Validate on Submit for approval, validation is displayed to PO user for required for submit fields and icon is displayed for required for submit fields
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    When I click on "Edit" in the page details
+    And I clear the value from field "Opportunity Category"
+    And I clear the value from field "Funding Instrument Type"
+    And I clear the value from field "Category Of Funding Activity"
+    And I clear the value from field "Eligible Applicants."
+    And I select value "--None--" into field "Opportunity Category"
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      |Overview Tab - Provide a value for Opportunity Category.|
+      | Overview Tab - Select the Eligible Applicants. |
+      | Overview Tab - Provide a value for Budget Type. |
+      | Overview Tab - Provide the Estimated Project Period Start Date for this opportunity. |
+      |Overview Tab - Provide the Estimated Project Period End Date for this opportunity. |
+      | Overview Tab - Provide a value for Pre-Application Required.|
+      |Overview Tab - Provide a value for Letter of Intent Required. |
+      | Overview Tab - Select a value for Funding Instrument Type. |
+      | Evaluation Tab - Provide a value for Previously received an award from this sponsoring agency. |
+      | Evaluation Tab - Provide a value for Required Skill Sets.|
+      | Evaluation Tab - Provide a value for Necessary Systems and Financial Tools. |
+      | Evaluation Tab - Provide a value for Business and Technical Domain Knowledge. |
+      | Evaluation Tab - Provide a value for whether the Grant requires collaboration with other internal organizations within the Department. |
+      | Evaluation Tab - Provide a value for Probability of receiving a grant award. |
+      | Evaluation Tab - Provide a value for the Estimated number of hours required to develop the application. |
+      | Evaluation Tab - Provide a value for the estimated number of full-time personnel (FTE) to be hired. |
+      | Evaluation Tab - Select a value for Maintenance of Effort required. |
+      | Evaluation Tab - Provide a value for How will the program be sustained should funding end. |
+      | Responsibilities - At least one approver is required |
