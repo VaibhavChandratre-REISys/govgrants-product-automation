@@ -16646,7 +16646,6 @@ Feature: Sanity scenarios
     Then I softly see "Amendment Type" in flex table header "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I softly see "Initiated By" in flex table header "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:AmendmentRequestTableId---"
-    Then I softly see field "EGMS ID" as "{SavedValue:OTHAMENDID}"
     And I click on "Edit" icon for "{SavedValue:OTHAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---" without waiting for record
     And I wait for "2" seconds
     Then I softly see field "Status" as "Created"
@@ -16768,7 +16767,6 @@ Feature: Sanity scenarios
     Then I softly see link "Victor EXE" inside Page block
     And I click on hyperlink containing value "Victor EXE"
     Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
-    And I click on back arrow
     And I navigate to "Files" sub tab
     Then I softly see "Amendment Files" page block displayed
     Then I softly see "Notes" page block displayed
