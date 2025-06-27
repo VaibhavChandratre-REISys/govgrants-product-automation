@@ -18164,7 +18164,6 @@ Feature: Sanity scenarios
       | Overview Tab - Provide the Estimated Project Period End Date for this opportunity. |
       | Overview Tab - Provide a value for Pre-Application Required.|
       | Overview Tab - Provide a value for Letter of Intent Required. |
-      | Overview Tab - Select a value for Funding Instrument Type. |
       | Overview Tab - Provide a value for Match Source when Match Required is Yes. |
       | Overview Tab - Provide a value for Cost Sharing or Matching Requirement when Match Required is Yes. |
       | Overview Tab - Provide a value for Required Match (%) when Match Required is Yes. |
@@ -18178,5 +18177,5 @@ Feature: Sanity scenarios
       | Evaluation Tab - Provide a value for the Estimated number of hours required to develop the application. |
       | Evaluation Tab - Provide a value for the estimated number of full-time personnel (FTE) to be hired. |
       | Evaluation Tab - Select a value for Maintenance of Effort required. |
-      | Evaluation Tab - Provide a value for How will the program be sustained should funding end. |
+      | Evaluation Tab - Provide a value for How will the program be sustained, should funding end. |
       | Responsibilities - At least one approver is required |
