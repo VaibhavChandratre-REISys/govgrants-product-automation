@@ -17236,7 +17236,7 @@ Feature: Sanity scenarios
     When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Awards- All"
+    And I click toggle button to select "Awards - All"
     When I perform quick search for "{SavedValue:AwardEGMSID2}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     And I wait for "2" seconds
@@ -17443,3 +17443,5 @@ Feature: Sanity scenarios
     Then I softly can see "Messages" sub tab at view detail page
     Then I softly can see "Chatter" sub tab at view detail page
     Then I softly can see "Field Audit" sub tab at view detail page
+
+
