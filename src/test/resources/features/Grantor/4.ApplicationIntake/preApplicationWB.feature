@@ -20,7 +20,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
-    When I click on "Attach" icon for "Optional" inside flex table with id "---preApplication:-:preApplicationChecklistId---" without waiting for record
+    When I click on "Attach" icon for "Mandatory" inside flex table with id "---preApplication:-:preApplicationChecklistId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -3759,6 +3759,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Create Pre-Application" in the page details
     And I wait for "4" seconds
     When I click modal button "Save and Continue"
+    And I wait for "3" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -4716,7 +4717,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     Then I softly see field "Status" as "Submitted for Review"
 
-  @202460 @ValidatePreapptasktypeshouldberenamedforAdminuserasReviePre-Applicationafterpre-appsubmittedtograntor @sprint-11-US-224734  @reassignment @bugid_461962
+  @202460 @ValidatePreapptasktypeshouldberenamedforAdminuserasReviePre-Applicationafterpre-appsubmittedtograntor @sprint-11-US-224734  @reassignment @bugid_461962 @Bug-Ticket-534200
   Scenario: Validate Pre app_ Verify task type should be renamed for Admin user as "Review Pre-Application" after pre-app submitted to grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES-Automation ADMIN user"
     When I am on "SUBPORTAL" portal
