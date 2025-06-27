@@ -269,7 +269,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                       | Is Key Contact |
       | {SavedValue:SPI3 Username} | Checked        |
-#    And I click on "Edit" in the page details
+    And I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     And I wait for "2" seconds
     And I enter value "Checked" into field "Agreement5__c"

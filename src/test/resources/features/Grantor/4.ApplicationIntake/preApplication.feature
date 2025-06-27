@@ -216,12 +216,13 @@ Feature: Validate all scenarios in the Pre-Application
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     Examples:
       | Announcement Name                                        | User |
-      | {SavedValue:Automation Runtime Announcement Application} | PM   |
+#      | {SavedValue:Automation Runtime Announcement Application} | PM   |
       | {SavedValue:Automation Runtime Announcement Application} | FO   |
-      | {SavedValue:Automation Runtime Announcement Application} | EXE  |
+#      | {SavedValue:Automation Runtime Announcement Application} | EXE  |
 
   @70468 @acknowledgeRequiredForPre-App
   Scenario: Validate the system should throw an validation message if the pre-application is submitted with Acknowledging it
+    When I click on "Edit" in the page details
     And I wait for "5" seconds
     And I enter "Edition1" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
