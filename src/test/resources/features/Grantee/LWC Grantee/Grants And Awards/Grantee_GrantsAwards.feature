@@ -3379,7 +3379,7 @@ Feature: Validate all scenarios for Grants & Awards
       | Title        | Award Budget | Cash Match | Non-Cash Match |
       | Construction | 5000         | 500        | 500            |
     Then I softly see the following messages in the page details contains:
-      | Budget Tab - Provide the narrative for all build-up items. |
+      | Required fields missing |
     When I click on parallel lines menu bar with data target value "Line Items"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -3460,7 +3460,7 @@ Feature: Validate all scenarios for Grants & Awards
       | Title        | Award Budget | Cash Match | Non-Cash Match |
       | Construction | 5000         | 500        | 500            |
     Then I softly see the following messages in the page details contains:
-      | Budget Tab - Provide the narrative for all build-up items. |
+      | Required fields missing |
     When I click on parallel lines menu bar with data target value "Line Items"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -3547,7 +3547,7 @@ Feature: Validate all scenarios for Grants & Awards
       | Title        | Award Budget | Cash Match | Non-Cash Match |
       | Construction | 5000         | 500        | 500            |
     Then I softly see the following messages in the page details contains:
-      | Budget Tab - Provide the narrative for all build-up items. |
+      | Required fields missing |
     When I click on parallel lines menu bar with data target value "Line Items"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -3628,7 +3628,7 @@ Feature: Validate all scenarios for Grants & Awards
       | Title        | Award Budget | Cash Match | Non-Cash Match |
       | Construction | 5000         | 500        | 500            |
     Then I softly see the following messages in the page details contains:
-      | Budget Tab - Provide the narrative for all build-up items. |
+      | Required fields missing |
     When I click on parallel lines menu bar with data target value "Line Items"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -3709,7 +3709,7 @@ Feature: Validate all scenarios for Grants & Awards
       | Title        | Award Budget | Cash Match | Non-Cash Match |
       | Construction | 5000         | 500        | 500            |
     Then I softly see the following messages in the page details contains:
-      | Budget Tab - Provide the narrative for all build-up items. |
+      | Required fields missing |
     When I click on parallel lines menu bar with data target value "Line Items"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -3790,7 +3790,7 @@ Feature: Validate all scenarios for Grants & Awards
       | Title        | Award Budget | Cash Match | Non-Cash Match |
       | Construction | 5000         | 500        | 500            |
     Then I softly see the following messages in the page details contains:
-      | Budget Tab - Provide the narrative for all build-up items. |
+      | Required fields missing |
     When I click on parallel lines menu bar with data target value "Line Items"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
