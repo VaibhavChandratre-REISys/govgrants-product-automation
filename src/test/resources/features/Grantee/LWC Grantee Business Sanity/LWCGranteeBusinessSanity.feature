@@ -17516,7 +17516,7 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Specify at least one Key Personnel for Key Personnel Change request. |
-    When I click on "Delete" icon for "Victor EXE" inside flex table with id "---grantee_tableId:-:amendmentContactTableId---"
+    When I click on "Delete" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentContactTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:amendmentContactTableId---"
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
     When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:amendmentAssociateContactTableId---"
