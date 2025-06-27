@@ -247,7 +247,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:CFAMENDID}" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
     Then I softly see that "{SavedValue:CFAMENDID}" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
