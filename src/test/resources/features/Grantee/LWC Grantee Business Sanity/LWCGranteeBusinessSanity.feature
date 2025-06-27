@@ -17415,8 +17415,8 @@ Feature: Sanity scenarios
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Closeout" sub tab
     Then I softly can see row level action button "View" against "Scheduled" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     Then I softly can see row level action button "Edit" against "Scheduled" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
