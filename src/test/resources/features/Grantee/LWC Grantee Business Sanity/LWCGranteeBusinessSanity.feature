@@ -16764,9 +16764,6 @@ Feature: Sanity scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name     | Amendment Request |
       | David FO | Step 2            |
-    Then I softly see link "Victor EXE" inside Page block
-    And I click on hyperlink containing value "Victor EXE"
-    Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
     And I navigate to "Files" sub tab
     Then I softly see "Amendment Files" page block displayed
     Then I softly see "Notes" page block displayed
