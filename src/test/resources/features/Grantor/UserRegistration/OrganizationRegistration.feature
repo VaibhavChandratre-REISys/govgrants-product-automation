@@ -42,6 +42,7 @@ Feature: Validate all registration related scenarios
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter "CreationWithOnlyPaymentDetail" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "USA" into field "PaymentAddressCountry__c"
     When I click on "Save" in the page details
     Then I see "No" text enter in field "SameAsOrganizationAddress__c"
     Then I see "1000 Defense Pentagon" text enter in field "PaymentAddressLine1__c"
@@ -227,23 +228,23 @@ Feature: Validate all registration related scenarios
     When I click on "Save" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I enter value "Yes" into field "fieldSameAsOrganizationAddress__c"
+    And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Step 3 of 3" in the page details
     When I click on "Back" in the page details
-    Then I see "No" text enter in field "fieldSameAsOrganizationAddress__c"
-    Then I see "For-profit organizations" text enter in field "fieldOrganizationTypeSInglePicklist__c"
-    Then I see "(918) 908-9089" text enter in field "fieldOrgnizationPhoneNumber__c"
-    Then I see "www.google.com" text enter in field "fieldWebsite__c"
-    Then I see "Vintage Plaza" text enter in field "fieldOrganizationStreetAddress__c"
-    Then I see "Prince George’s" text enter in field "fieldCounty__c"
-    Then I see "Sterling" text enter in field "fieldOrganizationCityAddress__c"
-    Then I see "VA" text enter in field "fieldStateDropdownList__c"
-    Then I see "USA" text enter in field "fieldOrganizationsCountry__c"
-    Then I see "20171" text enter in field "fieldOrganizationZipCode__c"
-    Then I see "(918) 908-9089" text enter in field "fieldPaymentAddressVendorLocation__c"
-    Then I see "Yes" text enter in field "fieldSameAsOrganizationAddress__c"
+    Then I see "No" text enter in field "SameAsOrganizationAddress__c"
+    Then I see "For-profit organizations" text enter in field "OrganizationTypeSInglePicklist__c"
+    Then I see "(918) 908-9089" text enter in field "OrgnizationPhoneNumber__c"
+    Then I see "www.google.com" text enter in field "Website__c"
+    Then I see "Vintage Plaza" text enter in field "OrganizationStreetAddress__c"
+    Then I see "Prince George’s" text enter in field "County__c"
+    Then I see "Sterling" text enter in field "OrganizationCityAddress__c"
+    Then I see "VA" text enter in field "StateDropdownList__c"
+    Then I see "USA" text enter in field "OrganizationsCountry__c"
+    Then I see "20171" text enter in field "OrganizationZipCode__c"
+    Then I see "(918) 908-9089" text enter in field "PaymentAddressVendorLocation__c"
+    Then I see "Yes" text enter in field "SameAsOrganizationAddress__c"
 
   @81954 @verifyEINNumberAndDUNSNumberAtOrganizationProfileSubTab-Organization
   Scenario:Verify user should be able to see filled details of EIN Number and DUNS Number at organization sub tab

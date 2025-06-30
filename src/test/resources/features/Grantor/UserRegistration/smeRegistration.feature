@@ -20,7 +20,7 @@ Feature: Validate all scenarios for SME Registration
     And I wait for "3" seconds
     And I pause execution for "180" seconds
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
-    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
+    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Notification: You have been Invited to Register in the"
     #34840 #monu
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Legal Disclaimer 1 of 2" in the page details
@@ -62,6 +62,7 @@ Feature: Validate all scenarios for SME Registration
     Then I see the sub-header is "Legal Disclaimer 2 of 2" in the page details
     When I click on "Agree" in the page details
     And I enter "SubjectMatterExpertDetails" values from "grantorUserRegistration_Field_Values.xlsx"
+    And I enter value "USA" into field "PaymentAddressCountry__c"
     When I click on "Save" in the page details
     Then I see the following messages in the page details contains:
       | Confirmation Message                                                                                                                                                                |
