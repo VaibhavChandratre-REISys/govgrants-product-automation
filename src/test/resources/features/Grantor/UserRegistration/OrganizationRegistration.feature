@@ -35,9 +35,9 @@ Feature: Validate all registration related scenarios
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
-    When I enter value as "1234" into "Vendor ID" on old form
+#    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
+#    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
+#    When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
@@ -128,7 +128,7 @@ Feature: Validate all registration related scenarios
     Then I see the sub-header is "Step 1 of 2" in the page details
     And I generate the random SSN and save as "SSN"
     When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
-    And I generate the random maildropEmail and save as "uniqueEmailID"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
     When I enter value as "{SavedValue:uniqueEmailID1}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
@@ -157,9 +157,9 @@ Feature: Validate all registration related scenarios
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
-    When I enter value as "1234" into "Vendor ID" on old form
+#    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
+#    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
+#    When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
@@ -221,9 +221,9 @@ Feature: Validate all registration related scenarios
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
-    When I enter value as "1234" into "Vendor ID" on old form
+#    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
+#    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
+#    When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"

@@ -73,6 +73,7 @@ Feature: Validate all scenarios for SME Registration
     And I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
+    And I wait for "3" seconds
     And I enter in modal "smeReviewerRegistration" values from "Registration_Field_Values.xlsx"
     And I generate the random maildropEmail and save as "uniqueEmailID1"
     And I enter in modal value "{SavedValue:uniqueEmailID1}" into field "Email"
