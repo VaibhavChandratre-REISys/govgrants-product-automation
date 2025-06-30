@@ -5,7 +5,7 @@ Feature: Validate all scenarios for Applications Grants Gov
   Scenario Outline: Validate Opportunities converted to Application Grants gov PO user can navigate to Opportunity details page from Opportunities Converted to Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -15,7 +15,6 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
-    And I halt execution
     When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
