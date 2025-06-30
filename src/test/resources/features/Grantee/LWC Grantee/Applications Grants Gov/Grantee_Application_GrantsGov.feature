@@ -15,6 +15,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I halt execution
     When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
