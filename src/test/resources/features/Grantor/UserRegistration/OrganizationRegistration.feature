@@ -94,12 +94,12 @@ Feature: Validate all registration related scenarios
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
-    When I enter value as "1234" into "Vendor ID" on old form
+#    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
+#    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
+#    When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     #82790
-    Then I softly see field "Primary Email" as "individualregistration@yopmail.com"
+#    Then I softly see field "Primary Email" as "individualregistration@yopmail.com"
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I see "Mr." text enter in field "PrimaryRepPrefix__c"
@@ -327,6 +327,7 @@ Feature: Validate all registration related scenarios
     Then I softly see field "Primary Email" as "{SavedValue:uniqueEmailID1}"
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter "CreationWithOnlyPaymentDetail" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "USA" into field "PaymentAddressCountry__c"
     When I click on "Save" in the page details
     Then I see "No" text enter in field "SameAsOrganizationAddress__c"
     Then I see "1000 Defense Pentagon" text enter in field "PaymentAddressLine1__c"

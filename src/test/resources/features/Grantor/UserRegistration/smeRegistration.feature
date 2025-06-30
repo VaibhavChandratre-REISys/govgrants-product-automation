@@ -62,7 +62,6 @@ Feature: Validate all scenarios for SME Registration
     Then I see the sub-header is "Legal Disclaimer 2 of 2" in the page details
     When I click on "Agree" in the page details
     And I enter "SubjectMatterExpertDetails" values from "grantorUserRegistration_Field_Values.xlsx"
-    And I enter value "USA" into field "PaymentAddressCountry__c"
     When I click on "Save" in the page details
     Then I see the following messages in the page details contains:
       | Confirmation Message                                                                                                                                                                |
