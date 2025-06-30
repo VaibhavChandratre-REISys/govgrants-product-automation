@@ -21168,7 +21168,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "History" sub tab
     Then I softly do not see "Change Request History" page block displayed
 
-  @471029 @VerifytheFlowofothertypeofAR @Grantee_Smoke
+  @471029 @VerifytheFlowofothertypeofAR @Grantee_Smoke @TBE1
   Scenario:Verify the Flow of other type of AR
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -21222,11 +21222,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I see textarea field "PurposeRTA__c" is editable
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Please select Amendment Request Type is required to save. |
-    Then I softly see the following messages in the page details contains:
-      | Initiated By is required to save. |
-    Then I softly see the following messages in the page details contains:
-      | Justification is required to save. |
+      | To Save, Please select Amendment Request Type is required. |
+      | To Save, Initiated By is required.                         |
+      | To Save, Justification is required.                        |
     And I enter "Grantee_Other_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
@@ -21392,6 +21390,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click on hyperlink containing value "Victor EXE"
     Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
     And I click on back arrow
+    And I wait for "2" seconds
     And I navigate to "Files" sub tab
     Then I softly see "Amendment Files" page block displayed
     Then I softly see "Notes" page block displayed
