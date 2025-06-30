@@ -456,7 +456,7 @@ Feature: Grantee Smoke scenarios
       | userName      | userType   |
       | Sarah PM user | GRANTEE PM |
 
-  @485372 @ValidatePMusercanseeProgressreportschedulesfromawardinMonitoringschedules @Grantee_Smoke1 @TBE
+  @485372 @ValidatePMusercanseeProgressreportschedulesfromawardinMonitoringschedules @Grantee_Smoke1
   Scenario Outline: Validate PM user can see Progress report schedules from award in Monitoring schedules
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab

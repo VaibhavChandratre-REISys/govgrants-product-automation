@@ -1085,7 +1085,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:specialConditionsChildTableId---"
 
-  @443790 @ValidateGrantWithPMProfileAfterclickonGrantphaseredirecttoGrantListviewpage @GRegression1 @TBE
+  @443790 @ValidateGrantWithPMProfileAfterclickonGrantphaseredirecttoGrantListviewpage @GRegression1
   Scenario: Validate Grant With PM Profile After click on Grant phase redirect to Grant List view page
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -1121,7 +1121,7 @@ Feature: Validate all scenarios for Grants & Awards
 #    And I download the file
 #    Then I softly see "Grants - All" on page "1" of "govgrants" pdf file
 #    And I close the tab
-    When I click on parallel lines menu bar with data target value "Grants - All"
+#    When I click on parallel lines menu bar with data target value "Grants - All"
     And I select "Refresh" from parallel lines dropdown of "Grants - All"
     Then I see table is refreshing
     And I click toggle button to select "Grants - Draft"
