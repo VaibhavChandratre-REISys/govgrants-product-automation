@@ -16072,7 +16072,7 @@ Feature: Validate all scenarios for Progress & Financial Schedules
       | userType      | userName   | UEI          |
       | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @485376 @ValidatePMusercanseeProgressreportschedulesfromawardinMonitoringschedules @TBE1
+  @485376 @ValidatePMusercanseeProgressreportschedulesfromawardinMonitoringschedules
   Scenario Outline: Validate PM user can see Progress report schedules from award in Monitoring schedules
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab

@@ -21168,7 +21168,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "History" sub tab
     Then I softly do not see "Change Request History" page block displayed
 
-  @471029 @VerifytheFlowofothertypeofAR @Grantee_Smoke @TBE1
+  @471029 @VerifytheFlowofothertypeofAR @P1_Grantee @PM_Grantee @GRegression1
   Scenario:Verify the Flow of other type of AR
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"

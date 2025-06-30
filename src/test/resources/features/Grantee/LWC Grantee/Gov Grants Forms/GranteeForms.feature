@@ -7266,7 +7266,7 @@ Feature: Grantee Forms Scenario
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     Then I softly see value "Amended" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
 
-  @481531 @ValidatePMuserOwnershouldabletoseetheeditactiononApplication&verifytheeditaccesstononrecordowner @Grantee_Smoke @TBE
+  @481531 @ValidatePMuserOwnershouldabletoseetheeditactiononApplication&verifytheeditaccesstononrecordowner @P1_Grantee @PM_Grantee @GRegression1
   Scenario: Validate PM user Owner should able to see the edit action on Application & verify the edit access to non record owner
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberProjectnarrativeForm}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269349" with properties "default"

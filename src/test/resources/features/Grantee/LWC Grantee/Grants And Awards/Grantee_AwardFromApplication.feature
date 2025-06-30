@@ -801,7 +801,7 @@ Feature: Validate all scenarios for Grantee Award from Application
       | UserType    | OwnerType  | OwnerName       |
       | GRANTEE FD  | GRANTEE PM | Sarah PM user   |
 
-  @486513 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward @TBE1
+  @486513 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward @TBE
   Scenario Outline: Other Type AR -Verify PM user should able to approved the AR & should able to create & activate new award
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
@@ -1914,7 +1914,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
-    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default-<UserName>"
     And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -2448,7 +2448,7 @@ Feature: Validate all scenarios for Grantee Award from Application
       | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy          |
       | Grantee PO user | GRANTEE PO | GRANTEE EXE    | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Victor EXE         |
 
-  @486536 @OtherTypeARVerifyFDusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward @TBE1
+  @486536 @OtherTypeARVerifyFDusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward @TBE
   Scenario Outline: Other Type AR -Verify FD user should able to approved the AR & should able to create & activate new award
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
@@ -3013,7 +3013,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
-    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default-<UserName>"
     And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -3251,8 +3251,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     Then I softly see "Edit" modal button
@@ -3403,6 +3403,7 @@ Feature: Validate all scenarios for Grantee Award from Application
       | 0     | SubmittedToGrantor__c |
     And I click modal button "Save"
     And I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I can see top right button "Record Decision" in page detail
     Then I can see top right button "Revise Amendment" in page detail
@@ -3430,6 +3431,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I can see top right button "Activate Award" in page detail
     Then I can see top right button "Delete" in page detail
     When I click on "Delete" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3437,6 +3439,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I can see top right button "Record Decision" in page detail
     Then I can see top right button "Revise Amendment" in page detail
@@ -3547,7 +3550,7 @@ Feature: Validate all scenarios for Grantee Award from Application
       | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy          |
       | Sarah PM user   | GRANTEE PM | GRANTEE FO     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | David FO           |
 
-  @486539 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward @TBE1
+  @486539 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward @TBE
   Scenario Outline: Other Type AR -Verify PM user should able to approved the AR & should able to create & activate new award
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
