@@ -416,3 +416,97 @@ Feature: Validate all scenarios for KPI
     Examples:
       | userType      |
       | GRANTEE ADMIN |
+
+  @439544 @KPI @validatepmusershouldabletocreateandactivatethekpi
+  Scenario: Validate PM user should able to Create & Activate the KPI
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Planning" tab
+    When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:KPITable---"
+    And I enter "Grantee_Creation" values from "KPI_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "5" seconds
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I navigate to "Overview" sub tab
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Related Log" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    And I save the field labeled "Domain" as "Domain"
+    And I save the field labeled "Title" as "KPITitle"
+    And I save the field labeled "Measure" as "Measure"
+    And I save the field labeled "Unit of Measurement" as "UnitofMeasurement"
+    And I save the field labeled "Indicator" as "Indicator"
+    Then I softly see field "Domain" as "{SavedValue:Domain}"
+    Then I softly see field "Title" as "{SavedValue:KPITitle}"
+    Then I softly see field "Measure" as "{SavedValue:Measure}"
+    Then I softly see field "Unit of Measurement" as "{SavedValue:UnitofMeasurement}"
+    Then I softly see field "Indicator" as "{SavedValue:Indicator}"
+    When I navigate to "Related Log" sub tab
+    Then I softly see "No Records Found" inside flex table with id "Goals"
+    Then I softly see "No Records Found" inside flex table with id "KPIsGranteeRelatedAwards"
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "AttachmentTesting.pdf" has been added in "KPI Files" flex table
+    And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Supporting Documents" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly see value "Supporting Documents" for title "Classification" inside table "---grantee_tableId:-:KPIFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Attachment.pdf" has been added in "KPI Files" flex table
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    And I upload attachment without random number "Attachment1.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Attachment1.pdf" has been added in "KPI Files" flex table
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    And I upload attachment without random number "sample.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "sample.pdf" has been added in "KPI Files" flex table
+    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
+      | Title         | Description       |
+      | Notes Record1 | Automation Notes1 |
+    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
+      | Title         | Description       |
+      | Notes Record2 | Automation Notes2 |
+    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
+      | Title         | Description       |
+      | Notes Record3 | Automation Notes3 |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record2" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record3" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    And I navigate to "Messages" sub tab
+    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    And I send the email under collab tab with following details:
+      | To                        | Subject            | Body            |
+      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
+    Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    When I click on "Activate" in the page details
+    Then I see status in Progress-bar is "Active" and is "dark blue"
+    When I navigate to "Related Log" sub tab
+    Then I softly see "No Records Found" inside flex table with id "Goals"
+    Then I softly see "No Records Found" inside flex table with id "KPIsGranteeRelatedAwards"

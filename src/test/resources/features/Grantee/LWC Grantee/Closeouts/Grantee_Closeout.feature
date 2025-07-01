@@ -1697,3 +1697,40 @@ Feature: Validate all scenarios for closeout
     Then I softly can see "Messages" sub tab at view detail page
     Then I softly can see "Chatter" sub tab at view detail page
     Then I softly can see "Field Audit" sub tab at view detail page
+
+  @446130 @validatewithpmprofileabletocreateschedulecloseout  @P1_Grantee @PM_Grantee @GRegression1
+  Scenario: Validate with PM Profile able to create schedule closeout
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    And I create schedule closeout "{SavedValue:Automation Runtime Award}" for status "Created" with properties "default"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Closeout" sub tab
+    Then I softly can see row level action button "View" against "Scheduled" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly can see row level action button "Edit" against "Scheduled" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly cannot see row level action button "Delete" against "Scheduled" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    And I click on "View" icon for "Scheduled" inside flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly see field "Status" as "Created"
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Validate" in page detail
+    And I click on back arrow
+    And I wait for "2" seconds
+    And I click on "Edit" icon for "Scheduled" inside flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly see field "Status" as "Created"
+    Then I softly can see top right button "Save" in page detail
+    Then I softly can see top right button "Cancel" in page detail
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Open Items" sub tab at view detail page
+    Then I softly can see "Check List" sub tab at view detail page
+    Then I softly can see "Responsibilities" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    Then I softly can see "Chatter" sub tab at view detail page
+    Then I softly can see "Field Audit" sub tab at view detail page
