@@ -330,8 +330,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly cannot see row level action button "Remove" against "{SavedValue:TitleNotes}" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
 
     Examples:
-      | UserType    | OwnerType  | OwnerName       |
-      | GRANTEE PO  | GRANTEE PM | Sarah PM user   |
+      | UserType   | OwnerType  | OwnerName     |
+      | GRANTEE PO | GRANTEE PM | Sarah PM user |
 
   @482628 @VerifyEXEuserNonownercanviewawarddetailspagebutcannotseeeditactiononaward @P3_Grantee @EXE_rantee @GRegression1 @GranteeTBE
   Scenario Outline:Verify EXE user(Non owner) can view award details page but cannot see edit action on award
@@ -447,8 +447,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly cannot see row level action button "Remove" against "{SavedValue:TitleNotes}" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
 
     Examples:
-      | UserType    | OwnerType  | OwnerName       |
-      | GRANTEE EXE | GRANTEE PM | Sarah PM user   |
+      | UserType    | OwnerType  | OwnerName     |
+      | GRANTEE EXE | GRANTEE PM | Sarah PM user |
 
   @482629 @VerifyPMuserNonownercanviewawarddetailspagebutcannotseeeditactiononaward @P3_Grantee @PM_Grantee @GRegression4 @GranteeTBE
   Scenario Outline:Verify PM user(Non owner) can view award details page but cannot see edit action on award
@@ -564,8 +564,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly cannot see row level action button "Remove" against "{SavedValue:TitleNotes}" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
 
     Examples:
-      | UserType    | OwnerType  | OwnerName       |
-      | GRANTEE PM  | GRANTEE PO | Grantee PO user |
+      | UserType   | OwnerType  | OwnerName       |
+      | GRANTEE PM | GRANTEE PO | Grantee PO user |
 
   @482630 @VerifyFOuserNonownercanviewawarddetailspagebutcannotseeeditactiononaward @FO_Grantee @P3_Grantee @GRegression4 @GranteeTBE
   Scenario Outline:Verify FO user(Non owner) can view award details page but cannot see edit action on award
@@ -681,8 +681,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly cannot see row level action button "Remove" against "{SavedValue:TitleNotes}" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
 
     Examples:
-      | UserType    | OwnerType  | OwnerName       |
-      | GRANTEE FO  | GRANTEE PM | Sarah PM user   |
+      | UserType   | OwnerType  | OwnerName     |
+      | GRANTEE FO | GRANTEE PM | Sarah PM user |
 
   @482631 @VerifyFDuserNonownercanviewawarddetailspagebutcannotseeeditactiononaward @P3_Grantee @FD_Grantee @GRegression4 @GranteeTBE
   Scenario Outline:Verify FD user(Non owner) can view award details page but cannot see edit action on award
@@ -798,8 +798,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly cannot see row level action button "Remove" against "{SavedValue:TitleNotes}" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
 
     Examples:
-      | UserType    | OwnerType  | OwnerName       |
-      | GRANTEE FD  | GRANTEE PM | Sarah PM user   |
+      | UserType   | OwnerType  | OwnerName     |
+      | GRANTEE FD | GRANTEE PM | Sarah PM user |
 
   @486513 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward
   Scenario Outline: Other Type AR -Verify PM user should able to approved the AR & should able to create & activate new award
@@ -1054,8 +1054,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     Then I softly see "Edit" modal button
@@ -1128,9 +1128,9 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-#    When I navigate to "History" sub tab
-#    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
-#    Then I softly see snapshot with name containing "Complete Review.pdf" as name
+    When I navigate to "History" sub tab
+    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
+    Then I softly see snapshot with name containing "Complete Review.pdf" as name
     And I wait for "2" seconds
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1347,8 +1347,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy          |
-      | Sarah PM user   | GRANTEE PM | GRANTEE PM     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Sarah PM           |
+      | UserName      | OwnerType  | UserType   | emailIdFrom             | emailIdTo                       | CreatedBy |
+      | Sarah PM user | GRANTEE PM | GRANTEE PM | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Sarah PM  |
 
   @486518 @OtherTypeARVerifyADMINusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward
   Scenario Outline: Other Type AR -Verify ADMIN user should able to approved the AR & should able to create & activate new award
@@ -1896,10 +1896,10 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy          |
-      | Grantee PO user | GRANTEE PO | GRANTEE ADMIN1 | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Product Admin      |
+      | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy     |
+      | Grantee PO user | GRANTEE PO | GRANTEE ADMIN1 | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Product Admin |
 
-  @486535 @OtherTypeARVerifyEXEusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward
+  @486535 @OtherTypeARVerifyEXEusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward @TBE
   Scenario Outline: Other Type AR -Verify EXE user should able to approved the AR & should able to create & activate new award
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
@@ -1914,7 +1914,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
-    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default-<UserName>"
     And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -2152,8 +2152,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     Then I softly see "Edit" modal button
@@ -2226,9 +2226,9 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-#    When I navigate to "History" sub tab
-#    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
-#    Then I softly see snapshot with name containing "Complete Review.pdf" as name
+    When I navigate to "History" sub tab
+    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
+    Then I softly see snapshot with name containing "Complete Review.pdf" as name
     And I wait for "2" seconds
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2445,10 +2445,10 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy          |
-      | Grantee PO user | GRANTEE PO | GRANTEE EXE    | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Victor EXE         |
+      | UserName        | OwnerType  | UserType    | emailIdFrom             | emailIdTo                       | CreatedBy  |
+      | Grantee PO user | GRANTEE PO | GRANTEE EXE | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Victor EXE |
 
-  @486536 @OtherTypeARVerifyFDusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward
+  @486536 @OtherTypeARVerifyFDusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward @TBE
   Scenario Outline: Other Type AR -Verify FD user should able to approved the AR & should able to create & activate new award
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
@@ -2679,7 +2679,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I wait for "2" seconds
     Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" without waiting for record
-    Then I softly do not see value "Notes Recor1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly do not see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     When I click on parallel lines menu bar with data target value "Notes"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -2701,8 +2701,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     Then I softly see "Edit" modal button
@@ -2775,9 +2775,9 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-#    When I navigate to "History" sub tab
-#    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
-#    Then I softly see snapshot with name containing "Complete Review.pdf" as name
+    When I navigate to "History" sub tab
+    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
+    Then I softly see snapshot with name containing "Complete Review.pdf" as name
     And I wait for "2" seconds
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2814,6 +2814,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see value "Approved" for title "New Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     And I click on back arrow
+    And I wait for "2" seconds
     And I navigate to "Messages" sub tab
     Then I softly see "Messages" page block displayed
     Then I softly see "Subject" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
@@ -2994,10 +2995,10 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy          |
-      | Sarah PM user   | GRANTEE PM | GRANTEE FD     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Danielle FD Garcia |
+      | UserName      | OwnerType  | UserType   | emailIdFrom             | emailIdTo                       | CreatedBy          |
+      | Sarah PM user | GRANTEE PM | GRANTEE FD | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Danielle FD Garcia |
 
-  @486538 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward
+  @486538 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward @TBE
   Scenario Outline: Other Type AR -Verify PM user should able to approved the AR & should able to create & activate new award
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
@@ -3012,7 +3013,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
-    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default-<UserName>"
     And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -3250,8 +3251,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     Then I softly see "Edit" modal button
@@ -3324,9 +3325,9 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-#    When I navigate to "History" sub tab
-#    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
-#    Then I softly see snapshot with name containing "Complete Review.pdf" as name
+    When I navigate to "History" sub tab
+    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
+    Then I softly see snapshot with name containing "Complete Review.pdf" as name
     And I wait for "2" seconds
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3402,6 +3403,7 @@ Feature: Validate all scenarios for Grantee Award from Application
       | 0     | SubmittedToGrantor__c |
     And I click modal button "Save"
     And I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I can see top right button "Record Decision" in page detail
     Then I can see top right button "Revise Amendment" in page detail
@@ -3429,6 +3431,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I can see top right button "Activate Award" in page detail
     Then I can see top right button "Delete" in page detail
     When I click on "Delete" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3436,6 +3439,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I can see top right button "Record Decision" in page detail
     Then I can see top right button "Revise Amendment" in page detail
@@ -3543,10 +3547,10 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy          |
-      | Sarah PM user   | GRANTEE PM | GRANTEE FO     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | David FO           |
+      | UserName      | OwnerType  | UserType   | emailIdFrom             | emailIdTo                       | CreatedBy |
+      | Sarah PM user | GRANTEE PM | GRANTEE FO | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | David FO  |
 
-  @486539 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward
+  @486539 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward @TBE
   Scenario Outline: Other Type AR -Verify PM user should able to approved the AR & should able to create & activate new award
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
@@ -3561,7 +3565,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
-    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default-<UserName>"
     And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -3799,8 +3803,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     Then I softly see "Edit" modal button
@@ -3873,9 +3877,9 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-#    When I navigate to "History" sub tab
-#    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
-#    Then I softly see snapshot with name containing "Complete Review.pdf" as name
+    When I navigate to "History" sub tab
+    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
+    Then I softly see snapshot with name containing "Complete Review.pdf" as name
     And I wait for "2" seconds
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -4092,8 +4096,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy          |
-      | Grantee PO user | GRANTEE PO | GRANTEE PO     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Grantee PO         |
+      | UserName        | OwnerType  | UserType   | emailIdFrom             | emailIdTo                       | CreatedBy  |
+      | Grantee PO user | GRANTEE PO | GRANTEE PO | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Grantee PO |
 
   @482343 @482351 @482352 @482356 @482359 @482361 @482363 @482368 @482400 @ValidatePMUsertheoverviewtabofaward @P2_Grantee @PM_Grantee @GRegression1 @GRegression4
   Scenario: Validate PM User the overview tab of award

@@ -16493,5 +16493,3 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     Examples:
       | userType   | userName | UEI          |
       | GRANTEE PM | Sarah PM | 123456789123 |
-
-

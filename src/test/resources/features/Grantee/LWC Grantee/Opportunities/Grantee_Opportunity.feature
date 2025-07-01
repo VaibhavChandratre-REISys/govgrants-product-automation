@@ -360,8 +360,8 @@ Feature: Validate all scenarios for Opportunity
       | Anticipated award date should be between application due date and project start date |
 
     Examples:
-      | UserName   | UserType    |
-      | Sarah PM   | GRANTEE PM  |
+      | UserName | UserType   |
+      | Sarah PM | GRANTEE PM |
 
   @487225 @OpportunitiesNotconvertedGrantsgovVerifyasPMuservalidationisdisplayedonSaveforrequiredforsavefieldsandisdisplayedforrequiredfields @P2_Grantee @PO_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Opportunities Not converted (Grants.gov ) - Verify as PO user,  validation is displayed on Save for required for save fields and is displayed for required fields
@@ -416,8 +416,8 @@ Feature: Validate all scenarios for Opportunity
       | Anticipated award date should be between application due date and project start date |
 
     Examples:
-      | UserName   | UserType    |
-      | Grantee PO | GRANTEE PO  |
+      | UserName   | UserType   |
+      | Grantee PO | GRANTEE PO |
 
   @487226 @OpportunitiesNotconvertedGrantsgovVerifyasPMuservalidationisdisplayedonSaveforrequiredforsavefieldsandisdisplayedforrequiredfields @P2_Grantee @EXE_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Opportunities Not converted (Grants.gov ) - Verify as EXE user,  validation is displayed on Save for required for save fields and is displayed for required fields
@@ -731,8 +731,8 @@ Feature: Validate all scenarios for Opportunity
     Then I cannot see top right button "Edit" in page detail
     Then I cannot see top right button "Delete" in page detail
     Examples:
-      | userName        |
-      | GRANTEE PO      |
+      | userName   |
+      | GRANTEE PO |
 
   @480703 @ValidateOpportunitiesconvertedtoPreApplicationManualPOusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPreapplication @P3_Grantee @FO_Grantee @GRegression2
   Scenario Outline: Validate Opportunities converted to Pre-Application Manual FO user can navigate to Opportunity details page after clicking on view action for the Oppprotunity which is converted to Pre-application
@@ -938,8 +938,8 @@ Feature: Validate all scenarios for Opportunity
     Then I cannot see top right button "Edit" in page detail
     Then I cannot see top right button "Delete" in page detail
     Examples:
-      | userName        |
-      | GRANTEE FO      |
+      | userName   |
+      | GRANTEE FO |
 
   @480706 @ValidateOpportunitiesconvertedtoPreApplicationManualPOusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPreapplication @P3_Grantee @FD_Grantee @GRegression2
   Scenario Outline: Validate Opportunities converted to Pre-Application Manual FD user can navigate to Opportunity details page after clicking on view action for the Oppprotunity which is converted to Pre-application
@@ -1145,8 +1145,8 @@ Feature: Validate all scenarios for Opportunity
     Then I cannot see top right button "Edit" in page detail
     Then I cannot see top right button "Delete" in page detail
     Examples:
-      | userName        |
-      | GRANTEE FD      |
+      | userName   |
+      | GRANTEE FD |
 
   @480708 @ValidateOpportunitiesconvertedtoPreApplicationManualPOusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPreapplication @P3_Grantee @ADMIN_Grantee @GRegression2
   Scenario Outline: Validate Opportunities converted to Pre-Application Manual ADMIN user can navigate to Opportunity details page after clicking on view action for the Oppprotunity which is converted to Pre-application
@@ -1352,8 +1352,8 @@ Feature: Validate all scenarios for Opportunity
     Then I cannot see top right button "Edit" in page detail
     Then I cannot see top right button "Delete" in page detail
     Examples:
-      | userName        |
-      | GRANTEE ADMIN   |
+      | userName      |
+      | GRANTEE ADMIN |
 
   @480709 @ValidateOpportunitiesconvertedtoPreApplicationManualPOusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPreapplication @P4_Grantee @AUDITOR_Grantee @GRegression2
   Scenario Outline: Validate Opportunities converted to Pre-Application Manual AUDITOR user can navigate to Opportunity details page after clicking on view action for the Oppprotunity which is converted to Pre-application
@@ -1582,8 +1582,8 @@ Feature: Validate all scenarios for Opportunity
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     Then I softly cannot see top right button "Create Pre-Application" in page detail
     Examples:
-      | userType        |
-      | GRANTEE EXE     |
+      | userType    |
+      | GRANTEE EXE |
 
   @487218 @ValidateNotYetConvertedOpportunityManualEXEusercannotcreatePreapplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord @P3_Grantee @FO_Grantee @GRegression2
   Scenario Outline: Validate Not Yet Converted Opportunity Manual FO user cannot create Pre-application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
@@ -1605,8 +1605,8 @@ Feature: Validate all scenarios for Opportunity
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     Then I softly cannot see top right button "Create Pre-Application" in page detail
     Examples:
-      | userType        |
-      | GRANTEE FO      |
+      | userType   |
+      | GRANTEE FO |
 
   @487219 @ValidateNotYetConvertedOpportunityManualEXEusercannotcreatePreapplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord @P3_Grantee @FD_Grantee @GRegression2
   Scenario Outline: Validate Not Yet Converted Opportunity Manual FD user cannot create Pre-application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
@@ -1628,8 +1628,8 @@ Feature: Validate all scenarios for Opportunity
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     Then I softly cannot see top right button "Create Pre-Application" in page detail
     Examples:
-      | userType        |
-      | GRANTEE FD      |
+      | userType   |
+      | GRANTEE FD |
 
   @487220 @ValidateNotYetConvertedOpportunityManualEXEusercannotcreatePreapplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord @P3_Grantee @ADMIN_Grantee @GRegression2
   Scenario Outline: Validate Not Yet Converted Opportunity Manual ADMIN user cannot create Pre-application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
@@ -1651,8 +1651,8 @@ Feature: Validate all scenarios for Opportunity
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     Then I softly cannot see top right button "Create Pre-Application" in page detail
     Examples:
-      | userType        |
-      | GRANTEE ADMIN   |
+      | userType      |
+      | GRANTEE ADMIN |
 
   @487221 @ValidateNotYetConvertedOpportunityManualEXEusercannotcreatePreapplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord @P4_Grantee @AUDITOR_Grantee @GRegression2
   Scenario Outline: Validate Not Yet Converted Opportunity Manual AUDITOR user cannot create Pre-application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
@@ -1698,8 +1698,8 @@ Feature: Validate all scenarios for Opportunity
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     Then I softly cannot see top right button "Create Pre-Application" in page detail
     Examples:
-      | userType        |
-      | GRANTEE EXE     |
+      | userType    |
+      | GRANTEE EXE |
 
   @487228 @ValidateOpportunitiesNotconvertedGrantsgovEXEusercannotseeCreatePreapplicationbuttononApprovedOpportunity @P3_Grantee @FO_Grantee @GRegression2
   Scenario Outline: Validate Opportunities Not converted Grants gov FO user cannot see Create Preapplication button on Approved
@@ -1722,8 +1722,8 @@ Feature: Validate all scenarios for Opportunity
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     Then I softly cannot see top right button "Create Pre-Application" in page detail
     Examples:
-      | userType        |
-      | GRANTEE FO      |
+      | userType   |
+      | GRANTEE FO |
 
   @487229 @ValidateOpportunitiesNotconvertedGrantsgovEXEusercannotseeCreatePreapplicationbuttononApprovedOpportunity @P3_Grantee @FD_Grantee @GRegression2
   Scenario Outline: Validate Opportunities Not converted Grants gov FD user cannot see Create Preapplication button on Approved
@@ -1746,8 +1746,8 @@ Feature: Validate all scenarios for Opportunity
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     Then I softly cannot see top right button "Create Pre-Application" in page detail
     Examples:
-      | userType        |
-      | GRANTEE FD      |
+      | userType   |
+      | GRANTEE FD |
 
   @487230 @ValidateOpportunitiesNotconvertedGrantsgovEXEusercannotseeCreatePreapplicationbuttononApprovedOpportunity @P3_Grantee @ADMIN_Grantee @GRegression2
   Scenario Outline: Validate Opportunities Not converted Grants gov FO user cannot see Create Preapplication button on Approved
@@ -1770,8 +1770,8 @@ Feature: Validate all scenarios for Opportunity
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
     Then I softly cannot see top right button "Create Pre-Application" in page detail
     Examples:
-      | userType        |
-      | GRANTEE ADMIN   |
+      | userType      |
+      | GRANTEE ADMIN |
 
   @487231 @ValidateOpportunitiesNotconvertedGrantsgovEXEusercannotseeCreatePreapplicationbuttononApprovedOpportunity @P4_Grantee @AUDITOR_Grantee @GRegression2
   Scenario Outline: Validate Opportunities Not converted Grants gov AUDITOR user cannot see Create Preapplication button on Approved
@@ -1906,3 +1906,41 @@ Feature: Validate all scenarios for Opportunity
     Examples:
       | userName        | userType   |
       | Grantee PO user | GRANTEE PO |
+
+  @463548 @validateonsubmitforapprovalvalidationisdisplayedtoPOuserforrequireforsubmitfieldsandiconisdisplayedforrequiredforsubmitfields @P2_Grantee @PO_Grantee @GRegression3
+  Scenario: Validate on Submit for approval, validation is displayed to PO user for required for submit fields and icon is displayed for required for submit fields
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    When I click on "Edit" in the page details
+    And I enter value "Yes" into field "LaverageAllowed__c"
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - Provide a value for Budget Type.                                                                                        |
+      | Overview Tab - Provide the Estimated Project Period Start Date for this opportunity.                                                   |
+      | Overview Tab - Provide the Estimated Project Period End Date for this opportunity.                                                     |
+      | Overview Tab - Provide a value for Pre-Application Required.                                                                           |
+      | Overview Tab - Provide a value for Letter of Intent Required.                                                                          |
+      | Overview Tab - Provide a value for Match Source when Match Required is Yes.                                                            |
+      | Overview Tab - Provide a value for Cost Sharing or Matching Requirement when Match Required is Yes.                                    |
+      | Overview Tab - Provide a value for Required Match (%) when Match Required is Yes.                                                      |
+      | Overview Tab - Provide a value for Program Income Allowed.                                                                             |
+      | Evaluation Tab - Provide a value for Previously received an award from this sponsoring agency.                                         |
+      | Evaluation Tab - Provide a value for Required resources and required skill sets.                                                       |
+      | Evaluation Tab - Provide a value for Necessary Systems and Financial Tools.                                                            |
+      | Evaluation Tab - Provide a value for Business and Technical Domain Knowledge.                                                          |
+      | Evaluation Tab - Provide a value for whether the Grant requires collaboration with other internal organizations within the Department. |
+      | Evaluation Tab - Provide a value for Probability of receiving a grant award.                                                           |
+      | Evaluation Tab - Provide a value for the Estimated number of hours required to develop the application.                                |
+      | Evaluation Tab - Provide a value for the estimated number of full-time personnel (FTE) to be hired.                                    |
+      | Evaluation Tab - Select a value for Maintenance of Effort required.                                                                    |
+      | Evaluation Tab - Provide a value for How will the program be sustained, should funding end.                                            |
+      | Responsibilities - At least one approver is required                                                                                   |
