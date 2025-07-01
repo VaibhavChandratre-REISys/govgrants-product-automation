@@ -1,0 +1,2 @@
+@progressReport @grantor-regression @grantor-parallel-regression @progressReportWithBackground @regression @progressReportEmailNotification @EmailNotification  @skipOnJenkins
+Feature: Validate all scenarios in Progress Report  for Email Notification
