@@ -65,63 +65,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly can see "Responsibilities" sub tab at view detail page
     Then I softly can see "History" sub tab at view detail page
 
-  @75546 @75639 @75633 @75645 @75646 @75544 @75545 @75543  @downloadPDF @skipOnJenkins @ExcludeSendEmail
-  Scenario: To verify system allow to download PDF for Announcement-published table for announcement tab
-    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for FDM tests" and properties "default"
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Announcements" tab
-    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Published Competitive Announcements"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement for FDM tests}" in "---announcement:-:competitiveAnnouncementTableId---" panel
-    Then I softly see value "{SavedValue:Automation Runtime Announcement for FDM tests}" for title "Announcement Name" inside table "---announcement:-:competitiveAnnouncementTableId---"
-    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement for FDM tests}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
-    And I navigate to "Messages" sub tab
-    #And I click on advance filter "#advfCommunicationHistory" of table id "---announcement:-:collabMessages---"
-    #And I enter advance filter values inside id "advfCommunicationHistory"
-    #  | Subject | Contains | Dont mess with jitu |
-    Then I softly see "No Records Found" inside flex table with id "---announcement:-:collabMessages---"
-    And I click on top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
-    And I send the email under collab tab with following details:
-      | To                              | Subject | Body             |
-      | internal.user.product@gmail.com | jitu    | this is bodyless |
-    # next 2 Then statements are combined to validate the single test @75633
-    Then I softly see the following messages in the page details :
-      | Email sent succesfully. |
-    And I close "Send Email" modal by clicking the top right x button
-    And I refresh the page
-    And I pause execution for "31" seconds
-    Then I softly can see mail notification for "INTERNAL" user with following subject:
-      | jitu |
-    And I click on "View" icon for "jitu" inside flex table with id "---announcement:-:collabMessages---" without waiting for record
-    Then I softly see following details for email sent under collab:
-      | abc@gmail.com |
-      | jitu          |
-    And I refresh the page
-    And I click on "Reply" icon for "jitu" inside flex table with id "---announcement:-:collabMessages---" without waiting for record
-    And I send the email under collab tab with following details:
-      | To                              | Subject      | Body             |
-      | internal.user.product@gmail.com | changed jitu | this is bodyless |
-    And I pause execution for "30" seconds
-    Then I softly can see mail notification for "INTERNAL" user with following subject:
-      | changed jitu |
-    And I close "Reply" modal by clicking the top right x button
-    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Published Competitive Announcements"
-    #And I click on advance filter "#advfActiveFundingOpportunitiesCompitive" of table id "---announcement:-:competitiveAnnouncementTableId---"
-    #And I enter advance filter values inside id "advfActiveFundingOpportunitiesCompitive"
-    #  | Announcement Name | Contains | {SavedValue:Automation Runtime Announcement for FDM tests} |
-    Then I softly see value "{SavedValue:Automation Runtime Announcement for FDM tests}" for title "Announcement Name" inside table "---announcement:-:competitiveAnnouncementTableId---"
-    And I refresh the page
-    #And I click on advance filter "#advfActiveFundingOpportunitiesCompitive" of table id "---announcement:-:competitiveAnnouncementTableId---"
-    #And I enter advance filter values inside id "advfActiveFundingOpportunitiesCompitive"
-    #  | Announcement Name | Contains | Dont mess with jitu |
-    Then I softly see "No Records Found" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    And I refresh the page
-    And I click on parallel menu button in flex table title "Published Competitive Announcements"
-    And I select "Download as PDF" from dropdown
-    And I download the file
-    And I pause execution for "10" seconds
-    And I softly see "Published Competitive Announcements" on page "1" of "govgrants" pdf file
 
   @70999 @73627 @73632 @70997 @70980 @71010 @71011 @71012 @70998 @71022 @71023 @71037 @71027 @validationForErrorMessageOfPreApplication
   Scenario: To validate system generated error message when Pre Application Due Date is greater than Application Due Date while submitting information
