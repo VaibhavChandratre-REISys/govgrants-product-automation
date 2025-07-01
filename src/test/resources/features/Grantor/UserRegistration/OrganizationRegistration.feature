@@ -66,11 +66,11 @@ Feature: Validate all registration related scenarios
     And I enter value "No" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Provide Address Line 1 for Payment Address                             |
-      | Provide City for Payment Address                                       |
-      | Provide State for Payment Address                                      |
-      | Provide Zip Code for Payment Address                                   |
-      | You must enter an effective date when selecting a parent organization. |
+      | Provide Address Line 1 for Payment Address |
+      | Provide City for Payment Address           |
+      | Provide State for Payment Address          |
+      | Provide Zip Code for Payment Address       |
+      | Provide Country for Payment Address        |
 
   @82053 @verifyVisibilityOfPaymentAddressFields-Organization
   Scenario:Verify user should not be able to see Expected fields of payment address if same organization address field is selected as yes

@@ -93,7 +93,8 @@ Feature: Validate all scenarios for SME Registration
     #34831 #monu
     And I wait for "2" seconds
     When I click modal button "Close"
-    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---grantor_tableId:-:PotentialReviewerContactTableId---" panel
+    And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
+    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---grantor_tableId:-:PotentialReviewerContactTableId---" panel
     Then I softly see value "Invitation Sent" for title "Status" inside table "---grantor_tableId:-:PotentialReviewerContactTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -103,8 +104,8 @@ Feature: Validate all scenarios for SME Registration
     Then I see field "Type" as "Reviewers" on modal
     Then I see field "Status" as "Invitation Sent" on modal
     Then I softly see the text containing :
-      | Overview    |
-      | Attachments |
+      | Overview |
+      | Files    |
 
   @35013 @VerifyCreatedSMEUserAtActivePartneruser-SMEReviewerRegistration @smoke  @wip
   Scenario: Validate created SME user should get reflected at salesforce page inside Active Partnet usersall expected fields are getting populated on page of Registration Step 1 of 1 while SME reviewer registration
