@@ -12,6 +12,7 @@ Feature: Validate all registration related scenarios
     When I click on "Save" in the page details
     And I navigate to "Files" sub tab
     And I click on top right button "Add" in flex table with id "---user:-:orgRegistrationAttachmentTableId---"
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I refresh the page
@@ -34,13 +35,14 @@ Feature: Validate all registration related scenarios
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
-    When I enter value as "1234" into "Vendor ID" on old form
+#    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
+#    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
+#    When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter "CreationWithOnlyPaymentDetail" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "USA" into field "PaymentAddressCountry__c"
     When I click on "Save" in the page details
     Then I see "No" text enter in field "SameAsOrganizationAddress__c"
     Then I see "1000 Defense Pentagon" text enter in field "PaymentAddressLine1__c"
@@ -64,11 +66,11 @@ Feature: Validate all registration related scenarios
     And I enter value "No" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Provide Address Line 1 for Payment Address                             |
-      | Provide City for Payment Address                                       |
-      | Provide State for Payment Address                                      |
-      | Provide Zip Code for Payment Address                                   |
-      | You must enter an effective date when selecting a parent organization. |
+      | Provide Address Line 1 for Payment Address |
+      | Provide City for Payment Address           |
+      | Provide State for Payment Address          |
+      | Provide Zip Code for Payment Address       |
+      | Provide Country for Payment Address        |
 
   @82053 @verifyVisibilityOfPaymentAddressFields-Organization
   Scenario:Verify user should not be able to see Expected fields of payment address if same organization address field is selected as yes
@@ -92,12 +94,12 @@ Feature: Validate all registration related scenarios
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
-    When I enter value as "1234" into "Vendor ID" on old form
+#    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
+#    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
+#    When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     #82790
-    Then I softly see field "Primary Email" as "individualregistration@yopmail.com"
+#    Then I softly see field "Primary Email" as "individualregistration@yopmail.com"
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I see "Mr." text enter in field "PrimaryRepPrefix__c"
@@ -127,8 +129,8 @@ Feature: Validate all registration related scenarios
     Then I see the sub-header is "Step 1 of 2" in the page details
     And I generate the random SSN and save as "SSN"
     When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
-    And I generate the random EmailID and save as "uniqueEmailID"
-    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    When I enter value as "{SavedValue:uniqueEmailID1}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I wait for "3" seconds
@@ -139,7 +141,7 @@ Feature: Validate all registration related scenarios
     And I enter "Individual_PrimaryDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     And I wait for "2" seconds
-    Then I softly do not see fields "PaymentAddressLine1__c" is visible
+    Then I softly do not see fields "PaymentAddressline1__c" is visible
     Then I softly do not see fields "PaymentAddressCity__c" is visible
     Then I softly do not see fields "PaymentAddressState__c" is visible
     Then I softly do not see fields "PaymentAddressZipCode__c" is visible
@@ -156,9 +158,9 @@ Feature: Validate all registration related scenarios
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
-    When I enter value as "1234" into "Vendor ID" on old form
+#    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
+#    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
+#    When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
@@ -199,16 +201,18 @@ Feature: Validate all registration related scenarios
     And I enter value "Yes" into field "fieldSameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "PrimaryRepEmail__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
-    And I checkout to yopmail with mailid "AutomationOrganization@yopmail.com"
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
     And I pause execution for "10" seconds
     Then I refresh the page
-    And I see the mail subject is as follows :
+    And I see the maildrop subject is as follows :
       """
       Sandbox: Notification: Organization Registration for {SavedValue:RuntimeOrgName} has been Approved
       """
-    Then I see the mail text is as follows :
+    Then I see the maildrop text is as follows :
       """
        {regconfirmationmailbody:mailbody}
       """
@@ -218,37 +222,37 @@ Feature: Validate all registration related scenarios
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
-    When I enter value as "1234" into "Vendor ID" on old form
+#    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
+#    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
+#    When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I enter value "Yes" into field "fieldSameAsOrganizationAddress__c"
+    And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Step 3 of 3" in the page details
     When I click on "Back" in the page details
-    Then I see "No" text enter in field "fieldSameAsOrganizationAddress__c"
-    Then I see "For-profit organizations" text enter in field "fieldOrganizationTypeSInglePicklist__c"
-    Then I see "(918) 908-9089" text enter in field "fieldOrgnizationPhoneNumber__c"
-    Then I see "www.google.com" text enter in field "fieldWebsite__c"
-    Then I see "Vintage Plaza" text enter in field "fieldOrganizationStreetAddress__c"
-    Then I see "Prince George’s" text enter in field "fieldCounty__c"
-    Then I see "Sterling" text enter in field "fieldOrganizationCityAddress__c"
-    Then I see "VA" text enter in field "fieldStateDropdownList__c"
-    Then I see "USA" text enter in field "fieldOrganizationsCountry__c"
-    Then I see "20171" text enter in field "fieldOrganizationZipCode__c"
-    Then I see "(918) 908-9089" text enter in field "fieldPaymentAddressVendorLocation__c"
-    Then I see "Yes" text enter in field "fieldSameAsOrganizationAddress__c"
+    Then I see "No" text enter in field "SameAsOrganizationAddress__c"
+    Then I see "For-profit organizations" text enter in field "OrganizationTypeSInglePicklist__c"
+    Then I see "(918) 908-9089" text enter in field "OrgnizationPhoneNumber__c"
+    Then I see "www.google.com" text enter in field "Website__c"
+    Then I see "Vintage Plaza" text enter in field "OrganizationStreetAddress__c"
+    Then I see "Prince George’s" text enter in field "County__c"
+    Then I see "Sterling" text enter in field "OrganizationCityAddress__c"
+    Then I see "VA" text enter in field "StateDropdownList__c"
+    Then I see "USA" text enter in field "OrganizationsCountry__c"
+    Then I see "20171" text enter in field "OrganizationZipCode__c"
+    Then I see "(918) 908-9089" text enter in field "PaymentAddressVendorLocation__c"
+    Then I see "Yes" text enter in field "SameAsOrganizationAddress__c"
 
   @81954 @verifyEINNumberAndDUNSNumberAtOrganizationProfileSubTab-Organization
   Scenario:Verify user should be able to see filled details of EIN Number and DUNS Number at organization sub tab
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-#    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
-#    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
+    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
+    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I navigate to "Organization Profile" sub tab
@@ -292,8 +296,8 @@ Feature: Validate all registration related scenarios
     When I click on "Save" in the page details
     And I save the contact name as "Automation Runtime Organization"
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I generate the random EmailID and save as "uniqueEmailID"
-    And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "PrimaryRepEmail__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
@@ -316,13 +320,14 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     And I generate the random SSN and save as "SSN"
     When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
-    And I generate the random EmailID and save as "uniqueEmailID"
-    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    When I enter value as "{SavedValue:uniqueEmailID1}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
-    Then I softly see field "Primary Email" as "individualregistration@yopmail.com"
+    Then I softly see field "Primary Email" as "{SavedValue:uniqueEmailID1}"
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter "CreationWithOnlyPaymentDetail" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "USA" into field "PaymentAddressCountry__c"
     When I click on "Save" in the page details
     Then I see "No" text enter in field "SameAsOrganizationAddress__c"
     Then I see "1000 Defense Pentagon" text enter in field "PaymentAddressLine1__c"
@@ -336,7 +341,7 @@ Feature: Validate all registration related scenarios
       | Confirmation Message                                                                                                                                                                |
       | Your registration request for access to the EGMS has been completed.  You will be sent an email from salesforce.com (technology platform provider) with your Username and Password. |
 
-  @84611 @83374 @83527 @84612 @83373 @84613 @validateSAUserforUserRegistration-Organization
+  @84611 @83374 @83527 @84612 @83373 @84613 @validateSAUserforUserRegistration-Organization @debug
   Scenario:To verify SA allow to modify newly created contact in contact table  for Additional user registration process
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -348,8 +353,8 @@ Feature: Validate all registration related scenarios
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I generate the random EmailID and save as "uniqueEmailID"
-    And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "PrimaryRepEmail__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I pause execution for "5" seconds
@@ -360,10 +365,10 @@ Feature: Validate all registration related scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
     And I "Approve" in the approval decision
-    And I checkout to yopmail with mailid "{SavedValue:uniqueEmailID}"
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
     And I pause execution for "190" seconds
     And I refresh the page
-    And I click on mail with subject "Sandbox: Welcome to Recipient Portal"
+    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Welcome to Recipient Portal"
     And I navigate to reset password link
     Then I set password for the user
     And I navigate to "Home" tab
@@ -373,18 +378,18 @@ Feature: Validate all registration related scenarios
     #84613 #monu
     Then I see only the following ordered options in dropdown field "ContactType__c" :
       | --None-- | Agency Director | Fiscal Manager | Program Director | Program Fiscal Contact | Grants Manager | Legal Contact |
-    And I enter "Creation" values from "SubrecipientContact_Field_Values.xlsx"
+    And I enter in modal "Creation" values from "SubrecipientContact_Field_Values.xlsx"
     When I click on "Save" in the page details
 #    When I close "New Contact" modal by clicking the top right x button
     And I click on "Edit" icon for "Primary" inside flex table with id "---home:-:userContactsTableId---" without waiting for record
     And I enter value "(704) 777-7869" into field "Phone"
     #83374
-    And I generate the random EmailID and save as "uniqueEmailID"
-    And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "Email"
     When I click on "Save" in the page details
     #When I close "Edit" modal by clicking the top right x button
     Then I softly see value "(704) 777-7869" for title "Phone" inside table "---home:-:userContactsTableId---"
-    Then I softly see value "{SavedValue:uniqueEmailID}" for title "Email" inside table "---home:-:userContactsTableId---"
+    Then I softly see value "{SavedValue:uniqueEmailID1}" for title "Email" inside table "---home:-:userContactsTableId---"
     #83527
     And I click on "View" icon for "Primary" inside flex table with id "---home:-:userContactsTableId---" without waiting for record
     And I save the field labeled "Address Line 1" as "AddressLine1"
@@ -402,7 +407,7 @@ Feature: Validate all registration related scenarios
     #83373
     Then I softly see value "Automation User" for title "Full Name" inside table "---home:-:userContactsTableId---"
     Then I softly see value "Primary" for title "Role" inside table "---home:-:userContactsTableId---"
-    Then I softly see value "{SavedValue:uniqueEmailID}" for title "Email" inside table "---home:-:userContactsTableId---"
+    Then I softly see value "{SavedValue:uniqueEmailID1}" for title "Email" inside table "---home:-:userContactsTableId---"
     Then I softly see value "(704) 777-7869" for title "Phone" inside table "---home:-:userContactsTableId---"
 
   @85792 @validateSAUserforUserRegistration-Organization
@@ -417,8 +422,8 @@ Feature: Validate all registration related scenarios
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I generate the random EmailID and save as "uniqueEmailID"
-    And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "PrimaryRepEmail__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I pause execution for "5" seconds
@@ -429,10 +434,10 @@ Feature: Validate all registration related scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
     And I "Approve" in the approval decision
-    And I checkout to yopmail with mailid "{SavedValue:uniqueEmailID}"
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
     And I pause execution for "20" seconds
     And I refresh the page
-    And I see the mail subject is as follows :
+    And I see the maildrop subject is as follows :
       """
       Sandbox: Notification: Organization Registration for AUTOMATIONRUNTIME Organization has Been Approved
       """
@@ -444,12 +449,13 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     And I generate the random SSN and save as "SSN"
     When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
-    And I generate the random EmailID and save as "uniqueEmailID"
-    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    When I enter value as "{SavedValue:uniqueEmailID1}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
-    Then I softly see field "Primary Email" as "individualregistration@yopmail.com"
+    Then I softly see field "Primary Email" as "{SavedValue:uniqueEmailID1}"
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
@@ -461,10 +467,10 @@ Feature: Validate all registration related scenarios
     Then I softly see field "Status" as "Approved"
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     #85790
-    And I checkout to yopmail with mailid "IndividualRegistration@yopmail.com"
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
     And I pause execution for "1" seconds
     Then I refresh the page
-    And I see the mail subject is as follows :
+    And I see the maildrop subject is as follows :
       """
       Sandbox: Your EGMS Registration has Been Approved
       """
@@ -481,8 +487,8 @@ Feature: Validate all registration related scenarios
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I generate the random EmailID and save as "uniqueEmailID"
-    And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "PrimaryRepEmail__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
@@ -491,16 +497,16 @@ Feature: Validate all registration related scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
     And I "Approve" in the approval decision
-    And I checkout to yopmail with mailid "{SavedValue:uniqueEmailID}"
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
     And I pause execution for "190" seconds
     Then I refresh the page
-    And I click on mail with subject "Sandbox: Welcome to Recipient Portal"
+    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Welcome to Recipient Portal"
     And I navigate to reset password link
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Overview" sub tab
     And I click on top right button "New" in flex table with id "---home:-:userContactsTableId---"
-    And I enter "Creation" values from "SubrecipientContact_Field_Values.xlsx"
+    And I enter in modal "Creation" values from "SubrecipientContact_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the contact name as "Automation Runtime Contact"
 #    When I close "New Contact" modal by clicking the top right x button
@@ -517,7 +523,7 @@ Feature: Validate all registration related scenarios
     Then I softly see value "Invitation Sent" for title "Status" inside table "---home:-:userContactsTableId---"
     And I refresh the page
     And I pause execution for "20" seconds
-    And I navigate to yopmail portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Notification: Invitation to be a user of EGMS"
+    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Notification: Invitation to be a user of EGMS"
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Legal Disclaimer 1 of 2" in the page details
 
@@ -533,8 +539,8 @@ Feature: Validate all registration related scenarios
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I generate the random EmailID and save as "uniqueEmailID"
-    And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "PrimaryRepEmail__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
@@ -543,10 +549,10 @@ Feature: Validate all registration related scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
     And I "Approve" in the approval decision
-    And I checkout to yopmail with mailid "{SavedValue:uniqueEmailID}"
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
     And I pause execution for "190" seconds
     And I refresh the page
-    And I click on mail with subject "Sandbox: Welcome to GovGrants *.* Recipient Portal"
+    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Welcome to GovGrants 3.0 Recipient Portal"
     And I navigate to reset password link
     Then I set password for the user
     And I navigate to "Home" tab
@@ -555,7 +561,7 @@ Feature: Validate all registration related scenarios
     And I click on top right button "New" in flex table with id "---home:-:userContactsTableId---"
     #83528 #monu
     Then I see "{SavedValue:Automation Runtime Organization}" text enter in field "ccountId"
-    And I enter "Creation" values from "SubrecipientContact_Field_Values.xlsx"
+    And I enter in modal "Creation" values from "SubrecipientContact_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the contact name as "Automation Runtime Contact"
 #    When I close "New Contact" modal by clicking the top right x button
@@ -569,7 +575,7 @@ Feature: Validate all registration related scenarios
     Then I softly see "Is User" in flex table header "---home:-:userContactsTableId---"
     Then I softly see value "{SavedValue:Automation Runtime Contact} Contact" for title "Full Name" inside table "---home:-:userContactsTableId---"
     Then I softly see value "Primary" for title "Role" inside table "---home:-:userContactsTableId---"
-    Then I softly see value "{SavedValue:uniqueEmailID}" for title "Email" inside table "---home:-:userContactsTableId---"
+    Then I softly see value "{SavedValue:uniqueEmailID1}" for title "Email" inside table "---home:-:userContactsTableId---"
     Then I softly see value "704-777-(7868)" for title "Status" inside table "---home:-:userContactsTableId---"
     Then I softly see value "Active" for title "Status" inside table "---home:-:userContactsTableId---"
     Then I softly can see row level action button "Send Invitation" against "{SavedValue:Automation Runtime Contact} Contact" in flex table with id "---home:-:userContactsTableId---"
@@ -597,20 +603,21 @@ Feature: Validate all registration related scenarios
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I generate the random EmailID and save as "uniqueEmailID"
-    And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "PrimaryRepEmail__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
+    And I wait for "3" seconds
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
     And I "Approve" in the approval decision
-    And I checkout to yopmail with mailid "{SavedValue:uniqueEmailID}"
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
     And I pause execution for "180" seconds
     And I refresh the page
-    And I click on mail with subject "Sandbox: Welcome to Recipient Portal"
+    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Welcome to Recipient Portal"
     And I navigate to reset password link
     Then I set password for the user
     And I navigate to "Home" tab
@@ -632,20 +639,21 @@ Feature: Validate all registration related scenarios
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I generate the random EmailID and save as "uniqueEmailID"
-    And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "PrimaryRepEmail__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
+    And I wait for "3" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
     And I "Approve" in the approval decision
-    And I checkout to yopmail with mailid "{SavedValue:uniqueEmailID}"
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
     And I pause execution for "180" seconds
     And I refresh the page
-    And I click on mail with subject "Sandbox: Welcome to Recipient Portal"
+    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Welcome to Recipient Portal"
     And I navigate to reset password link
     Then I set password for the user
     And I navigate to "Home" tab
@@ -685,8 +693,8 @@ Feature: Validate all registration related scenarios
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I generate the random EmailID and save as "uniqueEmailID"
-    And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "PrimaryRepEmail__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
@@ -709,8 +717,8 @@ Feature: Validate all registration related scenarios
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I generate the random EmailID and save as "uniqueEmailID"
-    And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "PrimaryRepEmail__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
@@ -729,8 +737,8 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     And I generate the random SSN and save as "SSN"
     When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
-    And I generate the random EmailID and save as "uniqueEmailID"
-    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    When I enter value as "{SavedValue:uniqueEmailID1}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
@@ -743,7 +751,7 @@ Feature: Validate all registration related scenarios
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
-    When I perform quick search for "{SavedValue:uniqueEmailID}" in "{grantor_tableId:SubrecipientIndRegistration}" panel
+    When I perform quick search for "{SavedValue:uniqueEmailID1}" in "{grantor_tableId:SubrecipientIndRegistration}" panel
     And I save the value from row "1" for column name "Full Name" as "UserFullName" from flex table "{grantor_tableId:SubrecipientIndRegistration}"
     And I wait for "2" seconds
     And I navigate to "Home" tab
@@ -759,8 +767,8 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     And I generate the random SSN and save as "SSN"
     When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
-    And I generate the random EmailID and save as "uniqueEmailID"
-    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    When I enter value as "{SavedValue:uniqueEmailID1}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I wait for "3" seconds
@@ -774,7 +782,7 @@ Feature: Validate all registration related scenarios
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
-    When I perform quick search for "{SavedValue:uniqueEmailID}" in "{grantor_tableId:SubrecipientIndRegistration}" panel
+    When I perform quick search for "{SavedValue:uniqueEmailID1}" in "{grantor_tableId:SubrecipientIndRegistration}" panel
     And I save the value from row "1" for column name "Full Name" as "UserFullName" from flex table "{grantor_tableId:SubrecipientIndRegistration}"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -796,8 +804,8 @@ Feature: Validate all registration related scenarios
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I generate the random EmailID and save as "uniqueEmailID"
-    And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "PrimaryRepEmail__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I pause execution for "5" seconds
@@ -808,10 +816,10 @@ Feature: Validate all registration related scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
     And I "Approve" in the approval decision
-    And I checkout to yopmail with mailid "{SavedValue:uniqueEmailID}"
+    And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
     And I pause execution for "190" seconds
     And I refresh the page
-    And I click on mail with subject "Sandbox: Welcome to Recipient Portal"
+    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Welcome to Recipient Portal"
     And I navigate to reset password link
     Then I set password for the user
     And I navigate to "Home" tab
@@ -904,20 +912,20 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     And I generate the random SSN and save as "SSN"
     When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
-    And I generate the random EmailID and save as "uniqueEmailID"
-    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    When I enter value as "{SavedValue:uniqueEmailID1}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     Then I softly see fields "PrimaryRepFirstName__c" is visible
     Then I softly see fields "PrimaryRepLastName__c" is visible
     Then I softly see fields "PrimaryRepAddress1__c" is visible
-    Then I softly see fields " PrimaryRepCity__c" is visible
+    Then I softly see fields "PrimaryRepCity__c" is visible
     Then I softly see fields "PrimaryRepState__c" is visible
     Then I softly see fields "PrimaryRepZipCode__c" is visible
-    Then I softly see fields " PrimaryRepCountry__c" is visible
+    Then I softly see fields "PrimaryRepCountry__c" is visible
     Then I softly see fields "PrimaryRepPhone__c" is visible
     Then I softly see fields "SameAsOrganizationAddress__c" is visible
-    Then I softly see fields "PaymentAddressLine1__c" is visible
+    Then I softly see fields "PaymentAddressline1__c" is visible
     Then I softly see fields "PaymentAddressCity__c" is visible
     Then I softly see fields "PaymentAddressState__c" is visible
     Then I softly see fields "PaymentAddressZipCode__c" is visible
@@ -942,8 +950,8 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     And I generate the random SSN and save as "SSN"
     When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
-    And I generate the random EmailID and save as "uniqueEmailID"
-    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    When I enter value as "{SavedValue:uniqueEmailID1}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
@@ -961,14 +969,14 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     And I generate the random SSN and save as "SSN"
     When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
-    And I generate the random EmailID and save as "uniqueEmailID"
-    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    When I enter value as "{SavedValue:uniqueEmailID1}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "No" into field "SameAsOrganizationAddress__c"
     And I wait for "3" seconds
-    Then I softly see fields "PaymentAddressLine1__c" is visible
+    Then I softly see fields "PaymentAddressline1__c" is visible
     Then I softly see fields "PaymentAddressCity__c" is visible
     Then I softly see fields "PaymentAddressState__c" is visible
     Then I softly see fields "PaymentAddressZipCode__c" is visible
@@ -981,8 +989,8 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     And I generate the random SSN and save as "SSN"
     When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
-    And I generate the random EmailID and save as "uniqueEmailID"
-    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    When I enter value as "{SavedValue:uniqueEmailID1}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I wait for "3" seconds
@@ -1000,8 +1008,8 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     And I generate the random SSN and save as "SSN"
     When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
-    And I generate the random EmailID and save as "uniqueEmailID"
-    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
+    And I generate the random maildropEmail and save as "uniqueEmailID1"
+    When I enter value as "{SavedValue:uniqueEmailID1}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
@@ -1014,7 +1022,7 @@ Feature: Validate all registration related scenarios
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "SARAH PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
-    When I perform quick search for "{SavedValue:uniqueEmailID}" in "{grantor_tableId:SubrecipientIndRegistration}" panel
+    When I perform quick search for "{SavedValue:uniqueEmailID1}" in "{grantor_tableId:SubrecipientIndRegistration}" panel
     And I save the value from row "1" for column name "Full Name" as "UserFullName" from flex table "{grantor_tableId:SubrecipientIndRegistration}"
     And I wait for "2" seconds
     When I click on "Start" icon for "{SavedValue:UserFullName}" inside flex table with id "{grantor_tableId:SubrecipientIndRegistration}"

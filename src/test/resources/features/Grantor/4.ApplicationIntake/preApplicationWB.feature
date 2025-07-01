@@ -20,7 +20,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
-    When I click on "Attach" icon for "Optional" inside flex table with id "---preApplication:-:preApplicationChecklistId---" without waiting for record
+    When I click on "Attach" icon for "Mandatory" inside flex table with id "---preApplication:-:preApplicationChecklistId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -269,7 +269,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                       | Is Key Contact |
       | {SavedValue:SPI3 Username} | Checked        |
-#    And I click on "Edit" in the page details
+    And I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     And I wait for "2" seconds
     And I enter value "Checked" into field "Agreement5__c"
@@ -286,6 +286,7 @@ Feature: Pre-Application scenarios without background
       | Construction  | 5000   | 5000       | 50             | 100            |
     And I get the "EGMS ID"
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -682,6 +683,7 @@ Feature: Pre-Application scenarios without background
 #   And I click on "Back" in the page details
     And I switch to parent tab
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
@@ -2401,7 +2403,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "100.00%" for title "Percentage" against the value "Standard Pre-Application form" inside table "---preApplication:-:preAppFormTableId---"
      #170101
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     When I navigate to "Forms and Files" sub tab
     Then I can see row level action button "View" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
@@ -3757,6 +3759,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Create Pre-Application" in the page details
     And I wait for "4" seconds
     When I click modal button "Save and Continue"
+    And I wait for "3" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -4714,7 +4717,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     Then I softly see field "Status" as "Submitted for Review"
 
-  @202460 @ValidatePreapptasktypeshouldberenamedforAdminuserasReviePre-Applicationafterpre-appsubmittedtograntor @sprint-11-US-224734  @reassignment @bugid_461962
+  @202460 @ValidatePreapptasktypeshouldberenamedforAdminuserasReviePre-Applicationafterpre-appsubmittedtograntor @sprint-11-US-224734  @reassignment @bugid_461962 @Bug-Ticket-534200
   Scenario: Validate Pre app_ Verify task type should be renamed for Admin user as "Review Pre-Application" after pre-app submitted to grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES-Automation ADMIN user"
     When I am on "SUBPORTAL" portal
@@ -5225,7 +5228,9 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
