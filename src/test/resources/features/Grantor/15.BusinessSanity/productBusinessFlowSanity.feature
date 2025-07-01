@@ -1207,8 +1207,8 @@ Feature: Validate sanity testing of Complete Business Flow
 #    And I click on "Back" in the page details
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I halt execution
     And I click on "Edit" in the split screen page details
-    And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "3" seconds
@@ -1832,7 +1832,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
-    When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -4517,6 +4517,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     And I generate the random SSN and save as "SSN"
+    And I pause execution for "9" seconds
     When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
     And I generate the random maildropEmail and save as "uniqueEmailID"
     When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
@@ -4555,12 +4556,14 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
+    And I pause execution for "5" seconds
     And I click "Send" button in modal
     And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Email Sent Successfully. |
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
     And I navigate to maildrop portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Notification: You have been Invited to Register in the"
+    And I halt execution
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     And I enter "Edition" values from "PotentialReviewersContact_Field_Values.xlsx"
