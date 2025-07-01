@@ -6476,8 +6476,6 @@ Feature: Validate all scenarios of grants and award without background
     And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:completeTaskTableId---" panel
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:completeTaskTableId---"
 
-
-
   @223495  @sprint-11-US-217998  @reassignment @EndToEndFlow
   Scenario: Validate Grant Module after transferring the more than 10 record to new owner then all future task access visible to new owner
     When I login to "As a Grantor" app as "EXE" user
