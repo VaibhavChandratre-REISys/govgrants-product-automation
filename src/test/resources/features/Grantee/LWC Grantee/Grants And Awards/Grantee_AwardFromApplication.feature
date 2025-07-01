@@ -330,8 +330,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly cannot see row level action button "Remove" against "{SavedValue:TitleNotes}" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
 
     Examples:
-      | UserType    | OwnerType  | OwnerName       |
-      | GRANTEE PO  | GRANTEE PM | Sarah PM user   |
+      | UserType   | OwnerType  | OwnerName     |
+      | GRANTEE PO | GRANTEE PM | Sarah PM user |
 
   @482628 @VerifyEXEuserNonownercanviewawarddetailspagebutcannotseeeditactiononaward @P3_Grantee @EXE_rantee @GRegression1 @GranteeTBE
   Scenario Outline:Verify EXE user(Non owner) can view award details page but cannot see edit action on award
@@ -447,8 +447,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly cannot see row level action button "Remove" against "{SavedValue:TitleNotes}" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
 
     Examples:
-      | UserType    | OwnerType  | OwnerName       |
-      | GRANTEE EXE | GRANTEE PM | Sarah PM user   |
+      | UserType    | OwnerType  | OwnerName     |
+      | GRANTEE EXE | GRANTEE PM | Sarah PM user |
 
   @482629 @VerifyPMuserNonownercanviewawarddetailspagebutcannotseeeditactiononaward @P3_Grantee @PM_Grantee @GRegression4 @GranteeTBE
   Scenario Outline:Verify PM user(Non owner) can view award details page but cannot see edit action on award
@@ -564,8 +564,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly cannot see row level action button "Remove" against "{SavedValue:TitleNotes}" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
 
     Examples:
-      | UserType    | OwnerType  | OwnerName       |
-      | GRANTEE PM  | GRANTEE PO | Grantee PO user |
+      | UserType   | OwnerType  | OwnerName       |
+      | GRANTEE PM | GRANTEE PO | Grantee PO user |
 
   @482630 @VerifyFOuserNonownercanviewawarddetailspagebutcannotseeeditactiononaward @FO_Grantee @P3_Grantee @GRegression4 @GranteeTBE
   Scenario Outline:Verify FO user(Non owner) can view award details page but cannot see edit action on award
@@ -681,8 +681,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly cannot see row level action button "Remove" against "{SavedValue:TitleNotes}" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
 
     Examples:
-      | UserType    | OwnerType  | OwnerName       |
-      | GRANTEE FO  | GRANTEE PM | Sarah PM user   |
+      | UserType   | OwnerType  | OwnerName     |
+      | GRANTEE FO | GRANTEE PM | Sarah PM user |
 
   @482631 @VerifyFDuserNonownercanviewawarddetailspagebutcannotseeeditactiononaward @P3_Grantee @FD_Grantee @GRegression4 @GranteeTBE
   Scenario Outline:Verify FD user(Non owner) can view award details page but cannot see edit action on award
@@ -798,8 +798,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly cannot see row level action button "Remove" against "{SavedValue:TitleNotes}" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
 
     Examples:
-      | UserType    | OwnerType  | OwnerName       |
-      | GRANTEE FD  | GRANTEE PM | Sarah PM user   |
+      | UserType   | OwnerType  | OwnerName     |
+      | GRANTEE FD | GRANTEE PM | Sarah PM user |
 
   @486513 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward @TBE
   Scenario Outline: Other Type AR -Verify PM user should able to approved the AR & should able to create & activate new award
@@ -1347,8 +1347,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy          |
-      | Sarah PM user   | GRANTEE PM | GRANTEE PM     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Sarah PM           |
+      | UserName      | OwnerType  | UserType   | emailIdFrom             | emailIdTo                       | CreatedBy |
+      | Sarah PM user | GRANTEE PM | GRANTEE PM | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Sarah PM  |
 
   @486518 @OtherTypeARVerifyADMINusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward
   Scenario Outline: Other Type AR -Verify ADMIN user should able to approved the AR & should able to create & activate new award
@@ -1896,8 +1896,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy          |
-      | Grantee PO user | GRANTEE PO | GRANTEE ADMIN1 | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Product Admin      |
+      | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy     |
+      | Grantee PO user | GRANTEE PO | GRANTEE ADMIN1 | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Product Admin |
 
   @486535 @OtherTypeARVerifyEXEusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward @TBE
   Scenario Outline: Other Type AR -Verify EXE user should able to approved the AR & should able to create & activate new award
@@ -2152,8 +2152,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     Then I softly see "Edit" modal button
@@ -2445,8 +2445,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy          |
-      | Grantee PO user | GRANTEE PO | GRANTEE EXE    | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Victor EXE         |
+      | UserName        | OwnerType  | UserType    | emailIdFrom             | emailIdTo                       | CreatedBy  |
+      | Grantee PO user | GRANTEE PO | GRANTEE EXE | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Victor EXE |
 
   @486536 @OtherTypeARVerifyFDusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward @TBE
   Scenario Outline: Other Type AR -Verify FD user should able to approved the AR & should able to create & activate new award
@@ -2995,8 +2995,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy          |
-      | Sarah PM user   | GRANTEE PM | GRANTEE FD     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Danielle FD Garcia |
+      | UserName      | OwnerType  | UserType   | emailIdFrom             | emailIdTo                       | CreatedBy          |
+      | Sarah PM user | GRANTEE PM | GRANTEE FD | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Danielle FD Garcia |
 
   @486538 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward @TBE
   Scenario Outline: Other Type AR -Verify PM user should able to approved the AR & should able to create & activate new award
@@ -3547,8 +3547,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy          |
-      | Sarah PM user   | GRANTEE PM | GRANTEE FO     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | David FO           |
+      | UserName      | OwnerType  | UserType   | emailIdFrom             | emailIdTo                       | CreatedBy |
+      | Sarah PM user | GRANTEE PM | GRANTEE FO | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | David FO  |
 
   @486539 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward @TBE
   Scenario Outline: Other Type AR -Verify PM user should able to approved the AR & should able to create & activate new award
@@ -4096,8 +4096,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy          |
-      | Grantee PO user | GRANTEE PO | GRANTEE PO     | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Grantee PO         |
+      | UserName        | OwnerType  | UserType   | emailIdFrom             | emailIdTo                       | CreatedBy  |
+      | Grantee PO user | GRANTEE PO | GRANTEE PO | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Grantee PO |
 
   @482343 @482351 @482352 @482356 @482359 @482361 @482363 @482368 @482400 @ValidatePMUsertheoverviewtabofaward @P2_Grantee @PM_Grantee @GRegression1 @GRegression4
   Scenario: Validate PM User the overview tab of award
