@@ -4480,13 +4480,10 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I see the sub-header is "{SavedValue:Automation Runtime Organization}" in the page details
     #Create Secondary User
     And I click on top right button "New" in flex table with id "---home:-:userContactsTableId---"
-    And I enter "Secondary_User" values from "SubrecipientOrganization_Field_Values.xlsx"
+    And I enter in modal "Secondary_User" values from "SubrecipientOrganization_Field_Values.xlsx"
     And I generate the random maildropEmail and save as "uniqueEmailID1"
-    And I enter value "{SavedValue:uniqueEmailID1}" into field "fieldEmail"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "Email"
     When I click on "Save" in the page details
-    And I click modal button "Close"
-    And I wait for "2" seconds
-    And I refresh the page
     And I wait for "2" seconds
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} User" inside flex table with id "---home:-:userContactsTableId---" without waiting for record
     And I click "Send" button in modal
