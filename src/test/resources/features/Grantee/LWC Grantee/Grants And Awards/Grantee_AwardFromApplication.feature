@@ -2152,8 +2152,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Rating is required to save.   |
-      | Comments is required to save. |
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     Then I softly see "Edit" modal button
