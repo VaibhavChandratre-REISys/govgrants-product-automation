@@ -4952,7 +4952,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I see the following messages in the page details :
       | File Attachment.pdf deleted successfully. |
     Then I softly do not see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
-    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardPeerReviewerTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" by clicking "New" :
@@ -5059,6 +5058,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see the text containing "Upload File"
     Then I softly see the text containing "Description"
     Then I see "Upload" button is disabled at modal under library
+    And I select Classification as "Terms and Conditions" at upload file modal
     When I upload file "Attachment.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
     Then I see the text "Attachment.pdf" in modal
@@ -5138,6 +5138,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see the text containing "Upload File"
     Then I softly see the text containing "Description"
     Then I see "Upload" button is disabled at modal under library
+    And I select Classification as "Terms and Conditions" at upload file modal
     When I upload file "Attachment.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
     Then I see the text "Attachment.pdf" in modal
