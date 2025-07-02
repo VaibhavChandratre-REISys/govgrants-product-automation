@@ -1,4 +1,4 @@
-@AppReview @applicationReviewWBEmailNotification @EmailNotification @grantor-regression @grantor-parallel-regression @applicationReview @app @regression @applicationReviewTBE @skipOnJenkins
+@AppReview @applicationReviewWBEmailNotification @EmailNotification @grantor-regression @grantor-parallel-regression @applicationReview @app @regression @applicationReviewTBE @AppReviewmailandPdf @skipOnJenkins
 Feature: Validate all scenarios in the Application Review without background  for email notification
 
   @134200 @Validatemailisgeneratedtoallreviewersassignedtotheapplicationwithinthereviewstep @Sprint-1 @Bug-Ticket-533920

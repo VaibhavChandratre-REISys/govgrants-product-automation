@@ -1,4 +1,4 @@
-@grantsAwardUndo @grantor-regression @grantor-parallel-regression @grantAndAward @regression @GrantsExecutionPDF @PDF @skipOnJenkins
+@grantsAwardUndo @grantor-regression @grantor-parallel-regression @grantAndAward @regression @GrantsExecutionPDF @PDF @GrantsemailandPdf @skipOnJenkins
 Feature: Validate all scenarios of grants and award for PDF
 
   @51140 @51141 @66897 @66006 @65983 @66005 @66003  @66904 @66299 @66404 @66582 @66483 @allSendToRecipientAndAcceptanceAfterApproval @wip

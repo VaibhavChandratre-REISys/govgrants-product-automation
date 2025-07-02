@@ -1,6 +1,5 @@
-@grantsAwardUndo @grantor-regression @grantor-parallel-regression @grantAndAward @regression  @grantAndAwardEmailNotification @EmailNotification  @skipOnJenkins
+@grantsAwardUndo @grantor-regression @grantor-parallel-regression @grantAndAward @regression  @grantAndAwardEmailNotification @EmailNotification @GrantsemailandPdf  @skipOnJenkins
 Feature: Validate all scenarios of grants and award  for email notification
-
 
   @286539  @sprint-1-US-295145  @Undo
   Scenario: Verify notification email should generate to new owner of award after click on Undo button

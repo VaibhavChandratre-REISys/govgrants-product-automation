@@ -1,4 +1,4 @@
-@SiteVisitExecution @siteVisits @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisit_Lwc_Run @siteAndDeskReview @siteVisitEmailNotification @EmailNotification  @skipOnJenkins
+@SiteVisitExecution @siteVisits @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisit_Lwc_Run @siteAndDeskReview @siteVisitEmailNotification @EmailNotification @siteAndDeskReviewmailandPdf  @skipOnJenkins
 Feature: Validate all scenarios in the Site Visit for Email Notification
 
   @56009 @77251 @55212 @sendBacktoOwnerReceivePendingTaskSV

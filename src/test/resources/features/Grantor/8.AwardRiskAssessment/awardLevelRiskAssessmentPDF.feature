@@ -1,4 +1,4 @@
-@riskAssessment @awardLevelRiskAssessment @grantor-regression @grantor-parallel-regression @regression @RiskExecution @riskAssessmentPDF @PDF @skipOnJenkins
+@riskAssessment @awardLevelRiskAssessment @grantor-regression @grantor-parallel-regression @regression @RiskExecution @riskAssessmentPDF @PDF @riskassesmentemailandPdf @skipOnJenkins
 Feature: Validate all scenarios in the Risk Assessment for PDF
 
   @77659 @58167 @59625 @66378 @PendingTaskCreationAndapprovalProcessofRiskAssessment @skipOnJenkins @FieldHistoryExclude @snapExecution

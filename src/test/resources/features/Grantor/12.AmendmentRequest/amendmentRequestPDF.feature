@@ -1,4 +1,4 @@
-@amendmentRequestswithBackground @amendmentRequests @grantor-regression @grantor-parallel-regression @parallel-regression @regression @amendmentRequestsPDF @PDF  @skipOnJenkins
+@amendmentRequestswithBackground @amendmentRequests @grantor-regression @grantor-parallel-regression @parallel-regression @regression @amendmentRequestsPDF @PDF @amendmentRequestsmailandPdf @skipOnJenkins
 Feature: Validate all scenarios in the Amendment Request for PDF
 
   @292455 @292634 @VerifyUndobuttonvisibilityonapprovedamendmentaftersubawardisdeletedfromPendingactivationstate @sprint-3-US-288689  @Undo @snapExecution

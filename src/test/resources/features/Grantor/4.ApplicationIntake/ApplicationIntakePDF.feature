@@ -1,4 +1,4 @@
-@applicationIntakeAllocation @grantor-regression @grantor-parallel-regression @app @ApplicationExecution-reg @applicationIntakePDF @PDF @skipOnJenkins
+@applicationIntakeAllocation @grantor-regression @grantor-parallel-regression @app @ApplicationExecution-reg @applicationIntakePDF @applicationIntakemailandPdf @PDF @skipOnJenkins
 Feature: Validate all scenarios in the Formula Announcement tab for PDF
 
   @73521 @70526 @snapshotAfterApplicationIsSubmitted @snapExecution

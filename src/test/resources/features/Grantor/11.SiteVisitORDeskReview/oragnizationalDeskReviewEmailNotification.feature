@@ -1,4 +1,4 @@
-@organizationalDeskReview @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteAndDeskReview @organizationalDeskReviewEmailNotification @DeskReviewEmailNotification @EmailNotification  @skipOnJenkins
+@organizationalDeskReview @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteAndDeskReview @organizationalDeskReviewEmailNotification @DeskReviewEmailNotification @EmailNotification @siteAndDeskReviewmailandPdf  @skipOnJenkins
 Feature: Validate all scenarios in Organizational Desk Review  for Email Notification
 
   @55867 @55873 @54460 @75861 @NotifyTaskRecipientCannotCreateAndSeeReportAndOutcomesWhenInNotifiedStatusOrgDR  @organizationalDeskReviewFirst

@@ -1,4 +1,4 @@
-@closeoutExecution @closeout @grantor-regression @grantor-parallel-regression @regression @closeoutEmailNotification @EmailNotification  @skipOnJenkins
+@closeoutExecution @closeout @grantor-regression @grantor-parallel-regression @regression @closeoutEmailNotification @EmailNotification @closeoutmailandPdf  @skipOnJenkins
 Feature: Validate all scenarios in Closeout for Email Notification
 
   @76490 @VerifyEmailNotificationForApprovedCloseoutRequest

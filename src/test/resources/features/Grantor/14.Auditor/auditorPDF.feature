@@ -1,4 +1,4 @@
-@auditor @parallel-regression @regression @auditorPDF @PDF  @skipOnJenkins
+@auditor @parallel-regression @regression @auditorPDF @PDF @auditormailandPdf  @skipOnJenkins
 Feature: Validate all scenarios for Auditor Profile for PDF
 
 

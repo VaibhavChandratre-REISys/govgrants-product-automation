@@ -1,4 +1,4 @@
-@announcementPDF @grantor-regression @grantor-parallel-regression @announcement @regression @AnnouncementTemp2  @PDF @skipOnJenkins
+@announcementPDF @grantor-regression @grantor-parallel-regression @announcement @regression @AnnouncementTemp2  @PDF @announcementmailandPdf @skipOnJenkins
 Feature: Validate all scenarios in the Formula Announcement tab PDF related scenarios
 
   @75546 @75639 @75633 @75645 @75646 @75544 @75545 @75543  @downloadPDF @skipOnJenkins @ExcludeSendEmail

@@ -1,6 +1,5 @@
-@progressReport @grantor-regression @grantor-parallel-regression @progressReportWithBackground @regression @progressReportPDF @PDF @skipOnJenkins
+@progressReport @grantor-regression @grantor-parallel-regression @progressReportWithBackground @regression @progressReportPDF @PDF @progressReportmailandPdf @skipOnJenkins
 Feature: Validate all scenarios in Progress Report for PDF
-
 
   @59898 @validateSRUserIsAbleToViewSnapshotHistory @skipOnJenkins @snapExecution
   Scenario: Validate SR user is able to view the Snapshot after Progress report is Submitted to Grantor status

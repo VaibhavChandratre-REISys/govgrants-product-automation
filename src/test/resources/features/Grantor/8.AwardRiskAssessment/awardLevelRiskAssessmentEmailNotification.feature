@@ -1,4 +1,4 @@
-@riskAssessment @awardLevelRiskAssessment @grantor-regression @grantor-parallel-regression @regression @RiskExecution @riskAssessmentEmailNotification @EmailNotification  @skipOnJenkins
+@riskAssessment @awardLevelRiskAssessment @grantor-regression @grantor-parallel-regression @regression @RiskExecution @riskAssessmentEmailNotification @EmailNotification @riskassesmentemailandPdf  @skipOnJenkins
 Feature: Validate all scenarios in the Risk Assessment for Email Notification
 
   @198041 @ValidatePOusercansubmittheawardriskassessmentforapprovalpostrevieweraddcommentswhenownershipistransferredforRAwhichisinSubmittedforReviewstatus @sprint-12-US-226646  @reassignment @Bug-Ticket-532346

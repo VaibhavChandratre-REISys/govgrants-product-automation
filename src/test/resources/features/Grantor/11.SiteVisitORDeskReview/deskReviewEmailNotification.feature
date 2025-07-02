@@ -1,4 +1,4 @@
-@deskReview @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteAndDeskReview @deskReviewEmailNotification @EmailNotification  @skipOnJenkins
+@deskReview @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteAndDeskReview @deskReviewEmailNotification @EmailNotification @siteAndDeskReviewmailandPdf  @skipOnJenkins
 Feature: Validate all scenarios in Desk Review for Email Notification
 
   @51021 @66557 @51022 @66549 @51023 @66146 @66485 @77256 @66550 @deskReviewSendToSubrecipientdAndCorrectiveActionsBySubrecipient

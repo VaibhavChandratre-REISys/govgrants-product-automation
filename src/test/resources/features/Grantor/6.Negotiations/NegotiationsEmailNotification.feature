@@ -1,4 +1,4 @@
-@negotiations @grantor-regression @grantor-parallel-regression @regression  @negotiationsEmailNotification @EmailNotification  @skipOnJenkins
+@negotiations @grantor-regression @grantor-parallel-regression @regression  @negotiationsEmailNotification @EmailNotification @negotiationsemailandPdf  @skipOnJenkins
 Feature: Validate all scenarios in Negotiations for email notification
 
   @34192 @57490 @57492 @createSubawardButtonOnCompletedNegotiationfromApplicationsTab

@@ -1,4 +1,4 @@
-@organizationalDeskReview @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteAndDeskReview @organizationalDeskReviewPDF @DeskReviewPDF @PDF  @skipOnJenkins
+@organizationalDeskReview @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteAndDeskReview @organizationalDeskReviewPDF @DeskReviewPDF @PDF @siteAndDeskReviewmailandPdf  @skipOnJenkins
 Feature: Validate all scenarios in Organizational Desk Review for PDF
 
   @61992 @RecordOwnerCanViewSnapshotAfterODRIsSubmittedForApproval

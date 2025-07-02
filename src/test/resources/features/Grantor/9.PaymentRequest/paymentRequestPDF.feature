@@ -1,4 +1,4 @@
-@paymentRequestWithBackground @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequestPDF @PDF @skipOnJenkins
+@paymentRequestWithBackground @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequestPDF @PDF @paymentRequestmailandPdf @skipOnJenkins
 Feature: Validate all scenarios in Payment Request for PDF
 
 

@@ -1,4 +1,4 @@
-@applicationIntakeAllocation @grantor-regression @grantor-parallel-regression @app @ApplicationExecution-reg @applicationIntakeEmailNotification @EmailNotification @skipOnJenkins
+@applicationIntakeAllocation @grantor-regression @grantor-parallel-regression @app @ApplicationExecution-reg @applicationIntakeEmailNotification @applicationIntakemailandPdf @EmailNotification @skipOnJenkins
 Feature: Validate all scenarios in the Formula Announcement tab for email notification
 
   @197064 @sprint-4-US-197579 @reassignment

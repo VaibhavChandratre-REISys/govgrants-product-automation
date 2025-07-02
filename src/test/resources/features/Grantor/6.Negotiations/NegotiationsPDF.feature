@@ -1,4 +1,4 @@
-@negotiations @grantor-regression @grantor-parallel-regression @regression @NegoWithBackground @negotiationsPDF  @PDF @skipOnJenkins
+@negotiations @grantor-regression @grantor-parallel-regression @regression @NegoWithBackground @negotiationsPDF  @PDF @negotiationsemailandPdf @skipOnJenkins
 Feature: Validate all scenarios in Negotiations for PDF
 
   @62667 @RecordOwnerCanViewSnapshotAfterNegotiationIsInSubmittedToGrantor  @skipOnJenkins @snapExecution

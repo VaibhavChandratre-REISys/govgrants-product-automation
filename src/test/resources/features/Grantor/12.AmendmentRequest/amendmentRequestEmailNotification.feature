@@ -1,4 +1,4 @@
-@amendmentRequestswithBackground @amendmentRequests @grantor-regression @grantor-parallel-regression @parallel-regression @regression @amendmentRequestsEmailNotification @EmailNotification  @skipOnJenkins
+@amendmentRequestswithBackground @amendmentRequests @grantor-regression @grantor-parallel-regression @parallel-regression @regression @amendmentRequestsEmailNotification @EmailNotification @amendmentRequestsmailandPdf  @skipOnJenkins
 Feature: Validate all scenarios in the Amendment Request for Email Notification
 
   @274160 @Validatenewowneroftaskseesubmittedtaskisgeneratedforhimofamendments @Sprint-23-US-273843  @Allocation @skipDueToIndUser

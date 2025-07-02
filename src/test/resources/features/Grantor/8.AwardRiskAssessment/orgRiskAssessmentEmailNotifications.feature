@@ -1,4 +1,4 @@
-@riskAssessment @orgAwardLevelRiskAssessment @regression @orgRiskAssessmentEmailNotification @EmailNotification  @skipOnJenkins
+@riskAssessment @orgAwardLevelRiskAssessment @regression @orgRiskAssessmentEmailNotification @EmailNotification @riskassesmentemailandPdf  @skipOnJenkins
 Feature: Validate all scenarios in the Organizational Risk Assessment for Email Notification
 
   @62520 @77260 @taskCreationWhenGrantorProvideAccess

@@ -1,4 +1,4 @@
-@paymentRequestWithBackground @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequestEmailNotification @EmailNotification  @skipOnJenkins
+@paymentRequestWithBackground @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequestEmailNotification @EmailNotification @paymentRequestmailandPdf  @skipOnJenkins
 Feature: Validate all scenarios in Payment Request for Email Notification
 
   @55631 @PRSendBackToSubrecipientCheckMailNotification

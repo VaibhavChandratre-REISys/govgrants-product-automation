@@ -1,6 +1,5 @@
-@smeRegistration @smeReviewerRegistration @userRegistration @parallel-regression @regression @smeRegistrationEmailNotification @EmailNotification  @skipOnJenkins
+@smeRegistration @smeReviewerRegistration @userRegistration @parallel-regression @regression @smeRegistrationEmailNotification @EmailNotification @RegistrationmailandPdf  @skipOnJenkins
 Feature: Validate all scenarios for SME Registration for Email Notification
-
 
   @94345 @validatingEmailNotificationForSMEReviewer
   Scenario: To verify Email notification should be received to SME contact after sending invitation by internal  user

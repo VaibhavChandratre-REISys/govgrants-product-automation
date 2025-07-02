@@ -1,4 +1,4 @@
-@riskAssessment @orgAwardLevelRiskAssessment @regression @orgRiskAssessment @riskAssessmentPDF @PDF @skipOnJenkins
+@riskAssessment @orgAwardLevelRiskAssessment @regression @orgRiskAssessment @riskAssessmentPDF @PDF  @riskassesmentemailandPdf @skipOnJenkins
 Feature: Validate all scenarios in the Organizational Risk Assessment for PDF
 
 

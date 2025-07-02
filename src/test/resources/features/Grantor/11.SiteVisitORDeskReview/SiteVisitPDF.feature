@@ -1,4 +1,4 @@
-@SiteVisitExecution @siteVisits @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisit_Lwc_Run @siteAndDeskReview @siteVisitPDF @PDF @skipOnJenkins
+@SiteVisitExecution @siteVisits @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisit_Lwc_Run @siteAndDeskReview @siteVisitPDF @PDF @siteAndDeskReviewmailandPdf @skipOnJenkins
 Feature: Validate all scenarios in the Site Visit for PDF
 
   @60833 @theSnapshotAfterSiteVisitsIsSendToSubrecipient @snapExecution
