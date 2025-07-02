@@ -1722,25 +1722,15 @@ Feature: Validate all scenarios of every modules flow
     
   @debuggg
   Scenario:
-    Given I login to "As a Grantee" app as "GRANTEE PO" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/PreApplication__c/a31Da000000kwuDIAQ/view"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Closeout__c/a23Da000001UNqWIAW/view"
     And I halt execution
-    When I navigate to "Setup" sub tab
-    And I click on "Edit" icon for "BP01" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetPeriodDetails---"
-    When I enter in modal value "300" into field "BudgetEndDate__c"
-    When I click modal button "Save"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:closeoutAddFilesTableId---"
+    And I wait for "7" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Supporting Documents" from computer
     And I wait for "2" seconds
-    And I click on top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
-    When I enter in modal value "302" into field "BudgetStartDate__c"
-    When I enter in modal value "365" into field "BudgetEndDate__c"
-    When I click modal button "Save"
-    And I wait for "2" seconds
-    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
-    When I click "Next" after selection of "BP02" in the table "---grantee_tableId:-:preAppAssociateBudgetTableId---"
-    And I wait for "3" seconds
-    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:preAppAssociateFocusAreaTableId---"
-    And I click modal button "Close"
-    Then I softly can see row level action button "Delete" against "BP02" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    Then I softly see the following messages in the page details contains:
+      | File Attachment.pdf Uploaded successfully. |
     And I halt execution
 
   @testCheck
