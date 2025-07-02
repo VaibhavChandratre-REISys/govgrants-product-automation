@@ -1,7 +1,7 @@
 @GranteeProgressFinancialSchedules
 Feature: Validate all scenarios for Progress & Financial Schedules
 
-  @446228 @VerifyEXEusercanseeProgressreportschedulesfromawardinMonitoringschedules
+  @446228 @VerifyEXEusercanseeProgressreportschedulesfromawardinMonitoringschedules @TBE
   Scenario: Verify EXE user can see Progress report schedules from award in Monitoring schedules
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -10166,7 +10166,7 @@ Feature: Validate all scenarios for Progress & Financial Schedules
       | userType        |
       | GRANTEE AUDITOR |
 
-  @445593 @ValidateProgressFinancialReportScheduleEXEusernonownercannotseeeditbuttonforProgressandFinancialReportonReportingScheduletableoncreatedSubmittedforreviewreviewedSubmittedforapprovalActivestateofaward
+  @445593 @ValidateProgressFinancialReportScheduleEXEusernonownercannotseeeditbuttonforProgressandFinancialReportonReportingScheduletableoncreatedSubmittedforreviewreviewedSubmittedforapprovalActivestateofaward @TBE
   Scenario Outline: Validate Progress/Financial Report Schedule EXE user(non owner) cannot see edit button for Progress and Financial Report on Reporting Schedule table on created, Submitted for review, reviewed, Submitted for approval, Active state of award
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
