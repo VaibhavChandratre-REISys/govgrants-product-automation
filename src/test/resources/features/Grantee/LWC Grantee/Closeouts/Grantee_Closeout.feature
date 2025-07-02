@@ -1735,7 +1735,7 @@ Feature: Validate all scenarios for closeout
     Then I softly can see "Chatter" sub tab at view detail page
     Then I softly can see "Field Audit" sub tab at view detail page
 
-  @484074 @AppGPCloseoutVerifyWithPOAuditorFOFDProfileAsanonownerCloseoutabletoseeonlyviewmode @GRegression3 @TBE
+  @484074 @AppGPCloseoutVerifyWithPOAuditorFOFDProfileAsanonownerCloseoutabletoseeonlyviewmode @GRegression3 @PO_Grantee @P3_Grantee
   Scenario Outline: App GP Closeout - "Verify With PO /Auditor / FO /FD Profile,As a non owner Closeout  able to see only view mode."
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -1821,7 +1821,7 @@ Feature: Validate all scenarios for closeout
       | GRANTEE FO |
       | GRANTEE FD |
 
-  @484074_1 @AppGPCloseoutVerifyWithPOAuditorFOFDProfileAsanonownerCloseoutabletoseeonlyviewmode @GRegression3 @TBE
+  @484074_1 @AppGPCloseoutVerifyWithPOAuditorFOFDProfileAsanonownerCloseoutabletoseeonlyviewmode @GRegression3 @AUDITOR_Grantee @P3_Grantee
   Scenario: App GP Closeout - "Verify With Auditor,As a non owner Closeout  able to see only view mode."
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"

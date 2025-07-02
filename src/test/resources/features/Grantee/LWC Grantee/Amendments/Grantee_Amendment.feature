@@ -10831,6 +10831,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
+    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "New" :
+      | Title         | Description      |
+      | Notes Record  | Automation Notes |
     And I navigate to "Overview" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I enter in modal value "Terms1" into field "Title__c"
@@ -10868,10 +10871,10 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I cannot see row level action button "Delete" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see value "New Indirect rate1" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see value "New Indirect rate2" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I cannot see row level action button "Edit" against "New Indirect rate1" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I cannot see row level action button "Delete" against "New Indirect rate1" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I cannot see row level action button "Edit" against "New Indirect rate2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I cannot see row level action button "Delete" against "New Indirect rate2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see value "Terms" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly can see row level action button "View" against "Terms1" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
