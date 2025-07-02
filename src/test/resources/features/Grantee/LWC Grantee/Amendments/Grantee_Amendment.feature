@@ -10801,7 +10801,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "History" sub tab
     Then I softly do not see "Change Request History" page block displayed
 
-  @485301 @VerifythatAuditoruserhavingonlyviewaccessonBudgetperiodChangeamendmentrequestonBPARlayout @TBE
+  @485301 @VerifythatAuditoruserhavingonlyviewaccessonBudgetperiodChangeamendmentrequestonBPARlayout @P4_Grantee @AUDITOR_Grantee @GRegression4
   Scenario:Verify that Auditor user having only view access on Budget period Change amendment request on BP AR layout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
