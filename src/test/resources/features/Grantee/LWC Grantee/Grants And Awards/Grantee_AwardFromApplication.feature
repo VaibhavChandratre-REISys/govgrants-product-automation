@@ -4899,6 +4899,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see the text containing "Upload File"
     Then I softly see the text containing "Description"
     Then I see "Upload" button is disabled at modal under library
+    And I select Classification as "Other" at upload file modal
     When I upload file "Attachment.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
     Then I see the text "Attachment.pdf" in modal

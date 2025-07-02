@@ -22,7 +22,6 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I click on "Edit" in the page details
     When I enter "Grantee_Award_Edit_Schedules" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I halt execution
     And I navigate to "Projections" sub tab
     And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
     And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
