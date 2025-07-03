@@ -5293,6 +5293,11 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I see option "Download as PDF" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "Award Files"
     Then I see table is refreshing
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Activated"
     When I navigate to "Files" sub tab
