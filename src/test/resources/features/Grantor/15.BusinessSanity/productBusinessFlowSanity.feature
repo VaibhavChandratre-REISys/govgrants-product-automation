@@ -3699,6 +3699,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see the text containing "OMB Number: 4040-0018"
     Then I see the page contains text "Expiration Date: 11/30/2024"
     When I click on "Edit" in the page details
+    And I wait for "2" seconds
     And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
@@ -3759,6 +3760,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see the following messages in the page details :
       | Selecting at least one that apply in 'Report' is required. |
     When I click on "Edit" in the page details
+    And I wait for "2" seconds
     When I enter value "Checked" into field "FederallyownedProperty__c"
     When I enter value "Checked" into field "AcquiredEquipment__c"
     When I enter value "Checked" into field "ResidualUnusedSupplies__c"
