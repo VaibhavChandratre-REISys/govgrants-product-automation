@@ -4278,6 +4278,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | l. Total Federal share of program income earned                         | -30        |
       | m. Program income expended in accordance with the deduction alternative | -20        |
       | n. Program income expended in accordance with the addition alternative  | -5         |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | The amount cannot be less than zero. |
     And I close the tab
