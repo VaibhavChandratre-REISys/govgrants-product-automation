@@ -1400,6 +1400,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Funding Decision Memo" in the page details
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Edit" in the page details
+    And I wait for "1" seconds
     When I enter values into fields
       | Value                       | Field            |
       | AuGr                        | GrantCode__c     |
