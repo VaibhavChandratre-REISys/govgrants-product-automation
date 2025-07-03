@@ -7056,7 +7056,7 @@ Feature: Grantee Forms Scenario
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
-    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    Given I login to "As a Grantee" app as "GRANTEE FD" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
