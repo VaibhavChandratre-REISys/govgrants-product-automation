@@ -642,7 +642,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I perform quick search for "{SavedValue:annId}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     Then I softly see value "{SavedValue:annId}" for title "EGMS ID" inside table "---applicationIntake:-:activeOpportunitiesTableId---"
 
-  @73866 @73870  @viewQualifiedOpportunitySPA @TBE1
+  @73866 @73870  @viewQualifiedOpportunitySPA @TBE
   Scenario: To verify user allow to view Qualified opportunity  in opportunity tab
   | To verify, searched functionality for Qualified Opportunities :All section for opportunities phase
     Given I published "Directed" type announcement having name "Automation Runtime Announcement for Application Intake" and properties "default"
@@ -2570,7 +2570,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     Then I see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
 
-  @195215  @sprint-4  @reassignment @TBE
+  @195215  @sprint-4  @reassignment
   Scenario: Validate PM as old Ann owner can only view Ann record once he reassign Ann ownership task to new user
     When I login to "Grantor" app as "PM1" user
     And I navigate to "Announcements" tab
@@ -2653,7 +2653,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I cannot see row level action button "Edit" against "{SavedValue:AnnEGMSID}" in flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:AnnEGMSID}" in flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
 
-  @195225 @ValidatenewAnnownershouldbedisplayforownersectionunderresponsibilitytabafterownershiptaskreassigntonewuser @sprint-4  @reassignment @TBE1
+  @195225 @ValidatenewAnnownershouldbedisplayforownersectionunderresponsibilitytabafterownershiptaskreassigntonewuser @sprint-4  @reassignment
   Scenario: Validate new Ann owner should be display for owner section under responsibility tab after ownership task reassign to new user
     When I login to "Grantor" app as "PM1" user
     And I navigate to "Announcements" tab
@@ -2791,7 +2791,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I enter value "Automation PM" in reassign lookup
     Then I softly do not see "Automation PM" inside auto search result
 
-  @195230 @ValidateoldAnnownershouldnotabletoseeAnntaskinMyTasktableonceownershiptaskreassigntootheruser @sprint-4  @reassignment @TBE
+  @195230 @ValidateoldAnnownershouldnotabletoseeAnntaskinMyTasktableonceownershiptaskreassigntootheruser @sprint-4  @reassignment
   Scenario: Validate old Ann owner should not able to see Ann task in My Task table once ownership task reassign to other user
     When I login to "Grantor" app as "PM1" user
     And I navigate to "Announcements" tab
@@ -5834,7 +5834,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Announcement Name                                        | Application Name                                         |
       | {SavedValue:Automation Runtime Competitive Announcement} | {SavedValue:Automation Runtime Competitive Announcement} |
 
-  @238053 @ValidateAnnouncementaddeddifferentuserSimonPMforsameroleprogramreviewerandreassignedthenthereassignmentgotsuccessfulforthenewuser @sprint-14-US-235915  @reassignment @TBE1
+  @238053 @ValidateAnnouncementaddeddifferentuserSimonPMforsameroleprogramreviewerandreassignedthenthereassignmentgotsuccessfulforthenewuser @sprint-14-US-235915  @reassignment @TBE
   Scenario: Validate Announcement added a different user Simon PM for same role program reviewer and reassigned then the reassignment got successful for the new user
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab

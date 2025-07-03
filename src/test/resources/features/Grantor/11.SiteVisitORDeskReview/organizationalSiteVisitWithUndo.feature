@@ -1,7 +1,7 @@
 @organizationalSiteVisitUndo @grantor-regression @grantor-parallel-regression @siteVisit @regression @organizationalSiteVisitUndo @siteVisit_Lwc_Run @siteAndDeskReview
 Feature: Validate all scenarios in Organizational Site Visit With Undo
 
-  @289790 @289791 @289792 @289793 @289797 @289798 @289808 @289809 @291842 @VerifywhenPmapprovercanclickonundobuttoninOrganizationalSiteVisitrecordwhenrecordisinApprovedstate @sprint-2-US-288691  @Undo @FieldHistoryExclude
+  @289790 @289791 @289792 @289793 @289797 @289798 @289808 @289809 @291842 @VerifywhenPmapprovercanclickonundobuttoninOrganizationalSiteVisitrecordwhenrecordisinApprovedstate @sprint-2-US-288691  @Undo @FieldHistoryExclude @TBE
   Scenario: Verify when Pm approver can click on undo button in Organizational Site Visit record when record is in Approved state
     When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -895,7 +895,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @342521 @342527 @342529 @342544 @VerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinCreatedState @sprint-2-US-288691 @Undo @366345 @TBE
+  @342521 @342527 @342529 @342544 @VerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinCreatedState @sprint-2-US-288691 @Undo @366345
   Scenario: Verify that Undo Button will not visible to any user when Organization Site visit is in Created State
     When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab

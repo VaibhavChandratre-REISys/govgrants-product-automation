@@ -1708,7 +1708,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | SPI3 | {AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}         |
       | IND  | {AUTOEnvData:INDAdminByApplicantFocusYesClosedAwardDirectGrant} |
 
-  @244294 @244300 @ValidateSPIuseseshouldseeNewobligationcolumninallstatesofawardcreatedsentsrbeforeandafterapprovalinpeerreviewreviewcompletedsubmittedtograntorSubmittedforapprovalapprovedRejectedAmendePendingActivationFANOo@sprint-16-US-238299  @Allocation @TBE
+  @244294 @244300 @ValidateSPIuseseshouldseeNewobligationcolumninallstatesofawardcreatedsentsrbeforeandafterapprovalinpeerreviewreviewcompletedsubmittedtograntorSubmittedforapprovalapprovedRejectedAmendePendingActivationFANOo@sprint-16-US-238299  @Allocation
   Scenario: Validate SPI user se should see "New obligation" column in all states of award created, sent to s/r before and after approval, in peer review, review completed  submitted to grantor Submitted for approval, approved, Rejected, Amended, Pending Activation FA=No
     When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -18047,7 +18047,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see fields "GATStartDate__c" is in edit mode
     Then I softly see fields "GATEndDate__c" is in edit mode
 
-  @244033 @ValidateDirectAnnFOasreviewerusershouldnotseeneweditdeletebuttononsubawardBudgetcategorymodalonawardinSendforReviewstateincaseofdetailbudgetevenifeditaccessisYES @sprint-16-US-226122  @Allocation
+  @244033 @ValidateDirectAnnFOasreviewerusershouldnotseeneweditdeletebuttononsubawardBudgetcategorymodalonawardinSendforReviewstateincaseofdetailbudgetevenifeditaccessisYES @sprint-16-US-226122  @Allocation @TBE
   Scenario: Validate Direct Ann FO as reviewer user should not see new/edit/delete button on sub-award Budget category modal on award in 'Send for Review' state in case of detail budget even if edit access is YES
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation ADMIN user"
     When I login to "Grantor" app as "ADMIN" user
@@ -23422,7 +23422,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see the following messages in the page details contains:
       | The Total Commitment cannot be less than zero. |
 
-  @268454 @268455 @268456 @270275 @ValidateAdminusercanseeFieldHistoryismaintainedforNewObligationField @sprint-21-US-265545 @Allocation @FieldHistoryExclude @TBE1
+  @268454 @268455 @268456 @270275 @ValidateAdminusercanseeFieldHistoryismaintainedforNewObligationField @sprint-21-US-265545 @Allocation @FieldHistoryExclude
   Scenario: Validate Admin user can see Field History is maintained for New Obligation Field
     When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab

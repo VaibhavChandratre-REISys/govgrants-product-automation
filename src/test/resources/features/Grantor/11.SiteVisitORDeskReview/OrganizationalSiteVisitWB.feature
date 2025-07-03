@@ -1278,7 +1278,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     And I click on "Accept and Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @236135 @ValidateSiteVisitReviewOwnerNotifyPeerReviewCompletionemailshoulddisplayfornewownerifreviewersubmitreviewofsitevisitafterownershipgetchange @sprint-14-US-234219  @reassignment @TBE
+  @236135 @ValidateSiteVisitReviewOwnerNotifyPeerReviewCompletionemailshoulddisplayfornewownerifreviewersubmitreviewofsitevisitafterownershipgetchange @sprint-14-US-234219  @reassignment
   Scenario: Validate Site Visit 'Review Owner Notify Peer Review Completion' email should display for new owner if reviewer submit review of site visit after ownership get change
     When I login to "Grantor" app as "PO" user
     And I navigate to "Home" tab
@@ -1788,7 +1788,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "Automation PO1" for title "New Value" inside field history table
     Then I softly see value "Automation PO" for title "Original Value" inside field history table
 
-  @236149 @ValidateSiteVisitReviewApproverSenBackemailshoulddisplayfornewownerifapproversendbacksitevisitafterownershipgetchangeofSV @sprint-14-US-234219  @reassignment @TBE1
+  @236149 @ValidateSiteVisitReviewApproverSenBackemailshoulddisplayfornewownerifapproversendbacksitevisitafterownershipgetchangeofSV @sprint-14-US-234219  @reassignment
   Scenario: Validate Site Visit 'Review Approver Sent Back' email should display for new owner if approver send back site visit after ownership get change of SV
     When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
