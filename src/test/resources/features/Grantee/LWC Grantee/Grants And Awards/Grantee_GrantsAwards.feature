@@ -2615,7 +2615,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "ApprovalPDF.pdf" as name
 
-  @443831 @AwardVerifywithPMprofileManagementTabofAwardPagelayout
+  @443831 @AwardVerifywithPMprofileManagementTabofAwardPagelayout @Gregression2 @P2_Grantee @PM_Grantee
   Scenario: Award with PM profile Management Tab of Award Page layout
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab

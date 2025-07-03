@@ -1353,8 +1353,8 @@ Feature: Validate all scenarios for Grantee Award from Application
   @486518 @OtherTypeARVerifyADMINusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward
   Scenario Outline: Other Type AR -Verify ADMIN user should able to approved the AR & should able to create & activate new award
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
-    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
-    Given I login to "As a Grantee" app as "<OwnerType>" user
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -1363,8 +1363,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     When I click on "Convert to Opportunity" in the page details
     And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
-    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
     And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
     And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
     And I navigate to "Grants" tab
@@ -1581,7 +1581,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I wait for "2" seconds
     Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" without waiting for record
-    Then I softly do not see value "Notes Recor1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly do not see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     When I click on parallel lines menu bar with data target value "Notes"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
