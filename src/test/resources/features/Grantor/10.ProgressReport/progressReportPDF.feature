@@ -62,10 +62,10 @@ Feature: Validate all scenarios in Progress Report for PDF
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-#    When I click on parallel menu button in flex table title "Key Performance Indicators (KPIs)"
-#    And I select "Download as CSV" from parallel lines dropdown of "Objectives"
-#    And I download the file
-#    Then I softly verify that "xls" file is downloaded
+    When I click on parallel menu button in flex table title "Key Performance Indicators (KPIs)"
+    And I select "Download as CSV" from parallel lines dropdown of "Objectives"
+    And I download the file
+    Then I softly verify that "xls" file is downloaded
     When I click on parallel menu button in flex table title "Objectives"
     And I select "Download as PDF" from parallel lines dropdown of "Objectives"
     When I download the file

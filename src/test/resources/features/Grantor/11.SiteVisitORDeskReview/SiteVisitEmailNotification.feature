@@ -203,14 +203,14 @@ Feature: Validate all scenarios in the Site Visit for Email Notification
     And I click on "Accept and Close" in the page details
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     And I logout
-#    When I pause execution for "120" seconds
-#    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
-#    And I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Site Visit Closed
-#      """
-#    Then I refresh the page
+    When I pause execution for "120" seconds
+    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Site Visit Closed
+      """
+    Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Monitoring" tab

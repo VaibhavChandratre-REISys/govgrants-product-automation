@@ -225,14 +225,14 @@ Feature: Validate all scenarios in Desk Review for Email Notification
     And I switch to parent tab
     And I click on "Close" button for view files page
     And I logout
-#    And I pause execution for "120" seconds
-#    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
-#    And I refresh the page
-#    And I see the mail subject is as follows :
-#     """
-#      Sandbox: Notification: Desk Review Approval Requested
-#      """
-#    Then I refresh the page
+    And I pause execution for "120" seconds
+    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I refresh the page
+    And I see the mail subject is as follows :
+     """
+      Sandbox: Notification: Desk Review Approval Requested
+      """
+    Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Monitoring" tab
