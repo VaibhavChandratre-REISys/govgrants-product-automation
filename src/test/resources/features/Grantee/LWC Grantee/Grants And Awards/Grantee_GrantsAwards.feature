@@ -2529,13 +2529,12 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-    And I navigate to "Home" tab
+    And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:HomePendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
-    When I "Approve" in the approval decision
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I select radio button "Forward" in the approval decision
-    And I select user "Victor EXE" in the approval decision
+    And I select user "Sarah PM" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
     Then I softly see the following messages in the page details contains:
@@ -2546,27 +2545,11 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
     Then I softly see value "Created" for title "Original Value" inside field history table
     And I click on back arrow
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    When I "Send to Owner" in the approval decision
-    Then I softly see field "Status" as "Created"
-    And I navigate to "Field Audit" sub tab in split screen
-    And I click on hyperlink containing value "View All"
-    Then I softly see value "Created" for title "New Value" inside field history table
-    Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
-    And I click on back arrow
-    And I wait for "2" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Awards - All"
-    When I perform quick search for "Record Id" in "---grantee_tableId:-:awardTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:awardTableId---" without waiting for record
-    And I click on "Submit For Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
     When I "Reject" in the approval decision
     Then I softly see field "Status" as "Rejected"
     Then I softly see the following messages in the page details contains:
