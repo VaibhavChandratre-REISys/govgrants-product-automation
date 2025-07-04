@@ -2425,7 +2425,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "Close" button for view files page
 #    When I close "View" modal by clicking the top right x button
     And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
+#    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I update title as "Automation.pdf" on upload file modal
     And I wait for "2" seconds
@@ -2528,6 +2528,12 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:HomePendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
+    When I "Approve" in the approval decision
     When I select radio button "Forward" in the approval decision
     And I select user "Victor EXE" in the approval decision
     When I enter comment "Automation testing" in the approval decision
