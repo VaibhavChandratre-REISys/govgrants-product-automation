@@ -7130,7 +7130,7 @@ Feature: Grantee Forms Scenario
     Then I softly see "Field should allow only number upto 4 digits" shown as help text
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Additional Details is required to save. |
+      | To Save, Additional Details is required. |
     When I enter values into fields
       | Value | Field       |
       | Test  | Comments__c |
