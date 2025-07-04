@@ -1207,6 +1207,7 @@ Feature: Validate sanity testing of Complete Business Flow
 #    And I click on "Back" in the page details
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "5" seconds
     And I click on "Edit" in the split screen page details
     And I wait for "2" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
@@ -1892,7 +1893,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Risk Assessment" sub tab
     And I perform quick search for "Active" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     When I click on "View" icon for "Active" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---" without waiting for record
-    Then I softly see field "State" as "Active"
+    Then I softly see field "Status" as "Active"
 
   @72349 @adhocReimbursementHappyPath @ProdSan1
   Scenario: Validate the Reimbursement Payment Request happy path and the status changes to 'Paid'
@@ -4480,7 +4481,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I see the sub-header is "{SavedValue:Automation Runtime Organization}" in the page details
     #Create Secondary User
     And I click on top right button "New" in flex table with id "---home:-:userContactsTableId---"
-    And I enter "Secondary_User" values from "SubrecipientOrganization_Field_Values.xlsx"
+    And I enter in modal "Secondary_User" values from "SubrecipientOrganization_Field_Values.xlsx"
     And I generate the random maildropEmail and save as "uniqueEmailID1"
     And I enter value "{SavedValue:uniqueEmailID1}" into field "fieldEmail"
     When I click on "Save" in the page details
