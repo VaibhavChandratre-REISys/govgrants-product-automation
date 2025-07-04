@@ -1,4 +1,4 @@
-@grantsAwardWB @grantor-regression @grantor-parallel-regression @grantAndAward @AwardExecution
+@grantsAwardWB @grantor-regression @grantor-parallel-regression @grantAndAward @AwardExecution @GrantsExecution
 Feature: Validate all scenarios of grants and award without background
 
   @35555 @VerifyUsersCanSeeNewButtonOnGrantListView
