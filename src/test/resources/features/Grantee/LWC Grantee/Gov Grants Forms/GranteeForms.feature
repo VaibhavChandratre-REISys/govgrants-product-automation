@@ -7051,7 +7051,7 @@ Feature: Grantee Forms Scenario
     And I wait for "2" seconds
     Then I softly see field "Status" as "Created"
 
-  @485289 @ValidatePOuserAROwnercanabletoAcceptFundingChangeAmendmentRequest
+  @485289 @ValidatePOuserAROwnercanabletoAcceptFundingChangeAmendmentRequest @P1_Grantee @GRegression1 @PO_Grantee
   Scenario: Validate PO user AR Owner can able to Accept Funding Change Amendment Request
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"

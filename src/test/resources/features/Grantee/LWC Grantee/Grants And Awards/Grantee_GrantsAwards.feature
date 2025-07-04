@@ -2385,7 +2385,7 @@ Feature: Validate all scenarios for Grants & Awards
 #    And I wait for "4" seconds
 #    Then I see "Special Conditions" on page "1" of "govgrants" pdf file
 
-  @443833 @AwardVerifywithPMprofileMonitioringTabofAwardPagelayout
+  @443833 @AwardVerifywithPMprofileFilesTabofAwardPagelayout
   Scenario:  Award  with PM profile Files Tab of AwardPagelayout
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -2504,7 +2504,7 @@ Feature: Validate all scenarios for Grants & Awards
   @443835 @AwardVerifywithPMprofileHistoryTabofAwardPagelayout
   Scenario: Award with PM profile History Tab of Award Page layout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
-    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "GRANTEE_PM_APPROVER"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
