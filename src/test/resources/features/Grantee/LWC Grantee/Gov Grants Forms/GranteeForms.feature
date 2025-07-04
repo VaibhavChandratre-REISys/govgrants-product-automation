@@ -7116,8 +7116,8 @@ Feature: Grantee Forms Scenario
     Then I softly see fields "Comments__c" is in edit mode
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Additional Details is required to save. |
-      | Decision is required to save.           |
+      | To Save, Additional Details is required. |
+      | To Save, Decision is required.           |
     Then I see only the following ordered options in dropdown field "Decision__c" :
       | --None-- | Accepted | Not Accepted |
     When I enter values into fields
