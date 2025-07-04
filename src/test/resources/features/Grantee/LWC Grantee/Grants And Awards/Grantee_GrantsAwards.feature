@@ -2427,6 +2427,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
 #    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    And I wait for "2" seconds
     And I update title as "Automation.pdf" on upload file modal
     And I wait for "2" seconds
     And I select Classification as "Interim Award Document" at upload file modal
