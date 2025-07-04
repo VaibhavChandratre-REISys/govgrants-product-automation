@@ -2385,8 +2385,8 @@ Feature: Validate all scenarios for Grants & Awards
 #    And I wait for "4" seconds
 #    Then I see "Special Conditions" on page "1" of "govgrants" pdf file
 
-  @443833 @AwardVerifywithPMprofileFilesTabofAwardPagelayout
-  Scenario:  Award  with PM profile Files Tab of AwardPagelayout
+  @443833 @VerifywithPMprofileFilesTabofAwardPagelayout
+  Scenario: Validate Award with PM profile Files Tab of Award Page layout
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -2420,8 +2420,10 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly can see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "View" opens in overLay window
-    When I close "View" modal by clicking the top right x button
+#    Then I softly see "View" opens in overLay window
+    Then I softly see the image "AttachmentTesting.pdf" in page detail
+    And I click on "Close" button for view files page
+#    When I close "View" modal by clicking the top right x button
     And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
