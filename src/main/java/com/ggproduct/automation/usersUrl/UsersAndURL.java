@@ -127,7 +127,7 @@ public class UsersAndURL implements UsersController {
                 password = "Automation@2025";
                 break;
             case "GRANTEE ADMIN1":
-                password = "Automation@2025";
+                password = "Automation@2026";
                 break;
             case "GRANTEE PM":
                 password = "Grantor@123";
