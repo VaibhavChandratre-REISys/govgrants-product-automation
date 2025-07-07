@@ -4486,7 +4486,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter value "{SavedValue:uniqueEmailID1}" into field "fieldEmail"
     When I click on "Save" in the page details
     And I click modal button "Close"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I refresh the page
     And I wait for "2" seconds
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} User" inside flex table with id "---home:-:userContactsTableId---" without waiting for record
