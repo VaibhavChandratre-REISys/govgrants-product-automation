@@ -65,7 +65,8 @@ public final class Modal {
 
         //Comment box handler
         try {
-            if (I.amPerforming().checkToSee().isElementDisplayed(By.xpath("//div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input"))) {
+            I.amPerforming().waitFor().makeThreadSleep(1500);
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input"))) {
                 I.amPerforming().textInput().in(By.xpath("//div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input"), "Automated Test");
                 I.amPerforming().click().on(By.xpath("//div[contains(@class,'modal__container')]//button[text()='OK' or text()='Yes' or text()='Continue']"));
             }
