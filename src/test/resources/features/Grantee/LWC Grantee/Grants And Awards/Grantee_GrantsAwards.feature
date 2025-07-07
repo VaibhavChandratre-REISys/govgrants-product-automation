@@ -2408,7 +2408,8 @@ Feature: Validate all scenarios for Grants & Awards
     When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I wait for "2" seconds
-    When I navigate to "Files" sub tab
+#    When I navigate to "Files" sub tab
+    And I halt execution
     Then I softly can see top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
@@ -2425,11 +2426,15 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "Close" button for view files page
 #    When I close "View" modal by clicking the top right x button
     And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-#    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
+    And I switch to tab number "1"
+    And I download the file
+    And I wait for "3" seconds
+    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
+    And I close the tab
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I wait for "2" seconds
-#    And I update title as "Automation.pdf" on upload file modal
-#    And I wait for "2" seconds
+    And I halt execution
+    And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Interim Award Document" at upload file modal
     When I click modal button "Save"
     And I click modal button "Close"
