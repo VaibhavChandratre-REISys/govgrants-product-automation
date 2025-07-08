@@ -124,7 +124,7 @@ Feature: Validate all scenarios in Closeout
     #265615
     Then I softly see value "$500.00" for title "Spent" against the value "Total" inside table "---closeout:-:subrecipientBudgetSummaryFocusAreaTableId---"
 
-  @265621 @ValidateSPIuserseeSpentvaluewillupdatedynamicallyoncloseoutrequestafterpaymentrequest @sprint-20-US-263394  @Allocation  @needrerun
+  @265621 @ValidateSPIuserseeSpentvaluewillupdatedynamicallyoncloseoutrequestafterpaymentrequest @sprint-20-US-263394  @Allocation
   Scenario: Validate SPI user see Spent value will update dynamically on closeout request after payment request
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
@@ -993,7 +993,7 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Overview" sub tab
     Then I softly see field "Spent" as "$500.00"
 
-  @265592 @ValidateEXEuserseespentvalueshouldbeupdatedoncloseoutinReviewedstateofcloseout @sprint-20-US-246948  @Allocation
+  @265592 @ValidateEXEuserseespentvalueshouldbeupdatedoncloseoutinReviewedstateofcloseout @sprint-20-US-246948  @Allocation @needrerun
   Scenario: Validate EXE user see 'spent' value should be updated on closeout in Reviewed state of closeout
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "Grantor" app as "EXE" user
