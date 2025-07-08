@@ -1485,6 +1485,7 @@ Feature: Validate all scenarios in Closeout
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I wait for "2" seconds
     When I perform quick search for "Record Id" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
