@@ -1149,6 +1149,7 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 200        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1218,6 +1219,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Override" in the page details
     When I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Submitted for Approval"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
@@ -1225,6 +1227,7 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     And I "Reject" in the approval decision
+    And I wait for "2" seconds
     And I refresh the page
     Then I softly see field "Status" as "Rejected"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
