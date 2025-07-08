@@ -1509,7 +1509,7 @@ Feature: Validate all scenarios in Closeout
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Send To Subrecipient" in the page details
+    And I click on "Acknowledge" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
