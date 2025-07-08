@@ -1265,7 +1265,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Actuals" sub tab
     Then I softly cannot see top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
 
-  @266847 @ValidatethatFocusAreaaddedandupdatedSpentvalueinnewBPaftercreatingcloseoutshouldreflectsonCloseout @sprint-20-US-246948  @Allocation
+  @266847 @ValidatethatFocusAreaaddedandupdatedSpentvalueinnewBPaftercreatingcloseoutshouldreflectsonCloseout @sprint-20-US-246948  @Allocation @needrerun
   Scenario: Validate that Focus Area added and updated Spent value in new BP after creating closeout should reflects on Closeout
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     When I login to "Grantor" app as "EXE" user
