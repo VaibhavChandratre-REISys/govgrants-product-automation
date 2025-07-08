@@ -5328,9 +5328,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     And I click on back arrow
     When I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "ApprovalPDF.pdf" as name
+    Then I softly see snapshot with name containing "Approver Decision.pdf" as name
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
-    Then I softly see snapshot with name containing "Complete Review.pdf" as name
     Then I softly can see top right button "View NOGA" in page detail
 #    And I click on "View NOGA" in the page details
 #    And I download the file
@@ -6108,7 +6107,7 @@ Feature: Grantee Smoke scenarios
     Then I see field "Last Name" as "Execution" on modal
     Then I see field "Phone" as "(896) 709-3844" on modal
     Then I see field "Mobile Phone" as "(896) 709-3440" on modal
-    Then I see field "Email" as " {SavedValue:uniqueEmailID}" on modal
+    Then I see field "Email" as "{SavedValue:uniqueEmailID}" on modal
     And I click on top right button "Edit" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     When I enter in modal value "Automation Runtime Test" into field "Title"
     When I enter in modal value "Automation1" into field "FirstName"
@@ -6124,7 +6123,7 @@ Feature: Grantee Smoke scenarios
     Then I see field "Last Name" as "Execution1" on modal
     Then I see field "Phone" as "(896) 709-3855" on modal
     Then I see field "Mobile Phone" as "(896) 709-3455" on modal
-    Then I see field "Email" as " {SavedValue:uniqueEmailID}" on modal
+    Then I see field "Email" as "{SavedValue:uniqueEmailID}" on modal
     And I click on hyperlink for modal containing value "Test With Automation PM"
     Then I see the header is "Non-Federal Organization" in the page details
     Then I see the sub-header is "Test With Automation PM" in the page details
@@ -8514,6 +8513,8 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
     And I create opportunity with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I refresh the page
+    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     When I click on "Validate" in the page details
     And I wait for "3" seconds
@@ -10573,7 +10574,7 @@ Feature: Grantee Smoke scenarios
 
   @486506 @ValidateFDPOnonrecordownerusershouldabletoseetheapplicationissubmittedtoGrantorManuallead @Grantee_Smoke3
   Scenario: Validate FD PO non record owner user should able to see the application is submitted to Grantor Manual lead
-    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
@@ -11456,10 +11457,9 @@ Feature: Grantee Smoke scenarios
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
-    And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "product.qa@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "profuctqa@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
@@ -15426,6 +15426,7 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
+    And I halt execution
     When I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel

@@ -127,8 +127,8 @@ public final class GovGrantsAssertionSteps {
 
     @Then("^I (softly see|softly do not see|see) field (matches exactly )?\"([^\"]*)\" as \"([^\"]*)\"$")
     public void assertFieldValue(String usage, String matchExact, String fieldName, String fieldValue) {
-        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         I.amPerforming().browserOperationsTo().CheckPageLoadingStatus();
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         ggAssertionObjects.assertFieldValue(
                 fieldName,
                 matchExact != null,
