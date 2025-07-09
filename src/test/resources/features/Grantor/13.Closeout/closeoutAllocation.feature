@@ -1144,7 +1144,9 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PayreqId"
     And I navigate to "Financials" sub tab
+    And I wait for "2" seconds
     When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
+    And I wait for "2" seconds
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 200        | 1        | Feet        |
