@@ -9009,7 +9009,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Collapse" button for header
     Then I softly see field "EGMS ID" as "{SavedValue:BDRAMENDID}"
     Then I softly see field "Status" as "Created"
-    Then I softly see field "Initiated By" as "Grantee"
+    Then I softly see field "Initiated By" as "Grantor"
     Then I softly see field "Amendment Type" as "Budget Redirection"
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Delete" in page detail
@@ -9126,6 +9126,7 @@ Feature: Grantee Smoke scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Responsibilities Tab - A person with the same role cannot be added again. |
     And I refresh the page
@@ -9344,7 +9345,9 @@ Feature: Grantee Smoke scenarios
     And I send the email under collab tab with following details:
       | To          | Subject            | Body            |
       | <emailIdTo> | Automation Subject | Automation Body |
+    And I wait for "2" seconds
     When I click modal button "Close"
+    And I wait for "1" seconds
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
