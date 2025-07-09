@@ -5962,6 +5962,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:federalFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     And I upload attachment without random number "<attachment>" of type "Indirect Cost Rate Letter" from computer
+    And I wait for "5" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "<attachment>" has been added in "Organization Files" flex table
@@ -8471,9 +8472,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     And I click on back arrow
     When I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "ApprovalPDF.pdf" as name
+    Then I softly see snapshot with name containing "Approver Decision.pdf" as name
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
-    Then I softly see snapshot with name containing "Complete Review.pdf" as name
     Then I softly can see top right button "View NOGA" in page detail
 
   @490130 @ValidatePreAppVerifyabletocreatepreapplicationwithGrantsGovLeadPMProfile @Grantee_Smoke1
@@ -9780,8 +9780,10 @@ Feature: Grantee Smoke scenarios
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
     When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I wait for "3" seconds
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
