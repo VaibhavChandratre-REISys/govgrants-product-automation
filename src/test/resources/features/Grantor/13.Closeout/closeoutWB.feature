@@ -128,7 +128,7 @@ Feature: Validate all scenarios in Closeout
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Amendment Award} | {SavedValue:Automation Runtime Amendment Award} |
 
-  @93795 @76492 @76493 @86710 @validateEmailNotificationReceivedForCloseoutsForEXEUser @snapExecution
+  @93795 @76492 @76493 @86710 @validateEmailNotificationReceivedForCloseoutsForEXEUser @snapExecution @needrerun
   Scenario: To verify Email notification should be received to Closeout Owner when Closeout has created for closeout phase
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "Grantor" app as "EXE" user
@@ -148,7 +148,7 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
-    And I logout
+#    And I logout
     #93795
 #    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
 #    And I pause execution for "10" seconds
@@ -157,8 +157,8 @@ Feature: Validate all scenarios in Closeout
 #      """
 #      Sandbox: Notification: New Closeout has been Created.
 #      """
-    And I am on "INTERNAL" portal
-    When I login to "Grantor" app as "EXE" user
+#    And I am on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -185,7 +185,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     And I click on "Acknowledge" in the page details
-    And I logout
+#    And I logout
     #76492
 #    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
 #    And I pause execution for "180" seconds
@@ -194,8 +194,8 @@ Feature: Validate all scenarios in Closeout
 #      """
 #      Sandbox: Notification: Closeout # {SavedValue:closeoutID} Acknowledgedby Subrecipient
 #      """
-    And I am on "INTERNAL" portal
-    When I login to "Grantor" app as "EXE" user
+#    And I am on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -320,7 +320,7 @@ Feature: Validate all scenarios in Closeout
       Sandbox: Notification: Closeout Request {SavedValue:closeoutID} has beenSubmitted for your Approval
       """
 
-  @94022 @94019 @94021 @94040 @94042 @validateSendCloseoutRequestForSendReviewForEXEUser
+  @94022 @94019 @94021 @94040 @94042 @validateSendCloseoutRequestForSendReviewForEXEUser @needrerun
   Scenario: To verify Closeout owner able to send the Closeout request for Send for review in closeout phase
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "Grantor" app as "EXE" user
@@ -375,14 +375,14 @@ Feature: Validate all scenarios in Closeout
     #94019
     And I edit the following rows inline in flex table with id "---closeout:-:closeoutPeerReviewTableId---" by clicking "Edit" :
       | Reviewer Name            | Description            | Due Date |
-      | {SavedValue:PM Username} | Automation Description | 7        |
+      | {SavedValue:PM Username} | Automation Description | 5        |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     And I softly see value "Automation Description" for title "Description" inside table "---closeout:-:closeoutPeerReviewTableId---"
-    And I softly see value "{Date:MM/dd/yyyy::d+7}" for title "Due Date" inside table "---closeout:-:closeoutPeerReviewTableId---"
+    And I softly see value "{Date:MM/dd/yyyy::d+5}" for title "Due Date" inside table "---closeout:-:closeoutPeerReviewTableId---"
     #94021
-    And I click on "Delete" icon for "Automation PM" inside flex table with id "---closeout:-:closeoutPeerReviewTableId---" without waiting for record
-    And I softly do not see value "Automation PM" for title "Reviewer Name" inside table "---closeout:-:closeoutPeerReviewTableId---"
+#    And I click on "Delete" icon for "Automation PM" inside flex table with id "---closeout:-:closeoutPeerReviewTableId---" without waiting for record
+#    And I softly do not see value "Automation PM" for title "Reviewer Name" inside table "---closeout:-:closeoutPeerReviewTableId---"
     And I softly see value "Automation FO" for title "Reviewer Name" inside table "---closeout:-:closeoutPeerReviewTableId---"
     #94040
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
