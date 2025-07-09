@@ -7270,7 +7270,7 @@ Feature: Payment Request scenarios without background
     Then I see the following messages in the page details contains:
       | Files Tab - Complete each mandatory item listed in the checklist before submitting this Payment Request. |
 
-  @ValidateGrantreassignemntBeforeSubmitPaymentRequestToCheckRecordNotVisibleToNewOwner @reassignment
+  @FlexSharing1 @ValidateGrantreassignemntBeforeSubmitPaymentRequestToCheckRecordNotVisibleToNewOwner @reassignment
   Scenario: Validate Grant Reassignemnt Before Submit Payment Request To Check Record not visible To New Owner
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -7337,7 +7337,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @ValidateFlexSharingRelatedScenarioForPaymentrequestAllTables
+  @FlexSharing2 @ValidateFlexSharingRelatedScenarioForPaymentrequestAllTables
   Scenario: Validate FlexSharing Related Scenario For Payment Request All Tables
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I login to "Grantor" app as "PM" user
