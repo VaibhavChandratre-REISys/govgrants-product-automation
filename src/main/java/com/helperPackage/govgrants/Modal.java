@@ -23,6 +23,7 @@ public final class Modal {
                 I.amPerforming().click().withJavaScript(modalButton);
                 govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         }
+        govgrants.perform().modal().acceptPopUp();
     }
 
     public By getModalContentSpecificButton(String buttonName) {
