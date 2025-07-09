@@ -394,6 +394,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Review Closeout Request for Grant #{SavedValue:GrantID}" for title "Subject" inside table "---closeout:-:homePendingTaskTableId---"
     #94042
     When I click on "Start" icon for "{SavedValue:CloseoutID}" inside flex table with id "---closeout:-:homePendingTaskTableId---"
+    And I wait for "3" seconds
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Open Items" sub tab at view detail page
     Then I softly can see "Checklist" sub tab at view detail page
@@ -509,6 +510,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Balance" as "{SavedValue:BalanceAmount}"
     #93581
     When I click on "Edit" in the page details
+    And I wait for "2" seconds
     And I enter value "checked" into field "Aggreement__c"
     When I click on "Save" in the page details
     When I click on "Acknowledge" in the page details without processing
