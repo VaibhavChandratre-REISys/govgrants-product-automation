@@ -110,6 +110,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Add Files" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
+    And I wait for "2" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "AttachmentTesting.pdf" has been added in "Lead Files" flex table
@@ -15426,7 +15427,6 @@ Feature: Grantee Smoke scenarios
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
-    And I halt execution
     When I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
