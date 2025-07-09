@@ -8966,6 +8966,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "EGMS ID" as "BDRAMENDID"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
+    And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID1}"
     When I navigate to "Amendments" sub tab
