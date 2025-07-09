@@ -11738,7 +11738,8 @@ Feature: Grantee Smoke scenarios
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Notice of Award" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
+    And I wait for "3" seconds
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
@@ -12861,7 +12862,8 @@ Feature: Grantee Smoke scenarios
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Financial Report" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
+    And I wait for "2" seconds
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:financialReportAddFilesTableId---"
