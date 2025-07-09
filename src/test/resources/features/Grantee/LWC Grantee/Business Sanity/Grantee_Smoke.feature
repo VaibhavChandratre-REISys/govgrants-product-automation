@@ -9121,6 +9121,7 @@ Feature: Grantee Smoke scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Responsibilities Tab - A person with the same role cannot be added again. |
     And I refresh the page
@@ -9288,8 +9289,8 @@ Feature: Grantee Smoke scenarios
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "History" sub tab
-#    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
-#    Then I softly see snapshot with name containing "Complete Review.pdf" as name
+    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
+    Then I softly see snapshot with name containing "Complete Review.pdf" as name
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
