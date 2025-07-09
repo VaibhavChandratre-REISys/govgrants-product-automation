@@ -293,6 +293,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Add Files" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
+    And I wait for "5" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "AttachmentTesting.pdf" has been added in "Lead Files" flex table
@@ -318,6 +319,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Activate" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
     When I click modal button "OK"
+    And I wait for "2" seconds
     Then I softly see field "State" as "Posted"
     Then I can see top right button "Qualify Lead" in page detail
     And I click on "Qualify Lead" in the page details
@@ -1273,7 +1275,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "No Records Found" inside flex table with id "Goals"
     Then I softly see "No Records Found" inside flex table with id "KPIsGranteeRelatedAwards"
     And I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "History.pdf" as name
+    Then I softly see snapshot with name containing "Activate.pdf" as name
     Examples:
       | userType   | emailId                 |
       | GRANTEE PM | sarah.pm.23@yopmail.com |
