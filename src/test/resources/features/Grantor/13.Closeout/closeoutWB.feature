@@ -731,7 +731,6 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see top right button "Send To Subrecipient" in page detail
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Send To Subrecipient" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
@@ -800,7 +799,6 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Open Items" sub tab
     Then I softly see value "{SavedValue:SiteVisitID}" for title "EGMS ID" inside table "---siteVisits:-:PendingSiteVisitDeskReviewTableId---"
     And I click on "Send To Subrecipient" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab

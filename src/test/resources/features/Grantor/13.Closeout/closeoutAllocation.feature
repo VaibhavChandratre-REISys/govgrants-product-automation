@@ -167,7 +167,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -200,7 +199,6 @@ Feature: Validate all scenarios in Closeout
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
     When I click modal button "Close"
-    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -259,7 +257,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -292,7 +289,6 @@ Feature: Validate all scenarios in Closeout
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
     When I click modal button "Close"
-    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -609,7 +605,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "<Profile>" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -796,7 +791,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -868,7 +862,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -951,7 +944,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -993,7 +985,6 @@ Feature: Validate all scenarios in Closeout
     And I click toggle button to select "Project Period Closeouts - All"
     When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel
     When I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:ProjectPeriodCloseoutTableId---"
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     And I navigate to "Overview" sub tab
     Then I softly see field "Spent" as "$500.00"
@@ -1084,7 +1075,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1156,7 +1146,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 200        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1226,7 +1215,6 @@ Feature: Validate all scenarios in Closeout
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Override" in the page details
     When I click on "Submit for Approval" in the page details
-    And I wait for "2" seconds
     Then I see field "Status" as "Submitted for Approval"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
@@ -1234,7 +1222,6 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     And I "Reject" in the approval decision
-    And I wait for "2" seconds
     And I refresh the page
     Then I softly see field "Status" as "Rejected"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -1325,7 +1312,6 @@ Feature: Validate all scenarios in Closeout
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
     And I click on "Activate" in the page details
-    And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1349,7 +1335,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 200        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1423,7 +1408,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 200        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1456,7 +1440,6 @@ Feature: Validate all scenarios in Closeout
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
     When I click modal button "Close"
-    And I wait for "2" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
@@ -1493,7 +1476,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 200        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1526,7 +1508,6 @@ Feature: Validate all scenarios in Closeout
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
     When I click modal button "Close"
-    And I wait for "2" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1566,7 +1547,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 300        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1698,7 +1678,6 @@ Feature: Validate all scenarios in Closeout
       | Name          | Amendment Request |
       | Automation PM | Step 1            |
     And I click on "Send to Subrecipient" in the page details
-    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1720,7 +1699,6 @@ Feature: Validate all scenarios in Closeout
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
     And I click on "Activate" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Activated"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1744,7 +1722,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 200        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1826,7 +1803,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1954,7 +1930,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2011,7 +1986,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "<number>" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2109,7 +2083,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2188,7 +2161,6 @@ Feature: Validate all scenarios in Closeout
       | Construction  | 1500                 | 100        | 100            |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2212,7 +2184,6 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:FundingID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:FundingID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Approved"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
@@ -2253,7 +2224,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2285,7 +2255,6 @@ Feature: Validate all scenarios in Closeout
       | Name          | Amendment Request |
       | Automation PO | Step 1            |
     And I click on "Send to Subrecipient" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -2296,7 +2265,6 @@ Feature: Validate all scenarios in Closeout
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 2000                 | 200        | 0              |
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2311,7 +2279,6 @@ Feature: Validate all scenarios in Closeout
     And I pause execution for "7" seconds
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I click on "Activate" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
     And I navigate to "Grants" tab
@@ -2352,7 +2319,6 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
@@ -2391,7 +2357,6 @@ Feature: Validate all scenarios in Closeout
       | Name          | Amendment Request |
       | Automation PO | Step 1            |
     And I click on "Send to Subrecipient" in the page details
-    And I wait for "3" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -2562,7 +2527,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 300        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2635,7 +2599,6 @@ Feature: Validate all scenarios in Closeout
       | Construction  | 1000                 | 100        | 0              |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2672,7 +2635,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 200        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3068,7 +3030,6 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3153,7 +3114,6 @@ Feature: Validate all scenarios in Closeout
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Override" in the page details
     When I click on "Submit for Approval" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "Overview" sub tab
     Then I softly see field "Spent" as "$0.00"
