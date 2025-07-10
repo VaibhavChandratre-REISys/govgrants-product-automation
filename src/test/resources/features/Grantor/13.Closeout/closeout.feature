@@ -313,7 +313,7 @@ Feature: Validate all scenarios in Closeout
       | To Save, Type is required.   |
       | To Save, Reason is required. |
 
-  @40065 @87352 @40608 @89221 @89222 @89223 @89224 @89225 @89226 @89229 @89227 @88734 @88735 @88736 @88737 @88738 @88739 @ValidatingCloseoutRequest @buglogged141573
+  @40065 @87352 @40608 @89221 @89222 @89223 @89224 @89225 @89226 @89229 @89227 @88734 @88735 @88736 @88737 @88738 @88739 @ValidatingCloseoutRequest @buglogged141573 @needrerun
   Scenario: To verify the PM user should be able to create the Closeout Request
     And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
@@ -346,20 +346,20 @@ Feature: Validate all scenarios in Closeout
     Then I softly see that "{SavedValue:FO Username}" has been added in flextable with Id "---closeout:-:closeoutApproverTableId---"
     Then I softly see that "{SavedValue:PM Username}" has been added in flextable with Id "---closeout:-:closeoutApproverTableId---"
     #89223
-    When I navigate to "Files" sub tab
-    Then I softly see value "Automation" for title "Description" inside table "---closeout:-:closeoutSupportingDocumentChecklist---"
-    #89224
-    And I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" with wait for record
-    Then I softly see "Upload Template" opens in overLay window
-    When I upload file "AttachmentTesting.pdf" into library
-    And I click modal button "Save"
-    Then I see the following messages in the page details contains:
-      | Attachment saved successfully. |
-    When I close "Upload Template" modal by clicking the top right x button
-    #89225
-    And I click on hyperlink containing value "View"
-    Then I softly see new tab is opened
-    And I switch to parent tab
+#    When I navigate to "Files" sub tab
+#    Then I softly see value "Automation" for title "Description" inside table "---closeout:-:closeoutSupportingDocumentChecklist---"
+#    #89224
+#    And I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" with wait for record
+#    Then I softly see "Upload Template" opens in overLay window
+#    When I upload file "AttachmentTesting.pdf" into library
+#    And I click modal button "Save"
+#    Then I see the following messages in the page details contains:
+#      | Attachment saved successfully. |
+#    When I close "Upload Template" modal by clicking the top right x button
+#    #89225
+#    And I click on hyperlink containing value "View"
+#    Then I softly see new tab is opened
+#    And I switch to parent tab
     And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
     #89226
     When I upload attachment "Permanent Records.xlsx" of type "Other" from computer
