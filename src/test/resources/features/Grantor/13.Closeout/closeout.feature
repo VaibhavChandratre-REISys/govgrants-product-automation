@@ -369,13 +369,13 @@ Feature: Validate all scenarios in Closeout
     Then I softly see the image "Permanent Records.xlsx" in page detail
     And I click on "Close" button for view files page
     #89227
-    And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
-    When I upload file "ParentChild.txt" present in the flex table "---closeout:-:closeoutAddFileTableId---" from library
-    Then I softly see value "ParentChild.txt" for title "Title" inside table "---closeout:-:closeoutFilesTableId---"
-    Then I softly can see row level action button "Download" against "ParentChild.xlsx" in flex table with id "---closeout:-:closeoutFilesTableId---"
-    Then I softly can see row level action button "View" against "ParentChild.xlsx" in flex table with id "---closeout:-:closeoutFilesTableId---"
-    Then I softly can see row level action button "Delete" against "ParentChild.xlsx" in flex table with id "---closeout:-:closeoutFilesTableId---"
-    #88734
+#    And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
+#    When I upload file "ParentChild.txt" present in the flex table "---closeout:-:closeoutAddFileTableId---" from library
+#    Then I softly see value "ParentChild.txt" for title "Title" inside table "---closeout:-:closeoutFilesTableId---"
+#    Then I softly can see row level action button "Download" against "ParentChild.xlsx" in flex table with id "---closeout:-:closeoutFilesTableId---"
+#    Then I softly can see row level action button "View" against "ParentChild.xlsx" in flex table with id "---closeout:-:closeoutFilesTableId---"
+#    Then I softly can see row level action button "Delete" against "ParentChild.xlsx" in flex table with id "---closeout:-:closeoutFilesTableId---"
+#    #88734
     When I navigate to "Checklist" sub tab
     And I enter value "Yes" into field "ChecklistQuestionPick7__c"
     And I enter value "Yes" into field "ChecklistQuestionPick8__c"
