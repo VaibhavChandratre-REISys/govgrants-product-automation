@@ -2755,19 +2755,24 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-1"
     And I select value "Automation PM1" into field "input-2"
-    And I select module "Closeout" from reassign ownership dropdown
-    When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:closeoutSourceTableId---" panel
-    Then I see value "{SavedValue:closeoutID}" for title "Closeout ID" inside table "---closeout:-:closeoutSourceTableId---"
-    When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:closeoutSourceTableId---" panel
-    When I check "{SavedValue:closeoutID}" boxes in flex table with id "---closeout:-:closeoutSourceTableId---"
-    When I click table top right button "Transfer Ownership" in flex table with id "---closeout:-:closeoutSourceTableId---"
+    And I select module "Grant" from reassign ownership dropdown
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
+    When I check "{SavedValue:GrantEGMSID}" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
+    When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
+#    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---closeout:-:closeoutSourceTableId---" panel
+#    Then I see value "{SavedValue:closeoutID}" for title "Closeout ID" inside table "---closeout:-:closeoutSourceTableId---"
+#    When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:closeoutSourceTableId---" panel
+#    When I check "{SavedValue:closeoutID}" boxes in flex table with id "---closeout:-:closeoutSourceTableId---"
+#    When I click table top right button "Transfer Ownership" in flex table with id "---closeout:-:closeoutSourceTableId---"
+#    Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
+#    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     And I reset the table
     When I navigate to "Records of Target User" sub tab
-    When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:closeoutTargetTableId---" panel
-    Then I see value "{SavedValue:closeoutID}" for title "Closeout ID" inside table "---closeout:-:closeoutTargetTableId---"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
+    Then I see value "{SavedValue:GrantEGMSID}" for title "{SavedValue:Automation Runtime Award for closeout}" inside table "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     And I pause execution for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
@@ -2783,7 +2788,7 @@ Feature: Validate all scenarios in Closeout
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
-    And I navigate to "History" sub tab
+#    And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
