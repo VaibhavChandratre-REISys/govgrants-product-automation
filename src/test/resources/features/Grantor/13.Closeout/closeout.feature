@@ -345,8 +345,9 @@ Feature: Validate all scenarios in Closeout
       | {SavedValue:FO Username} | Step 2   |
     Then I softly see that "{SavedValue:FO Username}" has been added in flextable with Id "---closeout:-:closeoutApproverTableId---"
     Then I softly see that "{SavedValue:PM Username}" has been added in flextable with Id "---closeout:-:closeoutApproverTableId---"
+    When I click on "Save" in the page details
     #89223
-#    When I navigate to "Files" sub tab
+    When I navigate to "Files" sub tab
 #    Then I softly see value "Automation" for title "Description" inside table "---closeout:-:closeoutSupportingDocumentChecklist---"
 #    #89224
 #    And I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" with wait for record
