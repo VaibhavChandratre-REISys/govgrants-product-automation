@@ -366,10 +366,8 @@ Feature: Validate all scenarios in Closeout
     When I upload attachment "Permanent Records.xlsx" of type "Other" from computer
     #89229
     And I click on "View" icon for "Other" inside flex table with id "---closeout:-:closeoutFilesTableId---" with wait for record
-    Then I softly see "View" opens in overLay window
-    Then I see field "Title" as "Permanent Records.xlsx" on modal
-    Then I see field "Classification" as "Other" on modal
-    When I close "View" modal by clicking the top right x button
+    Then I softly see the image "Permanent Records.xlsx" in page detail
+    And I click on "Close" button for view files page
     #89227
     And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
     When I upload file "ParentChild.txt" present in the flex table "---closeout:-:closeoutAddFileTableId---" from library
