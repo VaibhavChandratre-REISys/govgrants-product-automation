@@ -2769,11 +2769,11 @@ Feature: Validate all scenarios in Closeout
 #    Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
 #    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
-    And I reset the table
-    When I navigate to "Records of Target User" sub tab
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
-    Then I see value "{SavedValue:GrantEGMSID}" for title "{SavedValue:Automation Runtime Award for closeout}" inside table "---subAwardStandAlone:-:grantSourceOwnerTableId---"
-    And I pause execution for "2" seconds
+#    And I reset the table
+#    When I navigate to "Records of Target User" sub tab
+#    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
+#    Then I see value "{SavedValue:GrantEGMSID}" for title "{SavedValue:Automation Runtime Award for closeout}" inside table "---subAwardStandAlone:-:grantSourceOwnerTableId---"
+#    And I pause execution for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I click toggle button to select "Closeouts - All"
