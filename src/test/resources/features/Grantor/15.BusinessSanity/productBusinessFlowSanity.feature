@@ -3887,7 +3887,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see fields "AcknowledgeEquipment__c" is in edit mode
     Then I softly see fields "RequestFederalAgencyDispositionInstr__c" is in edit mode
 
-  @programRejection @ProdSan3
+  @programRejection @ProdSan3  @bugretest1
   Scenario: Validate the Rejectionof Internal Program and redirecting to same page
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
