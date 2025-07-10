@@ -335,6 +335,7 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "Closeout Activities Due Date" as "CloseoutActivitiesDueDate"
     Then I softly see field "Closeout Activities Due Date" as "{SavedValue:CloseoutActivitiesDueDate}"
     Then I softly see field "Closeout Effective Date" as "{SavedValue:CloseoutEffectiveDate}"
+    When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     #89221
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
@@ -375,6 +376,7 @@ Feature: Validate all scenarios in Closeout
 #    Then I softly can see row level action button "View" against "ParentChild.xlsx" in flex table with id "---closeout:-:closeoutFilesTableId---"
 #    Then I softly can see row level action button "Delete" against "ParentChild.xlsx" in flex table with id "---closeout:-:closeoutFilesTableId---"
 #    #88734
+    When I click on "Edit" in the page details
     When I navigate to "Checklist" sub tab
     And I enter value "Yes" into field "ChecklistQuestionPick7__c"
     And I enter value "Yes" into field "ChecklistQuestionPick8__c"
@@ -429,8 +431,6 @@ Feature: Validate all scenarios in Closeout
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "closeoutID"
-    When I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
