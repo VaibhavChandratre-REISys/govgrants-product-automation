@@ -4569,6 +4569,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Agree" in the page details
     And I enter "Edition" values from "PotentialReviewersContact_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I halt execution
     When I click on "Submit" in the page details
     And I pause execution for "5" seconds
     Then I see the following messages in the page details contains:
