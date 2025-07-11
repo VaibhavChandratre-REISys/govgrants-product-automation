@@ -2417,7 +2417,7 @@ Feature: Validate all scenarios for Grants & Awards
 #    And I wait for "4" seconds
 #    Then I see "Special Conditions" on page "1" of "govgrants" pdf file
 
-  @443833 @AwardVerifywithPMprofileMonitioringTabofAwardPagelayout
+  @443833 @AwardVerifywithPMprofileFilesTabofAwardPagelayout
   Scenario:  Award  with PM profile Files Tab of AwardPagelayout
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab

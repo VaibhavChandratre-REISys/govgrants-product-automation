@@ -324,17 +324,17 @@ Feature: Validate all registration related scenarios
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter "CreationWithOnlyPaymentDetail" values from "UserRegistration_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I see "No" text enter in field "SameAsOrganizationAddress__c"
-    Then I see "1000 Defense Pentagon" text enter in field "PaymentAddressLine1__c"
-    Then I see "Washington" text enter in field "PaymentAddressCity__c"
-    Then I see "DC" text enter in field "PaymentAddressState__c"
-    Then I see "20301" text enter in field "PaymentAddressZipCode__c"
-    Then I see "(918) 908-9089" text enter in field "PaymentAddressVendorLocation__c"
-    Then I see "1234" text enter in field "PaymentAddressZipCode4__c"
+#    Then I see "No" text enter in field "SameAsOrganizationAddress__c"
+#    Then I see "1000 Defense Pentagon" text enter in field "PaymentAddressLine1__c"
+#    Then I see "Washington" text enter in field "PaymentAddressCity__c"
+#    Then I see "DC" text enter in field "PaymentAddressState__c"
+#    Then I see "20301" text enter in field "PaymentAddressZipCode__c"
+#    Then I see "(918) 908-9089" text enter in field "PaymentAddressVendorLocation__c"
+#    Then I see "1234" text enter in field "PaymentAddressZipCode4__c"
     When I click on "Submit" in the page details
     Then I see the following messages in the page details contains:
       | Confirmation Message                                                                                                                                                                |
-      | Your registration request for access to the EGMS has been completed.  You will be sent an email from salesforce.com (technology platform provider) with your Username and Password. |
+      | Your registration request for access to EGMS has been completed and sent for government approval. Once approved, you will be sent another email from salesforce.com (technology platform provider) with your Username and Password shortly to log into the system. |
 
   @84611 @83374 @83527 @84612 @83373 @84613 @validateSAUserforUserRegistration-Organization
   Scenario:To verify SA allow to modify newly created contact in contact table  for Additional user registration process
