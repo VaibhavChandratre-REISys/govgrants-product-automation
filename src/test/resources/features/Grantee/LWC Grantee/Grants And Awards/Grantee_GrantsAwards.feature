@@ -2385,7 +2385,7 @@ Feature: Validate all scenarios for Grants & Awards
 #    And I wait for "4" seconds
 #    Then I see "Special Conditions" on page "1" of "govgrants" pdf file
 
-  @443833 @VerifywithPMprofileFilesTabofAwardPagelayout @P2_Grantee @PM_Grantee @Gregression2
+  @443833 @VerifywithPMprofileFilesTabofAwardPagelayout @P2_Grantee @PM_Grantee @Gregression2 @rerun1
   Scenario: Validate Award with PM profile Files Tab of Award Page layout
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -2505,7 +2505,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see field "Status" as "Activated"
     Then I softly cannot see "Closeout" sub tab at view detail page
 
-  @443835 @AwardVerifywithPMprofileHistoryTabofAwardPagelayout
+  @443835 @AwardVerifywithPMprofileHistoryTabofAwardPagelayout @P2_Grantee @PM_Grantee @Gregression2 @rerun1
   Scenario: Award with PM profile History Tab of Award Page layout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -2611,7 +2611,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "ApprovalPDF.pdf" as name
 
-  @443831 @AwardVerifywithPMprofileManagementTabofAwardPagelayout @Gregression2 @P2_Grantee @PM_Grantee
+  @443831 @AwardVerifywithPMprofileManagementTabofAwardPagelayout @Gregression2 @P2_Grantee @PM_Grantee @rerun1
   Scenario: Award with PM profile Management Tab of Award Page layout
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
