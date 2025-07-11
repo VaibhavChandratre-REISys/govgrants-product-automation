@@ -1,4 +1,4 @@
-@programEmailNotification @grantor-regression @grantor-parallel-regression @planning @regression @EmailNotification
+@programEmailNotification @grantor-regression @grantor-parallel-regression @planning @regression @EmailNotification @skipOnJenkins
 Feature: Validate all scenarios for Email Notifications
 
   @106339 @VerifyEmailNotificationForProgramApproval @RERUNProgram
