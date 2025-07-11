@@ -6660,7 +6660,7 @@ Feature: Grantee Smoke scenarios
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Plan" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
@@ -6707,7 +6707,7 @@ Feature: Grantee Smoke scenarios
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Goal" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
@@ -6762,7 +6762,7 @@ Feature: Grantee Smoke scenarios
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Objective" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
@@ -13156,7 +13156,6 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
     And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
     And I navigate to "Management" sub tab
-    And I halt execution
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     When I enter in modal "Grantee_Progress_Schedules" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
