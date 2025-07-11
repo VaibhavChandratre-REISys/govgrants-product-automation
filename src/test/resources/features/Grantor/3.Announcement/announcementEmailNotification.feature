@@ -1,4 +1,4 @@
-@announcement @announcementEmailNotification @commonAnnouncements @grantor-regression @grantor-parallel-regression @regression @announcementWB @AnnouncementTemp @EmailNotification @skipOnJenkins
+@announcement @announcementEmailNotification @commonAnnouncements @grantor-regression @grantor-parallel-regression @regression @announcementWB @AnnouncementTemp @EmailNotification
 Feature: Validate all common scenarios in the  Announcement tab (Announcement without background) Email notification
 
   @195209  @sprint-12-US-226646  @reassignment @Re-RunPlanningAndAnnouncement
