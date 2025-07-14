@@ -23301,6 +23301,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
+    And I wait for "2" seconds
     And I "Approved" of type "Key Personnel Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "KEY_PERSONNEL_CHANGE_EXE_OWNER"
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -23446,8 +23447,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
-    And I wait for "120" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I wait for "70" seconds
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
