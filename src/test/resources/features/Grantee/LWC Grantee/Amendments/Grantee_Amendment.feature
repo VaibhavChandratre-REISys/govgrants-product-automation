@@ -23428,7 +23428,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I navigate to "Amendments" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click on "Edit" in the page details
-    When I enter value "7000" into field "RequestedChangeInBudget__c"
+    When I enter value "8000" into field "RequestedChangeInBudget__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"

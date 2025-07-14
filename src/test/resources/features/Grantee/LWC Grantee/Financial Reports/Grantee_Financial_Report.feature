@@ -535,7 +535,7 @@ Feature: Validate all scenarios for Financial Report
     Then I softly see value "Reviewed" for title "New Value" inside field history table
     Then I softly see value "Submitted for Review" for title "Original Value" inside field history table
 
-  @485470 @ValidateEXEusershouldabletocreateAdhocFinancialReportabletosubmitFinancialReporttoGrantor
+  @485470 @ValidateEXEusershouldabletocreateAdhocFinancialReportabletosubmitFinancialReporttoGrantor @P1_Grantee @EXE_Grantee @GRegression1
   Scenario: Validate EXE user should able to create Adhoc Financial Report & able to submit Financial Report to Grantor
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default-Victor EXE user"
