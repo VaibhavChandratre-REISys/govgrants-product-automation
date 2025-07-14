@@ -23395,7 +23395,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "Projections" sub tab
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Start Date" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly do not see value "{Date:M/d/yyyy::d+3650}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "{Date:M/d/yyyy::d+3650}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
     And I navigate to "Monitoring" sub tab
     Then I softly do not see value "{SavedValue:TermsTitle}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
 

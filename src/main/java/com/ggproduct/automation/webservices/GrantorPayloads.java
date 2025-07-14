@@ -4312,7 +4312,7 @@ public class GrantorPayloads {
         grantAwardData.addProperty("MaximumIndirectCostRate", 10);
         grantAwardData.addProperty("NewAwardTitle", grantTitle);
         grantAwardData.addProperty("NewAwardDescription", "Automation Test");
-        grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(365, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         grantAwardData.addProperty("BudgetRedirectionThreshold", 10);
         grantAwardData.addProperty("Addressline", "Rei System");
         grantAwardData.addProperty("Address", "Baner");
@@ -4908,7 +4908,7 @@ public class GrantorPayloads {
         grantAwardData.addProperty("MaximumIndirectCostRate", 10);
         grantAwardData.addProperty("NewAwardTitle", grantTitle);
         grantAwardData.addProperty("NewAwardDescription", "Automation Test");
-        grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(365, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         grantAwardData.addProperty("BudgetRedirectionThreshold", 10);
         grantAwardData.addProperty("Addressline", "Rei System");
         grantAwardData.addProperty("Address", "Baner");
@@ -4961,15 +4961,16 @@ public class GrantorPayloads {
 //        kpis.add(kpi1);
 //        grantAwardData.add("kpis", kpis);
 
-//        // Special Conditions
-//        JsonArray specialCondition = new JsonArray();
-//        JsonObject condition1 = new JsonObject();
-//        condition1.addProperty("title", "Terms");
-//        condition1.addProperty("description", "Automation Test");
-//        condition1.addProperty("sequence", 1);
-//        condition1.addProperty("EffectiveFromDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-//        condition1.addProperty("EffectiveEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-//        specialCondition.add(condition1);
+        // Special Conditions
+        JsonArray specialCondition = new JsonArray();
+        JsonObject condition1 = new JsonObject();
+        condition1.addProperty("title", "Terms1");
+        condition1.addProperty("description", "Automation Test");
+        condition1.addProperty("sequence", 1);
+        condition1.addProperty("EffectiveFromDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        condition1.addProperty("EffectiveEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        specialCondition.add(condition1);
+        grantAwardData.add("specialCondition", specialCondition);
 
 //        JsonObject condition2 = new JsonObject();
 //        condition2.addProperty("title", "Terms");
