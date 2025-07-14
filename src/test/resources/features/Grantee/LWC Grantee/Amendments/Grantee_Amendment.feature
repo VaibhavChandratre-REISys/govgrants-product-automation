@@ -23296,7 +23296,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
-  @463655 @ValidateKPCTypeARtheAffectongrantsAward
+  @463655 @ValidateKPCTypeARtheAffectongrantsAward @P1_Grantee
   Scenario: Validate KPC Type AR the Affect on grants & Award
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
