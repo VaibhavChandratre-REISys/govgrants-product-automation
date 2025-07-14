@@ -4946,6 +4946,15 @@ public class GrantorPayloads {
         indirectRates.add(indirectRate);
         grantAwardData.add("indirectRates", indirectRates);
 
+        // Contacts
+        JsonArray contacts = new JsonArray();
+        JsonObject contact = new JsonObject();
+        contact.addProperty("Name", "Sarah PM");
+        contact.addProperty("ProjectRole", "Grants Management Officer");
+        contact.addProperty("IsKeyContact", true);
+        contacts.add(contact);
+        grantAwardData.add("contacts", contacts);
+
         // Objectives
 //        JsonArray objectives = new JsonArray();
 //        objectives.add("Automation Permanent Objective");
@@ -4962,15 +4971,15 @@ public class GrantorPayloads {
 //        grantAwardData.add("kpis", kpis);
 
         // Special Conditions
-        JsonArray specialCondition = new JsonArray();
-        JsonObject condition1 = new JsonObject();
-        condition1.addProperty("title", "Terms1");
-        condition1.addProperty("description", "Automation Test");
-        condition1.addProperty("sequence", 1);
-        condition1.addProperty("EffectiveFromDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        condition1.addProperty("EffectiveEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        specialCondition.add(condition1);
-        grantAwardData.add("specialCondition", specialCondition);
+//        JsonArray specialCondition = new JsonArray();
+//        JsonObject condition1 = new JsonObject();
+//        condition1.addProperty("title", "Terms1");
+//        condition1.addProperty("description", "Automation Test");
+//        condition1.addProperty("sequence", 1);
+//        condition1.addProperty("EffectiveFromDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+//        condition1.addProperty("EffectiveEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+//        specialCondition.add(condition1);
+//        grantAwardData.add("specialCondition", specialCondition);
 
 //        JsonObject condition2 = new JsonObject();
 //        condition2.addProperty("title", "Terms");
