@@ -2220,8 +2220,8 @@ Feature: Grantee Forms Scenario
     Then I softly cannot see top right button "Delete" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
-      | UserName        | OwnerType   | NonOwner        |
-      | Sarah PM user   | GRANTEE PM  | GRANTEE PO      |
+      | UserName      | OwnerType  | NonOwner   |
+      | Sarah PM user | GRANTEE PM | GRANTEE PO |
 
   @482023 @GrantsgovlobbingformVerifyEXEuserNonOwnercannotaddeditdeletedatainGrantsgovlobbingformandcanonlyviewdataenteredbyownerintheform @P3_Grantee @EXE_Grantee @GRegression2
   Scenario Outline: Grants.gov lobbing form -  Verify EXE user (Non Owner) cannot add/edit/delete data in Grants.gov lobbing form and can only view data entered by owner in the form
@@ -2271,8 +2271,8 @@ Feature: Grantee Forms Scenario
     Then I softly cannot see top right button "Delete" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
-      | UserName        | OwnerType   | NonOwner        |
-      | Sarah PM user   | GRANTEE PM  | GRANTEE EXE     |
+      | UserName      | OwnerType  | NonOwner    |
+      | Sarah PM user | GRANTEE PM | GRANTEE EXE |
 
   @482024 @GrantsgovlobbingformVerifyFOuserNonOwnercannotaddeditdeletedatainGrantsgovlobbingformandcanonlyviewdataenteredbyownerintheform @P3_Grantee @FO_Grantee @GRegression2
   Scenario Outline: Grants.gov lobbing form -  Verify FO user (Non Owner) cannot add/edit/delete data in Grants.gov lobbing form and can only view data entered by owner in the form
@@ -2322,8 +2322,8 @@ Feature: Grantee Forms Scenario
     Then I softly cannot see top right button "Delete" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
-      | UserName        | OwnerType   | NonOwner        |
-      | Victor EXE user | GRANTEE EXE | GRANTEE FO      |
+      | UserName        | OwnerType   | NonOwner   |
+      | Victor EXE user | GRANTEE EXE | GRANTEE FO |
 
   @482025 @GrantsgovlobbingformVerifyFDuserNonOwnercannotaddeditdeletedatainGrantsgovlobbingformandcanonlyviewdataenteredbyownerintheform @P3_Grantee @FD_Grantee @GRegression2
   Scenario Outline: Grants.gov lobbing form -  Verify FD user (Non Owner) cannot add/edit/delete data in Grants.gov lobbing form and can only view data entered by owner in the form
@@ -2373,8 +2373,8 @@ Feature: Grantee Forms Scenario
     Then I softly cannot see top right button "Delete" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
-      | UserName        | OwnerType   | NonOwner        |
-      | Victor EXE user | GRANTEE EXE | GRANTEE FD      |
+      | UserName        | OwnerType   | NonOwner   |
+      | Victor EXE user | GRANTEE EXE | GRANTEE FD |
 
   @482026 @GrantsgovlobbingformVerifyADMINuserNonOwnercannotaddeditdeletedatainGrantsgovlobbingformandcanonlyviewdataenteredbyownerintheform @P3_Grantee @ADMIN_Grantee @GRegression2
   Scenario Outline: Grants.gov lobbing form -  Verify ADMIN user (Non Owner) cannot add/edit/delete data in Grants.gov lobbing form and can only view data entered by owner in the form
@@ -2424,8 +2424,8 @@ Feature: Grantee Forms Scenario
     Then I softly cannot see top right button "Delete" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
-      | UserName        | OwnerType   | NonOwner        |
-      | Grantee PO user | GRANTEE PO  | GRANTEE ADMIN1  |
+      | UserName        | OwnerType  | NonOwner       |
+      | Grantee PO user | GRANTEE PO | GRANTEE ADMIN1 |
 
   @482027 @GrantsgovlobbingformVerifyAUDITORuserNonOwnercannotaddeditdeletedatainGrantsgovlobbingformandcanonlyviewdataenteredbyownerintheform @P4_Grantee @AUDITOR_Grantee @GRegression2
   Scenario Outline: Grants.gov lobbing form -  Verify AUDITOR user (Non Owner) cannot add/edit/delete data in Grants.gov lobbing form and can only view data entered by owner in the form
@@ -2475,8 +2475,8 @@ Feature: Grantee Forms Scenario
     Then I softly cannot see top right button "Delete" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
-      | UserName        | OwnerType   | NonOwner        |
-      | Sarah PM user   | GRANTEE PM  | GRANTEE AUDITOR |
+      | UserName      | OwnerType  | NonOwner        |
+      | Sarah PM user | GRANTEE PM | GRANTEE AUDITOR |
 
   @482030 @GrantsgovlobbingformVerifyassignedreviewerEXEwitheditaccessasNocannotseeeditbuttonforGrantsgovlobbingformandcannoteditanydataontheform @P3_Grantee @GRgression3 @GranteeTBE
   Scenario Outline: Grants.gov lobbing form - Verify assigned reviewer(EXE)  with edit access as No cannot see edit button for Grants.gov lobbing form and cannot edit any data on the form
@@ -2924,8 +2924,8 @@ Feature: Grantee Forms Scenario
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
-      | UserName      | OwnerType  | UserType        |
-      | Sarah PM user | GRANTEE PM | GRANTEE ADMIN1  |
+      | UserName      | OwnerType  | UserType       |
+      | Sarah PM user | GRANTEE PM | GRANTEE ADMIN1 |
 
   @485371 @Sf424VerifyAUDITORusershouldabletoviewaccessforforminallstateofApplication @P4_Grantee @AUDITOR_Grantee @GRegression4
   Scenario Outline: Sf-424-Verify AUDITOR user should able to view access for form in all  state of Application
@@ -3420,8 +3420,8 @@ Feature: Grantee Forms Scenario
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
-      | UserName      | OwnerType  | UserType        |
-      | Sarah PM user | GRANTEE PM | GRANTEE FO      |
+      | UserName      | OwnerType  | UserType   |
+      | Sarah PM user | GRANTEE PM | GRANTEE FO |
 
   @485365 @Sf424VerifyFDusershouldabletoviewaccessforforminallstateofApplication @P2_Grantee @FD_Grantee @GRegression2
   Scenario Outline: Sf-424-Verify FD user should able to view access for form in all  state of Application
@@ -3668,8 +3668,8 @@ Feature: Grantee Forms Scenario
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
-      | UserName      | OwnerType  | UserType        |
-      | Sarah PM user | GRANTEE PM | GRANTEE FD      |
+      | UserName      | OwnerType  | UserType   |
+      | Sarah PM user | GRANTEE PM | GRANTEE FD |
 
   @485361 @Sf424VerifyEXEusershouldabletoviewaccessforforminallstateofApplication @P3_Grantee @EXE_Grantee @GRegression3
   Scenario Outline: Sf-424-Verify EXE user should able to view access for form in all  state of Application
@@ -3916,8 +3916,8 @@ Feature: Grantee Forms Scenario
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
-      | UserName      | OwnerType  | UserType        |
-      | Sarah PM user | GRANTEE PM | GRANTEE EXE     |
+      | UserName      | OwnerType  | UserType    |
+      | Sarah PM user | GRANTEE PM | GRANTEE EXE |
 
   @485395 @Sf424PMuserisrejecttheapplicationthensubmittograntsgovbuttonisnotdisplay&verifytheeditaccess @P4_Grantee @GranteeTBE
   Scenario Outline: Sf-424- PM user is reject the application then submit to grants.gov button is not display & verify the edit access
@@ -4475,8 +4475,8 @@ Feature: Grantee Forms Scenario
     Then I softly can see row level action button "Download" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly can see row level action button "View" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Examples:
-      | OwnerType  | NonOwner        |
-      | GRANTEE PM | GRANTEE EXE     |
+      | OwnerType  | NonOwner    |
+      | GRANTEE PM | GRANTEE EXE |
 
   @477452 @VerifyFOuserNonOwneranonlyviewfilesaddedonBudgetNarrativeattachmentform @P3_Grantee @FO_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Verify FO user (Non Owner) can only view files added on Budget Narrative attachment form
@@ -4548,8 +4548,8 @@ Feature: Grantee Forms Scenario
     Then I softly can see row level action button "Download" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly can see row level action button "View" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Examples:
-      | OwnerType  | NonOwner        |
-      | GRANTEE PM | GRANTEE FO      |
+      | OwnerType  | NonOwner   |
+      | GRANTEE PM | GRANTEE FO |
 
   @477453 @VerifyFDuserNonOwneranonlyviewfilesaddedonBudgetNarrativeattachmentform @P3_Grantee @FD_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Verify FD user (Non Owner) can only view files added on Budget Narrative attachment form
@@ -4621,8 +4621,8 @@ Feature: Grantee Forms Scenario
     Then I softly can see row level action button "Download" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly can see row level action button "View" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Examples:
-      | OwnerType  | NonOwner        |
-      | GRANTEE PM | GRANTEE FD      |
+      | OwnerType  | NonOwner   |
+      | GRANTEE PM | GRANTEE FD |
 
   @477454 @VerifyADMINuserNonOwneranonlyviewfilesaddedonBudgetNarrativeattachmentform @P3_Grantee @ADMIN_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Verify ADMIN user (Non Owner) can only view files added on Budget Narrative attachment form
@@ -4694,8 +4694,8 @@ Feature: Grantee Forms Scenario
     Then I softly can see row level action button "Download" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly can see row level action button "View" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Examples:
-      | OwnerType  | NonOwner        |
-      | GRANTEE PM | GRANTEE ADMIN1  |
+      | OwnerType  | NonOwner       |
+      | GRANTEE PM | GRANTEE ADMIN1 |
 
   @477455 @VerifyEXEuserNonOwneranonlyviewfilesaddedonBudgetNarrativeattachmentform @P4_Grantee @AUDITOR_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Verify EXE user (Non Owner) can only view files added on Budget Narrative attachment form
@@ -4838,12 +4838,12 @@ Feature: Grantee Forms Scenario
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | 2 duplicate file title(s) found: AttachmentTesting.pdf. Please ensure all file titles are unique. |
-      | 2 duplicate file title(s) found: Attachment.pdf. Please ensure all file titles are unique. |
-      | Please upload exactly one 'Mandatory Budget Narrative'. |
-      | Please upload no more than one 'Optional Budget Narrative'. |
+      | 2 duplicate file title(s) found: Attachment.pdf. Please ensure all file titles are unique.        |
+      | Please upload exactly one 'Mandatory Budget Narrative'.                                           |
+      | Please upload no more than one 'Optional Budget Narrative'.                                       |
     Examples:
-      | UserName        | OwnerType  |
-      | Sarah PM user   | GRANTEE PM |
+      | UserName      | OwnerType  |
+      | Sarah PM user | GRANTEE PM |
 
   @477450 @BudgetNarrativeattachmentformVerifyvalidationdisplayedtoPMuseronBudgetNarrativeattachmentform @P2_Grantee @PO_Grantee @P2_Grantee @GRegression2
   Scenario Outline:Budget Narrative attachment form - Verify validation displayed to PM user on Budget Narrative attachment form
@@ -4913,9 +4913,9 @@ Feature: Grantee Forms Scenario
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | 2 duplicate file title(s) found: AttachmentTesting.pdf. Please ensure all file titles are unique. |
-      | 2 duplicate file title(s) found: Attachment.pdf. Please ensure all file titles are unique. |
-      | Please upload exactly one 'Mandatory Budget Narrative'. |
-      | Please upload no more than one 'Optional Budget Narrative'. |
+      | 2 duplicate file title(s) found: Attachment.pdf. Please ensure all file titles are unique.        |
+      | Please upload exactly one 'Mandatory Budget Narrative'.                                           |
+      | Please upload no more than one 'Optional Budget Narrative'.                                       |
     Examples:
       | UserName        | OwnerType  |
       | Grantee PO user | GRANTEE PO |
@@ -5244,8 +5244,8 @@ Feature: Grantee Forms Scenario
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
-      | OwnerType  | UserType        |
-      | GRANTEE PM | GRANTEE EXE     |
+      | OwnerType  | UserType    |
+      | GRANTEE PM | GRANTEE EXE |
 
   @481565 @VerifyFOusershouldabletoviewaccessinallstateofApplicationforform @P3_Grantee @FO_Grantee @GRegression4 @GranteeTBE
   Scenario Outline: Verify FO user should able to view access in all state of Application for form
@@ -5493,8 +5493,8 @@ Feature: Grantee Forms Scenario
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
-      | OwnerType  | UserType        |
-      | GRANTEE PM | GRANTEE FO      |
+      | OwnerType  | UserType   |
+      | GRANTEE PM | GRANTEE FO |
 
   @481566 @VerifyFDusershouldabletoviewaccessinallstateofApplicationforform @P3_Grantee @FD_Grantee @GRegression4 @GranteeTBE
   Scenario Outline: Verify FD user should able to view access in all state of Application for form
@@ -5742,8 +5742,8 @@ Feature: Grantee Forms Scenario
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
-      | OwnerType  | UserType        |
-      | GRANTEE PM | GRANTEE FD      |
+      | OwnerType  | UserType   |
+      | GRANTEE PM | GRANTEE FD |
 
   @481567 @VerifyFOusershouldabletoviewaccessinallstateofApplicationforform @P4_Grantee @AUDITOR_Grantee @GRegression4 @GranteeTBE
   Scenario Outline: Verify AUDITOR user should able to view access in all state of Application for form
@@ -6240,8 +6240,8 @@ Feature: Grantee Forms Scenario
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
-      | OwnerType  | UserType        |
-      | GRANTEE PM | GRANTEE ADMIN1  |
+      | OwnerType  | UserType       |
+      | GRANTEE PM | GRANTEE ADMIN1 |
 
 
   @481536 @VerifyFOuserasaReviewershouldabletoedittheformifeditaccessisYes @GRegression2 @GranteeTBE
@@ -8076,3 +8076,87 @@ Feature: Grantee Forms Scenario
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Application has been validated successfully. |
+
+  @479926 @ValidatePMusershouldabletocheckstatusonapplication
+  Scenario: Validate PM user should able to check status on application
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberProjectnarrativeForm}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269349" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001269349" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001269349" with properties "default-Grantee PO user"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    Then I softly can see top right button "Cancel" in page detail
+    Then I softly can see top right button "Save" in page detail
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    And I wait for "2" seconds
+    And I click on "Edit" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Project Narrative File" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I close the tab
+    And I wait for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    Then I softly can see top right button "Submit To Grants.Gov" in page detail
+    When I click on "Submit To Grants.Gov" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I can see top right button "Check Status" in page detail
+    Then I can see top right button "Revise" in page detail
+    When I navigate to "History" sub tab
+    And I save the value from row "1" for column name "Tracking Number" as "TrackingNumber" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "S2SReceived" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    When I click on "Check Status" in the page details
+    And I save the value from row "1" for column name "Tracking Number" as "TrackingNumber" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
