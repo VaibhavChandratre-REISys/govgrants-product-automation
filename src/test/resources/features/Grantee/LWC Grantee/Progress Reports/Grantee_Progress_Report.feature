@@ -179,8 +179,8 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I see "Financial Reports" inside "Monitoring" is displayed
     Then I see "Awards Special Conditions" inside "Monitoring" is displayed
     Examples:
-      | User        |
-      | GRANTEE FO  |
+      | User       |
+      | GRANTEE FO |
 
   @455422 @ProgressReportVerifyEXEusershouldseefooternavigatorafteropentheProgressReport
   Scenario Outline: Progress Report_ Verify PM user should see footer navigator after open the Progress Report
@@ -211,8 +211,8 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I see "Financial Reports" inside "Monitoring" is displayed
     Then I see "Awards Special Conditions" inside "Monitoring" is displayed
     Examples:
-      | User        |
-      | GRANTEE PM  |
+      | User       |
+      | GRANTEE PM |
 
   @444513 @ValidateEXEuserProgressreportOwnercanabltocreateAdhocProgressReportabletosubmitProgressReporttoGrantor @GRegression1 @GranteeTBE @P1_Grantee @EXE_Grantee
   Scenario: Validate EXE user (Progress report Owner)can able to create Adhoc Progress Report & able to submit Progress Report to Grantor
@@ -2924,3 +2924,6 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I navigate to "Chatter" sub tab in split screen
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "Grantee PO"
+
+  @496009 @ValidatePMuserseethecreatedSubmitforapprovalsendforreviewReviewedProgressreportisinopenitemoncecloseoutishappenedforthatGrant
+  Scenario: Validate PM user see the created Submit for approval send for review Reviewed Progress report is in open item once closeout is happened for that Grant

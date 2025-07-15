@@ -8528,6 +8528,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Reject" in the approval decision
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
