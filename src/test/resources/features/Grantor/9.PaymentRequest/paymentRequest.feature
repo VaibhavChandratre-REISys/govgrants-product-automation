@@ -666,6 +666,7 @@ Feature: Validate all scenarios in Payment Request
     And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
       | Budget Category | Advance Requested This Action |
       | Construction    | 10000000                      |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Advance Requested cannot be greater than the Advance Request Balance |
     And I refresh the page
@@ -1170,8 +1171,6 @@ Feature: Validate all scenarios in Payment Request
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    And I pause execution for "2" seconds
-    And I refresh the page
     And I pause execution for "2" seconds
     #As per discussion with sarat changing validation point
     Then I softly see field "Status" as "Approved"

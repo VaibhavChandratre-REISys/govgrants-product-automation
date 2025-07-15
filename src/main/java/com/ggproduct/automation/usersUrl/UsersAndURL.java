@@ -147,6 +147,9 @@ public class UsersAndURL implements UsersController {
             case "GRANTEE PO":
                 password = "Grantor@123";
                 break;
+            case "SARAH PM":
+                password = "Grantor@123";
+                break;
             case "SA":
                 password = "Automation@2026";
                 break;

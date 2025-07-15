@@ -332,7 +332,6 @@ Feature: Payment Request Forms scenarios
     Then I softly see the text containing "OMB Number: 4040-0012"
     Then I softly see the text containing "Expiration Date: 01/31/2025"
     When I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
     Then I softly see the following messages in the page details contains:
       | To Save, Street1 is required in the 10. Payee (Where check is to be sent if different than item 9) section.           |
       | To Save, City is required in the 10. Payee (Where check is to be sent if different than item 9) section.              |
