@@ -1,4 +1,4 @@
-@GranteeSmokeTestCases @GranteeTBE 
+@GranteeSmokeTestCases @GranteeTBE
 Feature: Grantee Smoke scenarios
 
   @470406 @ValidatetheflowofasPMuserisabletocreateandqualifythemanuallead @Grantee_Smoke1
