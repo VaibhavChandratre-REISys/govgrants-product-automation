@@ -2925,7 +2925,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "Grantee PO"
 
-    @487105 @validatepmuser(awardowner)canabletocreatescheduledprogressreport&abletosubmitprogressreporttograntor
+    @487105 @validatepmuser(awardowner)canabletocreatescheduledprogressreport&abletosubmitprogressreporttograntor  @P1_Grantee @PM_Grantee @GRegression1
     Scenario: Validate PM user (Award Owner)can able to create Scheduled Progress Report & able to submit Progress Report to Grantor
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default-Product Admin user"

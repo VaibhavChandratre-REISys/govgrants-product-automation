@@ -1309,7 +1309,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
    @481533 @validatepmusershouldabletoedittheformsincreated,submittedforreview,reviewed,revisioninprogressstate
-   Scenario: Valiate PM user should able to edit the forms in Created , Submitted for review, reviewed, Revision in progress state
+   Scenario: Validate PM user should able to edit the forms in Created , Submitted for review, reviewed, Revision in progress state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
@@ -1349,6 +1349,7 @@ Feature: Validate all scenarios for Applications Grants Gov
       | Form Validated Successfully. |
     And I close the tab
     When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly see value "Project Abstract Summary" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I click on "View" icon for "Project Abstract Summary" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
@@ -1366,6 +1367,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:ApplicationPeerReview---" without waiting for record
     Then I softly see field "Status" as "Submitted for Review"
     When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly see value "Project Abstract Summary" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I click on "View" icon for "Project Abstract Summary" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
