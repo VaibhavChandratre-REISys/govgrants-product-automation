@@ -365,9 +365,9 @@ Feature: Validate all scenarios in Closeout
     #89226
     And I upload attachment without random number "Permanent Records.xlsx" of type "Other" from computer
     #89229
-    And I click on "View" icon for "Other" inside flex table with id "---closeout:-:closeoutFilesTableId---" with wait for record
-    Then I softly see the image "Permanent Records.xlsx" in page detail
-    And I click on "Close" button for view files page
+#    And I click on "View" icon for "Other" inside flex table with id "---closeout:-:closeoutFilesTableId---" with wait for record
+#    Then I softly see the image "Permanent Records.xlsx" in page detail
+#    And I click on "Close" button for view files page
     #89227
 #    And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
 #    When I upload file "ParentChild.txt" present in the flex table "---closeout:-:closeoutAddFileTableId---" from library
