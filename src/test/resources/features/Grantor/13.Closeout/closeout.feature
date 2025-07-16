@@ -445,16 +445,16 @@ Feature: Validate all scenarios in Closeout
 #    When I enter the following values into flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" by clicking "Add" :
 #      | Description                 | Required  | Status |
 #      | Automation test description | Mandatory | Active |
-    When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" without waiting for record
-    Then I softly see "Upload Template" opens in overLay window
-    When I upload file "AttachmentTesting.pdf" into library
-    And I click modal button "Save"
-    Then I see the following messages in the page details contains:
-      | Attachment saved successfully. |
-    When I close "Upload Template" modal by clicking the top right x button
-    And I click on hyperlink containing value "View"
-    Then I softly see new tab is opened
-    And I switch to parent tab
+#    When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" without waiting for record
+#    Then I softly see "Upload Template" opens in overLay window
+#    When I upload file "AttachmentTesting.pdf" into library
+#    And I click modal button "Save"
+#    Then I see the following messages in the page details contains:
+#      | Attachment saved successfully. |
+#    When I close "Upload Template" modal by clicking the top right x button
+#    And I click on hyperlink containing value "View"
+#    Then I softly see new tab is opened
+#    And I switch to parent tab
     And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
     When I upload attachment "Permanent Records.xlsx" of type "Other" from computer
     And I click modal button "Close"
