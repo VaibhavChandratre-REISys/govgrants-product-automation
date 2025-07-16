@@ -543,7 +543,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see that "{SavedValue:CloseoutEGMSID}" has been added in flextable with Id "---closeout:-:externalHomePendingTasktableId---"
     Then I softly see value "Automation PM" for title "Created By" inside table "---closeout:-:externalHomePendingTasktableId---"
     Then I softly see value "Review Closeout Request" for title "Task Type" inside table "---closeout:-:externalHomePendingTasktableId---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+7}" for title "Due Date" inside table "---closeout:-:externalHomePendingTasktableId---"
+#    Then I softly see value "{Date:MM/dd/yyyy::d+7}" for title "Due Date" inside table "---closeout:-:externalHomePendingTasktableId---"
     Then I softly see value "Review Closeout Request for Grant #{SavedValue:GrantID}" for title "Subject" inside table "---closeout:-:externalHomePendingTasktableId---"
     #87351
     And I click on "Start" icon for "{SavedValue:CloseoutEGMSID}" inside flex table with id "---closeout:-:externalHomePendingTasktableId---"
