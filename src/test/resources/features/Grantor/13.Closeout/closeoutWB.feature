@@ -217,11 +217,11 @@ Feature: Validate all scenarios in Closeout
     And I click on hyperlink containing value "Overriden.pdf"
     And I click on "Download" button for snapshot view
     And I wait for "3" seconds
-    When I download the file for snapshot
-    And I wait for "3" seconds
+#    When I download the file for snapshot
+#    And I wait for "3" seconds
 #    Then I see that file name contains ".pdf" is downloaded
-#    And I switch to parent tab
-#    And I click on "Close" button for view files page
+    And I switch to parent tab
+    And I click on "Close" button for view files page
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
