@@ -378,6 +378,7 @@ Feature: Validate all scenarios in Closeout
 #    #88734
     When I click on "Edit" in the page details
     When I navigate to "Checklist" sub tab
+    And I enter value "Yes" into field "ChecklistQuestionPick1__c"
     And I enter value "Yes" into field "ChecklistQuestionPick7__c"
     And I enter value "Yes" into field "ChecklistQuestionPick8__c"
     #88735
