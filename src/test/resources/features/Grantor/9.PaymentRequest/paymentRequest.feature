@@ -1598,7 +1598,7 @@ Feature: Validate all scenarios in Payment Request
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Revise Payment Request #{SavedValue:PaymentId} for Subaward#{SavedValue:Subaward Id}
+      Sandbox: Notification: Payment Request {SavedValue:PaymentId} has been SentBack
       """
 
   @55626 @advancePaymentRequestSubmitToGrantorBySPIEmailNotification
@@ -1632,7 +1632,7 @@ Feature: Validate all scenarios in Payment Request
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Review Payment Request #{SavedValue:PaymentId} for Subaward#{SavedValue:Subaward Id}
+      Sandbox: Notification: Payment Request {SavedValue:PaymentId} fromAutomation SPI3 has been Submitted
       """
 
   @55627 @emailNotificationOnSubmitToGrantorReimbursement
@@ -1657,7 +1657,7 @@ Feature: Validate all scenarios in Payment Request
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Review Payment Request #{SavedValue:PaymentId} for Subaward#{SavedValue:Subaward Id}
+      Sandbox: Notification: Payment Request {SavedValue:PaymentId} fromAutomation SPI3 has been Submitted
       """
 
   @55630 @validateAdvancePRSendBackToSubReceipientEmailNotification
@@ -1697,7 +1697,7 @@ Feature: Validate all scenarios in Payment Request
     Then I refresh the page
     And I see the mail subject is as follows :
      """
-     Sandbox: Revise Payment Request #{SavedValue:PaymentId} for Subaward#{SavedValue:Subaward Id}
+     Sandbox: Notification: Payment Request {SavedValue:PaymentId} has been SentBack
      """
 
   @55628 @approvalOfAdvancePaymentRequestEmailNotification
