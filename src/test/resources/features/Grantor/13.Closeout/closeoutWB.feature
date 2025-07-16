@@ -2959,6 +2959,7 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---home:-:externalPendingTasktableId---" panel
     And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---home:-:externalPendingTasktableId---" without waiting for record
     And I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2997,6 +2998,7 @@ Feature: Validate all scenarios in Closeout
 #    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3031,6 +3033,7 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 30         | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
