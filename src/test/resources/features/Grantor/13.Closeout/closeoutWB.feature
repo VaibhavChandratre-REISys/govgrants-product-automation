@@ -185,6 +185,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     And I click on "Acknowledge" in the page details
+    And I wait for "2" seconds
 #    And I logout
     #76492
 #    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
@@ -195,7 +196,7 @@ Feature: Validate all scenarios in Closeout
 #      Sandbox: Notification: Closeout # {SavedValue:closeoutID} Acknowledgedby Subrecipient
 #      """
 #    And I am on "INTERNAL" portal
-    When I re-login to "Grantor" app as "EXE" user
+    When I re-login to "Grantor" app as "EXE" user  
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
