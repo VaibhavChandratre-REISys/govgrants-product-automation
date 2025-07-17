@@ -1606,10 +1606,18 @@ Feature: Validate all scenarios in Closeout
 
   @95547 @ValidatecloseoutRequestIsNotAcknowledgedBySubRecipientUserWhenTheSupportingDocumentChecklistDocumentIsNotUploadedWhenColumnRequiredSettingSetAs"Mandatory" @needrerun
   Scenario: Validate closeout Request Is Not Acknowledged By SubRecipient User When The Supporting Document Checklist Document Is Not Uploaded When Column Required Setting Set As "Mandatory"
+    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
+    When I login to "Grantor" app as "dynamicUser" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---closeout:-:grantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---closeout:-:grantsTableId---"
     When I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" by clicking "Add" :
       | Description | Required  | Applies To            | Status |
       | Automation  | Mandatory | Project Period Closeout | Active |
+    And I wait for "2" seconds
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
     When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
