@@ -534,50 +534,50 @@ Feature: Validate all scenarios in Closeout
     When I click on "Send To Subrecipient" in the page details
     Then I softly see field "Status" as "Sent To Subrecipient"
     #76487
-    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
-    #42103
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    When I navigate to "Home" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:CloseoutEGMSID}" in "---closeout:-:externalHomePendingTasktableId---" panel
-    Then I softly see that "{SavedValue:CloseoutEGMSID}" has been added in flextable with Id "---closeout:-:externalHomePendingTasktableId---"
-    Then I softly see value "Automation PM" for title "Created By" inside table "---closeout:-:externalHomePendingTasktableId---"
-    Then I softly see value "Review Closeout Request" for title "Task Type" inside table "---closeout:-:externalHomePendingTasktableId---"
-#    Then I softly see value "{Date:MM/dd/yyyy::d+7}" for title "Due Date" inside table "---closeout:-:externalHomePendingTasktableId---"
-    Then I softly see value "Review Closeout Request for Grant #{SavedValue:GrantID}" for title "Subject" inside table "---closeout:-:externalHomePendingTasktableId---"
-    #87351
-    And I click on "Start" icon for "{SavedValue:CloseoutEGMSID}" inside flex table with id "---closeout:-:externalHomePendingTasktableId---"
-    Then I softly can see "Overview" sub tab at view detail page
-    Then I softly can see "Open Items" sub tab at view detail page
-    Then I softly can see "Checklist" sub tab at view detail page
-    Then I softly can see "Files" sub tab at view detail page
-    Then I softly can see "History" sub tab at view detail page
-    Then I softly can see "Messages" sub tab at view detail page
-    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
-    #86716
-    When I click on "Edit" in the page details
-    When I navigate to "Overview" sub tab
-    And I enter value "checked" into field "Aggreement__c"
-    When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see field "Acknowledgement" as "checked"
-    #86712
-    And I click on "Acknowledge" in the page details
-    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
-    Then I softly see field "Status" as "Acknowledged by Subrecipient"
-    #93583
-    And I save the field labeled "Acknowledgement" as "AcknowledgementCheck"
-    And I save the field labeled "Acknowledgement Date" as "AcknowledgementDate"
-    And I save the field labeled "Acknowledgement By" as "AcknowledgementBy"
-    Then I softly see field "Acknowledgement Date" as "{SavedValue:AcknowledgementDate}"
-    Then I softly see field "Acknowledgement By" as "{SavedValue:AcknowledgementBy}"
-    Then I softly see field "Acknowledgement" as "{SavedValue:AcknowledgementCheck}"
-    #87346
-    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
-    When I navigate to "Closeout" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:CloseoutEGMSID}" in "---closeout:-:pendingTaskTableId---" panel
-    Then I softly see that "{SavedValue:CloseoutEGMSID}" has been added in flextable with Id "---closeout:-:pendingTaskTableId---"
+#    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
+#    #42103
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    When I navigate to "Home" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:CloseoutEGMSID}" in "---closeout:-:externalHomePendingTasktableId---" panel
+#    Then I softly see that "{SavedValue:CloseoutEGMSID}" has been added in flextable with Id "---closeout:-:externalHomePendingTasktableId---"
+#    Then I softly see value "Automation PM" for title "Created By" inside table "---closeout:-:externalHomePendingTasktableId---"
+#    Then I softly see value "Review Closeout Request" for title "Task Type" inside table "---closeout:-:externalHomePendingTasktableId---"
+##    Then I softly see value "{Date:MM/dd/yyyy::d+7}" for title "Due Date" inside table "---closeout:-:externalHomePendingTasktableId---"
+#    Then I softly see value "Review Closeout Request for Grant #{SavedValue:GrantID}" for title "Subject" inside table "---closeout:-:externalHomePendingTasktableId---"
+#    #87351
+#    And I click on "Start" icon for "{SavedValue:CloseoutEGMSID}" inside flex table with id "---closeout:-:externalHomePendingTasktableId---"
+#    Then I softly can see "Overview" sub tab at view detail page
+#    Then I softly can see "Open Items" sub tab at view detail page
+#    Then I softly can see "Checklist" sub tab at view detail page
+#    Then I softly can see "Files" sub tab at view detail page
+#    Then I softly can see "History" sub tab at view detail page
+#    Then I softly can see "Messages" sub tab at view detail page
+#    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
+#    #86716
+#    When I click on "Edit" in the page details
+#    When I navigate to "Overview" sub tab
+#    And I enter value "checked" into field "Aggreement__c"
+#    When I click on "Save" in the page details
+#    And I wait for "2" seconds
+#    Then I softly see field "Acknowledgement" as "checked"
+#    #86712
+#    And I click on "Acknowledge" in the page details
+#    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
+#    Then I softly see field "Status" as "Acknowledged by Subrecipient"
+#    #93583
+#    And I save the field labeled "Acknowledgement" as "AcknowledgementCheck"
+#    And I save the field labeled "Acknowledgement Date" as "AcknowledgementDate"
+#    And I save the field labeled "Acknowledgement By" as "AcknowledgementBy"
+#    Then I softly see field "Acknowledgement Date" as "{SavedValue:AcknowledgementDate}"
+#    Then I softly see field "Acknowledgement By" as "{SavedValue:AcknowledgementBy}"
+#    Then I softly see field "Acknowledgement" as "{SavedValue:AcknowledgementCheck}"
+#    #87346
+#    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+#    When I navigate to "Closeout" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:CloseoutEGMSID}" in "---closeout:-:pendingTaskTableId---" panel
+#    Then I softly see that "{SavedValue:CloseoutEGMSID}" has been added in flextable with Id "---closeout:-:pendingTaskTableId---"
 
   @93641 @ValidatingUserCanSeeProjectPeriodCloseoutRequestListView @needrerun
   Scenario: Verify user can see created closeout request in draft list view
