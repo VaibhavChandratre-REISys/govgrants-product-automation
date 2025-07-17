@@ -1901,7 +1901,7 @@ Feature: Validate all scenarios for closeout
     Then I softly see "Messages" page block displayed
     Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
 
-  @496009 @ValidatePMuserseethecreatedSubmitforapprovalsendforreviewReviewedProgressreportisinopenitemoncecloseoutishappenedforthatGrant
+  @496009 @ValidatePMuserseethecreatedSubmitforapprovalsendforreviewReviewedProgressreportisinopenitemoncecloseoutishappenedforthatGrant @P1_Grantee @PM_Grantee @GRegression1
   Scenario: Validate PM user see the created, Submit for approval, send for review, Reviewed Progress report is in open item once closeout is happened for that Grant
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"

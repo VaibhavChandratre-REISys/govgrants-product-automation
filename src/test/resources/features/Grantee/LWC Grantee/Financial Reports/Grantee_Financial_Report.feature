@@ -1047,7 +1047,7 @@ Feature: Validate all scenarios for Financial Report
     And I wait for "220" seconds
     And I refresh the page
     And I wait for "3" seconds
-    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID1}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Scheduled" for title "Report Type" inside table "---grantee_tableId:-:FinancialsReportTableId---"
     And I save the value from row "1" for column name "EGMS ID" as "financialEGMSID1" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
     And I navigate to "Monitoring" tab
     When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
