@@ -1019,6 +1019,7 @@ Feature: Validate all scenarios for Financial Report
       | Name       | Financial Report |
       | Sarah PM   | Step 1           |
     When I click on "Validate" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | The Report has been validated successfully. |
     And I click on "Submit for Approval" in the page details
