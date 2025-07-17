@@ -1223,4 +1223,11 @@ public final class GovGrantsSteps {
     public void iClickOnButtonOnHeader(String buttonName) {
         ggObjects.toClickOnButtonOnHeader(buttonName);
     }
+
+    @And("I download the file without rename")
+    public void iDownloadTheFileWithoutRename() {
+        I.amPerforming().fileHandling().DownloadAnyFilefromTab();
+        File targetDir = new File(System.getProperty("user.dir") + File.separator + "target");
+        I.amPerforming().waitFor().makeThreadSleep(2000);
+    }
 }
