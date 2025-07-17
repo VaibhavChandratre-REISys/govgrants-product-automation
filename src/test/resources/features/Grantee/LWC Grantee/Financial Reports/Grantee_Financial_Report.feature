@@ -1047,13 +1047,13 @@ Feature: Validate all scenarios for Financial Report
     And I wait for "200" seconds
     And I refresh the page
     And I wait for "3" seconds
-    And I save the value from row "1" for column name "EGMS ID" as "financialEGMSID" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I save the value from row "1" for column name "EGMS ID" as "financialEGMSID1" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
     And I navigate to "Monitoring" tab
     When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Financial Reports - Draft"
-    And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
-    When I click on "View" icon for "{SavedValue:financialEGMSID}" inside table
+    And I perform quick search for "{SavedValue:financialEGMSID1}" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
+    When I click on "View" icon for "{SavedValue:financialEGMSID1}" inside table
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportApproverTableId---" by clicking "New" :
       | Name     | Financial Report |

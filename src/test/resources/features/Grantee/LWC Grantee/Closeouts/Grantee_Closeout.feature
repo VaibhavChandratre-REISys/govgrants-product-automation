@@ -2143,7 +2143,7 @@ Feature: Validate all scenarios for closeout
     And I navigate to "Management" sub tab
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:ProgressReportTableId---"
     Then I softly see value "Submitted for Review" for title "Status" against the value "{SavedValue:progressEGMSID1}" inside table "---grantee_tableId:-:ProgressReportTableId---"
-    Then I softly see value "Review" for title "Status" against the value "{SavedValue:progressEGMSID2}" inside table "---grantee_tableId:-:ProgressReportTableId---"
+    Then I softly see value "Reviewed" for title "Status" against the value "{SavedValue:progressEGMSID2}" inside table "---grantee_tableId:-:ProgressReportTableId---"
     Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:progressEGMSID3}" inside table "---grantee_tableId:-:ProgressReportTableId---"
     Then I softly see value "Approved" for title "Status" against the value "{SavedValue:progressEGMSID4}" inside table "---grantee_tableId:-:ProgressReportTableId---"
     Then I softly see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:progressEGMSID5}" inside table "---grantee_tableId:-:ProgressReportTableId---"
@@ -2173,7 +2173,9 @@ Feature: Validate all scenarios for closeout
     When I navigate to "Open  Items" sub tab
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:PendingProgressReprt---"
     Then I softly see value "Submitted for Review" for title "Status" against the value "{SavedValue:progressEGMSID1}" inside table "---grantee_tableId:-:PendingProgressReprt---"
-    Then I softly see value "Review" for title "Status" against the value "{SavedValue:progressEGMSID2}" inside table "---grantee_tableId:-:PendingProgressReprt---"
+    Then I softly see value "Reviewed" for title "Status" against the value "{SavedValue:progressEGMSID2}" inside table "---grantee_tableId:-:PendingProgressReprt---"
     Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:progressEGMSID3}" inside table "---grantee_tableId:-:PendingProgressReprt---"
-    Then I softly do not see value "Approved" for title "Status" against the value "{SavedValue:progressEGMSID4}" inside table "---grantee_tableId:-:PendingProgressReprt---"
-    Then I softly do not see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:progressEGMSID5}" inside table "---grantee_tableId:-:PendingProgressReprt---"
+    Then I softly do not see value "{SavedValue:progressEGMSID4}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingProgressReprt---"
+    Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:PendingProgressReprt---"
+    Then I softly do not see value "{SavedValue:progressEGMSID5}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingProgressReprt---"
+    Then I softly do not see value "Submitted to Grantor" for title "Status" inside table "---grantee_tableId:-:PendingProgressReprt---"
