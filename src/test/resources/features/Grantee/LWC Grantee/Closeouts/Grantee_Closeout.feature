@@ -2121,12 +2121,13 @@ Feature: Validate all scenarios for closeout
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I click on "Submit To Grantor" in the page details
-    When I enter values into fields
-      | Value | Field          |
-      | 0     | SubmittedOn__c |
-    And I click modal button "Save"
-    And I click modal button "Close"
+    And I click on "Mark as Submitted" in the page details
+    And I wait for "2" seconds
+    And I enter in modal "Grantee_Submit Details" values from "ProgressReport_Field_Values.xlsx"
+    When I click modal button "Save"
+    And I wait for "3" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
