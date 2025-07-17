@@ -405,7 +405,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Has the subrecipient met the match requirement?" as "Yes"
     Then I softly see field "Has the subrecipient provided supporting documentation for all reported match, including third party in-kind match?" as "Yes"
     Then I softly see field "Did the subrecipient fully expend program income earned during the award period prior to the closeout of the award?" as "Yes"
-    Then I softly see field "Has the subrecipient returned unexpended program income to the funding organiation, if required by program regulations?" as "Yes"
+    Then I softly see field "Has the subrecipient returned unexpended program income to the funding organization, if required by program regulations?" as "Yes"
     Then I softly see field "Has the subrecipient completed the scope of work as outlined in the subaward agreement?" as "Yes"
     Then I softly see field "Has the subrecipient met all deliverable requirements?" as "Yes"
     Then I softly see field "Has the subrecipient submitted required documentation of performance completion?" as "Yes"
