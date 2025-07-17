@@ -1627,4 +1627,4 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
     Then I softly see the following messages in the page details contains:
-      | Files Tab - Complete each mandatory item listed in the checklist to acknowledge this Closeout. |
+      | Files Tab - Complete each mandatory item listed in the checklist before submitting this Closeout Request . |
