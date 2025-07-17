@@ -1607,8 +1607,8 @@ Feature: Validate all scenarios in Closeout
   @95547 @ValidatecloseoutRequestIsNotAcknowledgedBySubRecipientUserWhenTheSupportingDocumentChecklistDocumentIsNotUploadedWhenColumnRequiredSettingSetAs"Mandatory" @needrerun
   Scenario: Validate closeout Request Is Not Acknowledged By SubRecipient User When The Supporting Document Checklist Document Is Not Uploaded When Column Required Setting Set As "Mandatory"
     When I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---closeout:-:grantChecklistsTableId---" by clicking "Add" :
-      | Description | Required  | Applies To      | Status |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" by clicking "Add" :
+      | Description | Required  | Applies To            | Status |
       | Automation  | Mandatory | Project Period Closeout | Active |
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
