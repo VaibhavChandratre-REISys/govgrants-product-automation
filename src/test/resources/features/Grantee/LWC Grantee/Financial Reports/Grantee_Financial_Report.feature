@@ -1058,6 +1058,17 @@ Feature: Validate all scenarios for Financial Report
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportApproverTableId---" by clicking "New" :
       | Name     | Financial Report |
       | Sarah PM | Step 1           |
+    When I click on "Edit" icon for "Federal Financial Report (SF-425)" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    And I switch to tab number "1"
+    And I enter "FederalFinancialReport_425" values from "Financial_Report_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I click on "Validate" in the page details
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I close the tab
+    And I wait for "1" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | The Report has been validated successfully. |
