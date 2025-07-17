@@ -989,8 +989,8 @@ Feature: Validate all scenarios for Financial Report
     And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
-    And I create Application "{SavedValue:Automation Runtime award}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default-Victor EXE user"
-    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime award}" with properties "default-Victor EXE user"
+    And I create Application "{SavedValue:Automation Runtime award}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I updated award from application for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
     And I navigate to "Grants" tab
@@ -1044,7 +1044,7 @@ Feature: Validate all scenarios for Financial Report
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Report Creation Date |
       | {SavedValue:EGMS ID1} | 0                    |
-    And I wait for "180" seconds
+    And I wait for "200" seconds
     And I refresh the page
     And I wait for "3" seconds
     And I save the value from row "1" for column name "EGMS ID" as "financialEGMSID" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
