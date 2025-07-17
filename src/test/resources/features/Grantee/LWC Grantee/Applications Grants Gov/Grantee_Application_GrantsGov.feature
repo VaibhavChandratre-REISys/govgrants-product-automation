@@ -1308,4 +1308,402 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-
+  @481499 @ValidateEXEuserhasonlyviewaccessonforminallstatesofapplication
+  Scenario: Validate EXE user has only view access on form in all states of application
+    Given I delete the grantee record "{grantee_testData:GrantsGovProjectPerformanceMandatory}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269345" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001269345" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001269345" with properties "TWO_STEP_APPROVER"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I halt execution
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    Then I softly can see top right button "Cancel" in page detail
+    Then I softly can see top right button "Save" in page detail
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    Then I softly see value "Project/Performance Site Location(s)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see "check" symbol against the value "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Project/Performance Site Location(s)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on top right button "Add" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    And I enter "Project_Perform_Site" values from "Application_Field_Values.xlsx"
+    When I click modal button "Save"
+    And I wait for "1" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:projectLocationFormTableId---"
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "100.00%" for title "Percentage" against the value "Project/Performance Site Location(s)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:appEGMSID}" in flex table with id "---grantee_tableId:-:ApplicationTableId---"
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Submit For Approval" in page detail
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project/Performance Site Location(s)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see "check" symbol against the value "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly cannot see row level action button "Edit" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "View" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "Preview" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Project/Performance Site Location(s)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I see the header is "Project/Performance Site Location(s)" in the page details
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly see the field "Agency Owner :" as "Grants.gov" on forms
+    Then I softly see the field "OMB Number :" as "4040-0010" on forms
+    Then I softly see the field "Version :" as "4.0" on forms
+    Then I softly see the field "OMB Expiration Date :" as "12/31/2026" on forms
+    Then I softly see the text containing "When filling out the data within this form, please adhere to the character limits for each field as specified within the information icon for the field."
+    Then I softly can see "Form" sub tab at view detail page
+    Then I softly see "Project/Performance Site Primary Location" page block displayed
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "UEI" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Street1" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "City" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "State" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Country" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Congressional District" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Primary Address" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly do not see top right button "Add" inside flex table "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see that "Is Primary Address" rendered in view mode only
+    Then I softly see that "Organization Name" rendered in view mode only
+    Then I softly see that "UEI" rendered in view mode only
+    Then I softly see that "Street 1" rendered in view mode only
+    Then I softly see that "Street 2" rendered in view mode only
+    Then I softly see that "City" rendered in view mode only
+    Then I softly see that "County" rendered in view mode only
+    Then I softly see that "State" rendered in view mode only
+    Then I softly see that "Province" rendered in view mode only
+    Then I softly see that "Country" rendered in view mode only
+    Then I softly see that "ZIP / Postal Code" rendered in view mode only
+    Then I softly see that "Project/ Performance Site Congressional District" rendered in view mode only
+    And I click modal button "Close"
+    And I wait for "1" seconds
+    And I close the tab
+    Then I softly see value "100.00%" for title "Percentage" against the value "Project/Performance Site Location(s)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:appEGMSID}" in flex table with id "---grantee_tableId:-:ApplicationTableId---"
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    And I click on "Submit For Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:appEGMSID}" in flex table with id "---grantee_tableId:-:ApplicationTableId---"
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project/Performance Site Location(s)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see "check" symbol against the value "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly cannot see row level action button "Edit" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "View" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "Preview" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Project/Performance Site Location(s)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I see the header is "Project/Performance Site Location(s)" in the page details
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly see the field "Agency Owner :" as "Grants.gov" on forms
+    Then I softly see the field "OMB Number :" as "4040-0010" on forms
+    Then I softly see the field "Version :" as "4.0" on forms
+    Then I softly see the field "OMB Expiration Date :" as "12/31/2026" on forms
+    Then I softly see the text containing "When filling out the data within this form, please adhere to the character limits for each field as specified within the information icon for the field."
+    Then I softly can see "Form" sub tab at view detail page
+    Then I softly see "Project/Performance Site Primary Location" page block displayed
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "UEI" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Street1" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "City" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "State" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Country" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Congressional District" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Primary Address" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly do not see top right button "Add" inside flex table "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see that "Is Primary Address" rendered in view mode only
+    Then I softly see that "Organization Name" rendered in view mode only
+    Then I softly see that "UEI" rendered in view mode only
+    Then I softly see that "Street 1" rendered in view mode only
+    Then I softly see that "Street 2" rendered in view mode only
+    Then I softly see that "City" rendered in view mode only
+    Then I softly see that "County" rendered in view mode only
+    Then I softly see that "State" rendered in view mode only
+    Then I softly see that "Province" rendered in view mode only
+    Then I softly see that "Country" rendered in view mode only
+    Then I softly see that "ZIP / Postal Code" rendered in view mode only
+    Then I softly see that "Project/ Performance Site Congressional District" rendered in view mode only
+    And I click modal button "Close"
+    And I wait for "1" seconds
+    And I close the tab
+    Then I softly see value "100.00%" for title "Percentage" against the value "Project/Performance Site Location(s)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:appEGMSID}" in flex table with id "---grantee_tableId:-:ApplicationTableId---"
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Approved"
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project/Performance Site Location(s)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see "check" symbol against the value "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly cannot see row level action button "Edit" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "View" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "Preview" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Project/Performance Site Location(s)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I see the header is "Project/Performance Site Location(s)" in the page details
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly see the field "Agency Owner :" as "Grants.gov" on forms
+    Then I softly see the field "OMB Number :" as "4040-0010" on forms
+    Then I softly see the field "Version :" as "4.0" on forms
+    Then I softly see the field "OMB Expiration Date :" as "12/31/2026" on forms
+    Then I softly see the text containing "When filling out the data within this form, please adhere to the character limits for each field as specified within the information icon for the field."
+    Then I softly can see "Form" sub tab at view detail page
+    Then I softly see "Project/Performance Site Primary Location" page block displayed
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "UEI" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Street1" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "City" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "State" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Country" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Congressional District" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Primary Address" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly do not see top right button "Add" inside flex table "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see that "Is Primary Address" rendered in view mode only
+    Then I softly see that "Organization Name" rendered in view mode only
+    Then I softly see that "UEI" rendered in view mode only
+    Then I softly see that "Street 1" rendered in view mode only
+    Then I softly see that "Street 2" rendered in view mode only
+    Then I softly see that "City" rendered in view mode only
+    Then I softly see that "County" rendered in view mode only
+    Then I softly see that "State" rendered in view mode only
+    Then I softly see that "Province" rendered in view mode only
+    Then I softly see that "Country" rendered in view mode only
+    Then I softly see that "ZIP / Postal Code" rendered in view mode only
+    Then I softly see that "Project/ Performance Site Congressional District" rendered in view mode only
+    And I click modal button "Close"
+    And I wait for "1" seconds
+    And I close the tab
+    Then I softly see value "100.00%" for title "Percentage" against the value "Project/Performance Site Location(s)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    Then I softly can see top right button "Submit To Grants.Gov" in page detail
+    When I click on "Submit To Grants.Gov" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I can see top right button "Check Status" in page detail
+    Then I can see top right button "Revise" in page detail
+    When I navigate to "History" sub tab
+    And I save the value from row "1" for column name "Tracking Number" as "TrackingNumber" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "S2SReceived" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    When I click on "Check Status" in the page details
+    And I save the value from row "1" for column name "Tracking Number" as "TrackingNumber" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:appEGMSID}" in flex table with id "---grantee_tableId:-:ApplicationTableId---"
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Submit For Approval" in page detail
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project/Performance Site Location(s)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see "check" symbol against the value "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly cannot see row level action button "Edit" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "View" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "Preview" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Project/Performance Site Location(s)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I see the header is "Project/Performance Site Location(s)" in the page details
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly see the field "Agency Owner :" as "Grants.gov" on forms
+    Then I softly see the field "OMB Number :" as "4040-0010" on forms
+    Then I softly see the field "Version :" as "4.0" on forms
+    Then I softly see the field "OMB Expiration Date :" as "12/31/2026" on forms
+    Then I softly see the text containing "When filling out the data within this form, please adhere to the character limits for each field as specified within the information icon for the field."
+    Then I softly can see "Form" sub tab at view detail page
+    Then I softly see "Project/Performance Site Primary Location" page block displayed
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "UEI" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Street1" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "City" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "State" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Country" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Congressional District" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Primary Address" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly do not see top right button "Add" inside flex table "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see that "Is Primary Address" rendered in view mode only
+    Then I softly see that "Organization Name" rendered in view mode only
+    Then I softly see that "UEI" rendered in view mode only
+    Then I softly see that "Street 1" rendered in view mode only
+    Then I softly see that "Street 2" rendered in view mode only
+    Then I softly see that "City" rendered in view mode only
+    Then I softly see that "County" rendered in view mode only
+    Then I softly see that "State" rendered in view mode only
+    Then I softly see that "Province" rendered in view mode only
+    Then I softly see that "Country" rendered in view mode only
+    Then I softly see that "ZIP / Postal Code" rendered in view mode only
+    Then I softly see that "Project/ Performance Site Congressional District" rendered in view mode only
+    And I click modal button "Close"
+    And I wait for "1" seconds
+    And I close the tab
+    Then I softly see value "100.00%" for title "Percentage" against the value "Project/Performance Site Location(s)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    When I click on "Revise" in the page details
+    Then I softly see field "Status" as "Revision in Progress"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:appEGMSID}" in flex table with id "---grantee_tableId:-:ApplicationTableId---"
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Revision in Progress"
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Submit For Approval" in page detail
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Project/Performance Site Location(s)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see "check" symbol against the value "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly cannot see row level action button "Edit" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "View" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "Preview" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Project/Performance Site Location(s)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I see the header is "Project/Performance Site Location(s)" in the page details
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly see the field "Agency Owner :" as "Grants.gov" on forms
+    Then I softly see the field "OMB Number :" as "4040-0010" on forms
+    Then I softly see the field "Version :" as "4.0" on forms
+    Then I softly see the field "OMB Expiration Date :" as "12/31/2026" on forms
+    Then I softly see the text containing "When filling out the data within this form, please adhere to the character limits for each field as specified within the information icon for the field."
+    Then I softly can see "Form" sub tab at view detail page
+    Then I softly see "Project/Performance Site Primary Location" page block displayed
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "UEI" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Street1" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "City" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "State" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Country" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Congressional District" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see "Primary Address" in flex table header "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly do not see top right button "Add" inside flex table "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see that "Is Primary Address" rendered in view mode only
+    Then I softly see that "Organization Name" rendered in view mode only
+    Then I softly see that "UEI" rendered in view mode only
+    Then I softly see that "Street 1" rendered in view mode only
+    Then I softly see that "Street 2" rendered in view mode only
+    Then I softly see that "City" rendered in view mode only
+    Then I softly see that "County" rendered in view mode only
+    Then I softly see that "State" rendered in view mode only
+    Then I softly see that "Province" rendered in view mode only
+    Then I softly see that "Country" rendered in view mode only
+    Then I softly see that "ZIP / Postal Code" rendered in view mode only
+    Then I softly see that "Project/ Performance Site Congressional District" rendered in view mode only
+    And I click modal button "Close"
+    And I wait for "1" seconds
+    And I close the tab
+    And I wait for "1" seconds
+    Then I softly see value "100.00%" for title "Percentage" against the value "Project/Performance Site Location(s)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"

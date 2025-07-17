@@ -23525,3 +23525,72 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I navigate to "Overview" sub tab
     When I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
     Then I see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
+
+   @464023 @ValidatePOuserAROwnercanabletoacceptBPCAmendmentRequest
+    Scenario Outline: Validate PO user (AR Owner) can able to accept BPC Amendment Request
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    And I "Approved" of type "Budget Period Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "BUDGET_PERIOD_CHANGE_GRANTEE_PO"
+    When I login to "As a Grantee" app as "<User>" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    When I navigate to "Amendments" sub tab
+    And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    When I click on "Submit to Grantor" in the page details
+    When I enter values into fields
+      | Value | Field                 |
+      | 0     | SubmittedToGrantor__c |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I can see top right button "Record Decision" in page detail
+    Then I can see top right button "Revise Amendment" in page detail
+    When I click on "Record Decision" in the page details
+    Then I softly see fields "Decision__c" is in edit mode
+    Then I softly see fields "Comments__c" is in edit mode
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | To Save, Additional Details is required. |
+      | To Save, Decision is required.           |
+    Then I see only the following ordered options in dropdown field "Decision__c" :
+      | --None-- | Accepted | Not Accepted |
+    When I enter values into fields
+      | Value    | Field       |
+      | Accepted | Decision__c |
+    Then I softly see fields "AmendmentNumber__c" is in edit mode
+    Then I softly see fields "AwardIssueDate__c" is in edit mode
+    Then I softly see fields "Comments__c" is in edit mode
+    When I hovering mouse on help text icon inside modal "Amendment Number"
+    Then I softly see "Field should allow only number upto 4 digits" shown as help text
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | To Save, Additional Details is required. |
+    When I enter values into fields
+      | Value | Field       |
+      | Test  | Comments__c |
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | You need to provide Award Issue Date if the decision is accepted. |
+    When I enter values into fields
+      | Value                       | Field             |
+      | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
+      | Test                        | Comments__c       |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Accepted"
+    Examples:
+      | userName        | User        |
+      | Grantee PO user | GRANTEE PO  |

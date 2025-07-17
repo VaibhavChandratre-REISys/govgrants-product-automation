@@ -974,3 +974,109 @@ Feature: Validate all scenarios for Financial Report
     Then I softly can see row level action button "Edit" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
+
+  @483986 @ValidateAdhocFRshouldnotbeaffectedonscheduledfinancialreport
+  Scenario: Validate Adhoc FR should not be affected on scheduled financial report
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I wait for "3" seconds
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime award}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default-Victor EXE user"
+    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime award}" with properties "default-Victor EXE user"
+    And I updated award from application for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
+    When I enter value "Checked" into field "IsFinalReport__c"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "financialEGMSID"
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportApproverTableId---" by clicking "New" :
+      | Name       | Financial Report |
+      | Sarah PM   | Step 1           |
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | The Report has been validated successfully. |
+    And I click on "Submit for Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    And I navigate to "Management" sub tab
+    And I click on "Edit" icon for "Financial Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
+    When I enter in modal "Grantee_Financial_Schedules" values from "Award_Field_Values.xlsx"
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    And I expand nested table containing column value "Financial Report"
+    And I save the value from row "1" for column name "EGMS ID" as "EGMS ID1" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+      | EGMS ID               | Report Creation Date |
+      | {SavedValue:EGMS ID1} | 0                    |
+    And I wait for "180" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "financialEGMSID" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Financial Reports - Draft"
+    And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
+    When I click on "View" icon for "{SavedValue:financialEGMSID}" inside table
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportApproverTableId---" by clicking "New" :
+      | Name     | Financial Report |
+      | Sarah PM | Step 1           |
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | The Report has been validated successfully. |
+    And I click on "Submit for Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | You cannot create new Financial Report as another Progress Report marked as 'Final' has been submitted to the grantor. |
