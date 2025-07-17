@@ -1,7 +1,7 @@
 @GranteeNonFederalOrgamization
 Feature: Validate all scenarios for Non Federal Organization
 
-  @460982 @ValidateNonFederalAuditorprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess
+  @460982 @ValidateNonFederalAuditorprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess @P4_Grantee @AUDITOR_Grantee @GRegression2
   Scenario Outline: Validate Non Federal Auditor profile user should see all fields and section on Non federal Org layout in readonly View only Access
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab

@@ -333,7 +333,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
     Then I see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
 
-  @495182 @ValidateFOusercanseeonclickofARseeoptionsfromGrantphasecanseedefaultlandingpageshowsMyRecordslistviewtableofARabletotogglethelistviewfilteractionsacctostatusofrecordAlsocomfunctshouldworkontable
+  @495182 @ValidateFOusercanseeonclickofARseeoptionsfromGrantphasecanseedefaultlandingpageshowsMyRecordslistviewtableofARabletotogglethelistviewfilteractionsacctostatusofrecordAlsocomfunctshouldworkontable @P3_Grantee @PO_Grantee @GRegression2
   Scenario: Validate FO user can see on click of AR see options from Grant phase & can see default landing page shows 'My Records' list view table of AR & able to toggle the list view filter & actions acc to status of record, Also com funct should work on table
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -1195,7 +1195,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @455427 @455428 @455429 @FundingChangeARVerifyPMusershouldseefooternavigatorafteropentheFundingChangeAR
+  @455427 @FundingChangeARVerifyPMusershouldseefooternavigatorafteropentheFundingChangeAR
   Scenario Outline: Funding Change AR_ Verify PM user should see footer navigator after open the Funding Change AR
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -1225,7 +1225,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | userType   |
       | GRANTEE PM |
 
-  @455428 @455429 @FundingChangeARVerifyPMusershouldseefooternavigatorafteropentheFundingChangeAR
+  @455428 @FundingChangeARVerifyPMusershouldseefooternavigatorafteropentheFundingChangeAR
   Scenario Outline: Funding Change AR_ Verify PM user should see footer navigator after open the Funding Change AR
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -20991,7 +20991,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Owner       | OwnerType       | UserType       | emailIdTo                       | CreatedBy     | Assertion     |
       | GRANTEE EXE | Victor EXE user | GRANTEE ADMIN1 | victor.exeqagrantee@yopmail.com | Product Admin | softly cannot |
 
-  @471362 @VerifyPOuserasAROwnercanabletocreateBPCAR&IncreasetheBudgetPerioddateonactiveAward&abletoseeimpactonGrant&AwardafterreducingtheBudgetPeriod @Grantee_Smoke
+  @471362 @VerifyPOuserasAROwnercanabletocreateBPCAR&IncreasetheBudgetPerioddateonactiveAward&abletoseeimpactonGrant&AwardafterreducingtheBudgetPeriod
   Scenario:Verify PO user as (AR Owner)can able to create BPC AR & Increase the Budget Period date on active Award & able to see impact on Grant & Award after reducing the Budget Period
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"

@@ -1764,7 +1764,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see "Closeout" sub tab at view detail page
 
-  @443819 @ValidateAwardWithPMProfileAwardPagelayoutfordirectgrant
+  @443819 @ValidateAwardWithPMProfileAwardPagelayoutfordirectgrant @P2_Grantee @PM_Grantee @GRegression1
   Scenario: Validate Award With PM Profile Award Page layout for direct grant
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -2686,7 +2686,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "Not Started" for title "Status" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
 
-  @440231 @440232 @verifywithPMprofileunabletoseethedraftedfocusareatoselectinDirectGrantAward @GRegression1 @GranteeTBE
+  @440231 @440232 @verifywithPMprofileunabletoseethedraftedfocusareatoselectinDirectGrantAward @GRegression1
   Scenario:verify with PM profile unable to see the drafted focus area to select in Direct Grant / Award.
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -2719,7 +2719,7 @@ Feature: Validate all scenarios for Grants & Awards
     #@440231
     Then I softly see "Automation Permanent Focus Area" inside flex table with id "---grantee_tableId:-:selectAwardFocusAreaTableId---"
 
-  @443841 @AwardVerifyWithEXEProfileIfsettingkeptNOthenunabletoseethesectioninGrantAward @GRegression1 @GranteeTBE
+  @443841 @AwardVerifyWithEXEProfileIfsettingkeptNOthenunabletoseethesectioninGrantAward @GRegression1
   Scenario: AwardVerifyWithEXEProfileIfsettingkeptNOthenunabletoseethesectioninGrantAward
     And I "Created" standalone subaward "Automation Runtime Award" with properties "ALL_SETTING_NO-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"

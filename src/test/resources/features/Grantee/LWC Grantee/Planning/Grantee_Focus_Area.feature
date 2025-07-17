@@ -86,7 +86,7 @@ Feature: Validate all scenarios for Focus Areas
     And I click on "View" icon for "{SavedValue:focusEGMSID}" inside table
     Then I cannot see top right button "Deactivate" in page detail
 
-  @443821 @ValidateAwardwithEXEProfileFocusareavalidations
+  @443821 @ValidateAwardwithEXEProfileFocusareavalidations @P2_Grantee @EXE_Grantee @GRegression1
   Scenario Outline: Validate Award with EXE/PO Profile Focus area validations
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -197,4 +197,66 @@ Feature: Validate all scenarios for Focus Areas
     Examples:
       | userType    | Approver   |
       | GRANTEE EXE | Victor EXE |
+
+  @440272 @VerifyWithAdminProfileAbletocreateActivateDeactivethefocusarea @P2_Grantee @ADMIN_Grantee @GRegression2
+  Scenario: Verify With Admin Profile ,Able to create/Activate/Deactive  the focus area.
+    When I login to "As a Grantee" app as "GRANTEE ADMIN" user
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    When I enter in modal value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter in modal value "Automation Test Description" into field "Description__c"
+    When I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:focusAreaAddFilesTableId---"
+    When I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    Then I see "AttachmentTesting.pdf" has been added in "Focus Area Files" flex table
+    And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:focusAreaAddFilesTableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "supporting documents" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:focusAreaAddFilesTableId---"
+    Then I softly see value "supporting documents" for title "Classification" inside table "---grantee_tableId:-:focusAreaAddFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:focusAreaAddFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Attachment.pdf" has been added in "Focus Area Files" flex table
+    When I enter the following values into flex table with id "---grantee_tableId:-:focusAreaNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    When I enter the following values into flex table with id "---grantee_tableId:-:focusAreaNotesTableId---" by clicking "New" :
+      | Title         | Description       |
+      | Notes Record1 | Automation Notes1 |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:focusAreaNotesTableId---"
+    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:focusAreaNotesTableId---"
+    And I navigate to "Messages" sub tab
+    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    And I send the email under collab tab with following details:
+      | To                        | Subject            | Body            |
+      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
+    Then I softly see value "product.qa@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    When I click on "Activate" in the page details
+    Then I see status in Progress-bar is "Active" and is "dark blue"
+    And I navigate to "History" sub tab
+    Then I softly see snapshot with name containing "Activate.pdf" as name
+    And I click on "Deactivate" in the page details
+    Then I see status in Progress-bar is "Closed" and is "dark blue"
+    Then I see field "Status" as "Inactive"
+    And I refresh the page
+    And I wait for "5" seconds
+    And I navigate to "History" sub tab
+    Then I softly see snapshot with name containing "Deactivate.pdf" as name
 

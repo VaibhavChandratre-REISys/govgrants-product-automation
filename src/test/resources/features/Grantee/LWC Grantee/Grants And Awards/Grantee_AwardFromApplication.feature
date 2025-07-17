@@ -2998,7 +2998,7 @@ Feature: Validate all scenarios for Grantee Award from Application
       | UserName      | OwnerType  | UserType   | emailIdFrom             | emailIdTo                       | CreatedBy          |
       | Sarah PM user | GRANTEE PM | GRANTEE FD | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Danielle FD Garcia |
 
-  @486538 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward
+  @486538 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward @P1_Grantee @FO_Grantee @GRegression1
   Scenario Outline: Other Type AR -Verify PM user should able to approved the AR & should able to create & activate new award
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"

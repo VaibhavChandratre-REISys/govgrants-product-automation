@@ -977,7 +977,7 @@ Feature: Grantee Forms Scenario
     Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "Sarah PM" for title "Last Modified By Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
 
-  @485427 @478403 @ValidateProjectNarrativeAttachmentPMuserisrejecttheapplicationthensubmittograntsgovbuttonisnotdisplaytheeditaccess
+  @485427 @478403 @ValidateProjectNarrativeAttachmentPMuserisrejecttheapplicationthensubmittograntsgovbuttonisnotdisplaytheeditaccess @P4_Grantee @PM_Grantee @GRegression4 @P2_Grantee @GRegression2
   Scenario: Validate Project Narrative Attachment PM user is reject the application then submit to grants.gov button is not display & verify the edit access
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -2478,7 +2478,7 @@ Feature: Grantee Forms Scenario
       | UserName      | OwnerType  | NonOwner        |
       | Sarah PM user | GRANTEE PM | GRANTEE AUDITOR |
 
-  @482030 @GrantsgovlobbingformVerifyassignedreviewerEXEwitheditaccessasNocannotseeeditbuttonforGrantsgovlobbingformandcannoteditanydataontheform @P3_Grantee @GRgression3 @GranteeTBE
+  @482030 @GrantsgovlobbingformVerifyassignedreviewerEXEwitheditaccessasNocannotseeeditbuttonforGrantsgovlobbingformandcannoteditanydataontheform @P3_Grantee @GRegression3
   Scenario Outline: Grants.gov lobbing form - Verify assigned reviewer(EXE)  with edit access as No cannot see edit button for Grants.gov lobbing form and cannot edit any data on the form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumber}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001241410" with properties "default-<UserName>"

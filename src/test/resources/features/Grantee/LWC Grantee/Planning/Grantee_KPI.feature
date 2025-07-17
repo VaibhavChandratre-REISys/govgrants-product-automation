@@ -27,7 +27,7 @@ Feature: Validate all scenarios for KPI
       | User        |
       | GRANTEE PM  |
 
-  @455420 @455421 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI
+  @455420 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI
   Scenario Outline:KPI_ Verify EXE user should see footer navigator after open the KPI
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Planning" tab
