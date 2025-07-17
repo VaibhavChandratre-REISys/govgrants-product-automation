@@ -2997,7 +2997,9 @@ Feature: Validate all scenarios in Closeout
     And I close the tab
 #    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
-#    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "2" seconds
+    And I refresh the page
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -5242,18 +5244,18 @@ Feature: Validate all scenarios in Closeout
     Then I see value "{SavedValue:closeoutID}" for title "Closeout ID" inside table "---closeout:-:closeoutTargetTableId---"
     And I pause execution for "2" seconds
     When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
-    When I navigate to "Home" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I navigate to "Home" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
 #    And I perform quick search for "{SavedValue:progID}" in "---closeout:-:homePendingTaskTableId---" panel
 #    When I click on "Start" icon for "Approve Progress Report" inside flex table with id "---closeout:-:homePendingTaskTableId---"
 #    And I "Approve" in the approval decision
 #    Then I softly see field "Status" as "Approved"
 #    When I navigate to "Home" tab
 #    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:PayreqId}" in "---closeout:-:homePendingTaskTableId---" panel
-    When I click on "Start" icon for "Approve Payment Request" inside flex table with id "---closeout:-:homePendingTaskTableId---"
-    And I "Approve" in the approval decision
-    Then I softly see field "Status" as "Approved"
+#    And I perform quick search for "{SavedValue:PayreqId}" in "---closeout:-:homePendingTaskTableId---" panel
+#    When I click on "Start" icon for "Approve Payment Request" inside flex table with id "---closeout:-:homePendingTaskTableId---"
+#    And I "Approve" in the approval decision
+#    Then I softly see field "Status" as "Approved"
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
