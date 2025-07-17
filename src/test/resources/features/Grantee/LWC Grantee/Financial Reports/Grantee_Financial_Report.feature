@@ -1058,6 +1058,7 @@ Feature: Validate all scenarios for Financial Report
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportApproverTableId---" by clicking "New" :
       | Name     | Financial Report |
       | Sarah PM | Step 1           |
+    When I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "Federal Financial Report (SF-425)" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I switch to tab number "1"
     And I enter "FederalFinancialReport_425" values from "Financial_Report_Field_Values.xlsx"
