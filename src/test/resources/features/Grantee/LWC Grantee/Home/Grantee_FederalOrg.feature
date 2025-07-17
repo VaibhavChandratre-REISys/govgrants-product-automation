@@ -878,7 +878,7 @@ Feature: Validate all scenarios for Federal Organization
       | userType    | attachment            | Notes         |
       | GRANTEE EXE | AttachmentTesting.pdf | Notes for EXE |
 
-  @477524 @ValidatePOusershouldseeallfieldsandsectiononfederalOrg
+  @477524 @ValidatePOusershouldseeallfieldsandsectiononfederalOrg @P1_Grantee @PO_Grantee @GRegression1
   Scenario Outline: Validate PO user should see all fields and section on federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab

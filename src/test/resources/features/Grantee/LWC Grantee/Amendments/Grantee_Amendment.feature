@@ -23526,7 +23526,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
     Then I see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
 
-   @464023 @ValidatePOuserAROwnercanabletoacceptBPCAmendmentRequest
+   @464023 @ValidatePOuserAROwnercanabletoacceptBPCAmendmentRequest @P1_Grantee @PO_Grantee @GRegression1
     Scenario Outline: Validate PO user (AR Owner) can able to accept BPC Amendment Request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"

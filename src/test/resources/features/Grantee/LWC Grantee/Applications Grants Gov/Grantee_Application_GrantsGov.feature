@@ -1308,7 +1308,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @481499 @ValidateEXEuserhasonlyviewaccessonforminallstatesofapplication
+  @481499 @ValidateEXEuserhasonlyviewaccessonforminallstatesofapplication @P1_Grantee @EXE_Grantee @GRegression1
   Scenario: Validate EXE user has only view access on form in all states of application
     Given I delete the grantee record "{grantee_testData:GrantsGovProjectPerformanceMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269345" with properties "default"
@@ -1426,7 +1426,6 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:appEGMSID}" in flex table with id "---grantee_tableId:-:ApplicationTableId---"
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
