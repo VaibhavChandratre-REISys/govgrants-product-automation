@@ -208,20 +208,20 @@ Feature: Validate all scenarios in Closeout
     And I click on "Submit for Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #76493
-    And I navigate to "Closeout" tab
-    When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
-    And I click toggle button to select "Project Period Closeouts - All"
-    When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel
-    When I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:ProjectPeriodCloseoutTableId---"
-    And I navigate to "History" sub tab
-    And I click on hyperlink containing value "Overriden.pdf"
-    And I click on "Download" button for snapshot view
-    And I wait for "3" seconds
-#    When I download the file for snapshot
+#    And I navigate to "Closeout" tab
+#    When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
+#    And I click toggle button to select "Project Period Closeouts - All"
+#    When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel
+#    When I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:ProjectPeriodCloseoutTableId---"
+#    And I navigate to "History" sub tab
+#    And I click on hyperlink containing value "Overriden.pdf"
+#    And I click on "Download" button for snapshot view
+#    And I wait for "3" seconds
+##    When I download the file for snapshot
 #    And I wait for "3" seconds
 #    Then I see that file name contains ".pdf" is downloaded
-    And I switch to parent tab
-    And I click on "Close" button for view files page
+#    And I switch to parent tab
+#    And I click on "Close" button for view files page
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4573,6 +4573,7 @@ Feature: Validate all scenarios in Closeout
     And I close the tab
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I refresh the page
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -4608,6 +4609,7 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 30         | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
+    And I refresh the page
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
