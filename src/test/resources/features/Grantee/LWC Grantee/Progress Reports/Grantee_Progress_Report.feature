@@ -2924,6 +2924,3 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I navigate to "Chatter" sub tab in split screen
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "Grantee PO"
-
-  @496009 @ValidatePMuserseethecreatedSubmitforapprovalsendforreviewReviewedProgressreportisinopenitemoncecloseoutishappenedforthatGrant
-  Scenario: Validate PM user see the created Submit for approval send for review Reviewed Progress report is in open item once closeout is happened for that Grant

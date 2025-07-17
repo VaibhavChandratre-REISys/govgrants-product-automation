@@ -469,8 +469,8 @@ Feature: Validate all scenarios for closeout
     Then I softly see field "Status" as "Activated"
     Then I softly cannot see "Budget Period Closeouts" sub tab at view detail page
     Examples:
-      | userType    |
-      | GRANTEE PM  |
+      | userType   |
+      | GRANTEE PM |
 
   @446128 @ValidateGPCloseoutWithEXEProfileOncecreatetheadhoccloseoutNewbuttonofcloseoutgetdisable @GRegression1 @GranteeTBE
   Scenario: Validate GP Closeout With EXE Profile Once create the adhoc closeout New button of closeout get disable
@@ -1900,3 +1900,261 @@ Feature: Validate all scenarios for closeout
     When I navigate to "Messages" sub tab
     Then I softly see "Messages" page block displayed
     Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
+
+  @496009 @ValidatePMuserseethecreatedSubmitforapprovalsendforreviewReviewedProgressreportisinopenitemoncecloseoutishappenedforthatGrant
+  Scenario: Validate PM user see the created, Submit for approval, send for review, Reviewed Progress report is in open item once closeout is happened for that Grant
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "progressEGMSID"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "progressEGMSID1"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
+      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
+      | Grantee PO    | Fiscal Reviewer | Automation Description | 5        | Yes                  |
+    And I click on "Send for Review" icon for "Grantee PO" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "progressEGMSID2"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
+      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
+      | Grantee PO    | Fiscal Reviewer | Automation Description | 5        | Yes                  |
+    And I click on "Send for Review" icon for "Grantee PO" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:progressEGMSID2}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:progressEGMSID2}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I navigate to "Responsibilities" sub tab
+    Then I softly can see top right button "Edit" in page detail
+    When I click on "Enter Review" icon for "Grantee PO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
+    And I enter a review as "Passed"
+    When I click modal button "Save"
+    And I click on submit review
+    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Progress Reports - All"
+    When I perform quick search for "{SavedValue:progressEGMSID2}" in "---grantee_tableId:-:ProgressReports---" panel
+    When I click on "View" icon for "{SavedValue:progressEGMSID2}" inside flex table with id "---grantee_tableId:-:ProgressReports---"
+    When I click on "Complete Review" in the page details
+    Then I softly see field "Status" as "Reviewed"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "progressEGMSID3"
+    When I navigate to "Performance" sub tab
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:KPIOnProgressReport---" by clicking "Edit" :
+      | EGMS ID                | Reported Value | Reported Value As Of |
+      | Automation Runtime KPI | 10             | 1                    |
+    Given I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
+      | Name     | Progress Report |
+      | Sarah PM | Step 1          |
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | The Report has been validated successfully. |
+    And I click on "Submit for Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "progressEGMSID4"
+    When I navigate to "Performance" sub tab
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:KPIOnProgressReport---" by clicking "Edit" :
+      | EGMS ID                | Reported Value | Reported Value As Of |
+      | Automation Runtime KPI | 10             | 1                    |
+    Given I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
+      | Name     | Progress Report |
+      | Sarah PM | Step 1          |
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | The Report has been validated successfully. |
+    And I click on "Submit for Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "progressEGMSID5"
+    When I navigate to "Performance" sub tab
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:KPIOnProgressReport---" by clicking "Edit" :
+      | EGMS ID                | Reported Value | Reported Value As Of |
+      | Automation Runtime KPI | 10             | 1                    |
+    Given I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
+      | Name     | Progress Report |
+      | Sarah PM | Step 1          |
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | The Report has been validated successfully. |
+    And I click on "Submit for Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    When I click on "Submit To Grantor" in the page details
+    When I enter values into fields
+      | Value | Field          |
+      | 0     | SubmittedOn__c |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Submitted to Grantor"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    And I navigate to "Management" sub tab
+    Then I softly see value "Created" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:ProgressReportTableId---"
+    Then I softly see value "Submitted for Review" for title "Status" against the value "{SavedValue:progressEGMSID1}" inside table "---grantee_tableId:-:ProgressReportTableId---"
+    Then I softly see value "Review" for title "Status" against the value "{SavedValue:progressEGMSID2}" inside table "---grantee_tableId:-:ProgressReportTableId---"
+    Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:progressEGMSID3}" inside table "---grantee_tableId:-:ProgressReportTableId---"
+    Then I softly see value "Approved" for title "Status" against the value "{SavedValue:progressEGMSID4}" inside table "---grantee_tableId:-:ProgressReportTableId---"
+    Then I softly see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:progressEGMSID5}" inside table "---grantee_tableId:-:ProgressReportTableId---"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Project Period Start Date" as "PPST"
+    When I navigate to "Closeout" sub tab
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
+    When I enter values into fields
+      | Value             | Field           |
+      | {SavedValue:PPST} | CloseoutDate__c |
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Closeout_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "closeoutID"
+    When I navigate to "Open  Items" sub tab
+    Then I softly see value "Created" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:PendingProgressReprt---"
+    Then I softly see value "Submitted for Review" for title "Status" against the value "{SavedValue:progressEGMSID1}" inside table "---grantee_tableId:-:PendingProgressReprt---"
+    Then I softly see value "Review" for title "Status" against the value "{SavedValue:progressEGMSID2}" inside table "---grantee_tableId:-:PendingProgressReprt---"
+    Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:progressEGMSID3}" inside table "---grantee_tableId:-:PendingProgressReprt---"
+    Then I softly do not see value "Approved" for title "Status" against the value "{SavedValue:progressEGMSID4}" inside table "---grantee_tableId:-:PendingProgressReprt---"
+    Then I softly do not see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:progressEGMSID5}" inside table "---grantee_tableId:-:PendingProgressReprt---"
