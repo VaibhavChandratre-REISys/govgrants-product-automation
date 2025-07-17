@@ -950,8 +950,9 @@ Feature: Validate all scenarios in Closeout
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     And I wait for "3" seconds
-    When I navigate to "Closeout" tab
-    And I click toggle button to select "Closeouts - All"
+    And I navigate to "Closeout" tab
+    When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
+    And I click toggle button to select "Project Period Closeouts - All"
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:CloseoutTableId---" panel
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     And I navigate to "History" sub tab
