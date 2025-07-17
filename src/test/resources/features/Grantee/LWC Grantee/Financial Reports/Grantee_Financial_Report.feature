@@ -1080,4 +1080,4 @@ Feature: Validate all scenarios for Financial Report
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | You cannot create new Financial Report as another Progress Report marked as 'Final' has been submitted to the grantor. |
+      | You cannot create new Financial Report as another Financial Report marked as 'Final' has been submitted to the grantor. |
