@@ -1624,6 +1624,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I close the tab
     And I refresh the page
     And I wait for "2" seconds
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly see value "100.00%" for title "Percentage" against the value "Grants.gov Lobbying Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "No" for title "Validated" against the value "Grants.gov Lobbying Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I click on "Validate" in the page details
@@ -1667,6 +1668,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly can see row level action button "View" against "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly can see row level action button "Splitview" against "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly can see row level action button "Preview" against "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
