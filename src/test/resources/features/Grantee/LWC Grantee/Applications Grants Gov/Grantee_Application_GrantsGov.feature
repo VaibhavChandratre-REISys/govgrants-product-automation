@@ -1536,7 +1536,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I click on "Validate" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
-      | Please validate the Forms by clicking validate button. |
+      | Application has been validated successfully. |
     Then I softly can see row level action button "View" against "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly can see row level action button "Splitview" against "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly can see row level action button "Preview" against "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -1630,7 +1630,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I click on "Validate" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
-      | Please validate the Forms by clicking validate button. |
+      | Application has been validated successfully. |
     When I click on "View" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     When I click on "Validate" in the page details
@@ -1651,7 +1651,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I click on "Validate" in the page details
     And I wait for "1" seconds
     Then I softly see the following messages in the page details contains:
-      | Please validate the Forms by clicking validate button. |
+      | Application has been validated successfully. |
     When I click on "View" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     When I click on "Validate" in the page details
@@ -1686,6 +1686,8 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
+    And I refresh the page
+    And I wait for "2" seconds
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
