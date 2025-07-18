@@ -1799,7 +1799,7 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---applicationReview:-:reviewersTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "Email" inside table "---applicationReview:-:reviewersTableId---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "Email" inside table "---applicationReview:-:reviewersTableId---"
     Then I softly see value "Test Automation Organization" for title "Organization" inside table "---applicationReview:-:reviewersTableId---"
     Then I softly see value "0" for title "# of Reviews Assigned" inside table "---applicationReview:-:reviewersTableId---"
     Examples:

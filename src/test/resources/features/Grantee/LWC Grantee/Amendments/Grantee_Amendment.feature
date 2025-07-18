@@ -4232,7 +4232,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly do not see "Grantor Decision History" page block displayed
     Examples:
       | User       | EmailFrom                | EmailTo                   |
-      | GRANTEE PO | govgrantsuat@yopmail.com | pm.automation@yopmail.com |
+      | GRANTEE PO | govgrantsuat@yopmail.com | pm.automation.qa2@yopmail.com |
 
   @464085 @VerifyFOuserasAROwnercanabletocreatBudgetPeriodChangeARonactiveAward&NotAcceptARbyGrantor&notabletoseeAmendAwardbuttoninNotAcceptedstateofBPCAR @GRegression4 @GranteeTBE
   Scenario Outline: Verify FO user as (AR Owner) can able to create Budget Period Change AR on active Award & Not Accept AR by Grantor & not able to see Amend Award button in Not Accepted state of BPC AR
@@ -4639,7 +4639,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly do not see "Grantor Decision History" page block displayed
     Examples:
       | User       | EmailFrom                | EmailTo                   |
-      | GRANTEE FO | david.fo@yopmail.com     | pm.automation@yopmail.com |
+      | GRANTEE FO | david.fo@yopmail.com     | pm.automation.qa2@yopmail.com |
 
   @462011 @PRAmdVerifythatPMasAmdowneruserseeNewbuttoninAddlineItem&theirfieldsunderBudgetCategorysectionunderOverviewTabinPeriodicRenewalAmendmentRequestlayout @GRegression4 @GranteeTBE
   Scenario: PR Amd Verify that PM (as Amd owner)user see New button in Add line Item & their fields under Budget Category section under Overview Tab in Periodic Renewal Amendment Request layout

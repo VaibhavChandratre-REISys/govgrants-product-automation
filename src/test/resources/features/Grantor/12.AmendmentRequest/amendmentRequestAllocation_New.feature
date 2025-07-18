@@ -19888,7 +19888,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
-    And I checkout to yopmail with mailid "automationpo1@yopmail.com"
+    And I checkout to yopmail with mailid "automation.po1.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """

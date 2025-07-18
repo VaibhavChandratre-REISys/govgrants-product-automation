@@ -388,7 +388,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
      #204414
     And I click on "Publish" in the page details
     Then I softly see field "Status" as "Published"
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     Then I refresh the page
     And I pause execution for "120" seconds
     And I see the mail subject is as follows :
@@ -3908,7 +3908,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 2000             |
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I wait for "210" seconds
     Then I refresh the page
     Then I see the mail text is as follows :
@@ -3933,7 +3933,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     Then I see status in Progress-bar is "Published" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AnnEgmsId"
-    When I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    When I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I wait for "190" seconds
     Then I refresh the page
     Then I see the mail text is as follows :
@@ -3964,7 +3964,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                           | Allocation Amount |
       | Automation Permanent Focus Area | 2000              |
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I wait for "190" seconds
     Then I refresh the page
     Then I see the mail text is as follows :
@@ -4044,7 +4044,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                           | Allocation Amount |
       | Automation Permanent Focus Area | 2000              |
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I wait for "190" seconds
     And I refresh the page
     And I see the mail subject is as follows :
@@ -4081,7 +4081,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     Then I see status in Progress-bar is "Published" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AnnEgmsId"
-    When I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    When I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I wait for "190" seconds
     Then I refresh the page
     Then I see the mail text is as follows :

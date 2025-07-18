@@ -1,7 +1,7 @@
 @programWB @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios for program
 
-   @109448 @VerifySelectionOfChildOrganization
+  @109448 @VerifySelectionOfChildOrganization
   Scenario: Verifying if the user is able to change or add child organization to created program
     Given I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -18,10 +18,10 @@ Feature: Validate all scenarios for program
     And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
     When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
-     And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
-     And I click on "Edit" in the page details
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    And I click on "Edit" in the page details
     And I click on remove for lookup from field "Account__c"
-     And I enter in the value "Test Automation Organization" in lookup field
+    And I enter in the value "Test Automation Organization" in lookup field
     And I click on "Save" in the page details
     Then I softly see field "Internal Organization" as "Test Automation Organization"
 
@@ -2003,7 +2003,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     Then I do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -2131,7 +2131,7 @@ Feature: Validate all scenarios for program
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I "Send to Owner" in the approval decision
     And I logout
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -2454,7 +2454,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Automation PM" for title "Name" inside table "---program:-:programOwnerTableId---"
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-     And I wait for "5" seconds
+    And I wait for "5" seconds
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:ProgramEGMSID1}" in "---program:-:pendingTaskTableId---" panel
@@ -2464,7 +2464,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Automation EXE" for title "Name" inside table "---program:-:programOwnerTableId---"
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-     And I wait for "5" seconds
+    And I wait for "5" seconds
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:ProgramEGMSID2}" in "---program:-:pendingTaskTableId---" panel
@@ -2990,7 +2990,7 @@ Feature: Validate all scenarios for program
     And I click on submit review
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -3672,7 +3672,7 @@ Feature: Validate all scenarios for program
     And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -3753,7 +3753,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "fo1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -3827,7 +3827,7 @@ Feature: Validate all scenarios for program
     And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -3944,7 +3944,7 @@ Feature: Validate all scenarios for program
     Then I softly do not see value "{SavedValue:ProgramEGMSID1}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -3978,7 +3978,7 @@ Feature: Validate all scenarios for program
       The EGMS Team.
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4096,7 +4096,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:ProgramEGMSID}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4147,7 +4147,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:ProgramEGMSID}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4216,7 +4216,7 @@ Feature: Validate all scenarios for program
     And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4249,7 +4249,7 @@ Feature: Validate all scenarios for program
       The EGMS Team.
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4386,7 +4386,7 @@ Feature: Validate all scenarios for program
     And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4415,7 +4415,7 @@ Feature: Validate all scenarios for program
       The EGMS Team.
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4822,7 +4822,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "fo1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4904,7 +4904,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5118,7 +5118,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I pause execution for "150" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5205,7 +5205,7 @@ Feature: Validate all scenarios for program
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5637,7 +5637,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID10}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID10}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     Then I can see top right button "Amend Program" in page detail
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5989,8 +5989,8 @@ Feature: Validate all scenarios for program
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     And I edit the following rows inline in flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Edit" :
-      | Created By     | Title          | Description       |
-      | Automation EXE | Notes Record1 | Automation Notes1  |
+      | Created By     | Title         | Description       |
+      | Automation EXE | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---program:-:internalProgramNotesTableId---" without waiting for record
@@ -7505,19 +7505,19 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "---program:-:programCollabMessagesTableId---"
     And I send the email under collab tab with following details:
-      | To                        | Subject         | Body                       |
-      | fo.automation@yopmail.com | Automation Test | Automation Test Email Body |
+      | To                            | Subject         | Body                       |
+      | fo.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---program:-:programCollabMessagesTableId---"
     Then I see the following rows under the following headers in table with id "---program:-:programCollabMessagesTableId---" :
-      | Subject         | From Address              | CC Address | To Address                | Attention To | Email Subject   |
-      | Automation Test | pm.automation@yopmail.com |            | fo.automation@yopmail.com |              | Automation Test |
+      | Subject         | From Address                  | CC Address | To Address                    | Attention To | Email Subject   |
+      | Automation Test | pm.automation.qa2@yopmail.com |            | fo.automation.qa2@yopmail.com |              | Automation Test |
     #330580
     And I click on "Reply" icon for "Automation Test" inside flex table with id "---program:-:programCollabMessagesTableId---" without waiting for record
     And I send the email under collab tab with following details:
-      | To                        | Subject              | Body                          |
-      | fo.automation@yopmail.com | RE: Automation Test1 | Automation Re-Test Email Body |
+      | To                            | Subject              | Body                          |
+      | fo.automation.qa2@yopmail.com | RE: Automation Test1 | Automation Re-Test Email Body |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I see value "" for title "Attention To" against the value "RE: Automation Test1" inside table "---program:-:programCollabMessagesTableId---"
@@ -7530,13 +7530,13 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
     And I navigate to "Messages" sub tab
     Then I see the following rows under the following headers in table with id "---program:-:programCollabMessagesTableId---" :
-      | Subject         | From Address              | CC Address | To Address                | Attention To | Email Subject   |
-      | Automation Test | pm.automation@yopmail.com |            | fo.automation@yopmail.com |              | Automation Test |
+      | Subject         | From Address                  | CC Address | To Address                    | Attention To | Email Subject   |
+      | Automation Test | pm.automation.qa2@yopmail.com |            | fo.automation.qa2@yopmail.com |              | Automation Test |
     #330615
     And I click on "Reply" icon for "Automation Test" inside flex table with id "---program:-:programCollabMessagesTableId---" without waiting for record
     And I send the email under collab tab with following details:
-      | To                        | Subject              | Body                                |
-      | fo.automation@yopmail.com | RE: Automation Test2 | Automation Re-Test Email Body Again |
+      | To                            | Subject              | Body                                |
+      | fo.automation.qa2@yopmail.com | RE: Automation Test2 | Automation Re-Test Email Body Again |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I see value "" for title "Attention To" against the value "RE: Automation Test2" inside table "---program:-:programCollabMessagesTableId---"
@@ -7576,11 +7576,11 @@ Feature: Validate all scenarios for program
     And I refresh the page
     And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Program {SavedValue:ProgramEGMSID} awaiting Peer Review" for title "Subject" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "exe.automation@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
-    And I click on "View" icon for "exe.automation@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
+    Then I softly see value "exe.automation.qa2@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
+    And I click on "View" icon for "exe.automation.qa2@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
-      | pm.automation@yopmail.com                                             |
+      | pm.automation.qa2@yopmail.com                                         |
       | exe.automation@yopmail.com                                            |
       | Notification: Program {SavedValue:ProgramEGMSID} awaiting Peer Review |
     When I close "System Email" modal by clicking the top right x button
@@ -7591,11 +7591,11 @@ Feature: Validate all scenarios for program
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Program {SavedValue:ProgramEGMSID} awaiting Peer Review" for title "Subject" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "exe.automation@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
-    And I click on "View" icon for "exe.automation@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
+    Then I softly see value "exe.automation.qa2@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
+    And I click on "View" icon for "exe.automation.qa2@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
-      | pm.automation@yopmail.com                                             |
+      | pm.automation.qa2@yopmail.com                                         |
       | exe.automation@yopmail.com                                            |
       | Notification: Program {SavedValue:ProgramEGMSID} awaiting Peer Review |
     When I close "System Email" modal by clicking the top right x button
@@ -7612,12 +7612,12 @@ Feature: Validate all scenarios for program
     And I refresh the page
     And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed" for title "Subject" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "exe.automation@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
+    Then I softly see value "exe.automation.qa2@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
     And I click on "View" icon for "Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
       | exe.automation@yopmail.com                                              |
-      | pm.automation@yopmail.com                                               |
+      | pm.automation.qa2@yopmail.com                                           |
       | Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed |
     When I close "System Email" modal by clicking the top right x button
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -7628,12 +7628,12 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside table
     And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed" for title "Subject" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "exe.automation@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
+    Then I softly see value "exe.automation.qa2@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
     And I click on "View" icon for "Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
       | exe.automation@yopmail.com                                              |
-      | pm.automation@yopmail.com                                               |
+      | pm.automation.qa2@yopmail.com                                           |
       | Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed |
     When I close "System Email" modal by clicking the top right x button
     #331477
@@ -7708,12 +7708,12 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     And I refresh the page
     Then I softly see value "Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}." for title "Subject" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "automationpo@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "automationpo@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
-    And I click on "View" icon for "automationpo@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
+    Then I softly see value "automation.po.qa2@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
+    Then I softly see value "automation.po.qa2@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
+    And I click on "View" icon for "automation.po.qa2@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
-      | automationpo@yopmail.com                                                                 |
-      | automationpo@yopmail.com                                                                 |
+      | automation.po.qa2@yopmail.com                                                            |
+      | automation.po.qa2@yopmail.com                                                            |
       | Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}. |
     When I close "System Email" modal by clicking the top right x button
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -7725,11 +7725,11 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     And I refresh the page
     Then I softly see value "Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}." for title "Subject" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "automationpo@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "exe.automation@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
-    And I click on "View" icon for "exe.automation@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
+    Then I softly see value "automation.po.qa2@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
+    Then I softly see value "exe.automation.qa2@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
+    And I click on "View" icon for "exe.automation.qa2@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
-      | automationpo@yopmail.com                                                                 |
+      | automation.po.qa2@yopmail.com                                                            |
       | exe.automation@yopmail.com                                                               |
       | Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}. |
     When I close "System Email" modal by clicking the top right x button
@@ -7742,12 +7742,12 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     And I refresh the page
     Then I softly see value "Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}." for title "Subject" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "automationpo@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
-    And I click on "View" icon for "pm.automation@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
+    Then I softly see value "automation.po.qa2@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
+    And I click on "View" icon for "pm.automation.qa2@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
-      | automationpo@yopmail.com                                                                 |
-      | pm.automation@yopmail.com                                                                |
+      | automation.po.qa2@yopmail.com                                                            |
+      | pm.automation.qa2@yopmail.com                                                            |
       | Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}. |
 
   @331862 @331869 @ValidatethatEmailwillnotgenerateSystemEmailmessagestabwhenOwnerofprogramclicksonActivatebuttononInternalProgram @Sprint-11-US-327737 @SystemEmail
@@ -7838,14 +7838,14 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "---program:-:programCollabMessagesTableId---"
     And I send the email under collab tab with following details:
-      | To                        | Subject         | Body                       |
-      | pm.automation@yopmail.com | Automation Test | Automation Test Email Body |
+      | To                            | Subject         | Body                       |
+      | pm.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---program:-:programCollabMessagesTableId---"
     Then I see the following rows under the following headers in table with id "---program:-:programCollabMessagesTableId---" :
-      | Subject         | From Address             | CC Address | To Address                | Attention To | Email Subject   |
-      | Automation Test | automationfd@yopmail.com |            | pm.automation@yopmail.com |              | Automation Test |
+      | Subject         | From Address                  | CC Address | To Address                    | Attention To | Email Subject   |
+      | Automation Test | automation.fd.qa2@yopmail.com |            | pm.automation.qa2@yopmail.com |              | Automation Test |
     And I refresh the page
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
     #331480
@@ -8120,14 +8120,14 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "---program:-:programCollabMessagesTableId---"
     And I send the email under collab tab with following details:
-      | To                        | Subject         | Body                       |
-      | fo.automation@yopmail.com | Automation Test | Automation Test Email Body |
+      | To                            | Subject         | Body                       |
+      | fo.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---program:-:programCollabMessagesTableId---"
     Then I see the following rows under the following headers in table with id "---program:-:programCollabMessagesTableId---" :
-      | Subject         | From Address               | CC Address | To Address                | Attention To | Email Subject   |
-      | Automation Test | exe.automation@yopmail.com |            | fo.automation@yopmail.com |              | Automation Test |
+      | Subject         | From Address                   | CC Address | To Address                    | Attention To | Email Subject   |
+      | Automation Test | exe.automation.qa2@yopmail.com |            | fo.automation.qa2@yopmail.com |              | Automation Test |
     #330624
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -8138,8 +8138,8 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     And I click on "Reply" icon for "Automation Test" inside flex table with id "---program:-:programCollabMessagesTableId---" without waiting for record
     And I send the email under collab tab with following details:
-      | To                        | Subject              | Body                                |
-      | fo.automation@yopmail.com | RE: Automation Test2 | Automation Re-Test Email Body Again |
+      | To                            | Subject              | Body                                |
+      | fo.automation.qa2@yopmail.com | RE: Automation Test2 | Automation Re-Test Email Body Again |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I see value "" for title "Attention To" against the value "RE: Automation Test2" inside table "---program:-:programCollabMessagesTableId---"

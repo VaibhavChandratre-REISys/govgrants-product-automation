@@ -307,7 +307,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     And I logout
     And I wait for "5" seconds
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :

@@ -2259,7 +2259,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     Then I refresh the page
     Then I do not see the mail text is as follows :
       """
@@ -2281,7 +2281,7 @@ Feature: Validate all scenarios of grants and award with undo
      Thank you.
      The EGMS Team
       """
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
     """

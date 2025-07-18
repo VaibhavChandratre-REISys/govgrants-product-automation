@@ -5405,7 +5405,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on submit review
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "automationpo1@yopmail.com"
+    And I checkout to yopmail with mailid "automation.po1.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5510,7 +5510,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "Start" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
     Then I softly see field "Status" as "Rejected"
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "20" seconds
     And I refresh the page
     And I see the mail subject is as follows :
@@ -5699,7 +5699,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I "Approve" in the approval decision
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Active" and is "dark blue"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "20" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5960,7 +5960,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "Start" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "20" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -6296,7 +6296,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "fo1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -6425,7 +6425,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on hyperlink containing value "View All"
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -6451,7 +6451,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -6808,7 +6808,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Start" icon for "Record Id" inside flex table with id "---riskassessment:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation FO" for title "Name" against the value "Fiscal Reviewer" inside table "---riskassessment:-:raPeerReviewFlexTableId---"
-    And I checkout to yopmail with mailid "fo1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -7266,7 +7266,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---orgRiskAssessment:-:awardRiskAssessmentTableId---"
     Then I softly can see top right button "New" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -7302,7 +7302,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -7421,7 +7421,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:organizationprofileviewTableId---"
     And I logout
     And I wait for "2" seconds
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+#    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
 #    And I pause execution for "10" seconds
 #    Then I refresh the page
 #    And I see the mail subject is as follows :
@@ -7516,7 +7516,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see field "Status" as "Created"
     And I logout
     And I wait for "2" seconds
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+#    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
 #    And I pause execution for "10" seconds
 #    Then I refresh the page
 #    And I see the mail subject is as follows :
@@ -7592,7 +7592,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I submit the approval in the approval decision without processing
     And I logout
     And I wait for "2" seconds
-#    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+#    And I checkout to yopmail with mailid "automation.po.qa2@yopmail.com"
 #    And I pause execution for "20" seconds
 #    Then I refresh the page
 #    And I see the mail subject is as follows :

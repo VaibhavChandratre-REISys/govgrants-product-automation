@@ -562,7 +562,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Reviewer                 |
       | {SavedValue:PM Username} |
     Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---announcement:-:AnnouncementReviewPanel---"
-    Then I softly see value "pm.automation@yopmail.com" for title "Email" inside table "---announcement:-:AnnouncementReviewPanel---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "Email" inside table "---announcement:-:AnnouncementReviewPanel---"
     Then I softly see value "Test Automation Organization" for title "Organization Name" inside table "---announcement:-:AnnouncementReviewPanel---"
     And I click on "Remove from Form" icon for "Automation PM" inside flex table with id "---announcement:-:AnnouncementReviewPanel---" without waiting for record
     Then I softly see "No Records Found" inside flex table with id "---announcement:-:AnnouncementReviewPanel---"
@@ -3718,7 +3718,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I reset the table
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -3744,7 +3744,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team
       """
     And I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -3825,7 +3825,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       """
      #194721
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -3923,7 +3923,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4240,7 +4240,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I logout
     And I pause execution for "2" seconds
-#    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+#    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
 #    And I pause execution for "180" seconds
 #    Then I refresh the page
 #    And I see the mail subject is as follows :
@@ -4673,7 +4673,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:AnnEGMSID3}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID3}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4707,7 +4707,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team.
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -4739,7 +4739,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team.
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -4837,7 +4837,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4943,7 +4943,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click modal button "Save"
     And I click on submit review
     Then I softly see that "Submitted" has been added in flextable with Id "---announcement:-:reviewersTableId---"
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "100" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5250,7 +5250,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:SOWAMENDMENTREQUEST}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5276,7 +5276,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -6524,7 +6524,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID5}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:AnnEGMSID5}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I logout
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "50" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -7098,12 +7098,12 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I refresh the page
     And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} Awaiting Peer Review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
-    Then I softly see value "automationfd@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
-    And I click on "View" icon for "automationfd@yopmail.com" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.fd.qa2@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
+    And I click on "View" icon for "automation.fd.qa2@yopmail.com" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
-      | pm.automation@yopmail.com                                              |
-      | automationfd@yopmail.com                                               |
+      | pm.automation.qa2@yopmail.com                                          |
+      | automation.fd.qa2@yopmail.com                                          |
       | Notification: Announcement {SavedValue:AnnEGMSID} Awaiting Peer Review |
     When I close "System Email" modal by clicking the top right x button
     When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
@@ -7117,13 +7117,13 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I refresh the page
     And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} Awaiting Peer Review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
-    Then I softly see value "automationfd@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
-    And I click on "View" icon for "automationfd@yopmail.com" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.fd.qa2@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
+    And I click on "View" icon for "automation.fd.qa2@yopmail.com" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
     And I pause execution for "4" seconds
     Then I softly see following details for email sent under collab:
-      | pm.automation@yopmail.com                                              |
-      | automationfd@yopmail.com                                               |
+      | pm.automation.qa2@yopmail.com                                          |
+      | automation.fd.qa2@yopmail.com                                          |
       | Notification: Announcement {SavedValue:AnnEGMSID} Awaiting Peer Review |
     When I close "System Email" modal by clicking the top right x button
     And I navigate to "Responsibilities" sub tab
@@ -7143,8 +7143,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "View" icon for "Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
     And I wait for "5" seconds
     Then I softly see following details for email sent under collab:
-      | pm.automation@yopmail.com                                                |
-      | automationfd@yopmail.com                                                 |
+      | pm.automation.qa2@yopmail.com                                            |
+      | automation.fd.qa2@yopmail.com                                            |
       | Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed |
     When I close "System Email" modal by clicking the top right x button
     #336723
@@ -7163,13 +7163,13 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I refresh the page
     And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
-    Then I softly see value "automationfd@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.fd.qa2@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
     And I click on "View" icon for "Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
     And I wait for "5" seconds
     Then I softly see following details for email sent under collab:
-      | pm.automation@yopmail.com                                                |
-      | automationfd@yopmail.com                                                 |
+      | pm.automation.qa2@yopmail.com                                            |
+      | automation.fd.qa2@yopmail.com                                            |
       | Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed |
     When I close "System Email" modal by clicking the top right x button
     #336712
@@ -7180,13 +7180,13 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
     And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
-    Then I softly see value "automationfd@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.fd.qa2@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
     And I click on "View" icon for "Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
     And I wait for "5" seconds
     Then I softly see following details for email sent under collab:
-      | pm.automation@yopmail.com                                                |
-      | automationfd@yopmail.com                                                 |
+      | pm.automation.qa2@yopmail.com                                            |
+      | automation.fd.qa2@yopmail.com                                            |
       | Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed |
 
   @336713 @336714 @ValidateAnnouncementusershouldnotabletoseeemailtoNotifyApprovalinSystemEmailssectioninmessagestabwhensubmitAnnforapproval @Sprint-13-US-341529-332637 @SystemEmail
@@ -7596,14 +7596,14 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     And I pause execution for "5" seconds
     And I send the email under collab tab with following details:
-      | To                        | Subject         | Body                       |
-      | pm.automation@yopmail.com | Automation Test | Automation Test Email Body |
+      | To                            | Subject         | Body                       |
+      | pm.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject         | From Address               | To Address                | CC Address | Attention To | Email Subject   | Preview |
-      | Action menu | Automation Test | exe.automation@yopmail.com | pm.automation@yopmail.com |            |              | Automation Test |         |
+      | Actions     | Subject         | From Address                   | To Address                    | CC Address | Attention To | Email Subject   | Preview |
+      | Action menu | Automation Test | exe.automation.qa2@yopmail.com | pm.automation.qa2@yopmail.com |            |              | Automation Test |         |
     And I refresh the page
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
@@ -7646,9 +7646,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I refresh the page
     And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} awaiting peer review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
-    Then I softly see value "automationfd@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
-    When I perform quick search for "exe.automation@yopmail.com" in "---announcement:-:systemEmailsTableId---" panel
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.fd.qa2@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
+    When I perform quick search for "exe.automation.qa2@yopmail.com" in "---announcement:-:systemEmailsTableId---" panel
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
     When I click on button "resetIcon" in flex table with id "RecordSystemEmailHistory"
     Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} awaiting peer review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
@@ -7660,7 +7660,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Review"
     And I navigate to "Messages" sub tab
-    When I perform quick search for "exe.automation@yopmail.com" in "---announcement:-:systemEmailsTableId---" panel
+    When I perform quick search for "exe.automation.qa2@yopmail.com" in "---announcement:-:systemEmailsTableId---" panel
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
     When I click on button "resetIcon" in flex table with id "RecordSystemEmailHistory"
     Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} awaiting peer review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
@@ -7707,8 +7707,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I save the value from row "1" for column name "Created Date" as "CreatedDate" from flex table "---announcement:-:systemEmailsTableId---"
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---announcement:-:systemEmailsTableId---"
     Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} awaiting Peer Review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
-    Then I softly see value "automationpo@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
-    Then I softly see value "automationfd@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.po.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.fd.qa2@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
 
   @336725 @ValidateAnnouncementEXEusershouldnotabletoviewemailontableemailgeneratedafterPublishtheAnninSystemEmailssectionincollabtab @Sprint-13-US-341529-332637 @SystemEmail
   Scenario: Validate Announcement EXE user should not able to view email on table & email generated after Publish the Ann in System Emails section in collab tab
@@ -7724,7 +7724,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I refresh the page
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     Then I refresh the page
     And I pause execution for "100" seconds
     And I click on mail with subject "Sandbox: Notification: New Opportunity #{SavedValue:AnnEGMSID}hasbeen Published"
@@ -7818,13 +7818,13 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I refresh the page
     And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Approver initiated undo action on Announcement {SavedValue:AnnEGMSID}." for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
-    Then I softly see value "automationpo@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
-    Then I softly see value "automationpo@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
-    And I click on "View" icon for "automationpo@yopmail.com" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
+    Then I softly see value "automation.po.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.po.qa2@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
+    And I click on "View" icon for "automation.po.qa2@yopmail.com" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
     And I pause execution for "5" seconds
     Then I softly see following details for email sent under collab:
-      | automationpo@yopmail.com                                                             |
-      | automationpo@yopmail.com                                                             |
+      | automation.po.qa2@yopmail.com                                                        |
+      | automation.po.qa2@yopmail.com                                                        |
       | Notification: Approver initiated undo action on Announcement {SavedValue:AnnEGMSID}. |
     When I close "System Email" modal by clicking the top right x button
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -7835,13 +7835,13 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I refresh the page
     And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Approver initiated undo action on Announcement {SavedValue:AnnEGMSID}." for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
-    Then I softly see value "automationpo@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
-    And I click on "View" icon for "pm.automation@yopmail.com" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
+    Then I softly see value "automation.po.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
+    And I click on "View" icon for "pm.automation.qa2@yopmail.com" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
     And I pause execution for "5" seconds
     Then I softly see following details for email sent under collab:
-      | automationpo@yopmail.com                                                             |
-      | pm.automation@yopmail.com                                                            |
+      | automation.po.qa2@yopmail.com                                                        |
+      | pm.automation.qa2@yopmail.com                                                        |
       | Notification: Approver initiated undo action on Announcement {SavedValue:AnnEGMSID}. |
     When I close "System Email" modal by clicking the top right x button
     #336739
@@ -7852,8 +7852,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
     And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Approver initiated undo action on Announcement {SavedValue:AnnEGMSID}." for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
-    Then I softly see value "automationpo@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
-    Then I softly see value "fo.automation@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.po.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "fo.automation.qa2@yopmail.com"" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
 
   @336735 @ValidateAnnouncemenPMuserseeretesttablebuttonunderhamburgericononSystemEmailsectioshouldnotabletoResetthetablewhenuserapplytheadvancefilterclickonresetbutton
   Scenario: Validate Announcement PM user see retest table button under hamburger icon on System Email section & should not able to Reset the table when user apply the advance filter & click on reset button
@@ -7888,12 +7888,12 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} awaiting peer review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
 #    When I click on advance filter "#advfRecordSystemEmailHistory" of table id "---announcement:-:systemEmailsTableId---"
 #    When I enter advance filter values inside id "advfRecordSystemEmailHistory"
-#      | From Address | contains | pm.automation@yopmail.com |
+#      | From Address | contains | pm.automation.qa2@yopmail.com |
 #    And I wait for "3" seconds
-#    Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+#    Then I softly see value "pm.automation.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
 #    And I select "Reset Table" from parallel lines dropdown of "System Emails"
 #    And I wait for "3" seconds
-#    Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+#    Then I softly see value "pm.automation.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
 
   @336736 @ValidateAnnouncementPMuserusershouldabletoseeallSystemEmailsaresortedbydefaultbyCreatedDatewithmostrecentontopforInternalorganization @Sprint-13-US-341529-332637 @SystemEmail
   Scenario: Validate Announcement PM user user should able to see all System Emails are sorted by default by Created Date with most recent on top for Internal organization
@@ -8101,14 +8101,14 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see "Attention To" in flex table header "---announcement:-:collabMessages---"
     And I click on top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     And I send the email under collab tab with following details:
-      | To                         | Subject         | Body                       |
-      | exe.automation@yopmail.com | Automation Test | Automation Test Email Body |
+      | To                             | Subject         | Body                       |
+      | exe.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject         | From Address              | To Address                 | CC Address | Attention To | Email Subject   | Preview                    |
-      | Action menu | Automation Test | pm.automation@yopmail.com | exe.automation@yopmail.com |            |              | Automation Test | Automation Test Email Body |
+      | Actions     | Subject         | From Address                  | To Address                     | CC Address | Attention To | Email Subject   | Preview                    |
+      | Action menu | Automation Test | pm.automation.qa2@yopmail.com | exe.automation.qa2@yopmail.com |            |              | Automation Test | Automation Test Email Body |
     #329981
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -8120,15 +8120,15 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     And I pause execution for "5" seconds
     And I send the email under collab tab with following details:
-      | To                         | Subject             | Body                           |
-      | pm1.automation@yopmail.com | Automation Test PM1 | Automation Test PM1 Email Body |
+      | To                             | Subject             | Body                           |
+      | pm1.automation.qa2@yopmail.com | Automation Test PM1 | Automation Test PM1 Email Body |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     And I navigate to "Messages" sub tab
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject             | From Address             | To Address                 | CC Address | Attention To | Email Subject       | Preview |
-      | Action menu | Automation Test PM1 | automationpo@yopmail.com | pm1.automation@yopmail.com |            |              | Automation Test PM1 |         |
+      | Actions     | Subject             | From Address                  | To Address                     | CC Address | Attention To | Email Subject       | Preview |
+      | Action menu | Automation Test PM1 | automation.po.qa2@yopmail.com | pm1.automation.qa2@yopmail.com |            |              | Automation Test PM1 |         |
 
   @329982 @329983 @ValidateAnnouncementFOusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384 @SystemEmail @ExcludeSendEmail
   Scenario: Validate Announcement FO user should able to see "Attention To" Column under messages section in messages tab
@@ -8149,8 +8149,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject              | From Address              | To Address                  | CC Address | Attention To | Email Subject        | Preview         |
-      | Action menu | Automation Test EXE1 | fo.automation@yopmail.com | exe1.automation@yopmail.com |            |              | Automation Test EXE1 | Automation Test |
+      | Actions     | Subject              | From Address                  | To Address                  | CC Address | Attention To | Email Subject        | Preview         |
+      | Action menu | Automation Test EXE1 | fo.automation.qa2@yopmail.com | exe1.automation@yopmail.com |            |              | Automation Test EXE1 | Automation Test |
     #329983
     When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -8163,14 +8163,14 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     And I pause execution for "5" seconds
     And I send the email under collab tab with following details:
-      | To                         | Subject             | Body                           |
-      | fo1.automation@yopmail.com | Automation Test FO1 | Automation Test FO1 Email Body |
+      | To                             | Subject             | Body                           |
+      | fo1.automation.qa2@yopmail.com | Automation Test FO1 | Automation Test FO1 Email Body |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject             | From Address             | To Address                 | CC Address | Attention To | Email Subject       | Preview |
-      | Action menu | Automation Test FO1 | automationfd@yopmail.com | fo1.automation@yopmail.com |            |              | Automation Test FO1 |         |
+      | Actions     | Subject             | From Address                  | To Address                     | CC Address | Attention To | Email Subject       | Preview |
+      | Action menu | Automation Test FO1 | automation.fd.qa2@yopmail.com | fo1.automation.qa2@yopmail.com |            |              | Automation Test FO1 |         |
 
   @329984 @ValidateforAnnouncementAdminusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384
   Scenario: Validate for Announcement Admin user should able to see "Attention To" Column under messages section in messages tab
@@ -8193,14 +8193,14 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     And I pause execution for "5" seconds
     And I send the email under collab tab with following details:
-      | To                         | Subject             | Body                           |
-      | fo1.automation@yopmail.com | Automation Test FO1 | Automation Test FO1 Email Body |
+      | To                             | Subject             | Body                           |
+      | fo1.automation.qa2@yopmail.com | Automation Test FO1 | Automation Test FO1 Email Body |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject             | From Address                    | To Address                 | CC Address | Attention To | Email Subject       | Preview                        |
-      | Action menu | Automation Test FO1 | govgrantsautomation@yopmail.com | fo1.automation@yopmail.com |            |              | Automation Test FO1 | Automation Test FO1 Email Body |
+      | Actions     | Subject             | From Address                    | To Address                     | CC Address | Attention To | Email Subject       | Preview                        |
+      | Action menu | Automation Test FO1 | govgrantsautomation@yopmail.com | fo1.automation.qa2@yopmail.com |            |              | Automation Test FO1 | Automation Test FO1 Email Body |
 
   @329986 @ValidateforAnnouncementEXEusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384
   Scenario: Validate for Announcement EXE user should able to see "Attention To" Column under messages section in messages tab
@@ -8224,11 +8224,11 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see "Attention To" in flex table header "---announcement:-:collabMessages---"
     And I click on top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     And I send the email under collab tab with following details:
-      | To                        | Subject         | Body                       |
-      | pm.automation@yopmail.com | Automation Test | Automation Test Email Body |
+      | To                            | Subject         | Body                       |
+      | pm.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject         | From Address               | CC Address | To Address                | Attention To | Email Subject   |
-      | Action menu | Automation Test | exe.automation@yopmail.com |            | pm.automation@yopmail.com |              | Automation Test |
+      | Actions     | Subject         | From Address                   | CC Address | To Address                    | Attention To | Email Subject   |
+      | Action menu | Automation Test | exe.automation.qa2@yopmail.com |            | pm.automation.qa2@yopmail.com |              | Automation Test |

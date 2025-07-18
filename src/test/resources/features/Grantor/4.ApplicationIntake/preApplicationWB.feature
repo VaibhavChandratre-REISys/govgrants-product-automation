@@ -389,7 +389,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "{SavedValue:preappID}" in "---preApplication:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:preappID}" inside table
     When I click on "Accept" in the page details
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "50" seconds
     And I refresh the page
     And I see the mail subject is as follows :
@@ -399,7 +399,7 @@ Feature: Pre-Application scenarios without background
     Given I am on "INTERNAL" portal
     And I login to "Grantor" app as "dynamicUser" user
     And I pause execution for "80" seconds
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I refresh the page
     Then I see the mail subject is as follows :
       """
@@ -5198,7 +5198,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Status" as "Submitted to Grantor" in "Negotiation Request Details" pageblock
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "5" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5386,7 +5386,7 @@ Feature: Pre-Application scenarios without background
     And I click on submit review
     And I pause execution for "2" seconds
     Then I softly see that "Submitted" has been added in flextable with Id "---preApplication:-:preAppPeerReviewTableId---"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "5" seconds
     Then I refresh the page
     And I see the mail subject is as follows :

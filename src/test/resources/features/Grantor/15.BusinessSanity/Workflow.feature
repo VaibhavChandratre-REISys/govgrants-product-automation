@@ -1593,7 +1593,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Cc                         | Subject | Body            |
-      | pm.automation@yopmail.com | exe.automation@yopmail.com | test    | Automation Test |
+      | pm.automation.qa2@yopmail.com | exe.automation.qa2@yopmail.com | test    | Automation Test |
     Then I see the text "Email Sent Successfully." in modal
 
   @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
