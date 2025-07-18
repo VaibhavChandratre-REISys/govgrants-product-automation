@@ -23451,9 +23451,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | User       |
       | GRANTEE PO |
 
-  @472139 @CombinationofamendmentverifyPOuser(AROwner)canabletoAcceptCombinationAmendmentRequest @P1_Grantee @PM_Grantee @GRegression1 @GranteeTBE
-  Scenario Outline: Combination of amendment - Verify PO user  (AR Owner) can able to Accept Combination Amendment Request
-    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
+  @472140 @CombinationofamendmentverifyPMuser(AROwner)canabletoAcceptCombinationAmendmentRequest @P1_Grantee @PM_Grantee @GRegression1 @GranteeTBE
+  Scenario Outline: Combination of amendment - Verify PM user  (AR Owner) can able to Accept Combination Amendment Request
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Grants" tab
@@ -23814,4 +23814,4 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
     Examples:
       | User           |
-      | GRANTEE PO     |
+      | GRANTEE PM     |
