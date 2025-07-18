@@ -15847,9 +15847,9 @@ Feature: Grantee Smoke scenarios
 
   @482055 @ValidateGrantsgovlobbingformOptionalPOusercansuccessfullysubmitheformtoGrantsgovafterenteringvaliddatainGrantsgovlobbingform
   Scenario: Validate Grants gov lobbing form Optional PO user can successfully submit the form to Grants.gov after entering valid data in Grants gov lobbing form
-    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
