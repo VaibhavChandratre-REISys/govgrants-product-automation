@@ -1688,7 +1688,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see field "Status" as "Approved"
     And I refresh the page
     And I wait for "2" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
