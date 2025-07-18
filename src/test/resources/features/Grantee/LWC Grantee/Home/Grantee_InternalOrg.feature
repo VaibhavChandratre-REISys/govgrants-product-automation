@@ -1,7 +1,7 @@
 @GranteeInternalOrg
 Feature: Validate all scenarios for Internal Org
 
-  @482129 @ValidatetheAuditoruserinternalOrganizationallsectionandfields
+  @482129 @ValidatetheAuditoruserinternalOrganizationallsectionandfields @P4_Grantee @AUDITOR_Grantee @GRegression4
   Scenario: the Auditor user internal Organization all section and fields
     When I login to "As a Grantor" app as "GRANTEE AUDITOR" user
     When I navigate to "Home" tab
