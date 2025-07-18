@@ -23581,6 +23581,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Name     | Amendment Request |
       | Sarah PM | Step 1            |
     And I navigate to "Files" sub tab
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
     When I click modal button "Close"
