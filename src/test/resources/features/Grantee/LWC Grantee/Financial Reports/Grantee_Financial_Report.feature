@@ -534,4 +534,3 @@ Feature: Validate all scenarios for Financial Report
     And I click on hyperlink containing value "View All"
     Then I softly see value "Reviewed" for title "New Value" inside field history table
     Then I softly see value "Submitted for Review" for title "Original Value" inside field history table
-

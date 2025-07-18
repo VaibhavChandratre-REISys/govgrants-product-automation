@@ -1704,7 +1704,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 500          | 100        | 100            |
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---applicationReview:-:addLineItemsModalTableId---"
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "App Line Items" modal by clicking the top right x button
     And I refresh the page
     When I expand nested table containing column value "BP01"
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
