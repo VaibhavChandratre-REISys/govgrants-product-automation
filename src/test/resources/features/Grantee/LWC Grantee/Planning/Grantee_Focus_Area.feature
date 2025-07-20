@@ -198,3 +198,25 @@ Feature: Validate all scenarios for Focus Areas
       | userType    | Approver   |
       | GRANTEE EXE | Victor EXE |
 
+    @440233 @validatewithPMProfileafterclickonNewbuttonCreateFocusareaModalshouldgetopenandredirecttofocusareapagelayout
+    Scenario: Validate with PM Profile after click on New button Create Focus area Modal should get open and redirect to focus area page layout
+    Given I login to "As a Grantor" app as "GRANTEE PM" user
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
+    And I click on "Save and Continue" in the page details
+    Then I softly see the following messages in the page details contains:
+      | To Save, Title is required.                |
+      | To Save, Description is required.          |
+    When I enter value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter value "Automation Test Description" into field "Description__c"
+    When I click modal button "Save and Continue"
+#    When I enter value "Automation Test Description" into field "Description__c"
+    And I navigate to "Overview" sub tab
+    Then I softly see field "Title__c" as "Automation Runtime Focus Area"
+    Then I softly see field "Description__c" as "Automation Test Description"
+    And I click on "Save" in the page details
+    Then I softly see field "Status" as "Draft"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Activate" in page detail
