@@ -213,8 +213,8 @@ Feature: Validate all scenarios for Focus Areas
     When I click modal button "Save and Continue"
 #    When I enter value "Automation Test Description" into field "Description__c"
     And I navigate to "Overview" sub tab
-    Then I softly see field "Title__c" as "Automation Runtime Focus Area"
-    Then I softly see field "Description__c" as "Automation Test Description"
+    Then I softly see field "Title" as "Automation Runtime Focus Area"
+    Then I softly see field "Description" as "Automation Test Description"
     And I click on "Save" in the page details
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Activate" in page detail
