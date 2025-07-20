@@ -1697,6 +1697,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I softly can see top right button "Submit To Grants.Gov" in page detail
     When I click on "Submit To Grants.Gov" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
     When I click on "View" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
