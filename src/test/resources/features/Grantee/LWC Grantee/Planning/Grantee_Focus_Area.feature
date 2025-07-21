@@ -213,10 +213,9 @@ Feature: Validate all scenarios for Focus Areas
     And I save the field labeled "Title" as "FAtitle"
     And I save the field labeled "Description" as "FAdescription"
     When I click modal button "Save and Continue"
-#    When I enter value "Automation Test Description" into field "Description__c"
     And I navigate to "Overview" sub tab
     Then I softly see field "Title" as "{SavedValue:FAtitle}"
-    Then I softly see field "Description" as "{SavedValue:FAdescription}"
+    Then I softly see field "Description" as "Automation Test Description" in "Details" pageblock
     And I click on "Save" in the page details
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Activate" in page detail
