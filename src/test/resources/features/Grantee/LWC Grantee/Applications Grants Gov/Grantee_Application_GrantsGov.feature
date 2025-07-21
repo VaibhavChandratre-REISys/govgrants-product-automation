@@ -1917,11 +1917,15 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I click modal button "Close"
     And I wait for "2" seconds
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
     And I close the tab
+    And I refresh the page
+    When I navigate to "Forms and Files" sub tab
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    #480411
     Then I softly see value "Budget Information for Non-Construction Programs (SF-424A)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see "cross" symbol against the value "Budget Information for Non-Construction Programs (SF-424A)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Edit" against "Budget Information for Non-Construction Programs (SF-424A)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -1930,6 +1934,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I can see row level action button "Splitview" against "Budget Information for Non-Construction Programs (SF-424A)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "0.00%" for title "Percentage" against the value "Assurances for Non-Construction Programs (SF-424B)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "No" for title "Validated" against the value "Assurances for Non-Construction Programs (SF-424B)Assurances for Non-Construction Programs (SF-424B)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+   #480083
     Then I softly see value "Assurances for Non-Construction Programs (SF-424B)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see "cross" symbol against the value "Assurances for Non-Construction Programs (SF-424B)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Edit" against "Assurances for Non-Construction Programs (SF-424B)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
