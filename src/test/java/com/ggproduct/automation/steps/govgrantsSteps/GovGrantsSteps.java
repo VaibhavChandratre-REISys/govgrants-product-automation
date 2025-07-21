@@ -1,8 +1,10 @@
 package com.ggproduct.automation.steps.govgrantsSteps;
 
+import com.helperPackage.controller.DeviceBucket;
 import com.helperPackage.handlers.govgrants;
 import com.helperPackage.actionsfactory.api.ByUsing;
 import com.helperPackage.exception.TestingBlazeCustomException;
+import com.helperPackage.objects.InstanceRecording;
 import com.helperPackage.register.I;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -1222,5 +1224,11 @@ public final class GovGrantsSteps {
     @And("I click on {string} button on header")
     public void iClickOnButtonOnHeader(String buttonName) {
         ggObjects.toClickOnButtonOnHeader(buttonName);
+    }
+
+    @And("I get current URL")
+    public void iGetCurrentURL() {
+        String currentURL = (InstanceRecording.getInstance(DeviceBucket.class)).getDriver().getCurrentUrl();
+        System.out.println("current URL : " + currentURL);
     }
 }
