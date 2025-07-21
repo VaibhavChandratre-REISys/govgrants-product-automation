@@ -3739,8 +3739,6 @@ Feature: Amendment Request scenarios without background
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Submit for Approval" in the page details
     And I "Reject" in the approval decision
-    And I refresh the page
-    And I wait for "3" seconds
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
