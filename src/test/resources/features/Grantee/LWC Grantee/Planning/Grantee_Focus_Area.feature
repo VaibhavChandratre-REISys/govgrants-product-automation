@@ -211,7 +211,7 @@ Feature: Validate all scenarios for Focus Areas
     When I enter value "Automation Runtime Focus Area" into field "Title__c"
     When I enter value "Automation Test Description" into field "Description__c"
     And I save the field labeled "Title" as "FAtitle"
-    And I save the field labeled "Title" as "FAdescription"
+    And I save the field labeled "Description" as "FAdescription"
     When I click modal button "Save and Continue"
 #    When I enter value "Automation Test Description" into field "Description__c"
     And I navigate to "Overview" sub tab
