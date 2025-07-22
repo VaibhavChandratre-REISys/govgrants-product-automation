@@ -2031,6 +2031,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see the field "OMB Expiration Date :" as "02/08/2025" on forms
     Then I softly see the text containing "When filling out the data within this form, please adhere to the character limits for each field as specified within the information icon for the field."
     Then I softly can see "Form" sub tab at view detail page
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ABudgetSummaryTableId---" by clicking "Edit" :
       | Grant Program Function or Activity (a) | Catalog of Federal Domestic Assistance Number (b) | Estimated Unobligated Federal Funds (c) | Estimated Unobligated Non-Federal Funds (d) | New or Revised Federal Budget (e) | New or Revised Non-Federal Budget (f) |
       | Automation Permanent Focus Area | Automation Test                                   | 1000                                    | 1000                                        | 1000                              | 1000                                  |
