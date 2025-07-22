@@ -1705,3 +1705,432 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I close the tab
     And I wait for "1" seconds
     Then I softly see value "100.00%" for title "Percentage" against the value "Project/Performance Site Location(s)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+
+  @486451 @ValidatePOusershouldabletosubmittheapplicationtograntsgovGrantsgovlead
+  Scenario: Validate PO user should able to submit the application to grants.gov
+    Given I delete the grantee record "{grantee_testData:GrantsGovProjectPerformanceMandatory}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269345" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001269345" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001269345" with properties "TWO_STEP_APPROVER"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    Then I softly see value "{SavedValue:appEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:ApplicationTableId---"
+    When I click toggle button to select "Applications - My Records"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    Then I softly see value "{SavedValue:appEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:ApplicationTableId---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:ApplicationTableId---"
+    Then I softly see "Application Title" in flex table header "---grantee_tableId:-:ApplicationTableId---"
+    Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:ApplicationTableId---"
+    Then I softly see "Application Due Date" in flex table header "---grantee_tableId:-:ApplicationTableId---"
+    Then I softly see "Status" in flex table header "---grantee_tableId:-:ApplicationTableId---"
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Setup" sub tab at view detail page
+    Then I softly can see "Budget" sub tab at view detail page
+    Then I softly can see "Checklist" sub tab at view detail page
+    Then I softly can see "Responsibilities" sub tab at view detail page
+    Then I softly can see "Forms and Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    And I navigate to "Overview" sub tab
+    Then I softly see "Application Overview" page block displayed
+    Then I softly see "Opportunity Overview" page block displayed
+    Then I softly see "External Programs" page block displayed
+    Then I softly see "Contacts" page block displayed
+    Then I softly see "Project Abstract" page block displayed
+    Then I softly see "Primary Place of Performance" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I can see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I can see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I navigate to "Setup" sub tab
+    Then I softly see "Project Period" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I can see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I can see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I navigate to "Budget" sub tab
+    Then I softly see "Budget Overview" page block displayed
+    Then I softly see "Budget Level Information" page block displayed
+    Then I softly see "Budget Details" page block displayed
+    Then I softly see "Program Income" page block displayed
+    Then I softly see "Indirect Rates" page block displayed
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    And I navigate to "Checklist" sub tab
+    Then I softly see "Checklists" page block displayed
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see "Peer Reviewers" page block displayed
+    Then I softly see "Approvers" page block displayed
+    Then I softly see "Owner" page block displayed
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see "Application Files" page block displayed
+    Then I softly see "Notes" page block displayed
+    Then I softly see "All Forms" page block displayed
+    Then I can see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Other" has been added in "Application Files" flex table
+    Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    When I click on "Delete" icon for "Other" inside flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
+      | Name     | Title               | Description      |
+      | David FO | Notes Record for FO | Automation Notes |
+    When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    When I navigate to "History" sub tab
+    Then I softly see "Approval History" page block displayed
+    Then I softly see "Snapshot History" page block displayed
+    And I navigate to "Messages" sub tab
+    Then I softly see "Messages" page block displayed
+    Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    Then I softly see value "Project/Performance Site Location(s)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see "check" symbol against the value "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Project/Performance Site Location(s)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on top right button "Add" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    And I enter "Project_Perform_Site" values from "Application_Field_Values.xlsx"
+    When I click modal button "Save"
+    And I wait for "1" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:projectLocationFormTableId---"
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see value "100.00%" for title "Percentage" against the value "Project/Performance Site Location(s)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationPeerReview---" by clicking "New" :
+      | Reviewer Name      | Responsibility  | Description            | Due Date | Allow Record Editing |
+      | Danielle FD Garcia | Fiscal Reviewer | Automation Description | 5        | Yes                   |
+    And I click on "Send for Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:ApplicationPeerReview---" without waiting for record
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Submitted for Review"
+    When I navigate to "Forms and Files" sub tab
+    Then I can see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Other" has been added in "Application Files" flex table
+    Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    When I click on "Delete" icon for "Other" inside flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
+      | Name     | Title               | Description      |
+      | David FO | Notes Record for FO | Automation Notes |
+    When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    Then I softly can see top right button "Edit" in page detail
+    And I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
+    Then I softly see fields "Title__c" is in edit mode
+    Then I softly see fields "DUNS__c" is in edit mode
+    Then I softly see fields "ProjectDirectorContact__c" is in edit mode
+    Then I softly see fields "AOR_Contact__c" is in edit mode
+    Then I softly see fields "ProjectAbstract__c" is in edit mode
+    Then I softly see fields "Addressline1__c" is in edit mode
+    Then I softly see fields "Addressline2__c" is in edit mode
+    Then I softly see fields "City__c" is in edit mode
+    Then I softly see fields "County__c" is in edit mode
+    Then I softly see fields "State__c" is in edit mode
+    Then I softly see fields "CongressionalDistrict1__c" is in edit mode
+    Then I softly see fields "Country__c" is in edit mode
+    Then I softly see fields "Zip4__c" is in edit mode
+    Then I softly see fields "ZipCode4Extension__c" is in edit mode
+    And I click on "Save" in the page details
+    Then I can see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I can see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I navigate to "Setup" sub tab
+    Then I can see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I can see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I navigate to "Budget" sub tab
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    And I navigate to "Checklist" sub tab
+    And I click on "Edit" in the page details
+    Then I softly see fields "ITRequirements__c" is in edit mode
+    Then I softly see fields "ITRequirementsComments__c" is in edit mode
+    Then I softly see fields "SpaceRequirements__c" is in edit mode
+    Then I softly see fields "SpaceRequirementsComments__c" is in edit mode
+    Then I softly see fields "AreAnyStateSpecificFormsAttached__c" is in edit mode
+    Then I softly see fields "AreAnyStateSpecificFormsAttached__c" is in edit mode
+    Then I softly see fields "TrainingCertificationRequirements__c" is in edit mode
+    Then I softly see fields "TrainingCertificationComments__c" is in edit mode
+    Then I softly see fields "SpecialAwardConditions__c" is in edit mode
+    And I click on "Save" in the page details
+    When I navigate to "Forms and Files" sub tab
+    Then I can see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Other" has been added in "Application Files" flex table
+    Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    When I click on "Delete" icon for "Other" inside flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
+      | Name     | Title               | Description      |
+      | David FO | Notes Record for FO | Automation Notes |
+    When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Edit" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "View" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "Preview" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:ApplicationPeerReview---" without waiting for record
+    And I enter a review as "Passed"
+    When I click modal button "Save"
+    And I click on submit review
+    And I wait for "2" seconds
+    Then I softly cannot see top right button "Edit" in page detail
+    And I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+    Then I softly see value "Completed" for title "Status" against the value "{SavedValue:SitevVisitId}" inside table "---grantee_tableId:-:grantCompletedTaskTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    Then I softly can see top right button "Complete Review" in page detail
+    And I click on "Complete Review" in the page details
+    Then I softly see field "Status" as "Reviewed"
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Validate" in page detail
+    Then I softly can see top right button "Submit For Approval" in page detail
+    And I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
+    Then I softly see fields "Title__c" is in edit mode
+    Then I softly see fields "DUNS__c" is in edit mode
+    Then I softly see fields "ProjectDirectorContact__c" is in edit mode
+    Then I softly see fields "AOR_Contact__c" is in edit mode
+    Then I softly see fields "ProjectAbstract__c" is in edit mode
+    Then I softly see fields "Addressline1__c" is in edit mode
+    Then I softly see fields "Addressline2__c" is in edit mode
+    Then I softly see fields "City__c" is in edit mode
+    Then I softly see fields "County__c" is in edit mode
+    Then I softly see fields "State__c" is in edit mode
+    Then I softly see fields "CongressionalDistrict1__c" is in edit mode
+    Then I softly see fields "Country__c" is in edit mode
+    Then I softly see fields "Zip4__c" is in edit mode
+    Then I softly see fields "ZipCode4Extension__c" is in edit mode
+    And I click on "Save" in the page details
+    Then I can see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I can see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I navigate to "Setup" sub tab
+    Then I can see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I can see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I navigate to "Budget" sub tab
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    And I navigate to "Checklist" sub tab
+    And I click on "Edit" in the page details
+    Then I softly see fields "ITRequirements__c" is in edit mode
+    Then I softly see fields "ITRequirementsComments__c" is in edit mode
+    Then I softly see fields "SpaceRequirements__c" is in edit mode
+    Then I softly see fields "SpaceRequirementsComments__c" is in edit mode
+    Then I softly see fields "AreAnyStateSpecificFormsAttached__c" is in edit mode
+    Then I softly see fields "AreAnyStateSpecificFormsAttached__c" is in edit mode
+    Then I softly see fields "TrainingCertificationRequirements__c" is in edit mode
+    Then I softly see fields "TrainingCertificationComments__c" is in edit mode
+    Then I softly see fields "SpecialAwardConditions__c" is in edit mode
+    And I click on "Save" in the page details
+    When I navigate to "Forms and Files" sub tab
+    Then I can see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Other" has been added in "Application Files" flex table
+    Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
+      | Name     | Title               | Description      |
+      | David FO | Notes Record for FO | Automation Notes |
+    Then I softly can see row level action button "Edit" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "View" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "Preview" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Application has been validated successfully. |
+    And I click on "Submit For Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I navigate to "Setup" sub tab
+    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I navigate to "Budget" sub tab
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    When I navigate to "Forms and Files" sub tab
+    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I see "Other" has been added in "Application Files" flex table
+    Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I cannot see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I cannot see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly see value "Notes Record for FO" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record for FO" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record for FO" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly cannot see row level action button "Edit" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "View" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "Preview" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    When I "Approve" in the approval decision
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    Then I softly can see top right button "Submit To Grants.Gov" in page detail
+    When I click on "Submit To Grants.Gov" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I can see top right button "Check Status" in page detail
+    Then I can see top right button "Revise" in page detail
+    Then I can see top right button "Download as PDF with Forms" in page detail
+    Then I can see top right button "Take Snapshot" in page detail
+    Then I can see top right button "Record Decision" in page detail
+    When I navigate to "History" sub tab
+    And I save the value from row "1" for column name "Tracking Number" as "TrackingNumber" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "S2SReceived" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    When I click on "Check Status" in the page details
+    And I save the value from row "1" for column name "Tracking Number" as "TrackingNumber" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    When I click on "Record Decision" in the page details
+    When I enter values into fields
+      | Value           | Field                |
+      | Awarded         | Decision__c          |
+      | Automation Test | RejectionComments__c |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Awarded"
+    Then I can see top right button "Create Award" in page detail
+    And I navigate to "Chatter" sub tab in split screen
+    And I post the message "Automation Test1 Execution" inside chatter
+    Then I softly see post "Automation Test1 Execution" by user "Grantee PO"
+    Then I softly see "Resize" button for page
+    Then I softly see "Collapse" button for page
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Awarded" for title "New Value" inside field history table
+    Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
+    And I click on back arrow
+    And I wait for "2" seconds
+    When I navigate to "Home" tab
+    And I perform quick search inside global search "{SavedValue:appEGMSID}"
+    Then I softly can see row level action button "Edit" against "{SavedValue:appEGMSID}" in global search with id "Applications"
+    Then I softly can see row level action button "Change Owner" against "{SavedValue:appEGMSID}" in global search with id "Applications"
+    And I click on row level action button "Change Owner" against "{SavedValue:appEGMSID}" in global search with id "Applications"
+    And I wait for "2" seconds
+    And I select users value "Victor EXE" in field "forceSearchInputLookup"
+    When I click modal button "Submit"
+    Then I softly see the following messages in the page details contains:
+      | You cannot change the owner from this screen. The Ownership Reassignment feature is not available for Grantee application. Please contact your system administrator for assistance. |
