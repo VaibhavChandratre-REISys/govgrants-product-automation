@@ -1425,7 +1425,7 @@ Feature: Validate all scenarios for Strategic Plan
     When I click modal button "OK"
     Then I softly see field "Status" as "Active"
     Then I see status in Progress-bar is "Active" and is "Dark Blue"
-    When I re-login to "As a Grantee" app as "GRANTEE PM2" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE PM1" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     And I click toggle button to select "Strategic Plans - Active"
