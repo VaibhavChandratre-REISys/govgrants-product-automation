@@ -1838,6 +1838,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I click modal button "Close"
     And I wait for "2" seconds
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
