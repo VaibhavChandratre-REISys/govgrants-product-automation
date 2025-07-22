@@ -23600,6 +23600,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
+    And I wait for "2" seconds
     And I "Approved" of type "Funding Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Victor EXE user"
     When I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
