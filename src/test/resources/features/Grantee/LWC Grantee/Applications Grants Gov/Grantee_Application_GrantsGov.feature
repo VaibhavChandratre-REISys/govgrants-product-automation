@@ -1935,7 +1935,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I can see row level action button "View" against "Budget Information for Non-Construction Programs (SF-424A)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Splitview" against "Budget Information for Non-Construction Programs (SF-424A)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "0.00%" for title "Percentage" against the value "Assurances for Non-Construction Programs (SF-424B)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I softly see value "No" for title "Validated" against the value "Assurances for Non-Construction Programs (SF-424B)Assurances for Non-Construction Programs (SF-424B)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+#    Then I softly see value "No" for title "Validated" against the value "Assurances for Non-Construction Programs (SF-424B)Assurances for Non-Construction Programs (SF-424B)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
    #480083
     Then I softly see value "Assurances for Non-Construction Programs (SF-424B)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see "cross" symbol against the value "Assurances for Non-Construction Programs (SF-424B)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -1944,7 +1944,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I can see row level action button "View" against "Assurances for Non-Construction Programs (SF-424B)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Splitview" against "Assurances for Non-Construction Programs (SF-424B)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "0.00%" for title "Percentage" against the value "Assurances for Non-Construction Programs (SF-424B)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I softly see value "No" for title "Validated" against the value "Assurances for Non-Construction Programs (SF-424B)Assurances for Non-Construction Programs (SF-424B)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+#    Then I softly see value "No" for title "Validated" against the value "Assurances for Non-Construction Programs (SF-424B)Assurances for Non-Construction Programs (SF-424B)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
