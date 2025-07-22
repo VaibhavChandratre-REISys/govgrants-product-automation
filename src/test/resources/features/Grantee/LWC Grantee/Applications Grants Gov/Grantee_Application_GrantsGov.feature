@@ -2008,6 +2008,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I navigate to "Forms and Files" sub tab
     When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
+    And I click on "Edit" in the page details
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
