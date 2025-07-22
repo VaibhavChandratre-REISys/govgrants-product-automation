@@ -1006,7 +1006,7 @@ Feature: Validate all scenarios for Internal Contact
       | userType      |
       | GRANTEE ADMIN |
 
-  @443496 @Validateusershouldcreateandseeallfieldsoninternalcontact
+  @443496 @Validateusershouldcreateandseeallfieldsoninternalcontact @P2_Grantee @PM_Grantee @GRegression2
   Scenario Outline: Validate user should create and see all fields on internal contact
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab

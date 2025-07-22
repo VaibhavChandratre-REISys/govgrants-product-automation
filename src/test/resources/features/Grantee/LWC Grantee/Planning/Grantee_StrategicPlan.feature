@@ -1365,7 +1365,7 @@ Feature: Validate all scenarios for Strategic Plan
       | userType    | emailIdFrom                     | emailIdTo                       |
       | GRANTEE EXE | victor.exeqagrantee@yopmail.com | sarah.pm.23@yopmail.com         |
 
-  @476619 @ValidateEXEusercanDeactivateactiveStrategicplancreatedbyPMuserfromsameinternalorganization
+  @476619 @ValidateEXEusercanDeactivateactiveStrategicplancreatedbyPMuserfromsameinternalorganization @P2_Grantee @EXE_Grantee @GRegression2
   Scenario: Validate EXE user can Deactivate active Strategic plan created by PM  user from same internal organization
     Given I login to "As a Grantee" app as "GRANTEE EXE1" user
     And I navigate to "Planning" tab

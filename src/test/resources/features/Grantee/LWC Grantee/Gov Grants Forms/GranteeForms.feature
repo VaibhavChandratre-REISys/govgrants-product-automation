@@ -8276,7 +8276,7 @@ Feature: Grantee Forms Scenario
     And I wait for "2" seconds
     Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
 
-  @481494 @ValidatePOuserisabletosubmittheapplicationformProjectPerformanceSiteLocationstograntsgovwithvaliddata
+  @481494 @ValidatePOuserisabletosubmittheapplicationformProjectPerformanceSiteLocationstograntsgovwithvaliddata @P1_Grantee @PO_Grantee @GRegression1
   Scenario: Validate PO user is able to submit the application form (Project/Performance Site Location(s)) to grants gov with valid data
     Given I delete the grantee record "{grantee_testData:GrantsGovProjectPerformanceMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269345" with properties "default-Grantee PO user"

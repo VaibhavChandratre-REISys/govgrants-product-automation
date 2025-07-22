@@ -23618,6 +23618,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    And I navigate to "Projections" sub tab
+    And I save the field labeled "Budget Period End Date" as "NewBudgetPeriodEndDate"
     When I navigate to "Amendments" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I get the "EGMS ID"
@@ -23626,7 +23628,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I save the value from row "1" for column name "Effective from" as "Effectivefrom" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Effective until" as "Effectiveuntil" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Approved Indirect Cost Rate(%)" as "ApprovedIndirectCostRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I save the value from row "1" for column name "Title" as "AmendTermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
