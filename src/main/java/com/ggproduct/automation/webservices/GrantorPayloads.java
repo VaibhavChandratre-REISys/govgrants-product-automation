@@ -5384,10 +5384,14 @@ public class GrantorPayloads {
         grantAwardData.addProperty("Country", "USA");
         if(!type.equalsIgnoreCase("Funding Change")) {
             grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        } else{
+            grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         }
         grantAwardData.addProperty("RequestedChangeinAwardBudget", 2000);
         if(!type.equalsIgnoreCase("Funding Change")) {
             grantAwardData.addProperty("ProposedBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        }else{
+            grantAwardData.addProperty("ProposedBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         }
         grantAwardData.addProperty("4DigitZipCodeExtension", "3456");
         grantAwardData.addProperty("OtherChangeDescription", "Automation Test");
