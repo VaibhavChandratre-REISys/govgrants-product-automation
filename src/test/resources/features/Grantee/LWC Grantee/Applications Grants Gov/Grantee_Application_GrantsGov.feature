@@ -2020,7 +2020,6 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
     And I close the tab
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly see value "Budget Information for Non-Construction Programs (SF-424A)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see "check" symbol against the value "Budget Information for Non-Construction Programs (SF-424A)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I click on "View" icon for "Budget Information for Non-Construction Programs (SF-424A)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
