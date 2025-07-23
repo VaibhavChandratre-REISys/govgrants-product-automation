@@ -1,7 +1,7 @@
 @productBusinessFlowSanity @product @grantor-regression @regression
 Feature: Validate sanity testing of Complete Business Flow
 
-  @72335  @72335@activationOfFocusArea @ProdSan1
+  @72335 @activationOfFocusArea @ProdSan1
   Scenario: Validate the activation of Focus Area by User - Admin/EXE/PM and the status is Active
     Given I login to "As a Grantor" app as "Admin" user
     When I navigate to "Planning" tab
@@ -86,7 +86,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see field "Status" as "Draft"
     When I click on "Back To Strategic Plan" in the page details
 #    Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    Then I softly see field "Status" as "Created"
+    Then I softly see field "Status" as "Draft"
 
 
   @SubrecipientContactCreation @ProdSan2
@@ -150,7 +150,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:PM Username} | Step 1  |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
-      | {SavedValue:PO Username} | Step 2  |
+      | {SavedValue:FO Username} | Step 2  |
     When I get the "EGMS ID"
 #    When I navigate to "Setup" sub tab
 #    When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
@@ -174,7 +174,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
@@ -1082,7 +1082,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "Automation ADMIN1" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "Automation PM" in the table "---announcement:-:annoucementContactTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement |
@@ -1176,7 +1176,7 @@ Feature: Validate sanity testing of Complete Business Flow
 #    Then I see status in Progress-bar is "Accepted" and is "dark blue"
     Then I softly see field "Status" as "Accepted"
 
-  @72345 @submitApplication @ProdSan1
+  @72345 @submitApplication @ProdSan1 @bug-KSDE-50
   Scenario: Validate once the application is submitted to Grantor and then status changes to Submitted
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1185,6 +1185,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationReview:-:reviewsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationReview:-:reviewsTableId---"
+    And I get current URL
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I wait for "3" seconds
@@ -1415,14 +1416,14 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click on "Funding Decision Memo" in the page details
 #    Then I see status in Progress-bar is "Created" and is "dark blue"
-    Then I softly see field "Status" as "Created"
+    Then I softly see field "Status" as "Draft"
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value                       | Field            |
       | AuGr                        | GrantCode__c     |
       | Automation Test Description | Justification__c |
     And I click on "Save" in the page details
-    Then I softly see field "Status" as "Created"
+    Then I softly see field "Status" as "Draft"
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
       | <Announcement Name> | 500                | Yes                   | Recommended | 500                     |
@@ -1700,6 +1701,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                     | Award  |
       | {SavedValue:PO Username} | Step 1 |
     And I wait for "3" seconds
+    And I get current URL
     And I click on "Send to Subrecipient" in the page details
     And I wait for "3" seconds
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -3432,7 +3434,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     And I refresh the page
 #    Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    Then I softly see field "Status" as "Created"
+    Then I softly see field "Status" as "Draft"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Award Amount |
@@ -4165,7 +4167,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     And I "Send back" in the approval decision
     And I wait for "5" seconds
-    Then I softly see field "Status" as "Created"
+    Then I softly see field "Status" as "Draft"
 
   @SitevisitOpenThroughManagementTabFromAward @ProdSan4
   Scenario: Validate Sitevisit Open Through Management Tab From Award
