@@ -2252,7 +2252,9 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I navigate to "Quickview" sub tab in split screen
+    And I wait for "2" seconds
     When I click on "SplitView" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I wait for "2" seconds
     And I click on "Edit" in the page details
     And I wait for "2" seconds
     When I click on "Save" in the page details
