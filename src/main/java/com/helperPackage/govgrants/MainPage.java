@@ -290,6 +290,7 @@ public final class MainPage {
      * @param tabName
      */
     public void clickMainMenuBarForLwc(String tabName) {
+        I.amPerforming().waitFor().makeThreadSleep(10000);
         By mainMenuButton = By.xpath("//div[@class='slds-no-print oneAppNavContainer']//a[@title='" + tabName + "' or @name='" + tabName + "'] | //nav//ul//li//a[text()='" + tabName + "']");
         I.amPerforming().click().withJavaScript(mainMenuButton);
     }

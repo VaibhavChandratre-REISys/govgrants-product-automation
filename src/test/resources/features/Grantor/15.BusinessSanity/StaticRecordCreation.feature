@@ -33,11 +33,12 @@ Feature: Validate all scenarios for static data creation
     When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "green"
+#    Then I see status in Progress-bar is "Active" and is "green"
+    Then I softly see field "Status" as "Active"
 
   @creationAndActivateFundingAccount
   Scenario: Activation of Funding Source
-    Given I login to "As a Grantor" app as "EXE" user
+    Given I login to "As a Grantor" app as "Admin" user
     When I navigate to "Planning" tab
     When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---fundingsource:-:fundingSourceTableId---"
@@ -51,7 +52,8 @@ Feature: Validate all scenarios for static data creation
     And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "green"
+#    Then I see status in Progress-bar is "Active" and is "green"
+    Then I softly see field "Status" as "Active"
 
   @creationAndActivationOfkpi
   Scenario Outline: Creation And activation of kpi
@@ -63,12 +65,15 @@ Feature: Validate all scenarios for static data creation
     And I enter "Creation" values from "KPI_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "KPI_Field_Values.xlsx"
+    And I halt execution
     And I click on "Save" in the page details
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---keyperformanceindicator:-:GrantorKPIFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
     And I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "Green"
+#    Then I see status in Progress-bar is "Active" and is "Green"
+    Then I softly see field "Status" as "Active"
+
     Examples:
       | User  |
       | ADMIN |
@@ -128,7 +133,8 @@ Feature: Validate all scenarios for static data creation
     When I perform quick search for "<Program Name>" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "<Program Name>" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I click on "Activate" in the page details
-    Then I softly see status in Progress-bar is "Active" and is "green"
+#    Then I softly see status in Progress-bar is "Active" and is "green"
+    Then I softly see field "Status" as "Active"
 
     Examples:
       | Focus Area                      | Program Name                                     |

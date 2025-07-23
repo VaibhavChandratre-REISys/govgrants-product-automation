@@ -100,7 +100,7 @@ public class UsersAndURL implements UsersController {
                 password = "Salesforce@2042";
                 break;
             case "ADMIN":
-                password = "Salesforce@2042";
+                password = "FGTYGYJH_Salesforce2025";
                 break;
             case "ADMIN1":
                 password = "Salesforce@2043";
@@ -269,19 +269,19 @@ public class UsersAndURL implements UsersController {
 
     private String getProLwcEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "govgrantsautomation@yopmail.com.rposdgap");
+        username.put("ADMIN", "jeffery.kumah@reisystems.comksde.devorg");
         username.put("ADMIN1", "manu.admin@ggp.test8.rposdgap");
-        username.put("EXE", "test@gmaildemo.com.rposdgap");
-        username.put("PM", "donald_pm@ggp.test7.atm.rposdgap");
-        username.put("FO", "auto.fm@auto.com.rposdgap");
-        username.put("PO", "automationpo@yopmail.com.rposdgap");
+        username.put("EXE", "test@gmaildemo.com.ksde");
+        username.put("PM", "donald_pm@ggp.test7.atm.ksde");
+        username.put("FO", "auto.fm@auto.com.ksde");
+        username.put("PO", "test@gmaildemo.com.ksde");
         username.put("FD", "automationfd@yopmail.com.rposdgap");
         username.put("PM1", "pm1.automation@yopmail.com.rposdgap");
         username.put("EXE1", "exe1.automation@yopmail.com.rposdgap");
         username.put("PO1", "automationpo1@yopmail.com.rposdgap");
         username.put("FO1", "fo1.automation@yopmail.com.rposdgap");
         username.put("FD1", "automationfd1@yopmail.com.rposdgap");
-        username.put("SPI3", "aspi3@grants.gov.rposdgap");
+        username.put("SPI3", "automationspi3ksde@yopmail.com");
         username.put("SPA", "spaautomation12@yopmail.com.rposdgap");
         username.put("SA", "asa@grants.gov.rposdgap");
         username.put("IND", "ind12.automation@yopmail.com.rposdgap");
