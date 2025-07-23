@@ -4909,14 +4909,16 @@ Feature: Validate all scenarios for Grants & Awards
     When I enter in modal value "Terms" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
     When I enter in modal value "1" into field "Sequence__c"
-    When I save the field labeled "EGMS ID" as "TermsId"
+    When I save the field labeled "Title" as "termstitle"
     And I click modal button "Save"
     And I wait for "3" seconds
-    Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see value "{SavedValue:termstitle}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
     When I navigate to "Files" sub tab
     Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:awardAddFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    And I wait for "2" seconds
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
+    And I wait for "2" seconds
     When I click modal button "Close"
     Then I see "AttachmentTesting.pdf" has been added in "Award Files" flex table
     Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
