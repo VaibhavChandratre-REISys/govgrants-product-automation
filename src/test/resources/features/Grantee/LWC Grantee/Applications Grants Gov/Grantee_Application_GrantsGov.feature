@@ -2255,9 +2255,9 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I wait for "2" seconds
     When I click on "SplitView" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I wait for "2" seconds
-    And I click on "Edit" in the page details
-    And I wait for "2" seconds
-    When I click on "Save" in the page details
+    And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
+    When I click on "Save" in the split screen page details
     Then I softly see the following messages in the page details contains:
       | To Save, 1. Type of Submission is required in the Application for Federal Assistance SF-424 section.                                                                                                  |
       | To Save, 2. Type Of Application is required in the Application for Federal Assistance SF-424 section.                                                                                                 |
@@ -2295,12 +2295,12 @@ Feature: Validate all scenarios for Applications Grants Gov
       | Title is required to save.                                                                                                                                                                            |
       | Telephone Number is required to save.                                                                                                                                                                 |
       | Email is required to save.                                                                                                                                                                            |
-    When I click on "Cancel" in the page details without processing
+    When I click on "Cancel" in the split screen page details without processing
     Then I softly see confirmation box with body "Are you sure you want to cancel?" is displayed
     When I click modal button "OK"
-    Then I softly can see top right button "Validate" in page detail
-    Then I softly can see top right button "Edit" in page detail
-    And I click on "Edit" in the page details
+    Then I softly can see top right button "Validate" in the split screen page details
+    Then I softly can see top right button "Edit" in the split screen page details
+    And I click on "Edit" in the split screen page details
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
     And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
@@ -2308,14 +2308,16 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I wait for "2" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
-    When I click on "Save" in the page details
-    When I click on "Validate" in the page details
+    When I click on "Save" in the split screen page details
+    And I wait for "2" seconds
+    When I click on "Validate" in the split screen page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
     When I click on "Edit" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I wait for "2" seconds
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
