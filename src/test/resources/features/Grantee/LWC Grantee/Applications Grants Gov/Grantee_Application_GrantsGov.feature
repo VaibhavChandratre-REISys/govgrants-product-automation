@@ -2224,3 +2224,107 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly cannot see row level action button "Edit" against "Budget Information for Non-Construction Programs (SF-424A)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on hyperlink containing value "Grantee PO"
     Then I softly see the text containing "grantee.po@yopmail.com.qagrnteatm"
+
+  @485373 @VerifyPMusershouldabletofilltheforminsplitviewmode&checkthedataonview&editmode&insplitviewmodeuserwillseethevalidation
+  Scenario:Verify PM user should able to fill the form in splitview mode & check the data on view & edit mode & in splitview mode user will see the validation
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I navigate to "Quickview" sub tab in split screen
+    When I click on "SplitView" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I click on "Edit" in the page details
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | To Save, 1. Type of Submission is required in the Application for Federal Assistance SF-424 section.                                                                                                  |
+      | To Save, 2. Type Of Application is required in the Application for Federal Assistance SF-424 section.                                                                                                 |
+      | To Save, a. Legal Name is required in the Applicant Information section.                                                                                                                              |
+      | To Save, c. UEI is required in the Applicant Information section.                                                                                                                                     |
+      | To Save, Street1 is required in the Applicant Information section.                                                                                                                                    |
+      | To Save, City is required in the Applicant Information section.                                                                                                                                       |
+      | To Save, State is required in the Applicant Information section.                                                                                                                                      |
+      | To Save, Zip / Postal Code is required in the Applicant Information section.                                                                                                                          |
+      | To Save, First Name is required in the Authorized Representative section.                                                                                                                             |
+      | To Save, Last Name is required in the Authorized Representative section.                                                                                                                              |
+      | To Save, Telephone Number is required in the Authorized Representative section.                                                                                                                       |
+      | To Save, Email is required in the Authorized Representative section.                                                                                                                                  |
+      | To Save, Type of Applicant 1: Select Applicant Type is required in the Type of Applicant section.                                                                                                     |
+      | To Save, 10. Name of Federal Agency is required in the Name Of Federal Agency section.                                                                                                                |
+      | To Save, 11. Assistance Listing Number (Catalog of Federal Domestic Assistance Number) is required in the Assistance Listing # section.                                                               |
+      | To Save, Assistance Listing Number (CFDA) Title is required in the Assistance Listing # section.                                                                                                      |
+      | To Save, Title is required in the Authorized Representative section.                                                                                                                                  |
+      | To Save, 15. Descriptive Title of Applicant's Project is required in the Descriptive Title section.                                                                                                   |
+      | To Save, a. Applicant is required in the Congressional District section.                                                                                                                              |
+      | To Save, b. Program/Project is required in the Congressional District section.                                                                                                                        |
+      | To Save, a. Start Date is required in the Proposed Project section.                                                                                                                                   |
+      | To Save, b. End Date is required in the Proposed Project section.                                                                                                                                     |
+      | To Save, a. Federal is required in the Estimated Funding ($) section.                                                                                                                                 |
+      | To Save, b. Applicant is required in the Estimated Funding ($) section.                                                                                                                               |
+      | To Save, c. State is required in the Estimated Funding ($) section.                                                                                                                                   |
+      | To Save, d. Local is required in the Estimated Funding ($) section.                                                                                                                                   |
+      | To Save, e. Other is required in the Estimated Funding ($) section.                                                                                                                                   |
+      | To Save, f. Program Income is required in the Estimated Funding ($) section.                                                                                                                          |
+      | To Save, 19. Is Application Subject to Review By State Under Executive Order 12372 Process? is required in the Application Review section.                                                            |
+      | To Save, 20. Is the Applicant Delinquent On Any Federal Debt? (If "Yes," provide explanation in attachments. Add attachment from the Files section) is required in the Federal Debt (if any) section. |
+      | To Save, I AGREE is required in the Agreement Details section.                                                                                                                                        |
+      | First Name is required to save.                                                                                                                                                                       |
+      | Last Name is required to save.                                                                                                                                                                        |
+      | Title is required to save.                                                                                                                                                                            |
+      | Telephone Number is required to save.                                                                                                                                                                 |
+      | Email is required to save.                                                                                                                                                                            |
+    When I click on "Cancel" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to cancel?" is displayed
+    When I click modal button "OK"
+    Then I softly can see top right button "Validate" in page detail
+    Then I softly can see top right button "Edit" in page detail
+    And I click on "Edit" in the page details
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    And I wait for "2" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    When I click on "Edit" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    And I refresh the page
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "100.00%" for title "Percentage" against the value "Application for Federal Assistance (SF-424)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
