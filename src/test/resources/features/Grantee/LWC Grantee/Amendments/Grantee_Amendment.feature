@@ -23736,7 +23736,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:Effectivefrom}" for title "Effective from" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see value "{SavedValue:Effectiveuntil}" for title "Effective until" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
-    And I navigate to "Overview" sub tab
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Start Date" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "{Date:M/d/yyyy::d+3650}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
@@ -23756,6 +23755,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Start Date" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "{Date:M/d/yyyy::d+3650}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
+    Then I softly do not see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     And I navigate to "Monitoring" sub tab
     Then I softly do not see value "{SavedValue:AmendTermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
