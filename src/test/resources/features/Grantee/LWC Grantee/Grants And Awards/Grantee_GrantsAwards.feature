@@ -4973,7 +4973,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I wait for "1" seconds
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Validate" in page detail
-    Then I can see top right button "Submit for approval" in page detail
+    Then I can see top right button "Submit For Approval" in page detail
     And I navigate to "Overview" sub tab
     Then I softly do not see fields "MaintenanceOfEffortAmount__c" is visible
     And I navigate to "Projections" sub tab
