@@ -5382,9 +5382,13 @@ public class GrantorPayloads {
         grantAwardData.addProperty("CongressionalDistrict", "345");
         grantAwardData.addProperty("ZipCode", "45678");
         grantAwardData.addProperty("Country", "USA");
-        grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        if(!type.equalsIgnoreCase("Funding Change")) {
+            grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        }
         grantAwardData.addProperty("RequestedChangeinAwardBudget", 2000);
-        grantAwardData.addProperty("ProposedBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        if(!type.equalsIgnoreCase("Funding Change")) {
+            grantAwardData.addProperty("ProposedBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        }
         grantAwardData.addProperty("4DigitZipCodeExtension", "3456");
         grantAwardData.addProperty("OtherChangeDescription", "Automation Test");
         grantAwardData.addProperty("PurposeSummary", "Automation Test");
@@ -5428,7 +5432,7 @@ public class GrantorPayloads {
         // Indirect Rates
         JsonArray indirectRates = new JsonArray();
         JsonObject indirectRate = new JsonObject();
-        indirectRate.addProperty("title", "New Indirect rate1");
+        indirectRate.addProperty("title", "New Indirect rates2");
         indirectRate.addProperty("effectiveFrom", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         indirectRate.addProperty("effectiveUntil", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(50, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         indirectRate.addProperty("indirectCostRates", 10);
@@ -5451,15 +5455,15 @@ public class GrantorPayloads {
 //        kpis.add(kpi1);
 //        grantAwardData.add("kpis", kpis);
 
-//        // Special Conditions
-//        JsonArray specialCondition = new JsonArray();
-//        JsonObject condition1 = new JsonObject();
-//        condition1.addProperty("title", "Terms");
-//        condition1.addProperty("description", "Automation Test");
-//        condition1.addProperty("sequence", 1);
-//        condition1.addProperty("EffectiveFromDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-//        condition1.addProperty("EffectiveEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-//        specialCondition.add(condition1);
+        // Special Conditions
+        JsonArray specialCondition = new JsonArray();
+        JsonObject condition1 = new JsonObject();
+        condition1.addProperty("title", "Terms1");
+        condition1.addProperty("description", "Automation Test");
+        condition1.addProperty("sequence", 1);
+        condition1.addProperty("EffectiveFromDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        condition1.addProperty("EffectiveEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        specialCondition.add(condition1);
 
 //        JsonObject condition2 = new JsonObject();
 //        condition2.addProperty("title", "Terms");

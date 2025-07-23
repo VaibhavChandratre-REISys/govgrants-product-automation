@@ -9203,8 +9203,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Indirect Cost Rate Type" as "IndirectCostRateType" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly can see row level action button "Edit" against "New Indirect rate1" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly can see row level action button "Delete" against "New Indirect rate1" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Edit" against "New Indirect rates2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Delete" against "New Indirect rates2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see that "GeneralConditionChanged__c" rendered in view mode only
     And I click on "Edit" in the page details
     Then I softly see field "Required Match(%)" inside page block
@@ -10652,8 +10652,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Indirect Cost Rate Type" as "IndirectCostRateType" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly can see row level action button "Edit" against "New Indirect rate1" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly can see row level action button "Delete" against "New Indirect rate1" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Edit" against "New Indirect rates2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Delete" against "New Indirect rates2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
 
   @485543 @BPCVerifyFOuserasAROwnercanabletocreateBPCAR&decreasetheBudgetPerioddateonactiveAward&abletoseeimpactonGrant&AwardafterreducingtheBudgetPeriod @P2_Grantee @FO_Grantee @GRegression2
   Scenario:BPC -->Verify FO user as (AR Owner)can able to create BPC AR & decrease the Budget Period date on active Award & able to see impact on Grant & Award after reducing the Budget Period
@@ -23629,7 +23629,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I save the value from row "1" for column name "Effective from" as "Effectivefrom" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Effective until" as "Effectiveuntil" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Approved Indirect Cost Rate(%)" as "ApprovedIndirectCostRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    And I save the value from row "1" for column name "Title" as "AmendTermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    And I save the value from row "4" for column name "Title" as "AmendTermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     When I enter values into fields
@@ -23739,7 +23739,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "Overview" sub tab
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Start Date" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see value "{Date:M/d/yyyy::d+3670}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "{Date:M/d/yyyy::d+3650}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
     And I navigate to "Monitoring" sub tab
     Then I softly see value "{SavedValue:AmendTermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
     And I navigate to "Grants" tab
@@ -23748,14 +23748,14 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Financials" sub tab
-    Then I softly see value "{Date:M/d/yyyy::d+3670}" for title "End Date" against the value "BP01" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "{Date:M/d/yyyy::d+3650}" for title "End Date" against the value "BP01" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Projections" sub tab
-    Then I softly see field "Budget Period End Date" as "{SavedValue:BudgetPeriodEndDate}"
+    Then I softly see field "Budget Period End Date" as "{SavedValue:NewBudgetPeriodEndDate}"
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Start Date" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly do not see value "{Date:M/d/yyyy::d+3670}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly do not see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
+    Then I softly see value "{Date:M/d/yyyy::d+3650}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     And I navigate to "Monitoring" sub tab
     Then I softly do not see value "{SavedValue:AmendTermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"

@@ -8446,7 +8446,7 @@ Feature: Grantee Forms Scenario
     When I click on "Revise" in the page details
     Then I softly see field "Status" as "Revision in Progress"
 
-  @481570 @ValidatePMUsershouldabletosubmittheapplicationtograntsgovwithaddingonlyrequiredfields
+  @481570 @ValidatePMUsershouldabletosubmittheapplicationtograntsgovwithaddingonlyrequiredfields @P1_Grantee @PM_Grantee @GRegression1
   Scenario: Validate PM User should able to submit the application to grants.gov with adding only required fields
     Given I delete the grantee record "{grantee_testData:GrantsGovProjectPerformanceMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269345" with properties "default"
