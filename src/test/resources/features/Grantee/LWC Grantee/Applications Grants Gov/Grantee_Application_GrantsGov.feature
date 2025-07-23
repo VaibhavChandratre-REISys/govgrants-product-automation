@@ -1977,7 +1977,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @480414 @VerifyPMusershouldtosubmittheapplicationtogrants.govafteradding&updatingthefileinrevisioninprogress
+  @480414 @VerifyPMusershouldtosubmittheapplicationtogrants.govafteradding&updatingthefileinrevisioninprogress @runsf424a
   Scenario: Verify PM user should to submit the application to grants.gov after adding & updating the file in revision in progress
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySF424A}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269351" with properties "default"
@@ -2092,7 +2092,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @480412 @ValidatewithPOProfileOnceapprovedtheapplicationabletoseeSubmitgrantsGovButtononapplicationpagelayouttoprightcornerandabletocontinue @Grantee_Smoke2
+  @480412 @ValidatewithPOProfileOnceapprovedtheapplicationabletoseeSubmitgrantsGovButtononapplicationpagelayouttoprightcornerandabletocontinue @runsf424a
   Scenario: Validate with PO Profile Once approved the application able to see Submit grants Gov Button on application page layout top right corner and able to continue
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -2140,17 +2140,17 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly can see "Form" sub tab at view detail page
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ABudgetSummaryTableId---" by clicking "Edit" :
       | Grant Program Function or Activity (a) | Catalog of Federal Domestic Assistance Number (b) | Estimated Unobligated Federal Funds (c) | Estimated Unobligated Non-Federal Funds (d) | New or Revised Federal Budget (e) | New or Revised Non-Federal Budget (f) |
-      | Automation Permanent Focus Area | Automation Test                                   | 1000                                    | 1000                                        | 1000                              | 1000                                  |
+      | Automation Permanent Focus Area - BP01 | Automation Test                                   | 1000                                    | 1000                                        | 1000                              | 1000                                  |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ANonFedResourceTableId---" by clicking "Edit" :
       | (a) Grant Program                      | (b) Applicant | (c) State | (d) Other Sources |
-      | Automation Permanent Focus Area | 1000          | 1000      | 1000              |
+      | Automation Permanent Focus Area - BP01 | 1000          | 1000      | 1000              |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ANonConstructionGridDTableId---" by clicking "Edit" :
       | Type        | 1st Quarter | 2nd Quarter | 3rd Quarter | 4th Quarter |
       | Federal     | 1000        | 1000        | 1000        | 1000        |
       | Non-Federal | 1000        | 1000        | 1000        | 1000        |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ANonConstructionGridETableId---" by clicking "Edit" :
       | (a) Grant Program                      | (b) First Future Funding Period | (c) Second Future Funding Period | (d) Third Future Funding Period | (e) Fourth Future Funding Period |
-      | Automation Permanent Focus Area | 1000                            | 1000                             | 1000                            | 1000                             |
+      | Automation Permanent Focus Area - BP01 | 1000                            | 1000                             | 1000                            | 1000                             |
     And I wait for "1" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
