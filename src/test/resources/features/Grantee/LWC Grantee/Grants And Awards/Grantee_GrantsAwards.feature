@@ -4935,7 +4935,6 @@ Feature: Validate all scenarios for Grants & Awards
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
 
-
   @443837 @validatewithEXEProfile,OnEditClickabletoredirecttoawardpagelayout,onawardlayoutabletoseealltabsandsectionwhichiscreatedthroughdirectwithsettingNO
   Scenario: Validate with EXE Profile,On Edit Click able to redirect to award page layout,on award layout able to see all tabs and section which is created through direct with setting NO
     And I "Created" standalone subaward "Automation Runtime Award" with properties "ALL_SETTING_NO-Victor EXE user"
@@ -5003,7 +5002,6 @@ Feature: Validate all scenarios for Grants & Awards
     Then I can see row level action button "View" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     Then I can see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     Then I can see row level action button "Remove" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-    And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:SpecialConditionTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     When I enter in modal value "Terms" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
