@@ -1803,7 +1803,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @478724 @validatepmusercansuccessfullysubmitapplicationtogrants.govwithoutaddingfilesin(Optional)budgetnarrativeattachmentform
+  @478724 @validatepmusercansuccessfullysubmitapplicationtogrants.govwithoutaddingfilesin(Optional)budgetnarrativeattachmentform  @P1_Grantee @PM_Grantee @GRegression1
   Scenario: Attachments form (Optional)- Verify PM user can successfully submit application to grants.gov without adding files in (Optional)budget narrative attachment form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
