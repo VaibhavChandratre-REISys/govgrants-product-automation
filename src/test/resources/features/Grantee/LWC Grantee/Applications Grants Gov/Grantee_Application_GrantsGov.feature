@@ -2059,7 +2059,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I close the tab
     And I refresh the page
     And I wait for "2" seconds
-    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+#    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly see value "100.00%" for title "Percentage" against the value "Budget Information for Non-Construction Programs (SF-424A)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
