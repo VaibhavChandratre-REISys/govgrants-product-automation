@@ -23595,7 +23595,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | userName        | User        |
       | Grantee PO user | GRANTEE PO  |
 
-  @449162 @ValidateEXEuserARrecordownercanseeabletoseeAmendAwardbuttonwhenFCARgetAcceptedabletocreatenewAwardcheckstatusofoldAwardcheckimpactofnewlycreatedAwardonGrantAward
+  @449162 @ValidateEXEuserARrecordownercanseeabletoseeAmendAwardbuttonwhenFCARgetAcceptedabletocreatenewAwardcheckstatusofoldAwardcheckimpactofnewlycreatedAwardonGrantAward @P1_Grantee @EXE_Grantee @GRegression1
   Scenario: Validate EXE user (AR record owner) can see able to see Amend Award button when FC AR get Accepted & able to create new Award & check status of old Award & check impact of newly created Award on Grant & Award
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
