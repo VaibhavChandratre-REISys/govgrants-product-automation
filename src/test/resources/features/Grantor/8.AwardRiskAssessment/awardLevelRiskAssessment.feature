@@ -2346,8 +2346,8 @@ Feature: Validate all scenarios in the Risk Assessment
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Program Artifacts" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
+#    And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---orgRiskAssessment:-:awardRiskAssessmentTableId---"
     Then I softly see value "Program Artifacts" for title "Classification" inside table "---orgRiskAssessment:-:awardRiskAssessmentTableId---"
