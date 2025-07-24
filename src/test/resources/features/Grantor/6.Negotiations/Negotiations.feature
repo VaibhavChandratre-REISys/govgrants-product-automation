@@ -722,8 +722,7 @@ Feature: Validate all scenarios in Negotiations
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Suspension" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "Automation.pdf" for title "Title" inside table "GrantorApplicationFiles"
