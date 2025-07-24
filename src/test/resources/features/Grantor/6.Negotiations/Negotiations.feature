@@ -506,7 +506,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "2" seconds
     When I click on "Save" in the page details
     Then I see the following messages in the page details contains:
-      | To Save , Details is required in the Negotiations tab under the Applicant Response section. |
+      | To Save, Details is required in the Negotiations tab under the Applicant Response section. |
 
   @57839 @57840 @66445 @pendingNegotiationsViewAndSendToSubrecipientAfterSubmittingToGrantor
   Scenario: Validate whether users able to Send to Subrecipient after Submit to Grantor for adjustments and view the record  inside Pending Negotaitions Table |Validate Task is craeted to Subrecipient even when the negotiation is send back to subrecipient
