@@ -8078,7 +8078,6 @@ Feature: Grantee Forms Scenario
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-
   @478414 @validatePMusershouldtosubmittheapplicationtogrants.govafteradding&updatingthefileinrevisioninprogress  @P1_Grantee @GRegression1 @PM_Grantee
   Scenario: Validate PM user should to submit the application to grants.gov after adding & updating the file in revision in progress
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
@@ -8137,10 +8136,10 @@ Feature: Grantee Forms Scenario
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I wait for "2" seconds
-    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Project Narrative File" from computer
+    And I upload attachment without random number "10MB_file.docx" of type "Mandatory Project Narrative File" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly see value "10MB_file.docx" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :

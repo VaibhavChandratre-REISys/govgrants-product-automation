@@ -24003,7 +24003,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | GRANTEE PM     |
 
 
-  @449172 @VerifyPM(AROwner=AwardOwner)cancreateFCARonactiveAward&seeView/Edit/DeletetheirowndraftARfromAwardlayout&ViewformGrantlayout&seeheader,status&StepProgressBar,tabs,landingtabs,button&sectionsonalltabsofFCAR
+  @449172 @VerifyPM(AROwner=AwardOwner)cancreateFCARonactiveAward&seeView/Edit/DeletetheirowndraftARfromAwardlayout&ViewformGrantlayout&seeheader,status&StepProgressBar,tabs,landingtabs,button&sectionsonalltabsofFCAR  @GRegression1 @P1_Grantee @PM_Grantee
   Scenario Outline: Verify PM(AR Owner=Award Owner)can create FC AR on active Award & see View/Edit/ Delete their own draft AR from Award layout & View form Grant layout & see header,status & Step Progress Bar, tabs, landing tabs, button & sections on all tabs of FC AR
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
