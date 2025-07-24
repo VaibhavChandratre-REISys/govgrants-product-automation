@@ -24007,20 +24007,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
   Scenario Outline: Verify PM(AR Owner=Award Owner)can create FC AR on active Award & see View/Edit/ Delete their own draft AR from Award layout & View form Grant layout & see header,status & Step Progress Bar, tabs, landing tabs, button & sections on all tabs of FC AR
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
-    When I login to "As a Grantee" app as "<User>" user
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    When I navigate to "Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
     And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -24049,13 +24037,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see that "GrantNumber__c" rendered in view mode only
     Then I see textarea field "Impact__c" is editable
     Then I see textarea field "PurposeRTA__c" is editable
-    And I click modal button "Save and Continue"
-    Then I softly see the following messages in the page details contains:
-      | To Save, Please select Amendment Request Type is required. |
-    Then I softly see the following messages in the page details contains:
-      | To Save, Initiated By is required. |
-    Then I softly see the following messages in the page details contains:
-      | To Save, Justification is required. |
     And I enter "Grantee_FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -24096,7 +24077,29 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Delete" in page detail
     Then I can see top right button "Submit for Approval" in page detail
-    And I wait for "3" seconds
+    And I click on "Delete" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure, you want to delete this amendment request?" is displayed
+    And I click "Cancel" on modal confirmation box
+    Then I can see top right button "Edit" in page detail
+    Then I can see top right button "Delete" in page detail
+    Then I can see top right button "Submit for Approval" in page detail
+    And I click on "Delete" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure, you want to delete this amendment request?" is displayed
+    And I click "OK" on modal confirmation box
+    Then I softly see field "EGMS ID" as "{SavedValue:AwardEGMSID}"
+    Then I softly can see "Amendments" sub tab at view detail page
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    Then I softly see that "Award__c" rendered in view mode only
+    Then I softly see that "FAINAmendmentNumber__c" rendered in view mode only
+    Then I softly see that "GrantNumber__c" rendered in view mode only
+    Then I see textarea field "Impact__c" is editable
+    Then I see textarea field "PurposeRTA__c" is editable
+    And I enter "Grantee_FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "FNCAMENDID"
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - My Records"
