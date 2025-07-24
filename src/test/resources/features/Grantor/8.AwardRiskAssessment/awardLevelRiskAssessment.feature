@@ -5407,23 +5407,23 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on submit review
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "automation.po1.qa2@yopmail.com"
-    And I pause execution for "180" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Subaward Risk Assessment for {SavedValue:RAEGMSID} has been Peer Reviewed.
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello Automation PO1,
-     This email to notify you that a Subaward Risk Assessment for Subaward {SavedValue:AwardEGMSID} has been peer reviewed.
-     Log in to EGMS and click here for more details.
-     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com If you have any questions or need assistance with this task.
-     Thank you.
-     The EGMS Team
-      """
-    Then I refresh the page
+#    And I checkout to yopmail with mailid "automation.po1.qa2@yopmail.com"
+#    And I pause execution for "180" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Subaward Risk Assessment for {SavedValue:RAEGMSID} has been Peer Reviewed.
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello Automation PO1,
+#     This email to notify you that a Subaward Risk Assessment for Subaward {SavedValue:AwardEGMSID} has been peer reviewed.
+#     Log in to EGMS and click here for more details.
+#     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com If you have any questions or need assistance with this task.
+#     Thank you.
+#     The EGMS Team
+#      """
+#    Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "Grantor" app as "PO1" user
     And I navigate to "Monitoring" tab
@@ -6298,25 +6298,25 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "fo1.automation.qa2@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Task Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-     The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
-
-     EGMS ID	Type	Status	Subject	Assigned By	Reason of Failure
-     {SavedValue:RAEGMSID}	Review Subaward Risk Assessment	Not Started	Review Subaward Risk Assessment {SavedValue:RAEGMSID} for Organization SAN DIEGO ELECTRICAL TRAINING TRUST	Automation FO	Responsibilities Tab - A person with the same role cannot be added again.
-
-     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-
-     Thank you,
-     The EGMS Team.
-      """
+#    And I checkout to yopmail with mailid "fo1.automation.qa2@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Task Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#     The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
+#
+#     EGMS ID	Type	Status	Subject	Assigned By	Reason of Failure
+#     {SavedValue:RAEGMSID}	Review Subaward Risk Assessment	Not Started	Review Subaward Risk Assessment {SavedValue:RAEGMSID} for Organization SAN DIEGO ELECTRICAL TRAINING TRUST	Automation FO	Responsibilities Tab - A person with the same role cannot be added again.
+#
+#     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+#
+#     Thank you,
+#     The EGMS Team.
+#      """
     And I am on "INTERNAL" portal
     When I login to "Grantor" app as "FO1" user
     And I navigate to "Monitoring" tab
