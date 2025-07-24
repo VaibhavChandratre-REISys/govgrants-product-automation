@@ -19,8 +19,8 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     Then I click on "Initiate Negotiation" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I wait for "5" seconds
-    Then I softly can see "Negotiations" sub tab at view detail page
     And I navigate to "Negotiations" sub tab
+    Then I softly can see "Negotiations" sub tab at view detail page
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -308,13 +308,13 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     And I logout
     And I wait for "5" seconds
-#    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
-#    And I pause execution for "180" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: An Application Negotiation Request forApplication {SavedValue:EGMSID} has been Requested
-#      """
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
+    And I pause execution for "180" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: An Application Negotiation Request forApplication {SavedValue:EGMSID} has been Requested
+      """
     Given I am on "INTERNAL" portal
     And I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -366,7 +366,7 @@ Feature: Validate all scenarios in Negotiations
     When I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     And I click on "Save" in the page details
     And I wait for "3" seconds
-    Then I softly see field "Details" as "Negotiation InitiatedNegoatiation Initiated"
+    Then I softly see field "Details" as "Negotiation Initiated"
     When I click on "Send to Subrecipient" in the page details
     And I wait for "3" seconds
     Then I softly cannot see top right button "Edit" in page detail
