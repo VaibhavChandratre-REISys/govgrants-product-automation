@@ -1881,7 +1881,7 @@ Feature: Validate all scenarios for Applications Grants Gov
       | Grantee PO | Notes Record for FO | Automation Notes |
     When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -1953,7 +1953,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly can see row level action button "View" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly can see row level action button "Preview" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:ApplicationPeerReview---" without waiting for record
+    When I click on "Enter Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:ApplicationPeerReview---" without waiting for record
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
