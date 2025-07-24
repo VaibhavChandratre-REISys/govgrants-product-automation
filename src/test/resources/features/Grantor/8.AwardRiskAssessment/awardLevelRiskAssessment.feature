@@ -2279,7 +2279,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I select "Take Snapshot" from dropdown
     And I wait for "5" seconds
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "Risk Assessment Activation/Rejection.pdf"
+    And I click on hyperlink containing value "Approver Decision.pdf"
     And I click on "Download" button for snapshot view
     And I wait for "3" seconds
     When I download the file for snapshot
@@ -7973,10 +7973,10 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Active" for title "New Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     And I click on back arrow
-    Then I softly see snapshot with name containing "Subaward Risk Assessment.pdf" as name
-    Then I softly see snapshot with user containing "{SavedValue:PM Username}" against the value "Subaward Risk Assessment.pdf"
-    Then I softly see snapshot with name containing "Risk Assessment Activation/Rejection.pdf" as name
-    Then I softly see snapshot with user containing "{SavedValue:FD Username}" against the value "Risk Assessment Activation/Rejection.pdf"
+    Then I softly see snapshot with name containing "Approver Decision.pdf" as name
+    Then I softly see snapshot with user containing "{SavedValue:PM Username}" against the value "Approver Decision.pdf"
+    Then I softly see snapshot with name containing "Approver Decision.pdf" as name
+    Then I softly see snapshot with user containing "{SavedValue:FD Username}" against the value "Approver Decision.pdf"
 
   @119401 @Validatetheriskassessmentisapprovedstep4setupactivatedpostalltheapprovalarecompletewhenpeerreviewwasperformedonit @Sprint-23-US-273843  @Allocation
   Scenario: Validate the risk assessment is approved step4 set up activated post all the approval are complete when peer review was performed on it
