@@ -1963,7 +1963,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
-    Then I softly see value "Completed" for title "Status" against the value "{SavedValue:SitevVisitId}" inside table "---grantee_tableId:-:grantCompletedTaskTableId---"
+    Then I softly see value "Completed" for title "Status" against the value "{SavedValue:appEGMSID}" inside table "---grantee_tableId:-:grantCompletedTaskTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
