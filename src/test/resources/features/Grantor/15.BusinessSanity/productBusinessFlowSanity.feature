@@ -1418,14 +1418,14 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click on "Funding Decision Memo" in the page details
 #    Then I see status in Progress-bar is "Created" and is "dark blue"
-    Then I softly see field "Status" as "Draft"
+    Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value                       | Field            |
       | AuGr                        | GrantCode__c     |
       | Automation Test Description | Justification__c |
     And I click on "Save" in the page details
-    Then I softly see field "Status" as "Draft"
+    Then I softly see field "Status" as "Created"
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
       | <Announcement Name> | 500                | Yes                   | Recommended | 500                     |
