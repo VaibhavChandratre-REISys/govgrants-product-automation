@@ -8102,7 +8102,6 @@ Feature: Grantee Forms Scenario
     Then I can see top right button "Edit" in page detail
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
-    And I click on "Edit" in the page details
     And I enter value "123" into field "CongressionalDistrict1__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
