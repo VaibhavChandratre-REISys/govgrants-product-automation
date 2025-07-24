@@ -8610,6 +8610,7 @@ Feature: Grantee Forms Scenario
     And I upload attachment without random number "Attachment.pdf" of type "Mandatory Other Attachment" from computer
     When I click modal button "Close"
     Then I see "Attachment.pdf" has been added in "Files" flex table
+    And I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
@@ -8624,6 +8625,7 @@ Feature: Grantee Forms Scenario
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "100.00%" for title "Percentage" against the value "Other Attachments Forms" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see value "Yes" for title "Validated" against the value "Other Attachments Forms" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Application has been validated successfully. |
