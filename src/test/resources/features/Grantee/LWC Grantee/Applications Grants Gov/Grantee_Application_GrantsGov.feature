@@ -978,8 +978,8 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see the text containing "Post"
 
     Examples:
-      | User            |
-      | GRANTEE ADMIN1  |
+      | User           |
+      | GRANTEE ADMIN1 |
 
   @487233 @OpportunitiesNotconvertedGrantsgovVerifyEXEusercannotseeCreateApplicationbuttononApprovedOpportunity @P3_Grantee @EXE_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Opportunities Not converted (Grants.gov) -  Verify EXE user cannot see Create Application button on Approved Opportunity
@@ -1004,8 +1004,8 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly cannot see top right button "Create Application" in page detail
 
     Examples:
-      | UserName   | OwnerType   | UserType        |
-      | Victor EXE | GRANTEE EXE | GRANTEE EXE     |
+      | UserName   | OwnerType   | UserType    |
+      | Victor EXE | GRANTEE EXE | GRANTEE EXE |
 
   @487234 @OpportunitiesNotconvertedGrantsgovVerifyFOusercannotseeCreateApplicationbuttononApprovedOpportunity @P3_Grantee @EXE_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Opportunities Not converted (Grants.gov) -  Verify FO user cannot see Create Application button on Approved Opportunity
@@ -1030,8 +1030,8 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly cannot see top right button "Create Application" in page detail
 
     Examples:
-      | UserName   | OwnerType   | UserType        |
-      | Sarah PM   | GRANTEE PM  | GRANTEE FO      |
+      | UserName | OwnerType  | UserType   |
+      | Sarah PM | GRANTEE PM | GRANTEE FO |
 
   @487235 @OpportunitiesNotconvertedGrantsgovVerifyFDusercannotseeCreateApplicationbuttononApprovedOpportunity @P3_Grantee @FD_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Opportunities Not converted (Grants.gov) -  Verify FD user cannot see Create Application button on Approved Opportunity
@@ -1056,8 +1056,8 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly cannot see top right button "Create Application" in page detail
 
     Examples:
-      | UserName   | OwnerType   | UserType        |
-      | Sarah PM   | GRANTEE PM  | GRANTEE FD      |
+      | UserName | OwnerType  | UserType   |
+      | Sarah PM | GRANTEE PM | GRANTEE FD |
 
   @487236 @OpportunitiesNotconvertedGrantsgovVerifyEXEusercannotseeCreateApplicationbuttononApprovedOpportunity @P3_Grantee @ADMIN_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Opportunities Not converted (Grants.gov) -  Verify ADMIN user cannot see Create Application button on Approved Opportunity
@@ -1082,8 +1082,8 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly cannot see top right button "Create Application" in page detail
 
     Examples:
-      | UserName   | OwnerType   | UserType        |
-      | Grantee PO | GRANTEE PO  | GRANTEE ADMIN1  |
+      | UserName   | OwnerType  | UserType       |
+      | Grantee PO | GRANTEE PO | GRANTEE ADMIN1 |
 
   @487237 @OpportunitiesNotconvertedGrantsgovVerifyAUDITORusercannotseeCreateApplicationbuttononApprovedOpportunity @P4_Grantee @AUDITOR_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Opportunities Not converted (Grants.gov) -  Verify AUDITOR user cannot see Create Application button on Approved Opportunity
@@ -1108,8 +1108,8 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly cannot see top right button "Create Application" in page detail
 
     Examples:
-      | UserName   | OwnerType   | UserType        |
-      | Grantee PO | GRANTEE PO  | GRANTEE AUDITOR |
+      | UserName   | OwnerType  | UserType        |
+      | Grantee PO | GRANTEE PO | GRANTEE AUDITOR |
 
   @475755 @OpportunitiesNotconvertedGrantsgovVerifyEXEuserReviewereditaccessasNocanabletosubmitReview @P3_Grantee @EXE_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Opportunities Not converted (Grants.gov)  - Verify EXE user (Reviewer edit access as = No)can able to submit Review
@@ -1276,8 +1276,8 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see value "Submitted" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
 
     Examples:
-      | UserName   | UserType    |
-      | Sarah PM   | GRANTEE PM  |
+      | UserName | UserType   |
+      | Sarah PM | GRANTEE PM |
 
   @487232 @NotYetConvertedOpportunityGrantsgovVerifyPOusercancreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord @P1_Grantee @GRegression1 @GranteeTBE
   Scenario: Not Yet Converted Opportunity (Grants.gov)  - Verify PO user can create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
@@ -1742,6 +1742,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see "Application Due Date" in flex table header "---grantee_tableId:-:ApplicationTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:ApplicationTableId---"
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    And I wait for "2" seconds
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Setup" sub tab at view detail page
     Then I softly can see "Budget" sub tab at view detail page
@@ -1805,8 +1806,8 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
-      | Name     | Title               | Description      |
-      | David FO | Notes Record for FO | Automation Notes |
+      | Name       | Title               | Description      |
+      | Grantee PO | Notes Record for FO | Automation Notes |
     When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     When I navigate to "History" sub tab
@@ -1851,7 +1852,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationPeerReview---" by clicking "New" :
       | Reviewer Name      | Responsibility  | Description            | Due Date | Allow Record Editing |
-      | Danielle FD Garcia | Fiscal Reviewer | Automation Description | 5        | Yes                   |
+      | Danielle FD Garcia | Fiscal Reviewer | Automation Description | 5        | Yes                  |
     And I click on "Send for Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:ApplicationPeerReview---" without waiting for record
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Review"
@@ -1876,8 +1877,8 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
-      | Name     | Title               | Description      |
-      | David FO | Notes Record for FO | Automation Notes |
+      | Name       | Title               | Description      |
+      | Grantee PO | Notes Record for FO | Automation Notes |
     When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
@@ -1944,8 +1945,8 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
-      | Name     | Title               | Description      |
-      | David FO | Notes Record for FO | Automation Notes |
+      | Name       | Title               | Description      |
+      | Grantee PO | Notes Record for FO | Automation Notes |
     When I click on "Delete" icon for "Notes Record for FO" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Edit" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -2032,8 +2033,8 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "Edit" :
-      | Name     | Title               | Description      |
-      | David FO | Notes Record for FO | Automation Notes |
+      | Name       | Title               | Description      |
+      | Grantee PO | Notes Record for FO | Automation Notes |
     Then I softly can see row level action button "Edit" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly can see row level action button "View" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly can see row level action button "Preview" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"

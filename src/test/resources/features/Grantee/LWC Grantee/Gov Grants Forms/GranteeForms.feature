@@ -8566,7 +8566,7 @@ Feature: Grantee Forms Scenario
     Then I can see top right button "Check Status" in page detail
     Then I can see top right button "Revise" in page detail
 
-  @492768 @ValidatePMProfileifmandatoryformisfilledwithdatathenonclickValidatebuttonvalidatesuccessfully
+  @492768 @ValidatePMProfileifmandatoryformisfilledwithdatathenonclickValidatebuttonvalidatesuccessfully @P1_Grantee @PM_Grantee @GRegression1
   Scenario: Validate PM Profile if mandatory form is filled with data  then on click Validate button validate successfuly
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"

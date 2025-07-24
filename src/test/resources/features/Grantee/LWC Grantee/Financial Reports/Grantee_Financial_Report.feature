@@ -975,7 +975,7 @@ Feature: Validate all scenarios for Financial Report
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
-  @483986 @ValidateAdhocFRshouldnotbeaffectedonscheduledfinancialreport
+  @483986 @ValidateAdhocFRshouldnotbeaffectedonscheduledfinancialreport @P1_Grantee @PM_Grantee @GRegression1
   Scenario: Validate Adhoc FR should not be affected on scheduled financial report
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default"
