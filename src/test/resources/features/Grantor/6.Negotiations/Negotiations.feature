@@ -1048,7 +1048,7 @@ Feature: Validate all scenarios in Negotiations
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:grantsTableId---"
     And I navigate to "Overview" sub tab
     And I wait for "3" seconds
-    When I click on hyperlink containing value "{SavedValue:AnnID}"
+    When I click on hyperlink for invisible fields containing value "{SavedValue:AnnID}"
     And I wait for "6" seconds
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
