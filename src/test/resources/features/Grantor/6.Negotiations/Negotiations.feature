@@ -366,7 +366,7 @@ Feature: Validate all scenarios in Negotiations
     When I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     And I click on "Save" in the page details
     And I wait for "3" seconds
-    Then I softly see field "Details" as "Negotiation Initiated"
+    Then I softly see field "Details" as "Negoatiation Initiated"
     When I click on "Send to Subrecipient" in the page details
     And I wait for "3" seconds
     Then I softly cannot see top right button "Edit" in page detail
