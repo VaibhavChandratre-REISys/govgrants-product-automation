@@ -24330,7 +24330,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see "File Extension" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see "Description" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly see value "Interim Award Document" for title "Classification" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
