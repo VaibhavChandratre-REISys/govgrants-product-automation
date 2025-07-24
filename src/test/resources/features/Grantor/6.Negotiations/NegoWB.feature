@@ -410,7 +410,7 @@ Feature: Validate all scenarios in Negotiations
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see field "Application Sections for Negotiation" as "Forms and Files:Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Forms and Files: Forms"
 
   @165830 @sprint-3
   Scenario: Validate PO User Able To Select File Forms Application In Submitted To Grantor Status
@@ -453,7 +453,7 @@ Feature: Validate all scenarios in Negotiations
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "3" seconds
-    Then I softly see field "Application Sections for Negotiation" as "Forms and Files:Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Forms and Files: Forms"
 
   @274714  @Sprint-23-US-273843  @Allocation
   Scenario: Validate Competitive Validate user can send the Application for Negotiation post FDM is approved when FA is no

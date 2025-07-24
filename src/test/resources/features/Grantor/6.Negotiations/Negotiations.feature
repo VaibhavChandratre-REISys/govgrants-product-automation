@@ -1425,7 +1425,7 @@ Feature: Validate all scenarios in Negotiations
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I pause execution for "5" seconds
-    Then I softly see field "Application Sections for Negotiation" as "Forms and Files:Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Forms and Files: Forms"
 
   @166360  @sprint-3 @vrishali @bug-190352
   Scenario: Verify validation is displayed to PM user to select the "Allow edit" for at least one form in the available forms for Revisions table
