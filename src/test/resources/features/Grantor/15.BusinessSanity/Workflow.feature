@@ -1720,16 +1720,6 @@ Feature: Validate all scenarios of every modules flow
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
     And I halt execution
 
-  @debug
-  Scenario:
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
-    And I wait for "10" seconds
-    And I navigate to url "https://test8-internal--ggdev2.sandbox.my.site.com/recipient/s/award/a1oDk000000nDNJIA2/adga2651"
-    And I halt execution
-    When I click on "Accept" in the page details
-    And I halt execution
-
   @testCheck
   Scenario:
     And I login to "Grantor" app as "PM" user
@@ -1790,6 +1780,12 @@ Feature: Validate all scenarios of every modules flow
       | IND              |
       | SME              |
 
-  @testchckAwards
+  @testchckAwards @debug
   Scenario:
-    And I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "DETAILE_BUDGET_YES-Automation PM user"
+    When I am on "INTERNAL" portal
+    And I login to "Grantor" app as "PM" user
+    And I navigate to url "https://test8-internal--ggqa2.sandbox.lightning.force.com/lightning/r/Application__c/a1hDi00000BHrkgIAD/view"
+    And I halt execution
+    And I navigate to "Applications" tab
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
