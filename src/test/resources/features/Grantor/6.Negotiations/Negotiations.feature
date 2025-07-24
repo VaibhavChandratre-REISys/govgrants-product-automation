@@ -261,7 +261,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "2" seconds
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | To Save , Details is required in the Negotiations tab under the Applicant Response section. |
+      | To Save, Details is required in the Negotiations tab under the Applicant Response section. |
 
   @34387 @negotiationWhenOpenUserCannotCreateOther
   Scenario: Verify that with open negotiation request user can not Complete Negotiation (Negative TC)
