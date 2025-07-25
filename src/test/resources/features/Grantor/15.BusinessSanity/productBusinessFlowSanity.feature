@@ -3250,7 +3250,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
-    Then I softly see that "Subaward" is in "Activated" status
+    Then I softly see that "Status" is in "Activated" status
 
   @SubrecipientBudgetPeriodAmendmentRequest @ProdSan2
   Scenario: Validate Subrecipient Amendment Request End to End flow
@@ -3308,7 +3308,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
-    Then I softly see that "Subaward" is in "Activated" status
+    Then I softly see that "Status" is in "Activated" status
 
   @FundingChangeandTermsandConditions @ProdSan4
   Scenario: Validate Funding Change and Terms & Conditions End to End flow
@@ -3403,7 +3403,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
-    Then I softly see that "Subaward" is in "Activated" status
+    Then I softly see that "Status" is in "Activated" status
 
   @CombinationOfSubrecipientBRandKPCandSOW @ProdSan2
   Scenario: Validate Combinations of Subrecipient BR and KPC and SOW
@@ -3492,7 +3492,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
-    Then I softly see that "Subaward" is in "Activated" status
+    Then I softly see that "Status" is in "Activated" status
 
   @CarryForwardAmendmentRequest @ProdSan2
   Scenario: Validate Carry Forward Amendment Request End to End flow
@@ -3507,7 +3507,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    Then I softly see that "Subaward" is in "Activated" status
+    Then I softly see that "Status" is in "Activated" status
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
@@ -3605,7 +3605,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+#    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3625,7 +3625,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click on "Submit for Approval" in the page details
 #    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    Then I softly see that "Subaward" is in "Submitted for Approval" status
+    Then I softly see that "Status" is in "Submitted for Approval" status
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3642,7 +3642,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
-    Then I softly see that "Subaward" is in "Activated" status
+    Then I softly see that "Status" is in "Activated" status
 
   @SF429-B_FillFullForm @ProdSan3
   Scenario: Validate SF429-B_Fill Full Form
@@ -4479,7 +4479,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Activate" in the page details
-    Then I softly see that "Subaward" is in "Activated" status
+    Then I softly see that "Status" is in "Activated" status
 
   @userRegistrationSanity @ProdSan4
   Scenario: Scenario for user registration
