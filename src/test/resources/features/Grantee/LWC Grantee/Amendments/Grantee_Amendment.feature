@@ -25229,6 +25229,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     When I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     And I navigate to "Projections" sub tab
+    And I wait for "2" seconds
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "$7,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$700.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
@@ -25446,11 +25447,29 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     When I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     And I navigate to "Projections" sub tab
+    And I wait for "2" seconds
+    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "$4,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$400.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$400.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$4,800.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     When I navigate to "Actuals" sub tab
+    When I save the field labeled "Grant Amount" as "GrantAmount"
+    Then I softly see field "Grant Amount" as "{SavedValue:GrantAmount}"
+    When I save the field labeled "Total Awarded Budget" as "TotalAwardedBudget"
+    Then I softly see field "Total Awarded Budget" as "{SavedValue:TotalAwardedBudget}"
+    When I save the field labeled "Drawn to Date" as "DrawntoDate"
+    Then I softly see field "Drawn to Date" as "{SavedValue:DrawntoDate}"
+    When I save the field labeled "Spent to Date" as "SpenttoDate"
+    Then I softly see field "Spent to Date" as "{SavedValue:SpenttoDate}"
+    When I save the field labeled "Remaining Balance" as "RemainingBalance"
+    Then I softly see field "Remaining Balance" as "{SavedValue:RemainingBalance}"
+    When I save the field labeled "Total Match Expenditures to Date this Budget Period" as "TotalMatchExpenditurestoDatethisBudgetPeriod"
+    Then I softly see field "Total Match Expenditures to Date this Budget Period" as "{SavedValue:TotalMatchExpenditurestoDatethisBudgetPeriod}"
+    When I save the field labeled "Total Program Income Revenue this Budget Period" as "TotalProgramIncomeRevenuethisBudgetPeriod"
+    Then I softly see field "Total Program Income Revenue this Budget Period" as "{SavedValue:TotalProgramIncomeRevenuethisBudgetPeriod}"
+    When I save the field labeled "Total Leverage" as "TotalLeverage"
+    Then I softly see field "Total Leverage" as "{SavedValue:TotalLeverage}"
     Then I softly see value "$4,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Spent to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Carry-Forward" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
