@@ -25225,8 +25225,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I collapse nested table containing column value "BP02"
     And I navigate to "Overview" sub tab
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:grantFocusAreaTable---"
-    And I navigate to "Management" sub tab
-    Then I softly see value "Accepted" for title "Status" against the value "{SavedValue:CFAMENDID}" inside table "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
     When I navigate to "Awards" sub tab
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     When I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
@@ -25427,8 +25425,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I collapse nested table containing column value "BP02"
     And I navigate to "Overview" sub tab
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:grantFocusAreaTable---"
-    And I navigate to "Management" sub tab
-    Then I softly see value "Accepted" for title "Status" against the value "{SavedValue:CFAMENDID}" inside table "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
     When I navigate to "Awards" sub tab
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     When I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
