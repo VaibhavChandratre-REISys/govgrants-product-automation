@@ -1100,7 +1100,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Overview" sub tab
     And I pause execution for "4" seconds
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
-      | Applicants                          | Allocated Amount |
+      | Applicants                     | Allocated Amount |
       | OFFICE OF PERSONNEL MANAGEMENT | 1000             |
     When I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -1672,7 +1672,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Budget" sub tab
     And I get current URL
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
-      | Title                            | Start Date | End Date |
+      | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 0          | 3650     |
     When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
@@ -2189,7 +2189,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:subrecipientPendingTaskTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
 #    And I click on "Save" in the page details
     When I get the "EGMS ID"
@@ -3067,7 +3067,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "3" seconds
     And I click on "Activate" in the page details
     And I wait for "3" seconds
-    Then I softly see that "Subaward" is in "Activated" status
+    Then I softly see that "Status" is in "Activated" status
 
   @SubrecipientBudgetRedirection @ProdSan1 @bug-KSDE-57
   Scenario: Validate Subrecipient side Budget Redirection Amendment End to End flow
@@ -3133,7 +3133,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "4" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
-    Then I softly see that "Subaward" is in "Activated" status
+    Then I softly see that "Status" is in "Activated" status
 
   @ValidatedDetailBudgetYesScenarioInAward @ProdSan2
   Scenario: Validate Detail Budget Yes Scenario In Award
@@ -3179,6 +3179,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I clear in modal the value from table field "NonCashMatch__c"
     And I click on top right button "Save" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     And I wait for "5" seconds
+    And I get current URL
     Then I softly see value "$0.00" for title "Award Amount" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly see value "$0.00" for title "Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly see value "$0.00" for title "Non-Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
@@ -4251,7 +4252,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
 #    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
-    Then I softly see that "Subaward" is in "In Progress" status
+    Then I softly see that "Status" is in "In Progress" status
     And I wait for "3" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -4263,7 +4264,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Given I navigate to "Management" sub tab
     And I click on "View" icon for "{SavedValue:DeskReview}" inside flex table with id "---deskreview:-:managementInitiateDRtableid---"
 #    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
-    Then I softly see that "Subaward" is in "In Progress" status
+    Then I softly see that "Status" is in "In Progress" status
     Then I softly see field "EGMS ID" as "{SavedValue:DeskReview}"
 
   @SF425FormsNegativeValidationCheckAndSF428ABlankvalueValidationCheckAlsoSF429Bformnegativevaluesenteredvalidationcheck @ProdSan4
@@ -4277,16 +4278,16 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I wait for "2" seconds
+    And I wait for "12" seconds
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I wait for "12" seconds
     When I navigate to "Forms and Files" sub tab
     And I select value inside table "---progressReport:-:formTableId---" is "All"
-    And I wait for "2" seconds
+    And I wait for "12" seconds
     And I click on "View" icon for "Federal Financial Report - SF-425" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I click on "Edit" in the page details
@@ -4316,7 +4317,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter value "30 SEP" into field "ReportAsOf__c"
     And I enter value "Test" into field "CommentsSF428__c"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I wait for "12" seconds
+    And I close the tab
     And I refresh the page
     And I click on top right button "New" in flex table with id "---progressReport:-:sf428AFederallyOwnedTableId---"
     When I enter in modal "SF428A_Federal_Property" values from "ProgressReport_Field_Values.xlsx"
@@ -4329,9 +4331,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I close the tab
     #SF429B form negative values entered validation check
     When I navigate to "Forms and Files" sub tab
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     And I select value inside table "---progressReport:-:formTableId---" is "All"
-    And I wait for "2" seconds
+    And I wait for "25 seconds
     And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without Split
     And I switch to tab number "1"
     And I click on "Edit" in the page details
