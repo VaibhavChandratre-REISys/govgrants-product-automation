@@ -1094,7 +1094,7 @@ Feature: Validate all scenarios for Financial Report
     Then I softly see the following messages in the page details contains:
       | You cannot create new Financial Report as another Financial Report marked as 'Final' has been submitted to the grantor. |
 
-  @443585 @ValidateDeleteAdhocnotabletodeleteScheduledFinancialReportVerifytheAdhocReportonActivateAward
+  @443585 @ValidateDeleteAdhocnotabletodeleteScheduledFinancialReportVerifytheAdhocReportonActivateAward @P2_Grantee @PM_Grantee @GRegression5
   Scenario: Validate Delete Adhoc not able to delete Scheduled Financial Report & Verify the Adhoc Report on Activate Award
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -1322,14 +1322,14 @@ Feature: Validate all scenarios for Financial Report
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Complete Review" in page detail
     When I navigate to "Responsibilities" sub tab
-    Then I softly can see row level action button "Resend for Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly can see row level action button "Resend for Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
-    Then I softly cannot see row level action button "Edit" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
-    Then I softly cannot see row level action button "Delete" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
-    Then I softly cannot see row level action button "Send for Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Delete" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
 
   @443631 @ValidateAwardOwnershouldnotabletocreateAdhocFinancialReportforCreatedSubmittedforReviewReviewedSubmitforapprovalapprovedAmendedclosedstate
   Scenario: Validate Award Owner should not able to create Adhoc Financial Report for Created, Submitted for Review, Reviewed, Submit for approval, Amended, & closed state
