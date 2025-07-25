@@ -1128,10 +1128,10 @@ Feature: Validate all scenarios for Financial Report
     And I wait for "250" seconds
     And I refresh the page
     And I wait for "3" seconds
-    And I save the value from row "1" for column name "EGMS ID" as "financialEGMSID" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I save the value from row "2" for column name "EGMS ID" as "financialEGMSID" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I can see row level action button "Edit" against "{SavedValue:financialEGMSID}" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I cannot see row level action button "Delete" against "{SavedValue:financialEGMSID}" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I can see row level action button "Edit" against "Scheduled" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I cannot see row level action button "Delete" against "Scheduled" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
 
   @443587 @ValidateAdhocFRshouldnotbeaffectedonscheduledfinancialreport @P2_Grantee @PM_Grantee @GRegression5
   Scenario: Validate Adhoc FR should not be affected on scheduled financial report
@@ -1281,7 +1281,7 @@ Feature: Validate all scenarios for Financial Report
     And I select "Refresh" from parallel lines dropdown of "Peer Reviewers"
     Then I see table is refreshing
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
-      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
+      | Reviewer Name | Role             | Description            | Due Date | Allow Record Editing |
       | David FO      | Program Reviewer | Automation Description | 5        | Yes                  |
     Then I softly can see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly can see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
@@ -1307,7 +1307,7 @@ Feature: Validate all scenarios for Financial Report
     When I click modal button "Save"
     And I click on submit review
     Then I softly see value "Submitted" for title "Status" against the value "Fiscal Reviewer" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
-    Then I softly cannot see row level action button "Enter Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Enter Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     And I navigate to "Monitoring" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
@@ -1330,3 +1330,154 @@ Feature: Validate all scenarios for Financial Report
     Then I softly cannot see row level action button "Edit" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly cannot see row level action button "Delete" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly cannot see row level action button "Send for Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+
+  @443631 @ValidateAwardOwnershouldnotabletocreateAdhocFinancialReportforCreatedSubmittedforReviewReviewedSubmitforapprovalapprovedAmendedclosedstate
+  Scenario: Validate Award Owner should not able to create Adhoc Financial Report for Created, Submitted for Review, Reviewed, Submit for approval, Amended, & closed state
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Management" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" by clicking "New" :
+      | Reviewer Name      | Role            | Description            | Due Date | Allow Record Editing |
+      | Danielle FD Garcia | Fiscal Reviewer | Automation Description | 5        | Yes                  |
+    Then I softly can see row level action button "Send for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
+    And I click on "Send for Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" without waiting for record
+    Then I softly see field "Status" as "Submitted for Review"
+    And I navigate to "Management" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" without waiting for record
+    And I enter a review as "Passed"
+    When I click modal button "Save"
+    And I click on submit review
+    And I wait for "3" seconds
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I click on "Complete Review" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Responsibilities" sub tab
+    Then I softly see field "Status" as "Reviewed"
+    And I navigate to "Management" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Interim Award Document" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "AttachmentTesting.pdf" has been added in "Award Files" flex table
+    And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I navigate to "Management" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Activated"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I "Approved" of type "Scope of Work Change" amendment request for title "{SavedValue:Automation Runtime award}" with properties "default"
+    When I navigate to "Amendments" sub tab
+    And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    When I click on "Submit to Grantor" in the page details
+    When I enter values into fields
+      | Value | Field                 |
+      | 0     | SubmittedToGrantor__c |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I click on "Record Decision" in the page details
+    When I enter values into fields
+      | Value                       | Field             |
+      | Accepted                    | Decision__c       |
+      | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
+      | Test                        | Comments__c       |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Accepted"
+    And I click on "Amend Award" in the page details
+    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+    When I click on "Activate Award" in the page details
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID1"
+    When I navigate to "Overview" sub tab
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Amended"
+    And I navigate to "Management" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I create adhoc closeout "{SavedValue:Automation Runtime award}" for status "Approved" with properties "default"
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    When I navigate to "Closeout" sub tab
+    And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "closeoutID"
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Pending Closeout"
+    And I navigate to "Management" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    When I navigate to "Closeout" tab
+    When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
+    And I click toggle button to select "Project Period Closeout - All"
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:ProjectPeriodCloseout---" panel
+    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:ProjectPeriodCloseout---"
+    When I click on "Submit to Grantor" in the page details
+    When I enter values into fields
+      | Value | Field                 |
+      | 0     | SubmittedToGrantor__c |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I click on "Complete Closeout" in the page details
+    And I wait for "2" seconds
+    When I enter in modal value "0" into field "FederalCloseoutDate__c"
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Completed"
+    When I navigate to "Overview" sub tab
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Closed"
+    And I navigate to "Management" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
