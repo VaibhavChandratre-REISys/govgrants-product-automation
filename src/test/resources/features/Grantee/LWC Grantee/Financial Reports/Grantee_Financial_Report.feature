@@ -1482,7 +1482,7 @@ Feature: Validate all scenarios for Financial Report
     And I navigate to "Management" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
 
-  @443588 @ValidatetherevisiononAdhocfinanicalReportScheduledreport
+  @443588 @ValidatetherevisiononAdhocfinanicalReportScheduledreport @P2_Grantee @PM_Grantee @GRegression5
   Scenario: Validate the revision on Adhoc finanical Report &Scheduled report
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
