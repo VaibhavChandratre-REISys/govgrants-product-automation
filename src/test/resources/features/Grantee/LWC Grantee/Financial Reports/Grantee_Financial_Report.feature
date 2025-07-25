@@ -1633,4 +1633,4 @@ Feature: Validate all scenarios for Financial Report
     And I wait for "3" seconds
     And I save the value from row "4" for column name "EGMS ID" as "financialEGMSID2" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID2}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I softly see total records count "Total Records: 4" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see total records count "Total Records: 4" in flex table "---grantee_tableId:-:FinancialsReportTableId---"
