@@ -260,7 +260,7 @@ Feature: Validate all scenarios for Focus Areas
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Deactivate.pdf" as name
 
-  @440210 @ValidatePMProfileafterclickonFocusareasmodulesFocusarealistpageshouldbedisplayonlistpagecolumsabletosee
+  @440210 @ValidatePMProfileafterclickonFocusareasmodulesFocusarealistpageshouldbedisplayonlistpagecolumsabletosee @P2_Grantee @PM_Grantee @GRegression5
   Scenario: Validate PM Profile after click on Focus areas modules Focus area list page should be display on list page colums able to see
     When I login to "As a Grantee" app as "GRANTEE PM" user
     When I navigate to "Planning" tab
@@ -345,7 +345,7 @@ Feature: Validate all scenarios for Focus Areas
     Then I softly cannot see row level action button "Edit" against "{SavedValue:inActiveFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
     Then I softly cannot see row level action button "Delete" against "{SavedValue:inActiveFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
 
-  @440225 @ValidateAdminuseronActivatebuttonabletoseetheconfirmationvalidation
+  @440225 @ValidateAdminuseronActivatebuttonabletoseetheconfirmationvalidation @P2_Grantee @ADMIN_Grantee @GRegression5
   Scenario: Validate Admin user on Activate button able to see the confirmation validation
     When I login to "As a Grantee" app as "GRANTEE ADMIN" user
     When I navigate to "Planning" tab
