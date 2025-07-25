@@ -260,3 +260,107 @@ Feature: Validate all scenarios for Focus Areas
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Deactivate.pdf" as name
 
+  @440210 @ValidatePMProfileafterclickonFocusareasmodulesFocusarealistpageshouldbedisplayonlistpagecolumsabletosee
+  Scenario: Validate PM Profile after click on Focus areas modules Focus area list page should be display on list page colums able to see
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    Then I softly see default toggle as "Focus Areas - All" for table "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly see toggle option "Focus Areas - All" inside flex table id "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly see toggle option "Focus Areas - Draft" inside flex table id "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly see toggle option "Focus Areas - Active" inside flex table id "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly see toggle option "Focus Areas - Inactive" inside flex table id "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly see "Name" in flex table header "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly see "Internal Organization" in flex table header "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly see "Status" in flex table header "---grantee_tableId:-:GranteeProjectTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    When I enter in modal value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter in modal value "Automation Test Description" into field "Description__c"
+    When I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "draftFocusID"
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Focus Areas - Draft"
+    Then I softly do not see value "Active" for title "Status" inside table "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly do not see value "Inactive" for title "Status" inside table "---grantee_tableId:-:GranteeProjectTableId---"
+    And I perform quick search for "{SavedValue:draftFocusID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I softly can see row level action button "View" against "{SavedValue:draftFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:draftFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:draftFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    When I enter in modal value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter in modal value "Automation Test Description" into field "Description__c"
+    When I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "activeFocusID"
+    When I click on "Activate" in the page details
+    Then I see status in Progress-bar is "Active" and is "dark blue"
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Focus Areas - Active"
+    Then I softly do not see value "Draft" for title "Status" inside table "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly do not see value "Inactive" for title "Status" inside table "---grantee_tableId:-:GranteeProjectTableId---"
+    And I perform quick search for "{SavedValue:activeFocusID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I softly can see row level action button "View" against "{SavedValue:activeFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:activeFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:activeFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    When I enter in modal value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter in modal value "Automation Test Description" into field "Description__c"
+    When I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "inActiveFocusID"
+    When I click on "Activate" in the page details
+    Then I see status in Progress-bar is "Active" and is "dark blue"
+    And I click on "Deactivate" in the page details
+    Then I see field "Status" as "Inactive"
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Focus Areas - Inactive"
+    Then I softly do not see value "Active" for title "Status" inside table "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly do not see value "Draft" for title "Status" inside table "---grantee_tableId:-:GranteeProjectTableId---"
+    And I perform quick search for "{SavedValue:inActiveFocusID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I softly can see row level action button "View" against "{SavedValue:inActiveFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:inActiveFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:inActiveFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    And I click toggle button to select "Focus Areas - All"
+    And I perform quick search for "{SavedValue:draftFocusID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I softly see value "Draft" for title "Status" against the value "{SavedValue:draftFocusID}" inside table "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:draftFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:draftFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:draftFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    And I perform quick search for "{SavedValue:activeFocusID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I softly see value "Active" for title "Status" against the value "{SavedValue:activeFocusID}" inside table "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:activeFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:activeFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:activeFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    And I perform quick search for "{SavedValue:inActiveFocusID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I softly see value "Inactive" for title "Status" against the value "{SavedValue:inActiveFocusID}" inside table "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:inActiveFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:inActiveFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:inActiveFocusID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+
+  @440225 @ValidateAdminuseronActivatebuttonabletoseetheconfirmationvalidation
+  Scenario: Validate Admin user on Activate button able to see the confirmation validation
+    When I login to "As a Grantee" app as "GRANTEE ADMIN" user
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    When I enter in modal value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter in modal value "Automation Test Description" into field "Description__c"
+    When I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    And I click on "Activate" in the page details without processing
+    Then I softly see confirmation box with body "Once Active, the Focus area will be available for association with application and award. Are you sure you want to activate the focus area?" is displayed
+    And I click "Cancel" on modal confirmation box
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    And I click on "Activate" in the page details without processing
+    Then I softly see confirmation box with body "Once Active, the Focus area will be available for association with application and award. Are you sure you want to activate the focus area?" is displayed
+    And I click "OK" on modal confirmation box
+    Then I see status in Progress-bar is "Active" and is "dark blue"
