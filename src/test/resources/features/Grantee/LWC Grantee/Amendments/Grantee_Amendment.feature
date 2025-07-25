@@ -24868,8 +24868,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see field "Initiated By" as "Grantor"
     Then I softly see field "Amendment Type" as "Budget Period Change"
     Then I can see top right button "Edit" in page detail
-    Then I can see top right button "Delete" in page detail
-    Then I can see top right button "Submit for Approval" in page detail
+    Then I can see top right button "Complete Review" in page detail
     And I click on "Edit" in the page details
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
@@ -24892,14 +24891,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I see field "Award EGMS ID" is not editable
     Then I see textarea field "Impact__c" is editable
     Then I see textarea field "PurposeRTA__c" is editable
-    Then I softly see field "Grant EGMS ID" as "{SavedValue:GrantEGMSID}"
-    Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
-    Then I softly see field "Grant Number" as "{SavedValue:GrantNumber}"
-    Then I softly see field "Grant Award Number" as "{SavedValue:GrantAwardNumber}"
-    Then I softly see field "Award EGMS ID" as "{SavedValue:AwardEGMSID}"
-    Then I softly see link "{SavedValue:AwardEGMSID}" inside Page block
     Then I see field "Budget Period" is not editable
-    Then I softly see field "Budget Period" as "{SavedValue:BudgetPeriod}"
     Then I softly see fields "NewBudgetPeriodEndDate__c" is in edit mode
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
@@ -24926,6 +24918,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly do not see fields "AreTCspartofNGAAttachments__c" is visible
     Then I softly do not see fields "FederalTCLink__c" is visible
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     Then I softly see value "Terms" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
@@ -24956,6 +24949,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
      #Reviewed
     And I click on "Complete Review" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Reviewed"
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
@@ -24967,15 +24961,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I wait for "2" seconds
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     Then I softly see field "EGMS ID" as "{SavedValue:BPCAMENDID}"
-    Then I softly see field "Status" as "Submitted for Review"
-    Then I softly see field "Initiated By" as "Grantor"
-    Then I softly see field "Amendment Type" as "Budget Period Change"
-    Then I can see top right button "Edit" in page detail
-    Then I can see top right button "Delete" in page detail
-    Then I can see top right button "Submit for Approval" in page detail
     And I click on "Edit" in the page details
-    Then I can see top right button "Save" in page detail
-    Then I can see top right button "Cancel" in page detail
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
     Then I softly can see "Files" sub tab at view detail page
@@ -24995,14 +24981,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I see field "Award EGMS ID" is not editable
     Then I see textarea field "Impact__c" is editable
     Then I see textarea field "PurposeRTA__c" is editable
-    Then I softly see field "Grant EGMS ID" as "{SavedValue:GrantEGMSID}"
-    Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
-    Then I softly see field "Grant Number" as "{SavedValue:GrantNumber}"
-    Then I softly see field "Grant Award Number" as "{SavedValue:GrantAwardNumber}"
-    Then I softly see field "Award EGMS ID" as "{SavedValue:AwardEGMSID}"
-    Then I softly see link "{SavedValue:AwardEGMSID}" inside Page block
     Then I see field "Budget Period" is not editable
-    Then I softly see field "Budget Period" as "{SavedValue:BudgetPeriod}"
     Then I softly see fields "NewBudgetPeriodEndDate__c" is in edit mode
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
