@@ -1491,7 +1491,7 @@ Feature: Validate all scenarios for Applications Grants Gov
       | Form Validated Successfully. |
     And I close the tab
 
-  @482055 @ValidateGrantsgovlobbingformOptionalPOusercansuccessfullysubmitheformtoGrantsgovafterenteringvaliddatainGrantsgovlobbingform
+  @482055 @ValidateGrantsgovlobbingformOptionalPOusercansuccessfullysubmitheformtoGrantsgovafterenteringvaliddatainGrantsgovlobbingform @P1_Grantee @PO_Grantee @GRegression1
   Scenario: Validate Grants gov lobbing form Optional PO user can successfully submit the form to Grants.gov after entering valid data in Grants gov lobbing form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"

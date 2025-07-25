@@ -8078,8 +8078,8 @@ Feature: Grantee Forms Scenario
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @478414 @validatePMusershouldtosubmittheapplicationtogrants.govafteradding&updatingthefileinrevisioninprogress  @P1_Grantee @GRegression1 @PM_Grantee
-  Scenario: Validate PM user should to submit the application to grants.gov after adding & updating the file in revision in progress
+  @478414 @validatePMusershouldtosubmittheapplicationtogrants.govwhenuseraddthemorethan15fileswithdifferentcategorycategory  @P1_Grantee @GRegression1 @PM_Grantee
+  Scenario: Validate PM user should to submit the application to grants.gov when user add the more than 15 files with different category category
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
