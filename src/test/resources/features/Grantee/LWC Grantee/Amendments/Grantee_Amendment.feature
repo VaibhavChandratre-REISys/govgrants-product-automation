@@ -24632,7 +24632,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | userName      | User       | Approval |
       | Sarah PM user | GRANTEE PM | Sarah PM |
 
-  @464048 @VerifyPMuser(ARrecordowner)caneditthefieldsonBudgetPeriodChangeARisinCreated,submittedforreview,reviewedstates
+  @464048 @VerifyPMuser(ARrecordowner)caneditthefieldsonBudgetPeriodChangeARisinCreated,submittedforreview,reviewedstates @P1_Grantee @PM_Grantee @GRegression1
   Scenario: Verify PM user (AR record owner) can edit the fields on Budget Period Change AR is in Created, submitted for review, reviewed states
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -25103,9 +25103,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Category Name | Carry Forward |
       | Construction  | 5000          |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
-      | Construction   | The narrative | 5000           | 500        | 0              |
+      | Construction   | The narrative | 7000           | 700        | 200            |
     When I close "Add Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
@@ -25226,7 +25226,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "Overview" sub tab
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:grantFocusAreaTable---"
     And I navigate to "Management" sub tab
-    Then I softly see value "Accepted" for title "Status" against the value "{SavedValue:AmendEGMSID1}" inside table "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
+    Then I softly see value "Accepted" for title "Status" against the value "{SavedValue:CFAMENDID}" inside table "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
     When I navigate to "Awards" sub tab
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     When I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
@@ -25305,9 +25305,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Category Name | Carry Forward |
       | Construction  | 2000          |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
-      | Construction   | The narrative | 2000           | 200        | 200              |
+      | Construction   | The narrative | 4000           | 400        | 400            |
     When I close "Add Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
@@ -25414,7 +25414,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Given I expand nested table containing column value "BP01"
     And I wait for "2" seconds
     Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$200.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     When I collapse nested table containing column value "BP01"
@@ -25428,7 +25428,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "Overview" sub tab
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:grantFocusAreaTable---"
     And I navigate to "Management" sub tab
-    Then I softly see value "Accepted" for title "Status" against the value "{SavedValue:AmendEGMSID1}" inside table "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
+    Then I softly see value "Accepted" for title "Status" against the value "{SavedValue:CFAMENDID}" inside table "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
     When I navigate to "Awards" sub tab
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     When I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
