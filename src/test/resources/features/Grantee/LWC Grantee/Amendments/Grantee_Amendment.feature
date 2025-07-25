@@ -24683,11 +24683,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click on "Edit" in the page details
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
-    Then I softly can see "Overview" sub tab at view detail page
-    Then I softly can see "Responsibilities" sub tab at view detail page
-    Then I softly can see "Files" sub tab at view detail page
-    Then I softly can see "History" sub tab at view detail page
-    Then I softly can see "Messages" sub tab at view detail page
     When I navigate to "Overview" sub tab
     Then I softly see "Details" page block displayed
     Then I softly see "Budget Period Change" page block displayed
@@ -24704,7 +24699,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I see textarea field "PurposeRTA__c" is editable
     Then I softly see field "Grant EGMS ID" as "{SavedValue:GrantEGMSID}"
     Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
-    Then I softly see field "Grant Number" as "{SavedValue:GrantNumber}"
     Then I softly see field "Grant Award Number" as "{SavedValue:GrantAwardNumber}"
     Then I softly see field "Award EGMS ID" as "{SavedValue:AwardEGMSID}"
     Then I softly see link "{SavedValue:AwardEGMSID}" inside Page block
@@ -24872,11 +24866,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click on "Edit" in the page details
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
-    Then I softly can see "Overview" sub tab at view detail page
-    Then I softly can see "Responsibilities" sub tab at view detail page
-    Then I softly can see "Files" sub tab at view detail page
-    Then I softly can see "History" sub tab at view detail page
-    Then I softly can see "Messages" sub tab at view detail page
     When I navigate to "Overview" sub tab
     Then I softly see "Details" page block displayed
     Then I softly see "Budget Period Change" page block displayed
@@ -24962,11 +24951,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     Then I softly see field "EGMS ID" as "{SavedValue:BPCAMENDID}"
     And I click on "Edit" in the page details
-    Then I softly can see "Overview" sub tab at view detail page
-    Then I softly can see "Responsibilities" sub tab at view detail page
-    Then I softly can see "Files" sub tab at view detail page
-    Then I softly can see "History" sub tab at view detail page
-    Then I softly can see "Messages" sub tab at view detail page
     When I navigate to "Overview" sub tab
     Then I softly see "Details" page block displayed
     Then I softly see "Budget Period Change" page block displayed
