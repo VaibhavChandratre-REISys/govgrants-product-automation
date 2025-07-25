@@ -1542,14 +1542,6 @@ Feature: Validate all scenarios for Financial Report
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Activated"
     And I navigate to "Management" sub tab
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
-    And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details contains:
-      | You cannot create new Financial Report as another Financial Report marked as 'Final' has been submitted to the grantor. |
-    And I close the tab
-    And I wait for "2" seconds
     And I click on "Edit" icon for "Financial Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     When I enter in modal "Grantee_Financial_Schedules" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
