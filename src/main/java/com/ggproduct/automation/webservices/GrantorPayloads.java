@@ -275,12 +275,12 @@ public class GrantorPayloads {
     }
 
     public JsonObject defaultRequestPayroleForApprovedDFM() {
-        Map<String, String> map = ProjectWebServices.getMultipleIds(getIdsOfUsers(Arrays.asList("Automation EXE", "Automation FO", "Automation PM")));
+        Map<String, String> map = ProjectWebServices.getMultipleIds(getIdsOfUsers(Arrays.asList("Automation PO", "Automation FO", "Automation PM")));
         JsonObject parent = new JsonObject();
 
         JsonArray reviewStepsArray = new JsonArray();
         JsonObject complianceReview = new JsonObject();
-        complianceReview.addProperty("Reviewer", map.get("Automation EXE"));
+        complianceReview.addProperty("Reviewer", map.get("Automation PO"));
         complianceReview.addProperty("FormName", "Compliance Review");
         complianceReview.addProperty("DueInDays", 7);
 
