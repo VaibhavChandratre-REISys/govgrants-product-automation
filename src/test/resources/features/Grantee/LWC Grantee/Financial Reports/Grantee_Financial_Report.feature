@@ -1624,7 +1624,7 @@ Feature: Validate all scenarios for Financial Report
     Then I softly see field "Status" as "Activated"
     And I navigate to "Management" sub tab
     And I expand nested table containing column value "Financial Report"
-    And I save the value from row "2" for column name "EGMS ID" as "EGMS ID1" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "2" for column name "EGMS ID" as "EGMS ID2" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Report Creation Date |
       | {SavedValue:EGMS ID2} | 0                    |
