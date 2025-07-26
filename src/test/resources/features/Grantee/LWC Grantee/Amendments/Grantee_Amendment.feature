@@ -25041,7 +25041,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "Messages" sub tab
     Then I softly see "Messages" page block displayed
 
-  @474405 @validatePMuserseeImpactonGrant&AwardifCarryForwardedalltheamountfrompreviousawardtonewaward
+  @474405 @validatePMuserseeImpactonGrant&AwardifCarryForwardedalltheamountfrompreviousawardtonewaward  @GRegression1 @P1_Grantee @PM_Grantee
     Scenario: Validate PM user see Impact on Grant & Award if Carry Forwarded all the amount from previous award to new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -25259,7 +25259,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "$0.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Program Income Expenditures" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
 
-  @474406 @validatePMuserseeImpactonGrant&AwardifCarryForwardedpartialmountfrompreviousawardtonewaward
+  @474406 @validatePMuserseeImpactonGrant&AwardifCarryForwardedpartialmountfrompreviousawardtonewaward @GRegression1 @PM_Grantee @P1_Grantee
   Scenario: Validate PM user see Impact on Grant & Award if Carry Forwarded partial amount from previous award to new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
