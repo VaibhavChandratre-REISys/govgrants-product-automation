@@ -198,7 +198,7 @@ Feature: Validate all scenarios for Focus Areas
       | userType    | Approver   |
       | GRANTEE EXE | Victor EXE |
 
-    @440233 @440235 @validatewithPMProfileafterclickonNewbuttonCreateFocusareaModalshouldgetopenandredirecttofocusareapagelayout @P1_Grantee @GRegression1 @PM_Grantee
+    @440233 @440235 @validatewithPMProfileafterclickonNewbuttonCreateFocusareaModalshouldgetopenandredirecttofocusareapagelayout @P1_Grantee @GRegression1 @PM_Grantee @sprint15
     Scenario: Validate with PM Profile after click on New button Create Focus area Modal should get open and redirect to focus area page layout
     When I login to "As a Grantee" app as "GRANTEE PM" user
     When I navigate to "Planning" tab

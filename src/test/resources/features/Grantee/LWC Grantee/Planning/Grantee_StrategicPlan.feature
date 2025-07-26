@@ -1193,7 +1193,7 @@ Feature: Validate all scenarios for Strategic Plan
       | GRANTEE PO      |
 
 
-  @476590 @Validateadminusercancreateandactivatestrategicplan  @P1_Grantee @GRegression1 @ADMIN_Grantee
+  @476590 @Validateadminusercancreateandactivatestrategicplan  @P1_Grantee @GRegression1 @ADMIN_Grantee @sprint15
   Scenario Outline: Validate Admin user can create and Activate Strategic plan
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab

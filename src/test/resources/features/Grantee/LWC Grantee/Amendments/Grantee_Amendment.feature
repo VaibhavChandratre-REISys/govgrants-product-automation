@@ -23250,7 +23250,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
-  @472139 @CombinationofamendmentVerifyPOuser(arowner)canabletoacceptcombinationamendmentrequest @P1_Grantee @PO_Grantee @GRegression1
+  @472139 @CombinationofamendmentVerifyPOuser(arowner)canabletoacceptcombinationamendmentrequest @P1_Grantee @PO_Grantee @GRegression1 @sprint15
   Scenario Outline: Combination of amendment - Verify PO user (AR Owner) can able to Accept Combination Amendment Request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -23451,7 +23451,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | User       |
       | GRANTEE PO |
 
-  @472140 @CombinationofamendmentverifyPMuser(AROwner)canabletoAcceptCombinationAmendmentRequest @P1_Grantee @PM_Grantee @GRegression1 @GranteeTBE
+  @472140 @CombinationofamendmentverifyPMuser(AROwner)canabletoAcceptCombinationAmendmentRequest @P1_Grantee @PM_Grantee @GRegression1 @GranteeTBE @sprint15
   Scenario Outline: Combination of amendment - Verify PM user  (AR Owner) can able to Accept Combination Amendment Request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -23802,7 +23802,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | User           |
       | GRANTEE PM     |
 
-  @472175 @CombinationofamendmentverifyPMuser(AROwner)canabletosee'SubmittoGrantor'buttononceApprovedtheARRecord @P1_Grantee @PM_Grantee @GRegression1
+  @472175 @CombinationofamendmentverifyPMuser(AROwner)canabletosee'SubmittoGrantor'buttononceApprovedtheARRecord @P1_Grantee @PM_Grantee @GRegression1 @sprint15
   Scenario Outline: Combination of amendment - Verify PM user  (AR Owner) can able to Accept Combination Amendment Request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -24003,7 +24003,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | GRANTEE PM     |
 
 
-  @449172 @VerifyPM(AROwner=AwardOwner)cancreateFCARonactiveAward&seeView/Edit/DeletetheirowndraftARfromAwardlayout&ViewformGrantlayout&seeheader,status&StepProgressBar,tabs,landingtabs,button&sectionsonalltabsofFCAR  @GRegression1 @P1_Grantee @PM_Grantee
+  @449172 @VerifyPM(AROwner=AwardOwner)cancreateFCARonactiveAward&seeView/Edit/DeletetheirowndraftARfromAwardlayout&ViewformGrantlayout&seeheader,status&StepProgressBar,tabs,landingtabs,button&sectionsonalltabsofFCAR  @GRegression1 @P1_Grantee @PM_Grantee @sprint15
   Scenario Outline: Verify PM(AR Owner=Award Owner)can create FC AR on active Award & see View/Edit/ Delete their own draft AR from Award layout & View form Grant layout & see header,status & Step Progress Bar, tabs, landing tabs, button & sections on all tabs of FC AR
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -24632,7 +24632,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | userName      | User       | Approval |
       | Sarah PM user | GRANTEE PM | Sarah PM |
 
-  @464048 @VerifyPMuser(ARrecordowner)caneditthefieldsonBudgetPeriodChangeARisinCreated,submittedforreview,reviewedstates @P1_Grantee @PM_Grantee @GRegression1
+  @464048 @VerifyPMuser(ARrecordowner)caneditthefieldsonBudgetPeriodChangeARisinCreated,submittedforreview,reviewedstates @P1_Grantee @PM_Grantee @GRegression1 @sprint15
   Scenario: Verify PM user (AR record owner) can edit the fields on Budget Period Change AR is in Created, submitted for review, reviewed states
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -25041,7 +25041,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "Messages" sub tab
     Then I softly see "Messages" page block displayed
 
-  @474405 @validatePMuserseeImpactonGrant&AwardifCarryForwardedalltheamountfrompreviousawardtonewaward  @GRegression1 @P1_Grantee @PM_Grantee
+  @474405 @validatePMuserseeImpactonGrant&AwardifCarryForwardedalltheamountfrompreviousawardtonewaward  @GRegression1 @P1_Grantee @PM_Grantee @sprint15
     Scenario: Validate PM user see Impact on Grant & Award if Carry Forwarded all the amount from previous award to new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -25259,7 +25259,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "$0.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Program Income Expenditures" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
 
-  @474406 @validatePMuserseeImpactonGrant&AwardifCarryForwardedpartialmountfrompreviousawardtonewaward @GRegression1 @PM_Grantee @P1_Grantee
+  @474406 @validatePMuserseeImpactonGrant&AwardifCarryForwardedpartialmountfrompreviousawardtonewaward @GRegression1 @PM_Grantee @P1_Grantee @sprint15
   Scenario: Validate PM user see Impact on Grant & Award if Carry Forwarded partial amount from previous award to new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"

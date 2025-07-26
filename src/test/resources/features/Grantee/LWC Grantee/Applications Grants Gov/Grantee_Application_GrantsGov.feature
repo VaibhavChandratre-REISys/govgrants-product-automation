@@ -1308,7 +1308,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-   @481533 @validatepmusershouldabletoedittheformsincreated,submittedforreview,reviewed,revisioninprogressstate  @PM_Grantee @P1_Grantee @GRegression1
+   @481533 @validatepmusershouldabletoedittheformsincreated,submittedforreview,reviewed,revisioninprogressstate  @PM_Grantee @P1_Grantee @GRegression1 @sprint15
    Scenario: Validate PM user should able to edit the forms in Created , Submitted for review, reviewed, Revision in progress state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -1491,7 +1491,7 @@ Feature: Validate all scenarios for Applications Grants Gov
       | Form Validated Successfully. |
     And I close the tab
 
-  @482055 @ValidateGrantsgovlobbingformOptionalPOusercansuccessfullysubmitheformtoGrantsgovafterenteringvaliddatainGrantsgovlobbingform @P1_Grantee @PO_Grantee @GRegression1
+  @482055 @ValidateGrantsgovlobbingformOptionalPOusercansuccessfullysubmitheformtoGrantsgovafterenteringvaliddatainGrantsgovlobbingform @P1_Grantee @PO_Grantee @GRegression1 @sprint15
   Scenario: Validate Grants gov lobbing form Optional PO user can successfully submit the form to Grants.gov after entering valid data in Grants gov lobbing form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -1724,7 +1724,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I save the value from row "1" for column name "Last Modified On" as "LastModifiedOn" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "{SavedValue:LastModifiedOn}" for title "Last Modified On" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-   @479153 @validatepmusercansuccessfullysubmitapplicationtogrants.govwithoutaddingfilesin(Optional)Attachmentsform
+   @479153 @validatepmusercansuccessfullysubmitapplicationtogrants.govwithoutaddingfilesin(Optional)Attachmentsform @P1_Grantee @PM_Grantee @GRegression1 @sprint15
   Scenario: Attachments form (Optional)- Verify PM user can successfully submit application to grants.gov without adding files in (Optional)Attachments form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -1803,7 +1803,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @478724 @validatepmusercansuccessfullysubmitapplicationtogrants.govwithoutaddingfilesin(Optional)budgetnarrativeattachmentform  @P1_Grantee @PM_Grantee @GRegression1
+  @478724 @validatepmusercansuccessfullysubmitapplicationtogrants.govwithoutaddingfilesin(Optional)budgetnarrativeattachmentform  @P1_Grantee @PM_Grantee @GRegression1 @sprint15
   Scenario: Attachments form (Optional)- Verify PM user can successfully submit application to grants.gov without adding files in (Optional)budget narrative attachment form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -1883,7 +1883,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @480083 @480411 @validatePOusershouldtosubmittheapplicationtogrants.govwhenifusernotfilledtheoptionalform
+  @480083 @480411 @validatePOusershouldtosubmittheapplicationtogrants.govwhenifusernotfilledtheoptionalform @GRegression1 @P1_Grantee @PO_Grantee @sprint15
   Scenario: Validate PO user should to submit the application to grants.gov when if user not filled the optional form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -1977,7 +1977,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @480414 @VerifyPMusershouldtosubmittheapplicationtogrants.govafteradding&updatingthefileinrevisioninprogress @P1_Grantee @PM_Grantee @GRegression1
+  @480414 @VerifyPMusershouldtosubmittheapplicationtogrants.govafteradding&updatingthefileinrevisioninprogress @P1_Grantee @PM_Grantee @GRegression1 @sprint15
   Scenario: Verify PM user should to submit the application to grants.gov after adding & updating the file in revision in progress
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySF424A}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269351" with properties "default"
@@ -2092,7 +2092,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @480412 @BudgetInformationNonConstructionProgram(SF-424A)ValidatewithPOProfileOnceapprovedtheapplicationabletoseeSubmitgrantsGovButtononapplicationpagelayouttoprightcornerandabletocontinue @GRegression1 @P1_Grantee @PO_Grantee
+  @480412 @BudgetInformationNonConstructionProgram(SF-424A)ValidatewithPOProfileOnceapprovedtheapplicationabletoseeSubmitgrantsGovButtononapplicationpagelayouttoprightcornerandabletocontinue @GRegression1 @P1_Grantee @PO_Grantee @sprint15
   Scenario: Budget Information Non Construction Program (SF-424A)Validate with PO Profile Once approved the application able to see Submit grants Gov Button on application page layout top right corner and able to continue
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -2226,7 +2226,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I click on hyperlink containing value "Grantee PO"
     Then I softly see the text containing "grantee.po@yopmail.com.qagrnteatm"
 
-  @485373 @VerifyPMusershouldabletofilltheforminsplitviewmode&checkthedataonview&editmode&insplitviewmodeuserwillseethevalidation
+  @485373 @VerifyPMusershouldabletofilltheforminsplitviewmode&checkthedataonview&editmode&insplitviewmodeuserwillseethevalidation @GRegression1 @P1_Grantee @PM_Grantee @sprint15
   Scenario:Verify PM user should able to fill the form in splitview mode & check the data on view & edit mode & in splitview mode user will see the validation
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"

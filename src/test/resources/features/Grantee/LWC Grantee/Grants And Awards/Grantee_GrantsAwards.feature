@@ -4845,7 +4845,7 @@ Feature: Validate all scenarios for Grants & Awards
       | userType   | UEI          |
       | GRANTEE PM | YRNMVN96JC17 |
 
-  @482615 @validatesectionsdisplayedtopouseronawardwhenallsettingsareno @P1_Grantee @PO_Grantee @GRegression1
+  @482615 @validatesectionsdisplayedtopouseronawardwhenallsettingsareno @P1_Grantee @PO_Grantee @GRegression1 @sprint15
   Scenario: Validate sections displayed to PO user on award when all settings are No
     And I "Created" standalone subaward "Automation Runtime Award" with properties "ALL_SETTING_NO-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PO" user
@@ -4937,7 +4937,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
 
-  @443837 @validatewithEXEProfile,OnEditClickabletoredirecttoawardpagelayout,onawardlayoutabletoseealltabsandsectionwhichiscreatedthroughdirectwithsettingNO  @P1_Grantee @EXE_Grantee @GRegression1
+  @443837 @validatewithEXEProfile,OnEditClickabletoredirecttoawardpagelayout,onawardlayoutabletoseealltabsandsectionwhichiscreatedthroughdirectwithsettingNO  @P1_Grantee @EXE_Grantee @GRegression1 @sprint15
   Scenario: Validate with EXE Profile,On Edit Click able to redirect to award page layout,on award layout able to see all tabs and section which is created through direct with setting NO
     And I "Created" standalone subaward "Automation Runtime Award" with properties "ALL_SETTING_NO-Victor EXE user"
     When I login to "As a Grantee" app as "GRANTEE EXE" user
