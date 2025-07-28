@@ -1,7 +1,7 @@
 @home @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios in the home tab
 
-  @Add1 @56710 @56708 @internalOrganizationViewADMINEditPMView @smoke
+  @56710 @56708 @internalOrganizationViewADMINEditPMView @smoke
   Scenario: Validate whether all7 users have view access to Internal Organization
     Given I login to "Grantor" app as "Admin" user
     When I navigate to "Home" tab
@@ -31,7 +31,7 @@ Feature: Validate all scenarios in the home tab
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "AGENCY DETAILS" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---home:-:internalOrganizationAddfile---"
@@ -151,17 +151,17 @@ Feature: Validate all scenarios in the home tab
     And I enter "Creation" values from "PotentialReviewersContact_Field_Values.xlsx"
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
+    And I halt execution
     When I click modal button "Save"
 #    And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
 #    And I save the contact name as "Automation Runtime Contact"
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
-    #Bug441757
-    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
+    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
     And I pause execution for "5" seconds
     And I click "Send" button in modal
     Then I see the text "Email Sent Successfully" in modal
-    Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
+    Given I delete the record "{SavedValue:Automation Runtime} Contact" from the object "CONTACT"
 
     Examples:
       | User  |
