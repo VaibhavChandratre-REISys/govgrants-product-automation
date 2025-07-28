@@ -1246,6 +1246,7 @@ Feature: Validate all scenarios for program
     Then I do not see value "Record Id" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
     And I navigate to "Planning" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---program:-:completedTaskTableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
     Then I softly see value "Activate Internal Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:completedTaskTableId---"
 
@@ -1636,6 +1637,7 @@ Feature: Validate all scenarios for program
     Then I do not see value "Record Id" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
     And I navigate to "Planning" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---program:-:completedTaskTableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
     Then I softly see value "Activate NGO Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:completedTaskTableId---"
 
@@ -2826,8 +2828,8 @@ Feature: Validate all scenarios for program
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     Then I see field "Classification" as "Select file classification" on modal
-    Then I see field "Upload File" as " " on modal
-    Then I see field "Description" as " " on modal
+    Then I see field "Upload File" as "Choose a File OR Drag it here" on modal
+    Then I softly see field on modal "Description" inside page block
 
   @204037 @ValidateUserPMcanseetwobuttonsatthebottomofUploadFilesfromComputerUploadItwillenableonlyafterwechooseafiletouploadelseitwillbedisabled @sprint-7-US-202724
   Scenario: Validate User PM can see two buttons at the bottom of Upload Files from Computer Upload It will enable only after we choose a file to upload else it will be disabled
@@ -2848,6 +2850,7 @@ Feature: Validate all scenarios for program
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     Then I see "Upload" button is disabled at modal under library
+    And I select Classification as "Others" at upload file modal
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
 
@@ -3240,9 +3243,6 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
@@ -3318,9 +3318,6 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
@@ -4464,9 +4461,6 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
@@ -4683,12 +4677,8 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program | Announcement |
       | {SavedValue:PM Username} | Step 1  | Step 1       |
-    And I refresh the page
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I pause execution for "3" seconds

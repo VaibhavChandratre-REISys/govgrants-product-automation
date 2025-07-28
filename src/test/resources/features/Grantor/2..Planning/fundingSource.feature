@@ -484,6 +484,8 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---" without waiting for record
+    And I download the file without rename
+    And I wait for "3" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
   @196556 @ValidatefilerelatedpermissionsforPOprofileduringtheworkflowStatusCreatedActivatedActivewhenInternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048
@@ -530,6 +532,8 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---" without waiting for record
+    And I download the file without rename
+    And I wait for "3" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
   @196558 @196563 @ValidatefilerelatedpermissionsforEXEprofileduringtheworkflowStatusCreatedActivatedClosedwhenExternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048
@@ -595,9 +599,11 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:externalFundingSourceTableId---" without waiting for record
+    And I download the file without rename
+    And I wait for "3" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
- @196559 @196561 @ValidatefilerelatedpermissionsforADMINprofileduringtheworkflowStatusCreatedActivatedClosedwhenExternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048
+  @196559 @196561 @ValidatefilerelatedpermissionsforADMINprofileduringtheworkflowStatusCreatedActivatedClosedwhenExternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048
   Scenario: Validate file related permissions for ADMIN profile during the workflow Status (Created, Activated, Closed) when External Funding Source is created by ADMIN
     When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Planning" tab
@@ -661,6 +667,8 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:externalFundingSourceTableId---" without waiting for record
+    And I download the file without rename
+    And I wait for "3" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
   @196560 @196562 @ValidatefilerelatedpermissionsforFOprofileduringtheworkflowStatusCreatedActivatedClosedwhenExternalFundingSourceiscreatedbyFO @Sprint-3-US-195048
@@ -727,5 +735,6 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:externalFundingSourceTableId---" without waiting for record
-    And I wait for "1" seconds
+    And I download the file without rename
+    And I wait for "3" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded
