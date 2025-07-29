@@ -4483,7 +4483,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on top right button "New" in flex table with id "---home:-:userContactsTableId---"
     And I enter in modal "Secondary_User" values from "SubrecipientOrganization_Field_Values.xlsx"
     And I generate the random maildropEmail and save as "uniqueEmailID1"
-    And I enter value "{SavedValue:uniqueEmailID1}" into field "fieldEmail"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "Email"
     When I click on "Save" in the page details
     And I click modal button "Close"
     And I wait for "3" seconds
