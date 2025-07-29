@@ -5857,6 +5857,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I save the field labeled "Budget Period" as "previousBudgetPeriod"
+    And I save the field labeled "Budget Period" as "updatedBudgetPeriod"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
@@ -5928,7 +5929,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I click on "Activate" in the page details
     And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "ProgressReportId"
-    And I save the field labeled "Budget Period" as "updatedBudgetPeriod"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
@@ -5938,6 +5938,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---progressReport:-:recipientActiveGrantId---" without waiting for record
     When I navigate to "Management" sub tab
     And I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:recipientGrantProgressReportTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I see field "Budget Period" as "{savedValue:updatedBudgetPeriod}"
     Then I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
     Examples:

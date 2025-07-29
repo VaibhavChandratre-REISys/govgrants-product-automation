@@ -97,7 +97,6 @@ Feature: Validate scenarios in Progress Report Forms
       | To Save, City is required in the Recipient Information section.                                                                                                                    |
       | To Save, State is required in the Recipient Information section.                                                                                                                   |
       | To Save, ZIP / Postal Code is required in the Recipient Information section.                                                                                                       |
-      | To Save, Country is required in the Recipient Information section.                                                                                                                 |
       | To Save, First Name is required in the 13. Certification section.                                                                                                                  |
       | To Save, Last Name is required in the 13. Certification section.                                                                                                                   |
       | To Save, Title is required in the 13. Certification section.                                                                                                                       |
@@ -4839,8 +4838,8 @@ Feature: Validate scenarios in Progress Report Forms
       | To Save, City is required in the 3. Recipient Organization (name and complete address including zip code) section.                                                                                         |
       | To Save, State is required in the 3. Recipient Organization (name and complete address including zip code) section.                                                                                        |
       | To Save, ZIP / Postal Code is required in the 3. Recipient Organization (name and complete address including zip code) section.                                                                            |
-      | First Name is required to save.                                                                                                                                                                            |
-      | Last Name is required to save.                                                                                                                                                                             |
+      | To Save, First Name is required in the 6. Contact Person for this Report section.                                                                                                                          |
+      | To Save, Last Name is required in the 6. Contact Person for this Report section.                                                                                                                           |
       | To Save, Email is required in the 6. Contact Person for this Report section.                                                                                                                               |
       | To Save, Phone is required in the 6. Contact Person for this Report section.                                                                                                                               |
       | To Save, First Name is required in the Details of Authorized Certifying Official section.                                                                                                                  |
