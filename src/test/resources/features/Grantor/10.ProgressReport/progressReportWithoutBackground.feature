@@ -2305,7 +2305,6 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:ProgressReport1}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:ProgressReport1}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Reassign" to user "{SavedValue:EXE Username}" in the approval decision
-#    Then I can see the message "<Error Message>" in the approval decision
     Then I see the following messages in the page details contains:
       | <Error Message> |
 
@@ -3007,6 +3006,12 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:ProgressReport1}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:ProgressReport1}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:ProgressReport2}" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:ProgressReport2}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
