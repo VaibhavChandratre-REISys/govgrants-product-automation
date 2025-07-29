@@ -5036,3 +5036,50 @@ Feature: Validate all scenarios for Grants & Awards
     Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
+
+  @443817 @validatePMprofile,awardpagelayoutofdirectgrant
+  Scenario: Validate PM Profile, award page layout of direct grant
+  And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+  And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+  When I login to "As a Grantee" app as "GRANTEE PM" user
+  And I navigate to "Grants" tab
+  When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+  And I click toggle button to select "Grants - All"
+  When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+  And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+  And I save the field labeled "EGMS ID" as "GrantEGMSID"
+  When I navigate to "Awards" sub tab
+  And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+  And I save the field labeled "EGMS ID" as "AwardEGMSID"
+  Then I softly see field "Status" as "Created"
+  Then I see status in Progress-bar is "Created" and is "dark blue"
+  Then I softly see "Collapse" button for header
+  Then I softly see "Resize" button for page
+  Then I softly see "Collapse" button for page
+  Then I can see top right button "Edit" in page detail
+  Then I can see top right button "Validate" in page detail
+  Then I can see top right button "Submit For Approval" in page detail
+  And I click on Menu icon present on top right corner of the page
+  Then I see option "Download as PDF" present in parallel dropdown
+  Then I see option "Take Snapshot" present in parallel dropdown
+  Then I softly can see "Overview" sub tab at view detail page
+  Then I softly can see "Projections" sub tab at view detail page
+  Then I softly can see "Responsibilities" sub tab at view detail page
+  Then I softly can see "Management" sub tab at view detail page
+  Then I softly can see "Monitoring" sub tab at view detail page
+  Then I softly can see "Files" sub tab at view detail page
+  Then I softly can see "History" sub tab at view detail page
+  Then I softly can see "Messages" sub tab at view detail page
+  Then I softly can see "Chatter" sub tab at view detail page
+  Then I softly can see "Field Audit" sub tab at view detail page
+  Then I softly see "Details" page block displayed
+  Then I softly see field "Award Title" inside page block
+  Then I softly see field "Grant EGMS ID" inside page block
+  Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
+  And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+  Then I see the header is "Grant" in the page details
+  When I navigate to "Overview" sub tab
+  When I navigate to "Awards" sub tab
+  And I click on "Edit" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+  Then I can see top right button "Save" in page detail
+  Then I can see top right button "Cancel" in page detail
