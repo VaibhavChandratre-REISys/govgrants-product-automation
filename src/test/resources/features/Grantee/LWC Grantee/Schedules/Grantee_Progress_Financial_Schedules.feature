@@ -11411,8 +11411,9 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     Then I softly see value "{SavedValue:EGMS ID11}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     Examples:
+      | User       |
       | GRANTEE PM  |
-#      | GRANTEE EXE |
+#      | GRANTEE EXE  |
 
   @485366 @ValidatePOusercanseeProgressreportschedulesfromawardinMonitoringschedules
   Scenario Outline: Validate PO user can see Progress report schedules from award in Monitoring schedules
