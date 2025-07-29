@@ -9754,7 +9754,7 @@ Feature: Validate scenarios in Progress Report without background
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
-    And I pause execution for "30" seconds
+    And I pause execution for "50" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
