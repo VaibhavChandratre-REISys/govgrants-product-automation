@@ -6017,7 +6017,7 @@ Feature: Validate all scenarios for program
       Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
       """
 
-  @VerifyValidationMessageForReviewFormWeightLessThan100%
+  @Notags @VerifyValidationMessageForReviewFormWeightLessThan100%
   Scenario: validate user is able to see validation message when review form weight is les than 100%
     And I navigate to "Setup" sub tab
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
@@ -6226,7 +6226,7 @@ Feature: Validate all scenarios for program
       | {SavedValue:FD Username} | Step 4  |
     Then I softly see "Saved Successfully!" inside flex table with id "---program:-:approverTableId---"
 
-  @passed @138465 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtProgram-RnRFunctionality  @buglogged154221
+  @138465 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtProgram-RnRFunctionality  @buglogged154221
   Scenario: Validate program owner cant add same user for multiple steps  while assigning approvers for program on program record
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
