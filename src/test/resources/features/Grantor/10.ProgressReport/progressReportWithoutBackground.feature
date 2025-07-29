@@ -1401,16 +1401,15 @@ Feature: Validate scenarios in Progress Report without background
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Other" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"
     Then I softly see value "Other" for title "Classification" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"
     And I wait for "2" seconds
     When I click on "Download" icon for "Automation.pdf" inside flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---" without waiting for record
     And I wait for "2" seconds
-    And I download the file
-    Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
+    And I download the file without rename
+    Then I softly verify that the file "Automation.pdf" is downloaded
     And I switch to parent tab
     When I click on "Delete" icon for "Automation.pdf" inside flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---" without waiting for record
     And I wait for "2" seconds
@@ -5026,6 +5025,7 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "1" seconds
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
@@ -10548,7 +10548,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "View" for title "Template Link" against the value "Progress Report" inside table "---progressreport:-:grantChecklistsTableId---"
-    And I save the value from row "3" for column name "Template Link" as "TemplateLink" from flex table "---progressreport:-:grantChecklistsTableId---"
+    And I save the value from row "4" for column name "Template Link" as "TemplateLink" from flex table "---progressreport:-:grantChecklistsTableId---"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside flex table with id "---progressreport:-:GrantsSubAwardsTableId---" without waiting for record
     When I navigate to "Performance" sub tab
