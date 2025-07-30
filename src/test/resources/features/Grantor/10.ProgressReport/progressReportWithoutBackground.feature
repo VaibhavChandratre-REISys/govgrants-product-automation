@@ -1077,17 +1077,9 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I get the "EGMS ID"
-#    And I click on "Edit" in the page details
-#    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
-#    And I click on "Save" in the page details
-#    And I navigate to "Performance" sub tab
-#    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
-#      | Title                    | Reported Date | Actual |
-#      | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    And I wait for "3" seconds
     Then I see the following messages in the page details contains:
       | File Attachment.pdf Uploaded successfully. |
     Examples:
@@ -2414,6 +2406,9 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:ProgressReport1}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:ProgressReport1}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
+    And I wait for "10" seconds
+    And I refresh the page
+    And I wait for "2" seconds
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     Examples:
       | Award Name                            | Grant Name                            |
@@ -6315,7 +6310,7 @@ Feature: Validate scenarios in Progress Report without background
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
-    And I pause execution for "30" seconds
+    And I pause execution for "50" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
@@ -8335,7 +8330,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Progress Report {SavedValue:progID} has beensubmitted.
+      Sandbox: Notification: Progress Report {SavedValue:progID} PeerReview Completed
       """
 
     Then I see the mail text is as follows :
@@ -8354,6 +8349,28 @@ Feature: Validate scenarios in Progress Report without background
       Log in to EGMS and click here to review the progress report.
       Please do not reply to this system-generated email. You may contact GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
       Thank you,
+      The EGMS Team
+
+
+      Hello Automation EXE1,
+
+      This email is to notify you that Progress Report #PR--GT-1234-03678-002 of Grant #GT-1234-03678 has been peer reviewed.
+
+       Report Details:
+
+       Award ID: AD-1234-15339
+       Subrecipient Organization: SAN DIEGO ELECTRICAL TRAINING TRUST
+       Report Type: Program
+       Reporting Period Start Date: {Date:M/d/yyyy}
+       Reporting Period End Date: {Date:MM/d/yyyy::d+158}
+       Frequency: Annually
+
+      Log in to EGMS and click here for more details.
+
+      Please do not reply to this system-generated email. You may contact GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+
+      Thank you,
+
       The EGMS Team
       """
 
@@ -9561,7 +9578,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
-    And I pause execution for "30" seconds
+    And I pause execution for "50" seconds
     And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
