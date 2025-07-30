@@ -1903,6 +1903,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "amendedSubawardId"
+    And I save the field labeled "Budget Period" as "updatedBudgetPeriod"
     And I navigate to "Overview" sub tab
     And I save the field labeled "Subaward Title" as "Automation Runtime Award2"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
