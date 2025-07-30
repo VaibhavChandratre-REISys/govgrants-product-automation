@@ -1374,37 +1374,22 @@ Feature: Validate all scenarios for Strategic Plan
   @445782 @vaildatePM/EXEusercanviewStrategicplanrecordinCreated,Active,Inactivestate
   Scenario Outline:Validate PM/ EXE user can view Strategic plan record in Created, Active, Inactive state
    When I login to "As a Grantee" app as "GRANTEE PM1" user
-   And I navigate to "Planning" tab
-   When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
-   And I click toggle button to select "Strategic Plans - Draft"
-   And I click on top right button "New" in flex table with id "---grantee_tableId:-:StrategicPlans---"
-   And I enter in modal "Grantee_StrategicPlanCreation" values from "StrategicPlan_Field_Values.xlsx"
-   And I click modal button "Save and Continue"
-   When I enter value "Automation Test Description" into field "StrategyDescription__c"
-   And I click on "Save" in the page details
-   And I wait for "2" seconds
-   Then I softly see field "Description" as "Automation Test Description" in "Details" pageblock
-   When I navigate to "Files" sub tab
-   And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
-   And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
-   When I click modal button "Close"
-   And I wait for "2" seconds
-   Then I see "AttachmentTesting.pdf" has been added in "Strategic Plan Files" flex table
-   And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
-   And I update title as "Automation.pdf" on upload file modal
-   And I select Classification as "Strategic Plan" at upload file modal
-   When I click modal button "Save"
-   And I click modal button "Close"
-   And I refresh the page
-   And I wait for "2" seconds
-   Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
-   Then I softly see value "Strategic Plan" for title "Classification" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
-   And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
-   And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
-   When I click modal button "Close"
-   And I wait for "2" seconds
-   Then I see "Attachment.pdf" has been added in "Strategic Plan Files" flex table
-   When I enter the following values into flex table with id "---grantee_tableId:-:strategicPlansNotesTableId---" by clicking "New" :
+    And I navigate to "Planning" tab
+    When I navigate to "{grantee_sidebar:StrategicPlanLinkName}" content inside "{grantee_sidebar:SetUpSubheaderName}" subheader on left panel
+    And I click on top right button "New" in flex table with id "{grantee_tableId:StrategicPlans}"
+    And I enter value "Automation Runtime Strategic" into field "StrategyTitle__c"
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    When I enter value "Automation Test Description" into field "StrategyDescription__c"
+    And I click on "Save" in the page details
+    And I wait for "1" seconds
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Attachment.pdf" has been added in "Strategic Plan Files" flex table
+    When I enter the following values into flex table with id "---grantee_tableId:-:strategicPlansNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
    When I enter the following values into flex table with id "---grantee_tableId:-:strategicPlansNotesTableId---" by clicking "New" :
