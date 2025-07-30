@@ -25478,7 +25478,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "$0.00" for title "Program Income Expenditures" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
 
   @449386 @validatethebudgetchangeAddlinesItems
-  Scenario Outline : Verify the budget change Add lines Items
+  Scenario Outline: Verify the budget change Add lines Items
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
