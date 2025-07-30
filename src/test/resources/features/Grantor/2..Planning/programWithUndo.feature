@@ -845,7 +845,7 @@ Feature: Validate all scenarios for program
     When I select radio button "Approve" in the approval decision
     And I submit the approval in the approval decision
     Then I see the following messages in the page details contains:
-      | Comments are Required. |
+      | Comments are required. |
 
   @279442 @VerifyusershouldnotseeactiveprogramtaskinpendingtaskfterpproverclickonUndobutton @sprint-25-US-295138  @Undo
   Scenario: Verify user should not see active program task in pending task after approver click on Undo button
@@ -2367,9 +2367,8 @@ Feature: Validate all scenarios for program
     And I pause execution for "3" seconds
     When I select radio button "Approve" in the approval decision
     And I submit the approval in the approval decision
-    #Bug431809
     Then I softly see the following messages in the page details contains:
-      | Comments are Required. |
+      | Comments are required. |
 
   @279561 @VerifyusershouldnotseeactiveprogramtaskinpendingtaskafterapproveclickonUndobutton @sprint-3-US-291914  @Undo
   Scenario: Verify user should not see active program task in pending task after approver click on Undo button
@@ -2454,7 +2453,10 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
-    And I wait for "5" seconds
+    And I wait for "30" seconds
+    And I reset the table
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
+    Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3236,7 +3238,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     Then I softly see field "Status" as "Rejected"
     Then I cannot see top right button "Undo" in page detail
-    And I click on "Download As PDF" in the page details
+    And I click on "Download as PDF" in the page details
     And I wait for "7" seconds
     And I download the file
     And I wait for "3" seconds

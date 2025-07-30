@@ -706,6 +706,7 @@ Feature: Validate all scenarios for program
     And I click on "Delete" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly see the following messages in the page details :
       | Record deleted Successfully. |
+    And I wait for "5" seconds
     When I enter the following values into flex table with id "---program:-:reviewFormPanelId---" by clicking "New" :
       | Form Name         | Required? | Minimum Number of Reviews per Application |
       | Automation Review | Checked   | 1                                         |
@@ -1328,7 +1329,7 @@ Feature: Validate all scenarios for program
     Then I do not see value "Record Id" for title "EGMS ID" inside table "---focusarea:-:relatedProgramsTableId---"
     Examples:
       | Focus Area                      | Program Name                                     |
-      | Automation Permanent Focus Area | {SavedValue:EXE Username}cution Internal Program |
+      | Automation Permanent Focus Area | {SavedValue:Automation Runtime Internal Program} |
 
   @53692 @Verify_Relatedlogs_table_for_focusArea_for_Active_Program_ViewAction
   Scenario Outline: Verify related log table for focus area for Active Program view Action
@@ -4335,7 +4336,6 @@ Feature: Validate all scenarios for program
   @77487 @77602 @77603 @77604 @ValidatingMinimumNoOfReviewsShouldBeGreaterThanZeroInProgramFiscalAndComplianceReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) : 0% ,Minimum Number of Reviews per Application : 0 , Required? : checked ,for Program,Fiscal and Compliance Review form, in SME Review step in planning phase
     And I click on "Edit" in the page details
-    And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
@@ -4493,7 +4493,6 @@ Feature: Validate all scenarios for program
       | Compliance Review | Checked   | 0                                         | 30              |
     Then I softly see the following messages in the page details :
       | For required panel the Minimum Number of Reviews should be greater than zero. |
-    #And I click on top right button "save" in flex table with id "---program:-:reviewStepTableId---"
     Examples:
       | Objective                      |
       | Automation Permanent Objective |
@@ -4580,6 +4579,7 @@ Feature: Validate all scenarios for program
       | Management Review | 25              |
       | SME Review        | 50              |
       | Pre-Screen Review | 25              |
+    And I wait for "5" seconds
     And I expand nested table containing column value "SME Review"
     #77685
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :

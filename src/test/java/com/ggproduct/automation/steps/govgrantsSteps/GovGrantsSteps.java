@@ -550,6 +550,7 @@ public final class GovGrantsSteps {
     @When("^I close \"([^\"]*)\" modal by clicking the top right x button$")
     public void iCloseModalModalByClickingTheTopRightXButton(String titleName) {
         govgrants.perform().modal().closeModalByClickingTopRightCloseButton(titleName);
+        govgrants.perform().modal().acceptPopUp();
     }
 
     /******* Page Details ***********/

@@ -6725,7 +6725,7 @@ Feature: Validate all scenarios for program
     And I click toggle button to select "All NGO Programs"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly see field "Status" as "Approved"
     And I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
@@ -6873,7 +6873,6 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
-    And I refresh the page
     Then I softly see field "Status" as "Rejected"
     Then I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -7571,7 +7570,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "exe.automation.qa2@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
       | pm.automation.qa2@yopmail.com                                         |
-      | exe.automation@yopmail.com                                            |
+      | exe.automation.qa2@yopmail.com                                        |
       | Notification: Program {SavedValue:ProgramEGMSID} awaiting Peer Review |
     When I close "System Email" modal by clicking the top right x button
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -7586,7 +7585,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "exe.automation.qa2@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
       | pm.automation.qa2@yopmail.com                                         |
-      | exe.automation@yopmail.com                                            |
+      | exe.automation.qa2@yopmail.com                                        |
       | Notification: Program {SavedValue:ProgramEGMSID} awaiting Peer Review |
     When I close "System Email" modal by clicking the top right x button
     #331482
@@ -7606,7 +7605,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
     And I click on "View" icon for "Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
-      | exe.automation@yopmail.com                                              |
+      | exe.automation.qa2@yopmail.com                                          |
       | pm.automation.qa2@yopmail.com                                           |
       | Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed |
     When I close "System Email" modal by clicking the top right x button
@@ -7622,7 +7621,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
     And I click on "View" icon for "Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
-      | exe.automation@yopmail.com                                              |
+      | exe.automation.qa2@yopmail.com                                          |
       | pm.automation.qa2@yopmail.com                                           |
       | Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed |
     When I close "System Email" modal by clicking the top right x button
@@ -7720,7 +7719,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "exe.automation.qa2@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
       | automation.po.qa2@yopmail.com                                                            |
-      | exe.automation@yopmail.com                                                               |
+      | exe.automation.qa2@yopmail.com                                                           |
       | Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}. |
     When I close "System Email" modal by clicking the top right x button
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -7973,7 +7972,6 @@ Feature: Validate all scenarios for program
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
     #331823
     And I "Reject" in the approval decision
-    And I refresh the page
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"

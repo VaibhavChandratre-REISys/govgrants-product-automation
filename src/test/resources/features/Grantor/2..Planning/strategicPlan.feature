@@ -32,8 +32,7 @@ Feature: Validate all scenarios in Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Other" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---strategicplan:-:strategicGoalObjectivesAttTableId---"
     Then I softly see value "Other" for title "Classification" inside table "---strategicplan:-:strategicGoalObjectivesAttTableId---"
@@ -166,6 +165,8 @@ Feature: Validate all scenarios in Strategic Plan
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---strategicplan:-:ObjectivesKPITableId---"
     When I click "Add" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---strategicplan:-:ListOfActiveKPITableId---"
+    And I click modal button "Close"
+    And I wait for "2" seconds
     Then I see that "Automation Permanent KPI" has been added in flextable with Id "---strategicplan:-:ObjectivesKPITableId---"
 
     #marking as notFunctional as we can not activate multiple strategic plan for one organization
