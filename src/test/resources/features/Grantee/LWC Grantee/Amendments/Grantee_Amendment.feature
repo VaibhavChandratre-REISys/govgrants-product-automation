@@ -25530,6 +25530,64 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Overview Tab - Maximum Indirect Cost Rate cannot be greater than 100%.                                                                                                   |
       | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
       | Responsibilities - At least one approver is required.                                                                                                                    |
+    When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---"
+    And I click on "Delete" icon for "Extra Salary" inside flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly do not see value "Extra Salary" for title "Title" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
     Examples:
       | userName        | User       |
       | Victor EXE user | GRANTEE EXE |
+
+
+  @449384 @VerifyUsershouldableseeDataaddedonawardshouldbecopiedonamendmentrecord&verifythevalidation
+  Scenario: Verify User should able see Data added on award should be copied on amendment record & verify the validation
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    When I login to "As a Grantee" app as "<User>" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    Then I softly can see "Actuals" sub tab at view detail page
+    When I navigate to "Amendments" sub tab
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I enter "Grantee_Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "3" seconds
+    When I clear the value from field "PurposeRTA__c"
+    When I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | To Save, Justification is required in the Overview tab under the Details section. |
+    When I enter value "Automation Test" into field "PurposeRTA__c"
+    And I enter value "120" into field "ApprovedIndirectCostRate__c"
+    And I enter value "Checked" into field "GeneralConditionChanged__c"
+    And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
+    And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
+    Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
+      | Title        | Narrative     | Awarded Budget | Cash Match |
+      | Construction | The narrative | 4500           | 450        |
+    When I close "Add Line Items" modal by clicking the top right x button
+    When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Awarded Budget | Cash Match |
+      | Extra Salary | The narrative | 600            | 60         |
+    When I close "Add Line Items" modal by clicking the top right x button
+    And I click on "Submit for Approval" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection.                                                                         |
+      | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero.                                                                   |
+      | Overview Tab - The budget redirection threshold for each focus area cannot exceed the budget redirection threshold 10.00%                                                |
+      | Overview Tab - Maximum Indirect Cost Rate cannot be greater than 100%.                                                                                                   |
+      | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
+      | Responsibilities - At least one approver is required.                                                                                                                    |
