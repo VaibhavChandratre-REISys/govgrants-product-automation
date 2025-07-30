@@ -1373,7 +1373,7 @@ Feature: Validate all scenarios for Strategic Plan
 
   @445782 @vaildatePM/EXEusercanviewStrategicplanrecordinCreated,Active,Inactivestate
   Scenario Outline:Validate PM/ EXE user can view Strategic plan record in Created, Active, Inactive state
-   When I login to "As a Grantee" app as "GRANTEE PM" user
+   When I login to "As a Grantee" app as "GRANTEE PM1" user
    And I navigate to "Planning" tab
    When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
    And I click toggle button to select "Strategic Plans - Draft"
@@ -1421,7 +1421,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "autopm1grantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
@@ -1468,7 +1468,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "autopm1grantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---grantee_tableId:-:Objectives---"
@@ -1481,6 +1481,7 @@ Feature: Validate all scenarios for Strategic Plan
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:strategicObjectivesKPITableId---"
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
+    And I wait for "3" seconds
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
@@ -1523,7 +1524,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "autopm1grantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I save the field labeled "Strategic Plan" as "StrategicPlan"
     And I click on hyperlink containing value "{SavedValue:StrategicPlan}"
@@ -1581,7 +1582,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE PM1" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     And I click toggle button to select "Strategic Plans - Active"
@@ -1712,7 +1713,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE PM1" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     And I click toggle button to select "Strategic Plans - Inactive"
@@ -1755,5 +1756,5 @@ Feature: Validate all scenarios for Strategic Plan
     Then I see option "Download as PDF" present in parallel dropdown
     Examples:
       | User          | RecordId                            |
-      | GRANTEE EXE    | Automation Permanent Strategic Plan |
+      | GRANTEE EXE1    | Automation Permanent Strategic Plan |
 
