@@ -255,7 +255,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I enter value "{AUTOEnvData:StringOf60Chars}" into field "RecipientOrganizationNameSF428__c"
     When I click on "Save" in the page details
     Then I softly see field "Recipient Organization Name" as "{AUTOEnvData:StringOf60Chars}"
-    And I wait for "4" seconds
+    And I wait for "7" seconds
     When I click on "Edit" in the page details
     And I clear the value from field "Street1SF428__c"
     When I click on "Save" in the page details
