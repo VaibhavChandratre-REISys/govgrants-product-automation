@@ -1999,7 +1999,6 @@ Feature: Validate all scenarios for program
     Then I softly see value "Approve NGO Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:pendingTaskTableId---"
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
-    And I refresh the page
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2133,6 +2132,7 @@ Feature: Validate all scenarios for program
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I "Send to Owner" in the approval decision
     And I logout
+    And I wait for "2" seconds
     And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
@@ -3026,7 +3026,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     And I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
-    Then I can see top right button "Submit for Approval" in page detail
+    Then I can see top right button "Submit For Approval" in page detail
 
   @197527 @ValidatereassignedtaskownerPMuserisabletoactivatetheexternalprogramifadmintransferstaskofthetasktypeActivateNGOProgramwhenstatusoftaskisNotStarted @sprint-12-US-226646  @reassignment
   Scenario: Validate reassigned task owner PM user is able to activate the external program if admin transfers task of the task type Activate NGO Program when status of task is Not Started
