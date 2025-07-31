@@ -329,7 +329,7 @@ public class UsersAndURL implements UsersController {
         username.put("ADMIN1", "manu.admin@ggp.test8.frwklwcaut");
         username.put("PM", "donald_pm@ggp.test7.atm.frwklwcaut");
         username.put("FO", "auto.fm@auto.com.frwklwcaut");
-        username.put("SPI3", "aspi3@grants.gov.frwklwcaut");
+        username.put("SPI3", "aspi3@grants.gov.frwklwcautaspi3@grants.gov.frwklwcaut");
         username.put("PM1", "pm1.automation@yopmail.com.frwklwcaut");
         username.put("Automation PM", "automationpm@ggp.test8.frwklwcaut");
         username.put("SA", "asa@grants.gov.frwklwcaut");
@@ -395,17 +395,16 @@ public class UsersAndURL implements UsersController {
 
     private String getLwcPatchEnvironmentPassword(String userType) {
         Map<String, String> password = new HashMap<>();
-        password.put("ADMIN", "FwLwc@02oct");
+        password.put("ADMIN", "FwLwc@30jan");
         password.put("ADMIN1", "LwcPach@02oct");
-        password.put("EXE", "LwcPach@02oct");
-        password.put("PM", "LwcPach@02oct");
-        password.put("DYNAMICUSER", "LwcPach@02oct");
-        password.put("FO", "LwcPach@02oct");
-        password.put("SPI3", "LwcPach@02oct");
-        password.put("PM1", "LwcPach@02oct");
-        password.put("Automation PM", "LwcPach@02oct");
-        password.put("SA", "LwcPach@02oct");
-        password.put("PO", "LwcPach@02oct");
+        password.put("EXE", "Patch@31July");
+        password.put("PM", "Patch@31July");
+        password.put("DYNAMICUSER", "Patch@31July");
+        password.put("FO", "Patch@31July");
+        password.put("SPI3", "Patch@31July");
+        password.put("PM1", "Patch@1Aug");
+        password.put("SA", "Patch@1Aug");
+        password.put("PO", "Patch@31July");
         password.put("IND", "LwcPach@02oct");
         if (userType.toUpperCase() != null) {
             return password.get(userType.toUpperCase());

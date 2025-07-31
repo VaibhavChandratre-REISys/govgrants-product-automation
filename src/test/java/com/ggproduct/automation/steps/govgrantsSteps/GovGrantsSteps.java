@@ -219,16 +219,14 @@ public final class GovGrantsSteps {
     @Description("Clicks on action view icon inside a table")
     @When("^I click on \"([^\"]*)\" icon for \"([^\"]*)\"( with excluding regx)? inside flex table with id \"([^\"]*)\" without waiting for record$")
     public void clickActionIconWithoutWaitForRecord(String actionIcon, String anyUniqueColumnValues, String isExcludeRegx, String flexTableId) {
-        I.amPerforming().browserOperationsTo().CheckPageLoadingStatus();
         if (anyUniqueColumnValues.equalsIgnoreCase("Record Id")) {
             govgrants.perform().flexTable().clickTableActionIcon(flexTableId, actionIcon, govgrants.perform().pageDetails().idOfRecord);
         } else if (null != isExcludeRegx && isExcludeRegx.contains("with excluding regx")) {
             govgrants.perform().flexTable().clickTableActionIcon(flexTableId, actionIcon, anyUniqueColumnValues);
         } else {
-            govgrants.perform().flexTable().clickTableActionIcon(flexTableId, actionIcon, anyUniqueColumnValues);
+            govgrants.perform().flexTable().clickTableActionIcon(flexTableId, actionIcon, anyUniqueColumnValues.split(","));
         }
     }
-
 
     @Description("Clicks on any action icon inside a table")
     @When("^I click on \"([^\"]*)\" icon for \"([^\"]*)\" inside table without waiting for record$")
