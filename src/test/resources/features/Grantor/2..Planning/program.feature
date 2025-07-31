@@ -2644,6 +2644,7 @@ Feature: Validate all scenarios for program
     And I switch to parent tab
     And I wait for "3" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
+    And I wait for "2" seconds
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type | Max Score |
       | 11             | Test 11  | Date | 0         |
