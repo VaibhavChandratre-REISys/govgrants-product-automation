@@ -3234,8 +3234,6 @@ Feature: Validate all scenarios for program
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     And I "Reject" in the approval decision
-    And I refresh the page
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Rejected"
     Then I cannot see top right button "Undo" in page detail
     And I click on "Download as PDF" in the page details
