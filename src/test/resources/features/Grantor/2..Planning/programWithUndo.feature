@@ -367,7 +367,7 @@ Feature: Validate all scenarios for program
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com""
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1445,7 +1445,7 @@ Feature: Validate all scenarios for program
     Then I can see top right button "Undo" in page detail
     And I logout
     And I pause execution for "5" seconds
-    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com""
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "150" seconds
     Then I refresh the page
     And I click on mail with subject "Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}"
@@ -2200,7 +2200,7 @@ Feature: Validate all scenarios for program
      Thank you.
      The EGMS Team
      """
-    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com""
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :

@@ -5805,7 +5805,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @passed @106332 @106322 @106319 @106317 @verifyActivationOfAmendedProgram
+  @106332 @106322 @106319 @106317 @verifyActivationOfAmendedProgram
   Scenario Outline: Verify user is able to activate the amended internal program
     And I click on "Edit" in the page details
     And I wait for "10" seconds

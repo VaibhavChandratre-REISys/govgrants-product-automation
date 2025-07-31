@@ -321,7 +321,7 @@ Feature: Amendment Request scenarios with Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com""
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I click on mail with subject "Sandbox: Notification: Approver has initiated Undo Action onAmendment Request #{SavedValue:CFAmendmentId}"
@@ -2417,7 +2417,7 @@ Feature: Amendment Request scenarios with Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com""
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4038,7 +4038,7 @@ Feature: Amendment Request scenarios with Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com""
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4753,7 +4753,7 @@ Feature: Amendment Request scenarios with Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com""
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5970,7 +5970,7 @@ Feature: Amendment Request scenarios with Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com""
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -6961,7 +6961,7 @@ Feature: Amendment Request scenarios with Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com""
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -9850,7 +9850,7 @@ Feature: Amendment Request scenarios with Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com""
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -12031,7 +12031,7 @@ Feature: Amendment Request scenarios with Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com""
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -12748,7 +12748,7 @@ Feature: Amendment Request scenarios with Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com""
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :

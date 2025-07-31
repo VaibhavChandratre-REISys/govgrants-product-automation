@@ -166,7 +166,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     And I pause execution for "2" seconds
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com""
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -894,7 +894,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     And I pause execution for "2" seconds
     And I logout
     And I pause execution for "2" seconds
-    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com""
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -1016,7 +1016,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     And I pause execution for "2" seconds
     And I logout
     And I pause execution for "2" seconds
-    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com""
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """

@@ -312,7 +312,7 @@ Feature: Validate all scenarios in Closeout
       Sandbox: Notification: Closeout Request {SavedValue:closeoutID} has beenSubmitted for your Approval
       """
     #86709
-    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com""
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "5" seconds
     Then I refresh the page
     And I see the mail subject is as follows :

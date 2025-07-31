@@ -512,7 +512,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com""
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
