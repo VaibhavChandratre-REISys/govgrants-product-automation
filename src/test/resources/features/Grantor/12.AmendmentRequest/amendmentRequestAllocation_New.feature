@@ -20419,3 +20419,85 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Reporting Period End Date" as "ReportingPeriodEndDate1"
     Then I softly see value "{SavedValue:startdate}" is "Equals to" the value "{SavedValue:ReportingPeriodStartDate1}"
     Then I softly see value "{SavedValue:enddate}" is "Equals to" the value "{SavedValue:ReportingPeriodEndDate1}"
+
+  @422480 @validateCarryforward
+  Scenario: Validate Carry forward
+    And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    Then I softly see that "Subaward" is in "Activated" status
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
+    When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter "PeriodicEditionFocusYes" values from "AmendmentRequest_Field_Values.xlsx"
+    When I enter values into fields
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
+    And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
+    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
+    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+      | Title                           | Start Date         | End Date           | New Obligation |
+      | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} | 1000           |
+    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+      | Title                            | Start Date         | End Date           | New Obligation |
+      | Automation Permanent Focus Area2 | {SavedValue:PBPSD} | {SavedValue:PBPED} | 1000           |
+    And I refresh the page
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+      | Title                       | Revised Encumbrance |
+      | {SavedValue:fundingAccount} | 2000                |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:PM Username} | Step 1            |
+    And I click on "Send to Subrecipient" in the page details
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
+      | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
+      | Construction    | 1000                 | 100        | 0              |
+    And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
+    And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
+      | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
+      | Construction  | 1000                 | 100        | 0              |
+    And I refresh the page
+    And I click on "Submit to Grantor" in the page details
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I click on "Submit for Approval" in the page details
+    And I pause execution for "3" seconds
+    And I "Approve" in the approval decision
+    And I pause execution for "3" seconds
+    And I click on "Amend Subaward" in the page details
+    And I pause execution for "10" seconds
+    And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
+    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I navigate to "Budget" sub tab
+    Then I softly see field "Cumulative Obligation" as "$1,000.00"
+    Then I softly see field "Total Commitment" as "$1,000.00"
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:ActivatedSubAwardId}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    When I click on "Activate" in the page details
+    Then I softly see field "Status" as "Activated"
