@@ -4442,6 +4442,7 @@ Feature: Validate all scenarios for program
       | Management Review | 25              |
       | SME Review        | 50              |
       | Pre-Screen Review | 25              |
+    And I wait for "6" seconds
     And I expand nested table containing column value "SME Review"
     #77476
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
@@ -4468,6 +4469,7 @@ Feature: Validate all scenarios for program
       | Fiscal Review | Unchecked | 0               | 0                                         |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
+    And I wait for "6" seconds
     When I collapse nested table containing column value "SME Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
@@ -4480,19 +4482,21 @@ Feature: Validate all scenarios for program
     And I refresh the page
     And I navigate to "Setup" sub tab
     When I collapse nested table containing column value "SME Review"
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Compliance Review | Unchecked | 0               | 0                                         |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     When I collapse nested table containing column value "SME Review"
-    And I wait for "2" seconds
+    And I wait for "6" seconds
     And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
       | Compliance Review | Checked   | 0                                         | 30              |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | For required panel the Minimum Number of Reviews should be greater than zero. |
     Examples:

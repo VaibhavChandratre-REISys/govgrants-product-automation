@@ -2968,7 +2968,6 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Undo" in page detail
 
-
   @279387 @332438 @ExternalProgVerifyEXEasstep3approverseewarningmessageafterclickonUndobuttononprogram @sprint-7-US-304339  @Undo
   Scenario: External Prog_ Verify EXE as step 3 approver see warning message after click on Undo button on program
     When I login to "Grantor" app as "PM" user
