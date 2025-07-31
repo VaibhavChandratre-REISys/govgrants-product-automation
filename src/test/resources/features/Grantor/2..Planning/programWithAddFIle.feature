@@ -733,6 +733,7 @@ Feature: Validate all scenarios for program with add file
     And I click on top right button "Add Files" in flex table with id "---program:-:externalProgramAddFilesYableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other Artifacts" from computer
     And I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---program:-:externalProgramAddFilesYableId---"
     Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---program:-:externalProgramAddFilesYableId---"
     Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---program:-:externalProgramAddFilesYableId---"
