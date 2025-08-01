@@ -1210,6 +1210,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "5" seconds
     And I click on "Edit" in the split screen page details
     And I pause execution for "3" seconds
+    And I halt execution
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "3" seconds
@@ -1444,6 +1445,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
+    And I halt execution
     When I click on "Initiate Negotiation" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "8" seconds
     When I save the field labeled "EGMS ID" as "EGMSID"
@@ -1686,6 +1688,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 1 |
     And I wait for "3" seconds
+    And I halt execution
     And I click on "Send to Subrecipient" in the page details
     And I wait for "3" seconds
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal

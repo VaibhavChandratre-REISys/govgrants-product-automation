@@ -47,7 +47,7 @@ public class setup {
     @After(order = 1)
     public void deleteMe() {
        if (StringUtils.containsIgnoreCase(EnvironmentFactory.getEnvironmentName(), "GRANTOR"))
-            grantorWebServices.deleteRecordInHooks();
+     //       grantorWebServices.deleteRecordInHooks();
 //       else if (StringUtils.containsIgnoreCase(EnvironmentFactory.getEnvironmentName(), "GRANTEE"))
 //           granteeWebServices.deleteRecordInHooks();
 //        It will deactivate the activated users.
