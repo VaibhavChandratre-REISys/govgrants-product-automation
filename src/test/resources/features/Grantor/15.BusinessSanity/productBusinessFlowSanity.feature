@@ -109,7 +109,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I softly see value "New" for title "Status" inside table "---home:-:subrecipientContactTableId---"
 
-  @72341 @programActivation @ProdSan1 @check
+  @72341 @programActivation @ProdSan1
   Scenario: Validate the activation of Internal Program and the status changes to Active
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1210,7 +1210,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "5" seconds
     And I click on "Edit" in the split screen page details
     And I pause execution for "3" seconds
-    And I halt execution
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "3" seconds
@@ -1445,7 +1444,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
-    And I halt execution
     When I click on "Initiate Negotiation" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "8" seconds
     When I save the field labeled "EGMS ID" as "EGMSID"
@@ -1688,7 +1686,6 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 1 |
     And I wait for "3" seconds
-    And I halt execution
     And I click on "Send to Subrecipient" in the page details
     And I wait for "3" seconds
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -2188,6 +2185,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Edit" in the split screen page details
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
+    And I pause execution for "6" seconds
 #    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -3079,8 +3077,10 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title        | Narrative     | Award Amount |
       | Construction | The Narrative | 100          |
     When I close "Add Line Items" modal by clicking the top right x button
+    And I pause execution for "6" seconds
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
+    And I pause execution for "6" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3891,7 +3891,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see fields "AcknowledgeEquipment__c" is in edit mode
     Then I softly see fields "RequestFederalAgencyDispositionInstr__c" is in edit mode
 
-  @programRejection @ProdSan3 @check
+  @programRejection @ProdSan3
   Scenario: Validate the Rejectionof Internal Program and redirecting to same page
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
