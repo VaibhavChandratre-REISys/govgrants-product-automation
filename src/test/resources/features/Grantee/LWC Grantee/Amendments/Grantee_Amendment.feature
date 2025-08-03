@@ -25591,3 +25591,54 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Overview Tab - Maximum Indirect Cost Rate cannot be greater than 100%.                                                                                                   |
       | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
       | Responsibilities - At least one approver is required.                                                                                                                    |
+
+
+  @449365 @validatuesershouldabletoopenARmodal&verifyvalidationonamendmentrequest
+  Scenario: Validate user should able to open AR modal & verify validation on Amendment request
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "SECOND_FOCUS_WITH_BUDGET"
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Attachment.pdf" has been added in "Award Files" flex table
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    And I refresh the page
+    And I wait for "3" seconds
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    Then I softly can see "Actuals" sub tab at view detail page
+    When I navigate to "Amendments" sub tab
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I wait for "4" seconds
+    Then I see field on modal "Award__c" is not editable
+    Then I see field on modal "FAINAmendmentNumber__c" is not editable
+    Then I see field on modal "GrantNumber__c" is not editable
+    Then I see textarea field "Impact__c" is editable
+    Then I see textarea field "PurposeRTA__c" is editable
+    And I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details contains:
+      | To Save, Please select Amendment Request Type is required. |
+      | To Save, Initiated By is required.                         |
+      | To Save, Justification is required.                        |
+    And I enter "Grantee_Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "3" seconds
+    And I save the field labeled "EGMS ID" as "BDRAMENDID"
+    Then I softly can see top right button "Save" in page detail
+    Then I softly can see top right button "Cancel" in page detail
