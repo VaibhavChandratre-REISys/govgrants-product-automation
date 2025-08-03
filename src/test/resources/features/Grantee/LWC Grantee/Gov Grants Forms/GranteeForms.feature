@@ -9256,6 +9256,7 @@ Feature: Grantee Forms Scenario
     And I wait for "3" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
+    When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
