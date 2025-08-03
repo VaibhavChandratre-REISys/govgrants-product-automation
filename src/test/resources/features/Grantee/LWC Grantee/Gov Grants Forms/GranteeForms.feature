@@ -9224,11 +9224,9 @@ Feature: Grantee Forms Scenario
     And I save the field labeled "EGMS ID" as "appEGMSID"
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I navigate to "Quickview" sub tab in split screen
-    And I wait for "2" seconds
-    When I click on "SplitView" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I wait for "2" seconds
-    And I click on "Edit" in the split screen page details
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
     And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
@@ -9236,11 +9234,11 @@ Feature: Grantee Forms Scenario
     And I wait for "2" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
-    When I click on "Save" in the split screen page details
-    And I wait for "2" seconds
-    When I click on "Validate" in the split screen page details
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
+    And I close the tab
     And I refresh the page
     Then I can see row level action button "Preview" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
