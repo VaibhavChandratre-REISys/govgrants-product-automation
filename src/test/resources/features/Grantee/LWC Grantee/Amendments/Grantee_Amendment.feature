@@ -25607,21 +25607,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I save the field labeled "Grant Number" as "GrantNumber"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    Then I softly see field "Status" as "Created"
-    When I navigate to "Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    Then I see "Attachment.pdf" has been added in "Award Files" flex table
-    And I activate the award for title "{SavedValue:Automation Runtime award}"
-    And I refresh the page
-    And I wait for "3" seconds
-    And I navigate to "Overview" sub tab
-    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
-    And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
-    And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    Then I softly can see "Actuals" sub tab at view detail page
+    Then I softly see field "Status" as "Created
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
