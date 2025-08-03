@@ -25593,10 +25593,11 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Responsibilities - At least one approver is required.                                                                                                                    |
 
   @449365 @validatuesershouldabletoopenARmodal&verifyvalidationonamendmentrequest
-  Scenario: Validate user should able to open AR modal & verify validation on Amendment request
-    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
-    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "SECOND_FOCUS_WITH_BUDGET"
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
+  Scenario Outline: Validate user should able to open AR modal & verify validation on Amendment request
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<UserName>"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    When I login to "As a Grantee" app as "<UserType>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -25641,3 +25642,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I save the field labeled "EGMS ID" as "BDRAMENDID"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
+    Examples:
+      | UserName   | UserType    |
+      | Victor EXE | GRANTEE EXE |
