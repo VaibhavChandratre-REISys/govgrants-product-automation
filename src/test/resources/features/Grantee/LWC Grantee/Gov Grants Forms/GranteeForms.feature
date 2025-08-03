@@ -9519,6 +9519,8 @@ Feature: Grantee Forms Scenario
     Then I softly see field "SIGNATURE:" as "{SavedValue:SIGNATURE}"
     And I save the field labeled "DATE:" as "DATE"
     Then I softly see field "DATE:" as "{SavedValue:DATE}"
+    And I close the tab
+    And I wait for "2" seconds
     When I click on "Revise" in the page details
     Then I softly see field "Status" as "Revision in Progress"
     When I navigate to "Overview" sub tab
@@ -9534,7 +9536,7 @@ Feature: Grantee Forms Scenario
     Then I softly can see row level action button "Edit" against "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I click on "Edit" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
-    And I wait
+    And I wait for "2" seconds
     And I enter "Lobbying_Form" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
@@ -9544,7 +9546,7 @@ Feature: Grantee Forms Scenario
     Then I softly see value "100.00%" for title "Percentage" against the value "Grants.gov Lobbying Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "No" for title "Validated" against the value "Grants.gov Lobbying Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I click on "View" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1
+    And I switch to tab number "1"
     And I wait for "2" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
