@@ -25631,3 +25631,175 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Examples:
       | UserName   | UserType    |
       | Victor EXE | GRANTEE EXE |
+
+   @449400 @validatethedeletebuttonfrompendingactivationstate
+   Scenario: Validate the delete button from pending activation state
+     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
+     And I activate the award for title "{SavedValue:Automation Runtime Award}"
+     When I login to "As a Grantee" app as "GRANTEE EXE" user
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     Then I softly see field "Status" as "Active"
+     Then I softly see status in Progress-bar is "Active" and is "dark blue"
+     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+     When I navigate to "Awards" sub tab
+     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+     Then I softly see field "Status" as "Activated"
+     And I save the field labeled "EGMS ID" as "AwardEGMSID"
+     And I navigate to "Overview" sub tab
+     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+     When I navigate to "Amendments" sub tab
+     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+     And I enter "Grantee_Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
+     And I click modal button "Save and Continue"
+     Then I can see top right button "Save" in page detail
+     Then I can see top right button "Cancel" in page detail
+     And I click on "Save" in the page details
+     Then I can see top right button "Edit" in page detail
+     Then I can see top right button "Delete" in page detail
+     And I save the field labeled "EGMS ID" as "BDRAMENDID"
+     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     When I navigate to "Awards" sub tab
+     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+     When I navigate to "Amendments" sub tab
+     Then I can see row level action button "View" against "{SavedValue:BDRAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+     Then I cannot see row level action button "Delete" against "{SavedValue:BDRAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+     Then I cannot see row level action button "Edit" against "{SavedValue:BDRAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+     And I navigate to "Grants" tab
+     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Amendment Requests - All"
+     When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+     When I navigate to "Responsibilities" sub tab
+     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+       | Name     | Amendment Request |
+       | Sarah PM | Step 1            |
+     When I get the "EGMS ID"
+     And I navigate to "Overview" sub tab
+     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
+       | Title        | Narrative     | Awarded Budget | Cash Match |
+       | Construction | The narrative | 4500           | 450        |
+     When I close "Add Line Items" modal by clicking the top right x button
+     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
+       | Title     | Narrative     | Awarded Budget | Cash Match |
+       | Site work | The narrative | 500            | 50         |
+     When I close "Add Line Items" modal by clicking the top right x button
+     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+     And I click on "Submit for Approval" in the page details
+     Then I softly see field "Status" as "Submitted for Approval"
+     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+     And I navigate to "Grants" tab
+     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+     When I "Approve" in the approval decision
+     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+     And I navigate to "Grants" tab
+     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Amendment Requests - All"
+     When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+     When I click on "Submit to Grantor" in the page details
+     When I enter values into fields
+       | Value | Field                 |
+       | 0     | SubmittedToGrantor__c |
+     And I click modal button "Save"
+     And I click modal button "Close"
+     Then I softly see field "Status" as "Submitted to Grantor"
+     Then I can see top right button "Record Decision" in page detail
+     Then I can see top right button "Revise Amendment" in page detail
+     When I click on "Record Decision" in the page details
+     When I enter values into fields
+       | Value                       | Field             |
+       | Accepted                    | Decision__c       |
+       | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
+       | Test                        | Comments__c       |
+     And I click modal button "Save"
+     And I click modal button "Close"
+     Then I softly see field "Status" as "Accepted"
+     And I click on "Amend Award" in the page details
+     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+     Then I cannot see top right button "Activate Award" in page detail
+     Then I cannot see top right button "Delete" in page detail
+     And I get the "EGMS ID"
+     And I save the field labeled "EGMS ID" as "EGMSID"
+     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     When I navigate to "Awards" sub tab
+     And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+     Then I can see top right button "Activate Award" in page detail
+     Then I can see top right button "Delete" in page detail
+     When I click on "Delete" in the page details
+     And I wait for "2" seconds
+     Then I softly see field "Status" as "Submitted to Grantor"
+     And I get the "EGMS ID"
+     And I save the field labeled "EGMS ID" as "EGMSID"
+     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+     And I navigate to "Grants" tab
+     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Amendment Requests - All"
+     When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+     When I click on "Submit to Grantor" in the page details
+     Then I can see top right button "Record Decision" in page detail
+     Then I can see top right button "Revise Amendment" in page detail
+     When I click on "Record Decision" in the page details
+     When I enter values into fields
+       | Value                       | Field             |
+       | Accepted                    | Decision__c       |
+       | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
+       | Test                        | Comments__c       |
+     And I click modal button "Save"
+     And I click modal button "Close"
+     Then I softly see field "Status" as "Accepted"
+     And I click on "Amend Award" in the page details
+     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+     Then I cannot see top right button "Activate Award" in page detail
+     Then I cannot see top right button "Delete" in page detail
+     And I get the "EGMS ID"
+     And I save the field labeled "EGMS ID" as "EGMSID"
+     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     When I navigate to "Awards" sub tab
+     And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+     Then I can see top right button "Activate Award" in page detail
+     Then I can see top right button "Delete" in page detail
+     When I click on "Activate Award" in the page details
+     Then I softly see field "Status" as "Activated"
+     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+     And I wait for "5" seconds
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     And I navigate to "Financials" sub tab
+     Given I expand nested table containing column value "BP01"
+     Then I softly see value "$500.00" for title "Awarded Budget" against the value "Site work" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+     Then I softly see value "$50.00" for title "Cash Match" against the value "Site work" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+     Then I softly see value "$550.00" for title "Total Project Cost" against the value "Site work" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+     Then I softly see value "$4,500.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+     Then I softly see value "$450.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+     Then I softly see value "$5,150.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
