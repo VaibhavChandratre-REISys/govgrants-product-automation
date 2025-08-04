@@ -25758,7 +25758,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
      And I click toggle button to select "Amendment Requests - All"
      When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
      And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
-     When I click on "Submit to Grantor" in the page details
      Then I can see top right button "Record Decision" in page detail
      Then I can see top right button "Revise Amendment" in page detail
      When I click on "Record Decision" in the page details
