@@ -9268,6 +9268,8 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
+    And I refresh the page
+    And I wait for "2" seconds
     And I navigate to "Quickview" sub tab in split screen
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "Budget Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
