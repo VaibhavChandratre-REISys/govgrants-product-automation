@@ -1444,6 +1444,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
+    And I halt execution
     When I click on "Initiate Negotiation" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "8" seconds
     When I save the field labeled "EGMS ID" as "EGMSID"
@@ -2183,10 +2184,10 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I click on "Edit" in the split screen page details
+    And I pause execution for "5" seconds
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I pause execution for "6" seconds
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -2815,6 +2816,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:PM Username} | Step 1            |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
+    And I pause execution for "4" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -3270,8 +3272,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                      | Amendment Request |
       | {SavedValue:EXE Username} | Step 1            |
-    When I click on "Submit for Approval" in the page details
     And I pause execution for "3" seconds
+    When I click on "Submit for Approval" in the page details
+    And I pause execution for "4" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4268,6 +4271,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "Federal Financial Report - SF-425" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I click on "Edit" in the page details
+    And I pause execution for "5" seconds
     And I enter "SF425_Form" values from "ProgressReport_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---progressReport:-:sf425TransactionTableID---" by clicking "Edit" :
       | Classification                                                          | Cumulative |
@@ -4317,6 +4321,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
+    And I pause execution for "8" seconds
     Then I softly see the following messages in the page details :
       | If "Other" option is selected in "14k", Justification in specify is required.                                                                |
       | If "Other" option is selected in "14l", Justification in specify is required.                                                                |
