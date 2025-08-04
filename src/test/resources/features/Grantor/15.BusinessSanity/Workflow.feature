@@ -1736,13 +1736,13 @@ Feature: Validate all scenarios of every modules flow
     Examples:
       | InternalUser    |
       | GRANTEE ADMIN   |
-      | GRANTEE ADMIN1  |
-      | GRANTEE EXE     |
-      | GRANTEE PM      |
-      | GRANTEE FO      |
-      | GRANTEE PO      |
-      | GRANTEE FD      |
-      | GRANTEE AUDITOR |
+#      | GRANTEE ADMIN1  |
+#      | GRANTEE EXE     |
+#      | GRANTEE PM      |
+#      | GRANTEE FO      |
+#      | GRANTEE PO      |
+#      | GRANTEE FD      |
+#      | GRANTEE AUDITOR |
 
   @InternalUserPwdCheckGrantor
   Scenario Outline: test

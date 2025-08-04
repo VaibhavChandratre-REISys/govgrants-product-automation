@@ -114,6 +114,18 @@ public class UsersAndURL implements UsersController {
     private String getNYLwcEnvironmentPassword(String userLevel) {
         String password;
         switch (userLevel.toUpperCase()) {
+            case "GRANTEE ADMIN":
+                password = "Qaadmin@2030";
+                break;
+            case "GRANTEE PM":
+                password = "Rei@2025";
+                break;
+            case "GRANTEE EXE":
+                password = "Rei@2026";
+                break;
+            case "GRANTEE FO":
+                password = "Rei@2025";
+                break;
             case "SARAH PM":
                 password = "Rei@2025";
                 break;
@@ -332,11 +344,11 @@ public class UsersAndURL implements UsersController {
         username.put("SPI4", "spi4@yopmail.com.ggqa2");
         username.put("SARAH PM", "sarah.pm@ggp.test8.ggqa2");
 
-        username.put("GRANTEE ADMIN", "product.qa@ggp.test8.ggdev2");
+        username.put("GRANTEE ADMIN", "product.qa@ggp.test8.ggqa2");
         username.put("GRANTEE ADMIN1", "qa.admin@ggp.test8.ggdev2");
-        username.put("GRANTEE PM", "sarah.pm@ggp.test8.ggdev2");
-        username.put("GRANTEE EXE", "victor.exe@ggp.test8.ggdev2");
-        username.put("GRANTEE FO", "david.fo@ggp.test8.ggdev2");
+        username.put("GRANTEE PM", "sarah.pm@ggp.test8.ggqa2");
+        username.put("GRANTEE EXE", "victor.exe@ggp.test8.ggqa2");
+        username.put("GRANTEE FO", "david.fo@ggp.test8.ggqa2");
         username.put("GRANTEE FD", "danielle.garcia@ggp.test8.ggdev2");
         username.put("GRANTEE PO", "grantee.po@yopmail.com.ggdev2");
         username.put("GRANTEE AUDITOR", "automationauditor@yopmail.com.ggdev2");
