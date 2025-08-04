@@ -25802,3 +25802,91 @@ Feature: Validate all scenarios for Grantee Amendment Request
      Then I softly see value "$4,500.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
      Then I softly see value "$450.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
      Then I softly see value "$5,150.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+
+   @449391 @validatetheReviseAmendmentbuttonofbudgetRedirectionAmendment
+     Scenario: Validate the Revise Amendment button of budget Redirection Amendment
+     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
+     And I activate the award for title "{SavedValue:Automation Runtime Award}"
+     When I login to "As a Grantee" app as "GRANTEE PM" user
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     Then I softly see field "Status" as "Active"
+     Then I softly see status in Progress-bar is "Active" and is "dark blue"
+     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+     When I navigate to "Awards" sub tab
+     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+     Then I softly see field "Status" as "Activated"
+     And I save the field labeled "EGMS ID" as "AwardEGMSID"
+     And I navigate to "Overview" sub tab
+     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+     When I navigate to "Amendments" sub tab
+     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+     And I enter "Grantee_Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
+     And I click modal button "Save and Continue"
+     Then I can see top right button "Save" in page detail
+     Then I can see top right button "Cancel" in page detail
+     And I click on "Save" in the page details
+     Then I can see top right button "Edit" in page detail
+     Then I can see top right button "Delete" in page detail
+     And I save the field labeled "EGMS ID" as "BDRAMENDID"
+     When I navigate to "Responsibilities" sub tab
+     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+       | Name       | Amendment Request |
+       | Victor EXE | Step 1            |
+     When I get the "EGMS ID"
+     And I navigate to "Overview" sub tab
+     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
+       | Title        | Narrative     | Awarded Budget | Cash Match |
+       | Construction | The narrative | 4500           | 450        |
+     When I close "Add Line Items" modal by clicking the top right x button
+     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
+       | Title     | Narrative     | Awarded Budget | Cash Match |
+       | Site work | The narrative | 500            | 50         |
+     When I close "Add Line Items" modal by clicking the top right x button
+     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+     And I click on "Submit for Approval" in the page details
+     Then I softly see field "Status" as "Submitted for Approval"
+     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+     And I navigate to "Grants" tab
+     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+     When I "Approve" in the approval decision
+     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+     And I navigate to "Grants" tab
+     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Amendment Requests - All"
+     When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+     When I click on "Submit to Grantor" in the page details
+     When I enter values into fields
+       | Value | Field                 |
+       | 0     | SubmittedToGrantor__c |
+     And I click modal button "Save"
+     And I click modal button "Close"
+     Then I softly see field "Status" as "Submitted to Grantor"
+     Then I can see top right button "Record Decision" in page detail
+     Then I can see top right button "Revise Amendment" in page detail
+     And I click on "Revise Amendment" in the page details without processing
+     Then I softly see confirmation box with body "Are you sure you want to revise the amendment request? The amendment request will require an approval again after being revised." is displayed
+     And I click "Cancel" on modal confirmation box
+     Then I softly see field "Status" as "Submitted to Grantor"
+     And I click on "Revise Amendment" in the page details without processing
+     Then I softly see confirmation box with body "Are you sure you want to revise the amendment request? The amendment request will require an approval again after being revised." is displayed
+     And I click "OK" on modal confirmation box
+     Then I softly see field "Status" as "Revision in Progress"
+     Then I can see top right button "Delete" in page detail
+     Then I can see top right button "Edit" in page detail
+     When I navigate to "History" sub tab
+     And I navigate to "Field Audit" sub tab in split screen
+     And I click on hyperlink containing value "View All"
+     Then I softly see value "Revision in Progress" for title "New Value" inside field history table
+     Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
