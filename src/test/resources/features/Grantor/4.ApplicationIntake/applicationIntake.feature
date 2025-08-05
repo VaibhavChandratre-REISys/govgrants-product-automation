@@ -264,8 +264,8 @@ Feature: Validate all scenarios in the Application Intake
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Suspension" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---applicationIntake:-:ApplicationAttachmentTableId---"
     Then I softly see value "Suspension" for title "Classification" inside table "---applicationIntake:-:ApplicationAttachmentTableId---"
     When I enter the following values into flex table with id "---applicationIntake:-:ApplicationNotesTableId---" by clicking "New" :
@@ -329,8 +329,9 @@ Feature: Validate all scenarios in the Application Intake
   Scenario:Validate whether user is able to associate new contacts while creating an application
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    When I click "Add" after selection of "Automation SPA" by showing entries "All" in flex table with id "---applicationIntake:-:associateNewContactsTableId---"
+    When I click "Add" after selection of "Automation SPA" in the table "---applicationIntake:-:associateNewContactsTableId---"
     And I refresh the page
+    And I wait for "3" seconds
     #When I perform quick search for "Automation SPA" in "---applicationReview:-:flexGridAppContactTableId---" panel
     Then I softly see value "Automation SPA" for title "Name" inside table "---applicationReview:-:flexGridAppContactTableId---"
 
