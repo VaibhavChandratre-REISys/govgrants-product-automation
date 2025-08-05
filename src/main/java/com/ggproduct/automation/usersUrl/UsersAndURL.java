@@ -69,6 +69,8 @@ public class UsersAndURL implements UsersController {
             userName = getNYLwcEnvironmentUser(setUpUserLevel(userLevel));
         }else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("WASHINGTON"))) {
             userName = getWashingtonEnvironmentUser(setUpUserLevel(userLevel));
+        } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("LWCPATCH"))) {
+            userName = getLwcPatchEnvironmentUser(setUpUserLevel(userLevel));
         }else {
             userName = getAUTOEnvironmentUser(setUpUserLevel(userLevel));
         }
@@ -88,6 +90,8 @@ public class UsersAndURL implements UsersController {
             password = getNYLwcEnvironmentPassword(setUpUserLevel(userLevel));
         }else if (EnvironmentFactory.getEnvironmentName().contains("WASHINGTON")) {
             password = getWashingtonEnvironmentPassword(setUpUserLevel(userLevel));
+        }else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("LWCPATCH"))) {
+            password = getLwcPatchEnvironmentPassword(setUpUserLevel(userLevel));
         }else
             password = getAUTOEnvironmentPassword(setUpUserLevel(userLevel));
         return password;
@@ -291,6 +295,46 @@ public class UsersAndURL implements UsersController {
             return username.get(userLevel.toUpperCase());
         } else {
             return username.get("ADMIN");
+        }
+    }
+
+    private String getLwcPatchEnvironmentUser(String userLevel) {
+        Map<String, String> username = new HashMap<>();
+        username.put("ADMIN", "govgrantsautomation@yopmail.com.fwautopach");
+        username.put("EXE", "test@gmaildemo.com.fwautopach");
+        username.put("ADMIN1", "manu.admin@ggp.test8.fwautopach");
+        username.put("PM", "donald_pm@ggp.test7.atm.fwautopach");
+        username.put("FO", "auto.fm@auto.com.fwautopach");
+        username.put("SPI3", "aspi3@grants.gov.fwautopach");
+        username.put("PM1", "pm1.automation@yopmail.com.fwautopach");
+        username.put("Automation PM", "automationpm@ggp.test8.fwautopach");
+        username.put("SA", "asa@grants.gov.fwautopach");
+        username.put("PO", "automationpo@yopmail.com.fwautopach");
+        username.put("IND", "ind12.automation@yopmail.com.fwautopach");
+        if (userLevel.toUpperCase() != null) {
+            return username.get(userLevel.toUpperCase());
+        } else {
+            return username.get("ADMIN");
+        }
+    }
+
+    private String getLwcPatchEnvironmentPassword(String userType) {
+        Map<String, String> password = new HashMap<>();
+        password.put("ADMIN", "FwLwc@30jan");
+        password.put("ADMIN1", "LwcPach@02oct");
+        password.put("EXE", "Patch@31July");
+        password.put("PM", "Patch@31July");
+        password.put("DYNAMICUSER", "Patch@31July");
+        password.put("FO", "Patch@31July");
+        password.put("SPI3", "Patch@31July");
+        password.put("PM1", "Patch@1Aug");
+        password.put("SA", "Patch@1Aug");
+        password.put("PO", "Patch@31July");
+        password.put("IND", "LwcPach@02oct");
+        if (userType.toUpperCase() != null) {
+            return password.get(userType.toUpperCase());
+        } else {
+            return password.get("ADMIN");
         }
     }
 
