@@ -389,6 +389,8 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "{SavedValue:preappID}" in "---preApplication:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:preappID}" inside table
     When I click on "Accept" in the page details
+    And I wait for "3" seconds
+    And I logout
     And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "50" seconds
     And I refresh the page
