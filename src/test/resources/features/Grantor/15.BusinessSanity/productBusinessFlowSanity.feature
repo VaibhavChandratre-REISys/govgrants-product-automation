@@ -1200,6 +1200,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
+    And I pause execution for "6" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "3" seconds
@@ -1497,6 +1498,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
     And I enter "Edition" values from "Award_Field_Values.xlsx"
+    And I pause execution for "3" seconds
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I navigate to "Budget" sub tab
