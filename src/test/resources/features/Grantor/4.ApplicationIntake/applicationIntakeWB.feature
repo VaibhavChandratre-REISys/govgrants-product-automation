@@ -1,5 +1,5 @@
 @applicationIntakeWB @grantor-regression @grantor-parallel-regression @app @regression @ApplicationExecution-reg
-Feature: Application Intake scenarios without background 
+Feature: Application Intake scenarios without background
 
   @76373 @69366 @65078 @VerifyCreateApplicationButton  @smoke
   Scenario: Verify whether SPI user is able to qualify opportunity | Verify Create Application button is displayed to SR User when User click on Qualify Button.
