@@ -6927,7 +6927,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter value "Accrual" into field "BasisOfRequest__c"
     And I enter value "1267589" into field "PartialPaymentRequest__c"
     And I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Then I softly see field "Partial" as "Checked"
     Then I softly see field "Accrual" as "Checked"
     Then I softly see field "5. Partial Payment Request Number for This Request" as "1267589"
