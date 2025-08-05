@@ -25537,11 +25537,19 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | userName        | User       |
       | Victor EXE user | GRANTEE EXE |
 
-
   @449384 @VerifyUsershouldableseeDataaddedonawardshouldbecopiedonamendmentrecord&verifythevalidation
-  Scenario: Verify User should able see Data added on award should be copied on amendment record & verify the validation
+  Scenario Outline: Verify User should able see Data added on award should be copied on amendment record & verify the validation
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Overview" sub tab
+    When I click on "Edit" in the page details
+    And I enter value "20" into field "ApprovedIndirectCostRate__c"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -25591,6 +25599,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Overview Tab - Maximum Indirect Cost Rate cannot be greater than 100%.                                                                                                   |
       | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
       | Responsibilities - At least one approver is required.                                                                                                                    |
+    Examples:
+      | userName       |
+      | GRANTEE EXE      |
 
   @449365 @validatuesershouldabletoopenARmodal&verifyvalidationonamendmentrequest
   Scenario Outline: Validate user should able to open AR modal & verify validation on Amendment request
