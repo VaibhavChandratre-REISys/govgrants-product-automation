@@ -25955,6 +25955,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
      When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
      And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
      When I click on "Submit to Grantor" in the page details
+     And I click modal button "Save"
+     Then I softly see the following messages in the page details contains:
+       | To Save, Submitted to Grantor On is required. |
      When I enter values into fields
        | Value | Field                 |
        | 0     | SubmittedToGrantor__c |
