@@ -25547,9 +25547,11 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    When I navigate to "Overview" sub tab
-    When I click on "Edit" in the page details
-    And I enter value "20" into field "ApprovedIndirectCostRate__c"
+    When I navigate to "Awards" sub tab
+    And I click on "Edit" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I navigate to "Projections" sub tab
+    And I enter value "20" into field "BudgetRedirectionThreshhold__c"
+    When I click on "Save" in the page details
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -25601,7 +25603,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Responsibilities - At least one approver is required.                                                                                                                    |
     Examples:
       | userName       |
-      | GRANTEE EXE      |
+      | GRANTEE EXE    |
 
   @449365 @validatuesershouldabletoopenARmodal&verifyvalidationonamendmentrequest
   Scenario Outline: Validate user should able to open AR modal & verify validation on Amendment request
