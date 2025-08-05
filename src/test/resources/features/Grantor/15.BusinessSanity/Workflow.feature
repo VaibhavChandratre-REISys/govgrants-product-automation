@@ -1722,9 +1722,9 @@ Feature: Validate all scenarios of every modules flow
 
   @testCheck
   Scenario:
-    And I login to "Grantor" app as "PM" user
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
-#    And I published "Directed" type announcement having name "Directed Permanent Archived Annoucement" and properties "default"
+#    And I login to "Grantor" app as "PM" user
+#    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I published "Competitive" type announcement having name "Automation Permanent Closed Formula Annoucment" and properties "default"
 #    And I initiated an application review for application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}" on announcement "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}" with properties "default"
 #    And I created approved FDM on application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}"
 

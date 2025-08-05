@@ -188,7 +188,6 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:NotYetQualifiedTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationIntake:-:NotYetQualifiedTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "oppurtunityId"
-    And I save the field labeled "Program" as "programName"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I wait for "4" seconds
@@ -196,13 +195,6 @@ Feature: Application Intake scenarios without background
     When I click on "Save" in the page details
     When I navigate to "Proposal" sub tab
     Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---applicationIntake:-:goalsAndObjectivesTableId---"
-#    Then I see the following rows under the following headers in table with id "---applicationIntake:-:goalsAndObjectivesTableId---" :
-#      | Title                          | Actions |
-#      | Automation Permanent Objective | View    |
-#    When I navigate to "Overview" sub tab
-#    And I mouse hover to link contains "{SavedValue:oppurtunityId}"
-#    And I click "{SavedValue:programName}" link present on hovered tooltip
-#    Then I softly see page title contains as "Automation Permanent Internal Program"
 
   @73755 @71110 @appdueDateValidation  @smoke
   Scenario: Validate whether User will be able to submit the application on the last date for submission.| Validate once the announcement is published, then it will be availble for external SPI/SPA users under Oppurtunities Tab
@@ -1239,7 +1231,7 @@ Feature: Application Intake scenarios without background
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---applicationIntake:-:applicationContactsTableId---"
-    When I click "Add" after selection of "Automation SPA" by showing entries "All" in flex table with id "AssociateAppContacts"
+    When I click "Add" after selection of "Automation SPA" in the table "AssociateAppContacts"
     And I refresh the page
     And I wait for "4" seconds
     Then I see that "<Contact>" has been added in flextable with Id "---applicationIntake:-:applicationContactsTableId---"
@@ -2143,6 +2135,7 @@ Feature: Application Intake scenarios without background
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
+    And I wait for "1" seconds
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
