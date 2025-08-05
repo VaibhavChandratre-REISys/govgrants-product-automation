@@ -325,6 +325,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     Then I softly can see page block "Budget Summary"
     Then I see value "Automation Permanent Focus Area" for title "Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     Then I softly can see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
@@ -3431,7 +3432,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Budget Tab - The Subrecipient Match should not be less than the given value.                   |
       | Budget Tab - Enter budget details before submitting an Application to the Grantor.             |
 
-  @ann2 @274172 @ValidatePMusercanupdateallocationonparticularApplicantacrossFAunderApplicantsectiononAnnouncementaftersubmittingapplicationseeupdatedAllocationAmountonsameApplicationFAYES&AllocationTypeByApplicant @Sprint-23-US-273843  @Allocation
+  @274172 @ValidatePMusercanupdateallocationonparticularApplicantacrossFAunderApplicantsectiononAnnouncementaftersubmittingapplicationseeupdatedAllocationAmountonsameApplicationFAYES&AllocationTypeByApplicant @Sprint-23-US-273843  @Allocation
   Scenario: Validate PM user can update allocation on particular Applicant across FA under Applicant section on Announcement after submitting application & see updated Allocation Amount on same Application FA YES & Allocation TypeBy Applicant
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab

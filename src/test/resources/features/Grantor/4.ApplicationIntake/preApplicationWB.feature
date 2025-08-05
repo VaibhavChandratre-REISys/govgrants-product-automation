@@ -111,6 +111,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see that "{SavedValue:Automation Runtime Announcement for Pre-App}" is in "Qualified" status
     Then I softly can see top right button "Create Pre-Application" in page detail
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -449,6 +450,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-Application}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -584,8 +586,9 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-Application}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-    When I click modal button "Save and Continue"
     And I wait for "5" seconds
+    When I click modal button "Save and Continue"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
@@ -635,6 +638,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Performance" sub tab
     Then I softly can see page block "Focus Areas"
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I wait for "3" seconds
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -764,6 +768,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I navigate to "Performance" sub tab
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I wait for "3" seconds
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -934,6 +939,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see field "Focus Area Required?" as "Yes"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -957,6 +963,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-Application}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1825,6 +1832,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -2284,7 +2292,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -2317,7 +2325,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "100.00%" for title "Percentage" against the value "Standard Pre-Application form" inside table "---preApplication:-:preAppFormTableId---"
      #170101
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     When I navigate to "Forms and Files" sub tab
     Then I can see row level action button "View" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
@@ -2338,6 +2346,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -2666,6 +2675,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -2821,6 +2831,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -3042,6 +3053,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -3099,6 +3111,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -3231,6 +3244,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -3315,6 +3329,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -3424,6 +3439,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -3490,6 +3506,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -3557,6 +3574,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -3612,7 +3630,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "{SavedValue:PreappEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @197938 @ValidatePreApplicationReviewtaskshouldnotgenerateforPMuseronreassignmytaskpage @sprint-7-US-197384   @reassignment
+  @197938 @ValidatePreApplicationReviewtaskshouldnotgenerateforPMuseronreassignmytaskpage @sprint-7-US-197384 @reassignment
   Scenario: Validate Pre Application Review task should not generate for PM user on reassign my task page
     And I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -3624,6 +3642,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -3670,6 +3689,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I wait for "1" seconds
     And I click on "Save" in the page details
@@ -3744,6 +3764,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I wait for "1" seconds
     And I click on "Save" in the page details
@@ -3820,6 +3841,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I wait for "1" seconds
     And I click on "Save" in the page details
@@ -3934,6 +3956,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I wait for "1" seconds
     And I click on "Save" in the page details
@@ -4048,6 +4071,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I wait for "1" seconds
     And I click on "Save" in the page details
@@ -4116,6 +4140,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I wait for "1" seconds
     And I click on "Save" in the page details
@@ -4193,6 +4218,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -4297,6 +4323,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I wait for "1" seconds
     And I click on "Save" in the page details
@@ -4368,6 +4395,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I wait for "1" seconds
     And I click on "Save" in the page details
@@ -4434,6 +4462,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -4571,6 +4600,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -4674,6 +4704,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I wait for "1" seconds
     And I click on "Save" in the page details
@@ -4747,6 +4778,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I wait for "1" seconds
     And I click on "Save" in the page details
@@ -4822,6 +4854,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I wait for "1" seconds
     And I click on "Save" in the page details
@@ -5013,6 +5046,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I wait for "1" seconds
     And I click on "Save" in the page details
@@ -5127,6 +5161,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -5303,7 +5338,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "{SavedValue:PreappEGMSID}" in "---home:-:completedAssignedToMe---" panel
     Then I softly see value "Review Pre-Application" for title "Task Type" inside table "---home:-:completedAssignedToMe---"
 
-  @ValidatePre-appnewownerpeerreviewershouldabletosubmitthereviewcommentsforpre-app @sprint-11-US-218319  @reassignment
+  @224655 @ValidatePre-appnewownerpeerreviewershouldabletosubmitthereviewcommentsforpre-app @sprint-11-US-218319  @reassignment
   Scenario: Validate Pre-app new owner of peer reviewer should able to submit the review comments for pre-app
     And I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -5316,6 +5351,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -5429,6 +5465,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -5577,6 +5614,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -5639,6 +5677,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
