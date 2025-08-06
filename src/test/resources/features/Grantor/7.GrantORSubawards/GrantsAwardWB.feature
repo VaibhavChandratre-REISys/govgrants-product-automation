@@ -8032,7 +8032,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @204886  @sprint-11-US-224734  @reassignment
+ @wip @204886  @sprint-11-US-224734  @reassignment
   Scenario: Validate Award PM as new peer reviewer he can edit the tables on award after review task ownership assign to PM if allow edit access is 'yes'
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab

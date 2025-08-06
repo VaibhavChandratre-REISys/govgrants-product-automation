@@ -523,11 +523,13 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Splitview" icon for "Request for Advance or Reimbursement - SF-270" inside flex table with id "---paymentRequest:-:paymentRequestFormsTableId---" without waiting for record
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
+    And I pause execution for "3" seconds
     Then I softly see the text containing "OMB Number: 4040-0012"
     Then I softly see the text containing "Expiration Date: 01/31/2025"
     And I select below checkbox options for field "AdvanaceorReimbursement__c"
       | Advance |
     And I enter "SF270_Form" values from "PaymentRequest_Field_Values.xlsx"
+    And I pause execution for "5" seconds
     And I edit the following rows inline in flex table with id "---paymentRequest:-:sf270ComputationAmountTableId---" by clicking "Edit" :
       | Classification                                   | Programs | Functions | Activities |
       | a. Total program outlays to date                 | 12345    | 12345     | 12345      |
