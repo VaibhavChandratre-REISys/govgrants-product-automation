@@ -1178,7 +1178,9 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
+    And I pause execution for "6" seconds
     And I navigate to "Grants" tab
+    And I pause execution for "5" seconds
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:CFAmendmentId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"

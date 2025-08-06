@@ -399,7 +399,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
-  @58817 @59253 @activeRiskAssesmentRequiredToIssueAward
+   @wip @58817 @59253 @activeRiskAssesmentRequiredToIssueAward
   Scenario Outline: Validate system generates a message to enforce the user to activate risk assessment before issuing an award or the system generates an error message when Risk Assessment Required =Yes.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
