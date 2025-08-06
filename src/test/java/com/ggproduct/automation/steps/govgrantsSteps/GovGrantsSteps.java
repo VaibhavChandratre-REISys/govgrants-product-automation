@@ -124,6 +124,7 @@ public final class GovGrantsSteps {
     public void reloginToggleToAppInURL(String appName, String userType, String portalType) {
         try {
             ggObjects.clickLogOut();
+            I.amPerforming().waitFor().makeThreadSleep(2000);
             govgrants.perform().mainPage().navigateToPortal(portalType);
             govgrants.perform().mainPage().loginWithUserType(userType);
             govgrants.perform().mainPage().setUpCustomAppDropDown(appName);

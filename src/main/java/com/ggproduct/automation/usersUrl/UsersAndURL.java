@@ -100,13 +100,13 @@ public class UsersAndURL implements UsersController {
         String password;
         switch (userLevel.toUpperCase()) {
             case "ADMIN":
-                password = "Salesforce@2033";
+                password = "Salesforce@2035";
                 break;
             case "ADMIN1":
                 password = "Salesforce@2033";
                 break;
             case "SPI3":
-                password = "Salesforce@2034";
+                password = "Salesforce@2035";
                 break;
             case "SA":
                 password = "Salesforce@2033";
@@ -115,7 +115,7 @@ public class UsersAndURL implements UsersController {
                 password = "Salesforce@2034";
                 break;
             case "PM":
-                password = "Salesforce@2033";
+                password = "Salesforce@2035";
                 break;
             case "PM1":
                 password = "Salesforce@2033";
@@ -124,16 +124,16 @@ public class UsersAndURL implements UsersController {
                 password = "Salesforce@2033";
                 break;
             case "PO":
-                password = "Salesforce@2033";
+                password = "Salesforce@2035";
                 break;
             case "SPA":
                 password = "Salesforce@2033";
                 break;
             case "FD":
-                password = "Salesforce@2033";
+                password = "Salesforce@2035";
                 break;
             case "EXE":
-                password = "Salesforce@2033";
+                password = "Salesforce@2035";
                 break;
             case "FD1":
                 password = "Salesforce@2033";
@@ -145,7 +145,7 @@ public class UsersAndURL implements UsersController {
                 password = "Salesforce@2033";
                 break;
             case "FO":
-                password = "Salesforce@2033";
+                password = "Salesforce@2035";
                 break;
             case "AUDITOR":
                 password = "Salesforce@2033";

@@ -753,7 +753,7 @@ Feature: Validate all scenarios of every modules flow
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
@@ -778,7 +778,7 @@ Feature: Validate all scenarios of every modules flow
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
     When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
