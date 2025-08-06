@@ -1590,7 +1590,7 @@ Feature: Pre-Application scenarios without background
       | Standard Pre-Application form | Checked           |
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | To Save, Details is required in the Negotiations tab under the Applicant Response section. |
+      | To Save, Details is required in the Negotiations tab under the Explanation of Negotiations Needed section. |
      #174903
     Then I softly see fields "ExplanationOfRevisionsNeeded__c" is in edit mode
 
