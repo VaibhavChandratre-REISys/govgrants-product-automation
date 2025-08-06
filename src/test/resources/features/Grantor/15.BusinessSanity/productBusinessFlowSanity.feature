@@ -5941,7 +5941,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on hyperlink containing value "View All"
     Then I softly see value "Rejected" for title "New Value" inside field history table
 
-  @ann2 @274172 @ValidatePMusercanupdateallocationonparticularApplicantacrossFAunderApplicantsectiononAnnouncementaftersubmittingapplicationseeupdatedAllocationAmountonsameApplicationFAYES&AllocationTypeByApplicant @Sprint-23-US-273843  @Allocation @ProdSan5
+  @ann2 @274172 @ValidatePMusercanupdateallocationonparticularApplicantacrossFAunderApplicantsectiononAnnouncementaftersubmittingapplicationseeupdatedAllocationAmountonsameApplicationFAYES&AllocationTypeByApplicant @Sprint-23-US-273843  @Allocation @ProdSan5 @rerun6
   Scenario: Validate PM user can update allocation on particular Applicant across FA under Applicant section on Announcement after submitting application & see updated Allocation Amount on same Application FA YES & Allocation TypeBy Applicant
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -6330,7 +6330,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see value "$500.00" for title "Awarded Budget" against the value "Construction" inside table "---paymentRequest:-:paymentRequestBudgetTableId---"
     Then I softly see value "$500.00" for title "Subaward Balance" against the value "Construction" inside table "---paymentRequest:-:paymentRequestBudgetTableId---"
 
-  @200856 @ValidateFundingchangeAmendmentRequestSubmittedGrantorNotifyemailshouldbegenerateforPMnewownerofamendmentrequest @sprint-5-US-194231  @reassignment @ProdSan5
+  @200856 @ValidateFundingchangeAmendmentRequestSubmittedGrantorNotifyemailshouldbegenerateforPMnewownerofamendmentrequest @sprint-5-US-194231  @reassignment @ProdSan5 @rerun6
   Scenario: Validate Funding change Amendment Request Submitted Grantor Notify email should be generate for PM new owner of amendment request
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "Automation PM1 user" of type "Competitive"
     When I login to "As a Grantor" app as "PM1" user
@@ -6434,7 +6434,7 @@ Feature: Validate sanity testing of Complete Business Flow
       The EGMS Team
       """
 
-  @FlexSharing2 @ValidateFlexSharingRelatedScenarioForPaymentrequestAllTables @ProdSan5
+  @FlexSharing2 @ValidateFlexSharingRelatedScenarioForPaymentrequestAllTables @ProdSan5 @rerun6
   Scenario: Validate FlexSharing Related Scenario For Payment Request All Tables
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I login to "Grantor" app as "PM" user
@@ -6555,7 +6555,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
 
-  @FlexSharingScenarioforpaymentForms @ProdSan5
+  @FlexSharingScenarioforpaymentForms @ProdSan5 @rerun6
   Scenario: Validate Flex Sharing Payement Forms
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -6682,7 +6682,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see field "Partial" as "Checked"
     Then I softly see field "4. Federal Grant or Other Identifying Number assigned by Federal Agency" as "1267589"
 
-  @flexhsaringProgress @ValidateToCheckFlexSharingForProgressReportAllTables @ProdSan5
+  @flexhsaringProgress @ValidateToCheckFlexSharingForProgressReportAllTables @ProdSan5 @rerun6
   Scenario: Validate To Check FlexSharing For All Tables
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     And I login to "Grantor" app as "PM" user
@@ -6818,7 +6818,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
 
-  @ValidateFlexSharingScenarioForForms @ProdSan5
+  @ValidateFlexSharingScenarioForForms @ProdSan5 @rerun6
   Scenario: Validate FlexSharing Scenario For Forms
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
