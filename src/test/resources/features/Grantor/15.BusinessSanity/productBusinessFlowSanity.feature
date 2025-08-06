@@ -6197,6 +6197,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
+    And I pause execution for "15" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -6371,6 +6372,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Site work     | 2000                 | 100        | 100            |
     And I click on "Submit to Grantor" in the page details
+    And I pause execution for "10" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -6402,6 +6404,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Site work     | 2000                 | 100        | 100            |
     And I click on "Submit to Grantor" in the page details
+    And I pause execution for "10" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     And I pause execution for "220" seconds

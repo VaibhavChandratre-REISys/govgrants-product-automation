@@ -14,6 +14,8 @@ import jdk.jfr.Description;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
+import java.io.File;
+
 public class CommonSteps {
     ProjectManager projectManager;
 
@@ -65,13 +67,13 @@ public class CommonSteps {
 
     @Description("Validate field is not editable")
     @Then("I (softly see|see) field \"([^\"]*)\" not in edit mode$")
-    public void iSoftlySeeFieldNotInEditMode(String usage,String fieldAPIName) {
+    public void iSoftlySeeFieldNotInEditMode(String usage, String fieldAPIName) {
         projectManager.assertFieldIsNotInEditMode(fieldAPIName, usage.contains("softly"));
     }
 
 
     @Then("I (softly see|see) field inside table \"([^\"]*)\" not in edit mode$")
-    public void iSoftlySeeFieldInsideTableNotInEditMode(String usage,String fieldAPIName) {
+    public void iSoftlySeeFieldInsideTableNotInEditMode(String usage, String fieldAPIName) {
         projectManager.assertFieldIsNotInEditModeForTable(fieldAPIName, usage.contains("softly"));
 
     }
@@ -90,6 +92,7 @@ public class CommonSteps {
     public void iResetTheTable() {
         I.amPerforming().click().withJavaScript(By.xpath("//div[@class='resetIcon']//button"));
     }
+
     @And("I click on remove for lookup from field \"([^\"]*)\"$")
     public void iRemovelookupvalue(String fieldApiName) {
         I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//div[contains(@class,'pillDiv slds-show')]//*[@title='Remove selected option'] | //c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//div[contains(@class,'pillDiv slds-show')]//*[@title='Remove selected option']"));
@@ -107,18 +110,18 @@ public class CommonSteps {
 
     @And("I click on {string} icon for {string} inside flex table with id {string} without Split")
     public void iClickOnIconForInsideFlexTableWithIdWithQuotes(String actionIcon, String anyUniqueColumnValues, String flexTableId) {
-            govgrants.perform().flexTable().clickTableActionIcon(flexTableId, actionIcon, anyUniqueColumnValues);
+        govgrants.perform().flexTable().clickTableActionIcon(flexTableId, actionIcon, anyUniqueColumnValues);
     }
 
     @When("I {string} page block contaninig value {string}")
     public void iPageBlockContaninigValue(String actionIcon, String pageBlockTitle) {
-        govgrants.perform().pageDetails().pageBlockExpandedOrCollapse(pageBlockTitle,actionIcon);
+        govgrants.perform().pageDetails().pageBlockExpandedOrCollapse(pageBlockTitle, actionIcon);
     }
 
 
     @When("I {string} left navigation contaninig value {string}")
     public void iLeftNavigationContaninigValue(String actionIcon, String leftNavigationButton) {
-        govgrants.perform().pageDetails().leftNavigationContaninigValue(actionIcon,leftNavigationButton);
+        govgrants.perform().pageDetails().leftNavigationContaninigValue(actionIcon, leftNavigationButton);
     }
 
     @And("^I delete the grantee record \"([^\"]*)\"$")
@@ -138,7 +141,7 @@ public class CommonSteps {
 
     @Then("^I (softly see|softly do not see|see) notification \"([^\"]*)\" contains \"([^\"]*)\"$")
     public void iSoftlySeeNotificationContains(String usage, String messageTitle, String messageValue) {
-        projectManager.assertNotificationValues(usage,messageTitle,messageValue);
+        projectManager.assertNotificationValues(usage, messageTitle, messageValue);
     }
 
     @And("I click on {string} button for view files page")
@@ -156,6 +159,12 @@ public class CommonSteps {
     public void iClickOnButtonForSnapshotView(String buttonName) {
         projectManager.clickOnuttonForSnapshotView(buttonName);
     }
+
+    @And("I click on hyperlink for the field {string} containing value {string}")
+    public void iClickOnHyperlinkForTheFieldContainingValue(String fieldAPIName, String Value) {
+        projectManager.clickOnHyperlinkForTheFieldContainingValue(fieldAPIName, Value);
+    }
+
 }
 
 
