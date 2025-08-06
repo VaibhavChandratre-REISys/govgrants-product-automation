@@ -8749,9 +8749,6 @@ Feature: Grantee Forms Scenario
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
-    And I click on "Edit" in the page details
-    And I enter value "123" into field "CongressionalDistrict1__c"
-    When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
     When I navigate to "Forms and Files" sub tab
