@@ -1,5 +1,5 @@
 @amendmentAllocationNew @amendmentRequests @grantor-regression @regression @amendExecution
-Feature: Validate all scenarios in the Amendment Request Allocation Feature
+Feature: Validate all scenarios in the Amendment Request Allocation Feature 
 
   @257885 @VerifySPIusercanseeCurrentobligationcolumnvaluewillbecopiedfromthecumulativeobligationfromtheFocusareaoftheawardFAisYes @sprint-19-US-249863  @Allocation
   Scenario: Verify SPI user can see Current obligation column value will be copied from the cumulative obligation from the Focus area of the award (FA is Yes)
