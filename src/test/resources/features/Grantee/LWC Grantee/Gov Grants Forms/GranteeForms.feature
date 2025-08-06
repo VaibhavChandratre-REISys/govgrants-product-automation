@@ -8630,7 +8630,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | Application has been validated successfully. |
 
-  @479130 @ValidatePOProfileCheckstatusbutton
+  @479130 @ValidatePOProfileCheckstatusbutton @P2_Grantee @PO_Grantee @GRegression5
   Scenario: Validate PO Profile Check status button
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySFLLL}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269344" with properties "default-Grantee PO user"
