@@ -24,7 +24,7 @@ Feature: Validate all scenarios for program
       | Program flextable Header  | Program                                          |
       | Internal Programs - Draft | {SavedValue:Automation Runtime Internal Program} |
 
-  @105872 @VerifyDeletionOfCreatedProgram @monu @Bug-Id-389787
+  @105872 @VerifyDeletionOfCreatedProgram @monu @Bug-Id-389787 
   Scenario Outline: Verifying if the owner of program is ablr to delete created program
     When I navigate to "Planning" tab
     And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
