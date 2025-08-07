@@ -1780,6 +1780,17 @@ Feature: Validate all scenarios of every modules flow
       | IND              |
       | SME              |
 
+  @ReloginTest
+  Scenario Outline: test
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "<SubrecipientUser>" user
+    When I navigate to "Home" tab
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+
+    Examples:
+      | SubrecipientUser |
+      | SPI3             |
+
   @testchckAwards @debug
   Scenario:
     When I am on "INTERNAL" portal
