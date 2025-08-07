@@ -25601,8 +25601,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
       | Responsibilities - At least one approver is required.                                                                                                                    |
     Examples:
-      | userName       |
-      | GRANTEE EXE    |
+      | userName        | User        |
+      | Victor EXE user | GRANTEE EXE |
 
   @449365 @validatuesershouldabletoopenARmodal&verifyvalidationonamendmentrequest
   Scenario Outline: Validate user should able to open AR modal & verify validation on Amendment request
