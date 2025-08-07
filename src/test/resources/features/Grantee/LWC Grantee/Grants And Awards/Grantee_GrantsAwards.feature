@@ -5137,3 +5137,5 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see "Amount" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
     And I click on top right button "Save" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    And I wait for "1" seconds
+
