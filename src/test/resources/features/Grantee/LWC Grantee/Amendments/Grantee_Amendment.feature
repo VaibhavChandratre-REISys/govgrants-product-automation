@@ -25540,8 +25540,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
   @449384 @VerifyUsershouldableseeDataaddedonawardshouldbecopiedonamendmentrecord&verifythevalidation
   Scenario Outline: Verify User should able see Data added on award should be copied on amendment record & verify the validation
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
-    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
+    When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -25553,7 +25553,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I enter value "20" into field "BudgetRedirectionThreshhold__c"
     When I click on "Save" in the page details
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
