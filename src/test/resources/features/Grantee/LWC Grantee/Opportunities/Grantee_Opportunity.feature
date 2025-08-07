@@ -104,7 +104,7 @@ Feature: Validate all scenarios for Opportunity
     Then I softly cannot see row level action button "Enter Review" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
     Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
 
-  @463595 @OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application @P3_Grantee @PM_Grantee @GRegression2
+  @463595 @475758 @OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application @P3_Grantee @PM_Grantee @GRegression2
   Scenario Outline: OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     Given I login to "As a Grantee" app as "GRANTEE PO" user
@@ -215,6 +215,7 @@ Feature: Validate all scenarios for Opportunity
     And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
     Then I softly see the text containing "product.qa@ggp.test8.qagrnteatm"
     And I click on back arrow
+    #475758
     And I navigate to "Evaluation" sub tab
     Then I softly see "Evaluation" page block displayed
     Then I softly see field "1. Have we previously received an award from this sponsoring agency?" inside page block
@@ -289,6 +290,7 @@ Feature: Validate all scenarios for Opportunity
     Then I softly see "Certifications and Other" page block displayed
     Then I softly see field "18. Describe any additional legal requirements or policy impact from receiving an award." inside page block
     Then I softly see field "19. Describe any additional organizational certifications required or compliance requirements created as a result of an award." inside page block
+    #463595
     When I navigate to "Responsibilities" sub tab
     Then I softly see "Peer Reviewers" page block displayed
     Then I softly see "Approvers" page block displayed
@@ -1944,3 +1946,15 @@ Feature: Validate all scenarios for Opportunity
       | Evaluation Tab - Select a value for Maintenance of Effort required.                                                                    |
       | Evaluation Tab - Provide a value for How will the program be sustained, should funding end.                                            |
       | Responsibilities - At least one approver is required                                                                                   |
+
+  @475758 @ValidateOpportunitiesNotconverted(Manual)detailsdisplayedonEvaluationTab
+  Scenario: Validate the dependent field for PM user for section "Evaluation" under evaluation tab on opportunity
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I click on "Edit" in the page details
