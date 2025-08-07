@@ -8916,7 +8916,7 @@ Feature: Grantee Forms Scenario
     Then I softly see value "Success" for title "Response Status Details" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "{SavedValue:TrackingNumber}" for title "Tracking Number" against the value "SUCCESS" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @480741 @ValidatePOProfileIfOtherattachmentforismandatorythenwithoutattachmentnotallowtomoveahead
+  @480741 @ValidatePOProfileIfOtherattachmentforismandatorythenwithoutattachmentnotallowtomoveahead @P2_Grantee @PO_Grantee @GRegression2
   Scenario: Validate PO Profile If Other attachment for is mandatory then without attachment not allow to move ahead
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumber}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001241410" with properties "default-Grantee PO user"
