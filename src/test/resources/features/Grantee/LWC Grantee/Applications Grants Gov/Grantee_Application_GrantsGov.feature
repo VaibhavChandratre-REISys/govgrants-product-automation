@@ -2141,7 +2141,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see the following messages in the page details contains:
       | You cannot change the owner from this screen. The Ownership Reassignment feature is not available for Grantee application. Please contact your system administrator for assistance. |
 
-  @480752 @ValidatePMProfileonclickrevisebuttonagainabletosubmittograntsGov
+  @480752 @ValidatePMProfileonclickrevisebuttonagainabletosubmittograntsGov @P2_Grantee @PM_Grantee @GRegression5
   Scenario: Validate PM Profile on click revise button again able to submit to grants.Gov
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySFLLL}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269344" with properties "default"

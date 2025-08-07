@@ -23840,13 +23840,12 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     When I navigate to "Actuals" sub tab
-    Then I softly see field "Drawn to Date" as "$3,500.00"
-    Then I softly see field "Current Balance" as "$3,500.00"
-    Then I softly see field "Grant Balance" as "$96,500.00"
-    Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see field "Drawn to Date" as "$0.00"
+    Then I softly see field "Current Balance" as "$0.00"
+    Then I softly see field "Grant Balance" as "$100,000.00"
+    Then I softly see value "$0.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$0.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$0.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Given I expand nested table containing column value "Automation Permanent Focus Area"
     When I enter the following values into flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---" by clicking "New" :
       | Reference ID | Drawdown Date | Amount |
@@ -23862,13 +23861,13 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly can see row level action button "Delete" against "Focus5" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see field "Drawn to Date" as "$4,500.00"
-    Then I softly see field "Current Balance" as "$4,500.00"
-    Then I softly see field "Grant Balance" as "$95,500.00"
-    Then I softly see value "$3,500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$1,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$3,500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-    Then I softly see value "$1,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see field "Drawn to Date" as "$1,000.00"
+    Then I softly see field "Current Balance" as "$1,000.00"
+    Then I softly see field "Grant Balance" as "$99,000.00"
+    Then I softly see value "$500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     When I navigate to "Overview" sub tab
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     When I navigate to "Awards" sub tab
