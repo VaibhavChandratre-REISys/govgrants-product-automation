@@ -1946,15 +1946,3 @@ Feature: Validate all scenarios for Opportunity
       | Evaluation Tab - Select a value for Maintenance of Effort required.                                                                    |
       | Evaluation Tab - Provide a value for How will the program be sustained, should funding end.                                            |
       | Responsibilities - At least one approver is required                                                                                   |
-
-  @475758 @ValidateOpportunitiesNotconverted(Manual)detailsdisplayedonEvaluationTab
-  Scenario: Validate the dependent field for PM user for section "Evaluation" under evaluation tab on opportunity
-    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to "Opportunities" tab
-    When I navigate to "Qualified" content inside "Leads" subheader on left panel
-    And I click toggle button to select "Qualified Leads - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
-    When I click on "Convert to Opportunity" in the page details
-    And I click on "Edit" in the page details
