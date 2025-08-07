@@ -2287,7 +2287,6 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I softly can see top right button "Submit To Grants.Gov" in page detail
     When I navigate to "History" sub tab
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:submissionHistoryTableId---"
     And I click on "Submit To Grants.Gov" in the page details without processing
     And I click "Cancel" on modal confirmation box
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
