@@ -5083,3 +5083,57 @@ Feature: Validate all scenarios for Grants & Awards
   And I click on "Edit" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
   Then I can see top right button "Save" in page detail
   Then I can see top right button "Cancel" in page detail
+
+  @488678 @ValidatePMProfilenewbuttononFinancialTransactionwithreocrdowneronly.
+  Scenario: Validate for PM Profile New button on Financial Transaction with reocrd owner only.
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "SECOND_FOCUS_WITH_BUDGET"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    When I navigate to "Actuals" sub tab
+    Then I softly see field "Drawn to Date" as "$0.00"
+    Then I softly see field "Spent to Date" as "$0.00"
+    Then I softly see field "Current Balance" as "$0.00"
+    Then I softly see field "Grant Balance" as "$100,000.00"
+    Then I softly see "Drawdown By Award" page block displayed
+    Then I softly can see row level action button "Show Financial Transactions" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "Automation Permanent Focus Area" for title "Focus Area Name" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area Name" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    And I click on "Show Financial Transactions" icon for "Automation Permanent Focus Area" inside flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see "Drawdown By  Award" opens in overLay window
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:DrawdownByAwardModalTableId---"
+    And I click modal button "Close"
+    And I click on "Show Financial Transactions" icon for "Automation Permanent Focus Area2" inside flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see "Drawdown By  Award" opens in overLay window
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:DrawdownByAwardModalTableId---"
+    And I click modal button "Close"
+    And I wait for "1" seconds
+    Given I expand nested table containing column value "Automation Permanent Focus Area"
+    Then I softly see "Financial Transactions" page block displayed
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Reference ID" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Drawdown Date" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Amount" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    And I collapse nested table containing column value "Automation Permanent Focus Area"
+    And I wait for "1" seconds
+    Given I expand nested table containing column value "Automation Permanent Focus Area2"
+    Then I softly see "Financial Transactions" page block displayed
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Reference ID" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Drawdown Date" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Amount" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    And I click on top right button "Save" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"

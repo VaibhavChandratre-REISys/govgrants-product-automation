@@ -3083,3 +3083,88 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly see field "Submitted By" as "{SavedValue:SubmittedBy}"
     And I save the field labeled "Submitted On" as "SubmittedOn"
     Then I softly see field "Submitted On" as "{SavedValue:SubmittedOn}"
+
+  @483999 @ValidateFromAppPOuserseevalidationonProgressReportlayout
+  Scenario: Validate From App  PO user see validation on Progress Report layout
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
+    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default-Grantee PO user"
+    And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
+    And I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    And I enter in modal value "1" into field "ReportDueDate__c"
+    And I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details contains:
+      | The Reporting Due Date cannot be before the Reporting Period End Date |
+    And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I click on "Validate" in the page details
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Forms and Files Tab - Attach Progress Report document.        |
+      | Performance Tab - Provide 'Reported Value As Of' for the KPI. |
+      | Responsibilities - At least one approver is required.         |
+    And I save the field labeled "Reporting Period Start Date" as "ReportingPeriodStartDate"
+    And I save the field labeled "Reporting Period End Date" as "ReportingPeriodEndDate"
+    And I save the field labeled "Report Due Date" as "ReportDueDate"
+    And I save the field labeled "EGMS ID" as "progressEGMSID"
+    And I click on "Edit" in the page details
+    And I clear the value from field "ReportingPeriodStartDate__c"
+    And I clear the value from field "ReportingPeriodEndDate__c"
+    And I clear the value from field "ReportDueDate__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | To Save, Reporting Period Start Date is required in the Overview tab under the Report Overview section. |
+      | To Save, Reporting Period End Date is required in the Overview tab under the Report Overview section.   |
+      | To Save, Report Due Date is required in the Overview tab under the Report Overview section.             |
+    And I click on "Cancel" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to cancel?" is displayed
+    When I click modal button "OK"
+    And I save the field labeled "EGMS ID" as "progressEGMSID"
+    When I navigate to "Performance" sub tab
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:KPIOnProgressReport---" by clicking "Edit" :
+      | EGMS ID                | Reported Value | Reported Value As Of |
+      | Automation Runtime KPI | 10             | 1                    |
+    And I click on "Edit" in the page details
+    When I enter values into fields
+      | Value                          | Field                 |
+      | Automation Key Accomplishments | KeyAccomplishments__c |
+      | Automation Obstacles           | Obstacles__c          |
+      | Automation Plans               | Plans__c              |
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
+      | Name       | Progress Report |
+      | Victor EXE | Step 1          |
+    When I navigate to "Forms and Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Progress Report" from computer
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | The Report has been validated successfully. |
