@@ -8827,7 +8827,7 @@ Feature: Grantee Forms Scenario
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @479902 @ValidatePMProfileIfSFLLLformsetasoptionalthenstillwithdataabletosubmittheform
+  @479902 @ValidatePMProfileIfSFLLLformsetasoptionalthenstillwithdataabletosubmittheform @P2_Grantee @PM_Grantee @GRegression5
   Scenario: Validate PM Profile If SF-LLL form set as optional then still with data able to submit the form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -8973,3 +8973,220 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | Please validate the Forms by clicking validate button. |
 
+  @481539 @ValidatePOusershouldabletosubmittheapplicationtograntsgovifProjectSummaryformismandatory&verifyvalidationifusernotaddedtherequiredfields
+  Scenario: Validate PO user should able to submit the application to grants.gov if Project Summary form is mandatory & verify validation if user not added the required fields
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumber}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001241410" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001241410" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001241410" with properties "default-Grantee PO user"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    When I click on "Edit" icon for "Assurances for Non-Construction Programs (SF-424B)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I enter value "Automation Test Execution" into field "AOR_Title__c"
+    And I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    And I click on "Edit" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Project Narrative File" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I close the tab
+    And I click on "Edit" icon for "Attachments" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Grant Application Document" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I close the tab
+    When I click on "View" icon for "Budget Information for Non-Construction Programs (SF-424A)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ABudgetSummaryTableId---" by clicking "Edit" :
+      | Grant Program Function or Activity (a) | Catalog of Federal Domestic Assistance Number (b) | Estimated Unobligated Federal Funds (c) | Estimated Unobligated Non-Federal Funds (d) | New or Revised Federal Budget (e) | New or Revised Non-Federal Budget (f) |
+      | Automation Permanent Focus Area        | Automation Test                                   | 1000                                    | 1000                                        | 1000                              | 1000                                  |
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ANonFedResourceTableId---" by clicking "Edit" :
+      | (a) Grant Program               | (b) Applicant | (c) State | (d) Other Sources |
+      | Automation Permanent Focus Area | 1000          | 1000      | 1000              |
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ANonConstructionGridDTableId---" by clicking "Edit" :
+      | Type        | 1st Quarter | 2nd Quarter | 3rd Quarter | 4th Quarter |
+      | Federal     | 1000        | 1000        | 1000        | 1000        |
+      | Non-Federal | 1000        | 1000        | 1000        | 1000        |
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ANonConstructionGridETableId---" by clicking "Edit" :
+      | (a) Grant Program               | (b) First Future Funding Period | (c) Second Future Funding Period | (d) Third Future Funding Period | (e) Fourth Future Funding Period |
+      | Automation Permanent Focus Area | 1000                            | 1000                             | 1000                            | 1000                             |
+    And I wait for "1" seconds
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    And I click on "Edit" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I close the tab
+    And I click on "Edit" icon for "Disclosure of Lobbying Activities (SF-LLL)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I enter "Grantee_SF-LLL_Form_Valid" values from "Application_Field_Values - backup.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I close the tab
+    When I click on "View" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    And I enter "Lobbying_Form" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    And I click on "Edit" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    When I enter the following values into flex table with id "---grantee_tableId:-:applicationKeyContactFormTableId---" by clicking "Add" :
+      | Name     | Is Key Contact | Project Role    |
+      | Sarah PM | Checked        | Program Manager |
+    And I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    When I click on "Edit" icon for "Other Attachments Forms" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly see "Add File" opens in overLay window
+    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Other Attachment" from computer
+    When I click modal button "Close"
+    Then I see "Attachment.pdf" has been added in "Files" flex table
+    And I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I close the tab
+    When I click on "View" icon for "Project/Performance Site Location(s)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on top right button "Add" in flex table with id "---grantee_tableId:-:projectLocationFormTableId---"
+    And I enter "Project_Perform_Site" values from "Application_Field_Values.xlsx"
+    When I click modal button "Save"
+    And I wait for "1" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:projectLocationFormTableId---"
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:projectLocationFormTableId---"
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    Then I softly see value "Project Abstract Summary" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see "check" symbol against the value "Project Abstract Summary" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Project Abstract Summary" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | To Save, Funding Opportunity Number is required.               |
+      | To Save, Applicant Name is required.                           |
+      | To Save, Descriptive Title of Applicant's Project is required. |
+      | To Save, Project Abstract is required.                         |
+    And I enter "Project_Abstract_Summary" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I close the tab
+    Then I softly see value "0.00%" for title "Percentage" against the value "Project Abstract Summary" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see value "No" for title "Validated" against the value "Project Abstract Summary" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Please validate the Forms by clicking validate button. |
+    When I click on "Edit" icon for "Project Abstract Summary" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "100.00%" for title "Percentage" against the value "Project Abstract Summary" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see value "Yes" for title "Validated" against the value "Project Abstract Summary" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Application has been validated successfully. |
+    And I click on "Submit For Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    Then I softly can see top right button "Submit To Grants.Gov" in page detail
+    When I click on "Submit To Grants.Gov" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I can see top right button "Check Status" in page detail
+    Then I can see top right button "Revise" in page detail
+    When I navigate to "History" sub tab
+    And I save the value from row "1" for column name "Tracking Number" as "TrackingNumber" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "S2SReceived" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "{SavedValue:TrackingNumber}" for title "Tracking Number" against the value "S2SReceived" inside table "---grantee_tableId:-:submissionHistoryTableId---"
