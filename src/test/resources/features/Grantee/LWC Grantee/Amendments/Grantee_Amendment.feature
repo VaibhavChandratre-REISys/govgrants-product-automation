@@ -23759,7 +23759,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "Monitoring" sub tab
     Then I softly do not see value "{SavedValue:AmendTermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
 
-  @491492 @ValidatePMProfileonamendedawardcreatedperiodicamendmentandcheckallawardWithDrawdownWithoutSpent
+  @491492 @ValidatePMProfileonamendedawardcreatedperiodicamendmentandcheckallawardWithDrawdownWithoutSpent @P2_Grantee @PM_Grantee @GRegression5
   Scenario: Validate PM Profile Verify on amended award created periodic amendment and check all award With Drawdown Without Spent
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"

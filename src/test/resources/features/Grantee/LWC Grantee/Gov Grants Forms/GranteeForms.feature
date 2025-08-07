@@ -8973,7 +8973,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | Please validate the Forms by clicking validate button. |
 
-  @481539 @ValidatePOusershouldabletosubmittheapplicationtograntsgovifProjectSummaryformismandatory&verifyvalidationifusernotaddedtherequiredfields
+  @481539 @ValidatePOusershouldabletosubmittheapplicationtograntsgovifProjectSummaryformismandatory&verifyvalidationifusernotaddedtherequiredfields @P2_Grantee @PO_Grantee @GRegression2
   Scenario: Validate PO user should able to submit the application to grants.gov if Project Summary form is mandatory & verify validation if user not added the required fields
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumber}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001241410" with properties "default-Grantee PO user"
@@ -9258,7 +9258,7 @@ Feature: Grantee Forms Scenario
     Then I softly see value "100.00%" for title "Percentage" against the value "Project Abstract Summary" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "Yes" for title "Validated" against the value "Project Abstract Summary" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
 
-  @492767 @ValidatePMProfileifmandatoryformisblankthenonclickValidatebuttonvalidationabletosee
+  @492767 @ValidatePMProfileifmandatoryformisblankthenonclickValidatebuttonvalidationabletosee @P2_Grantee @PM_Grantee @GRegression2
   Scenario: Validate PM Profile if mandatory form is blank then on click Validate button validation able to see
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumber}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001241410" with properties "default"
