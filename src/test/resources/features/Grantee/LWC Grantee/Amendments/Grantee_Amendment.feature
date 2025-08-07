@@ -25585,18 +25585,18 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Narrative     | Awarded Budget | Cash Match |
-      | Construction | The narrative | 4500           | 450        |
+      | Construction | The narrative | 4000           | 400        |
     When I close "Add Line Items" modal by clicking the top right x button
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Awarded Budget | Cash Match |
-      | Extra Salary | The narrative | 600            | 60         |
+      | Extra Salary | The narrative | 800            | 80         |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection.                                                                         |
       | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero.                                                                   |
-      | Overview Tab - The budget redirection threshold for each focus area cannot exceed the budget redirection threshold 10.00%                                                |
+      | Overview Tab - The budget redirection threshold for each focus area cannot exceed the budget redirection threshold 20.00%                                                |
       | Overview Tab - Maximum Indirect Cost Rate cannot be greater than 100%.                                                                                                   |
       | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
       | Responsibilities - At least one approver is required.                                                                                                                    |
