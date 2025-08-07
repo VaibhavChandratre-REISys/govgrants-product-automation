@@ -25905,11 +25905,11 @@ Feature: Validate all scenarios for Grantee Amendment Request
      Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
 
    @449390 @validatethesubmittoGrantorbuttonofbudgetRedirectionAmendment
-    Scenario: validate the submit to Grantor button of budget Redirection Amendment
-     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee EXE user"
+    Scenario Outline: validate the submit to Grantor button of budget Redirection Amendment
+     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
      And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
      And I activate the award for title "{SavedValue:Automation Runtime Award}"
-     When I login to "As a Grantee" app as "GRANTEE EXE" user
+     When I login to "As a Grantee" app as "<User>" user
      And I navigate to "Grants" tab
      When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
      And I click toggle button to select "Grants - All"
@@ -25961,7 +25961,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
      And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
      When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
      When I "Approve" in the approval decision
-     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+     When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
      And I navigate to "Grants" tab
      When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
      And I click toggle button to select "Amendment Requests - All"
@@ -25977,3 +25977,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
      And I click modal button "Save"
      And I click modal button "Close"
      Then I softly see field "Status" as "Submitted to Grantor"
+     Examples:
+       | userName        | User        |
+       | Victor EXE user | GRANTEE EXE |
