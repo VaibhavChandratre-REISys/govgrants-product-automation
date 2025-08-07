@@ -5139,4 +5139,6 @@ Feature: Validate all scenarios for Grants & Awards
     And I wait for "2" seconds
     And I click on top right button "Save" in flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
     And I wait for "1" seconds
+    Then I softly see the following messages in the page details contains:
+      | Required fields missing |
 
