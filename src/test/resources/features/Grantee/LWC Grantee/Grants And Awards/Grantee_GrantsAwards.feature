@@ -5143,11 +5143,11 @@ Feature: Validate all scenarios for Grants & Awards
       | Required fields missing |
 
    @461011 @validateifNONcashmatchisselectedYestheninReportnoncashmatchlineitemmodalabletoseeNewbutton.
-  Scenario Outline: Validate if NON cash match is selected Yes then in Report non cash match line item modal able to see New button.
-    And I "Created" standalone subaward "Automation Runtime award" with properties "default-<userName>"
-    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+  Scenario: Validate if NON cash match is selected Yes then in Report non cash match line item modal able to see New button.
+    And I "Created" standalone subaward "Automation Runtime award" with properties "CASH_MATCH_NON_CASH_MATCH_PO_OWNER"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "NON_CASH_MATCH_BUDGET"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
-    When I login to "As a Grantee" app as "<userType>" user
+    When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -5177,7 +5177,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I navigate to "Overview" sub tab
     And I wait for "2" seconds
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    And I create adhoc closeout "{SavedValue:Automation Runtime Award}" for status "Completed" with properties "default"
+    And I create adhoc closeout "{SavedValue:Automation Runtime Award}" for status "Completed" with properties "default-Grantee PO user"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -5206,6 +5206,3 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see "Report Non Cash Match" page block displayed on modal
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsMoalNonCashMatchTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AwardActualsMoalNonCashMatchTableId---"
-    Examples:
-      | userType   | userName      |
-      | GRANTEE PM | Sarah PM user |
