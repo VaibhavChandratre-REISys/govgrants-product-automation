@@ -5142,3 +5142,70 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see the following messages in the page details contains:
       | Required fields missing |
 
+   @461011 @validateifNONcashmatchisselectedYestheninReportnoncashmatchlineitemmodalabletoseeNewbutton.
+  Scenario Outline: Validate if NON cash match is selected Yes then in Report non cash match line item modal able to see New button.
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default-<userName>"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "As a Grantee" app as "<userType>" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    When I navigate to "Actuals" sub tab
+    Then I softly see "Financials Summary" page block displayed
+    Then I softly see "Expenditure Detail" page block displayed
+    Then I softly see field "Total Awarded Budget" inside page block
+    Then I softly see field "Spent to Date" inside page block
+    Then I softly see field "Remaining Balance" inside page block
+    Then I softly see field "Total Match Expenditures to Date this Budget Period" inside page block
+    Then I softly can see row level action button "Show Financial Transactions" against "Construction" in flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly can see row level action button "Report Non-Cash Match Line Item" against "Construction" in flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    And I click on "Report Non-Cash Match Line Item" icon for "Construction" inside flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see "Add Non-Cash Match" opens in overLay window
+    Then I softly see "Report Non Cash Match" page block displayed on modal
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsMoalNonCashMatchTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AwardActualsMoalNonCashMatchTableId---"
+    And I close "Add Non-Cash Match" modal by clicking the top right x button
+    And I wait for "2" seconds
+    And I navigate to "Overview" sub tab
+    And I wait for "2" seconds
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I create adhoc closeout "{SavedValue:Automation Runtime Award}" for status "Completed" with properties "default"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    Then I softly see field "Status" as "Closed/Completed"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Closed" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Closed"
+    And I wait for "2" seconds
+    Then I softly can see "Actuals" sub tab at view detail page
+    When I navigate to "Actuals" sub tab
+    Then I softly see "Financials Summary" page block displayed
+    Then I softly see "Expenditure Detail" page block displayed
+    Then I softly see field "Total Awarded Budget" inside page block
+    Then I softly see field "Spent to Date" inside page block
+    Then I softly see field "Remaining Balance" inside page block
+    Then I softly see field "Total Match Expenditures to Date this Budget Period" inside page block
+    Then I softly can see row level action button "Show Financial Transactions" against "Construction" in flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly can see row level action button "Report Non-Cash Match Line Item" against "Construction" in flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    And I click on "Report Non-Cash Match Line Item" icon for "Construction" inside flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see "Add Non-Cash Match" opens in overLay window
+    Then I softly see "Report Non Cash Match" page block displayed on modal
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsMoalNonCashMatchTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AwardActualsMoalNonCashMatchTableId---"
+    Examples:
+      | userType   | userName      |
+      | GRANTEE PM | Sarah PM user |
