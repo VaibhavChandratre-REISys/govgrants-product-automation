@@ -5145,7 +5145,7 @@ Feature: Validate all scenarios for Grants & Awards
    @461011 @validateifNONcashmatchisselectedYestheninReportnoncashmatchlineitemmodalabletoseeNewbutton.
   Scenario: Validate if NON cash match is selected Yes then in Report non cash match line item modal able to see New button.
     And I "Created" standalone subaward "Automation Runtime award" with properties "CASH_MATCH_NON_CASH_MATCH_PO_OWNER"
-    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "NON_CASH_MATCH_BUDGET"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
