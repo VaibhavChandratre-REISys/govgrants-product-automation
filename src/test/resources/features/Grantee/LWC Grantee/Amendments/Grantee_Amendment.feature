@@ -25979,3 +25979,47 @@ Feature: Validate all scenarios for Grantee Amendment Request
      Examples:
        | userName        | User        |
        | Victor EXE user | GRANTEE EXE |
+
+
+     @449383 @
+     Scenario Outline: Verify User should able see Data added on award should be copied on amendment record & verify the validation
+       And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
+       And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
+       When I login to "As a Grantee" app as "<User>" user
+       And I navigate to "Grants" tab
+       When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+       And I click toggle button to select "Grants - All"
+       When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+       And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+       When I navigate to "Awards" sub tab
+       And I click on "Edit" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+       And I navigate to "Projections" sub tab
+       And I enter value "20" into field "BudgetRedirectionThreshhold__c"
+       When I click on "Save" in the page details
+       And I activate the award for title "{SavedValue:Automation Runtime Award}"
+       And I navigate to "Grants" tab
+       When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+       And I click toggle button to select "Grants - All"
+       When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+       And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+       Then I softly see field "Status" as "Active"
+       Then I softly see status in Progress-bar is "Active" and is "dark blue"
+       When I navigate to "Awards" sub tab
+       And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+       And I navigate to "Overview" sub tab
+       And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+       Then I softly can see "Actuals" sub tab at view detail page
+       When I navigate to "Amendments" sub tab
+       Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
+       And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+       And I enter "Grantee_Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
+       And I click modal button "Save and Continue"
+       When I click on "Save" in the page details
+       And I click on back arrow
+       And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+       And I enter "Grantee_Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
+       And I click modal button "Save and Continue"
+       Then I softly see the following messages in the page details contains:
+         | Amendment Request is already in progress. Kindly complete the request to create new request. |
+
+
