@@ -25981,8 +25981,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
        | Victor EXE user | GRANTEE EXE |
 
 
-     @449383 @
-     Scenario Outline: Verify User should able see Data added on award should be copied on amendment record & verify the validation
+     @449383 @validatethevalidationwhenotherARisinprogressstate&verifyfocusareafromaward
+     Scenario Outline: Verify Validation when Other AR is in Inprogress state & verify focus area from award
        And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
        And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
        When I login to "As a Grantee" app as "<User>" user
@@ -26021,5 +26021,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
        And I click modal button "Save and Continue"
        Then I softly see the following messages in the page details contains:
          | Amendment Request is already in progress. Kindly complete the request to create new request. |
+       Examples:
+         | userName        | User        |
+         | Victor EXE user | GRANTEE EXE |
 
 
