@@ -5207,3 +5207,30 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see "Report Non Cash Match" page block displayed on modal
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsMoalNonCashMatchTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AwardActualsMoalNonCashMatchTableId---"
+
+   @443799 @validateWithPMProfileHistoryTabofGrantpagelayout
+   Scenario: Validate With PM Profile History Tab of Grant page layout.
+     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+     When I login to "As a Grantee" app as "GRANTEE PO" user
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+     And I save the field labeled "Grant Number" as "GrantNumber"
+     Then I softly see field "Status" as "Draft"
+     And I navigate to "History" sub tab
+     Then I softly see "Snapshot History" page block displayed
+     Then I softly see "No Records Found" inside snapshot history
+     And I activate the award for title "{SavedValue:Automation Runtime award}"
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     Then I softly see field "Status" as "Active"
+     And I navigate to "History" sub tab
+     Then I softly see "Snapshot History" page block displayed
+     Then I softly see "No Records Found" inside snapshot history
