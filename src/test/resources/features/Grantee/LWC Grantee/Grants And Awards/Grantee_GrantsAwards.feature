@@ -5262,7 +5262,7 @@ Feature: Validate all scenarios for Grants & Awards
      And I click on "Submit For Approval" in the page details
      Then I softly see field "Status" as "Submitted for Approval"
      Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-     When I login to "As a Grantee" app as "GRANTEE EXE" user
+     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
      And I navigate to "Grants" tab
      When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
      And I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -5272,7 +5272,7 @@ Feature: Validate all scenarios for Grants & Awards
      And I refresh the page
      Then I softly see field "Status" as "Rejected"
      Then I softly see status in Progress-bar is "Rejected" and is "Red"
-     When I login to "As a Grantee" app as "GRANTEE PM" user
+     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
      And I navigate to "Grants" tab
      When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
      And I click toggle button to select "Grants - All"
