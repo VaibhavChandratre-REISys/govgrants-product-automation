@@ -5249,7 +5249,9 @@ Feature: Validate all scenarios for Grants & Awards
      And I save the field labeled "EGMS ID" as "AwardEGMSID"
      When I navigate to "Files" sub tab
      And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+     And I wait for "2" seconds
      And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
+     And I wait for "2" seconds
      When I click modal button "Close"
      And I wait for "2" seconds
      When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "New" :
