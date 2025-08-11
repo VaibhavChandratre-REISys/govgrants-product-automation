@@ -1992,8 +1992,18 @@ Feature: Validate all scenarios for Opportunity
     Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
     When I perform quick search for "Reviewed" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
     Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
-
-      And I click toggle button to select "Grants - Closed"
-    Then I softly see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
-    And I click toggle button to select "Grants - My Records"
-    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    And I click toggle button to select "Opportunities Not Converted to Application - Closed"
+      And I wait for "2" seconds
+      Then I see "10" records inside flex table id "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+      When I perform quick search for "Draft" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+      Then I softly see value "Draft" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+      When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+      Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+      When I perform quick search for "Reviewed" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+      Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+      When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+      Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+      When I perform quick search for "Approved" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+      Then I softly see value "Approved" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+      When I perform quick search for "Rejected" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+      Then I softly see value "Rejected" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
