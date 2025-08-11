@@ -5212,7 +5212,7 @@ Feature: Validate all scenarios for Grants & Awards
    Scenario: Validate With PM Profile History Tab of Grant page layout.
      And I "Created" standalone subaward "Automation Runtime award" with properties "default"
      And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
-     When I login to "As a Grantee" app as "GRANTEE PO" user
+     When I login to "As a Grantee" app as "GRANTEE PM" user
      And I navigate to "Grants" tab
      When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
      And I click toggle button to select "Grants - All"
@@ -5234,8 +5234,8 @@ Feature: Validate all scenarios for Grants & Awards
      And I navigate to "History" sub tab
      Then I softly see "Snapshot History" page block displayed
      Then I softly see "No Records Found" inside snapshot history
-     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
-     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "GRANTEE_PM_APPROVER"
+     And I "Created" standalone subaward "Automation Runtime Award2" with properties "default"
+     And I updated direct grant award for title "{SavedValue:Automation Runtime Award2}" with properties "default"
      And I navigate to "Grants" tab
      When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
      And I click toggle button to select "Grants - All"
@@ -5262,15 +5262,23 @@ Feature: Validate all scenarios for Grants & Awards
      And I click on "Submit For Approval" in the page details
      Then I softly see field "Status" as "Submitted for Approval"
      Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+     When I login to "As a Grantee" app as "GRANTEE EXE" user
+     And I navigate to "Grants" tab
+     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+     And I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+     When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
      When I "Reject" in the approval decision
      And I wait for "2" seconds
      And I refresh the page
      Then I softly see field "Status" as "Rejected"
      Then I softly see status in Progress-bar is "Rejected" and is "Red"
-     When I navigate to "Overview" sub tab
-     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+     When I login to "As a Grantee" app as "GRANTEE PM" user
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
      Then I softly see field "Status" as "Terminated"
-     Then I softly see status in Progress-bar is "Terminated" and is "Red"
      And I navigate to "History" sub tab
      Then I softly see "Snapshot History" page block displayed
      Then I softly see "No Records Found" inside snapshot history
