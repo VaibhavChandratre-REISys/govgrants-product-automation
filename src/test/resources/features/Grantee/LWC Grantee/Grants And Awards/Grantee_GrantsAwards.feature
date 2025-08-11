@@ -5234,3 +5234,40 @@ Feature: Validate all scenarios for Grants & Awards
      And I navigate to "History" sub tab
      Then I softly see "Snapshot History" page block displayed
      Then I softly see "No Records Found" inside snapshot history
+     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "GRANTEE_PM_APPROVER"
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+     Then I softly see field "Status" as "Draft"
+     When I navigate to "Awards" sub tab
+     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+     Then I softly see field "Status" as "Created"
+     And I save the field labeled "EGMS ID" as "AwardEGMSID"
+     When I navigate to "Files" sub tab
+     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
+     When I click modal button "Close"
+     And I wait for "2" seconds
+     When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "New" :
+       | Title        | Description      |
+       | Notes Record | Automation Notes |
+     When I click on "Validate" in the page details
+     And I wait for "2" seconds
+     Then I softly see the following messages in the page details contains:
+       | The award has been validated successfully. |
+     And I click on "Submit For Approval" in the page details
+     Then I softly see field "Status" as "Submitted for Approval"
+     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+     When I "Reject" in the approval decision
+     And I wait for "2" seconds
+     And I refresh the page
+     Then I softly see field "Status" as "Rejected"
+     Then I softly see status in Progress-bar is "Rejected" and is "Red"
+     When I navigate to "Overview" sub tab
+     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+     Then I softly see field "Status" as "Terminated"
+     Then I softly see status in Progress-bar is "Terminated" and is "Red"
