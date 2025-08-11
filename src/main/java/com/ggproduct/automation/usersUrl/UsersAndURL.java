@@ -299,26 +299,26 @@ public class UsersAndURL implements UsersController {
 
     private String getProLwcEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "govgrantsautomation@yopmail.com.govgrants5");
-        username.put("ADMIN1", "manu.admin@ggp.test8.govgrants5");
-        username.put("EXE", "test@gmaildemo.com.govgrants5");
-        username.put("PM", "donald_pm@ggp.test7.atm.govgrants5");
-        username.put("FO", "auto.fm@auto.com.govgrants5");
-        username.put("PO", "automationpo@yopmail.com.govgrants5");
-        username.put("FD", "automationfd@yopmail.com.govgrants5");
-        username.put("PM1", "pm1.automation@yopmail.com.govgrants5");
-        username.put("EXE1", "exe1.automation@yopmail.com.govgrants5");
-        username.put("PO1", "automationpo1@yopmail.com.govgrants5");
-        username.put("FO1", "fo1.automation@yopmail.com.govgrants5");
-        username.put("FD1", "automationfd1@yopmail.com.govgrants5");
-        username.put("SPI3", "aspi3@grants.gov.govgrants5");
-        username.put("SPA", "spaautomation12@yopmail.com.govgrants5");
-        username.put("SA", "asa@grants.gov.govgrants5");
-        username.put("IND", "ind12.automation@yopmail.com.govgrants5");
-        username.put("AUDITOR", "automationauditor@yopmail.com.govgrants5");
-        username.put("SME", "sme11@yopmail.com.govgrants5");
-        username.put("SPI4", "spi4@yopmail.com.govgrants5");
-        username.put("SARAH PM", "sarah.pm@ggp.test8.govgrants5");
+        username.put("ADMIN", "govgrantsautomation@yopmail.com.govgrants6");
+        username.put("ADMIN1", "manu.admin@ggp.test8.govgrants6");
+        username.put("EXE", "test@gmaildemo.com.govgrants6");
+        username.put("PM", "donald_pm@ggp.test7.atm.govgrants6");
+        username.put("FO", "auto.fm@auto.com.govgrants6");
+        username.put("PO", "automationpo@yopmail.com.govgrants6");
+        username.put("FD", "automationfd@yopmail.com.govgrants6");
+        username.put("PM1", "pm1.automation@yopmail.com.govgrants6");
+        username.put("EXE1", "exe1.automation@yopmail.com.govgrants6");
+        username.put("PO1", "automationpo1@yopmail.com.govgrants6");
+        username.put("FO1", "fo1.automation@yopmail.com.govgrants6");
+        username.put("FD1", "automationfd1@yopmail.com.govgrants6");
+        username.put("SPI3", "aspi3@grants.gov.govgrants6");
+        username.put("SPA", "spaautomation12@yopmail.com.govgrants6");
+        username.put("SA", "asa@grants.gov.govgrants6");
+        username.put("IND", "ind12.automation@yopmail.com.govgrants6");
+        username.put("AUDITOR", "automationauditor@yopmail.com.govgrants6");
+        username.put("SME", "sme11@yopmail.com.govgrants6");
+        username.put("SPI4", "spi4@yopmail.com.govgrants6");
+        username.put("SARAH PM", "sarah.pm@ggp.test8.govgrants6");
 
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());

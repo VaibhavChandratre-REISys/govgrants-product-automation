@@ -76,6 +76,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---strategicplan:-:ObjectivesKPITableId---"
     When I click "Add" after selection of "Automation Permanent KPI" in the table "---strategicplan:-:ListOfActiveKPITableId---"
+    When I click modal button "Close"
     Then I see that "Automation Permanent KPI" has been added in flextable with Id "---strategicplan:-:ObjectivesKPITableId---"
     Then I softly see field "Status" as "Draft"
     And I click on "Back To Strategic Goal" in the page details
@@ -4485,7 +4486,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I generate the random maildropEmail and save as "uniqueEmailID1"
     And I enter value "{SavedValue:uniqueEmailID1}" into field "Email"
     When I click on "Save" in the page details
-    And I click modal button "Close"
+
+#    And I click modal button "Close"
     And I wait for "3" seconds
     And I refresh the page
     And I wait for "2" seconds
