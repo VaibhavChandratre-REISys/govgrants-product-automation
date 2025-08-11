@@ -26098,3 +26098,94 @@ Feature: Validate all scenarios for Grantee Amendment Request
             | userName        | User        |
             | Victor EXE user | GRANTEE EXE |
 
+       @496198 @validateinfundingchangeamendmentabletoassociateNewFocusareaaccordinglyabletoseecategories
+        Scenario: Validate in funding change amendment able to associate New Focus area accordingly able to see categories.
+          And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+          And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+          And I activate the award for title "{SavedValue:Automation Runtime Award}"
+          When I login to "As a Grantee" app as "GRANTEE PM" user
+          And I navigate to "Grants" tab
+          When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+          And I click toggle button to select "Grants - All"
+          When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+          And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+          Then I softly see field "Status" as "Draft"
+          And I navigate to "Overview" sub tab
+          And I save the field labeled "EGMS ID" as "GrantEGMSID"
+          And I save the field labeled "Grant Number" as "GrantNumber"
+          And I save the field labeled "Project Period" as "ProjectPeriod"
+          When I navigate to "Awards" sub tab
+          And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+          And I refresh the page
+          And I wait for "2" seconds
+          Then I softly see field "Status" as "Activated"
+          And I save the field labeled "EGMS ID" as "AwardEGMSID"
+          And I navigate to "Overview" sub tab
+          And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
+          And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+          And I save the field labeled "Budget Period" as "BudgetPeriod"
+          And I navigate to "Projections" sub tab
+          And I save the field labeled "Budget Redirection Threshold (%)" as "ReqiredChange"
+          When I navigate to "Amendments" sub tab
+          Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
+          And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+          Then I softly see that "Award__c" rendered in view mode only
+          Then I softly see that "FAINAmendmentNumber__c" rendered in view mode only
+          Then I softly see that "GrantNumber__c" rendered in view mode only
+          Then I see textarea field "Impact__c" is editable
+          Then I see textarea field "PurposeRTA__c" is editable
+          And I enter "Grantee_FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+          And I click modal button "Save and Continue"
+          And I wait for "2" seconds
+          And I click on "Save" in the page details
+          And I get the "EGMS ID"
+          And I save the field labeled "EGMS ID" as "FNCAMENDID"
+          Then I softly see field "Status" as "Created"
+          Then I softly see field "Initiated By" as "Grantor"
+          Then I softly see field "Amendment Type" as "Funding Change"
+          Then I can see top right button "Edit" in page detail
+          Then I can see top right button "Delete" in page detail
+          Then I can see top right button "Submit for Approval" in page detail
+          And I wait for "2" seconds
+          And I navigate to "Grants" tab
+          When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+          And I click toggle button to select "Amendment Requests - My Records"
+          When I perform quick search for "{SavedValue:FNCAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+          Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
+          And I click on "Edit" icon for "{SavedValue:FNCAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+          Then I can see top right button "Save" in page detail
+          Then I can see top right button "Cancel" in page detail
+          And I wait for "2" seconds
+          Then I softly can see "Overview" sub tab at view detail page
+          Then I softly can see "Responsibilities" sub tab at view detail page
+          Then I softly can see "Files" sub tab at view detail page
+          Then I softly can see "History" sub tab at view detail page
+          Then I softly can see "Messages" sub tab at view detail page
+          When I navigate to "Overview" sub tab
+          Then I softly see "Details" page block displayed
+          Then I softly see "Budget Period Details" page block displayed
+          Then I softly see "Funding Change" page block displayed
+          Then I softly see "Focus Areas" page block displayed
+          Then I softly see "Budget Change" page block displayed
+          Then I softly see "General Condition" page block displayed
+          Then I softly see "Special Conditions" page block displayed
+          Then I softly see "System Information" page block displayed
+          Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
+          Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+          Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+          Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
+          Then I softly see "Start Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
+          Then I softly see "End Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
+          And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+          Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
+          Then I softly see "Tittle" in flex table header "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
+          Then I softly see "Internal Organization" in flex table header "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
+          Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
+          When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
+          And I click modal button "Close"
+          Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
+          And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
+            | Title                            | Start Date                         | End Date |
+            | Automation Permanent Focus Area2 | {SavedValue:BudgetPeriodStartDate} | 0        |
+         Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+         Then I softly can see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
