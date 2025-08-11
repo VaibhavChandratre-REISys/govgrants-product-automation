@@ -5271,3 +5271,6 @@ Feature: Validate all scenarios for Grants & Awards
      And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
      Then I softly see field "Status" as "Terminated"
      Then I softly see status in Progress-bar is "Terminated" and is "Red"
+     And I navigate to "History" sub tab
+     Then I softly see "Snapshot History" page block displayed
+     Then I softly see "No Records Found" inside snapshot history
