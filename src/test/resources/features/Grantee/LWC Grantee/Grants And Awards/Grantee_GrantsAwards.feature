@@ -5239,8 +5239,8 @@ Feature: Validate all scenarios for Grants & Awards
      And I navigate to "Grants" tab
      When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
      And I click toggle button to select "Grants - All"
-     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
-     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     When I perform quick search for "{SavedValue:Automation Runtime Award2}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime Award2}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
      And I save the field labeled "EGMS ID" as "GrantEGMSID"
      Then I softly see field "Status" as "Draft"
      When I navigate to "Awards" sub tab
