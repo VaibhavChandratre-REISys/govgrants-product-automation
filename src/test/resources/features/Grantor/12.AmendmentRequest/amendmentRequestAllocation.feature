@@ -861,8 +861,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 5000                 | 500        | 0              |
-    And I wait for "9" seconds
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount must be equal to the New Obligation in the Budget Summary section. |
     #258538
@@ -881,8 +882,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Value | Field                      |
       | -2000 | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
-    And I wait for "9" seconds
+    And I wait for "2" seconds
     And I click on "Send Back to Subrecipient" in the page details
+    And I wait for "2" seconds
     #258326
     Then I softly see the following messages in the page details contains:
       | Overview Tab - New Obligation must be greater than $0. |
@@ -6262,7 +6264,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    And I wait for "5" seconds
     When I "Approve" in the approval decision
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
@@ -6333,7 +6334,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I refresh the page
     Then I softly see field "Budgeted Amount" as "$2,700.00"
     #264365
-#    And I expand nested table containing column value "BP01"
+    And I expand nested table containing column value "BP01"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---"
     Then I softly see value "$200.00" for title "Carry Forward" against the value "Construction" inside table "---amendment:-:RecipientCarryForwardBudgetTableId---"
     And I wait for "3" seconds
@@ -11752,7 +11753,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 3000                 | 300        | 0              |
-    And I refresh the page
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     Then I softly see value "$1,000.00" for title "Carry Forward Amount" against the value "Automation Permanent Focus Area" inside table "---amendment:-:carryForwardFocusAreaTableId---"
@@ -13662,6 +13662,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I softly see field "Current Obligation" as "$1,000.00"
     And I save the field labeled "Current Obligation" as "CurrentObligation"
     Then I softly see value "{SavedValue:CumulativeObligation}" is "Equals to" the value "{SavedValue:CurrentObligation}"

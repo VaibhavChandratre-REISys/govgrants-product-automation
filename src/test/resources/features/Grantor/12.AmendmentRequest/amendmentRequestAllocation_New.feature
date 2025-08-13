@@ -12239,6 +12239,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "2" seconds
     #268797
     When I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligation4"
     Then I softly do not see addition of two fields "{SavedValue:CumulativeObligationAmended}" and "{SavedValue:CumulativeObligationActivated}" is equal to "{SavedValue:CumulativeObligation4}"
@@ -16150,6 +16151,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
     When I navigate to "Actuals" sub tab
+    And I wait for "2" seconds
     #271808
     Then I softly see field "Cumulative Obligation" as "$600.00"
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationActAwd"
@@ -16207,6 +16209,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:newObligationAmend33}" is "Equals to" the value "{SavedValue:newObligationAdAct33}"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I wait for "2" seconds
     When I navigate to "Budget" sub tab
     #271828
     Then I softly see field "Cumulative Obligation" as "$600.00"

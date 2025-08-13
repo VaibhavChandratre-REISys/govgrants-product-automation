@@ -453,6 +453,8 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on top right button "Associate" in flex table with id "---amendment:-:goalsAndObjectivesTableId---"
     And I check "<Objectives>" boxes in flex table with id "---amendment:-:objectivesTableId---"
     When I click on top right button "Associate" in flex table with id "---amendment:-:objectivesTableId---"
+    When I click modal button "Close"
+    And I pause execution for "2" seconds
     Then I see that "<Objectives>" has been added in flextable with Id "---amendment:-:goalsAndObjectivesTableId---"
     And I pause execution for "5" seconds
     And I edit the following rows inline in flex table with id "---amendment:-:AmendmentKPITableId---" by clicking "Edit" :
@@ -1754,8 +1756,6 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Submit for Approval" in the page details
     And I "Reject" in the approval decision
-    And I refresh the page
-    And I wait for "4" seconds
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 

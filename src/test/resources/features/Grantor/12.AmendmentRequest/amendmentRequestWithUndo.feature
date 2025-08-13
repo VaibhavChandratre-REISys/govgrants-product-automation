@@ -3824,6 +3824,7 @@ Feature: Amendment Request scenarios with Undo
       | {SavedValue:FD Username} | Step 4            |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -12337,7 +12338,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
-    Then I softly see field "Status" as "Submitted for Approval"
+    Then I see field "Status" as "Submitted for Approval"
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send to Owner |
     When I "Send to Owner" in the approval decision
