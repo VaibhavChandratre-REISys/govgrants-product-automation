@@ -329,7 +329,7 @@ public class UsersAndURL implements UsersController {
         username.put("ADMIN1", "manu.admin@ggp.test8.frwklwcaut");
         username.put("PM", "donald_pm@ggp.test7.atm.frwklwcaut");
         username.put("FO", "auto.fm@auto.com.frwklwcaut");
-        username.put("SPI3", "aspi3@grants.gov.frwklwcautaspi3@grants.gov.frwklwcaut");
+        username.put("SPI3", "aspi3@grants.gov.frwklwcaut");
         username.put("PM1", "pm1.automation@yopmail.com.frwklwcaut");
         username.put("Automation PM", "automationpm@ggp.test8.frwklwcaut");
         username.put("SA", "asa@grants.gov.frwklwcaut");

@@ -175,9 +175,9 @@ public final class PageDetails {
      * @modifier yugandhara.chibade Added new xpath at line 122 and updated method logic for click on more tab element
      */
     public void clickSubTabsInsideTableViewForLWC(String tabName) {
-            By desiredTab = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']");
-            By moreTabs = By.xpath("//div[@class='slds-tabs_default']//li[not(contains(@style,'hidden'))]//button[@title='More Tabs'] | //button[@title='More Tabs']");
-
+        By desiredTab = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "'] | //lightning-menu-item//a//span[text()='" + tabName + "']");
+        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//li[not(contains(@style,'hidden'))]//button[@title='More Tabs'] | //button[@title='More Tabs']");
+        I.amPerforming().click().on(moreTabs);
             try {
                 if (I.amPerforming().checkToSee().isDisplayed(desiredTab)) {
                     I.amPerforming().scroll().toMoveToElement(desiredTab);
