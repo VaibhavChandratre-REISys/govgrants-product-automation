@@ -198,10 +198,8 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:preAppId}" inside flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
     Then I see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
-    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -219,10 +217,8 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:preAppId}" inside flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
     Then I see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
-    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -240,10 +236,8 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:preAppId}" inside flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
     Then I see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
-    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -261,10 +255,8 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:preAppId}" inside flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
     Then I see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
-    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"

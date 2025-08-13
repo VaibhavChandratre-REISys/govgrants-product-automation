@@ -893,6 +893,7 @@ Feature: Application Intake scenarios without background
       | Name                       | Is Key Contact |
       | {SavedValue:SPI3 Username} | Checked        |
     When I click on "Submit Application" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Forms and Files Tab - Complete each mandatory item listed in the checklist before submitting this Application. |
     When I navigate to "Forms and Files" sub tab
@@ -901,6 +902,9 @@ Feature: Application Intake scenarios without background
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click in table hyperlink containing value "View"
+    And I wait for "2" seconds
+    And I download the file without rename
+    And I wait for "3" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
   @73750 @73751 @validateFilterCriteriaForGoalsAndObjectives
@@ -1231,9 +1235,9 @@ Feature: Application Intake scenarios without background
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---applicationIntake:-:applicationContactsTableId---"
-    When I click "Add" after selection of "Automation SPA" in the table "AssociateAppContacts"
-    And I refresh the page
-    And I wait for "4" seconds
+    When I click "Add" after selection of "Automation SPA" in the table "AssociatePreAppContacts"
+    And I click modal button "Close"
+    And I wait for "2" seconds
     Then I see that "<Contact>" has been added in flextable with Id "---applicationIntake:-:applicationContactsTableId---"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPA" user
