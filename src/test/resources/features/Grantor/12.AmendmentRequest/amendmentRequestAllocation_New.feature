@@ -13124,8 +13124,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Balance" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:awardPaymentSummaryFocusAreaTableId---"
     Then I softly see value "{SavedValue:Balance2}" is "Equals to" the value "{SavedValue:BalanceAW2}"
 
-  @265696 @VerifyINDusercancarryforwardtheamountfromonefocusareatoanotherfocusareaFANo @sprint-20-US-248356  @Allocation @skipDueToIndUser
-  Scenario:Verify IND user can carryforward the amount from one focus area to another focus area (FA is No)
+  @265696 @VerifyINDusercancarryforwardtheamountfromonefocusareatoanotherfocusareaFAYES @sprint-20-US-248356  @Allocation @skipDueToIndUser
+  Scenario:Verify IND user can carryforward the amount from one focus area to another focus area (FA is Yes)
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_SUB_ORG_IND-Automation PM user" of type "Formula_By_Applicant"
     When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
