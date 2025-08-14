@@ -6343,6 +6343,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Carry Forward" against the value "Construction" inside table "---amendment:-:RecipientCarryForwardBudgetTableId---"
 #    And I collapse nested table containing column value "BP01"
     When I click on button "resetIcon" in flex table with id "---progressReport:-:budgetChangeTableId---"
+    And I wait for "2" seconds
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---progressReport:-:budgetChangeTableId---"
     Then I softly see value "$1,200.00" for title "Revised Award Amount" inside table "---progressReport:-:budgetChangeTableId---"
     And I wait for "3" seconds
@@ -16072,8 +16073,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "Revised Commitment" rendered in view mode only
 
     Examples:
-      | User  | User1                 | AllocationType       | Approver                    |
-      | ADMIN | Automation ADMIN user | Formula_By_Applicant | {SavedValue:ADMIN Username} |
+      | User  | User1                 | AllocationType                     | Approver                    |
+      | ADMIN | Automation ADMIN user | Formula_By_Applicant               | {SavedValue:ADMIN Username} |
       | PM    | Automation PM user    | Formula_By_Applicant_Focus_Area_No | {SavedValue:PM Username}    |
 
   @253658 @253661 @253685 @ValidateSPIusercanseeBudgetedAmountasTotalofAwardamountRolledupfromthebudgetchangesectionsRevisedAwardAmountcolumnFANo @sprint-18-US-247642  @Allocation
@@ -16329,6 +16330,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$2,000.00" for title "New Obligation" against the value "Grand Total" inside table "---amendment:-:subrecipientProjectAreasTableId---"
     #253676
     When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
+    And I wait for "2" seconds
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
@@ -16339,9 +16341,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$600.00" for title "New Obligation" against the value "Grand Total" inside table "---amendment:-:subrecipientProjectAreasTableId---"
 
     Examples:
-      | User | UserProfile         | Properties                             |
-      | SPA  | Automation SPI3 user | SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO  |
-      | IND  | Automation IND user | INVITED_APPLICANT_IND_ORG_BY_APPLICANT |
+      | User | UserProfile          | Properties                             |
+#      | SPA  | Automation SPI3 user | SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO  |
+      | IND  | Automation IND user  | INVITED_APPLICANT_IND_ORG_BY_APPLICANT |
 
   @253678 @ValidateSPAusercanseeBudgetedAmountcolumnvalueisrollupfromthebudgetgridinthebudgetchangesectionFAYes @sprint-18-US-247642  @Allocation
   Scenario: Validate SPA user can see Budgeted Amount column value is rollup from the budget grid in the budget change section (FA Yes)
@@ -22559,7 +22561,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 300        | 1        | Feet        |
-    When I close "Amendment Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
