@@ -1793,10 +1793,19 @@ Feature: Validate all scenarios of every modules flow
 
   @testchckAwards @debug
   Scenario:
-    When I am on "INTERNAL" portal
-    And I login to "Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--ggqa2.sandbox.lightning.force.com/lightning/r/Application__c/a1hDi00000BHrkgIAD/view"
+    And I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    And I navigate to url "https://test8-internal--ggqa2.sandbox.my.site.com/recipient/s/application/a1hDi00000BHv2OIAT/aptao1172"
     And I halt execution
-    And I navigate to "Applications" tab
-    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
-    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
+    When I navigate to "History" sub tab
+    And I wait for "5" seconds
+    And I refresh the page
+    And I wait for "5" seconds
+    And I click on hyperlink containing value "SnapShot on"
+    And I switch to tab number "1"
+    And I wait for "3" seconds
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file
+    And I wait for "3" seconds
+    Then I see "Created" on page "1" of "govgrants" pdf file

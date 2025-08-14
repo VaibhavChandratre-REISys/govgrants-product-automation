@@ -972,7 +972,11 @@ Feature: Pre-Application scenarios without background
     And I select "Take Snapshot" from dropdown
     And I wait for "5" seconds
     When I navigate to "History" sub tab
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on hyperlink containing value "SnapShot on"
+    And I switch to tab number "1"
+    And I wait for "3" seconds
     And I click on "Download" button for snapshot view
     And I wait for "3" seconds
     When I download the file for snapshot
@@ -2172,6 +2176,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "Record Id" in "---home:-:externalPendingTasktableId---" panel
     And I click on "Start" icon for "Record Id" inside table
     And I navigate to "Negotiations" sub tab
+    And I wait for "4" seconds
     When I hovering mouse on help text icon inside page block detail "Applicant Response"
     Then I softly see "<new_helpText>" shown as help text
     Examples:
@@ -2948,10 +2953,10 @@ Feature: Pre-Application scenarios without background
     And I click on "View" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I wait for "3" seconds
-    Then I softly see field "1a. Describe the activities and/or services to be provided. (10 points)" as "Automation Test" in "Project Characteristics" pageblock
-    Then I softly see field "1b. Describe how the project will be completed within the required 24-month timeline. (10 points)" as "Automation Test" in "Project Characteristics" pageblock
-    Then I softly see field "1a. Organizational capacity. (10 points)" as "9"
-    Then I softly see field "1b. Experience Level. (10 points)" as "0-5 years"
+    Then I softly see field "1a. Describe the activities and/or services to be provided." as "Automation Test" in "Project Characteristics" pageblock
+    Then I softly see field "1b. Describe how the project will be completed within the required 24-month timeline." as "Automation Test" in "Project Characteristics" pageblock
+    Then I softly see field "1a. Organizational capacity." as "9"
+    Then I softly see field "1b. Experience Level." as "0-5 years"
 
   @180659 @180658 @ValidateannouncementownershouldabletoseetheFilesandFormsFormsoptioninthepreapplicationsectionforNegotiationtabatgrantorside @sprint-10
   Scenario: Validate announcement owner should able to see the Forms and Files Forms option in the pre application section for Negotiation tab at grantor side

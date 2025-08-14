@@ -259,7 +259,8 @@ public class ProjectManager extends ProjectWebServices {
     }
 
     public void clickOnuttonForSnapshotView(String buttonName) {
-        I.amPerforming().click().on(By.xpath("//button[@title='" + buttonName + "'] | //div[@title='Download']"));
+        I.amPerforming().waitFor().ElementToBeClickable(By.xpath("//button[@title='" + buttonName + "'] | //a[@title='" + buttonName + "']"));
+        I.amPerforming().click().on(By.xpath("//button[@title='" + buttonName + "'] | //a[@title='" + buttonName + "']"));
     }
 
     public void clickOnHyperlinkForTheFieldContainingValue(String fieldAPIName, String value) {
