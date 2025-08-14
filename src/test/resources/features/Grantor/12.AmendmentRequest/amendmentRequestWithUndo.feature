@@ -2337,6 +2337,8 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     #292810
     And I navigate to "History" sub tab
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see snapshot with name containing "Amendment - Undo Approval.pdf" as name
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -14575,6 +14577,8 @@ Feature: Amendment Request scenarios with Undo
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "History" sub tab
+    And I refresh the page
+    And I wait for "4" seconds
     Then I softly see snapshot with name containing "Amendment - Undo Approval.pdf" as name
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     And I navigate to "Field Audit" sub tab in split screen
