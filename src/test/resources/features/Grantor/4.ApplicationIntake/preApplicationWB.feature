@@ -18,7 +18,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
-    When I click on "Attach" icon for "Optional" inside flex table with id "---preApplication:-:preApplicationChecklistId---" without waiting for record
+    When I click on "Attach" icon for "Mandatory" inside flex table with id "---preApplication:-:preApplicationChecklistId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -260,9 +260,9 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                       | Is Key Contact |
       | {SavedValue:SPI3 Username} | Checked        |
-#    And I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     And I enter value "Checked" into field "Agreement5__c"
     And I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
@@ -2106,6 +2106,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "Record Id" in "---home:-:externalPendingTasktableId---" panel
     And I click on "Start" icon for "Record Id" inside table
     And I navigate to "Negotiations" sub tab
+    And I wait for "5" seconds
     When I hovering mouse on help text icon inside page block detail "Negotiation Request Details"
     Then I softly see "<new_helpText>" shown as help text
     Examples:
@@ -2700,7 +2701,7 @@ Feature: Pre-Application scenarios without background
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     Then I softly see the following messages in the page details contains:
-      | Files Tab - All mandatory forms must be 100% completed. |
+      | Forms and Files Tab - All mandatory forms must be 100% completed. |
 
   @174523 @InternalUsercanview&previewthepre-applicationform&internalusershouldnotedittheform. @Sprint-7 @Vrishali
   Scenario: Verify Internal User can view & preview the pre-application form & internal user should not edit the form .
@@ -2944,7 +2945,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I navigate to "Forms and Files" sub tab
     And I wait for "2" seconds
-    And I navigate to "Quickview" sub tab in split screen
     And I click on "View" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I wait for "3" seconds

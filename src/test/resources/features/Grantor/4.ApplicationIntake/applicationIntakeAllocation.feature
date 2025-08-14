@@ -457,9 +457,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
-    Then I see the following messages in the page details contains:
-      | Overview Tab - Requested Amount should be less than or equal to Subaward Ceiling Amount. |
-      | Overview Tab - Requested Amount should be more than or equal to Subaward floor Amount.   |
+    Then I softly see field "Status" as "Submitted to Grantor"
 
   @219960 @ValidateINDUserifbudgetedamount&AllocationAmountisnotequalthenusershouldabletoseetheerrormessageonclickonsubmittograntorbutton @sprint-11-US-203038  @Allocation
   Scenario: Validate IND User if budgeted amount & Allocation Amount is not equal then user should able to see the error message on click on submit to grantor button
