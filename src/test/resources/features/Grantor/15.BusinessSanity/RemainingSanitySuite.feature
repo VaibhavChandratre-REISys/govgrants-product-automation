@@ -1,4 +1,4 @@
- @product @grantor-regression @RemainingSanitySuite
+ @product @grantor-regression @RemainingSanitySuite @wip
 Feature: Validate sanity testing of Complete Business Flow
 
   @72357 @deskReviewAcceptAndCloseOrgLevel @ProdSan2
