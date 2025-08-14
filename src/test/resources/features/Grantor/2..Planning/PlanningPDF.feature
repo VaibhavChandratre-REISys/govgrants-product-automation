@@ -1,4 +1,4 @@
-@programPDF @grantor-regression @grantor-parallel-regression @planning @regression @PDF @skipOnJenkins
+@program @grantor-regression @grantor-parallel-regression @planning @regression @programPDF @programmailandPdf @PDF @skipOnJenkins
 Feature: Validate all scenarios for program for PDF
 
   @34616 @76118 @75992 @75821 @75830 @75831 @75836 @75832 @75840 @75841 @programFocusAreaAssociation

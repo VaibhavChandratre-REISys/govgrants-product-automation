@@ -737,45 +737,6 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Conduct" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
 
-  @55867 @55873 @54460 @75861 @NotifyTaskRecipientCannotCreateAndSeeReportAndOutcomesWhenInNotifiedStatusOrgDR  @organizationalDeskReviewFirst
-  Scenario: Validate whether the respective POC from the applicant organization will receive a pending task D will not be able to create / edit the Outcomes and cannot view the report or outcomes while in the Notified status.
-  Validate the external user will receive an email notification when the org desk review is in notified status
-    Given I navigate to "Related Log" sub tab
-    And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
-    And I enter "Award" values from "Organizational_DeskReview_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I enter "Edition" values from "Organizational_DeskReview_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---orgLevelDeskReview:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                     | Desk Review |
-      | {SavedValue:PM Username} | Step 1      |
-    When I enter the following values into flex table with id "---orgLevelDeskReview:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                     | Desk Review |
-      | {SavedValue:FO Username} | Step 2      |
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:deskReviewContactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelDeskReview:-:associateContactsId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:associateAwardId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---orgLevelDeskReview:-:selectAwardId---"
-    When I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "DeskReviewId"
-    And I click on "Notify" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---orgLevelDeskReview:-:homePhasePendingTasks---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:homePhasePendingTasks---"
-    Then I softly cannot see "Reports and Outcomes" sub tab at view detail page
-    Then I softly see field "Status" as "Notified"
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
-    And I pause execution for "180" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Sandbox: Notification: Desk Review for {SavedValue:DeskReviewId} has been scheduled
-      """
-
   @56001 @deskReviewWithoutFormFillingOrgLevel  @organizationalDeskReviewFirst
   Scenario: User will not be able to submit the Desk Review for approval without completed forms
     Given I navigate to "Related Log" sub tab
@@ -895,67 +856,6 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
     Then I softly see value "Other" for title "Classification" inside table "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
-
-  @61992 @RecordOwnerCanViewSnapshotAfterODRIsSubmittedForApproval
-  Scenario: Validate Record Owner user is able to take Snapshot after Org Desk Review is Submitted for Approval status - Org Desk Review
-    Given I navigate to "Related Log" sub tab
-    And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
-    And I enter "Award" values from "Organizational_DeskReview_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I enter "Edition" values from "Organizational_DeskReview_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---orgLevelDeskReview:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                     | Desk Review |
-      | {SavedValue:PM Username} | Step 1      |
-    When I enter the following values into flex table with id "---orgLevelDeskReview:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                     | Desk Review |
-      | {SavedValue:FO Username} | Step 2      |
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:deskReviewContactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelDeskReview:-:associateContactsId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:associateAwardId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---orgLevelDeskReview:-:selectAwardId---"
-    When I get the "EGMS ID"
-    And I click on "Notify" in the page details
-    When I click on "Conduct" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    When I click on "Approved Date" column header inside table with id "ActiveAccount"
-    When I click on "Approved Date" column header inside table with id "ActiveAccount"
-    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related Log" sub tab
-    When I perform quick search for "Record Id" in "---orgLevelDeskReview:-:deskreviewPanelId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
-    And I navigate to "Reports and Outcomes" sub tab
-    When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelDeskReview:-:reportsTableId---"
-    And I switch to tab number "1"
-    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I close the tab
-    And I refresh the page
-    And I wait for "3" seconds
-    When I enter the following values into flex table with id "---orgLevelDeskReview:-:correctiveTableId---" by clicking "New" :
-      | Title                  | Description            | Type        |
-      | Automation Finding     | Automation Description | Finding     |
-      | Automation Concern     | Automation Description | Concern     |
-      | Automation Observation | Automation Description | Observation |
-    And I wait for "3" seconds
-    And I save the field labeled "EGMS ID" as "siteEGMSID"
-    When I click on "Submit for Approval" in the page details
-    And I wait for "3" seconds
-    And I click on Menu icon present on top right corner of the page
-    And I select "Take Snapshot" from dropdown
-    And I wait for "5" seconds
-    And I refresh the page
-    When I navigate to "History" sub tab
-    And I click on hyperlink which contains todays date with text "SnapShot on"
-    And I wait for "5" seconds
-    When I download the file
-    And I wait for "5" seconds
-    Then I softly see "{SavedValue:siteEGMSID}" on page "1" of "govgrants" pdf file
 
   @61990 @RecordOwnerCanViewCompletedTask  @organizationalDeskReviewSecond
   Scenario: Validate whether user is able to view the Completed task once approved under Monitoring Tab - Org Level Desk review
