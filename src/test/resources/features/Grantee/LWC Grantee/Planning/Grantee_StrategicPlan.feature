@@ -1371,7 +1371,7 @@ Feature: Validate all scenarios for Strategic Plan
       | userType       | emailIdFrom                     | emailIdTo                       |
       | GRANTEE Admin  | product.qa@yopmail.com          | victor.exeqagrantee@yopmail.com |
 
-  @445782 @vaildatePM/EXEusercanviewStrategicplanrecordinCreated,Active,Inactivestate
+  @445782 @vaildatePM/EXEusercanviewStrategicplanrecordinCreated,Active,Inactivestate @P2_Grantee @PM_Grantee @Gregression2
   Scenario Outline:Validate PM/ EXE user can view Strategic plan record in Created, Active, Inactive state
    When I login to "As a Grantee" app as "GRANTEE EXE1" user
     And I navigate to "Planning" tab

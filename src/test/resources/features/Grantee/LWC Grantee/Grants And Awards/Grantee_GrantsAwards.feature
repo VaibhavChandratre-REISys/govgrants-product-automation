@@ -5037,7 +5037,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
 
-  @443817 @validatePMprofile,awardpagelayoutofdirectgrant
+  @443817 @validatePMprofile,awardpagelayoutofdirectgrant @Gregression2 @P2_Grantee @PM_Grantee
   Scenario: Validate PM Profile, award page layout of direct grant
   And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
   And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -5084,7 +5084,7 @@ Feature: Validate all scenarios for Grants & Awards
   Then I can see top right button "Save" in page detail
   Then I can see top right button "Cancel" in page detail
 
-  @488678 @ValidatePMProfilenewbuttononFinancialTransactionwithreocrdowneronly.
+  @488678 @ValidatePMProfilenewbuttononFinancialTransactionwithreocrdowneronly. @P2_Grantee @Gregression2 @PM_Grantee
   Scenario: Validate for PM Profile New button on Financial Transaction with reocrd owner only.
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -5142,7 +5142,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see the following messages in the page details contains:
       | Required fields missing |
 
-   @461011 @validateifNONcashmatchisselectedYestheninReportnoncashmatchlineitemmodalabletoseeNewbutton.
+   @461011 @validateifNONcashmatchisselectedYestheninReportnoncashmatchlineitemmodalabletoseeNewbutton. @Gregression2 @P2_Grantee @PO_Grantee
   Scenario: Validate if NON cash match is selected Yes then in Report non cash match line item modal able to see New button.
     And I "Created" standalone subaward "Automation Runtime award" with properties "CASH_MATCH_NON_CASH_MATCH_PO_OWNER"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -5208,7 +5208,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsMoalNonCashMatchTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AwardActualsMoalNonCashMatchTableId---"
 
-   @443799 @validateWithPMProfileHistoryTabofGrantpagelayout
+   @443799 @validateWithPMProfileHistoryTabofGrantpagelayout @P2_Grantee @PM_Grantee @Gregression2
    Scenario: Validate With PM Profile History Tab of Grant page layout.
      And I "Created" standalone subaward "Automation Runtime award" with properties "default"
      And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"

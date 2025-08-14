@@ -9202,7 +9202,7 @@ Feature: Grantee Forms Scenario
     And I wait for "2" seconds
     Then I softly see value "100.00%" for title "Percentage" against the value "Application for Federal Assistance (SF-424)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
 
-  @477438 @validatePOusercanaddfilesinBudgetnarrativeattachmentinViewmodeandsuccessfullysubmitapplicationtogrants.gov
+  @477438 @validatePOusercanaddfilesinBudgetnarrativeattachmentinViewmodeandsuccessfullysubmitapplicationtogrants.gov @Gregression2 @P2_Grantee @PO_Grantee
   Scenario Outline: Validate PO user can add files in Budget narrative attachment in View mode and successfully submit application to grants.gov
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default-<UserName>"
@@ -9356,7 +9356,7 @@ Feature: Grantee Forms Scenario
       | UserName        | OwnerType  |
       | Grantee PO user | GRANTEE PO |
 
-  @482028 @validatepousercanrevisetheapplicationandupdateexistingdatainformandsuccessfullysubmitapplicationtogrants.gov
+  @482028 @validatepousercanrevisetheapplicationandupdateexistingdatainformandsuccessfullysubmitapplicationtogrants.gov @Gregression2 @P2_Grantee @PO_Grantee
   Scenario: Validate PO user can revise the application and update  existing data in form and successfully submit application to grants.gov
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -9640,7 +9640,7 @@ Feature: Grantee Forms Scenario
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-    @482575 @validatePOusercansuccessfullysubmitapplicationtogrants.govwithoutaddingfilesin(Optional)BudgetInformationforNon-ConstructionPrograms(SF-424A)form
+    @482575 @validatePOusercansuccessfullysubmitapplicationtogrants.govwithoutaddingfilesin(Optional)BudgetInformationforNon-ConstructionPrograms(SF-424A)form @P2_Grantee @PO_Grantee @Gregression2
     Scenario: Validate PO user can successfully submit application to grants.gov without adding files in (Optional) Budget Information for Non-Construction Programs (SF-424A)form
       Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
       And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -9737,7 +9737,7 @@ Feature: Grantee Forms Scenario
       And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
       Then I softly cannot see row level action button "Edit" against "Budget Information for Non-Construction Programs (SF-424A)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
 
-     @477570 @validatePOusercanaddfilesinattachmentsforminsplitviewmodeandsuccessfullysubmitapplicationtogrants.gov
+     @477570 @validatePOusercanaddfilesinattachmentsforminsplitviewmodeandsuccessfullysubmitapplicationtogrants.gov @P2_Grantee @Gregression2 @PO_Grantee
      Scenario: Validate PO user can add files in Attachments form in split view mode and successfully submit application to grants.gov
        Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
        And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -9863,7 +9863,7 @@ Feature: Grantee Forms Scenario
        Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
        Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @477565 @ValidateAttachmentsform(Mandatory)PMusercanaddmultiple(15)files(totalsizeupto10MB)inattachmentsformandsuccessfullysubmitapplicationtogrants.gov
+  @477565 @ValidateAttachmentsform(Mandatory)PMusercanaddmultiple(15)files(totalsizeupto10MB)inattachmentsformandsuccessfullysubmitapplicationtogrants.gov @P2_Grantee @Gregression2 @PM_Grantee
   Scenario: Validate Attachments form(Mandatory)  PM user can add multiple (15) files (total size upto 10 MB) in attachments form and successfully submit application to grants.gov
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatoryAttachments}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001271853" with properties "default"

@@ -3084,7 +3084,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I save the field labeled "Submitted On" as "SubmittedOn"
     Then I softly see field "Submitted On" as "{SavedValue:SubmittedOn}"
 
-  @483999 @ValidateFromAppPOuserseevalidationonProgressReportlayout
+  @483999 @ValidateFromAppPOuserseevalidationonProgressReportlayout @P2_Grantee @PO_Grantee @Gregression2
   Scenario: Validate From App  PO user see validation on Progress Report layout
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"

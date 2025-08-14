@@ -104,7 +104,7 @@ Feature: Validate all scenarios for Opportunity
     Then I softly cannot see row level action button "Enter Review" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
     Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
 
-  @463595 @475758 @OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application @P3_Grantee @PM_Grantee @GRegression2
+  @463595 @475758 @OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application @P2_Grantee @PM_Grantee @GRegression2
   Scenario Outline: OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     Given I login to "As a Grantee" app as "GRANTEE PO" user
@@ -1947,7 +1947,7 @@ Feature: Validate all scenarios for Opportunity
       | Evaluation Tab - Provide a value for How will the program be sustained, should funding end.                                            |
       | Responsibilities - At least one approver is required                                                                                   |
 
-    @463538 @validateOpportunitiesnotcoverted-verifyasPMuserListviewfunctionalityofopportunities-Notconverted
+    @463538 @validateOpportunitiesnotcoverted-verifyasPMuserListviewfunctionalityofopportunities-Notconverted @Gregression2 @P2_Grantee @PM_Grantee
     Scenario: Validate as PM user, List view functionality of opportunities - Not converted
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab

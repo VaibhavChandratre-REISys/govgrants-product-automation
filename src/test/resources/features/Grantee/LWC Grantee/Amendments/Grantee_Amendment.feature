@@ -25477,7 +25477,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "$0.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Program Income Expenditures" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
 
-  @449386 @449380 @validatethebudgetchangeAddlinesItems
+  @449386 @449380 @validatethebudgetchangeAddlinesItems @Gregression2 @EXE_Grantee @P2_Grantee
   Scenario Outline: Verify the budget change Add lines Items
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -25537,7 +25537,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | userName        | User       |
       | Victor EXE user | GRANTEE EXE |
 
-  @449384 @VerifyUsershouldableseeDataaddedonawardshouldbecopiedonamendmentrecord&verifythevalidation
+  @449384 @VerifyUsershouldableseeDataaddedonawardshouldbecopiedonamendmentrecord&verifythevalidation @EXE_Grantee @Gregression2 @P2_Grantee
   Scenario Outline: Verify User should able see Data added on award should be copied on amendment record & verify the validation
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -25604,7 +25604,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | userName        | User        |
       | Victor EXE user | GRANTEE EXE |
 
-  @449365 @validatuesershouldabletoopenARmodal&verifyvalidationonamendmentrequest
+  @449365 @validatuesershouldabletoopenARmodal&verifyvalidationonamendmentrequest @Gregression2 @P2_Grantee @EXE_Grantee
   Scenario Outline: Validate user should able to open AR modal & verify validation on Amendment request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<UserName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -25644,7 +25644,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | UserName   | UserType    |
       | Victor EXE | GRANTEE EXE |
 
-   @449400 @validatethedeletebuttonfrompendingactivationstate
+   @449400 @validatethedeletebuttonfrompendingactivationstate @EXE_Grantee @Gregression2 @P2_Grantee
    Scenario: Validate the delete button from pending activation state
      And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
      And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -25815,7 +25815,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
      Then I softly see value "$450.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
      Then I softly see value "$5,150.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
 
-   @449391 @validatetheReviseAmendmentbuttonofbudgetRedirectionAmendment
+   @449391 @validatetheReviseAmendmentbuttonofbudgetRedirectionAmendment @Gregression2 @P2_Grantee @PM_Grantee
      Scenario: Validate the Revise Amendment button of budget Redirection Amendment
      And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
      And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -25903,7 +25903,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
      Then I softly see value "Revision in Progress" for title "New Value" inside field history table
      Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
 
-   @449390 @validatethesubmittoGrantorbuttonofbudgetRedirectionAmendment
+   @449390 @validatethesubmittoGrantorbuttonofbudgetRedirectionAmendment @EXE_Grantee @P2_Grantee @Gregression2
     Scenario Outline: validate the submit to Grantor button of budget Redirection Amendment
      And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
      And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -25981,7 +25981,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
        | Victor EXE user | GRANTEE EXE |
 
 
-     @449383 @validatethevalidationwhenotherARisinprogressstate&verifyfocusareafromaward
+     @449383 @validatethevalidationwhenotherARisinprogressstate&verifyfocusareafromaward @P2_Grantee @Gregression2 @EXE_Grantee
      Scenario Outline: Verify Validation when Other AR is in Inprogress state & verify focus area from award
        And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
        And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -26025,7 +26025,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
          | userName        | User        |
          | Victor EXE user | GRANTEE EXE |
 
-        @449381 @validateusershouldnotseevalidationonsubmitforapproval
+        @449381 @validateusershouldnotseevalidationonsubmitforapproval @EXE_Grantee @Gregression2 @P2_Grantee
        Scenario Outline: Validate user should not see validation on submit for approval
        And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<userName>"
        And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
