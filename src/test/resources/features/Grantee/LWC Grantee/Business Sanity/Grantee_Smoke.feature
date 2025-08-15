@@ -5556,8 +5556,8 @@ Feature: Grantee Smoke scenarios
       | GRANTEE EXE   |
       | GRANTEE PM    |
 
-  @446149 @446145 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout @Grantee_Smoke1 @P1_Grantee @PM_Grantee @GRegression1 @sprint15
-  Scenario: Validate GP Closeout with PM Profile Able to create Project period closeout and able to complete the closeout
+  @446145 @ValidateGPCloseoutwithPMProfile,IfCloseoutisinCompletedstatethenabletoseetheaccessofsection @Grantee_Smoke1 @P1_Grantee @PM_Grantee @GRegression1 @sprint15
+  Scenario: Validate GP Closeout with PM Profile ,If Closeout is in Completed state then able to see the access of section.
     And I "Created" standalone subaward "Automation Runtime award" with properties "INDIRECT_COST_NO"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
