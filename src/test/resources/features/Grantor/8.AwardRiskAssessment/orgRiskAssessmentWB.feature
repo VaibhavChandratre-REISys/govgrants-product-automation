@@ -1,4 +1,4 @@
-@riskAssessment @orgAwardLevelRiskAssessmentWB @regression @orgRiskAssessment
+@riskAssessment @orgAwardLevelRiskAssessmentWB @regression @orgRiskAssessment @orgRisk3
 Feature: Validate all scenarios when the Organizational Risk Assessment is in expired status
 
   @64384 @expiredOrgRiskassementValidation @smoke
