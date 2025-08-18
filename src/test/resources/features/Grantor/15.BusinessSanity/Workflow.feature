@@ -1793,19 +1793,7 @@ Feature: Validate all scenarios of every modules flow
 
   @testchckAwards @debug
   Scenario:
-    And I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
-    And I navigate to url "https://test8-internal--ggqa2.sandbox.my.site.com/recipient/s/application/a1hDi00000BHv2OIAT/aptao1172"
-    And I halt execution
-    When I navigate to "History" sub tab
-    And I wait for "5" seconds
-    And I refresh the page
-    And I wait for "5" seconds
-    And I click on hyperlink containing value "SnapShot on"
-    And I switch to tab number "1"
-    And I wait for "3" seconds
-    And I click on "Download" button for snapshot view
-    And I wait for "3" seconds
-    When I download the file
-    And I wait for "3" seconds
-    Then I see "Created" on page "1" of "govgrants" pdf file
+    Given I published "Competitive" type announcement having name "Automation Permanent Undo Announcement" and properties "default"
+#    And I initiated an application review for application "{SavedValue:Automation Permanent Closed Formula Ann-By Applicant and Focus Area}" on announcement "{SavedValue:Automation Permanent Closed Formula Ann-By Applicant and Focus Area}" with properties "default"
+#    And I created approved FDM on application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}"
+

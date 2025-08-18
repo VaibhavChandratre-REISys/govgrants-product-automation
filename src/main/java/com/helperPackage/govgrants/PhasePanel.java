@@ -369,7 +369,11 @@ public final class PhasePanel {
      */
     public void selectItemFromParallelMenuBars(String panelTitleName, String menuItemName) {
         By parallelMenuItem = By.xpath("//*[text()='"+panelTitleName+"']/ancestor::c-flex-gridlwc//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"'] | //*[text()='"+panelTitleName+"']/ancestor::c-lwc-flex-table//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"']");
-        I.amPerforming().click().on(parallelMenuItem);
+       try {
+           I.amPerforming().click().on(parallelMenuItem);
+       } catch (Exception j) {
+           I.amPerforming().click().withJavaScript(parallelMenuItem);
+       }
         try {
                 govgrants.perform().modal().acceptPopUpWithParameter("Yes");
         } catch (Exception e) {

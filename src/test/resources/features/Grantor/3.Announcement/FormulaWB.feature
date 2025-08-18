@@ -52,7 +52,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
-    When I hovering mouse on help text icon inside page block detail "Applicants"
+    When I hovering mouse on help text icon inside page block detail for invisible element "Applicants"
     Then I softly see "Verify that all invited applicants are eligible to submit an application based on the eligibility criteria associated with this announcement" shown as help text
 
   @204325 @ValidateusershouldabletoseetheinfotextonApplicantsinfoIcon @sprint-8-US-206947 @Allocation
@@ -70,7 +70,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
-    When I hovering mouse on help text icon inside page block detail "Applicants"
+    When I hovering mouse on help text icon inside page block detail for invisible element "Applicants"
     Then I softly see "Verify that all invited applicants are eligible to submit an application based on the eligibility criteria associated with this announcement" shown as help text
 
   @195860 @ValidateAnnownerEXEusercanselectsingleormultipleS/RonclickonAddOrganizationbutton @sprint-8-US-206947  @Allocation
@@ -566,7 +566,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Application EGMS ID | Application Status |
     #219090
     And I click on "Publish" in the page details
-    And I pause execution for "5" seconds
+    Then I softly see field "Status" as "Published"
     And I click on "Unpublish" in the page details
     And I pause execution for "3" seconds
     Then I softly see field "Status" as "Under Revision"
@@ -607,7 +607,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click table top right button "Remove Selected" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     Then I softly see confirmation box with body "This action will remove the selected organization(s), Are you sure you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
-    And I refresh the page
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I wait for "2" seconds
     Then I softly do not see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Applicants" inside table "---announcement:-:formulaInvitedApplicatsTableId---"
@@ -984,7 +984,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click "OK" on modal confirmation box
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I click on "Edit" in the page details
+#    And I click on "Edit" in the page details
     #226440
     When I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
@@ -995,9 +995,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     And I wait for "4" seconds
-    And I click on "Edit" in the page details
+#    And I click on "Edit" in the page details
     And I wait for "2" seconds
-    When I click on "Removes" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table with table id "---announcement:-:addOrganizationByAppFocusAreaTableId---" without processing
+    When I click on "Remove" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table with table id "---announcement:-:addOrganizationByAppFocusAreaTableId---" without processing
     Then I see confirmation box with body "This action will delete the Organization and associated focus areas and Unsaved data will be lost due to page refresh . Please save the record to continue." is displayed
 
   @226416 @VerifyIfuseraddingonefocusareathenatleastonefocusareamustbepresentinthefocusareasectionotherwiseshowtheerrormessageonAddorganizations @sprint-11-US-201040  @Allocation
@@ -3525,7 +3525,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @FormulaWBRerun @222010 @VerifyPOusercannotdeleteinvitedorganizationsforformulaAnnouncementwhenannouncementisinclosedstate. @sprint-11-US-201558  @Allocation
+  @222010 @VerifyPOusercannotdeleteinvitedorganizationsforformulaAnnouncementwhenannouncementisinclosedstate. @sprint-11-US-201558  @Allocation
   Scenario: Verify PO user cannot delete invited organizations for formula Announcement when announcement is in closed state.
     When I login to "Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -3617,7 +3617,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Budget" sub tab
     Then I softly see field "Allocation Amount" as "$2,000.00"
 
-  @FormulaWBRerun @222469 @222158 @VerifyusercannotdeletetheassociatedfocusareawhenAnnouncementisinArchivedstate. @sprint-11-US-201558  @Allocation
+  @222469 @222158 @VerifyusercannotdeletetheassociatedfocusareawhenAnnouncementisinArchivedstate. @sprint-11-US-201558  @Allocation
   Scenario: Verify user cannot delete the associated focus area when Announcement is in Archived state.
   | Verify PM user  can see row level edit action in the applicant section when formula announcement is in Archived state(formula announcements with allocation-level = By Applicant)|
     When I login to "Grantor" app as "PM" user
@@ -3642,7 +3642,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #222020
     Then I softly cannot see top right button "Remove Selected" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
 
-  @FormulaWBRerun @222381 @VerifyusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinArchivedstateformulaannouncementswithallocationlevelByApplicantFocusArea @sprint-11-US-201558  @Allocation
+  @222381 @VerifyusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinArchivedstateformulaannouncementswithallocationlevelByApplicantFocusArea @sprint-11-US-201558  @Allocation
   Scenario: Verify user can see row level edit action in the applicant section when formula announcement is in Archived state(formula announcements with allocationlevel By Applicant & Focus Area)
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -4002,6 +4002,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Budget" sub tab
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "1" seconds
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
@@ -6048,7 +6049,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | IND  |
 
-  @FormulaWBRerun @225419 @VerifythatINDuserwillabletochangethevalueinbudgetbudgetdetailswhileresubmittingthenegotiationstograntorinprescreenreviewwhenallocationamountinannouncementischangedischanged @sprint-11-US-204300  @Allocation
+  @225419 @VerifythatINDuserwillabletochangethevalueinbudgetbudgetdetailswhileresubmittingthenegotiationstograntorinprescreenreviewwhenallocationamountinannouncementischangedischanged @sprint-11-US-204300  @Allocation
   Scenario Outline: Verify that IND user will able to change the value in budget:budget details while resubmitting the negotiations to grantor in pre screen review when allocation amount in announcement is changed is changed
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation IND user"
@@ -6107,9 +6108,11 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 2000   | 100        | 100            | 100            |
-    And I wait for "5" seconds
+    And I wait for "1" seconds
     And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
+    And I wait for "3" seconds
     Then I softly see field "Budgeted Amount" as "$2,000.00"
     Then I softly see field "Allocation Amount" as "$2,000.00"
     When I click on "Submit to Grantor" in the page details
