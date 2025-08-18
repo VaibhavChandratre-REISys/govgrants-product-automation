@@ -3377,7 +3377,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:FundTermsID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Amend Subaward" in the page details
     And I wait for "3" seconds
-    When I click on "Activate" in the page details
+    And I click on "Activate" in the page details
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
