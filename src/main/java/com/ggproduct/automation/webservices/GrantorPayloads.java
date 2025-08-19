@@ -1458,7 +1458,7 @@ public class GrantorPayloads {
         JsonObject invApp = new JsonObject();
         JsonArray invAppA = new JsonArray();
         invApp.addProperty("Organization", ProjectWebServices.getIdOf("Account", "SAN DIEGO ELECTRICAL TRAINING TRUST"));
-        invApp.addProperty("AllocatedAmount", 2000);
+        invApp.addProperty("AllocatedAmount", 1000);
         invAppA.add(invApp);
         parent.add("InvitedApplicant", invAppA);
 
