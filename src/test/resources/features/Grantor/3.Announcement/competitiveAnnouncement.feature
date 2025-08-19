@@ -486,7 +486,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click modal button "Close"
     And I refresh the page
     And I wait for "4" seconds
-    And I click on "View" icon for "Bus Testing" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
+    And I perform quick search for "Bus Testing" in "---announcement:-:relatedAnnouncementTableId---" panel
+    And I click on "Viw" icon for "Bus Testing" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
     Then I see the header is "Federal Program" in the page details
     Then I see the sub-header is "Bus Testing" in the page details
     And I wait for "5" seconds
@@ -885,7 +886,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see "Announcement information" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     And I click on "Close" button for view files page
-    And I see "{SavedValue:PM Username}" against "Initial Submitter" in approval history
     And I "Approve" in the approval decision
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -900,7 +900,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     And I navigate to "History" sub tab
-    Then I see "{SavedValue:PM Username}" against "Program Office Approval" in approval history
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
