@@ -1793,7 +1793,9 @@ Feature: Validate all scenarios of every modules flow
 
   @testchckAwards @debug
   Scenario:
-    Given I published "Formula" type announcement having name "Automation Permanent FDM Approved Closed Formula Ann-By Applicant" and properties "BY_APPLICANT"
-    And I initiated an application review for application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By Applicant}" on announcement "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By Applicant}" with properties "default"
-    And I created approved FDM on application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By Applicant}"
+#    Given I published "Formula" type announcement having name "Automation Permanent FDM Approved Closed Formula Ann-By Applicant" and properties "BY_APPLICANT"
+#    And I initiated an application review for application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By Applicant}" on announcement "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By Applicant}" with properties "default"
+#    And I created approved FDM on application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By Applicant}"
+    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
+
 

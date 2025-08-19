@@ -484,7 +484,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click "Associate" after selection of "Bus Testing" in the table "---announcement:-:associateForRelated---"
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "4" seconds
     And I click on "View" icon for "Bus Testing" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
     Then I see the header is "Federal Program" in the page details
     Then I see the sub-header is "Bus Testing" in the page details

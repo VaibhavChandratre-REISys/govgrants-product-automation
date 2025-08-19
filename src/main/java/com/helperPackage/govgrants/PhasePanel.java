@@ -84,7 +84,7 @@ public final class PhasePanel {
         By filterAction = null;
         By dropDownSelector1 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//c-outer-picklist//label[contains(text(),'Column')]/..//input");
         By dropDownSelector2 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//c-outer-picklist//label[contains(text(),'Operator')]/..//input");
-        By dropDownSelector3 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Value')]/..//input");
+        By dropDownSelector3 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//c-outer-picklist//label[contains(text(),'Value')]/..//input");
         By inputField = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Value')]/..//input");
         filterAction = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//*[@title='Apply']");
         I.amPerforming().textInput().toClear(dropDownSelector1);
@@ -99,10 +99,9 @@ public final class PhasePanel {
             I.amPerforming().textInput().toClear(inputField);
             I.amPerforming().textInput().in(inputField, rowvalues.get(2).toString());
         } else {
-            I.amPerforming().textInput().toClear(dropDownSelector3);
-            I.amPerforming().textInput().in(dropDownSelector3, rowvalues.get(2).toString());
+            I.amPerforming().click().on(dropDownSelector3);
             By selectDropdown3 = By.xpath("//c-outer-picklist//ul//li//span[text()='" + rowvalues.get(2).toString() +"']");
-            I.amPerforming().click().withJavaScript(selectDropdown3);
+            I.amPerforming().click().on(selectDropdown3);
         }
         I.amPerforming().click().withJavaScript(filterAction);
     }
