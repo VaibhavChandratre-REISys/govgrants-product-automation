@@ -232,7 +232,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I save the value from row "1" for column name "Program Number" as "prNum" from flex table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly see value "{SavedValue:prNum}" for title "Program Number" inside table "---announcement:-:relatedAnnouncementTableId---"
 
-  @70290 @70298 @70302 @70799 @73227 @userAllowToEnterDataInQualityAndAvailibility  @smoke
+  @70290 @70298 @70302 @70799 @73227 @userAllowToEnterDataInQualityAndAvailibility @smoke
   Scenario: To Verify that user able to see Text fields after select Q&A Availability  as "Yes"  And  user can enter and save all required fields while creating Announcement
   | To Validate system generated validation message for  Q&A Availability section when "Question Deadline Date",and "Response Deadline date" is greater then Application Due Date.
     When I navigate to "Announcements" tab
@@ -352,13 +352,13 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
     And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "Edit" :
-    | Created By                  | Title         | Description       |
-    | {SavedValue:EXE Username}   | Notes Record1 | Automation Notes1 |
+      | Created By                | Title         | Description       |
+      | {SavedValue:EXE Username} | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---announcement:-:AnnouncementNotestableId---"
     And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "Edit" :
-      | Created By                  | Title         | Description       |
-      | {SavedValue:EXE Username}   |               | Automation Notes2 |
+      | Created By                | Title | Description       |
+      | {SavedValue:EXE Username} |       | Automation Notes2 |
     Then I softly see the following messages in the page details :
       | Required Fields Missing |
     And I pause execution for "2" seconds
@@ -370,7 +370,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "2" seconds
     Then I softly do not see "Funding Opportunity Announcement" has been added in "---announcement:-:AnnouncementAttachmentTableId---" flex table
 
- @70483 @userDeleteSupportingDocumentViewHyperlink
+  @70483 @userDeleteSupportingDocumentViewHyperlink
   Scenario: To Verify that user can view Template Link in supporting document checklist While creating the Announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -380,14 +380,14 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I enter the following values into flex table with id "---announcement:-:annChecklist---" by clicking "Add" :
       | Description                 | Required  | Applies To | Status |
       | Automation test description | Mandatory | Award      | Active |
-   When I click on "Upload Template" icon for "Automation test description" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
-   And I upload attachment without random number "Attachment.pdf" of type "Template for Announcement" from computer
-   When I click modal button "Close"
-   And I refresh the page
-   And I wait for "2" seconds
-   And I click on hyperlink containing value "View"
-   When I download the file
-   Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
+    When I click on "Upload Template" icon for "Automation test description" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Template for Announcement" from computer
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    And I click on hyperlink containing value "View"
+    When I download the file
+    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
 
   @72323 @71972  @applicationDueDataOfAnnInHistory @FieldHistoryExclude
   Scenario: To verify field history update with respect to modification in Application Due Dates of Announcement|
@@ -497,7 +497,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Remove" icon for "Bus Testing" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
     Then I softly do not see value "Bus Testing" for title "Program Title" inside table "---announcement:-:relatedAnnouncementTableId---"
 
- @75617 @70727 @73624 @70723 @73621 @72482 @73536 @announcementForPastApplicationDueDateCA @announcementWithBlankBudgetPeriodCA @submittedAnnouncementDeletionCA
+  @75617 @70727 @73624 @70723 @73621 @72482 @73536 @announcementForPastApplicationDueDateCA @announcementWithBlankBudgetPeriodCA @submittedAnnouncementDeletionCA
   Scenario Outline: Validate that user can not enter application due date as past date | Validate that user should not submit announcement with blank budget period dates|To Verify that user can view contact while creating Announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -513,11 +513,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 2000            |
-#    When I navigate to "History" sub tab
-#    And I select "Related Funding Account" from dropdown present on top right of flex table id "History"
-#    Then I softly see value "Pre-Encumbrance" for title "Changed Field" inside table "History"
-#    Then I softly see value "$2,000.00" for title "New Value" inside table "History"
-#    Then I softly see value "$1,000.00" for title "Old Value" inside table "History"
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -529,7 +524,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on top right button "New" in flex table with id "---announcement:-:contactTableId---"
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter values into fields
-      | Value                      | Field          |
+      | Value                      | Field     |
       | xy                         | Title     |
       | TestFirst                  | FirstName |
       | TestLast                   | LastName  |
@@ -559,7 +554,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I enter value "SecondLast" into field "LastName"
     When I enter value "{SavedValue:uniqueEmailID1}" into field "Email"
     And I click modal button "Save"
-    And I pause execution for "3" seconds
+    And I pause execution for "1" seconds
+    And I click on "Save" in the page details
+    And I pause execution for "2" seconds
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
@@ -568,12 +565,17 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Overview" sub tab
     And I click on "Remove" icon for "TestFirst TestLast" inside flex table with id "---announcement:-:contactTableId---" without waiting for record
     And I refresh the page
+    And I wait for "2" seconds
     Then I softly do not see value "TestFirst TestLast" for title "Name" inside table "---announcement:-:contactTableId---"
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -596,11 +598,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Start" icon for "Record id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
-    And I pause execution for "7" seconds
+    And I pause execution for "2" seconds
     When I enter in modal value "Passed" into field "Rating__c"
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
+    And I pause execution for "2" seconds
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "<Announcement Type>" content inside "Announcements" subheader on left panel
@@ -622,6 +625,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     When I navigate to "Overview" sub tab
+    And I wait for "3" seconds
     And I enter value "-1" into field "ApplicationDueDate__c"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details :
@@ -630,7 +634,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I enter value "No" into field "QAAvailability__c"
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
-   And I wait for "5" seconds
+    And I wait for "5" seconds
     And I navigate to "Announcements" tab
     And I navigate to "Competitive" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Draft Competitive Announcements"
@@ -785,7 +789,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question1 | Written | 100       |
     And I pause execution for "3" seconds
-   And I collapse nested table containing column value "Budget"
+    And I collapse nested table containing column value "Budget"
     And I expand nested table containing column value "Match"
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question  | Type    | Max Score |
@@ -839,8 +843,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Section Header             | Section Weight (%) |
       | Return on Investment (ROI) | 50                 |
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-      | Section Header             | Section Weight (%) |
-      | Strategic Alignment        | 50                 |
+      | Section Header      | Section Weight (%) |
+      | Strategic Alignment | 50                 |
     And I pause execution for "3" seconds
     And I expand nested table containing column value "Return on Investment (ROI)"
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
@@ -1040,7 +1044,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-   When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
@@ -1136,7 +1140,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-   When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
@@ -1197,7 +1201,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-   When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
@@ -1514,7 +1518,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-   When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
@@ -1592,7 +1596,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-   When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
@@ -1635,7 +1639,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-   When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
@@ -1668,7 +1672,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-   When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
@@ -1700,7 +1704,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-   When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
