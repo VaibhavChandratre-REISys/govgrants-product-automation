@@ -574,7 +574,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
-    When I click modal button "Close"
     And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :

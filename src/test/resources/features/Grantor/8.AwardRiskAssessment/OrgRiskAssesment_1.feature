@@ -26,6 +26,9 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    And I click on advance filter of table id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+    And I enter advance filter values inside id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+      | Status | contains | Not Started |
 
   @62517 @validateMessageDisplayedWhenProvideAccess
   Scenario: Validate the message is displayed when clicked on Provide Access for new Risk Assessment by Grantor
