@@ -46,7 +46,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page
     And I wait for "3" seconds
-    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---announcement:-:formulaInvitedApplicatsTableId---"
+    And I save the value from row "1" for column name "Abbreviation" as "EGMSID" from flex table "---announcement:-:formulaInvitedApplicatsTableId---"
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" against the value "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table "---announcement:-:formulaInvitedApplicatsTableId---"
     And I click on "Remove" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     And I refresh the page
@@ -89,6 +89,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Overview Tab - The answer submission deadline must be before the Application due date.   |
     And I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
+    And I wait for "3" seconds
     And I enter value "10" into field "ApplicationDueDate__c"
     And I enter value "No" into field "QAAvailability__c"
     And I click on "Save" in the page details

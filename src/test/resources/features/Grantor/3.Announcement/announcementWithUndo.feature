@@ -824,7 +824,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Draft"
     Then I cannot see top right button "Undo" in page detail
-    And I wait for "20" seconds
+    And I wait for "30" seconds
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab

@@ -1793,7 +1793,7 @@ Feature: Validate all scenarios of every modules flow
 
   @testchckAwards @debug
   Scenario:
-    Given I published "Competitive" type announcement having name "Automation Permanent Undo Announcement" and properties "default"
-#    And I initiated an application review for application "{SavedValue:Automation Permanent Closed Formula Ann-By Applicant and Focus Area}" on announcement "{SavedValue:Automation Permanent Closed Formula Ann-By Applicant and Focus Area}" with properties "default"
-#    And I created approved FDM on application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}"
+    Given I published "Formula" type announcement having name "Automation Permanent FDM Approved Closed Formula Ann-By Applicant" and properties "BY_APPLICANT"
+    And I initiated an application review for application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By Applicant}" on announcement "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By Applicant}" with properties "default"
+    And I created approved FDM on application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By Applicant}"
 
