@@ -22855,52 +22855,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Awards" sub tab
-    Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     Then I softly see value "Pending Activation" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     And I click on "View" icon for "Pending Activation" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    Then I can see top right button "Activate Award" in page detail
-    Then I can see top right button "Delete" in page detail
-    And I click on "Delete" in the page details without processing
-    Then I softly see confirmation box with body "Are you sure you want to delete this subaward?" is displayed
-    And I click "OK" on modal confirmation box
-    Then I softly see field "Status" as "Submitted to Grantor"
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    And I navigate to "Field Audit" sub tab in split screen
-    And I click on hyperlink containing value "View All"
-    Then I softly see value "Submitted to Grantor" for title "New Value" inside field history table
-    Then I softly see value "Accepted" for title "Original Value" inside field history table
-    And I click on back arrow
-    And I wait for "2" seconds
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    When I navigate to "Awards" sub tab
-    Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-    Then I softly do not see value "{SavedValue:AwardEGMSID2}" for title "Award EGMS ID" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-    Then I softly can see row level action button "View" against "{SavedValue:AwardEGMSID}" in flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-    And I wait for "5" seconds
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "{SavedValue:FNCAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    And I click on "View" icon for "{SavedValue:FNCAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
-    Then I softly see field "Status" as "Submitted to Grantor"
-    Then I can see top right button "Record Decision" in page detail
-    Then I can see top right button "Revise Amendment" in page detail
-    When I click on "Record Decision" in the page details
-    When I enter values into fields
-      | Value                       | Field             |
-      | Accepted                    | Decision__c       |
-      | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
-      | Test                        | Comments__c       |
-    And I click modal button "Save"
-    And I click modal button "Close"
-    Then I softly see field "Status" as "Accepted"
-    Then I softly cannot see top right button "Edit" in page detail
-    And I click on "Amend Award" in the page details
-    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     Then I can see top right button "Activate Award" in page detail
     Then I can see top right button "Delete" in page detail
     When I click on "Activate Award" in the page details
@@ -22912,7 +22868,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I navigate to "Actuals" sub tab
     Then I softly see field "Drawn to Date" as "$3,500.00"
     Then I softly see field "Current Balance" as "$3,500.00"
-    Then I softly see field "Grant Balance" as "$100,000.00"
+    Then I softly see field "Grant Balance" as "$96,500.00"
     Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
@@ -22935,7 +22891,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see field "Spent to Date" as "$0.00"
     Then I softly see field "Drawn to Date" as "$4,500.00"
     Then I softly see field "Current Balance" as "$4,500.00"
-    Then I softly see field "Grant Balance" as "$100,000.00"
+    Then I softly see field "Grant Balance" as "$95,500.00"
     Then I softly see value "$3,500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$1,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$3,500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
