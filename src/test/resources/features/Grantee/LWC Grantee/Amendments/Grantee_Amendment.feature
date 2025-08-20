@@ -22638,7 +22638,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
          Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
          Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
-  @488685 @ValidatePMProfileimpactofdrawdownbyawardonFundingchangeamendmentNonConstructionWithdrawdownwithoutSpent
+  @488685 @ValidatePMProfileimpactofdrawdownbyawardonFundingchangeamendmentNonConstructionWithdrawdownwithoutSpent @P2_Grantee @Gregression2 @PM_Grantee
   Scenario: Validate PM Profile impact of drawdown By Award on Funding change amendment Non Construction With drawdown Without Spent
     And I "Created" standalone subaward "Automation Runtime Award" with properties "NON_CONSTRUCTION"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"

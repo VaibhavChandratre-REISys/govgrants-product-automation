@@ -208,9 +208,9 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:SpecialConditionTableId---"
     When I navigate to "Files" sub tab
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I <Assertion> top right button "New" inside flex table "---grantee_tableId:-:awardsNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:awardsNotesTableId---"
     And I navigate to "Messages" sub tab
-    Then I <Assertion> top right button "Send Email" inside flex table "CommunicationHistory"
+    Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
 
     Examples:
       | User            | Assertion  |
