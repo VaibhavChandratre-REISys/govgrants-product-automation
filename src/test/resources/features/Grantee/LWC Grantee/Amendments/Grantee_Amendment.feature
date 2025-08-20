@@ -22679,7 +22679,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I wait for "2" seconds
     Then I softly see field "Drawn to Date" as "$3,700.00"
     Then I softly see field "Current Balance" as "$3,700.00"
-    Then I softly see field "Grant Balance" as "$96,500.00"
+    Then I softly see field "Grant Balance" as "$96,300.00"
     Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$700.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
