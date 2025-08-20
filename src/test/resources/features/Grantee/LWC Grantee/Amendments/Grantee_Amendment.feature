@@ -22431,7 +22431,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
          When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
          When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
            | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
-           | Test  | The narrative | 5000           | 200        | 200            |
+           | Test  | The narrative | 5000           | 800        | 200            |
          When I close "Add Line Items" modal by clicking the top right x button
          #496200
          When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
@@ -22625,9 +22625,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
          Then I softly see field "Total Project Cost" as "{SavedValue:TotalProjectCost}"
          Given I expand nested table containing column value "BP01"
          Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-         Then I softly see value "$700.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+         Then I softly see value "$1,300.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
          Then I softly see value "$400.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-         Then I softly see value "$6,100.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+         Then I softly see value "$6,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
          Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Site work" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
          Then I softly see value "$200.00" for title "Cash Match" against the value "Site work" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
          Then I softly see value "$200.00" for title "Other Leverage" against the value "Site work" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
@@ -22637,3 +22637,61 @@ Feature: Validate all scenarios for Grantee Amendment Request
          And I click on hyperlink containing value "View All"
          Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
          Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
+
+  @491708 @ValidatePMProfileimpactofdrawdownByAwardAwardwhichiscreatedthroughCombinationofamendmentNonConstructionWithdrawdownWithoutSpent @PM_Grantee @P3_Grantee @GRegression1
+  Scenario: Validate PM Profile impact of drawdown By Award, Award which is created through Combination of amendment Non Construction With drawdown Without Spent
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "NON_CONSTRUCTION"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
+    And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    And I save the field labeled "Award Title" as "AwardTitle"
+    When I navigate to "Actuals" sub tab
+    Given I expand nested table containing column value "Automation Permanent Focus Area"
+    When I enter the following values into flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---" by clicking "New" :
+      | Reference ID | Drawdown Date | Amount |
+      | Focus        | 1             | 1500   |
+      | Focus1       | 1             | 1500   |
+    Then I softly can see row level action button "Edit" against "Focus" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly can see row level action button "Delete" against "Focus" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly can see row level action button "Edit" against "Focus1" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly can see row level action button "Delete" against "Focus1" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    And I collapse nested table containing column value "Automation Permanent Focus Area"
+    Given I expand nested table containing column value "Automation Permanent Focus Area2"
+    When I enter the following values into flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---" by clicking "New" :
+      | Reference ID | Drawdown Date | Amount |
+      | Focus2       | 1             | 500    |
+      | Focus3       | 1             | 200    |
+    Then I softly can see row level action button "Edit" against "Focus2" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly can see row level action button "Delete" against "Focus2" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly can see row level action button "Edit" against "Focus3" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly can see row level action button "Delete" against "Focus3" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see field "Drawn to Date" as "$3,700.00"
+    Then I softly see field "Current Balance" as "$3,700.00"
+    Then I softly see field "Grant Balance" as "$96,300.00"
+    Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$700.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$700.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    When I click on "Delete" icon for "Focus3" inside flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see field "Drawn to Date" as "$3,500.00"
+    Then I softly see field "Current Balance" as "$3,500.00"
+    Then I softly see field "Grant Balance" as "$96,500.00"
+    And I refresh the page
+    And I wait for "2" seconds
+    When I navigate to "Amendments" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
