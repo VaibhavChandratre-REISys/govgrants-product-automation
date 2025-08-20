@@ -22201,7 +22201,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
             | userName        | User        |
             | Victor EXE user | GRANTEE EXE |
 
-       @496198 @validateinfundingchangeamendmentabletoassociateNewFocusareaaccordinglyabletoseecategories
+       @496198 @496199 @496200 @validateinfundingchangeamendmentabletoassociateNewFocusareaaccordinglyabletoseecategories @P2_Grantee @Gregression2 @PM_Grantee
         Scenario: Validate in funding change amendment able to associate New Focus area accordingly able to see categories.
           And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
           And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -22275,6 +22275,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
           Then I softly see "General Condition" page block displayed
           Then I softly see "Special Conditions" page block displayed
           Then I softly see "System Information" page block displayed
+         #496199 #496198
           Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
           Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
           Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
@@ -22430,16 +22431,18 @@ Feature: Validate all scenarios for Grantee Amendment Request
          When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
          When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
            | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
-           | Test  | The narrative | 2000           | 200        | 200            |
+           | Test  | The narrative | 5000           | 200        | 200            |
          When I close "Add Line Items" modal by clicking the top right x button
-         And I click on "Submit for Approval" in the page details
-         Then I softly see the following messages in the page details contains:
-           | Overview Tab - You have a requested a change of $2000.0, but the required change is $0.00.                |
-           | Overview Tab - Please specify the Requested Change in Award Budget planned through this amendment request |
+         #496200
+         When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+         When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
+           | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
+           | Test  | The narrative | 5000           | 200        | 200            |
+         When I close "Add Line Items" modal by clicking the top right x button
          And I click on "Edit" in the page details
          When I enter values into fields
            | Value | Field                      |
-           | 2000  | RequestedChangeInBudget__c |
+           | 10000  | RequestedChangeInBudget__c |
          When I click on "Save" in the page details
          And I wait for "1" seconds
          And I click on "Submit for Approval" in the page details
@@ -22579,12 +22582,18 @@ Feature: Validate all scenarios for Grantee Amendment Request
          Then I softly see field "Current Balance" as "{SavedValue:CurrentBalance}"
          When I save the field labeled "Grant Balance" as "GrantBalance"
          Then I softly see field "Grant Balance" as "{SavedValue:GrantBalance}"
-         Then I softly see value "$7,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+         Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
          Then I softly see value "$0.00" for title "Spent to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
          Then I softly see value "$0.00" for title "Carry-Forward" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-         Then I softly see value "$7,000.00" for title "Remaining Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+         Then I softly see value "$5,000.00" for title "Remaining Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
          Then I softly see value "$0.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
          Then I softly see value "$0.00" for title "Program Income Expenditures" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+         Then I softly see value "$5,000.00" for title "Award Budget" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+         Then I softly see value "$0.00" for title "Spent to Date" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+         Then I softly see value "$0.00" for title "Carry-Forward" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+         Then I softly see value "$5,000.00" for title "Remaining Budget" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+         Then I softly see value "$0.00" for title "Cash Match" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+         Then I softly see value "$0.00" for title "Program Income Expenditures" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
          Then I see value "$0.00" for title "Original Program Income Earned" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:awardProgramRevenueTableId---"
          And I navigate to "Grants" tab
          When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -22615,10 +22624,14 @@ Feature: Validate all scenarios for Grantee Amendment Request
          When I save the field labeled "Total Project Cost" as "TotalProjectCost"
          Then I softly see field "Total Project Cost" as "{SavedValue:TotalProjectCost}"
          Given I expand nested table containing column value "BP01"
-         Then I softly see value "$7,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+         Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
          Then I softly see value "$700.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
          Then I softly see value "$400.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-         Then I softly see value "$8,100.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+         Then I softly see value "$6,100.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+         Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Site work" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+         Then I softly see value "$200.00" for title "Cash Match" against the value "Site work" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+         Then I softly see value "$200.00" for title "Other Leverage" against the value "Site work" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+         Then I softly see value "$5,400.00" for title "Total Project Cost" against the value "Site work" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
          And I navigate to "History" sub tab
          And I navigate to "Field Audit" sub tab in split screen
          And I click on hyperlink containing value "View All"
