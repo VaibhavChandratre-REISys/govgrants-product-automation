@@ -578,7 +578,6 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     Then I softly see "Award Amount To Date" in flex table header "---grantee_tableId:-:awardTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:awardTableId---"
 
-
   @443832 @AwardVerifywithPMprofileMonitioringTabofAwardPagelayout @Gregression2 @PM_Grantee @P2_Grantee
   Scenario: Award with PM profile Monitioring Tab of Award Page layout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
@@ -646,7 +645,6 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     And I download the file
     And I wait for "4" seconds
     Then I see "Special Conditions" on page "1" of "govgrants" pdf file
-
 
   @443856 @ValidateAwardsplconWithEXEAwardlistviewpageInawardspecialconditionmodulewhichisvisibleinmonitoringphase @GRegression1 @GranteeTBE
   Scenario: Validate Award spl con With EXE Award list view page In award special condition module which is visible in monitoring phase with special conditions

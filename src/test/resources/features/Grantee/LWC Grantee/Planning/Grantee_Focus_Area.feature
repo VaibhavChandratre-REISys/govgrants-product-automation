@@ -198,3 +198,45 @@ Feature: Validate all scenarios for Focus Areas
       | userType    | Approver   |
       | GRANTEE EXE | Victor EXE |
 
+    @440233 @440235 @validatewithPMProfileafterclickonNewbuttonCreateFocusareaModalshouldgetopenandredirecttofocusareapagelayout @P1_Grantee @GRegression1 @PM_Grantee @sprint15
+    Scenario: Validate with PM Profile after click on New button Create Focus area Modal should get open and redirect to focus area page layout
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    And I click on "Save and Continue" in the page details
+    Then I softly see the following messages in the page details contains:
+      | To Save, Title is required.                |
+      | To Save, Description is required.          |
+    When I enter value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter value "Automation Test Description" into field "Description__c"
+    And I save the field labeled "Title" as "FAtitle"
+    And I save the field labeled "Description" as "FAdescription"
+    When I click modal button "Save and Continue"
+    And I navigate to "Overview" sub tab
+    Then I softly see field "Title" as "{SavedValue:FAtitle}"
+    Then I softly see field "Description" as "Automation Test Description" in "Details" pageblock
+    And I click on "Save" in the page details
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Activate" in page detail
+    #440235
+    Then I softly see field "Status" as "Draft"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Related Log" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Chatter" sub tab at view detail page
+    Then I softly can see "Field Audit" sub tab at view detail page
+    Then I softly see "Collapse" button for header
+    Then I softly see "Resize" button for page
+    Then I softly see "Collapse" button for page
+    And I click on Menu icon present on top right corner of the page
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Take Snapshot" present in parallel dropdown
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    And I click on Menu icon present on top right corner of the page
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Take Snapshot" present in parallel dropdown
+    When I click on "Activate" in the page details
+    Then I see status in Progress-bar is "Active" and is "dark blue"

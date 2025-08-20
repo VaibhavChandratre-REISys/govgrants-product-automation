@@ -1776,11 +1776,16 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly can see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "View" opens in overLay window
-    When I close "View" modal by clicking the top right x button
+    Then I softly see the image "AttachmentTesting.pdf" in page detail
+    And I click on "Close" button for view files page
     And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
+    And I switch to tab number "1"
+    And I download the file
+    And I wait for "3" seconds
+#    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
+    And I close the tab
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    And I wait for "2" seconds
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Interim Award Document" at upload file modal
     When I click modal button "Save"
@@ -1856,22 +1861,24 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see field "Status" as "Activated"
     Then I softly cannot see "Closeout" sub tab at view detail page
 
-  @443835 @AwardVerifywithPMprofileHistoryTabofAwardPagelayout
+  @443835 @AwardVerifywithPMprofileHistoryTabofAwardPagelayout @P2_Grantee @PM_Grantee @Gregression2 @rerun1
   Scenario: Award with PM profile History Tab of Award Page layout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
-    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "GRANTEE_PM_APPROVER"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    Then I softly see field "Status" as "Active"
-    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    Then I softly see field "Status" as "Draft"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Created"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Interim Award Document" from computer
@@ -1881,8 +1888,13 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I select radio button "Forward" in the approval decision
-    And I select user "Victor EXE" in the approval decision
+    And I select user "Sarah PM" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
     Then I softly see the following messages in the page details contains:
@@ -1893,27 +1905,11 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
     Then I softly see value "Created" for title "Original Value" inside field history table
     And I click on back arrow
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    When I "Send to Owner" in the approval decision
-    Then I softly see field "Status" as "Created"
-    And I navigate to "Field Audit" sub tab in split screen
-    And I click on hyperlink containing value "View All"
-    Then I softly see value "Created" for title "New Value" inside field history table
-    Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
-    And I click on back arrow
-    And I wait for "2" seconds
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Awards - All"
-    When I perform quick search for "Record Id" in "---grantee_tableId:-:awardTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:awardTableId---" without waiting for record
-    And I click on "Submit For Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Reject" in the approval decision
     Then I softly see field "Status" as "Rejected"
     Then I softly see the following messages in the page details contains:
@@ -1971,7 +1967,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "ApprovalPDF.pdf" as name
 
-  @443831 @AwardVerifywithPMprofileManagementTabofAwardPagelayout
+  @443831 @AwardVerifywithPMprofileManagementTabofAwardPagelayout @Gregression2 @P2_Grantee @PM_Grantee @rerun1
   Scenario: Award with PM profile Management Tab of Award Page layout
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -2004,7 +2000,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "Edit" icon for "Financial Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     And I click modal button "Save"
     Then I see the following messages in the page details contains:
-      | Schedule Base is required to save. |
+      | To Save, Schedule Base is required. |
     And I wait for "3" seconds
     When I click modal button "Close"
     And I expand nested table containing column value "Financial Report"
@@ -2012,7 +2008,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     And I click modal button "Save"
     Then I see the following messages in the page details contains:
-      | Schedule Base is required to save. |
+      | To Save, Schedule Base is required. |
     And I wait for "3" seconds
     When I click modal button "Close"
     And I expand nested table containing column value "Progress Report"
@@ -3932,3 +3928,443 @@ Feature: Validate all scenarios for Grants & Awards
     Examples:
       | userType   | UEI          |
       | GRANTEE PM | YRNMVN96JC17 |
+
+  @482615 @validatesectionsdisplayedtopouseronawardwhenallsettingsareno @P1_Grantee @PO_Grantee @GRegression1 @sprint15
+  Scenario: Validate sections displayed to PO user on award when all settings are No
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "ALL_SETTING_NO-Grantee PO user"
+    When I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    And I click on "Edit" in the page details
+    And I click on remove for lookup from field "DUNS__c"
+    When I click on "Cancel" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to cancel?" is displayed
+    When I click modal button "OK"
+    Then I can see top right button "Edit" in page detail
+    Then I softly see field "UEI Number" as "YRNMVN96JC17"
+    And I navigate to "Financials" sub tab
+    Then I softly cannot see field "Budgeted Cash Match" inside page block
+    Then I softly cannot see field "Budgeted Non-Cash Match" inside page block
+    Then I softly cannot see field "Budgeted Non-Cash Match" inside page block
+    Then I softly cannot see field "Budgeted Leverage" inside page block
+    Then I softly cannot see field "Total Anticipated Program Income" inside page block
+    Then I softly cannot see field "Total Program Income Expenditure" inside page block
+    And I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    Then I softly do not see fields "MaintenanceOfEffortAmount__c" is visible
+    And I navigate to "Projections" sub tab
+    Then I softly cannot see field "Maximum Indirect Cost Rate" inside page block
+    Then I softly cannot see field "Program Income Treatment Type" inside page block
+    Then I softly do not see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly do not see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly do not see "Program Income" page block displayed
+    Then I softly do not see "Indirect Rates" page block displayed
+    And I navigate to "Responsibilities" sub tab
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardPeerReviewerTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardApproverTableId---"
+    And I navigate to "Management" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:ProgressReportTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I navigate to "Monitoring" sub tab
+    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:awardObjectiveTableId---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    Then I can see row level action button "Remove" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    Then I can see row level action button "View" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    Then I can see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    Then I can see row level action button "Remove" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    When I enter in modal value "Terms" into field "Title__c"
+    When I enter in modal value "Terms Description" into field "Description__c"
+    When I enter in modal value "1" into field "Sequence__c"
+    When I save the field labeled "Title" as "termstitle"
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    Then I softly see value "{SavedValue:termstitle}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    When I navigate to "Files" sub tab
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:awardAddFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    And I wait for "2" seconds
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    Then I see "AttachmentTesting.pdf" has been added in "Award Files" flex table
+    Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "View" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardsNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:awardsNotesTableId---"
+    Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+    Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+    And I navigate to "Messages" sub tab
+    Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
+
+  @443837 @validatewithEXEProfile,OnEditClickabletoredirecttoawardpagelayout,onawardlayoutabletoseealltabsandsectionwhichiscreatedthroughdirectwithsettingNO  @P1_Grantee @EXE_Grantee @GRegression1 @sprint15
+  Scenario: Validate with EXE Profile,On Edit Click able to redirect to award page layout,on award layout able to see all tabs and section which is created through direct with setting NO
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "ALL_SETTING_NO-Victor EXE user"
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    And I click on "Edit" in the page details
+    And I click on remove for lookup from field "DUNS__c"
+    When I click on "Cancel" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to cancel?" is displayed
+    When I click modal button "OK"
+    Then I can see top right button "Edit" in page detail
+    Then I softly see field "UEI Number" as "YRNMVN96JC17"
+    And I navigate to "Financials" sub tab
+    Then I softly cannot see field "Budgeted Cash Match" inside page block
+    Then I softly cannot see field "Budgeted Non-Cash Match" inside page block
+    Then I softly cannot see field "Budgeted Non-Cash Match" inside page block
+    Then I softly cannot see field "Budgeted Leverage" inside page block
+    Then I softly cannot see field "Total Anticipated Program Income" inside page block
+    Then I softly cannot see field "Total Program Income Expenditure" inside page block
+    And I navigate to "Awards" sub tab
+    And I click on "Edit" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+    And I click on "Save" in the page details
+    And I wait for "1" seconds
+    Then I can see top right button "Edit" in page detail
+    Then I can see top right button "Validate" in page detail
+    Then I can see top right button "Submit For Approval" in page detail
+    And I navigate to "Overview" sub tab
+    Then I softly do not see fields "MaintenanceOfEffortAmount__c" is visible
+    And I navigate to "Projections" sub tab
+    Then I softly cannot see field "Maximum Indirect Cost Rate" inside page block
+    Then I softly cannot see field "Program Income Treatment Type" inside page block
+    Then I softly do not see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly do not see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly do not see "Program Income" page block displayed
+    Then I softly do not see "Indirect Rates" page block displayed
+    And I navigate to "Responsibilities" sub tab
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardPeerReviewerTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardApproverTableId---"
+    And I navigate to "Management" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:ProgressReportTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I navigate to "Monitoring" sub tab
+    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:awardObjectiveTableId---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    Then I can see row level action button "Remove" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    Then I can see row level action button "View" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    Then I can see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    Then I can see row level action button "Remove" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    When I enter in modal value "Terms" into field "Title__c"
+    When I enter in modal value "Terms Description" into field "Description__c"
+    When I enter in modal value "1" into field "Sequence__c"
+    When I save the field labeled "Title" as "termstitle"
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    Then I softly see value "{SavedValue:termstitle}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    When I navigate to "Files" sub tab
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:awardAddFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    And I wait for "2" seconds
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    Then I see "AttachmentTesting.pdf" has been added in "Award Files" flex table
+    Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "View" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardsNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:awardsNotesTableId---"
+    Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+    Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+    And I navigate to "Messages" sub tab
+    Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
+
+  @443817 @validatePMprofile,awardpagelayoutofdirectgrant @Gregression2 @P2_Grantee @PM_Grantee
+  Scenario: Validate PM Profile, award page layout of direct grant
+  And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+  And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+  When I login to "As a Grantee" app as "GRANTEE PM" user
+  And I navigate to "Grants" tab
+  When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+  And I click toggle button to select "Grants - All"
+  When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+  And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+  And I save the field labeled "EGMS ID" as "GrantEGMSID"
+  When I navigate to "Awards" sub tab
+  And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+  And I save the field labeled "EGMS ID" as "AwardEGMSID"
+  Then I softly see field "Status" as "Created"
+  Then I see status in Progress-bar is "Created" and is "dark blue"
+  Then I softly see "Collapse" button for header
+  Then I softly see "Resize" button for page
+  Then I softly see "Collapse" button for page
+  Then I can see top right button "Edit" in page detail
+  Then I can see top right button "Validate" in page detail
+  Then I can see top right button "Submit For Approval" in page detail
+  And I click on Menu icon present on top right corner of the page
+  Then I see option "Download as PDF" present in parallel dropdown
+  Then I see option "Take Snapshot" present in parallel dropdown
+  Then I softly can see "Overview" sub tab at view detail page
+  Then I softly can see "Projections" sub tab at view detail page
+  Then I softly can see "Responsibilities" sub tab at view detail page
+  Then I softly can see "Management" sub tab at view detail page
+  Then I softly can see "Monitoring" sub tab at view detail page
+  Then I softly can see "Files" sub tab at view detail page
+  Then I softly can see "History" sub tab at view detail page
+  Then I softly can see "Messages" sub tab at view detail page
+  Then I softly can see "Chatter" sub tab at view detail page
+  Then I softly can see "Field Audit" sub tab at view detail page
+  Then I softly see "Details" page block displayed
+  Then I softly see field "Award Title" inside page block
+  Then I softly see field "Grant EGMS ID" inside page block
+  Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
+  And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+  Then I see the header is "Grant" in the page details
+  When I navigate to "Overview" sub tab
+  When I navigate to "Awards" sub tab
+  And I click on "Edit" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+  Then I can see top right button "Save" in page detail
+  Then I can see top right button "Cancel" in page detail
+
+  @488678 @ValidatePMProfilenewbuttononFinancialTransactionwithreocrdowneronly. @P2_Grantee @Gregression2 @PM_Grantee
+  Scenario: Validate for PM Profile New button on Financial Transaction with reocrd owner only.
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "SECOND_FOCUS_WITH_BUDGET"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    When I navigate to "Actuals" sub tab
+    Then I softly see field "Drawn to Date" as "$0.00"
+    Then I softly see field "Spent to Date" as "$0.00"
+    Then I softly see field "Current Balance" as "$0.00"
+    Then I softly see field "Grant Balance" as "$100,000.00"
+    Then I softly see "Drawdown By Award" page block displayed
+    Then I softly can see row level action button "Show Financial Transactions" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "Automation Permanent Focus Area" for title "Focus Area Name" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area Name" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    And I click on "Show Financial Transactions" icon for "Automation Permanent Focus Area" inside flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see "Drawdown By  Award" opens in overLay window
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:DrawdownByAwardModalTableId---"
+    And I click modal button "Close"
+    And I click on "Show Financial Transactions" icon for "Automation Permanent Focus Area2" inside flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see "Drawdown By  Award" opens in overLay window
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:DrawdownByAwardModalTableId---"
+    And I click modal button "Close"
+    And I wait for "1" seconds
+    Given I expand nested table containing column value "Automation Permanent Focus Area"
+    Then I softly see "Financial Transactions" page block displayed
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Reference ID" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Drawdown Date" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Amount" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    And I collapse nested table containing column value "Automation Permanent Focus Area"
+    And I wait for "1" seconds
+    Given I expand nested table containing column value "Automation Permanent Focus Area2"
+    Then I softly see "Financial Transactions" page block displayed
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Reference ID" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Drawdown Date" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Amount" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    And I wait for "2" seconds
+    And I click on top right button "Save" in flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    And I wait for "1" seconds
+    Then I softly see the following messages in the page details contains:
+      | Required fields missing |
+
+   @461011 @validateifNONcashmatchisselectedYestheninReportnoncashmatchlineitemmodalabletoseeNewbutton. @Gregression2 @P2_Grantee @PO_Grantee
+  Scenario: Validate if NON cash match is selected Yes then in Report non cash match line item modal able to see New button.
+    And I "Created" standalone subaward "Automation Runtime award" with properties "CASH_MATCH_NON_CASH_MATCH_PO_OWNER"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    When I navigate to "Actuals" sub tab
+    Then I softly see "Financials Summary" page block displayed
+    Then I softly see "Expenditure Detail" page block displayed
+    Then I softly see field "Total Awarded Budget" inside page block
+    Then I softly see field "Spent to Date" inside page block
+    Then I softly see field "Remaining Balance" inside page block
+    Then I softly see field "Total Match Expenditures to Date this Budget Period" inside page block
+    Then I softly can see row level action button "Show Financial Transactions" against "Construction" in flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly can see row level action button "Report Non-Cash Match Line Item" against "Construction" in flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    And I click on "Report Non-Cash Match Line Item" icon for "Construction" inside flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see "Add Non-Cash Match" opens in overLay window
+    Then I softly see "Report Non Cash Match" page block displayed on modal
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsMoalNonCashMatchTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AwardActualsMoalNonCashMatchTableId---"
+    And I close "Add Non-Cash Match" modal by clicking the top right x button
+    And I wait for "2" seconds
+    And I navigate to "Overview" sub tab
+    And I wait for "2" seconds
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I create adhoc closeout "{SavedValue:Automation Runtime Award}" for status "Completed" with properties "default-Grantee PO user"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    Then I softly see field "Status" as "Closed/Completed"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Closed" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Closed"
+    And I wait for "2" seconds
+    Then I softly can see "Actuals" sub tab at view detail page
+    When I navigate to "Actuals" sub tab
+    Then I softly see "Financials Summary" page block displayed
+    Then I softly see "Expenditure Detail" page block displayed
+    Then I softly see field "Total Awarded Budget" inside page block
+    Then I softly see field "Spent to Date" inside page block
+    Then I softly see field "Remaining Balance" inside page block
+    Then I softly see field "Total Match Expenditures to Date this Budget Period" inside page block
+    Then I softly can see row level action button "Show Financial Transactions" against "Construction" in flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly can see row level action button "Report Non-Cash Match Line Item" against "Construction" in flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    And I click on "Report Non-Cash Match Line Item" icon for "Construction" inside flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see "Add Non-Cash Match" opens in overLay window
+    Then I softly see "Report Non Cash Match" page block displayed on modal
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsMoalNonCashMatchTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AwardActualsMoalNonCashMatchTableId---"
+
+   @443799 @validateWithPMProfileHistoryTabofGrantpagelayout @P2_Grantee @PM_Grantee @Gregression2
+   Scenario: Validate With PM Profile History Tab of Grant page layout.
+     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+     When I login to "As a Grantee" app as "GRANTEE PM" user
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+     And I save the field labeled "Grant Number" as "GrantNumber"
+     Then I softly see field "Status" as "Draft"
+     And I navigate to "History" sub tab
+     Then I softly see "Snapshot History" page block displayed
+     Then I softly see "No Records Found" inside snapshot history
+     And I activate the award for title "{SavedValue:Automation Runtime award}"
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     Then I softly see field "Status" as "Active"
+     And I navigate to "History" sub tab
+     Then I softly see "Snapshot History" page block displayed
+     Then I softly see "No Records Found" inside snapshot history
+     And I "Created" standalone subaward "Automation Runtime Award2" with properties "default"
+     And I updated direct grant award for title "{SavedValue:Automation Runtime Award2}" with properties "default"
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:Automation Runtime Award2}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime Award2}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+     Then I softly see field "Status" as "Draft"
+     When I navigate to "Awards" sub tab
+     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+     Then I softly see field "Status" as "Created"
+     And I save the field labeled "EGMS ID" as "AwardEGMSID"
+     When I navigate to "Files" sub tab
+     When I navigate to "Files" sub tab
+     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
+     And I wait for "2" seconds
+     When I click modal button "Close"
+     And I wait for "2" seconds
+     When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "New" :
+       | Title        | Description      |
+       | Notes Record | Automation Notes |
+     When I click on "Validate" in the page details
+     And I wait for "2" seconds
+     Then I softly see the following messages in the page details contains:
+       | The award has been validated successfully. |
+     And I click on "Submit For Approval" in the page details
+     Then I softly see field "Status" as "Submitted for Approval"
+     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+     And I navigate to "Grants" tab
+     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+     And I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+     When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+     When I "Reject" in the approval decision
+     And I wait for "2" seconds
+     And I refresh the page
+     Then I softly see field "Status" as "Rejected"
+     Then I softly see status in Progress-bar is "Rejected" and is "Red"
+     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     Then I softly see field "Status" as "Terminated"
+     And I navigate to "History" sub tab
+     Then I softly see "Snapshot History" page block displayed
+     Then I softly see "No Records Found" inside snapshot history

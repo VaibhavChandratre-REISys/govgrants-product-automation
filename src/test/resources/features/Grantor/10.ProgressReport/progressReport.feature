@@ -16,7 +16,7 @@ Feature: Validate all scenarios in Progress Report
     And I wait for "2" seconds
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
     And I click modal button "Close"
-    When I get the "EGMS ID"
+     When I get the "EGMS ID"
 
  @51097 @51098 @51099 @51100 @51102 @51124 @51101 @51103 @51105 @51106 @51107 @51108 @51109 @59048 @51113 @51111 @51114 @51115 @51116 @51117 @51120 @editKPIProgressReportformFilling @FieldHistoryExclude @NewProgressFinal
   Scenario: To edit KPI in Progress Report | To fill and complete the form in Progress Report | To validate KPI for progress report are not editable post submission of prog report to grantor.

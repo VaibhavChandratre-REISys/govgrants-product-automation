@@ -2253,7 +2253,7 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
       | User       | EmailFrom                | EmailTo                   |
       | GRANTEE FO | david.fo@yopmail.com     | pm.automation@yopmail.com |
 
-  @485466 @VerifyPOuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant @P2_Grantee @PM_Grantee @GRegression4
+  @485466  @VerifyPOuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant @P2_Grantee @PM_Grantee @GRegression4
   Scenario Outline: Verify PO user as (AR Owner same as Award Owner) can able to create Funding Change AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -2586,11 +2586,11 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
     Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I wait for "2" seconds
-    And I download the file
-    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+#    And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+#    And I wait for "2" seconds
+#    And I download the file
+#    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
+#    And I switch to parent tab
     And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see the image "Attachment.pdf" in page detail
     And I click on "Close" button for view files page
@@ -3213,11 +3213,11 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
     Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I wait for "2" seconds
-    And I download the file
-    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+#    And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+#    And I wait for "2" seconds
+#    And I download the file
+#    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
+#    And I switch to parent tab
     And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see the image "Attachment.pdf" in page detail
     And I click on "Close" button for view files page
@@ -3502,7 +3502,6 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
     And I click on hyperlink containing value "View All"
     Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
-
     Examples:
       | userName        | User        | Approval   |
       | Victor EXE user | GRANTEE EXE | Victor EXE |

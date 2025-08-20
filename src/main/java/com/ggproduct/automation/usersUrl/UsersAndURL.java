@@ -100,7 +100,10 @@ public class UsersAndURL implements UsersController {
                 password = "Salesforce@2041";
                 break;
             case "ADMIN":
-                password = "Salesforce@2042";
+                password = "Salesforce@2030";
+                break;
+            case "ADMIN1":
+                password = "Salesforce@2030";
                 break;
             default:
                 password = "Salesforce@2040";
@@ -175,7 +178,7 @@ public class UsersAndURL implements UsersController {
                 password = "Grantee@2031";
                 break;
             case "GRANTEE PM1":
-                password = "Grantee@2030";
+                password = "Grantee@2031";
                 break;
             case "GRANTEE ADMIN2":
                 password = "Grantee@2031";
@@ -184,7 +187,7 @@ public class UsersAndURL implements UsersController {
                 password = "Grantee@2031";
                 break;
             case "GRANTEE EXE1":
-                password = "Grantee@2030";
+                password = "Grantee@2031";
                 break;
             case "GRANTEE FO":
                 password = "Grantee@2031";

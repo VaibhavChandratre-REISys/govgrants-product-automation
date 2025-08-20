@@ -1307,5 +1307,3 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I pause execution for "2" seconds
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
-
-

@@ -417,7 +417,7 @@ Feature: Validate all scenarios for KPI
       | userType      |
       | GRANTEE ADMIN |
 
-  @439544 @KPI @validatepmusershouldabletocreateandactivatethekpi
+  @439544 @KPI @validatepmusershouldabletocreateandactivatethekpi @duplicate
   Scenario: Validate PM user should able to Create & Activate the KPI
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
