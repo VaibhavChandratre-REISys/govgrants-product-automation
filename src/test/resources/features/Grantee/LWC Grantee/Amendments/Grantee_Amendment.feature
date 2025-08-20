@@ -22408,10 +22408,10 @@ Feature: Validate all scenarios for Grantee Amendment Request
          Then I softly see "Description" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
          Then I softly see "Created Date" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
          And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+         When I wait for "2" seconds
          And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
          When I wait for "2" seconds
          When I click modal button "Close"
-         And I wait for "2" seconds
          Then I see "Attachment.pdf" has been added in "Amendment Files" flex table
          Then I softly see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
          When I enter the following values into flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "New" :
