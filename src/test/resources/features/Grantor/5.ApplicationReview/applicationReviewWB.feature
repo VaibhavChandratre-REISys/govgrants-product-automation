@@ -7541,7 +7541,6 @@ Feature: Validate all scenarios in the Application Review without background
       EGMS Team
       """
 
-
   @134201 @ValidatependingtaskandemailisgeneratedtoSubrecipientuserwhenannouncementrecordownerclickonSendtoSubrecipient @Sprint-1
   Scenario: Validate  pending task and email is generated to Subrecipient user  when announcement record owner click on Send to Subrecipient
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
@@ -8104,6 +8103,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "2" seconds
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "Edit" in the split screen page details
+    And I wait for "1" seconds
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I pause execution for "2" seconds
@@ -10550,13 +10550,12 @@ Feature: Validate all scenarios in the Application Review without background
     And I click modal button "Continue"
     When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
+    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I save the field labeled "Announcement Name" as "Automation Runtime Announcement Application Review"
-    When I click on "Edit" in the page details
-    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -16843,7 +16842,6 @@ Feature: Validate all scenarios in the Application Review without background
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1000               | 1000                    | No                    | Recommended |
-    And I refresh the page
     And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
