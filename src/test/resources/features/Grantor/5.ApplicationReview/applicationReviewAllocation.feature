@@ -566,6 +566,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     #239525
     When I click on "Edit" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---"
     Then I softly see fields "TotalCommitmentAmount__c" is in edit mode
+    And I click on top right button "Save" in flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---"
     #242462
     And I click on "Edit" in the page details
     When I enter value "AuGr" into field "GrantCode__c"
@@ -574,17 +575,12 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     Then I softly see field "Status" as "Created"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name              | FDM |
-      | Automation ADMIN1 | NA  |
-    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name              | FDM    |
       | Automation ADMIN1 | Step 1 |
     And I navigate to "Funding Decision Memo" sub tab
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title                                | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime FDM Announcement} | 500                | Yes                   | Recommended | 500                     |
-    And I refresh the page
-    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -1536,11 +1532,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title                                | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime FDM Announcement} | Yes                   | Recommended | 200                     |
-    And I refresh the page
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                      | FDM |
-      | {SavedValue:EXE Username} | NA  |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                      | FDM    |
       | {SavedValue:EXE Username} | Step 1 |
@@ -3394,18 +3386,15 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                     | FDM |
-      | {SavedValue:PM Username} | NA  |
-    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                     | FDM    |
       | {SavedValue:PM Username} | Step 1 |
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I wait for "5" seconds
     And I "Send Back" in the approval decision
-    And I wait for "20" seconds
+    And I wait for "30" seconds
     And I refresh the page
-    #Bug452259
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Created"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
