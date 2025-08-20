@@ -684,7 +684,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on top right button "Reject" in flex table with id "---applicationReview:-:applicationAssignTableId---"
     #80508 #monu
     And I pause execution for "5" seconds
-    Then I softly cannot see top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
+    Then I cannot see top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -2928,11 +2928,9 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I "Send to Owner" in the approval decision
-    #As this msg is coming at same time of page refresh
-#    Then I softly see the following messages in the page details contains:
-#      | Successfully sent to Owner. It may take few minutes to process record |
-    And I pause execution for "20" seconds
+    And I pause execution for "30" seconds
     And I refresh the page
+    And I pause execution for "3" seconds
     #Bug452259
     Then I softly see field "Status" as "Created"
 
@@ -7694,7 +7692,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "2" seconds
     And I save the field labeled "Due Date" as "DueDate"
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
-    Then I softly see field "Application Sections for Negotiation" as "Overview: Project Information Budget: Budget Details Files: Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Overview: Project Information Budget: Budget Details Forms and Files: Forms"
     Then I softly see field "Due Date" as "{SavedValue:DueDate}" in "Negotiation Request Details" pageblock
 
   @134207 @ValidateapplicationrecordownercaneditsectionsandformswithintheapplicationwhentheapplicationisinnegotiationInitiatedstate @Sprint-1
@@ -16222,8 +16220,9 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see the following messages in the page details contains:
       | Rejection of the FDM is not allowed because at least one application in the FDM is converted to award. |
     When I "Send to Owner" in the approval decision
+    And I wait for "30" seconds
     And I refresh the page
-    And I wait for "5" seconds
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Created"
 
     Examples:
