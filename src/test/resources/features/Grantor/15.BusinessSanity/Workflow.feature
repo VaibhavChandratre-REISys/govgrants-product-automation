@@ -1793,13 +1793,6 @@ Feature: Validate all scenarios of every modules flow
 
   @testchckAwards @debug
   Scenario:
-#    Given I published "Formula" type announcement having name "Automation Permanent FDM Approved Closed Formula Ann-By Applicant" and properties "BY_APPLICANT"
-#    And I initiated an application review for application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By Applicant}" on announcement "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By Applicant}" with properties "default"
-#    And I created approved FDM on application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By Applicant}"
-#    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
-    Given I login to "Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--ggqa2.sandbox.lightning.force.com/lightning/r/ReviewStep__c/a3SDi000000UrvFMAS/view"
-    And I halt execution
-#    And I hovering mouse on table id "---applicationReview:-:reviewFormsTableId---" with table row level icon "Automation PM1: Review Completed - Recommended" for column value "Automation PM1: Review Completed - Recommended"
-    Then I softly see "Automation PM1: Review Completed - Recommended" shown as help text
-
+#    Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "NEGOTIATION"
+#    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "default"
+    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"

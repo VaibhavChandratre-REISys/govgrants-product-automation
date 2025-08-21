@@ -9,8 +9,7 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    And I enter in modal "Grant_Creation" values from "Award_Field_Values.xlsx"
-    And I enter value "---AUTOEnvData:-:SubrecipientOrgWithoutActiveRiskAssessment---" into field "InternalOrganization__c"
+    And I enter in modal "Grant_Creation5" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter in modal "Grant_Edition1" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -205,7 +204,7 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I click on "View" icon for "Record ID" inside flex table with id "---amendment:-:amendmentRequestTableId---" without waiting for record
     And I click on "Amend Subaward" in the page details
     When I click on "Activate" in the page details
-    And I wait for "10" seconds
+    And I wait for "4" seconds
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -407,7 +406,7 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     Given I delete the record "Automation Award for Organizational Risk Assessment" from the object "Amendment Request"
     And I delete the record "Automation Award for Organizational Risk Assessment" from the object "Payment Request"
     And I delete the record "Automation Award for Organizational Risk Assessment" from the object "subaward"
-    And I activated standalone subaward "Automation Award for Organizational Risk Assessment" with properties "default" of type "Competitive"
+    And I activated standalone subaward "Automation Award for Organizational Risk Assessment" with properties "SUBRECIPIENT_ORG_SPI_USER-Automation PM user" of type "Competitive"
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -421,15 +420,11 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Award for Organizational Risk Assessment}"
-    When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter value "3800" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
+    And I wait for "4" seconds
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
-    When I click on "Edit" in the page details
-    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
-    And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
       | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
@@ -442,13 +437,13 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
       | {SavedValue:FO Username} | Step 2            |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
+    And I re-login to "Grants Portal" app as "SPI4" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Acknowledge" in the page details
+    And I wait for "2" seconds
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

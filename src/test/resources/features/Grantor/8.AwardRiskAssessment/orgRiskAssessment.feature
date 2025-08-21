@@ -113,7 +113,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     Then I softly see value "Automation Permanent Organization for Risk Assessment" for title "EGMS ID" inside table "---orgRiskAssessment:-:completedTaskTableId---"
     Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
-  @61980 @addingAnAttachmentToOrgRA  @buglogged112066 @OrgRiskSet1
+  @61980 @addingAnAttachmentToOrgRA @OrgRiskSet1
   Scenario: Validate whether SPI user can Add an attachment to Risk Assessment
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I refresh the page
@@ -135,9 +135,8 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "AGENCY DETAILS" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
-    And I wait for "2" seconds
+#    And I click modal button "Close"
+    And I wait for "3" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---orgRiskAssessment:-:orgRiskAssessmentFileTableId---"
     Then I softly see value "AGENCY DETAILS" for title "Classification" inside table "---orgRiskAssessment:-:orgRiskAssessmentFileTableId---"
     Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
@@ -236,7 +235,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I perform quick search for "Record Id" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     Then I see "No Records Found" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
- @62315 @snapHistoryOfOrgRA  @skiponjenkins @OrgRiskSet1 @snapExecution
+ @62315 @snapHistoryOfOrgRA @OrgRiskSet1 @snapExecution
   Scenario: Validate whether Snapshot is captured/(taken) automatically  by the system in the table Snapshot History when Risk Assessment is Activated
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -255,6 +254,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Risk Assessment Snapshot.pdf"
+    And I switch to tab number "1"
     And I click on "Download" button for snapshot view
     And I wait for "3" seconds
     When I download the file

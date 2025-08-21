@@ -2928,7 +2928,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I "Send to Owner" in the approval decision
-    And I pause execution for "30" seconds
+    And I pause execution for "100" seconds
     And I refresh the page
     And I pause execution for "3" seconds
     #Bug452259
