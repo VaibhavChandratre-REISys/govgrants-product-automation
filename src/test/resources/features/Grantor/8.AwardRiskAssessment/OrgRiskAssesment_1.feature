@@ -221,6 +221,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I navigate to "Assessment" sub tab
+    And I enter value "Checked" into field "Acknowledgement__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
