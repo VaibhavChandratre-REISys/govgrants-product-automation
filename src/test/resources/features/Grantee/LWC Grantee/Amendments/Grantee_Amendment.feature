@@ -22910,3 +22910,153 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "$500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+
+  @488686 @validateimpactofdrawdownByAwardonPeriodicrenewalchangeamendmentWithoutDrawdownWithoutSpent
+   Scenario: Validate impact of drawdown By Award on Periodic renewal change amendment Without Draw down Without Spent
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "SECOND_FOCUS_WITH_BUDGET"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    When I navigate to "Actuals" sub tab
+    Then I softly see field "Drawn to Date" as "$0.00"
+    Then I softly see field "Spent to Date" as "$0.00"
+    Then I softly see field "Current Balance" as "$0.00"
+    Then I softly see field "Grant Balance" as "$100,000.00"
+    Then I softly see "Drawdown By Award" page block displayed
+    Then I softly can see row level action button "Show Financial Transactions" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "Automation Permanent Focus Area" for title "Focus Area Name" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area Name" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    And I click on "Show Financial Transactions" icon for "Automation Permanent Focus Area" inside flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see "Drawdown By  Award" opens in overLay window
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:DrawdownByAwardModalTableId---"
+    And I click modal button "Close"
+    And I click on "Show Financial Transactions" icon for "Automation Permanent Focus Area2" inside flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see "Drawdown By  Award" opens in overLay window
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:DrawdownByAwardModalTableId---"
+    And I click modal button "Close"
+    And I wait for "1" seconds
+    Given I expand nested table containing column value "Automation Permanent Focus Area"
+    Then I softly see "Financial Transactions" page block displayed
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Reference ID" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Drawdown Date" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Amount" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    And I collapse nested table containing column value "Automation Permanent Focus Area"
+    And I wait for "1" seconds
+    Given I expand nested table containing column value "Automation Permanent Focus Area2"
+    Then I softly see "Financial Transactions" page block displayed
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Reference ID" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Drawdown Date" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Amount" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    And I wait for "2" seconds
+    And I "Approved" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Victor EXE user"
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    When I navigate to "Amendments" sub tab
+    And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AmendEGMSID1"
+    And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
+    And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriodEndDate"
+    When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
+    When I enter values into fields
+      | Value | Field                 |
+      | 0     | SubmittedToGrantor__c |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I can see top right button "Record Decision" in page detail
+    Then I can see top right button "Revise Amendment" in page detail
+    When I click on "Record Decision" in the page details
+    When I enter values into fields
+      | Value                       | Field             |
+      | Accepted                    | Decision__c       |
+      | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
+      | Test                        | Comments__c       |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Accepted"
+    And I click on "Amend Award" in the page details
+    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+    Then I can see top right button "Activate Award" in page detail
+    Then I can see top right button "Delete" in page detail
+    When I click on "Activate Award" in the page details
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID2"
+    When I navigate to "Actuals" sub tab
+    Then I softly see field "Drawn to Date" as "$0.00"
+    Then I softly see field "Spent to Date" as "$0.00"
+    Then I softly see field "Current Balance" as "$0.00"
+    Then I softly see field "Grant Balance" as "$100,000.00"
+    Then I softly see value "$0.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$0.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$0.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$0.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see "Drawdown By Award" page block displayed
+    Then I softly can see row level action button "Show Financial Transactions" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "Automation Permanent Focus Area" for title "Focus Area Name" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    And I click on "Show Financial Transactions" icon for "Automation Permanent Focus Area" inside flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see "Drawdown By  Award" opens in overLay window
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:DrawdownByAwardModalTableId---"
+    And I click modal button "Close"
+    And I wait for "1" seconds
+    Given I expand nested table containing column value "Automation Permanent Focus Area"
+    Then I softly see "Financial Transactions" page block displayed
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Reference ID" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Drawdown Date" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Amount" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    When I navigate to "Overview" sub tab
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    When I navigate to "Actuals" sub tab
+    Then I softly see field "Drawn to Date" as "$0.00"
+    Then I softly see field "Spent to Date" as "$0.00"
+    Then I softly see field "Current Balance" as "$0.00"
+    Then I softly see field "Grant Balance" as "$100,000.00"
+    Then I softly see value "$0.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$0.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$0.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "$0.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see "Drawdown By Award" page block displayed
+    Then I softly can see row level action button "Show Financial Transactions" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see value "Automation Permanent Focus Area" for title "Focus Area Name" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    And I click on "Show Financial Transactions" icon for "Automation Permanent Focus Area" inside flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see "Drawdown By  Award" opens in overLay window
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:DrawdownByAwardModalTableId---"
+    And I click modal button "Close"
+    And I wait for "1" seconds
+    Given I expand nested table containing column value "Automation Permanent Focus Area"
+    Then I softly see "Financial Transactions" page block displayed
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Reference ID" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Drawdown Date" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+    Then I softly see "Amount" in flex table header "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
