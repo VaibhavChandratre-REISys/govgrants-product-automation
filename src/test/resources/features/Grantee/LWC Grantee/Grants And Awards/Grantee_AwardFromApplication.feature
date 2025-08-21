@@ -5607,7 +5607,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardContactTableId---"
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:awardContactTableId---"
     Then I can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    Then I cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
     Then I softly see "Project Role" in flex table header "---grantee_tableId:-:awardContactTableId---"
     Then I softly see "Name" in flex table header "---grantee_tableId:-:awardContactTableId---"
