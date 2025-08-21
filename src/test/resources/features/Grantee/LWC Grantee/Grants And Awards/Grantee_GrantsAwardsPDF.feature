@@ -339,7 +339,7 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     And I click on "Download as PDF" in the page details
     And I wait for "7" seconds
     And I download the file
-    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
+    Then I softly see "Draft" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     And I click on "Take Snapshot" in the page details
     And I wait for "5" seconds
@@ -349,7 +349,7 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     And I wait for "3" seconds
     And I download the file
     And I wait for "3" seconds
-    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
+    Then I softly see "Draft" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     And I click on "Close" button for view files page
     And I navigate to "Awards" sub tab

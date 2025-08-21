@@ -13003,7 +13003,7 @@ Feature: Validate all scenarios for Progress & Financial Schedules
       | GRANTEE PM | Sarah PM | 123456789123 |
 
   @485369 @ValidateFOusercanseeProgressreportschedulesfromawardinMonitoringschedules
-  Scenario Outline: Validate FD user can see Progress report schedules from award in Monitoring schedules
+  Scenario Outline: Validate FO user can see Progress report schedules from award in Monitoring schedules
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -13622,8 +13622,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
 
     Examples:
-      | userType   | userName           | UEI          |
-      | GRANTEE FD | Danielle FD Garcia | 123456789123 |
+      | userType   | userName | UEI          |
+      | GRANTEE PM | Sarah PM | 123456789123 |
 
   @477317 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @P1_Grantee @EXE_Grantee @GRegression3
   Scenario Outline: Validate progress report schedule EXE user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
