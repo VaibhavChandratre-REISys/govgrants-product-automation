@@ -8139,6 +8139,7 @@ Feature: Validate all scenarios in the Application Review without background
     #134406
 #    When I click on "Back" in the page details
     When I click on "Request Negotiations" in the page details
+    And I wait for "4" seconds
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
     And I navigate to "Negotiations" sub tab
@@ -8334,6 +8335,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
+    And I wait for "4" seconds
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -16219,8 +16221,8 @@ Feature: Validate all scenarios in the Application Review without background
     When I "Reject" in the approval decision
     Then I softly see the following messages in the page details contains:
       | Rejection of the FDM is not allowed because at least one application in the FDM is converted to award. |
-    When I "Send to Owner" in the approval decision
-    And I wait for "30" seconds
+    When I "Send Back" in the approval decision
+    And I wait for "100" seconds
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see field "Status" as "Created"
@@ -18308,7 +18310,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Complete" in "Negotiation Request Details" pageblock
     When I click on "Back to Current Review Step" in the page details
-    Then I softly see that "Review Incomplete" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
+    Then I see that "Review Incomplete" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly see value "Resubmitted" for title "Decision Status" against the value "{SavedValue:AppEGMSID}" inside table "---applicationReview:-:reSubmittedAppTableId---"
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
