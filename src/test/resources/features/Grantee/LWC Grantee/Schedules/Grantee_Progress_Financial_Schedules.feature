@@ -13000,7 +13000,7 @@ Feature: Validate all scenarios for Progress & Financial Schedules
 
     Examples:
       | userType   | userName | UEI          |
-      | GRANTEE FO | David FO | 123456789123 |
+      | GRANTEE PM | Sarah PM | 123456789123 |
 
   @485369 @ValidateFOusercanseeProgressreportschedulesfromawardinMonitoringschedules
   Scenario Outline: Validate FD user can see Progress report schedules from award in Monitoring schedules
