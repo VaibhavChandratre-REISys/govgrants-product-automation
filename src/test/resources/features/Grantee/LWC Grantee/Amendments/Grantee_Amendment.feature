@@ -22911,7 +22911,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
-  @488686 @validateimpactofdrawdownByAwardonPeriodicrenewalchangeamendmentWithoutDrawdownWithoutSpent
+  @488686 @validateimpactofdrawdownByAwardonPeriodicrenewalchangeamendmentWithoutDrawdownWithoutSpent @P2_Grantee @Gregression2 @EXE_Grantee
    Scenario: Validate impact of drawdown By Award on Periodic renewal change amendment Without Draw down Without Spent
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "SECOND_FOCUS_WITH_BUDGET"
