@@ -990,6 +990,7 @@ Feature: Validate all scenarios for closeout
     And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
+    And I wait for "2" seconds
     When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
@@ -1265,6 +1266,7 @@ Feature: Validate all scenarios for closeout
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
+    And I wait for "2" seconds
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
