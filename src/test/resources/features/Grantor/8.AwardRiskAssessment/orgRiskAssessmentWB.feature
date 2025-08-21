@@ -112,8 +112,8 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     Then I see the following messages in the page details contains:
       | Your Organization does not have an active Risk Assessment. Create and activate a Risk Assessment as the Subaward cannot be accepted without an active Risk Assessment. |
     Examples:
-      | Award Name                                                | Grant Name                                                |
-      | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
+      | Award Name                                      | Grant Name                                      |
+      | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} |
 
   @64385 @scopeofWorkAmendmentWhenORAIsExpired
   Scenario: Validate when Org Risk Assessment is expired and user is able to activate newly created award post performing amendment of type - Scope Of Work
@@ -155,8 +155,8 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
-      | Name                     | Amendment Request |
-      | {SavedValue:EXE Username}| Step 2            |
+      | Name                      | Amendment Request |
+      | {SavedValue:EXE Username} | Step 2            |
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 3            |
@@ -245,7 +245,7 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I enter value "asf" into field "City__c"
     And I enter value "20171" into field "Zip4__c"
     When I enter values into fields
-      | Value | Field                           |
+      | Value | Field                      |
       | 4000  | RevisedCommitment__c       |
       | 2000  | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
@@ -315,8 +315,10 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I navigate to "Management" sub tab
     And I click on "View" icon for "Record ID" inside flex table with id "---amendment:-:amendmentRequestTableId---" without waiting for record
     And I click on "Amend Subaward" in the page details
+    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+    When I click on "Activate" in the page details
     Then I see the following messages in the page details contains:
-      | The subrecipient organization risk assessment is expired. Please notify the subrecipient to renew their organization risk assessment. |
+      | Subrecipient’s organization risk assessment is expired. Notify the subrecipient to renew their organization Risk Assessment. |
 
   @64388 @fundingChangeAmendmentWhenORAIsExpired @wip
   Scenario: Validate user is able to activate newly created award post performing amendment of type - Funding Change
@@ -449,7 +451,7 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -469,8 +471,10 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I navigate to "Management" sub tab
     And I click on "View" icon for "Record ID" inside flex table with id "---amendment:-:amendmentRequestTableId---" without waiting for record
     And I click on "Amend Subaward" in the page details
+    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+    When I click on "Activate" in the page details
     Then I see the following messages in the page details contains:
-      | The subrecipient organization risk assessment is expired. Please notify the subrecipient to renew their organization risk assessment. |
+      | Subrecipient’s organization risk assessment is expired. Notify the subrecipient to renew their organization Risk Assessment. |
 
   @201170 @ValidateOrganizationRiskAssessmentsarenotshownintheReassignmodal @sprint-12-US-226646  @reassignment
   Scenario: Validate Organization Risk Assessments are not shown in the Reassign modal

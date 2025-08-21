@@ -363,6 +363,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Overview" sub tab
+    And I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
