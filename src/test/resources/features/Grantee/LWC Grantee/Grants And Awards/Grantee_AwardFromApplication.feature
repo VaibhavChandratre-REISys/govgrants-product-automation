@@ -6040,7 +6040,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:awardContactTableId---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardContactTableId---"
     Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I softly can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     And I navigate to "Projections" sub tab
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:ProjectTableId---"
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
