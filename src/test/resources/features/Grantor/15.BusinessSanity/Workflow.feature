@@ -1795,4 +1795,9 @@ Feature: Validate all scenarios of every modules flow
   Scenario:
 #    Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "NEGOTIATION"
 #    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "default"
-    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
+   Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
+#    When I login to "Grantor" app as "PM" user
+#    And I navigate to url "https://test8-internal--ggqa2.sandbox.lightning.force.com/lightning/r/Account/0011900001SKXYjAAP/view"
+#    And I halt execution
+#    Then I softly see value "" for title "Effective From" inside table "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+#    Then I softly see value "" for title "Effective Until" inside table "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
