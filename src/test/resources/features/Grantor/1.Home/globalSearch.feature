@@ -3029,6 +3029,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Send for Review" icon for "{SavedValue:PO Username}" inside table
     Then I softly see field "Status" as "Submitted for Review"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+    And I wait for "1" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
     And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
