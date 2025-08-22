@@ -3186,7 +3186,8 @@ Feature: Validate all scenarios for the global search
       | Passed | Rating__c         |
       | Passed | ReviewComments__c |
     When I click modal button "Save"
-    And I pause execution for "5" seconds
+    And I click on submit review
+    And I wait for "3" seconds
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I pause execution for "1" seconds
     And I select "Site Visits" from dropdown for Global search
@@ -3335,6 +3336,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Subrecipient POC" inside refine by filter
     Then I softly see "Status" inside refine by filter
     And I refresh the page
+    And I wait for "4" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
     Then I softly see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "Site Visits"
