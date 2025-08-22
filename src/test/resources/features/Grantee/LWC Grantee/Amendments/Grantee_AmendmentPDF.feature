@@ -3096,8 +3096,8 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
     Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Indirect Cost Rate Type" as "IndirectCostRateType" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly can see row level action button "Edit" against "New Indirect rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly can see row level action button "Delete" against "New Indirect rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I click on "Edit" in the page details
     Then I softly see fields "GeneralConditionChanged__c" is in edit mode
     And I enter value "Checked" into field "GeneralConditionChanged__c"
