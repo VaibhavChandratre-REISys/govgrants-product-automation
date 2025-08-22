@@ -3046,6 +3046,7 @@ Feature: Validate all scenarios for the global search
     When I click modal button "Save"
     And I pause execution for "5" seconds
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
+    And I wait for "1" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
     And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
@@ -3091,6 +3092,7 @@ Feature: Validate all scenarios for the global search
     Then I softly cannot see top right button "Save" in page detail
     Then I softly cannot see top right button "Cancel" in page detail
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    And I wait for "1" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
     And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
