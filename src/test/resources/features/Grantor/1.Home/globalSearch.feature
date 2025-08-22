@@ -2940,10 +2940,10 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Agency Abbreviation" inside refine by filter
     Then I softly see "Executive Office" inside refine by filter
     And I refresh the page
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     And I select "Organizations" from dropdown for Global search
     And I perform quick search inside global search "SAN DIEGO ELECTRICAL TRAINING TRUST"
-#    And I click on "Expand List" button on left navigation for global search
+    And I click on "Expand List" button on left navigation for global search
     Then I softly see record count "1" for module "Organizations" on left navigation for global search
 
     Examples:
@@ -3005,6 +3005,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
+    And I wait for "1" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
     And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
@@ -3125,6 +3126,7 @@ Feature: Validate all scenarios for the global search
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
+    And I pause execution for "1" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
@@ -3149,6 +3151,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
+    And I pause execution for "1" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
@@ -3168,6 +3171,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Send for Review" icon for "{SavedValue:PO Username}" inside table
     Then I softly see field "Status" as "Submitted for Review"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+    And I pause execution for "1" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
@@ -3184,6 +3188,7 @@ Feature: Validate all scenarios for the global search
     When I click modal button "Save"
     And I pause execution for "5" seconds
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
+    And I pause execution for "1" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
@@ -3221,6 +3226,7 @@ Feature: Validate all scenarios for the global search
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
+    And I pause execution for "1" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
@@ -3241,6 +3247,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Accept and Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    And I pause execution for "1" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
