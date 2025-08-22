@@ -18588,6 +18588,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "Grants" tab
     When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Awards - All"
+    And I wait for "3" seconds
     When I perform quick search for "{SavedValue:AwardEGMSID2}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     And I wait for "2" seconds
