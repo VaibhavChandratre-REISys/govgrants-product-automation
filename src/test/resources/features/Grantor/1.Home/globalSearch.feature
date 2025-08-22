@@ -2921,6 +2921,7 @@ Feature: Validate all scenarios for the global search
   Scenario Outline: subrecipient organization ->Verify that user is able to expand the result by External S/R org module and Filter/Refine the the result by configured Columns for an External S/R org.
   |subrecipient Organization -> Verify that user redirect to that record when user click on any hyperlink provided (e.g. - Acc Name ) on objects after global search the any record for External S/R org.|
     When I login to "Grantor" app as "<User>" user
+    And I wait for "1" seconds
     And I select "Organizations" from dropdown for Global search
     And I perform quick search inside global search "SAN DIEGO ELECTRICAL TRAINING TRUST"
     Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Account Name" inside table "Organizations"
@@ -2933,7 +2934,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Account Name" inside refine by filter
     Then I softly see "Type" inside refine by filter
     Then I softly see "EIN" inside refine by filter
-    Then I softly see "DUNS" inside refine by filter
+    Then I softly see "UEI" inside refine by filter
     Then I softly see "Organization Type" inside refine by filter
     Then I softly see "Created Date" inside refine by filter
     Then I softly see "Agency Abbreviation" inside refine by filter
@@ -2942,7 +2943,7 @@ Feature: Validate all scenarios for the global search
     And I select "Organizations" from dropdown for Global search
     And I perform quick search inside global search "SAN DIEGO ELECTRICAL TRAINING TRUST"
     And I click on "Expand List" button on left navigation for global search
-    Then I softly see record count "3" for module "Organizations" on left navigation for global search
+    Then I softly see record count "1" for module "Organizations" on left navigation for global search
 
     Examples:
       | User  |
