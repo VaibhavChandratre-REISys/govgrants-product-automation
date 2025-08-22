@@ -2940,6 +2940,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Agency Abbreviation" inside refine by filter
     Then I softly see "Executive Office" inside refine by filter
     And I refresh the page
+    And I wait for "2" seconds
     And I select "Organizations" from dropdown for Global search
     And I perform quick search inside global search "SAN DIEGO ELECTRICAL TRAINING TRUST"
     And I click on "Expand List" button on left navigation for global search
