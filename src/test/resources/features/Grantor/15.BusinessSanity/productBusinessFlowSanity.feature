@@ -1,7 +1,7 @@
 @productBusinessFlowSanity @product @grantor-regression
 Feature: Validate sanity testing of Complete Business Flow
 
-  @72335  @72335@activationOfFocusArea @ProdSan1
+  @72335  @72335 @activationOfFocusArea @ProdSan1
   Scenario: Validate the activation of Focus Area by User - Admin/EXE/PM and the status is Active
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
@@ -4461,7 +4461,6 @@ Feature: Validate sanity testing of Complete Business Flow
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    And I wait for "2" seconds
     When I click on "Save" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
