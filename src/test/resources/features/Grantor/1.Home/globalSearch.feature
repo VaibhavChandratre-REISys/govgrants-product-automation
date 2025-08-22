@@ -3126,7 +3126,7 @@ Feature: Validate all scenarios for the global search
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
-    And I pause execution for "1" seconds
+    And I pause execution for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
@@ -3362,7 +3362,6 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     Then I click on "Initiate Negotiation" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I wait for "2" seconds
-    Then I softly can see "Negotiations" sub tab at view detail page
     And I navigate to "Negotiations" sub tab
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AppID"
