@@ -1189,7 +1189,7 @@ Feature: Validate all scenarios for the global search
     And I click on module "Events" on left navigation for global search
     Then I softly see the text containing "No results"
     And I click on module "Folders" on left navigation for global search
-    Then I softly see the text containing "No results"
+    Then I softly see the text containing "1 Result"
     And I click on module "Holidays" on left navigation for global search
     Then I softly see the text containing "No results"
     And I click on module "List Emails" on left navigation for global search
