@@ -10218,3 +10218,105 @@ Feature: Grantee Forms Scenario
     Then I softly see value "Rejected with Errors" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "{SavedValue:TrackingNumber}" for title "Tracking Number" against the value "Rejected with Errors" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+
+  @480737 @Validatewithpmprofileifaftervalidateformupdatethedatainformthenaccordinglyinvalidatecolumnandpecentagecolumnvaluegetchanged.
+  Scenario: Validate with PM profile if after validate form update the data in form then accordingly in validate column and pecentage column value get changed.
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I click on "Edit" in the page details
+    And I enter value "123" into field "CongressionalDistrict1__c"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    Then I softly see value "Other Attachments Forms" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "Edit" icon for "Other Attachments Forms" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+    Then I see the header is "Other Attachment Form" in the page details
+    Then I softly can see "Form" sub tab at view detail page
+    Then I softly see "Files" page block displayed
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly see "Add File" opens in overLay window
+    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Other Attachment" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    Then I see "Attachment.pdf" has been added in "Files" flex table
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I close the tab
+    And I refresh the page
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    Then I softly see value "Other Attachments Forms" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see value "100.00%" for title "Percentage" against the value "Other Attachments Forms" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "Edit" icon for "Other Attachments Forms" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I click on "Delete" icon for "Mandatory Other Attachment" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---" without waiting for record
+    Then I softly do not see value "Mandatory Other Attachment" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I close the tab
+    And I refresh the page
+    Then I softly see value "Other Attachments Forms" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see value "0.00%" for title "Percentage" against the value "Other Attachments Forms" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "Edit" icon for "Other Attachments Forms" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+    Then I softly can see "Form" sub tab at view detail page
+    Then I softly see "Files" page block displayed
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly see "Add File" opens in overLay window
+    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Other Attachment" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    Then I see "Attachment.pdf" has been added in "Files" flex table
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I close the tab
+    And I refresh the page
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    Then I softly see value "Other Attachments Forms" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see value "100.00%" for title "Percentage" against the value "Other Attachments Forms" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
