@@ -207,7 +207,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | {SavedValue:Automation Runtime Announcement for Application} | Auditor |
 
   @69941 @69940 @audiorPreApplicationToApplication
-  Scenario : Validate Auditor should have view / read  only access to submitted pre-application| Validate Auditor should not be  able to Review/Accept/Reject Preapplication
+  Scenario: Validate Auditor should have view / read  only access to submitted pre-application| Validate Auditor should not be  able to Review/Accept/Reject Preapplication
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
