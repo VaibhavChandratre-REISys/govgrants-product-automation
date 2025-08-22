@@ -1,4 +1,4 @@
-@organizationalDeskReviewUndo @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteAndDeskReview
+@organizationalDeskReviewUndo @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteAndDeskReview @deskExecution
 Feature: Validate all scenarios in Organizational Desk Review Without Undo
 
   @308889 @ODR-VerifythatUNDOiconorbuttonisnotavailableontheactionbuttonsofOrganizationDeskreviewrecordontablethatispresentonsidebarorphaselevelorthatonOrganization @sprint-7-US-306815 @Undo

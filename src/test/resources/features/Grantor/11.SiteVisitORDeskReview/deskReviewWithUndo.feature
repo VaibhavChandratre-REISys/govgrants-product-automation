@@ -1,4 +1,4 @@
-@deskReview @grantor-regression @grantor-parallel-regression @siteVisit @regression @desReviewWithUndo @siteAndDeskReview
+@deskReview @grantor-regression @grantor-parallel-regression @siteVisit @regression @desReviewWithUndo @siteAndDeskReview @deskExecution
 Feature: Validate all scenarios in Desk Review with Undo
 
   @279019 @279020 @VerifywhenPmapprovercanclickonundobuttonindeskreviewrecordwhenrecordisinApprovedstate @sprint-25-US-297269  @Undo
