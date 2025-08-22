@@ -2943,7 +2943,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "2" seconds
     And I select "Organizations" from dropdown for Global search
     And I perform quick search inside global search "SAN DIEGO ELECTRICAL TRAINING TRUST"
-    And I click on "Expand List" button on left navigation for global search
+#    And I click on "Expand List" button on left navigation for global search
     Then I softly see record count "1" for module "Organizations" on left navigation for global search
 
     Examples:
