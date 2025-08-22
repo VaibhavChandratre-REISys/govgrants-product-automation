@@ -10275,6 +10275,7 @@ Feature: Grantee Forms Scenario
     And I wait for "2" seconds
     When I click modal button "Close"
     Then I see "Attachment.pdf" has been added in "Files" flex table
+    When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
@@ -10314,6 +10315,7 @@ Feature: Grantee Forms Scenario
     And I wait for "2" seconds
     When I click modal button "Close"
     Then I see "Attachment.pdf" has been added in "Files" flex table
+    When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
