@@ -915,7 +915,7 @@ Feature: Validate all scenarios for closeout
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     Then I softly see field "Status" as "Draft"
-    Then I softly see status in Progress-bar is "Draft" and is "dark blue"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly cannot see "Budget Period Closeouts" sub tab at view detail page
     And I navigate to "Closeout" tab
     Then I do not see "Budget Period Closeouts" inside "Closeouts" is displayed
