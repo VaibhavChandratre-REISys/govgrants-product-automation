@@ -1958,6 +1958,7 @@ Feature: Validate all scenarios for Grants & Awards
       | To Save, Schedule Base is required. |
     And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "2" seconds
     And I expand nested table containing column value "Financial Report"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
@@ -1966,6 +1967,7 @@ Feature: Validate all scenarios for Grants & Awards
       | To Save, Schedule Base is required. |
     And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "2" seconds
     And I expand nested table containing column value "Progress Report"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I click on "Edit" icon for "Financial Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
