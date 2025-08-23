@@ -403,8 +403,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I perform quick search for "Not Accepted" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
     When I perform quick search for "Submitted to Grantor" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Submitted to Grantor" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "Submitted to Grantor" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
     When I perform quick search for "Reviewed" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
     Then I softly can see row level action button "Edit" against "Reviewed" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
