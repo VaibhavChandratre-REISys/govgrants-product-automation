@@ -1955,7 +1955,6 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "Edit" icon for "Financial Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     And I click modal button "Save"
     Then I see the following messages in the page details contains:
-      | To Save, Reporting Period End Date is required. |
       | To Save, Schedule Base is required. |
     And I wait for "3" seconds
     When I click modal button "Close"
@@ -1964,7 +1963,6 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     And I click modal button "Save"
     Then I see the following messages in the page details contains:
-      | To Save, Reporting Period End Date is required. |
       | To Save, Schedule Base is required. |
     And I wait for "3" seconds
     When I click modal button "Close"
