@@ -61,6 +61,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---announcement:-:competitiveTableId---" without waiting for record
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Funding Decision Memo" inside flex table with id "---grantor_tableId:-:FDMTableId---" without waiting for record
+    And I wait for "3" seconds
     Then I softly can see "Funding Decision Memo" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
     Then I softly can see "History" sub tab at view detail page
@@ -1073,6 +1074,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click "Cancel" on modal confirmation box
     Then I see value "{SavedValue:AnnEGMSID}" for title "Announcement ID" inside table "---announcement:-:annAdminOwnerReplaceTableId---"
     #194712
+    When I check "{SavedValue:AnnEGMSID}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
@@ -1106,7 +1108,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
-    And I pause execution for "30" seconds
+    And I pause execution for "40" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:AnnEGMSID}" for title "Announcement ID" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
@@ -1762,10 +1764,10 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                      | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -3494,6 +3496,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
@@ -5189,9 +5192,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I click on "Edit" icon for "---AUTOEnvData:-:fundingAccount---" inside flex table with id "---amendment:-:AmendmentFundingAccountTableId---" without waiting for record
-    And I enter value "1000" into field "ActualEncumbrance__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:AmendmentFundingAccountTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+      | Title                       | Revised Encumbrance |
+      | {SavedValue:fundingAccount} | 1000                |
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
@@ -5318,6 +5321,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I enter in modal "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
     And I pause execution for "4" seconds
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID1"
@@ -5334,6 +5338,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click modal button "Continue"
     When I enter in modal "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID2"
@@ -5366,6 +5371,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click modal button "Continue"
     When I enter in modal "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID4"
@@ -5383,6 +5389,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click modal button "Continue"
     When I enter in modal "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID5"
@@ -5403,6 +5410,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "5" seconds
     When I click modal button "Save and Continue"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     Given I click on "Edit" in the page details
@@ -5855,6 +5863,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I enter in modal "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
     And I pause execution for "3" seconds
     And I click modal button "Save and Continue"
+    And I pause execution for "2" seconds
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
@@ -7155,7 +7164,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on parallel menu button in flex table title "System Emails"
     And I select "Download as PDF" from parallel lines dropdown of "System Emails"
     And I download the file
-    Then I see "System Emails" on page "1" of "govgrants" pdf file
+    Then I softly see "System Emails" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     #336711
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
@@ -7491,10 +7500,10 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click toggle button to select "Announcements - All"
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
-    And I wait for "3" seconds
-    Then I softly see field "Status" as "Created"
     And I wait for "150" seconds
     And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see field "Status" as "Created"
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
 
@@ -7601,13 +7610,16 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I send the email under collab tab with following details:
       | To                            | Subject         | Body                       |
       | pm.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
-    Then I see the text "Email Sent Successfully." in modal
+    And I wait for "1" seconds
+    Then I softly see the following messages in the page details :
+      | Email Sent Successfully. |
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject         | From Address                   | To Address                    | CC Address | Attention To | Email Subject   | Preview |
-      | Action menu | Automation Test | exe.automation.qa2@yopmail.com | pm.automation.qa2@yopmail.com |            |              | Automation Test |         |
+      | Actions     | Subject         | From Address                   | To Address                    | CC Address | Attention To | Email Subject   | Preview                    |
+      | Action menu | Automation Test | exe.automation.qa2@yopmail.com | pm.automation.qa2@yopmail.com |            |              | Automation Test | Automation Test Email Body |
     And I refresh the page
+    And I wait for "3" seconds
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
   @336732 @336731 @ValidateAnnouncementFOuserseeRefreshbuttonunderhamburgericononSystemEmailssectionshouldabletorefreshthetable @Sprint-13-US-341529-332637 @SystemEmail
@@ -8125,13 +8137,14 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I send the email under collab tab with following details:
       | To                             | Subject             | Body                           |
       | pm1.automation.qa2@yopmail.com | Automation Test PM1 | Automation Test PM1 Email Body |
+    And I wait for "1" seconds
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     And I navigate to "Messages" sub tab
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject             | From Address                  | To Address                     | CC Address | Attention To | Email Subject       | Preview |
-      | Action menu | Automation Test PM1 | automation.po.qa2@yopmail.com | pm1.automation.qa2@yopmail.com |            |              | Automation Test PM1 |         |
+      | Actions     | Subject             | From Address                  | To Address                     | CC Address | Attention To | Email Subject       | Preview                        |
+      | Action menu | Automation Test PM1 | automation.po.qa2@yopmail.com | pm1.automation.qa2@yopmail.com |            |              | Automation Test PM1 | Automation Test PM1 Email Body |
 
   @329982 @329983 @ValidateAnnouncementFOusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384 @SystemEmail @ExcludeSendEmail
   Scenario: Validate Announcement FO user should able to see "Attention To" Column under messages section in messages tab
@@ -8152,8 +8165,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject              | From Address                  | To Address                  | CC Address | Attention To | Email Subject        | Preview         |
-      | Action menu | Automation Test EXE1 | fo.automation.qa2@yopmail.com | exe1.automation@yopmail.com |            |              | Automation Test EXE1 | Automation Test |
+      | Actions     | Subject              | From Address                  | To Address                  | CC Address | Attention To | Email Subject        | Preview                         |
+      | Action menu | Automation Test EXE1 | fo.automation.qa2@yopmail.com | exe1.automation@yopmail.com |            |              | Automation Test EXE1 | Automation Test EXE1 Email Body |
     #329983
     When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -8172,8 +8185,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject             | From Address                  | To Address                     | CC Address | Attention To | Email Subject       | Preview |
-      | Action menu | Automation Test FO1 | automation.fd.qa2@yopmail.com | fo1.automation.qa2@yopmail.com |            |              | Automation Test FO1 |         |
+      | Actions     | Subject             | From Address                  | To Address                     | CC Address | Attention To | Email Subject       | Preview                        |
+      | Action menu | Automation Test FO1 | automation.fd.qa2@yopmail.com | fo1.automation.qa2@yopmail.com |            |              | Automation Test FO1 | Automation Test FO1 Email Body |
 
   @329984 @ValidateforAnnouncementAdminusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384
   Scenario: Validate for Announcement Admin user should able to see "Attention To" Column under messages section in messages tab
@@ -8198,6 +8211,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I send the email under collab tab with following details:
       | To                             | Subject             | Body                           |
       | fo1.automation.qa2@yopmail.com | Automation Test FO1 | Automation Test FO1 Email Body |
+    And I pause execution for "1" seconds
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"

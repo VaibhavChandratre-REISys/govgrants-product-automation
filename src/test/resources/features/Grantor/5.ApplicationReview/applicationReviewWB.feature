@@ -18979,7 +18979,6 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-
   @223637 @ValidateAppRevAnnownershouldabletoassignAppformforreviewagainafternegotiationiscompletedevenifpreviouslyreviewer1holdasAssignedforformstatus @sprint-11-US-224734  @reassignment
   Scenario Outline: Validate App Rev Ann owner should able to assign App form for review again after negotiation is completed even if previously reviewer 1 hold as 'Assigned' for form status
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
