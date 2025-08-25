@@ -1172,6 +1172,9 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "History" sub tab
+    And I wait for "10" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     #Bug443647
     Then I softly see snapshot with name containing "Desk Review - Undo Approval.pdf" as name
 

@@ -1786,6 +1786,7 @@ Feature: Validate all scenarios of every modules flow
     When I login to "Grants Portal" app as "<SubrecipientUser>" user
     When I navigate to "Home" tab
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I save the value for column name "<string>" as "<string>" from flex table "<string>"
 
     Examples:
       | SubrecipientUser |
@@ -1793,9 +1794,9 @@ Feature: Validate all scenarios of every modules flow
 
   @testchckAwards @debug
   Scenario:
-#    Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "NEGOTIATION"
+    Given I published "Competitive" type announcement having name "Automation Permanent Competitive Announcement Detail Yes" and properties "DETAILE_BUDGET_YES"
 #    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "default"
-   Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
+#   Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 #    When I login to "Grantor" app as "PM" user
 #    And I navigate to url "https://test8-internal--ggqa2.sandbox.lightning.force.com/lightning/r/Account/0011900001SKXYjAAP/view"
 #    And I halt execution
