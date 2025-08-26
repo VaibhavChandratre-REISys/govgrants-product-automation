@@ -2957,13 +2957,10 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "5" seconds
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "preAppId"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-    When  I navigate to "Overview" sub tab
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "preAppId"
     When I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
@@ -4853,7 +4850,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team.
       """
 
-
   @223528  @sprint-11-US-217998  @reassignment
   Scenario: Validate Announcement Module if Announcement record is in submitted for review state & submitted review by reviewer after changing the ownership of announcement then email should be send to the new owner
     When I login to "Grantor" app as "EXE" user
@@ -5004,13 +5000,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-#    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Planning" tab
-#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
-#    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-#    And I click on "Activate" in the page details
-#    Then I softly see field "Status" as "Active"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
@@ -5185,13 +5174,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
-    And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" without waiting for record
-    And I enter value "{SavedValue:PBPSD}" into field "GATStartDate__c"
-    And I enter value "{SavedValue:PBPED}" into field "GATEndDate__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---"
-    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
-      | Title                       | Revised Encumbrance |
-      | {SavedValue:fundingAccount} | 1000                |
+    And I edit the following rows inline in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" by clicking "Edit" :
+      | Title                           | Start Date         | End Date           |
+      | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name           | Amendment Request |
@@ -7597,9 +7582,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I send the email under collab tab with following details:
       | To                            | Subject         | Body                       |
       | pm.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
-    And I wait for "1" seconds
-    Then I softly see the following messages in the page details :
-      | Email Sent Successfully. |
+    And I wait for "2" seconds
+    Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
@@ -8102,9 +8086,11 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Messages" sub tab
     Then I softly see "Attention To" in flex table header "---announcement:-:collabMessages---"
     And I click on top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
+    And I wait for "5" seconds
     And I send the email under collab tab with following details:
       | To                             | Subject         | Body                       |
       | exe.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
+    And I wait for "2" seconds
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
@@ -8145,9 +8131,11 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Messages" sub tab
     Then I softly see "Attention To" in flex table header "---announcement:-:collabMessages---"
     And I click on top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
+    And I wait for "5" seconds
     And I send the email under collab tab with following details:
       | To                          | Subject              | Body                            |
       | exe1.automation@yopmail.com | Automation Test EXE1 | Automation Test EXE1 Email Body |
+    And I wait for "2" seconds
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
@@ -8168,6 +8156,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I send the email under collab tab with following details:
       | To                             | Subject             | Body                           |
       | fo1.automation.qa2@yopmail.com | Automation Test FO1 | Automation Test FO1 Email Body |
+    And I wait for "2" seconds
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
@@ -8198,7 +8187,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I send the email under collab tab with following details:
       | To                             | Subject             | Body                           |
       | fo1.automation.qa2@yopmail.com | Automation Test FO1 | Automation Test FO1 Email Body |
-    And I pause execution for "1" seconds
+    And I pause execution for "2" seconds
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"

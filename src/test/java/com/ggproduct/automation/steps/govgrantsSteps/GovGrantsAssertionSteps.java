@@ -737,6 +737,7 @@ public final class GovGrantsAssertionSteps {
 
     @Then("^I (see|do not see) the text \"([^\"]*)\" in modal$")
     public void validateTextInModal(String usage, String text) {
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         if (usage.equalsIgnoreCase("see")) {
             I.amPerforming().assertionsTo().assertThat(ggAssertionObjects.AssertTextinModal(text)).isTrue();
         } else if (usage.equalsIgnoreCase("do not see")) {
