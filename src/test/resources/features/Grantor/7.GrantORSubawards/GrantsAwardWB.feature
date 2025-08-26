@@ -7641,6 +7641,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I logout
+    And I pause execution for "2" seconds
     And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
@@ -8890,6 +8891,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "Submitted" for title "Status" inside table "---subAwardFromFDM:-:peerReviewersTableId---"
     Then I softly see value "Automation EXE1" for title "Reviewer Name" against the value "Submitted" inside table "---subAwardFromFDM:-:peerReviewersTableId---"
     And I logout
+    And I wait for "2" seconds
     And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
@@ -9641,14 +9643,11 @@ Feature: Validate all scenarios of grants and award without background
       """
       Hello,
 
-      The task(s) below have been reassigned from [Automation FO] to [Automation FO1] successfully. Please find the details below:
+      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
 
-      EGMS ID Type Status Subject Assigned By Due Date
-      {SavedValue:AnnEGMSID} Approve Funding Announcement Not Started Approve Announcement #{SavedValue:AnnEGMSID} Created for Program #{SavedValue:ProgramEGMSID} Automation PM {Date:yyyy/MM/dd 00:00:00::d+10}
+      EGMS ID Type Status Subject Assigned By Reason of Failure
+      {SavedValue:AwardEGMSID2} Review Grantor Announcement Not Started Review Announcement #{SavedValue:AwardEGMSID1} Created for Program #{SavedValue:ProgramEGMSID} Automation FO Responsibilities Tab - A person with the same role cannot be added again.
 
-
-      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-      Login in to EGMS and click on EGMS IDs to access the assigned record.
 
       Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
@@ -9669,14 +9668,11 @@ Feature: Validate all scenarios of grants and award without background
       """
       Hello,
 
-      The task(s) below have been reassigned from [Automation FO] to [Automation FO1] successfully. Please find the details below:
+      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
 
-      EGMS ID Type Status Subject Assigned By Due Date
-      {SavedValue:AnnEGMSID} Approve Funding Announcement Not Started Approve Announcement #{SavedValue:AnnEGMSID} Created for Program #{SavedValue:ProgramEGMSID} Automation FO {Date:yyyy/MM/dd 00:00:00::d+10}
+      EGMS ID Type Status Subject Assigned By Reason of Failure
+      {SavedValue:AwardEGMSID3} Review Grantor Announcement Not Started Review Announcement #{SavedValue:AwardEGMSID1} Created for Program #{SavedValue:ProgramEGMSID} Automation FO Responsibilities Tab - A person with the same role cannot be added again.
 
-
-      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-      Login in to EGMS and click on EGMS IDs to access the assigned record.
 
       Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
@@ -9692,24 +9688,14 @@ Feature: Validate all scenarios of grants and award without background
       """
       Sandbox: Task Reassignment Report
       """
-
     Then I see the mail text is as follows :
       """
       Hello,
 
-      The task(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
-
-      EGMS ID Type Status Subject Assigned By Due Date
-      {SavedValue:AnnEGMSID} Approve Funding Announcement Not Started Approve Announcement #{SavedValue:AnnEGMSID} Created for Program #{SavedValue:ProgramEGMSID} Automation PM {Date:yyyy/MM/dd 00:00:00::d+10}
-
-
-      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-      Login in to EGMS and click on EGMS IDs to access the assigned record.
-
-
       The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
 
       EGMS ID Type Status Subject Assigned By Reason of Failure
+      {SavedValue:AwardEGMSID2} Review Grantor Announcement Not Started Review Announcement #{SavedValue:AwardEGMSID1} Created for Program #{SavedValue:ProgramEGMSID} Automation FO Responsibilities Tab - A person with the same role cannot be added again.
 
 
       Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
@@ -10823,8 +10809,7 @@ Feature: Validate all scenarios of grants and award without background
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Award Related" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---subAwardStandAlone:-:GrantsAttachmentTableId---"
     Then I softly see value "Award Related" for title "Classification" inside table "---subAwardStandAlone:-:GrantsAttachmentTableId---"
