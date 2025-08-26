@@ -148,13 +148,14 @@ Feature: Validate all scenarios of grants and award without background
     And I click on Menu icon present on top right corner of the page
     And I wait for "2" seconds
     And I select "Take Snapshot" from dropdown
-    And I refresh the page
     And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "SnapShot"
     And I click on "Download" button for snapshot view
     And I wait for "3" seconds
-    When I download the file for snapshot
+    When I download the file
     And I wait for "3" seconds
     Then I see "$0.00" on page "3" of "govgrant" pdf file
 
@@ -1017,7 +1018,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Terms" sub tab
     And I save the value from row "1" for column name "Title" as "NonMandatoryT_C" from flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
     Then I softly can see row level action button "Edit" against "{SavedValue:NonMandatoryT_C}" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
@@ -5573,6 +5574,7 @@ Feature: Validate all scenarios of grants and award without background
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---subAwardStandAlone:-:grantSupportDocTableId---" without waiting for record
     Then I see "Upload" button is disabled at modal under library
+    And I select Classification as "Others" at upload file modal
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
 
@@ -7381,6 +7383,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "{SavedValue:GrantEGMSID2}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
     And I logout
+    And I pause execution for "2" seconds
     And I checkout to yopmail with mailid "govgrantsautomation.q2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -8365,8 +8368,9 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Enter Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
     And I enter a review as "Passed"
     When I click modal button "Save"
-    And I pause execution for "7" seconds
+    And I pause execution for "3" seconds
     And I click on submit review
+    And I pause execution for "3" seconds
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Home" tab
     And I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
@@ -10844,8 +10848,7 @@ Feature: Validate all scenarios of grants and award without background
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Certification" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---subAwardStandAlone:-:addFilesTableId---"
     Then I softly see value "Certification" for title "Classification" inside table "---subAwardStandAlone:-:addFilesTableId---"
