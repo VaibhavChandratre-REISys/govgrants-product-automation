@@ -451,8 +451,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Section Header             | Section Weight (%) |
       | Return on Investment (ROI) | 50                 |
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-      | Section Header             | Section Weight (%) |
-      | Strategic Alignment        | 30                 |
+      | Section Header      | Section Weight (%) |
+      | Strategic Alignment | 30                 |
     And I pause execution for "3" seconds
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
@@ -5225,12 +5225,12 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation PM1"
-    When I click on advance filter "#advfGrantorTaskReassignment" of table id "---program:-:grantorTaskReassignTableId---"
-    When I enter advance filter values inside id "advfGrantorTaskReassignment"
-      | Due Date | Equals to | {Date:MM/dd/yyyy::d+7} |
+    And I click on advance filter of table id "---program:-:grantorTaskReassignTableId---" for LWC
+    And I enter advance filter values inside id "---program:-:grantorTaskReassignTableId---" for LWC
+      | Due Date | Equals to | {Date:M/d/yyyy::d+7} |
     When I check "All" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
-    And I pause execution for "30" seconds
+    And I pause execution for "50" seconds
     And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
@@ -8206,8 +8206,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject             | From Address                    | To Address                     | CC Address | Attention To | Email Subject       | Preview                        |
-      | Action menu | Automation Test FO1 | govgrantsautomation@yopmail.com | fo1.automation.qa2@yopmail.com |            |              | Automation Test FO1 | Automation Test FO1 Email Body |
+      | Actions     | Subject             | From Address                       | To Address                     | CC Address | Attention To | Email Subject       | Preview                        |
+      | Action menu | Automation Test FO1 | govgrantsautomation.q2@yopmail.com | fo1.automation.qa2@yopmail.com |            |              | Automation Test FO1 | Automation Test FO1 Email Body |
 
   @329986 @ValidateforAnnouncementEXEusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384
   Scenario: Validate for Announcement EXE user should able to see "Attention To" Column under messages section in messages tab
