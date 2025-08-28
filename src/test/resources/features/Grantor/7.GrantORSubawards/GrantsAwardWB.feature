@@ -10950,7 +10950,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I navigate to "Budget" sub tab
     And I wait for "2" seconds
-    Then I see value "1000" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
+    Then I see value "$1,000.00" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
     And I click on "Submit for Approval" in the page details
     And I navigate to "History" sub tab
     And I wait for "30" seconds
