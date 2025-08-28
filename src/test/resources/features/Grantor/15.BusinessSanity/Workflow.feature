@@ -1794,9 +1794,9 @@ Feature: Validate all scenarios of every modules flow
 
   @testchckAwards @debug
   Scenario:
-    Given I activated standalone subaward "Automation Executable Award" with properties "default" of type "Competitive"
-#    Given I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "default"
-#    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "default"
+#    Given I activated standalone subaward "Automation Executable Award" with properties "default" of type "Competitive"
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_DETAILS_BUDGET_YES_RISK_NO"
+    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CAT_DETAILS_BUD_YES"
 #   Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 #    When I login to "Grantor" app as "PM" user
 #    And I navigate to url "https://test8-internal--ggqa2.sandbox.lightning.force.com/lightning/r/Account/0011900001SKXYjAAP/view"

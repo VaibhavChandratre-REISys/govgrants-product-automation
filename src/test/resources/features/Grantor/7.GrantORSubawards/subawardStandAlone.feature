@@ -1125,15 +1125,15 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
   @53911 @66200 @67817 @66318 @68036 @69318 @ValidateAdvancePaymentRequestcreation
   Scenario Outline: Advance Payment Request creation when Advance Payment Allowed selected as Yes
     And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    When I enter "Grant_Edition_Comp_Focus_No" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "Automation Permanent Funding Account" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
-      | Title                           | Start Date | End Date |
-      | Automation Permanent Focus Area | 0          | 3650     |
+#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
+#      | Title                           | Start Date | End Date |
+#      | Automation Permanent Focus Area | 0          | 3650     |
     When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
@@ -1188,8 +1188,10 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click toggle button to select "Grants - All"
     When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside table
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
@@ -1234,18 +1236,13 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I navigate to "Budget" sub tab
     And I wait for "2" seconds
-    Then I softly see value "1000" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
+    Then I see value "1000" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
     And I click on "Submit for Approval" in the page details
     And I navigate to "History" sub tab
     And I wait for "30" seconds
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see snapshot with name containing "Subaward_Submit_for_Approval.pdf" as name
-    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1291,11 +1288,13 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly cannot see top right button "Associate" for "---subAwardStandAlone:-:focusAreaTableId---" flex table
     Then I softly cannot see top right button "Edit" in flex table with id "---subAwardStandAlone:-:focusAreaTableId--"
     And I click on "Activate" in the page details
+    Then I softly see field "Status" as "Activated"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    Then I softly see value "{SavedValue:Record Id}" for title "Active Subaward" against the value "<Grant Name>" inside table "---paymentRequest:-:recipientGrantTableId---"
+    And I perform quick search for "<Award Name>" in "---paymentRequest:-:recipientGrantTableId---" panel
+    Then I see value "{SavedValue:AwardEGMSID}" for title "Active Subaward" against the value "<Grant Name>" inside table "---paymentRequest:-:recipientGrantTableId---"
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I perform quick search for "<Award Name>" in "---paymentRequest:-:recipientsSubawardTableId---" panel
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
