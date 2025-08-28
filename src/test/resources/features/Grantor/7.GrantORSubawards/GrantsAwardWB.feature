@@ -10724,7 +10724,7 @@ Feature: Validate all scenarios of grants and award without background
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Publish" in the page details
-    Then I softly see status in Progress-bar is "Published" and is "dark blue"
+    Then I softly see field "Status" as "Published"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
     And I wait for "2" seconds
