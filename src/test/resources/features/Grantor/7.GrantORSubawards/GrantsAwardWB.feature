@@ -2498,6 +2498,7 @@ Feature: Validate all scenarios of grants and award without background
     When I login to "Grantor" app as "PM" user
     When I navigate to "Planning" tab
     When I navigate to "Terms and Conditions" content inside "Setup" subheader on left panel
+    When I perform quick search for "Terms" in "---home:-:termsAndConditionsTableId---" panel
     And I save the total records from the flex table id "---home:-:termsAndConditionsTableId---" as "totalRecords"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
