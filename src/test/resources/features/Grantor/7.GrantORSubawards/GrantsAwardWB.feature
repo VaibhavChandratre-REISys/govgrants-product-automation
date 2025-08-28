@@ -7778,14 +7778,14 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---deskreview:-:monitoringTabPhasePendingTasks---"
     When I click on "Start" icon for "{SavedValue:DeskReview}" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:PM Username}" inside flex table with id "---deskreview:-:reviewersFlexTableId---"
+    When I click on "Enter Review" icon for "{SavedValue:EXE1 Username}" inside flex table with id "---deskreview:-:reviewersFlexTableId---"
     And I enter values into fields
       | Value  | Field             |
       | Passed | Rating__c         |
       | Passed | ReviewComments__c |
     When I click modal button "Save"
     And I click on submit review
-    When I close "Site Visit Reviewers" modal by clicking the top right x button
+#    When I close "Site Visit Reviewers" modal by clicking the top right x button
     And I wait for "3" seconds
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab

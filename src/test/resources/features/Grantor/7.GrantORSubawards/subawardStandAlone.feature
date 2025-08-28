@@ -1218,6 +1218,9 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     When I click on "Accept" in the page details
     And I navigate to "History" sub tab
+    And I wait for "60" seconds
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly see snapshot with name containing "Award_Accepted.pdf" as name
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1230,6 +1233,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     Then I softly see value "1000" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
     And I click on "Submit for Approval" in the page details
     And I navigate to "History" sub tab
@@ -1271,6 +1275,9 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I click on "Accept after Approval" in the page details
     And I navigate to "History" sub tab
+    And I wait for "60" seconds
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly see snapshot with name containing "Accepted_After_Approval.pdf" as name
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1293,6 +1300,9 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I perform quick search for "<Award Name>" in "---paymentRequest:-:recipientsSubawardTableId---" panel
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
     And I navigate to "History" sub tab
+    And I wait for "60" seconds
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly see snapshot with name containing "Award_Accepted.pdf" as name
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
