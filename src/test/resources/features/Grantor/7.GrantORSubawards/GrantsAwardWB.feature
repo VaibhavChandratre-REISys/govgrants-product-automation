@@ -7690,6 +7690,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I logout
+    And I pause execution for "2" seconds
     And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
@@ -7726,6 +7727,8 @@ Feature: Validate all scenarios of grants and award without background
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:DeskReview}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+    And I logout
+    And I pause execution for "2" seconds
     And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
