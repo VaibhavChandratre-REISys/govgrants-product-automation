@@ -1233,6 +1233,9 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly see value "1000" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
     And I click on "Submit for Approval" in the page details
     And I navigate to "History" sub tab
+    And I wait for "30" seconds
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly see snapshot with name containing "Subaward_Submit_for_Approval.pdf" as name
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3942,6 +3945,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I wait for "3" seconds
     Then I softly see value "Submitted" for title "Status" against the value "{SavedValue:FO Username}" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -4070,6 +4074,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
     Then I see the following messages in the page details contains:
       | Budget Tab - The Subrecipient Match cannot be less than the given %. |
     Examples:
@@ -6479,7 +6484,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime FDM Announcement}"
-    When I login to "Grantor" app as "PM" user
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - All"

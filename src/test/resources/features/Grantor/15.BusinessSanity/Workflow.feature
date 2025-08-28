@@ -1794,7 +1794,8 @@ Feature: Validate all scenarios of every modules flow
 
   @testchckAwards @debug
   Scenario:
-    Given I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "default"
+    Given I activated standalone subaward "Automation Executable Award" with properties "default" of type "Competitive"
+#    Given I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "default"
 #    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "default"
 #   Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 #    When I login to "Grantor" app as "PM" user

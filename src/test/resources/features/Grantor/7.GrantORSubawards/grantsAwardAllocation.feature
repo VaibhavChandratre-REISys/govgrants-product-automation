@@ -12825,16 +12825,16 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{AUTOEnvData:AutomationClosedSubAward}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-#    And I click on "View" icon for "{AUTOEnvData:AutomationClosedSubAward}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{AUTOEnvData:AutomationClosedSubAward}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    And I navigate to "Budget" sub tab
-#    Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
-#    Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{AUTOEnvData:AutomationClosedSubAward}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{AUTOEnvData:AutomationClosedSubAward}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{AUTOEnvData:AutomationClosedSubAward}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I navigate to "Budget" sub tab
+    Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
     Examples:
       | Award Name                                       | Grant Name                                       |
