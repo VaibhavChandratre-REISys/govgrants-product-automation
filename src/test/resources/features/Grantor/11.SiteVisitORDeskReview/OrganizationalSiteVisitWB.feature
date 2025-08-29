@@ -2129,6 +2129,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
+    And I pause execution for "2" seconds
     And I checkout to yopmail with mailid "automation.fd.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
