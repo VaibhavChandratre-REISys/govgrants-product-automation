@@ -35,8 +35,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Receipt" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     Then I softly see value "Receipt" for title "Classification" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
@@ -800,6 +799,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     When I click on "Download" icon for "Attachment.pdf" inside flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---" without waiting for record
+    And I download the file without rename
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
   @193977 @VerifyPMusercannotseetopleveleditbuttonandshouldabletoaddfileonadhocreimbursementPRwhenusersendtoownerwhileapproval @sprint-14-US-225425 @addFiles

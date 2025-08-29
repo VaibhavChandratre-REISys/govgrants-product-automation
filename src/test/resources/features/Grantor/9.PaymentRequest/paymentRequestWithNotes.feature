@@ -1055,7 +1055,6 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
-    And I refresh the page
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Rejected" and is "Red"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
