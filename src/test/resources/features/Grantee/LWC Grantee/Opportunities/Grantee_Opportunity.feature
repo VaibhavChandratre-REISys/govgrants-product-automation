@@ -104,7 +104,7 @@ Feature: Validate all scenarios for Opportunity
     Then I softly cannot see row level action button "Enter Review" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
     Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
 
-  @463595 @OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application @P3_Grantee @PM_Grantee @GRegression2
+  @463595 @475758 @OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application @P2_Grantee @PM_Grantee @GRegression2
   Scenario Outline: OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     Given I login to "As a Grantee" app as "GRANTEE PO" user
@@ -215,6 +215,7 @@ Feature: Validate all scenarios for Opportunity
     And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
     Then I softly see the text containing "product.qa@ggp.test8.qagrnteatm"
     And I click on back arrow
+    #475758
     And I navigate to "Evaluation" sub tab
     Then I softly see "Evaluation" page block displayed
     Then I softly see field "1. Have we previously received an award from this sponsoring agency?" inside page block
@@ -289,6 +290,7 @@ Feature: Validate all scenarios for Opportunity
     Then I softly see "Certifications and Other" page block displayed
     Then I softly see field "18. Describe any additional legal requirements or policy impact from receiving an award." inside page block
     Then I softly see field "19. Describe any additional organizational certifications required or compliance requirements created as a result of an award." inside page block
+    #463595
     When I navigate to "Responsibilities" sub tab
     Then I softly see "Peer Reviewers" page block displayed
     Then I softly see "Approvers" page block displayed
@@ -1944,3 +1946,62 @@ Feature: Validate all scenarios for Opportunity
       | Evaluation Tab - Select a value for Maintenance of Effort required.                                                                    |
       | Evaluation Tab - Provide a value for How will the program be sustained, should funding end.                                            |
       | Responsibilities - At least one approver is required                                                                                   |
+
+    @463538 @validateOpportunitiesnotcoverted-verifyasPMuserListviewfunctionalityofopportunities-Notconverted @Gregression2 @P2_Grantee @PM_Grantee
+    Scenario: Validate as PM user, List view functionality of opportunities - Not converted
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    Then I softly see default toggle as "Opportunities Not Converted to Application - My Records" for table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    When I click on parallel lines menu bar with data target value "Opportunities Not Converted to Application - My Records"
+    And I wait for "3" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Download as CSV" present in parallel dropdown
+    Then I softly see toggle option "Opportunities Not Converted to Application - Open" inside flex table id "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    Then I softly see toggle option "Opportunities Not Converted to Application - My Records" inside flex table id "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    Then I softly see toggle option "Opportunities Not Converted to Application - Closed" inside flex table id "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    Then I softly see toggle option "Opportunities Not Converted to Application - All" inside flex table id "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    And I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I wait for "2" seconds
+    When I perform quick search for "Draft" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly see value "Draft" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    When I perform quick search for "Reviewed" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    When I perform quick search for "Approved" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly see value "Approved" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    When I perform quick search for "Rejected" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly see value "Rejected" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    And I click toggle button to select "Opportunities Not Converted to Application - Open"
+    When I perform quick search for "Draft" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly see value "Draft" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    When I perform quick search for "Reviewed" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    And I click toggle button to select "Opportunities Not Converted to Application - My Records"
+    When I perform quick search for "Draft" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly see value "Draft" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    When I perform quick search for "Reviewed" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    And I click toggle button to select "Opportunities Not Converted to Application - Closed"
+    And I wait for "2" seconds
+    When I perform quick search for "Draft" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly see value "Draft" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    When I perform quick search for "Reviewed" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    When I perform quick search for "Approved" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly see value "Approved" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    When I perform quick search for "Rejected" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    Then I softly see value "Rejected" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"

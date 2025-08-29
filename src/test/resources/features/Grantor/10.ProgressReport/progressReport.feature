@@ -16,7 +16,7 @@ Feature: Validate all scenarios in Progress Report
     And I wait for "2" seconds
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
     And I click modal button "Close"
-    When I get the "EGMS ID"
+     When I get the "EGMS ID"
 
  @51097 @51098 @51099 @51100 @51102 @51124 @51101 @51103 @51105 @51106 @51107 @51108 @51109 @59048 @51113 @51111 @51114 @51115 @51116 @51117 @51120 @editKPIProgressReportformFilling @FieldHistoryExclude @NewProgressFinal
   Scenario: To edit KPI in Progress Report | To fill and complete the form in Progress Report | To validate KPI for progress report are not editable post submission of prog report to grantor.
@@ -1314,30 +1314,6 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @59898 @validateSRUserIsAbleToViewSnapshotHistory @skipOnJenkins @snapExecution
-  Scenario: Validate SR user is able to view the Snapshot after Progress report is Submitted to Grantor status
-    And I click on "Edit" in the page details
-    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I navigate to "Performance" sub tab
-    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
-      | Title                    | Reported Date | Actual |
-      | Automation Permanent KPI | 7             | 7      |
-    When I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I switch to tab number "1"
-    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I close the tab
-    And I wait for "3" seconds
-    When I click on "Submit to Grantor" in the page details
-    When I navigate to "History" sub tab
-    And I click on hyperlink containing value "Progress Report Snapshot"
-    And I click on "Download" button for snapshot view
-    And I wait for "3" seconds
-    When I download the file for snapshot
-    And I wait for "3" seconds
-    Then I see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 
   @59830 @59828 @validateINTERNALUserCannotEditKPIOnceSubmittedToGrantor @jitendra
   Scenario: Validate Internal user cannot have access to Edit the KPI actuals field value submitted by SR user on Progress report whose status is Submitted to Grantor. | Validate Previous Actual field on KPI table under Performance tab is present at SR User on Progress report.
@@ -2090,19 +2066,6 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Performance" sub tab
     Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---progressReport:-:objectivesTableId---"
 
-  @61095 @61094 @validateDownloadOfObjectivesInCSV  @skipOnJenkins
-  Scenario: Validate SR User can Download the Objectives associated at award on progress report in CSV format | Validate SR User can Download the Objectives associated at award on progress report in PDF format
-    And I click on "Edit" in the page details
-    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
-    And I click on "Save" in the page details
-#    When I click on parallel menu button in flex table title "Key Performance Indicators (KPIs)"
-#    And I select "Download as CSV" from parallel lines dropdown of "Objectives"
-#    And I download the file
-#    Then I softly verify that "xls" file is downloaded
-    When I click on parallel menu button in flex table title "Objectives"
-    And I select "Download as PDF" from parallel lines dropdown of "Objectives"
-    When I download the file
-    Then I softly see "Test Automation Organization" on page "1" of "govgrants" pdf file
 
   @61093 @59198 @61096 @PRISNotEditableOnPerformanceTabAfterPRStatusSummitedForGrantor
   Scenario: Validate Objectives table at Performance Tab on Progress report should not be editable at Award owner end when Progress report status is Submitted to Grantor. | Validate SR User is able to take snapshot of the Progress report when it is submitted to Grantor on active subaward

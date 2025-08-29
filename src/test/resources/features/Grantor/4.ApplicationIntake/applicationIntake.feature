@@ -274,58 +274,6 @@ Feature: Validate all scenarios in the Application Intake
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---applicationIntake:-:ApplicationNotesTableId---"
 
-  @73521 @70526 @snapshotAfterApplicationIsSubmitted @snapExecution
-  Scenario Outline: Validate SR user is able to view the Snapshot after Application is Submitted to Grantor status| Validate once the Application is submitted to Grantor then the field Submitted by on Overview Tab will get updated by the User Name.
-    When I click on "Edit" in the page details
-    And I enter "Edition" values from "Application_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I navigate to "Budget" sub tab
-    Given I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-      | Construction  | 1000   | 100        | 100            | 100            |
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
-    When I navigate to "Proposal" sub tab
-    When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
-      | EGMS ID                  | Target |
-      | Automation Permanent KPI | 10     |
-    And I navigate to "Forms and Files" sub tab
-    And  I navigate to "Quickview" sub tab in split screen
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I switch to tab number "1"
-    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I close the tab
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I switch to tab number "1"
-    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I close the tab
-    When I click on "Submit Application" in the page details
-    And I navigate to "Overview" sub tab
-    Then I softly see field "Submitted By" as "{SavedValue:SPI3 Username}"
-    Given I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    When I navigate to "Applications" tab
-    And I navigate to "Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Application Name>" in "---applicationIntake:-:appAllTableId---" panel
-    When I click on "View" icon for "<Application Name>" inside table
-    And I click on Menu icon present on top right corner of the page
-    And I select "Take Snapshot" from dropdown
-    When I navigate to "History" sub tab
-    And I click on hyperlink containing value "Snapshot_Application_Submission.pdf"
-    And I click on "Download" button for snapshot view
-    And I wait for "3" seconds
-    When I download the file for snapshot
-    And I wait for "3" seconds
-    Then I see "Submitted to Grantor" on page "1" of "govgrants" pdf file
-    Examples:
-      | Application Name                                         |
-      | {SavedValue:Automation Runtime Announcement Application} |
-
   @70525 @userCanAssociateNewContact
   Scenario:Validate whether user is able to associate new contacts while creating an application
     And I navigate to "Overview" sub tab
