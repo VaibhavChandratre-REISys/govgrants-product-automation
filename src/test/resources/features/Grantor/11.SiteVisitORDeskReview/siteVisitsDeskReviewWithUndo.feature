@@ -1,4 +1,4 @@
-@siteVisitDeskReviewWB @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisitUndo @siteVisit_Lwc_Run @siteAndDeskReview
+@siteVisitDeskReviewWB @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisitUndo @siteVisit_Lwc_Run @siteAndDeskReview @siteExecution
 Feature: Validate all scenarios in the Site Visit with Undo
 
   @279063 @279065 @VerifyFDuserassinglestepapproverstep1canabletoseeUNDObuttonafterApprovedtheSiteVisitbyassignedapprover @sprint-5-US-295139  @Undo
