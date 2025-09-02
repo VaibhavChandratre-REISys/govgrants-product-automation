@@ -2005,3 +2005,41 @@ Feature: Validate all scenarios for Opportunity
     Then I softly see value "Approved" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
     When I perform quick search for "Rejected" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
     Then I softly see value "Rejected" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+
+  @463548 @validateonsubmitforapprovalvalidationisdisplayedtoPOuserforrequireforsubmitfieldsandiconisdisplayedforrequiredforsubmitfields @P2_Grantee @PO_Grantee @GRegression3
+  Scenario: Validate on Submit for approval, validation is displayed to EXE user for required for submit fields and icon is displayed for required for submit fields
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    When I click on "Edit" in the page details
+    And I enter value "Yes" into field "LaverageAllowed__c"
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - Provide a value for Budget Type.                                                                                        |
+      | Overview Tab - Provide the Estimated Project Period Start Date for this opportunity.                                                   |
+      | Overview Tab - Provide the Estimated Project Period End Date for this opportunity.                                                     |
+      | Overview Tab - Provide a value for Pre-Application Required.                                                                           |
+      | Overview Tab - Provide a value for Letter of Intent Required.                                                                          |
+      | Overview Tab - Provide a value for Match Source when Match Required is Yes.                                                            |
+      | Overview Tab - Provide a value for Cost Sharing or Matching Requirement when Match Required is Yes.                                    |
+      | Overview Tab - Provide a value for Required Match (%) when Match Required is Yes.                                                      |
+      | Overview Tab - Provide a value for Program Income Allowed.                                                                             |
+      | Evaluation Tab - Provide a value for Previously received an award from this sponsoring agency.                                         |
+      | Evaluation Tab - Provide a value for Required resources and required skill sets.                                                       |
+      | Evaluation Tab - Provide a value for Necessary Systems and Financial Tools.                                                            |
+      | Evaluation Tab - Provide a value for Business and Technical Domain Knowledge.                                                          |
+      | Evaluation Tab - Provide a value for whether the Grant requires collaboration with other internal organizations within the Department. |
+      | Evaluation Tab - Provide a value for Probability of receiving a grant award.                                                           |
+      | Evaluation Tab - Provide a value for the Estimated number of hours required to develop the application.                                |
+      | Evaluation Tab - Provide a value for the estimated number of full-time personnel (FTE) to be hired.                                    |
+      | Evaluation Tab - Select a value for Maintenance of Effort required.                                                                    |
+      | Evaluation Tab - Provide a value for How will the program be sustained, should funding end.                                            |
+      | Responsibilities - At least one approver is required                                                                                   |
