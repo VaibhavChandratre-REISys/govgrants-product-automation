@@ -2043,3 +2043,55 @@ Feature: Validate all scenarios for Opportunity
       | Evaluation Tab - Select a value for Maintenance of Effort required.                                                                    |
       | Evaluation Tab - Provide a value for How will the program be sustained, should funding end.                                            |
       | Responsibilities - At least one approver is required                                                                                   |
+
+  @475743 @OpportunitiesNotconvertedGrantsgovVerifyasPMuservalidationisdisplayedonSaveforrequiredforsavefieldsandisdisplayedforrequiredfields @P2_Grantee @PM_Grantee @GRegression1
+  Scenario: Opportunities Not converted (Grants.gov ) - Verify as PM user,  validation is displayed on Save for required for save fields and * is displayed for required fields
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I click on "Edit" in the page details
+    And I enter "Grantee_Opp_PreAppYes_Edition" values from "Announcement_Field_Values.xlsx"
+    And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
+    And I click on "Save" in the page details
+    When I navigate to "Overview" sub tab
+    And I wait for "2" seconds
+    When I save the field labeled "Application Due Date" as "ApplicationDueDate"
+    And I click on "Edit" in the page details
+    And I enter value "{SavedValue:ApplicationDueDate}" into field "PreApplicationDueDate__c"
+    And I navigate to "Evaluation" sub tab
+    And I enter value "Yes" into field "MaintenanceEffortRequire__c"
+    And I enter value "Automation Test" into field "StatutoryMaintenanceOfEffort__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:opportunityApproverTableId---" by clicking "New" :
+      | Name       | Opportunity |
+      | Victor EXE | Step 1      |
+    When I navigate to "Overview" sub tab
+    Then I softly see asterisk mark on "Category Of Funding Activity"
+    Then I softly see asterisk mark on "Description"
+    Then I softly see asterisk mark on "Is Leverage Allowed?"
+    And I click on "Edit" in the page details
+    Then I see textarea field "AnnouncementDescription__c" is editable
+    Then I softly see fields "LaverageAllowed__c" is in edit mode
+    Then I softly see fields "AnnouncementDescription__c" is in edit mode
+    Then I softly see fields "CategoryOfFundingActivity__c" is in edit mode
+    And I clear the value from field "AnnouncementDescription__c"
+    And I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | To Save, Description is required in the Overview tab under the Additional Information section. |
+    And I enter value "Test" into field "AnnouncementDescription__c"
+    And I enter value "-30" into field "EstimatedProjectPeriodStartDate__c"
+    And I enter value "150" into field "AnticipatedAwardDate__c"
+    And I enter value "-30" into field "LetterOfIntentDueDate__c"
+    And I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Estimated Project Period Start Date should be after Application Due Date             |
+      | Anticipated award date should be between application due date and project start date |
+      | Please enter the Letter of Intent date equal to or lesser than Pre-Application due date. |
