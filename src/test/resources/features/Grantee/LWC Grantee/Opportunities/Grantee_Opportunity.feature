@@ -2044,8 +2044,8 @@ Feature: Validate all scenarios for Opportunity
       | Evaluation Tab - Provide a value for How will the program be sustained, should funding end.                                            |
       | Responsibilities - At least one approver is required                                                                                   |
 
-  @475743 @OpportunitiesNotconvertedGrantsgovVerifyasPMuservalidationisdisplayedonSaveforrequiredforsavefieldsandisdisplayedforrequiredfields @P2_Grantee @PM_Grantee @GRegression1
-  Scenario: Opportunities Not converted (Grants.gov ) - Verify as PM user,  validation is displayed on Save for required for save fields and * is displayed for required fields
+  @475743 @OpportunitiesNotconvertedGrantsgovVerifyasEXEuservalidationisdisplayedonSaveforrequiredforsavefieldsandisdisplayedforrequiredfields @P2_Grantee @PM_Grantee @GRegression1
+  Scenario: Opportunities Not converted (Manual) - Verify as EXE user, validation is displayed on Save for required for save fields and * is displayed for required fields
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     Given I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Opportunities" tab
