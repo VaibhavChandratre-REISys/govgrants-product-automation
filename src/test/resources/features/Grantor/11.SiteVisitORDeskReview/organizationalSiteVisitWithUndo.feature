@@ -1113,7 +1113,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
-    Then I softly see field "Status" as " Submitted for Review"
+    Then I softly see field "Status" as "Submitted for Review"
     Then I cannot see top right button "Undo" in page detail
     And I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
@@ -1158,7 +1158,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
      #342559
-    Then I softly see field "Status" as " Submitted for Review"
+    Then I softly see field "Status" as "Reviewed"
     Then I cannot see top right button "Undo" in page detail
 
   @342571 @342575 @342584 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisininSendtoSrState @sprint-13-US-331643 @Undo @366345

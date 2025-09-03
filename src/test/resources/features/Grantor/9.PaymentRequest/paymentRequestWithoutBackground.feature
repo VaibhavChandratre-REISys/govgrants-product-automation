@@ -4133,8 +4133,6 @@ Feature: Payment Request scenarios without background
     And I navigate to "Forms and Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---paymentRequest:-:reimburseFilesTableId---"
     Then I can see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-#    And I navigate to "Collab" sub tab
-#    Then I can see top right button "Send Email" in flex table with id "---paymentRequest:-:reimburseCollabMessages---"
 
   @197433 @ValidatePaymentRequestGrantorNotifyemailshouldbegeneratedforad-hocreimbursementpaymentrequestfornewowner @sprint-12-US-226646  @reassignment
   Scenario: Validate Payment Request Grantor Notify email should be generated for ad-hoc reimbursement payment request for new owner
@@ -4467,6 +4465,7 @@ Feature: Payment Request scenarios without background
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I halt execution
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
     When I enter value "Automation Runtime Payment Request" into field "Title__c"
