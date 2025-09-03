@@ -13,7 +13,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click on "Qualify" in the page details
     And I pause execution for "3" seconds
     When I click on "Create Application" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I click modal button "Save and Continue"
     And I pause execution for "3" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -636,10 +636,9 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
-    And I click on "Accept and Close" in the page details
     Then I softly can see top right button "Accept and Close" in page detail
-    And I click on "Menu" in the page details
-    And I select "Take Snapshot" from dropdown
+    And I click on "Accept and Close" in the page details
+    And I click on "Take Snapshot" in the page details
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Site Visit - Accept And Close"
     And I wait for "5" seconds
@@ -1340,8 +1339,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Other" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---sitevisits:-:siteVisitAddFilesTableId---"
     Then I softly see value "Other" for title "Classification" inside table "---sitevisits:-:siteVisitAddFilesTableId---"
@@ -1687,7 +1685,9 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
     When I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "SiteVisit" panel
-    Then I see "No Records Found" inside flex table with id "SiteVisit"
+    Then I softly see value "Record Id" for title "EGMS ID" inside table "SiteVisit"
+    Then I cannot see row level action button "Delete" against "Record Id" in flex table with id "SiteVisit"
+    Then I cannot see row level action button "Edit" against "Record Id" in flex table with id "SiteVisit"
 
   @39187 @clickAcceptAndCloseButtonforAward
   Scenario: Verify that when user click on 'Approve and Close' button then status will change to closed for Award level

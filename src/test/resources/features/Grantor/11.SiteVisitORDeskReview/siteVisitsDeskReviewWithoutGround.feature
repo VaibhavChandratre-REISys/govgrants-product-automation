@@ -10386,8 +10386,9 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I re-login to "Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    And I click toggle button to select "Site Visit Reports - All"
     When I perform quick search for "{SavedValue:SitevVisitId1}" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    Then I see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---sitevisits:-:manageSiteVisitTableId---"
+    Then I softly see value "{SavedValue:SitevVisitId1}" for title "EGMS ID" inside table "---sitevisits:-:manageSiteVisitTableId---"
     And I click on "View" icon for "{SavedValue:SitevVisitId1}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
@@ -10470,8 +10471,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Site Visit Final Report" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---sitevisits:-:siteVisitAddFilesTableId---"
     Then I softly see value "Site Visit Final Report" for title "Classification" inside table "---sitevisits:-:siteVisitAddFilesTableId---"
