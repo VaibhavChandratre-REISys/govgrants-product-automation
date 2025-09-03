@@ -2006,10 +2006,10 @@ Feature: Validate all scenarios for Opportunity
     When I perform quick search for "Rejected" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
     Then I softly see value "Rejected" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
 
-  @463548 @validateonsubmitforapprovalvalidationisdisplayedtoPOuserforrequireforsubmitfieldsandiconisdisplayedforrequiredforsubmitfields @P2_Grantee @PO_Grantee @GRegression3
-  Scenario: Validate on Submit for approval, validation is displayed to EXE user for required for submit fields and icon is displayed for required for submit fields
-    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
-    Given I login to "As a Grantee" app as "GRANTEE EXE" user
+  @487223 @validateonsubmitforapprovalvalidationisdisplayedtoPOuserforrequireforsubmitfieldsandiconisdisplayedforrequiredforsubmitfields @P2_Grantee @PO_Grantee @GRegression3
+  Scenario Outline: Validate on Submit for approval, validation is displayed to EXE user for required for submit fields and icon is displayed for required for submit fields
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<OwnerType>"
+    Given I login to "As a Grantee" app as "<Owner>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -2043,11 +2043,14 @@ Feature: Validate all scenarios for Opportunity
       | Evaluation Tab - Select a value for Maintenance of Effort required.                                                                    |
       | Evaluation Tab - Provide a value for How will the program be sustained, should funding end.                                            |
       | Responsibilities - At least one approver is required                                                                                   |
+    Examples:
+      | Owner          | OwnerType          |
+      | GRANTEE EXE    | Victor EXE user    |
 
-  @475743 @OpportunitiesNotconvertedGrantsgovVerifyasEXEuservalidationisdisplayedonSaveforrequiredforsavefieldsandisdisplayedforrequiredfields @P2_Grantee @PM_Grantee @GRegression1
-  Scenario: Opportunities Not converted (Manual) - Verify as EXE user, validation is displayed on Save for required for save fields and * is displayed for required fields
-    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE EXE" user
+  @487224 @OpportunitiesNotconvertedGrantsgovVerifyasEXEuservalidationisdisplayedonSaveforrequiredforsavefieldsandisdisplayedforrequiredfields @P2_Grantee @PM_Grantee @GRegression1
+  Scenario Outline: Opportunities Not converted (Manual) - Verify as EXE user, validation is displayed on Save for required for save fields and * is displayed for required fields
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<OwnerType>"
+    Given I login to "As a Grantee" app as "<Owner>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -2095,3 +2098,7 @@ Feature: Validate all scenarios for Opportunity
       | Estimated Project Period Start Date should be after Application Due Date             |
       | Anticipated award date should be between application due date and project start date |
       | Please enter the Letter of Intent date equal to or lesser than Pre-Application due date. |
+    Examples:
+      | Owner          | OwnerType          |
+      | GRANTEE EXE    | Victor EXE user    |
+

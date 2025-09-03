@@ -535,3 +535,102 @@ Feature: Validate all scenarios for Financial Report
     Then I softly see value "Reviewed" for title "New Value" inside field history table
     Then I softly see value "Submitted for Review" for title "Original Value" inside field history table
 
+  @484616 @ValidatePMuserifuserselecttheNonFederalOrganizationthenfinancialreportformsectionshouldnotbedisplay
+  Scenario: Validate PM user if user select the Non Federal Organization then financial report form  section should not be display
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I enter "Grantee_Leads_with_NonFedOrg" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    Then I see the header is "Lead" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime Leads}" in the page details
+    And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "State" as "Forecasted"
+    And I save the field labeled "EGMS ID" as "LeadsEGMSID"
+    When I navigate to "Overview" sub tab
+    Then I softly see field "Funding Organization" as "War Heroes Organization"
+    Then I can see top right button "Activate" in page detail
+    Then I can see top right button "Edit" in page detail
+    When I click on "Activate" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
+    When I click modal button "OK"
+    Then I softly see field "State" as "Posted"
+    Then I can see top right button "Qualify Lead" in page detail
+    And I save the field labeled "EGMS ID" as "LeadsEGMSID"
+    And I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Leads Not Yet Qualified - All"
+    When I perform quick search for "{SavedValue:LeadsEGMSID}" in "---grantee_tableId:-:LeadsNotYetQualified---" panel
+    When I click on "View" icon for "{SavedValue:LeadsEGMSID}" inside flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
+    Then I softly see field "State" as "Posted"
+    Then I cannot see top right button "Qualify Lead" in page detail
+    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Leads Not Yet Qualified - All"
+    When I perform quick search for "{SavedValue:LeadsEGMSID}" in "---grantee_tableId:-:LeadsNotYetQualified---" panel
+    When I click on "View" icon for "{SavedValue:LeadsEGMSID}" inside flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
+    Then I softly see field "State" as "Posted"
+    And I click on "Qualify Lead" in the page details
+    Then I softly see field "Status" as "Qualified Lead"
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "Funding Opportunity Title" as "Automation Runtime Opportunity"
+    And I save the field labeled "Opportunity Number" as "Automation Runtime"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I "Created" award from application for opportunity "{SavedValue:Automation Runtime}" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "financialEGMSID"
+    Then I softly see "Collapse" button for header
+    Then I see the header is "Financial Report" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime Opportunity}" in the page details
+    Then I softly see field "EGMS ID" as "{SavedValue:financialEGMSID}"
+    Then I softly see field "Status" as "Created"
+    And I save the field labeled "Grant Award Number" as "GrantNumber"
+    Then I softly see field "Grant Award Number" as "{SavedValue:GrantNumber}"
+    And I save the field labeled "Days Left" as "DaysLeft"
+    Then I softly see field "Days Left" as "{SavedValue:DaysLeft}"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Validate" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Responsibilities" sub tab at view detail page
+    Then I softly can see "Forms and Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    Then I softly see "Report Overview" page block displayed
+    Then I softly see "Contacts" page block displayed
+    Then I softly see "System Information" page block displayed
+    And I save the field labeled "Award ID" as "AwardID"
+    Then I softly see field "Award ID" inside page block
+    Then I softly see link "{SavedValue:AwardID}" inside Page block
+    Then I softly see field "Funding Organization" inside page block
+    And I save the field labeled "Funding Organization" as "FundingOrganization"
+    Then I softly see link "{SavedValue:FundingOrganization}" inside Page block
+    When I navigate to "Forms and Files" sub tab
+    Then I softly do not see "Forms" page block displayed
