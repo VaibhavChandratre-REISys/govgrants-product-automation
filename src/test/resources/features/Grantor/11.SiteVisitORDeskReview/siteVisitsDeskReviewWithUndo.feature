@@ -564,6 +564,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     When I perform quick search for "Record Id" in "---sitevisits:-:homeCompletedTaskTableId---" panel
     Then I softly see value "Cancelled" for title "Status" against the value "{SavedValue:SitevVisitId}" inside table "---sitevisits:-:homeCompletedTaskTableId---"
     And I logout
+    And I wait for "2" seconds
     And I checkout to yopmail with mailid "automation.fd.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
@@ -616,7 +617,6 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Thank you.
     The EGMS Team
     """
-    Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "Grantor" app as "PM" user
     And I navigate to "Monitoring" tab
@@ -912,6 +912,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     When I perform quick search for "Record Id" in "---sitevisits:-:homeCompletedTaskTableId---" panel
     Then I softly see value "Cancelled" for title "Status" against the value "{SavedValue:SitevVisitId}" inside table "---sitevisits:-:homeCompletedTaskTableId---"
     And I logout
+    And I pause execution for "2" seconds
     And I checkout to yopmail with mailid "automation.fd.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
@@ -1379,6 +1380,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
     And I logout
+    And I pause execution for "2" seconds
     And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
