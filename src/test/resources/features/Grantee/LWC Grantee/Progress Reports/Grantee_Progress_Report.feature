@@ -2970,7 +2970,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-    Then I softly see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
+    Then I see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - Draft"
