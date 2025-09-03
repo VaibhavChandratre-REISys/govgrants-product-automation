@@ -264,6 +264,7 @@ Feature: Validate all scenarios for program for Email notification
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I "Send to Owner" in the approval decision
     And I logout
+    And I wait for "2" seconds
     And I checkout to yopmail with mailid "exe.automation@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
