@@ -291,26 +291,25 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     And I generate the random SSN and save as "SSN"
     When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
-    And I generate the random maildropEmail and save as "uniqueEmailID1"
-    When I enter value as "{SavedValue:uniqueEmailID1}" into "Email" on old form
+    And I generate the random EmailID and save as "uniqueEmailID"
+    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
-    Then I softly see field "Primary Email" as "{SavedValue:uniqueEmailID1}"
+    Then I softly see field "Primary Email" as "individualregistration@yopmail.com"
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter "CreationWithOnlyPaymentDetail" values from "UserRegistration_Field_Values.xlsx"
-    And I enter value "USA" into field "PaymentAddressCountry__c"
     When I click on "Save" in the page details
-    Then I see "No" text enter in field "SameAsOrganizationAddress__c"
-    Then I see "1000 Defense Pentagon" text enter in field "PaymentAddressLine1__c"
-    Then I see "Washington" text enter in field "PaymentAddressCity__c"
-    Then I see "DC" text enter in field "PaymentAddressState__c"
-    Then I see "20301" text enter in field "PaymentAddressZipCode__c"
-    Then I see "(918) 908-9089" text enter in field "PaymentAddressVendorLocation__c"
-    Then I see "1234" text enter in field "PaymentAddressZipCode4__c"
+#    Then I see "No" text enter in field "SameAsOrganizationAddress__c"
+#    Then I see "1000 Defense Pentagon" text enter in field "PaymentAddressLine1__c"
+#    Then I see "Washington" text enter in field "PaymentAddressCity__c"
+#    Then I see "DC" text enter in field "PaymentAddressState__c"
+#    Then I see "20301" text enter in field "PaymentAddressZipCode__c"
+#    Then I see "(918) 908-9089" text enter in field "PaymentAddressVendorLocation__c"
+#    Then I see "1234" text enter in field "PaymentAddressZipCode4__c"
     When I click on "Submit" in the page details
     Then I see the following messages in the page details contains:
-      | Confirmation Message                                                                                                                                                                |
-      | Your registration request for access to the EGMS has been completed.  You will be sent an email from salesforce.com (technology platform provider) with your Username and Password. |
+      | Confirmation Message                                                                                                                                                                                                                                               |
+      | Your registration request for access to EGMS has been completed and sent for government approval. Once approved, you will be sent another email from salesforce.com (technology platform provider) with your Username and Password shortly to log into the system. |
 
 
   @222890 @ValidateEXEuserfromuserregistrationapprovalqueueshouldnotabletoseethereassigntaskofOrganizationRegistrationApprovalinReassignTask

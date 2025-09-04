@@ -1188,7 +1188,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see "Closeout" sub tab at view detail page
 
-  @443819 @ValidateAwardWithPMProfileAwardPagelayoutfordirectgrant
+  @443819 @ValidateAwardWithPMProfileAwardPagelayoutfordirectgrant @P2_Grantee @PM_Grantee @GRegression1
   Scenario: Validate Award With PM Profile Award Page layout for direct grant
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -2038,7 +2038,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "Not Started" for title "Status" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
 
-  @440231 @440232 @verifywithPMprofileunabletoseethedraftedfocusareatoselectinDirectGrantAward @GRegression1 @GranteeTBE
+  @440231 @440232 @verifywithPMprofileunabletoseethedraftedfocusareatoselectinDirectGrantAward @GRegression1
   Scenario:verify with PM profile unable to see the drafted focus area to select in Direct Grant / Award.
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -2071,7 +2071,7 @@ Feature: Validate all scenarios for Grants & Awards
     #@440231
     Then I softly see "Automation Permanent Focus Area" inside flex table with id "---grantee_tableId:-:selectAwardFocusAreaTableId---"
 
-  @443841 @AwardVerifyWithEXEProfileIfsettingkeptNOthenunabletoseethesectioninGrantAward @GRegression1 @GranteeTBE
+  @443841 @AwardVerifyWithEXEProfileIfsettingkeptNOthenunabletoseethesectioninGrantAward @GRegression1
   Scenario: AwardVerifyWithEXEProfileIfsettingkeptNOthenunabletoseethesectioninGrantAward
     And I "Created" standalone subaward "Automation Runtime Award" with properties "ALL_SETTING_NO-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -3928,6 +3928,34 @@ Feature: Validate all scenarios for Grants & Awards
     Examples:
       | userType   | UEI          |
       | GRANTEE PM | YRNMVN96JC17 |
+
+  @443838 @ValidateAwardWithEXEProfileIfinFocusareasectionstartdateandenddateislessthanorgreaterthanbudgetperioddatethenabletoseetheValidationmessage @P1_Grantee @EXE_Grantee @GRegression1
+  Scenario: Validate Award With EXE Profile If in Focus area section start date and end date is less than or greater than budget period date then able to see the Validation message
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Created"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Projections" sub tab
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
+    And I click on "Submit For Approval" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Projections Tab - At least one focus area must be in place at all times during the budget period. Adjust the focus area dates accordingly. |
+      | Projections Tab - Enter the Focus Area Start Date and Focus Area End Date to all focus areas to submit for approval.                       |
+      | Projections Tab - You must associate a budget to all focus areas before submitting this award for approval.                                |
 
   @482615 @validatesectionsdisplayedtopouseronawardwhenallsettingsareno @P1_Grantee @PO_Grantee @GRegression1 @sprint15
   Scenario: Validate sections displayed to PO user on award when all settings are No

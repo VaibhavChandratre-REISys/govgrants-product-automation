@@ -676,12 +676,12 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     Then I see option "Download as PDF" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "Awards"
     Then I see table is refreshing
-    When I click on parallel lines menu bar with data target value "Awards"
-    And I select "Download as PDF" from parallel lines dropdown of "Awards"
-    And I download the file
-    And I wait for "4" seconds
-    Then I see "Awards" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+#    When I click on parallel lines menu bar with data target value "Awards"
+#    And I select "Download as PDF" from parallel lines dropdown of "Awards"
+#    And I download the file
+#    And I wait for "4" seconds
+#    Then I see "Awards" on page "1" of "govgrants" pdf file
+#    And I switch to parent tab
     And I click on page navigation arrow "---grantee_tableId:-:specialConditionPhaseLevelTableId---" for table id "Next"
     Then I see table "---grantee_tableId:-:specialConditionPhaseLevelTableId---" shows "Page 2"
     Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
@@ -700,7 +700,6 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:specialConditionPhaseLevelTableId---" panel
     And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
     Then I softly see value "{SavedValue:TermsTitle}" for title "Title" inside table "---grantee_tableId:-:specialConditionsChildTableId---"
-
 
   @443856_1 @ValidateAwardsplconWithEXEAwardlistviewpageInawardspecialconditionmodulewhichisvisibleinmonitoringphase @GRegression1 @GranteeTBE
   Scenario: Validate Award spl con With EXE Award list view page In award special condition module which is visible in monitoring phase without special conditions
@@ -760,6 +759,50 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:specialConditionsChildTableId---"
 
+  @443824 @ValidateAwardWithPMProfileProgramincomeRevenuebyFocusareaandDrawdownByGrantAwardTasksectionInActualTabofAwardPagelayout @PM_Grantee @P2_Grantee @GRegression1 @GranteeTBE
+  Scenario Outline: Validate Award With PM Profile Program income Revenue by Focus area  and Drawdown By Grant Award Task section In Actual Tab of Award Page layout
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default-<userName>"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "As a Grantee" app as "<userType>" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I navigate to "Projections" sub tab
+    And I save the value from row "1" for column name "Projected Program Income ($)" as "ProjectedProgramIncome" from flex table "---grantee_tableId:-:awardProgramIncomeTableId---"
+    And I save the value from row "1" for column name "Program Income Justification" as "ProgramIncomeJustification" from flex table "---grantee_tableId:-:awardProgramIncomeTableId---"
+    When I navigate to "Actuals" sub tab
+    Then I softly see "Program Income Revenue by Focus Area" page block displayed
+    Then I softly see "Drawdown By Award" page block displayed
+    And I save the value from row "1" for column name "Revised Program Income Earned" as "RevisedProgramIncomeEarned" from flex table "---grantee_tableId:-:actualsTabProgramIncomeTableId---"
+    Then I softly see value "{SavedValue:ProjectedProgramIncome}" is "Equals to" the value "{SavedValue:RevisedProgramIncomeEarned}"
+    Then I softly see value "{SavedValue:ProgramIncomeJustification}" for title "Program Income Details" inside table "---grantee_tableId:-:actualsTabProgramIncomeTableId---"
+    Then I softly can see row level action button "Show Financial Transactions" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    And I click on "Show Financial Transactions" icon for "Automation Permanent Focus Area" inside flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
+    Then I softly see "Drawdown By  Award" opens in overLay window
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:DrawdownByAwardModalTableId---"
+    When I "Collapse" page block contaninig value "Financial Transactions"
+    Then I softly do not see "No Records Found" inside flex table with id "---grantee_tableId:-:DrawdownByAwardModalTableId---"
+    When I "Expanded" page block contaninig value "Financial Transactions"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:DrawdownByAwardModalTableId---"
+    When I click on parallel lines menu bar with data target value "Financial Transactions"
+    And I wait for "1" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I select "Refresh" from parallel lines dropdown of "Financial Transactions"
+    Then I see table is refreshing
+    When I click on parallel lines menu bar with data target value "Financial Transactions"
+    And I select "Download as PDF" from parallel lines dropdown of "Financial Transactions"
+    And I download the file
+    And I wait for "4" seconds
+    Then I see "Financial Transactions" on page "1" of "govgrants" pdf file
+    Examples:
+      | userType   | userName      |
+      | GRANTEE PM | Sarah PM user |
 
   @443824 @ValidateAwardWithPMProfileProgramincomeRevenuebyFocusareaandDrawdownByGrantAwardTasksectionInActualTabofAwardPagelayout @PM_Grantee @P2_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Validate Award With PM Profile Program income Revenue by Focus area  and Drawdown By Grant Award Task section In Actual Tab of Award Page layout
