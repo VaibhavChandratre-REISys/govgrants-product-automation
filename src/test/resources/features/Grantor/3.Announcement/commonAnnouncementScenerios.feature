@@ -40,6 +40,7 @@ Feature: Validate all common scenarios in the  Announcement tab
   @33936 @announcementCreatedDeleteAccessToOwnerFA
   Scenario: Validate that owner can able to delete created status announcement
     When I navigate to "Announcements" tab
+    When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When  I click on "Delete" icon for "Record id" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
@@ -48,6 +49,7 @@ Feature: Validate all common scenarios in the  Announcement tab
 
   @34222 @52400 @70342 @70343 @37029 @52401 @73393 @52402 @52403 @52404 @createdAnnouncementEditionOnlyOwnerFA @annn
   Scenario: Validate that only owner can able to edit created status announcement | To verify user able to enter the description in the details field of overview tab while creating the Announcemennt
+    When I navigate to "Announcements" tab
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel

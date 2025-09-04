@@ -163,6 +163,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
   @70551 @70552 @73405 @73389 @73406 @73387 @70800 @70885 @71595 @72646 @72641 @73537 @userCanViewAddAndDeleteFocusArea  @FieldHistoryExclude
   Scenario: To Verify that user is able to remove associated focus areas While creating the Announcement | To verify PM can remove non relevant Budget categories from specific Budget Type in Announcement based on the need.
     When I navigate to "Announcements" tab
+    When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - Published"
     Then I softly see value "Published" for title "Status" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     When I navigate to "Announcements" tab
@@ -236,6 +237,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
   Scenario: To Verify that user able to see Text fields after select Q&A Availability  as "Yes"  And  user can enter and save all required fields while creating Announcement
   | To Validate system generated validation message for  Q&A Availability section when "Question Deadline Date",and "Response Deadline date" is greater then Application Due Date.
     When I navigate to "Announcements" tab
+    When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - Draft"
 #    And I select value inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---" is "All"
     Then I softly see value "Created" for title "Status" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
@@ -305,6 +307,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
   To Verify that user can Edit fields in supporting document checklist While creating the Announcement |
   To Verify that user can preview business forms while creating Announcement|
   To Verify that user can Edit business forms while creating Announcement
+    When I navigate to "Announcements" tab
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - Closed and Archived"
     And I perform quick search for "Closed" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
