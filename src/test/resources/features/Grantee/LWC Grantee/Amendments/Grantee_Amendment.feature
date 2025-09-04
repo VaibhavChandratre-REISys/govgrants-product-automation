@@ -23408,10 +23408,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I enter "Grantee_KPC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I wait for "3" seconds
-    When I enter values into fields
-      | Value | Field                      |
-      | 2000  | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Created"
