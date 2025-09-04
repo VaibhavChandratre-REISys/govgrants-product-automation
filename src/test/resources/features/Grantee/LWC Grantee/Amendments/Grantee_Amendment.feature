@@ -24016,3 +24016,106 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Examples:
       | Owner          | OwnerType          | UserType       | emailIdTo                         | CreatedBy          | Assertion     |
       | GRANTEE EXE    | Victor EXE user    | GRANTEE EXE    | victor.exeqagrantee@yopmail.com   | Victor EXE         | softly cannot |
+
+  @486564 @ValidateKPCTypeARPOusershouldabletoapprovedtheAR&shouldabletocreate&verifyactivatenewaward
+  Scenario: Validate KPC Type AR PO user should able to approved the AR & should able to create & verify activate new award
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    And I wait for "2" seconds
+    And I "Approved" of type "Key Personnel Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
+    When I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Overview" sub tab
+    And I save the field labeled "Project Period Start Date" as "BudgetPeriodStartDate"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    And I navigate to "Projections" sub tab
+    And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
+    And I save the value from row "1" for column name "Title" as "TitleIndirectRate" from flex table "---grantee_tableId:-:awardIndirectRateTableId---"
+    And I save the value from row "1" for column name "Effective from" as "Effectivefrom" from flex table "---grantee_tableId:-:awardIndirectRateTableId---"
+    And I save the value from row "1" for column name "Effective until" as "Effectiveuntil" from flex table "---grantee_tableId:-:awardIndirectRateTableId---"
+    And I save the value from row "1" for column name "Approved Indirect Cost Rate(%)" as "ApprovedIndirectCostRate" from flex table "---grantee_tableId:-:awardIndirectRateTableId---"
+    When I navigate to "Amendments" sub tab
+    And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "KPCID"
+    And I save the value from row "1" for column name "Proposed Name" as "ProposedName" from flex table "---grantee_tableId:-:amendmentContactTableId---"
+    And I save the value from row "2" for column name "Title" as "TermsTitle" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
+    When I enter values into fields
+      | Value | Field                 |
+      | 0     | SubmittedToGrantor__c |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I can see top right button "Record Decision" in page detail
+    Then I can see top right button "Revise Amendment" in page detail
+    When I click on "Record Decision" in the page details
+    When I enter values into fields
+      | Value                       | Field             |
+      | Accepted                    | Decision__c       |
+      | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
+      | Test                        | Comments__c       |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Accepted"
+    Then I can see top right button "Amend Award" in page detail
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Accepted" for title "New Value" inside field history table
+    Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
+    And I click on back arrow
+    And I wait for "2" seconds
+    And I click on "Amend Award" in the page details
+    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID2"
+    When I click on "Activate Award" in the page details
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID3"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Activated" for title "New Value" inside field history table
+    Then I softly see value "Pending Activation" for title "Original Value" inside field history table
+    And I click on back arrow
+    And I wait for "2" seconds
+    And I navigate to "Overview" sub tab
+    Then I softly see value "{SavedValue:ProposedName}" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
+    And I navigate to "Projections" sub tab
+    Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
+    Then I softly see value "{SavedValue:Effectivefrom}" for title "Effective from" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
+    Then I softly see value "{SavedValue:Effectiveuntil}" for title "Effective until" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
+    Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
+    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Start Date" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "{Date:M/d/yyyy::d+3650}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
+    And I navigate to "Monitoring" sub tab
+    Then I softly see value "{SavedValue:TermsTitle}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Financials" sub tab
+    Then I softly see value "{Date:M/d/yyyy::d+3650}" for title "End Date" against the value "BP01" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I navigate to "Projections" sub tab
+    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Start Date" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "{Date:M/d/yyyy::d+3650}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
+    And I navigate to "Monitoring" sub tab
+    Then I softly do not see value "{SavedValue:TermsTitle}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
