@@ -197,7 +197,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "2" seconds
     Then I softly do not see value "BP01" for title "Budget Period Name" inside table "---announcement:-:budgetPeriodTableId---"
     And I click on "Remove" icon for "Construction" inside flex table with id "---announcement:-:announcementBudgetCategory---" without waiting for record
-    And I refresh the page
     And I wait for "2" seconds
     Then I softly do not see value "Construction" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
     And I click on "Edit" in the page details
@@ -212,10 +211,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "$4,000.00" for title "New Value" inside field history table
-    Then I softly see value "$2,000.00" for title "Original Value" inside field history table
-    Then I softly see value "$6,000.00" for title "New Value" inside field history table
-    Then I softly see value "$3,000.00" for title "Original Value" inside field history table
+    Then I softly see value "$4,000" for title "New Value" inside field history table
+    Then I softly see value "$2,000" for title "Original Value" inside field history table
+    Then I softly see value "$6,000" for title "New Value" inside field history table
+    Then I softly see value "$3,000" for title "Original Value" inside field history table
     And I click on back arrow
     And I navigate to "Financials" sub tab
     Then I softly see value "Contingencies" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
@@ -229,6 +228,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I perform quick search for "Wildlife Services" in "---announcement:-:associateForRelated---" panel
     And I check "All" boxes in flex table with id "---announcement:-:associateForRelated---"
     And I click on top right button "Associate" in flex table with id "---announcement:-:associateForRelated---"
+    When I click modal button "Close"
     And I wait for "2" seconds
     And I save the value from row "1" for column name "Program Number" as "prNum" from flex table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly see value "{SavedValue:prNum}" for title "Program Number" inside table "---announcement:-:relatedAnnouncementTableId---"
@@ -283,7 +283,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Overview Tab - The question submission deadline must be before the Application due date.                              |
       | Overview Tab - The answer submission deadline must be before the Application due date.                                |
       | Financial Tab - There should be no gap between the dates. Enter the correct Budget Periods Start Dates and End Dates. |
-      | Responsibilities - At least one approver is required                                                                  |
+      | Responsibilities - At least one approver is required.                                                                  |
       | Overview Tab - Enter the Description.                                                                                 |
     And I click on "Edit" in the page details
     And I enter value "20" into field "ApplicationDueDate__c"
@@ -300,7 +300,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Overview Tab - The response deadline cannot be earlier than the question deadline.                                    |
       | Overview Tab - Enter the Description.                                                                                 |
       | Financial Tab - There should be no gap between the dates. Enter the correct Budget Periods Start Dates and End Dates. |
-      | Responsibilities - At least one approver is required                                                                  |
+      | Responsibilities - At least one approver is required.                                                                  |
 
   @70479 @70481 @70503 @70422 @70507 @70542 @70543 @70425 @70424 @70426 @70419 @70417 @70418 @70506 @71951 @73408 @userDeleteSupportingDocument  @FieldHistoryExclude
   Scenario: To Verify that user can delete supporting document checklist While creating the Announcement |
