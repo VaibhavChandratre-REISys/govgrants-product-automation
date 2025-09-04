@@ -1047,7 +1047,3 @@ Feature: Validate all registration related scenarios
     Then I softly see fields "PointOfContactUser__c" is visible
     When I "Collapse" page block contaninig value "Additional Address"
     Then I softly do not see fields "Name" is visible
-
-
-
-

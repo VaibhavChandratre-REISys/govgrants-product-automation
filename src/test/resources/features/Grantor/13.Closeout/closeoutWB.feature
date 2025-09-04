@@ -150,13 +150,13 @@ Feature: Validate all scenarios in Closeout
     And I get the "EGMS ID"
     And I logout
     #93795
-#    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: New Closeout has been Created.
-#      """
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: New Closeout has been Created.
+      """
     And I am on "INTERNAL" portal
     When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -187,13 +187,13 @@ Feature: Validate all scenarios in Closeout
     And I click on "Acknowledge" in the page details
     And I logout
     #76492
-#    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
-#    And I pause execution for "180" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Closeout # {SavedValue:closeoutID} Acknowledgedby Subrecipient
-#      """
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
+    And I pause execution for "180" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Closeout # {SavedValue:closeoutID} Acknowledgedby Subrecipient
+      """
     And I am on "INTERNAL" portal
     When I login to "Grantor" app as "EXE" user
     When I navigate to "Closeout" tab
@@ -216,9 +216,9 @@ Feature: Validate all scenarios in Closeout
     And I click on hyperlink containing value "Overriden.pdf"
     And I click on "Download" button for snapshot view
     And I wait for "3" seconds
-    When I download the file for snapshot
+    When I download the file without rename
     And I wait for "3" seconds
-    Then I see that file name contains ".pdf" is downloaded
+    Then I softly verify that the file "Overriden.pdf" is downloaded
     And I switch to parent tab
     And I click on "Close" button for view files page
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -260,6 +260,7 @@ Feature: Validate all scenarios in Closeout
     Given I click on "Send To Subrecipient" in the page details
     And I pause execution for "3" seconds
     And I logout
+    And I pause execution for "2" seconds
     And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
@@ -379,7 +380,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     And I softly see value "Automation Description" for title "Description" inside table "---closeout:-:closeoutPeerReviewTableId---"
-    And I softly see value "{Date:MM/dd/yyyy::d+7}" for title "Due Date" inside table "---closeout:-:closeoutPeerReviewTableId---"
+    And I softly see value "{Date:M/d/yyyy::d+7}" for title "Due Date" inside table "---closeout:-:closeoutPeerReviewTableId---"
     #94021
     And I click on "Delete" icon for "Automation PM" inside flex table with id "---closeout:-:closeoutPeerReviewTableId---" without waiting for record
     And I softly do not see value "Automation PM" for title "Reviewer Name" inside table "---closeout:-:closeoutPeerReviewTableId---"
@@ -3291,6 +3292,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     Then I softly see field "Status" as "Acknowledged by Subrecipient"
     And I logout
+    And I pause execution for "2" seconds
     And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
