@@ -2298,91 +2298,87 @@ Feature: Validate all scenarios for Opportunity
       | User       |
       | GRANTEE PM |
 
-
-  @487224 @OpportunitiesNotconvertedGrantsgovVerifyasEXEuservalidationisdisplayedonSaveforrequiredforsavefieldsandisdisplayedforrequiredfields @P2_Grantee @PM_Grantee @GRegression1
-  Scenario Outline: Opportunities Not converted (Manual) - Verify as EXE user, validation is displayed on Save for required for save fields and * is displayed for required fields
-    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<OwnerType>"
-    Given I login to "As a Grantee" app as "<Owner>" user
-    And I navigate to "Opportunities" tab
-    When I navigate to "Qualified" content inside "Leads" subheader on left panel
-    And I click toggle button to select "Qualified Leads - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
-    When I click on "Convert to Opportunity" in the page details
-    And I click on "Edit" in the page details
-    And I enter "Grantee_Opp_PreAppYes_Edition" values from "Announcement_Field_Values.xlsx"
-    And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
-    And I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
-    And I wait for "2" seconds
-    When I save the field labeled "Application Due Date" as "ApplicationDueDate"
-    And I click on "Edit" in the page details
-    And I enter value "{SavedValue:ApplicationDueDate}" into field "PreApplicationDueDate__c"
-    And I navigate to "Evaluation" sub tab
-    And I enter value "Yes" into field "MaintenanceEffortRequire__c"
-    And I enter value "Automation Test" into field "StatutoryMaintenanceOfEffort__c"
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
-    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---grantee_tableId:-:opportunityApproverTableId---" by clicking "New" :
+  @463561 @Opportunities(manual)-VerifyPMusershouldabletosubmitandapproved/senttoowner/forward/RejecttheOpportunityrecord
+  Scenario: Opportunities Not converted (Manual) - Verify PM user should able to submit and approved/sent to owner/forward/Reject the Opportunity record
+  And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
+  Given I login to "As a Grantee" app as "GRANTEE PM" user
+  And I navigate to "Opportunities" tab
+  When I navigate to "Qualified" content inside "Leads" subheader on left panel
+  And I click toggle button to select "Qualified Leads - All"
+  When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+  And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+  When I click on "Convert to Opportunity" in the page details
+  And I click on "Edit" in the page details
+  And I enter "Grantee_Opp_PreAppYes_Edition" values from "Announcement_Field_Values.xlsx"
+  And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
+  And I click on "Save" in the page details
+  When I navigate to "Overview" sub tab
+  And I wait for "2" seconds
+  When I save the field labeled "Application Due Date" as "ApplicationDueDate"
+  And I click on "Edit" in the page details
+  And I enter value "{SavedValue:ApplicationDueDate}" into field "PreApplicationDueDate__c"
+  And I navigate to "Evaluation" sub tab
+  And I enter value "Yes" into field "MaintenanceEffortRequire__c"
+  And I enter value "Automation Test" into field "StatutoryMaintenanceOfEffort__c"
+  And I click on "Save" in the page details
+  And I wait for "2" seconds
+  And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+  And I navigate to "Responsibilities" sub tab
+  When I enter the following values into flex table with id "---grantee_tableId:-:opportunityApproverTableId---" by clicking "New" :
       | Name       | Opportunity |
       | Victor EXE | Step 1      |
-    When I click on "Submit for Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
-    And I get the "EGMS ID"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-    And I navigate to "Opportunities" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    Then I softly see field "Status" as "Submitted for Approval"
-    When I select radio button "Forward" in the approval decision
-    And I select user "David FO" in the approval decision
-    When I enter comment "Automation testing" in the approval decision
-    And I submit the approval in the approval decision without processing
-    Then I softly see the following messages in the page details contains:
+  When I click on "Submit for Approval" in the page details
+  Then I softly see field "Status" as "Submitted for Approval"
+  And I get the "EGMS ID"
+  When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+  And I navigate to "Opportunities" tab
+  When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+  And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+  When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+  Then I softly see field "Status" as "Submitted for Approval"
+  When I select radio button "Forward" in the approval decision
+  And I select user "David FO" in the approval decision
+  When I enter comment "Automation testing" in the approval decision
+  And I submit the approval in the approval decision without processing
+  Then I softly see the following messages in the page details contains:
       | Successfully Re-Assigned |
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-    And I navigate to "Opportunities" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    Then I softly see field "Status" as "Submitted for Approval"
-    When I "Send to Owner" in the approval decision
-    Then I softly see field "Status" as "Created"
-    And I wait for "100" seconds
-    When I re-login to "As a Grantee" app as "<Owner>" user on "INTERNAL" portal
-    And I navigate to "Opportunities" tab
-    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
-    When I click toggle button to select "Opportunities Not Converted to Application - All"
-    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
-    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
-    Then I softly see field "Status" as "Created"
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    When I click on "Submit for Approval" in the page details
-    And I get the "EGMS ID"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-    And I navigate to "Opportunities" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    Then I softly see field "Status" as "Submitted for Approval"
-    When I select radio button "Forward" in the approval decision
-    When I "Reject" in the approval decision
-    Then I softly see status in Progress-bar is "Rejected" and is "Red"
-    When I re-login to "As a Grantee" app as "<Owner>" user on "INTERNAL" portal
-    And I navigate to "Opportunities" tab
-    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
-    When I click toggle button to select "Opportunities Not Converted to Application - All"
-    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
-    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
-    Then I softly see field "Status" as "Rejected"
-    Then I softly see status in Progress-bar is "Rejected" and is "Red"
-    Then I softly cannot see top right button "Validate" in page detail
-    Then I softly cannot see top right button "Edit" in page detail
-    Then I softly cannot see top right button "Submit for Approval" in page detail
-    Examples:
-      | OwnerType      | Owner     |
-      | Sarah PM user  | GRANTEE PM |
+  Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+  When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+  And I navigate to "Opportunities" tab
+  When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+  And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+  When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+  Then I softly see field "Status" as "Submitted for Approval"
+  When I "Send to Owner" in the approval decision
+  Then I softly see field "Status" as "Created"
+  And I wait for "100" seconds
+  When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+  And I navigate to "Opportunities" tab
+  And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+  When I click toggle button to select "Opportunities Not Converted to Application - All"
+  And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+  When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+  Then I softly see field "Status" as "Created"
+  Then I softly see status in Progress-bar is "Created" and is "dark blue"
+  When I click on "Submit for Approval" in the page details
+  And I get the "EGMS ID"
+  When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+  And I navigate to "Opportunities" tab
+  When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+  And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+  When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+  Then I softly see field "Status" as "Submitted for Approval"
+  When I select radio button "Forward" in the approval decision
+  When I "Reject" in the approval decision
+  Then I softly see status in Progress-bar is "Rejected" and is "Red"
+  When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+  And I navigate to "Opportunities" tab
+  And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+  When I click toggle button to select "Opportunities Not Converted to Application - All"
+  And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+  When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+  Then I softly see field "Status" as "Rejected"
+  Then I softly see status in Progress-bar is "Rejected" and is "Red"
+  Then I softly cannot see top right button "Validate" in page detail
+  Then I softly cannot see top right button "Edit" in page detail
+  Then I softly cannot see top right button "Submit for Approval" in page detail
