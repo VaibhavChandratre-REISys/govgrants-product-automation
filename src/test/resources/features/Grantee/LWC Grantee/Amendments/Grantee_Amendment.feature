@@ -24253,8 +24253,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see "Previous Project Cost" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      |  Awarded Budget | Cash Match | Other Leverage |
-      |  4000           | 400        | 400            |
+      | Title        | Narrative     |  Awarded Budget   | Cash Match     | Other Leverage |
+      | Construction | The narrative |   4000            | 400            | 400            |
     Then I softly can see row level action button "Edit" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly can see row level action button "Delete" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
     When I close "Add Line Items" modal by clicking the top right x button
