@@ -1794,19 +1794,15 @@ Feature: Validate all scenarios of every modules flow
 
   @testchckAwards @debug
   Scenario:
-    Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Directed"
-  And I halt execution
+#    Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Directed"
+#  And I halt execution
 #    Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_DETAILS_BUDGET_YES_RISK_NO"
 #    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CAT_DETAILS_BUD_YES"
 #   Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
-#    When I login to "Grantor" app as "PM" user
-#    And I navigate to url "https://test8-internal--ggqa2.sandbox.lightning.force.com/lightning/r/Account/0011900001SKXYjAAP/view"
-#    And I halt execution
-#    Then I softly see value "" for title "Effective From" inside table "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-#    Then I softly see value "" for title "Effective Until" inside table "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-#    Given I am on "SUBPORTAL" portal
-#    When I login to "Grants Portal" app as "SPI3" user
-#    And I wait for "2" seconds
-#    And I perform quick search inside global search "SV-5899"
-#    And I click on hyperlink containing value "SV-5899"
-#    Then I softly see field "Status" as "Notified"
+    When I login to "Grantor" app as "EXE" user
+    And I navigate to url "https://test8-internal--ggqa2.sandbox.lightning.force.com/lightning/r/Announcement__c/a1bDi000003WkgGIAS/view"
+    And I halt execution
+    And I click on "Remove" icon for "Miscellaneous" inside flex table with id "---announcement:-:announcementBudgetCategory---"
+    And I wait for "2" seconds
+    And I halt execution
+    Then I softly do not see value "Miscellaneous" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
