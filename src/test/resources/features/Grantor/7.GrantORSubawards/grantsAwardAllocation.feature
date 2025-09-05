@@ -145,6 +145,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
@@ -180,13 +181,9 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award |
-      | {SavedValue:PM Username} | NA    |
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
       | {SavedValue:PM Username} | Step 1 |
     And I click on "Send to Subrecipient" in the page details
-    And I wait for "3" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     And I navigate to "Budget" sub tab
     When I click on "Edit" in the page details
@@ -17115,6 +17112,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Match this Budget Period" inside page block
     And I wait for "3" seconds
     And I "Send back" in the approval decision
+    And I wait for "100" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Created"
     When I navigate to "Budget" sub tab
     Then I softly see field "Budget Period End Date" inside page block

@@ -2513,6 +2513,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     When I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     Then I softly see field "Budget Period Number" as "BP02"
     Then I softly do not see "Carry-Forward" inside page block detail
 
@@ -3290,7 +3291,6 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:paymentrequestReimbursementTableId---" without waiting for record
     And I navigate to "Financials" sub tab
     #Bug418244
-    #nbelowfieldsare not editable - https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/PaymentRequest__c/a2xDV000001cFkLYAU/view
     And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Net Spent This Action |
       | {SavedValue:fundingAccount} | 500                   |
@@ -3597,6 +3597,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
+    And I wait for "3" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3709,6 +3710,8 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent Focus Area | 0          | 3650     | 1000           |
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---subAwardStandAlone:-:AssociateFocusArea---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                            | Start Date | End Date | New Obligation |
       | Automation Permanent Focus Area2 | 0          | 3650     | 1000           |

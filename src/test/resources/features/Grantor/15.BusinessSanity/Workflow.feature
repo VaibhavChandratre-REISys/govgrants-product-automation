@@ -1799,10 +1799,15 @@ Feature: Validate all scenarios of every modules flow
 #    Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_DETAILS_BUDGET_YES_RISK_NO"
 #    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CAT_DETAILS_BUD_YES"
 #   Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
-    When I login to "Grantor" app as "EXE" user
-    And I navigate to url "https://test8-internal--ggqa2.sandbox.lightning.force.com/lightning/r/Announcement__c/a1bDi000003WkgGIAS/view"
-    And I halt execution
-    And I click on "Remove" icon for "Miscellaneous" inside flex table with id "---announcement:-:announcementBudgetCategory---"
-    And I wait for "2" seconds
-    And I halt execution
-    Then I softly do not see value "Miscellaneous" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
+#    When I login to "Grantor" app as "EXE" user
+#    And I navigate to url "https://test8-internal--ggqa2.sandbox.lightning.force.com/lightning/r/Announcement__c/a1bDi000003WkgGIAS/view"
+#    And I halt execution
+#    And I click on "Remove" icon for "Miscellaneous" inside flex table with id "---announcement:-:announcementBudgetCategory---"
+#    And I wait for "2" seconds
+#    And I halt execution
+#    Then I softly do not see value "Miscellaneous" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
+    Given I published "Directed" type announcement having name "Automation Closed Directed Award" and properties "NO_RISK_ASSESSMENT-Automation ADMIN user"
+    When I initiated an application review for application "{SavedValue:Automation Closed Directed Award}" on announcement "{SavedValue:Automation Closed Directed Award}" with properties "default"
+    And I created approved FDM on application "{SavedValue:Automation Closed Directed Award}"
+    Given I created award from approved FDM with announcement "{SavedValue:Automation Closed Directed Award}" and properties "Automation ADMIN user"
+    And I activate award from FDM having application name "{SavedValue:Automation Closed Directed Award}"
