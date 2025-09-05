@@ -149,6 +149,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I logout
+    And I pause execution for "2" seconds
     #93795
     And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
@@ -186,6 +187,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     And I click on "Acknowledge" in the page details
     And I logout
+    And I pause execution for "2" seconds
     #76492
     And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
@@ -269,7 +271,7 @@ Feature: Validate all scenarios in Closeout
       Sandbox: Notification of Closeout Request for {SavedValue:Automation Runtime Award for closeout}
       """
     #86711
-    And I checkout to yopmail with mailid "automation.spa@yopmail.com"
+    And I checkout to yopmail with mailid "spaautomation12.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4920,7 +4922,7 @@ Feature: Validate all scenarios in Closeout
    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
    And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
    Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
-   When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+   When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
    And I "Approve" in the approval decision
    Then I softly see field "Status" as "Approved"
    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
