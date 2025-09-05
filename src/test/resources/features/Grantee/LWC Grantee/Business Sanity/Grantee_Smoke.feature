@@ -2136,7 +2136,7 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Amended"
 
-  @476988 @CombinationofamendmentVerifyPMusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @Grantee_Smoke1 @GRegression1
+  @476988 @472188 @CombinationofamendmentVerifyPMusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @Grantee_Smoke1 @GRegression1
   Scenario Outline:Combination of amendment : Verify PM user can create combination of amendment using following combinations and activate new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -2325,6 +2325,12 @@ Feature: Grantee Smoke scenarios
     Then I can see top right button "Record Decision" in page detail
     Then I can see top right button "Revise Amendment" in page detail
     When I click on "Record Decision" in the page details
+    Then I softly see fields "Decision__c" is in edit mode
+    Then I softly see fields "Comments__c" is in edit mode
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | To Save, Additional Details is required. |
+      | To Save, Decision is required.           |
     When I enter values into fields
       | Value                       | Field             |
       | Accepted                    | Decision__c       |

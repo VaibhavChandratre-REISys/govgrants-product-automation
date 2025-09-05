@@ -16497,3 +16497,131 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     Examples:
       | userType   | userName | UEI          |
       | GRANTEE PM | Sarah PM | 123456789123 |
+
+
+  @446228 @VerifyEXEusercanseeProgressreportschedulesfromawardinMonitoringschedules
+  Scenario: Verify EXE user can see Progress report schedules from award in Monitoring schedules
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I enter "Grantee_Creation_Schedules" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    When I enter value "123456789123" into field "DUNS__c"
+    And I click on "Save" in the page details
+    And I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Title" as "Automation Runtime award"
+    And I click on "Edit" in the page details
+    When I enter "Grantee_Award_Edit_Schedules" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Projections" sub tab
+    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
+    When I navigate to "Management" sub tab
+    Then I softly see "Reports Schedule" page block displayed
+    Then I softly see value "Progress Report" for title "Report Type" inside table "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see value "Financial Report" for title "Report Type" inside table "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see "Report Title" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see "Report Type" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see "Frequency" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see "Reporting Period" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly can see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+    And I click on "View" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
+    Then I softly see "Reports Schedule" opens in overLay window
+    Then I softly see "Scheduled Report" page block displayed on modal
+    Then I softly see field "Report Type" inside page block
+    Then I softly see field "Report Title" inside page block
+    Then I softly see field "Reporting Period Start Date" inside page block
+    Then I softly see field "Reporting Period End Date" inside page block
+    Then I softly see field "Frequency" inside page block
+    Then I softly see field "Schedule Base" inside page block
+    Then I softly see field "Description" inside page block
+    Then I softly see field "Lead time (in days) for report task creation" inside page block
+    Then I softly see field "# of days for report submission" inside page block
+    Then I softly see field "Report Type" as "Progress Report"
+    Then I softly see field "Report Title" as "{SavedValue:Automation Runtime award}"
+    Then I softly see field "Reporting Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
+    Then I softly see field "Reporting Period End Date" as "{SavedValue:ProjectPeriodEndDate}"
+    Then I softly see field "Frequency" as "Not Applicable"
+    Then I softly see field "Schedule Base" as ""
+    Then I softly see field "Description" as ""
+    Then I softly see field "Lead time (in days) for report task creation" as "15"
+    Then I softly see field "# of days for report submission" as "15"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
+    Then I softly see "Reports Schedule" opens in overLay window
+    Then I softly see "Scheduled Report" page block displayed on modal
+    Then I softly see field "Report Type" inside page block
+    Then I softly see field "Report Title" inside page block
+    Then I softly see field "Reporting Period Start Date" inside page block
+    Then I softly see field "Reporting Period End Date" inside page block
+    Then I softly see field "Frequency" inside page block
+    Then I softly see field "Schedule Base" inside page block
+    Then I softly see field "Description" inside page block
+    Then I softly see field "Lead time (in days) for report task creation" inside page block
+    Then I softly see field "# of days for report submission" inside page block
+    Then I softly see field "Report Type" as "Progress Report"
+    Then I softly see fields "SubmissionTitle__c" is in edit mode
+    Then I softly see fields "CalReportingStartDate__c" is in edit mode
+    Then I softly see fields "CalReportingEndDate__c" is in edit mode
+    Then I softly see fields "Frequency__c" is in edit mode
+    Then I softly see fields "ScheduleBase__c" is in edit mode
+    Then I softly see fields "Description__c" is in edit mode
+    Then I softly see fields "DaysBeforeEndDate__c" is in edit mode
+    Then I softly see fields "DaysAfterEndDate__c" is in edit mode
+    When I enter in modal "Grantee_Progress_Schedules" values from "Award_Field_Values.xlsx"
+    And I click modal button "Save"
+    And I wait for "2" seconds
+    And I expand nested table containing column value "Progress Report"
+    And I save the total records from the flex table id "---grantee_tableId:-:financialReportProgressReportSchedules---" as "totalRecords"
+    Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I select value inside table "---grantee_tableId:-:financialReportProgressReportSchedules---" is "All"
+    And I save the value from row "1" for column name "EGMS ID" as "EGMS ID1" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "2" for column name "EGMS ID" as "EGMS ID2" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "3" for column name "EGMS ID" as "EGMS ID3" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "4" for column name "EGMS ID" as "EGMS ID4" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "5" for column name "EGMS ID" as "EGMS ID5" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "6" for column name "EGMS ID" as "EGMS ID6" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "7" for column name "EGMS ID" as "EGMS ID7" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "8" for column name "EGMS ID" as "EGMS ID8" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "9" for column name "EGMS ID" as "EGMS ID9" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "10" for column name "EGMS ID" as "EGMS ID10" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "11" for column name "EGMS ID" as "EGMS ID11" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "12" for column name "EGMS ID" as "EGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "13" for column name "EGMS ID" as "EGMS ID13" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID1}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID2}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID3}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID4}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID5}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID6}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID7}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID8}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID9}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID10}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID11}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID12}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID13}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "2" for column name "Reporting Period End Date" as "ReportingPeriodEndDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
+      | {SavedValue:EGMS ID1} | 17                          | 27                                  |
+      | {SavedValue:EGMS ID2} | 27                          | {SavedValue:ReportingPeriodEndDate} |
+    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
+      | {SavedValue:EGMS ID1} | 15                          | 25                                  |
+      | {SavedValue:EGMS ID2} | 25                          | {SavedValue:ReportingPeriodEndDate} |
+    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
