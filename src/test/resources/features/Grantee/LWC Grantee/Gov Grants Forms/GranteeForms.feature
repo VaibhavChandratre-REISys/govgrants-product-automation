@@ -10976,6 +10976,7 @@ Feature: Grantee Forms Scenario
      | If Applicant Delinquent on Federal Debt is Yes, provide Delinquent Debt Explanation.  |
      | Please upload exactly one 'Delinquent Federal Debt'.  |
     And I click on "Edit" in the page details
+    And I wait for "2" seconds
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
