@@ -10975,9 +10975,6 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
      | If Applicant Delinquent on Federal Debt is Yes, provide Delinquent Debt Explanation.  |
      | Please upload exactly one 'Delinquent Federal Debt'.  |
-    And I click on "Edit" in the page details
-    And I wait for "2" seconds
-    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
     When I click modal button "Close"
@@ -10986,5 +10983,8 @@ Feature: Grantee Forms Scenario
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
+    When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
+      | Please upload exactly one 'Delinquent Federal Debt'.  |
+      | If Applicant Delinquent on Federal Debt is Yes, provide Delinquent Debt Explanation.  |
       | 2 duplicate file title(s) found: AttachmentTesting.pdf. Please ensure all file titles are unique. |
