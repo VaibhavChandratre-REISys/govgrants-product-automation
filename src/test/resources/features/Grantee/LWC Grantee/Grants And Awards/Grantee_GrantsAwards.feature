@@ -4371,7 +4371,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I "Approved" of type "Funding Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    And I wait for "3" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
