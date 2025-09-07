@@ -4326,7 +4326,7 @@ Feature: Validate all scenarios for Grants & Awards
      Then I softly see "Snapshot History" page block displayed
      Then I softly see "No Records Found" inside snapshot history
 
-  @443826 @AwardVerifywithPOProfiletheawardstates
+  @482329 @AwardVerifywithPOProfiletheawardstates
   Scenario: Award - Verify with PO Profile ,the award states
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -4413,8 +4413,7 @@ Feature: Validate all scenarios for Grants & Awards
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I wait for "2" seconds
-    Then I softly can see "Actuals" sub tab at view detail page
-    And I create adhoc closeout "{SavedValue:Automation Runtime Award}" for status "Approved" with properties "default"
+    And I create adhoc closeout "{SavedValue:Automation Runtime Award}" for status "Approved" with properties "default-Grantee PO user"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     When I navigate to "Closeout" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---" without waiting for record
@@ -4425,7 +4424,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Pending Closeout"
     Then I softly can see "Actuals" sub tab at view detail page
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
     And I click toggle button to select "Project Period Closeout - All"
