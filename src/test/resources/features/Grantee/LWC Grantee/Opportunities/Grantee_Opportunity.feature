@@ -2350,7 +2350,7 @@ Feature: Validate all scenarios for Opportunity
   When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
   Then I softly see field "Status" as "Submitted for Approval"
   When I "Send to Owner" in the approval decision
-  Then I softly see field "Status" as "Created"
+  Then I softly see field "Status" as "Draft"
   And I wait for "100" seconds
   When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
   And I navigate to "Opportunities" tab
@@ -2358,7 +2358,7 @@ Feature: Validate all scenarios for Opportunity
   When I click toggle button to select "Opportunities Not Converted to Application - All"
   And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
   When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
-  Then I softly see field "Status" as "Created"
+  Then I softly see field "Status" as "Draft"
   Then I softly see status in Progress-bar is "Created" and is "dark blue"
   When I click on "Submit for Approval" in the page details
   And I get the "EGMS ID"
