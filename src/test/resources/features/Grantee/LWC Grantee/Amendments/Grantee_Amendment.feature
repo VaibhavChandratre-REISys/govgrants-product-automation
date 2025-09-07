@@ -24758,7 +24758,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
 
     @463620 @validateEXEuser(AROwner)canabletoSubmitkpcARforApproval&Approvedfromassigned4stepapprover&candoSendtoOwner/Forward/Approveactions&see'SubmittoGrantor'buttononceApprovedtheARRecord
     Scenario:Validate EXE user (AR Owner) can able to Submit KPC AR for Approval & Approved from assigned 4 step approver & can do Send to Owner/ Forward/ Approve actions & see 'Submit to Grantor' button once Approved the AR Record
-    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee EXE user"
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     And I "Created" of type "Key Personnel Change" amendment request for title "{SavedValue:Automation Runtime Opportunity}" with properties "KEY_PERSONNEL_CHANGE-Victor EXE user"
