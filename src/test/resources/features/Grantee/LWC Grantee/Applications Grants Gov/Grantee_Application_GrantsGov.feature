@@ -1307,3 +1307,54 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I pause execution for "2" seconds
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
+
+    @486511 @validatethevalidationonapplication(Grants.gov)
+    Scenario: Validate the Validation on application(Grants.gov)
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212745" with properties "default-Grantee PO user"
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly can see top right button "Create Application" in page detail
+    When I click on "Create Application" in the page details
+    And I wait for "2" seconds
+    And I click modal button "Save and Continue"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Application Title" as "ApplicationTitle"
+    And I clear the value from field "Title__c"
+    And I navigate to "Budget" sub tab
+    And I enter value "--None--" into field "ProgramIncome__c"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+       | To Save, Application Title is required in the Overview tab under the Application Overview section.              |
+       | To Save, Program Income Treatment Type is required in the Budget tab under the Budget Overview section.         |
+       | To Save, Congressional District is required in the Overview tab under the Primary Place of Performance section. |
+    And I enter value "Additive" into field "ProgramIncome__c"
+    And I navigate to "Overview" sub tab
+    And I enter value "{SavedValue:ApplicationTitle}" into field "Title__c"
+    And I enter value "123" into field "CongressionalDistrict1__c"
+    When I click on "Save" in the page details
+    And I click on "Submit For Approval" in the page details
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - Associate at least one Contact with the application.                                                                          |
+      | Budget Tab - Requested Amount should be greater than or equal to Award Floor Amount. Adjust the requested budget in Budget Details section.  |
+      | Overview Tab - Please fill "Project Abstract" before you submit for approval.                                                                |
+      | Overview Tab - Please fill "Project Director/Principal Investigator" before you submit for approval.                                         |
+      | Overview Tab - Please fill "Authorized Organization Representative (AOR)" before you submit for approval.                                    |
+      | Budget Tab - You must add a budget before submitting this application.                                                                       |
+      | Overview Tab - You must add a UEI before submitting this application.                                                                        |
+      | Responsibilities - At least one approver is required.                                                                                        |
