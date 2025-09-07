@@ -19105,8 +19105,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - My Records"
-    When I perform quick search for "{SavedValue:OTHAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    And I click toggle button to select "Amendment Requests - My Records"When I perform quick search for "{SavedValue:OTHAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
     And I click on "View" icon for "{SavedValue:OTHAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     And I wait for "2" seconds
@@ -24756,3 +24755,258 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "$500.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+
+    @463620 @validateEXEuser(AROwner)canabletoSubmitkpcARforApproval&Approvedfromassigned4stepapprover&candoSendtoOwner/Forward/Approveactions&see'SubmittoGrantor'buttononceApprovedtheARRecord
+    Scenario:Validate EXE user (AR Owner) can able to Submit KPC AR for Approval & Approved from assigned 4 step approver & can do Send to Owner/ Forward/ Approve actions & see 'Submit to Grantor' button once Approved the AR Record
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee EXE user"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    And I "Created" of type "Key Personnel Change" amendment request for title "{SavedValue:Automation Runtime Opportunity}" with properties "KEY_PERSONNEL_CHANGE-Victor EXE user"
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    And I navigate to "Projections" sub tab
+    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
+    And I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
+    And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
+    When I navigate to "Amendments" sub tab
+    And I save the value from row "1" for column name "EGMS ID" as "KPCEGMSID" from flex table "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Amendment Requests - My Records"
+    When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:KPCEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:KPCEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:KPCEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly see "Award EGMS ID" in flex table header "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly see "Amendment Type" in flex table header "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly see "Initiated By" in flex table header "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly see "Status" in flex table header "---grantee_tableId:-:AmendmentTableId---"
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:KPCEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:KPCEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:KPCEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    And I click toggle button to select "Amendment Requests - Draft"
+    When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:KPCEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:KPCEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:KPCEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    And I click toggle button to select "Amendment Requests - Accepted"
+    When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    Then I softly do not see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
+    And I click toggle button to select "Amendment Requests - Rejected"
+    When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    Then I softly do not see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
+    And I click on "View" icon for "{SavedValue:KPCEGMSID}" inside table
+    Then I see the header is "Amendment Request" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime Opportunity}" in the page details
+    Then I softly see "Collapse" button for header
+    Then I softly see field "EGMS ID" as "{SavedValue:KPCEGMSID}"
+    Then I softly see field "Status" as "Created"
+    Then I softly see field "Initiated By" as "Grantee"
+    Then I softly see field "Amendment Type" as "Key Personnel Change"
+    Then I can see top right button "Edit" in page detail
+    Then I can see top right button "Delete" in page detail
+    Then I can see top right button "Submit for Approval" in page detail
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Responsibilities" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    When I navigate to "Overview" sub tab
+    Then I softly see "Details" page block displayed
+    Then I softly see "Key Personnel Change" page block displayed
+    Then I softly see "General Condition" page block displayed
+    Then I softly see "Special Conditions" page block displayed
+    Then I softly see "System Information" page block displayed
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see "Peer Reviewers" page block displayed
+    Then I softly see "Approvers" page block displayed
+    Then I softly see "Owner" page block displayed
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentContactTableId---" by clicking "Edit" :
+       | Proposed Name | Is Key Contact |
+       | Victor EXE    | Unchecked      |
+    And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+       | Overview Tab - Specify at least one Key Personnel for Key Personnel Change request. |
+    When I click on "Delete" icon for "Victor EXE" inside flex table with id "---grantee_tableId:-:amendmentContactTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:amendmentContactTableId---"
+    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
+    When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:amendmentAssociateContactTableId---"
+    And I click modal button "Close"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentContactTableId---" by clicking "Edit" :
+       | Proposed Name | Project Role    | Is Key Contact |
+       | David FO      | Project Officer | Checked        |
+    When I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+        | To Save, Project Role is required in the Contact Information section.   |
+        | To Save, First Name is required in the Contact Information section.     |
+        | To Save, Last Name is required in the Contact Information section.      |
+        | To Save, Phone is required in the Contact Information section.          |
+        | To Save, Email is required in the Contact Information section.          |
+        | To Save, Address Line 1 is required in the Address Information section. |
+        | To Save, State is required in the Address Information section.          |
+        | To Save, City is required in the Address Information section.           |
+        | To Save, Country is required in the Address Information section.        |
+        | To Save, Zip Code is required in the Address Information section.       |
+    And I click modal button "Close"
+    And I click on "Edit" in the page details
+    And I enter value "Checked" into field "GeneralConditionChanged__c"
+    And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
+    And I click on "Save" in the page details
+    And I click on "Submit for Approval" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Terms and Conditions" has been added in "Amendment Files" flex table
+    When I navigate to "Overview" sub tab
+    And I click on "Edit" in the page details
+    And I enter value "www.automate.com" into field "FederalTCLink__c"
+    And I click on "Save" in the page details
+    And I wait for "1" seconds
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    When I enter in modal value "TermsExecution" into field "Title__c"
+    When I enter in modal value "Terms Description" into field "Description__c"
+    When I enter in modal value "1" into field "Sequence__c"
+    When I enter in modal value "1" into field "EffectiveFrom__c"
+    When I enter in modal value "1" into field "EffectiveTill__c"
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    And I save the value from row "1" for column name "Title" as "TermsTitle" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    And I navigate to "Responsibilities" sub tab
+    Then I softly see "Name" in flex table header "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I softly see "Amendment Request" in flex table header "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+        | Name         | Amendment Request |
+        | Sarah PM     | Step 1            |
+    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+        | Name        | Amendment Request    |
+        | Victor EXE  | Step 2               |
+    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+        | Name          | Amendment Request   |
+        | Grantee PO    | Step 3              |
+    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+        | Name               | Amendment Request |
+        | Danielle FD Garcia | Step 4            |
+      And I click on "Submit for Approval" in the page details
+      When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+      And I navigate to "Grants" tab
+      When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+      And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+      When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+      When I "Send to Owner" in the approval decision
+      Then I softly see field "Status" as "Created"
+      And I wait for "100" seconds
+      And I navigate to "Grants" tab
+      When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+      When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+      Then I softly see that "{SavedValue:KPCEGMSID}" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
+      When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+      And I navigate to "Grants" tab
+      When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+      And I click toggle button to select "Amendment Requests - All"
+      When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+      And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+      And I click on "Submit for Approval" in the page details
+      Then I softly see field "Status" as "Submitted for Approval"
+      When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+      And I navigate to "Grants" tab
+      When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+      And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+      When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+      And I "Approve" in the approval decision
+      Then I softly see field "Status" as "Submitted for Approval"
+      And I navigate to "Grants" tab
+      When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+      When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+      Then I softly see that "{SavedValue:KPCEGMSID}" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
+      When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+      And I navigate to "Grants" tab
+      When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+      And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+      When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+      And I "Approve" in the approval decision
+      And I navigate to "Grants" tab
+      When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+      When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+      Then I softly see that "{SavedValue:KPCEGMSID}" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
+      When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+      And I navigate to "Grants" tab
+      When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+      And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+      When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+      And I "Approve" in the approval decision
+      And I navigate to "Grants" tab
+      When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+      When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+      Then I softly see that "{SavedValue:KPCEGMSID}" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
+      When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+      And I navigate to "Grants" tab
+      When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+      And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+      When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+      When I select radio button "Forward" in the approval decision
+      And I select user "Danielle FD Garcia" in the approval decision
+      When I enter comment "Automation testing" in the approval decision
+      And I submit the approval in the approval decision without processing
+      Then I softly see the following messages in the page details contains:
+        | Successfully Re-Assigned |
+      Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+      When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+      And I navigate to "Grants" tab
+      When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+      And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+      When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+      When I "Approve" in the approval decision
+      Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+      And I navigate to "Grants" tab
+      When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+      When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+      Then I softly see that "{SavedValue:KPCEGMSID}" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
+      When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+      And I navigate to "Grants" tab
+      When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+      And I click toggle button to select "Amendment Requests - All"
+      When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+      And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+      Then I cannot see top right button "Edit" in page detail
+      Then I can see top right button "Submit to Grantor" in page detail
+      When I click on "Submit to Grantor" in the page details
+      And I click modal button "Save"
+      Then I softly see the following messages in the page details contains:
+        | To Save, Submitted to Grantor On is required. |
+      When I enter values into fields
+        | Value | Field                 |
+        | 0     | SubmittedToGrantor__c |
+      And I click modal button "Save"
+      And I click modal button "Close"
+      Then I softly see field "Status" as "Submitted to Grantor"
+      Then I can see top right button "Record Decision" in page detail
+      Then I can see top right button "Revise Amendment" in page detail
