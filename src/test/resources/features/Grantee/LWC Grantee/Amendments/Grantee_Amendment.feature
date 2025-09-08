@@ -24572,7 +24572,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see field "Grant Balance" as "$96,500.00"
     And I refresh the page
     And I "Approved" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
