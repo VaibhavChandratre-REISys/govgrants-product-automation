@@ -536,7 +536,7 @@ Feature: Validate all scenarios for Financial Report
     Then I softly see value "Submitted for Review" for title "Original Value" inside field history table
 
   @484616 @ValidatePMuserifuserselecttheNonFederalOrganizationthenfinancialreportformsectionshouldnotbedisplay
-  Scenario: Validate PM user if user select the Non Federal Organization then financial report form  section should not be display
+  Scenario: Validate PM user if user select the Non Federal Organization then financial report form section should not be display
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
