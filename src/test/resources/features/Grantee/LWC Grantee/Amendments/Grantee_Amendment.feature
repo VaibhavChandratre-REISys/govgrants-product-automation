@@ -24626,6 +24626,10 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:carryForwardBudgetTableId---" by clicking "Edit" :
       | Category Name | Carry Forward |
       | Construction  | 0             |
+    And I click on page navigation arrow "---amendment:-:RecipientCarryForwardBudgetTableId---" for table id "Next"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:carryForwardBudgetTableId---" by clicking "Edit" :
+      | Category Name | Carry Forward |
+      | Construction  | 0             |
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I enter in modal value "CFTermsCondition" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
