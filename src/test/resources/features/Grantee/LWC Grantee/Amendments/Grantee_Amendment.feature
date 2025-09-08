@@ -24764,8 +24764,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     Then I softly see field "Status" as "Active"
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
@@ -24790,7 +24790,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     Then I see the header is "Amendment Request" in the page details
-    Then I see the sub-header is "{SavedValue:Automation Runtime Opportunity}" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime Award}" in the page details
     Then I softly see "Collapse" button for header
     Then I softly see field "EGMS ID" as "{SavedValue:KPCEGMSID}"
     Then I softly see field "Status" as "Created"
