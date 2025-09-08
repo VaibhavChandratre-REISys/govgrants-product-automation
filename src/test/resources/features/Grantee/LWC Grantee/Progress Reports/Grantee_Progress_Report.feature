@@ -3168,3 +3168,215 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | The Report has been validated successfully. |
+
+
+  @444513 @ValidateEXEuserProgressreportOwnercanabltocreateAdhocProgressReportabletosubmitProgressReporttoGrantor @GRegression1 @GranteeTBE @P1_Grantee @EXE_Grantee
+  Scenario: Validate EXE user (Progress report Owner)can able to create Adhoc Progress Report & able to submit Progress Report to Grantor
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "progressEGMSID"
+    Then I softly see "Collapse" button for header
+    Then I see the header is "Progress Report" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime award}" in the page details
+    Then I softly see field "EGMS ID" as "{SavedValue:progressEGMSID}"
+    Then I softly see field "Status" as "Created"
+    And I save the field labeled "Grant Award Number" as "GrantNumber"
+    Then I softly see field "Grant Award Number" as "{SavedValue:GrantNumber}"
+    And I save the field labeled "Days Left" as "DaysLeft"
+    Then I softly see field "Days Left" as "{SavedValue:DaysLeft}"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Validate" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Performance" sub tab at view detail page
+    Then I softly can see "Responsibilities" sub tab at view detail page
+    Then I softly can see "Forms and Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    Then I softly see "Report Overview" page block displayed
+    Then I softly see "Contacts" page block displayed
+    Then I softly see "System Information" page block displayed
+    And I save the field labeled "Award ID" as "AwardID"
+    Then I softly see field "Award ID" inside page block
+    Then I softly see link "{SavedValue:AwardID}" inside Page block
+    Then I softly see field "Budget Period" inside page block
+    Then I softly see field "Budget Period Number" inside page block
+    Then I softly see field "Internal Organization" inside page block
+    And I save the field labeled "Internal Organization" as "InternalOrganization"
+    Then I softly see link "{SavedValue:InternalOrganization}" inside Page block
+    Then I softly see field "Funding Organization" inside page block
+    And I save the field labeled "Funding Organization" as "FundingOrganization"
+    Then I softly see link "{SavedValue:FundingOrganization}" inside Page block
+    Then I softly see field "Reporting Period Start Date" inside page block
+    Then I softly see field "Reporting Period End Date" inside page block
+    Then I softly see field "Report Due Date" inside page block
+    Then I softly see field "Final Report?" inside page block
+    Then I softly see field "Submitted By" inside page block
+    Then I softly see field "Submitted On" inside page block
+    And I save the field labeled "Reporting Period Start Date" as "ReportingPeriodStartDate"
+    And I save the field labeled "Reporting Period End Date" as "ReportingPeriodEndDate"
+    Then I softly see field "Reporting Period Start Date" as "{SavedValue:ReportingPeriodStartDate}"
+    Then I softly see field "Reporting Period End Date" as "{SavedValue:ReportingPeriodEndDate}"
+    Then I softly see field "Submitted By" as ""
+    Then I softly see field "Submitted On" as ""
+    And I save the field labeled "EGMS ID" as "progressEGMSID"
+    And I click on "Edit" in the page details
+    Then I softly see fields "ReportingPeriodStartDate__c" is in edit mode
+    Then I softly see fields "ReportingPeriodEndDate__c" is in edit mode
+    Then I softly see fields "ReportDueDate__c" is in edit mode
+    Then I softly see fields "IsFinalReport__c" is in edit mode
+    When I check
+    And I click on "Save" in the page details
+    When I navigate to "Performance" sub tab
+    Then I softly see "Objectives" page block displayed
+    Then I softly see "Key Performance Indicators (KPIs)" page block displayed
+    Then I softly see "Performance Narrative" page block displayed
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:progressReportObjectivesTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:progressReportObjectivesTableId---"
+    Then I softly see "Month-Year Created" in flex table header "---grantee_tableId:-:progressReportObjectivesTableId---"
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:KPIOnProgressReport---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:KPIOnProgressReport---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:KPIOnProgressReport---"
+    Then I softly see "Domain" in flex table header "---grantee_tableId:-:KPIOnProgressReport---"
+    Then I softly see "Measure" in flex table header "---grantee_tableId:-:KPIOnProgressReport---"
+    Then I softly see "Unit" in flex table header "---grantee_tableId:-:KPIOnProgressReport---"
+    Then I softly see "Orientation" in flex table header "---grantee_tableId:-:KPIOnProgressReport---"
+    Then I softly see "Target" in flex table header "---grantee_tableId:-:KPIOnProgressReport---"
+    Then I softly see "Previous Value" in flex table header "---grantee_tableId:-:KPIOnProgressReport---"
+    Then I softly see "Previous Value As Of" in flex table header "---grantee_tableId:-:KPIOnProgressReport---"
+    Then I softly see "Reported Value" in flex table header "---grantee_tableId:-:KPIOnProgressReport---"
+    Then I softly see "Reported Value As Of" in flex table header "---grantee_tableId:-:KPIOnProgressReport---"
+    And I click on "Edit" icon for "Automation Runtime KPI" inside flex table with id "---grantee_tableId:-:KPIOnProgressReport---"
+    Then I softly see field inside table "masterkpi__r.name" not in edit mode
+    Then I softly see field inside table "MasterKPI__r.Title__c" not in edit mode
+    Then I softly see field inside table "MasterKPI__r.Domain__c" not in edit mode
+    Then I softly see field inside table "Measure__c" not in edit mode
+    Then I softly see field inside table "MasterKPI__r.Unit__c" not in edit mode
+    Then I softly see field inside table "MasterKPI__r.Orientation__c" not in edit mode
+    Then I softly see field inside table "Target__c" not in edit mode
+    Then I softly see field inside table "PreviousActual__c" not in edit mode
+    Then I softly see field inside table "PreviousDate__c" not in edit mode
+    Then I softly see fields "Actual__c" is in edit mode
+    Then I softly see fields "ActualDate__c" is in edit mode
+    And I refresh the page
+    And I wait for "2" seconds
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:KPIOnProgressReport---" by clicking "Edit" :
+      | EGMS ID                | Reported Value | Reported Value As Of |
+      | Automation Runtime KPI | 10             | 1                    |
+    And I click on "Edit" in the page details
+    Then I see textarea field "KeyAccomplishments__c" is editable
+    Then I see textarea field "Obstacles__c" is editable
+    Then I see textarea field "Plans__c" is editable
+    When I enter values into fields
+      | Value                          | Field                 |
+      | Automation Key Accomplishments | KeyAccomplishments__c |
+      | Automation Obstacles           | Obstacles__c          |
+      | Automation Plans               | Plans__c              |
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Key Accomplishments" as "Automation Key Accomplishments" in "Performance Narrative" pageblock
+    Then I softly see field "Obstacles" as "Automation Obstacles" in "Performance Narrative" pageblock
+    Then I softly see field "Plans" as "Automation Plans" in "Performance Narrative" pageblock
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see "Peer Reviewers" page block displayed
+    Then I softly see "Approvers" page block displayed
+    Then I softly see "Owner" page block displayed
+    When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
+      | Name       | Progress Report |
+      | Victor EXE | Step 1          |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see "Forms" page block displayed
+    Then I softly see "Progress Report Files" page block displayed
+    Then I softly see "Notes" page block displayed
+    Then I softly see "Form Name" in flex table header "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly see "Mandatory" in flex table header "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly see "Percentage" in flex table header "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly see "Last Modified By" in flex table header "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly see "Last Modified Date" in flex table header "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly see "cross" symbol against the value "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    And I save the value from row "1" for column name "Last Modified By" as "LastModifiedBy" from flex table "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
+    And I click on back arrow
+    Then I softly can see row level action button "View" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Splitview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Preview" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Edit" against "Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    When I click on "Edit" icon for "Performance Progress Reports" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    And I switch to tab number "1"
+    Then I softly see new tab is opened
+    And I enter "Grantee_PSR_form" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I click on "Edit" in the page details
+    And I enter value "Automation for Execution" into field "Form1Narrative__c"
+    And I click on "Cancel" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Key Accomplishments:" as "Automation Key Accomplishment" in "Key Accomplishments" pageblock
+    Then I softly can see top right button "Edit" in page detail
+    And I close the tab
+    When I navigate to "History" sub tab
+    Then I softly see "Approval History" page block displayed
+    Then I softly see "Snapshot History" page block displayed
+    And I navigate to "Messages" sub tab
+    Then I softly see "Messages" page block displayed
+    Then I softly see "Actions" in flex table header "CommunicationHistory"
+    Then I softly see "Subject" in flex table header "CommunicationHistory"
+    Then I softly see "From Address" in flex table header "CommunicationHistory"
+    Then I softly see "To Address" in flex table header "CommunicationHistory"
+    Then I softly see "CC Address" in flex table header "CommunicationHistory"
+    Then I softly see "Attention To" in flex table header "CommunicationHistory"
+    Then I softly see "Email Subject" in flex table header "CommunicationHistory"
+    Then I softly see "Preview" in flex table header "CommunicationHistory"
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | The Report has been validated successfully. |
+    And I click on "Submit for Approval" in the page details
+    And I wait for "1" seconds
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    And I wait for "3" seconds
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
+    And I click modal button "Save and Continue"

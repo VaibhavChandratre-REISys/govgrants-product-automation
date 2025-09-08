@@ -24761,7 +24761,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    And I "Created" of type "Key Personnel Change" amendment request for title "{SavedValue:Automation Runtime Opportunity}" with properties "KEY_PERSONNEL_CHANGE-Victor EXE user"
+    And I "Created" of type "Key Personnel Change" amendment request for title "{SavedValue:Automation Runtime Opportunity}" with properties "default-Victor EXE user"
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
