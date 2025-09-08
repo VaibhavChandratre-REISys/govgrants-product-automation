@@ -10397,7 +10397,7 @@ Feature: Grantee Forms Scenario
   Scenario: Project Narrative Attachment form -Verify  user should able to submit the application if project narrative attachment form is optional & form is not filled
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -10637,6 +10637,7 @@ Feature: Grantee Forms Scenario
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
     And I click on "Edit" in the page details
+    And I wait for "3" seconds
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
