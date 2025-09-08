@@ -2093,7 +2093,7 @@ Feature: Validate all scenarios for Opportunity
     And I enter value "Test" into field "AnnouncementDescription__c"
     And I enter value "-30" into field "EstimatedProjectPeriodStartDate__c"
     And I enter value "150" into field "AnticipatedAwardDate__c"
-    And I enter value "{SavedValue:EstimatedProjectPeriodEndDate}" into field "LetterOfIntentDueDate__c"
+    And I enter value "365" into field "LetterOfIntentDueDate__c"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
       | Estimated Project Period Start Date should be after Application Due Date             |
