@@ -2066,7 +2066,7 @@ Feature: Validate all scenarios for Opportunity
     When I save the field labeled "Application Due Date" as "ApplicationDueDate"
     When I save the field labeled "Estimated Project Period End Date" as "EstimatedProjectPeriodEndDate"
     And I click on "Edit" in the page details
-    And I enter value "{SavedValue:ApplicationDueDate}" into field "PreApplicationDueDate__c"
+    And I enter value "150" into field "PreApplicationDueDate__c"
     And I navigate to "Evaluation" sub tab
     And I enter value "Yes" into field "MaintenanceEffortRequire__c"
     And I enter value "Automation Test" into field "StatutoryMaintenanceOfEffort__c"
@@ -2093,7 +2093,7 @@ Feature: Validate all scenarios for Opportunity
     And I enter value "Test" into field "AnnouncementDescription__c"
     And I enter value "-30" into field "EstimatedProjectPeriodStartDate__c"
     And I enter value "150" into field "AnticipatedAwardDate__c"
-    And I enter value "365" into field "LetterOfIntentDueDate__c"
+    And I enter value "160" into field "LetterOfIntentDueDate__c"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
       | Estimated Project Period Start Date should be after Application Due Date             |
