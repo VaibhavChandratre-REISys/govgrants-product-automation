@@ -625,22 +625,37 @@ Feature: Validate all scenarios for Financial Report
 
     @485479 @validateadminusershouldabletocreateadhocFinancialReport&abletosubmitFinancialReporttoGrantor
     Scenario: Validate Admin user should able to create Adhoc Financial Report & able to submit Financial Report to Grantor
-    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
-    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
-    Given I login to "As a Grantee" app as "GRANTEE PO" user
-    And I navigate to "Opportunities" tab
-    When I navigate to "Qualified" content inside "Leads" subheader on left panel
-    And I click toggle button to select "Qualified Leads - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
-    When I click on "Convert to Opportunity" in the page details
-    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
-    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
-    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default-Grantee PO user"
-    And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
-    And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
-    And I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
+      Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+      And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
+      Given I login to "As a Grantee" app as "GRANTEE PO" user
+      And I navigate to "Opportunities" tab
+      When I navigate to "Qualified" content inside "Leads" subheader on left panel
+      And I click toggle button to select "Qualified Leads - All"
+      When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+      And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+      When I click on "Convert to Opportunity" in the page details
+      And I wait for "3" seconds
+      And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+      And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+      And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
+      And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default-Grantee PO user"
+      And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+      And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
+      And I navigate to "Grants" tab
+      When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+      And I click toggle button to select "Grants - All"
+      When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
+      And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+      And I save the field labeled "EGMS ID" as "GrantEGMSID"
+      And I save the field labeled "Grant Number" as "GrantNumber"
+      When I navigate to "Awards" sub tab
+      And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+      And I navigate to "Overview" sub tab
+      And I save the field labeled "Budget Period" as "BudgetPeriod"
+      And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+      And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
+      And I save the field labeled "EGMS ID" as "AwardEGMSID"
+      And I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
