@@ -24796,7 +24796,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I see the header is "Amendment Request" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime Award}" in the page details
     Then I softly see "Collapse" button for header
-    Then I softly see field "EGMS ID" as "{SavedValue:KPCEGMSID}"
+    Then I softly see field "EGMS ID" as "KPCEGMSID"
     Then I softly see field "Status" as "Created"
     Then I softly see field "Initiated By" as "Grantee"
     Then I softly see field "Amendment Type" as "Key Personnel Change"
@@ -24901,8 +24901,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
       And I wait for "100" seconds
       And I navigate to "Grants" tab
       When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
-      When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
-      Then I softly see that "{SavedValue:KPCEGMSID}" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
+      When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+      Then I softly see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
       When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
       And I navigate to "Grants" tab
       When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -24920,8 +24920,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
       Then I softly see field "Status" as "Submitted for Approval"
       And I navigate to "Grants" tab
       When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
-      When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
-      Then I softly see that "{SavedValue:KPCEGMSID}" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
+      When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+      Then I softly see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
       When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
       And I navigate to "Grants" tab
       When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
