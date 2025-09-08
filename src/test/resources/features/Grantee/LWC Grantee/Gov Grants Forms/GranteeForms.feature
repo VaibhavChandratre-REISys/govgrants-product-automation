@@ -10656,6 +10656,7 @@ Feature: Grantee Forms Scenario
     When I click on "View" icon for "Project Abstract Summary" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I click on "Edit" in the page details
+    And I wait for "2" seconds
     And I enter "Project_Abstract_Summary" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
