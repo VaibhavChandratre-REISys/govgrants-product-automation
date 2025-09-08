@@ -24760,7 +24760,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    And I "Created" of type "Key Personnel Change" amendment request for title "{SavedValue:Automation Runtime Opportunity}" with properties "default-Victor EXE user"
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -24783,40 +24782,13 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
     And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
     When I navigate to "Amendments" sub tab
-    And I save the value from row "1" for column name "EGMS ID" as "KPCEGMSID" from flex table "---grantee_tableId:-:AmendmentRequestTableId---"
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - My Records"
-    When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "{SavedValue:KPCEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Edit" against "{SavedValue:KPCEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Delete" against "{SavedValue:KPCEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see "Award EGMS ID" in flex table header "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see "Amendment Type" in flex table header "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see "Initiated By" in flex table header "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see "Status" in flex table header "---grantee_tableId:-:AmendmentTableId---"
-    And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "{SavedValue:KPCEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Edit" against "{SavedValue:KPCEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Delete" against "{SavedValue:KPCEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    And I click toggle button to select "Amendment Requests - Draft"
-    When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "{SavedValue:KPCEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Edit" against "{SavedValue:KPCEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Delete" against "{SavedValue:KPCEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    And I click toggle button to select "Amendment Requests - Accepted"
-    When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly do not see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    And I click toggle button to select "Amendment Requests - Rejected"
-    When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly do not see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    And I click on "View" icon for "{SavedValue:KPCEGMSID}" inside table
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I enter "Grantee_KPC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
     Then I see the header is "Amendment Request" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime Opportunity}" in the page details
     Then I softly see "Collapse" button for header
