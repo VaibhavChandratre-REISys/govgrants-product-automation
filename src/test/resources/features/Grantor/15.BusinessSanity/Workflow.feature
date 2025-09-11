@@ -1775,3 +1775,16 @@ Feature: Validate all scenarios of every modules flow
       | IND          |
       | SPI4         |
       | SME          |
+
+    @snapShottest @debug
+    Scenario: snapshot execution
+    When I am on "INTERNAL" portal
+    And I login to "As a Grantor" app as "PM" user
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000tlmwYAA/view"
+    And I halt execution
+    And I click on hyperlink containing value "Internal Program - submit for approval.pdf"
+    And I click on "Download" button for snapshot view
+    And I wait for "3" seconds
+    When I download the file
+    And I wait for "3" seconds
+    Then I softly see "PG-TAO modified-3945" on page "1" of "govgrants" pdf file
