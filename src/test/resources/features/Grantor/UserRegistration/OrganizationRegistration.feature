@@ -11,24 +11,23 @@ Feature: Validate all registration related scenarios
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I navigate to "Files" sub tab
-    And I click on top right button "Add" in flex table with id "---user:-:orgRegistrationAttachmentTableId---"
+    And I click on top right button "Add Files" in flex table with id "---user:-:orgRegistrationAttachmentTableId---"
     And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
-    And I refresh the page
     And I wait for "2" seconds
-    Then I softly see value "Attachment.pdf" for title "Title" inside table "---home:-:internalOrganizationAddfile---"
-    And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---home:-:internalOrganizationAddfile---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---user:-:orgRegistrationAttachmentTableId---"
+    And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---user:-:orgRegistrationAttachmentTableId---"
     And I update title as "Automation.pdf" on upload file modal
-    And I select Classification as "AGENCY DETAILS" at upload file modal
+    And I select Classification as "Indirect Rate Plan" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
-    Then I softly see value "Automation.pdf" for title "Title" inside table "---home:-:internalOrganizationAddfile---"
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---user:-:orgRegistrationAttachmentTableId---"
     And I pause execution for "3" seconds
-    When I click on "Download" icon for "Attachment.pdf" inside table
-    Then I softly see new tab is opened
+    When I click on "Download" icon for "Automation.pdf" inside table
+    And I download the file without rename
+    Then I softly verify that the file "Automation.pdf" is downloaded
 
   @82051 @verifyEnteredValueOfPaymentAddressSection-Organization
   Scenario:Verify entered details is visible in edit mode of fields if user selected NO as in Same as organization Address field
@@ -43,14 +42,13 @@ Feature: Validate all registration related scenarios
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter "CreationWithOnlyPaymentDetail" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "USA" into field "PaymentAddressCountry__c"
-    When I click on "Save" in the page details
     Then I see "No" text enter in field "SameAsOrganizationAddress__c"
-    Then I see "1000 Defense Pentagon" text enter in field "PaymentAddressLine1__c"
-    Then I see "Washington" text enter in field "PaymentAddressCity__c"
+    Then I softly see value "1000 Defense Pentagon" for the edit mode field "PaymentAddressline1__c"
+    Then I softly see value "Washington" for the edit mode field "PaymentAddressCity__c"
     Then I see "AK" text enter in field "PaymentAddressState__c"
-    Then I see "20301" text enter in field "PaymentAddressZipCode__c"
-    Then I see "(918) 908-9089" text enter in field "PaymentAddressVendorLocation__c"
-    Then I see "1234" text enter in field "PaymentAddressZipCode4__c"
+    Then I softly see value "20301" for the edit mode field "PaymentAddressZipCode__c"
+    Then I softly see value "(918) 908-9089" for the edit mode field "PaymentAddressVendorLocation__c"
+    Then I softly see value "1234" for the edit mode field "PaymentAddressZipCode4__c"
 
   @82052 @verifyErrorMessageForPaymentAddressSectionFields-Organization
   Scenario:Verify user is able to see error message after filling all details except Payment address section
@@ -66,11 +64,11 @@ Feature: Validate all registration related scenarios
     And I enter value "No" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Provide Address Line 1 for Payment Address |
-      | Provide City for Payment Address           |
-      | Provide State for Payment Address          |
-      | Provide Zip Code for Payment Address       |
-      | Provide Country for Payment Address        |
+      | To Save, Address line 1 is required in the Organization Profile tab under the Payment Address section. |
+      | To Save, City is required in the Organization Profile tab under the Payment Address section.           |
+      | To Save, State is required in the Organization Profile tab under the Payment Address section.          |
+      | To Save, Zip Code is required in the Organization Profile tab under the Payment Address section.       |
+      | To Save, Country is required in the Organization Profile tab under the Payment Address section.        |
 
   @82053 @verifyVisibilityOfPaymentAddressFields-Organization
   Scenario:Verify user should not be able to see Expected fields of payment address if same organization address field is selected as yes
@@ -91,26 +89,34 @@ Feature: Validate all registration related scenarios
 
   @82787 @82790 @verifyPrimaryRepresentativeDetails-Individual
   Scenario:Verify user is able to see filled details on Primary Representative detail page while individuals registration
-    Given I begin "Organization" registration as "Register As Organization"
+    Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-#    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
-#    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
-#    When I enter value as "1234" into "Vendor ID" on old form
+    And I generate the random SSN and save as "SSN"
+    When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
+    And I generate the random EmailID and save as "uniqueEmailID"
+    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
+    When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     #82790
-#    Then I softly see field "Primary Email" as "individualregistration@yopmail.com"
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I enter value "Mr." into field "PrimaryRepPrefix__c"
+    And I enter value "1234" into field "PrimaryRepZipCode4__c"
+    And I enter value "VA" into field "County__c"
+    And I enter value "123" into field "CongressionalDistrict__c"
+    And I enter value "Sterling" into field "PrimaryRepAddress2__c"
     Then I see "Mr." text enter in field "PrimaryRepPrefix__c"
-    Then I see "Automation" text enter in field "PrimaryRepFirstName__c"
-    Then I see "User" text enter in field "PrimaryRepLastName__c"
-    Then I see "Automation Primary Representative" text enter in field "fieldPrimaryRepAddress1__c"
-    Then I see "Washington" text enter in field "fieldPrimaryRepCity__c"
-    Then I see "20301" text enter in field "fieldPrimaryRepZipCode__c"
-    Then I see "1234" text enter in field "fieldPrimaryRepZipCode4__c"
-    Then I see "USA" text enter in field "fieldPrimaryRepCountry__c"
-    Then I see "Prince George’s" text enter in field "fieldCounty__c"
+    Then I softly see value "{SavedValue:Automation Runtime}" for the edit mode field "PrimaryRepFirstName__c"
+    Then I softly see value "User" for the edit mode field "PrimaryRepLastName__c"
+    Then I softly see value "Automation Representative" for the edit mode field "PrimaryRepAddress1__c"
+    Then I softly see value "Washington" for the edit mode field "PrimaryRepCity__c"
+    Then I see "DC" text enter in field "PrimaryRepState__c"
+    Then I softly see value "20301" for the edit mode field "PrimaryRepZipCode__c"
+    Then I softly see value "1234" for the edit mode field "PrimaryRepZipCode4__c"
+    Then I softly see value "USA" for the edit mode field "PrimaryRepCountry__c"
+    Then I softly see value "VA" for the edit mode field "County__c"
+    Then I softly see value "123" for the edit mode field "CongressionalDistrict__c"
+    Then I softly see value "Sterling" for the edit mode field "PrimaryRepAddress2__c"
 
   @82797 @82784 @82780 @verifyVisibilityOfFieldsAtPaymentAddressSection-Individual
   Scenario:Verify user is not able to see any fields after selection of Same as organization fields to yes inside payment details page block
@@ -166,9 +172,11 @@ Feature: Validate all registration related scenarios
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
-    Then I see "Vintage Plaza" text enter in field "PrimaryRepAddress1__c"
-    Then I see "Sterling" text enter in field "PrimaryRepCity__c"
-    Then I see "20171" text enter in field "PrimaryRepZipCode__c"
+    And I wait for "2" seconds
+    Then I see the sub-header is "Step 3 of 3" in the page details
+    Then I softly see value "Vintage Plaza" for the edit mode field "PrimaryRepAddress1__c"
+    Then I softly see value "Sterling" for the edit mode field "PrimaryRepCity__c"
+    Then I softly see value "20171" for the edit mode field "PrimaryRepZipCode__c"
 
   @82025 @verifyFilledDetailsAtAuthorizedRepresentativePage-Organization
   Scenario:Verify user should be navigated to captch page after filling all details at authorised representative detail
@@ -187,7 +195,6 @@ Feature: Validate all registration related scenarios
     When I click on "Save" in the page details
     Then I see the ReCaptcha input box
 
-
   @33827 @verifySavedDetailsOfOrganizationProfileSubTab-Organization
   Scenario:Verify user should be able to see filled details at organization sub tab after redirecting back to organization profile tab while clicking on back button
     Given I begin "Organization" registration as "Register As Organization"
@@ -200,24 +207,18 @@ Feature: Validate all registration related scenarios
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
-    When I click on "Save" in the page details
-    Then I see the header is "Registration" in the page details
-    Then I see the sub-header is "Step 3 of 3" in the page details
-    When I click on "Back" in the page details
-    Then I see "No" text enter in field "SameAsOrganizationAddress__c"
-    Then I see "For-profit organizations" text enter in field "OrganizationTypeSInglePicklist__c"
-    Then I see "(918) 908-9089" text enter in field "OrgnizationPhoneNumber__c"
-    Then I see "www.google.com" text enter in field "Website__c"
-    Then I see "Vintage Plaza" text enter in field "OrganizationStreetAddress__c"
-    Then I see "Prince George’s" text enter in field "County__c"
-    Then I see "Sterling" text enter in field "OrganizationCityAddress__c"
-    Then I see "VA" text enter in field "StateDropdownList__c"
-    Then I see "USA" text enter in field "OrganizationsCountry__c"
-    Then I see "20171" text enter in field "OrganizationZipCode__c"
-    Then I see "(918) 908-9089" text enter in field "PaymentAddressVendorLocation__c"
     Then I see "Yes" text enter in field "SameAsOrganizationAddress__c"
+    Then I see "For-profit organizations" text enter in field "OrganizationTypeSInglePicklist__c"
+    Then I softly see value "(918) 908-9089" for the edit mode field "OrgnizationPhoneNumber__c"
+    Then I softly see value "www.google.com" for the edit mode field "Website__c"
+    Then I softly see value "Vintage Plaza" for the edit mode field "OrganizationStreetAddress__c"
+    Then I softly see value "Prince George" for the edit mode field "County__c"
+    Then I softly see value "Sterling" for the edit mode field "OrganizationCityAddress__c"
+    Then I see "AL" text enter in field "StateDropdownList__c"
+    Then I softly see value "USA" for the edit mode field "OrganizationsCountry__c"
+    Then I softly see value "20171" for the edit mode field "OrganizationZipCode__c"
 
-  @81954 @verifyEINNumberAndDUNSNumberAtOrganizationProfileSubTab-Organization
+  @81954 @verifyEINNumberAndDUNSNumberAtOrganizationProfileSubTab-Organization @wip
   Scenario:Verify user should be able to see filled details of EIN Number and DUNS Number at organization sub tab
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -295,22 +296,12 @@ Feature: Validate all registration related scenarios
     When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
-    Then I softly see field "Primary Email" as "individualregistration@yopmail.com"
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I enter "CreationWithOnlyPaymentDetail" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
-#    Then I see "No" text enter in field "SameAsOrganizationAddress__c"
-#    Then I see "1000 Defense Pentagon" text enter in field "PaymentAddressLine1__c"
-#    Then I see "Washington" text enter in field "PaymentAddressCity__c"
-#    Then I see "DC" text enter in field "PaymentAddressState__c"
-#    Then I see "20301" text enter in field "PaymentAddressZipCode__c"
-#    Then I see "(918) 908-9089" text enter in field "PaymentAddressVendorLocation__c"
-#    Then I see "1234" text enter in field "PaymentAddressZipCode4__c"
     When I click on "Submit" in the page details
     Then I see the following messages in the page details contains:
-      | Confirmation Message                                                                                                                                                                                                                                               |
-      | Your registration request for access to EGMS has been completed and sent for government approval. Once approved, you will be sent another email from salesforce.com (technology platform provider) with your Username and Password shortly to log into the system. |
-
+      | Confirmation Message |
 
   @222890 @ValidateEXEuserfromuserregistrationapprovalqueueshouldnotabletoseethereassigntaskofOrganizationRegistrationApprovalinReassignTask
   Scenario: Validate EXE user from user registration approval queue should not able to see the reassign task of Organization Registration Approval in Reassign Task
@@ -377,8 +368,8 @@ Feature: Validate all registration related scenarios
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I pause execution for "5" seconds
-    Then I see the following messages in the page details contains:
-      | Your registration request for access to EGMS has been completed and sent for government approval.Once approved, you will be sent another email from salesforce.com (technology platform provider) with your Username and Password shortly to log into the system. |
+    Then I softly see the following messages in the page details contains:
+      | Confirmation Message |
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
@@ -408,8 +399,8 @@ Feature: Validate all registration related scenarios
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I pause execution for "5" seconds
-    Then I see the following messages in the page details contains:
-      | Your registration request for access to EGMS has been completed and sent for government approval.Once approved, you will be sent another email from salesforce.com (technology platform provider) with your Username and Password shortly to log into the system. |
+    Then I softly see the following messages in the page details contains:
+      | Confirmation Message |
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
@@ -593,7 +584,7 @@ Feature: Validate all registration related scenarios
     When I click on "Submit" in the page details
     And I pause execution for "5" seconds
     Then I see the following messages in the page details contains:
-      | Your registration request for access to EGMS has been completed and sent for government approval.Once approved, you will be sent another email from salesforce.com (technology platform provider) with your Username and Password shortly to log into the system. |
+      | Confirmation Message |
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "SARAH PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel

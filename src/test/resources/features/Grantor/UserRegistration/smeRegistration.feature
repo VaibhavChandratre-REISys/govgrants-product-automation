@@ -61,6 +61,7 @@ Feature: Validate all scenarios for SME Registration
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "{grantor_sidebar:PendingTaskLink}" content inside "{grantor_sidebar:MyTasksLinkName}" subheader on left panel
+    And I wait for "2" seconds
     Then I softly see "Pending Tasks (Assigned To Me)" page block displayed
     Then I softly see "Pending Tasks (Assigned By Me)" page block displayed
     And I perform quick search for "In Progress" in "---grantor_tableId:-:PendingTaskAssignedToMeTableId---" panel

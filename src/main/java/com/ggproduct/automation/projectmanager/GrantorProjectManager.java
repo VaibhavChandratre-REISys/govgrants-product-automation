@@ -831,7 +831,7 @@ public class GrantorProjectManager extends ProjectManager {
     }
 
     public void isButtonClickOnLeftNavigation(String buttonName) {
-        By buttonLabel = By.xpath("//div[contains(@class,'navContainer')]//button[text()='" + buttonName + "'] | //div[contains(@class,'navContainer')]//button[contains(@title,'" + buttonName + "')]");
+        By buttonLabel = By.xpath("//div[contains(@class,'navContainer')]//button[text()='" + buttonName + "'] | //div[contains(@class,'navContainer')]//button[contains(@title,'" + buttonName + "')] | //div[contains(@class,'navContainer')]//a//span[contains(text(),'" + buttonName + "')]");
         I.amPerforming().waitFor().ElementToBeClickable(buttonLabel);
         I.amPerforming().click().on(buttonLabel);
     }

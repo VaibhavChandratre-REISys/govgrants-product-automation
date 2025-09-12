@@ -2098,21 +2098,19 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertMailSubjectTexMatches(String mailportal, String subjectText) {
         if (mailportal.equals("maildrop")) {
-            By actualmMailSubjectLine = By.xpath("//div[@class='messagelist-container']/div[1]/a");
+            By actualmMailSubjectLine = By.xpath("//div[contains(@class,'message')]//div[text()='" + subjectText + "']");
             try {
                 for (int i = 0; i < 60; i++) {
-                    I.amPerforming().click().on(By.xpath("//button/span[text()='Reload']"));
+                    I.amPerforming().click().on(By.xpath("//button/span[text()='Refresh']"));
                     if (I.amPerforming().checkToSee().IsElementPresentQuick(actualmMailSubjectLine)) {
                         I.amPerforming().click().on(actualmMailSubjectLine);
                         I.amPerforming().waitFor().makeThreadSleep(5000);
-                        I.amPerforming().assertionsTo().assertThat(I.amPerforming().actionToGet().text(By.xpath("//div[1]/a//div[@class='messagelist-subject']//span")))
+                        I.amPerforming().assertionsTo().assertThat(I.amPerforming().actionToGet().text(By.xpath("//div[contains(@class,'ml-16')]//div[contains(@class,'lg')]//div[3]")))
                                 .isEqualToIgnoringWhitespace(subjectText);
-                        I.amPerforming().waitFor().makeThreadSleep(2000);
-                        I.amPerforming().click().on(ByUsing.xpath("//button//span[contains(text(),'Close')]"));
                         break;
                     }
                     I.amPerforming().waitFor().makeThreadSleep(4000);
-                    I.amPerforming().click().on(By.xpath("//button/span[text()='Reload']"));
+                    I.amPerforming().click().on(By.xpath("//button/span[text()='Refresh']"));
                 }
             } catch (Exception e) {
                 //unhandled exception
@@ -4282,6 +4280,30 @@ public final class GovGrantsAssertionObjects {
         boolean flag = false;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(By.xpath(" //label[text()='" + labelName + "']//parent::div//input[@maxlength='" + length + "']"))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
+    }
+
+    public void assertalueForTheEditModeField(String usage, String fieldName, String fieldAPIName) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isValueForTheEditModeField(fieldName, fieldAPIName));
+        } else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isValueForTheEditModeField(fieldName, fieldAPIName)).isTrue();
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isValueForTheEditModeField(fieldName, fieldAPIName));
+        } else {
+            I.amPerforming().assertionsTo().assertThat(isValueForTheEditModeField(fieldName, fieldAPIName)).isFalse();
+        }
+    }
+
+    private Boolean isValueForTheEditModeField(String fieldName, String fieldAPIName) {
+        boolean flag = false;
+        try {
+            String value = I.amPerforming().actionToGet().attribute(By.xpath("//div[@data-field_api_name='" + fieldAPIName + "']//input[@type='text'] | //div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldAPIName + "']//input[@type='text']"),"value");
+            if (value.equalsIgnoreCase(fieldName)) {
                 flag = true;
             }
         } catch (Exception e) {

@@ -520,13 +520,13 @@ Feature: Validate all scenarios for the global search
     Then I softly see dropdown option "Organizations" under the "Suggested For You" section
     Then I softly see dropdown option "Payment Requests" under the "Suggested For You" section
     Then I softly see dropdown option "Programs" under the "Suggested For You" section
-    Then I softly see dropdown option "Progress Report" under the "Suggested For You" section
+    Then I softly see dropdown option "Monitoring Reports" under the "Suggested For You" section
     Then I softly see dropdown option "Reports" under the "Suggested For You" section
     Then I softly see dropdown option "Reviews" under the "Suggested For You" section
     Then I softly see dropdown option "Risk Assessment" under the "Suggested For You" section
     Then I softly see dropdown option "Site Visits" under the "Suggested For You" section
     Then I softly see dropdown option "Strategic Plans" under the "Suggested For You" section
-    Then I softly see dropdown option "Subawards" under the "Suggested For You" section
+    Then I softly see dropdown option "Awards" under the "Suggested For You" section
     Then I softly see dropdown option "Tasks" under the "Suggested For You" section
 
   @388883 @388920 @ValidatethatEXEuserisabletoseetheglobalsearchbarforanInternalProgram @sprint-2-US-386939  @GlobalSearch
@@ -959,13 +959,13 @@ Feature: Validate all scenarios for the global search
     Then I softly see dropdown option "Organizations" under the "Suggested For You" section
     Then I softly see dropdown option "Payment Requests" under the "Suggested For You" section
     Then I softly see dropdown option "Programs" under the "Suggested For You" section
-    Then I softly see dropdown option "Progress Report" under the "Suggested For You" section
+    Then I softly see dropdown option "Monitoring Reports" under the "Suggested For You" section
     Then I softly see dropdown option "Reports" under the "Suggested For You" section
     Then I softly see dropdown option "Reviews" under the "Suggested For You" section
     Then I softly see dropdown option "Risk Assessment" under the "Suggested For You" section
     Then I softly see dropdown option "Site Visits" under the "Suggested For You" section
     Then I softly see dropdown option "Strategic Plans" under the "Suggested For You" section
-    Then I softly see dropdown option "Subawards" under the "Suggested For You" section
+    Then I softly see dropdown option "Awards" under the "Suggested For You" section
     Then I softly see dropdown option "Tasks" under the "Suggested For You" section
 
   @388990 @388995 @ValidatehatEXEuserisabletoseetheglobalsearchbarforanAward @sprint-2-US-386939  @GlobalSearch
@@ -1145,20 +1145,20 @@ Feature: Validate all scenarios for the global search
 
   @387857 @ValidatethatadminuserwillseeallthelistofobjectsinthesearchresultwhicharementioninthelistReferDescriptionforglobalsearch @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that admin user will see all the list of objects in the 'search result' which are mention in the list (Refer Description) for global search
-    When I login to "Grantor" app as "ADMIN" user
+    When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
     And I perform quick search inside global search "Announcement"
     And I click on "Show more" button on left navigation for global search
-    Then I softly see the text "Config: Batch Jobs" on left navigation for global search
+    Then I softly do not see the text "Config: Batch Jobs" on left navigation for global search
     Then I softly see the text "Contact Point Addresses" on left navigation for global search
     Then I softly see the text "Contact Point Emails" on left navigation for global search
     Then I softly see the text "Contact Point Phones" on left navigation for global search
     Then I softly see the text "Contact Point Phones" on left navigation for global search
     Then I softly see the text "Case Comments" on left navigation for global search
     Then I softly see the text "Task Config" on left navigation for global search
-    Then I softly see the text "Step Progressbar Header Config" on left navigation for global search
-    Then I softly see the text "SObject Config" on left navigation for global search
-    Then I softly see the text "Page Layouts Config" on left navigation for global search
+    Then I softly do not see the text "Step Progressbar Header Config" on left navigation for global search
+    Then I softly do not see the text "SObject Config" on left navigation for global search
+    Then I softly do not see the text "Page Layouts Config" on left navigation for global search
 
   @388946 @ValidatePMuserisabletoseethetableforextraobjectswhicharepresentinthesearchresultforPlanningmodule @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate PM user is able to see the table for extra objects which are present in the search result for Planning module
@@ -4231,16 +4231,15 @@ Feature: Validate all scenarios for the global search
     Then I softly see dropdown option "Payment Requests" under the "Suggested For You" section
     Then I softly see dropdown option "Pre-Applications" under the "Suggested For You" section
     Then I softly see dropdown option "Programs" under the "Suggested For You" section
-    Then I softly see dropdown option "Progress Report" under the "Suggested For You" section
+    Then I softly see dropdown option "Monitoring Reports" under the "Suggested For You" section
     Then I softly see dropdown option "Reports" under the "Suggested For You" section
     Then I softly see dropdown option "Reviews" under the "Suggested For You" section
     Then I softly see dropdown option "Risk Assessment" under the "Suggested For You" section
     Then I softly see dropdown option "Site Visits" under the "Suggested For You" section
     Then I softly see dropdown option "Strategic Plans" under the "Suggested For You" section
-    Then I softly see dropdown option "Subawards" under the "Suggested For You" section
+    Then I softly see dropdown option "Awards" under the "Suggested For You" section
     Then I softly see dropdown option "Terms and Conditions" under the "Suggested For You" section
     Then I softly see dropdown option "Tasks" under the "Suggested For You" section
-
 
   @389048 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that PO user is able to see the table for extra objects which are present in the search result for subaward module
@@ -4276,6 +4275,7 @@ Feature: Validate all scenarios for the global search
     And I select "Subawards" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
     And I wait for "2" seconds
+    And I click on "Awards" button on left navigation for global search
     #389043
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Announcement EGMS ID" inside refine by filter
@@ -4300,6 +4300,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Grants" tab
     And I select "Subawards" from dropdown for Global search
     And I perform quick search inside global search "awards"
+    And I click on "Awards" button on left navigation for global search
     Then I softly see options "Relevance" inside "Relevance" dropdown
     Then I softly see options "EGMS ID" inside "Relevance" dropdown
     Then I softly see options "Announcement EGMS ID" inside "Relevance" dropdown
@@ -4510,7 +4511,7 @@ Feature: Validate all scenarios for the global search
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-And I wait for "2" seconds
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -4549,7 +4550,7 @@ And I wait for "2" seconds
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-And I wait for "2" seconds
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds

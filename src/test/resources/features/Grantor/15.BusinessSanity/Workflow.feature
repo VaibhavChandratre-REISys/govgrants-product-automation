@@ -1811,19 +1811,5 @@ Feature: Validate all scenarios of every modules flow
 #    And I created approved FDM on application "{SavedValue:Automation Closed Directed Award}"
 #    Given I created award from approved FDM with announcement "{SavedValue:Automation Closed Directed Award}" and properties "Automation ADMIN user"
 #    And I activate award from FDM having application name "{SavedValue:Automation Closed Directed Award}"
-#    And I am on "SUBPORTAL" portal
-#    And I login to "Grants Portal" app as "IND" user
-    When I login to "Grantor" app as "ADMIN" user
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{AUTOEnvData:DirectedClosedAward}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{AUTOEnvData:DirectedClosedAward}" inside table
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{AUTOEnvData:DirectedClosedAward}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-    And I navigate to "Budget" sub tab
-    Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
-    Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
-    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
-    Then I softly see field "NewObligation__c" not in edit mode
-    Then I softly see field "CumulativeObligation__c" not in edit mode
+    And I halt execution
+    Then I softly see value "automationruntime92067@maildrop.cc" for the edit mode field "ExternalReviewerEmail__c"

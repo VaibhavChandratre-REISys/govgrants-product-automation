@@ -52,8 +52,6 @@ public class HomePage extends GrantorProjectManager {
         I.amPerforming().browserOperationsTo().navigateToUrl("http://www.maildrop.cc/");
         By mailboxInput = By.xpath("//div[@id='navbar']//input[@placeholder='view-this-mailbox']");
         By submitButton = By.xpath("//div[@id='navbar']//button[@type='submit']");
-        By refreshButton = By.xpath("//span[text()='Refresh']/parent::button[@type='button'] | //button[@id='refresh']");
-        By refreshMailboxButtonOld = By.xpath("//span[text()='Refresh Mailbox']/parent::button[@type='button']");
         By mailSubject = By.xpath("//div[contains(@class,'message')]//div[contains(text(),'" + subject + "')]");
         By iframe = By.xpath("//iframe");
         By hereLink = By.xpath("//body//tr//a[text()='here']");
@@ -62,30 +60,31 @@ public class HomePage extends GrantorProjectManager {
         I.amPerforming().textInput().in(mailboxInput, emailId);
         I.amPerforming().click().on(submitButton);
 
-        boolean isOldRefreshButtonVisible = I.amPerforming().checkToSee().isElementDisplayed(refreshMailboxButtonOld);
-
-        waitAndClickOnSubject(mailSubject, isOldRefreshButtonVisible ? refreshMailboxButtonOld : refreshButton);
-
-        I.amPerforming().click().on(mailSubject);
-        I.amPerforming().waitFor().makeThreadSleep(2000);
-
-        I.amPerforming().switchTo().frame(iframe);
-        I.amPerforming().waitFor().ElementToBeVisible(hereLink);
-        String link = I.amPerforming().actionToGet().attribute(By.xpath("//a[@href]"), "href");
-        System.out.println("This is the link: " + link);
-        I.amPerforming().browserOperationsTo().navigateToUrl(link);
-    }
-
-    private void waitAndClickOnSubject(By mailSubject, By refreshButton) {
-        for (int i = 0; i < 18; i++) {
-            try {
-                if (I.amPerforming().checkToSee().isElementDisplayed(mailSubject)) {
-                    I.amPerforming().click().on(mailSubject);
-                    break;
+        try {
+            I.amPerforming().click().on(mailSubject);
+            I.amPerforming().click().on(mailSubject);
+            I.amPerforming().switchTo().frame(iframe);
+            I.amPerforming().waitFor().ElementToBeVisible(hereLink);
+            String link = I.amPerforming().actionToGet().attribute(By.xpath("//a[@href]"), "href");
+            System.out.println("This is the link: " + link);
+            I.amPerforming().waitFor().makeThreadSleep(2000);
+            I.amPerforming().browserOperationsTo().navigateToUrl(link);
+        } catch (Exception e) {
+            for (int i = 0; i < 18; i++) {
+                I.amPerforming().click().on(By.xpath("//span[text()='Refresh']/parent::button[@type='button'] | //button[@id='refresh'] | //span[text()='Refresh Mailbox']/parent::button[@type='button']"));
+                try {
+                    if (I.amPerforming().checkToSee().isElementDisplayed(mailSubject)) {
+                        I.amPerforming().click().on(mailSubject);
+                        I.amPerforming().switchTo().frame(iframe);
+                        I.amPerforming().waitFor().ElementToBeVisible(hereLink);
+                        String link = I.amPerforming().actionToGet().attribute(By.xpath("//a[@href]"), "href");
+                        System.out.println("This is the link: " + link);
+                        I.amPerforming().browserOperationsTo().navigateToUrl(link);
+                        break;
+                    }
+                } catch (Exception j) {
+                    I.amPerforming().waitFor().makeThreadSleep(10000);
                 }
-            } catch (Exception e) {
-                I.amPerforming().waitFor().makeThreadSleep(10000);
-                I.amPerforming().click().on(refreshButton);
             }
         }
     }

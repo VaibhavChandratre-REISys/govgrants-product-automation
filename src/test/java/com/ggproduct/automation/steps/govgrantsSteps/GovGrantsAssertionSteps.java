@@ -3,6 +3,7 @@ package com.ggproduct.automation.steps.govgrantsSteps;
 import com.helperPackage.handlers.govgrants;
 import com.helperPackage.exception.TestingBlazeCustomException;
 import com.helperPackage.register.I;
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import jdk.jfr.Description;
@@ -911,5 +912,10 @@ public final class GovGrantsAssertionSteps {
     @Then("I (softly see|see|do not see|softly do not see) label \"([^\"]*)\" maximum length is \"([^\"]*)\" for input field$")
     public void iSoftlySeeLabelMaximumLengthIsForInputField(String usage, String labelName, String length) {
         ggAssertionObjects.assertLabelMaximumLengthIsForInputField(usage, labelName, length);
+    }
+
+    @Then("I (softly see|see|do not see|softly do not see) value \"([^\"]*)\" for the edit mode field \"([^\"]*)\"$")
+    public void iSoftlySeeValueForTheEditModeField(String usage, String fieldName, String fieldAPIName) {
+        ggAssertionObjects.assertalueForTheEditModeField(usage, fieldName, fieldAPIName);
     }
 }
