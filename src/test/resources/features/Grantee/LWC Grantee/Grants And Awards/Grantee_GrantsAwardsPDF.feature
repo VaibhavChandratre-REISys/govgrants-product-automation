@@ -435,11 +435,11 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
 #    Commented below steps duw to bug-472991 it's known issue FW team working on it
-    And I select "Download as PDF" from parallel lines dropdown of "Awards - All"
-    And I wait for "7" seconds
-    And I download the file
-    Then I softly see "Awards - All" on page "1" of "govgrants" pdf file
-    And I close the tab
+#    And I select "Download as PDF" from parallel lines dropdown of "Awards - All"
+#    And I wait for "7" seconds
+#    And I download the file
+#    Then I softly see "Awards - All" on page "1" of "govgrants" pdf file
+#    And I close the tab
     When I click on parallel lines menu bar with data target value "Awards - All"
     And I select "Refresh" from parallel lines dropdown of "Awards - All"
     Then I see table is refreshing
