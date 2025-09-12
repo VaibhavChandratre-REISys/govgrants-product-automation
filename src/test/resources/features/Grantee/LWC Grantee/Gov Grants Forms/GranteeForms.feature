@@ -10509,6 +10509,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
     And I click on "Submit For Approval" in the page details
+    And I wait for "2" seconds 
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
