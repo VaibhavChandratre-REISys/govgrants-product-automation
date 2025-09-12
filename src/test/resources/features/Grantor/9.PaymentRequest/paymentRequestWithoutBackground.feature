@@ -4423,6 +4423,10 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
+    And I wait for "120" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see field "Status" as "Submitted to Grantor"
     And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
