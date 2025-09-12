@@ -1014,6 +1014,8 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       | Passed | ReviewComments__c |
     When I click modal button "Save"
     And I click on submit review
+    And I wait for "3" seconds
+    Then I softly see value "Submitted" for title "Status" against the value "{SavedValue:PM Username}" inside table "---orgLevelDeskReview:-:orgDeskReviewPeerReviewTableId---"
     And I checkout to yopmail with mailid "automation.po1.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
