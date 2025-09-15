@@ -4397,7 +4397,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see "Snapshot History" page block displayed
     Then I softly see "No Records Found" inside snapshot history
 
-  @443809 @ValidateWithPMProfileaccessofGrantwhenisinClosedCompletedState
+  @443809 @ValidateWithPMProfileaccessofGrantwhenisinClosedCompletedState @GRegression5 @PM_Grantee @P3_Grantee
   Scenario: Validate With PM Profile access of Grant when is in Closed/Completed State
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -4540,10 +4540,10 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Amended"
     And I navigate to "Overview" sub tab
-    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:grantExternalProgramTableId---"
-    Then I softly see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:grantExternalProgramTableId---"
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:grantExternalProgramTableId---"
-    Then I softly can see row level action button "View" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:grantExternalProgramTableId---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
+    Then I softly see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:awardExternalProgranTableId---"
+    Then I softly cannot see row level action button "Edit" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
+    Then I softly can see row level action button "View" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I softly see value "Victor EXE" for title "Title" inside table "---grantee_tableId:-:awardContactTableId---"
     Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
