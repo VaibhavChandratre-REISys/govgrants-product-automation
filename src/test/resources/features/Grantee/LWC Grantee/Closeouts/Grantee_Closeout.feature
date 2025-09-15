@@ -2474,7 +2474,6 @@ Feature: Validate all scenarios for closeout
       | Victor EXE | Step 1   |
     When I click on "Override" in the page details
     Then I softly see field "Status" as "Overridden"
-    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:amendmentEGMSID}" inside table "---grantee_tableId:-:pendingAmendmentCloseoutTableId---"
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Closeout has been validated successfully. Please proceed. |

@@ -408,7 +408,7 @@ Feature: Validate all scenarios for Focus Areas
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @440278 @ValidatePOprofileabletoseeviewactiononlyfortheFocusareas
+  @440278 @ValidatePOprofileabletoseeviewactiononlyfortheFocusareas @PO_Grantee @GRegression5 @P3_Grantee
     Scenario: Validate PO profile able to see view action only for the Focus areas
     When I login to "As a Grantee" app as "GRANTEE PM" user
     When I navigate to "Planning" tab
