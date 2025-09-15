@@ -2439,7 +2439,7 @@ Feature: Validate all scenarios for closeout
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Closed"
 
-  @490298 @ValidateGPCloseoutwithPOProfileIfCloseoutisinsubmitedforapprovalstatethenOnclicksendtoownerrecordgoesincreatedstateandagainabletocompletethecloseout
+  @490298 @ValidateGPCloseoutwithPOProfileIfCloseoutisinsubmitedforapprovalstatethenOnclicksendtoownerrecordgoesincreatedstateandagainabletocompletethecloseout @GRegression5 @PO_Grantee @P3_Grantee
   Scenario: Validate GP Closeout with PO Profile If Closeout is in submited for approval state then On click send to owner record goes in created state and again able to complete the closeout
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
