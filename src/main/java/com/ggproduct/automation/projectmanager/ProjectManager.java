@@ -261,4 +261,9 @@ public class ProjectManager extends ProjectWebServices {
     public void clickOnuttonForSnapshotView(String buttonName) {
         I.amPerforming().click().on(By.xpath("//button[@title='" + buttonName + "']"));
     }
+
+    public void MouseOnTheFieldOfPageBlock(String fieldName, String pageBlockName) {
+//        I.amPerforming().scroll().onPageToSpecificElement(By.xpath("//div//span[contains(text(),'" + pageBlockName + "')] /../parent::div//div//label[contains(text(), '" + fieldName + "')]//..//div[@part='help-text']//button"));
+        I.amPerforming().scroll().withMouseToElement(By.xpath("//div//span[contains(text(),'" + pageBlockName + "')] /../parent::div//div//label[contains(text(), '" + fieldName + "')]//..//div[@part='help-text']//button"));
+    }
 }
