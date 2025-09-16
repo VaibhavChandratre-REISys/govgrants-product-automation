@@ -11429,7 +11429,7 @@ Feature: Grantee Forms Scenario
     And I hover mouse on the field "Date" of page block "Disclosure of Lobbying Activities"
     Then I softly see "Completed by Grants.gov upon submission." shown as help text
 
-  @480744 @ValidateEXEProfileabletoseeotherattachmentformasanonowner
+  @480744 @ValidateEXEProfileabletoseeotherattachmentformasanonowner @GRegression5 @EXE_Grantee @P3_Grantee
   Scenario: Validate EXE Profile able to see other attachment form as a non owner
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
