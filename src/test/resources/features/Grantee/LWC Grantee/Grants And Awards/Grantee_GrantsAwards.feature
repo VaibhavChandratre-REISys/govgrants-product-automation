@@ -4552,7 +4552,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I navigate to "Actuals" sub tab
     Then I softly can see row level action button "Show Financial Transactions" against "Construction" in flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
-    Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:awardProgramRevenueTableId---"
+    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:awardProgramRevenueTableId---"
     Then I softly can see row level action button "Show Financial Transactions" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
     And I navigate to "Management" sub tab
     Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
@@ -4570,10 +4570,10 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly cannot see row level action button "Edit" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     And I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Then I softly can see row level action button "View" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly cannot see row level action button "Edit" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly cannot see row level action button "Delete" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly can see row level action button "Download" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
