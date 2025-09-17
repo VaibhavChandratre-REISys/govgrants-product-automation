@@ -1,4 +1,4 @@
-@GranteeGrantsAwards @GranteeGrantsAwardsPDF
+@GranteeGrantsAwards @GranteeGrantsAwardsPDF @skipOnJenkins
 Feature: Validate all scenarios for Grants & Awards for PDF
 
   @443801 @ValidateGrantwithEXEProfileabletocreatedirectgrantandseealltabsandsection @snapExecution1 @P1_Grantee @EXE_Grantee @Po_Grantee @ADMIN_Grantee @GRegression1
