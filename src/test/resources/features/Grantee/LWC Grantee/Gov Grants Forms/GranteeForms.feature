@@ -10998,7 +10998,7 @@ Feature: Grantee Forms Scenario
       | If Applicant Delinquent on Federal Debt is Yes, provide Delinquent Debt Explanation.  |
       | 2 duplicate file title(s) found: AttachmentTesting.pdf. Please ensure all file titles are unique. |
 
-  @492580 @validatepmusercansuccessfullysubmittheApplicationforapprovalwithoutenteringdatainGrants.govlobbingform
+  @492580 @validatepmusercansuccessfullysubmittheApplicationforapprovalwithoutenteringdatainGrants.govlobbingform @P2_Grantee @PM_Grantee @Gregression2
   Scenario: Grants.gov lobbing form (Optional)- Verify PM user can successfully submit application to grants.gov without adding files in (Optional)Attachments form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -11049,7 +11049,7 @@ Feature: Grantee Forms Scenario
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
 
-  @492536 @BudgetNarrativeattachmentform(Optional)VerifyPMusercanseevalidationforoptionalBudgetnarrativeform
+  @492536 @BudgetNarrativeattachmentform(Optional)VerifyPMusercanseevalidationforoptionalBudgetnarrativeform @P2_Grantee @PM_Grantee @Gregression2
   Scenario:Budget Narrative attachment form (Optional)- Verify PM user can see validation for optional Budget narrative form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"

@@ -701,9 +701,9 @@ Feature: Validate all scenarios for Federal Organization
       | userType    | attachment            | Notes         |
       | GRANTEE FD  | AttachmentTesting.pdf | Notes for FD  |
 
-  @482153 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg
-  Scenario Outline: Validate Federal EXE user should see all fields and section on federal Org
-    When I login to "As a Grantor" app as "<userType>" user
+  @482153 @ValidateEXEprofileusershouldseeallfieldsandsectiononfederalOrglayout
+  Scenario Outline: Validate EXE profile user should see all fields and section on federal Org layout
+    When I login to "As a Grantee" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on advance filter of table id "---grantee_tableId:-:fedOrgTableId---" for LWC
@@ -714,7 +714,7 @@ Feature: Validate all scenarios for Federal Organization
     Then I see the sub-header is "Agency For International Development" in the page details
     Then I softly see field "Parent Organization" as "NA"
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Related Log" sub tab at view detail page
@@ -791,7 +791,7 @@ Feature: Validate all scenarios for Federal Organization
     When I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
     When I enter in modal value "12345" into field "MailingPostalCode"
     When I click modal button "Save"
-    And I wait for "4" seconds
+    And I wait for "2" seconds
     And I save the field labeled "Title" as "ContactTitle" on modal
     When I click modal button "Close"
     When I perform quick search for "{SavedValue:ContactTitle}" in "---grantee_tableId:-:FedOrgRelatedContacts---" panel
@@ -875,5 +875,5 @@ Feature: Validate all scenarios for Federal Organization
     Then I softly see "Snapshot History" page block displayed
 
     Examples:
-      | userType    | attachment            | Notes         |
-      | GRANTEE EXE | AttachmentTesting.pdf | Notes for EXE |
+      | userType   | attachment     | Notes        |
+      | GRANTEE EXE | Attachment.pdf | Notes for PM |
