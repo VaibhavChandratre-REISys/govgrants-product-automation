@@ -4577,3 +4577,17 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly can see row level action button "Download" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+
+  @495278 @ValidateOnGrantpagelayoutExpenditurestoDatereplacewithSpenttoDateandtherolledupamountabletosee
+  Scenario: Validate On Grant page layout ‘Expenditures to Date’ replace with  ‘Spent to Date’ and the rolled up amount able to see
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{grantee_testData:GrantsForNonConstructionAndSpent}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{grantee_testData:GrantsForNonConstructionAndSpent}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Financials" sub tab
+    Then I softly see field "Spent to Date" inside page block
+    Then I softly cannot see field "Expenditures to Date" inside page block
+    Then I softly see field "Spent to Date" as "$4,500.00"

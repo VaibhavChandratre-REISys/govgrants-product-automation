@@ -11299,7 +11299,7 @@ Feature: Grantee Forms Scenario
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @477351 @477353 @477355 @ValidatePOProfileIfReportingEntityinNo4isSubawardeeEnterNameandAddressofPrimesection
+  @477351 @477353 @477355 @ValidatePOProfileIfReportingEntityinNo4isSubawardeeEnterNameandAddressofPrimesection @PO_Grantee @GRegression5 @P3_Grantee
   Scenario: Validate PO Profile If Reporting Entity in No.4 is Subawardee Enter Name and Address of Prime section
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySFLLL}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269344" with properties "default-Grantee PO user"
