@@ -164,6 +164,7 @@ public final class GovGrantsSteps {
     @Description("Navigate to any specific Main tab")
     @When("^I navigate to \"([^\"]*)\" tab$")
     public void navigateToMenutab(String tabName) {
+        I.amPerforming().waitFor().makeThreadSleep(10000);
         govgrants.perform().mainPage().clickMainMenuBarForLwc(tabName);
     }
 
