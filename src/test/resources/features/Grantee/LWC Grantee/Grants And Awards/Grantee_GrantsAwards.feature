@@ -4578,7 +4578,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
 
-  @495278 @ValidateOnGrantpagelayoutExpenditurestoDatereplacewithSpenttoDateandtherolledupamountabletosee
+  @495278 @ValidateOnGrantpagelayoutExpenditurestoDatereplacewithSpenttoDateandtherolledupamountabletosee @GRegression3 @PM_Grantee @P3_Grantee
   Scenario: Validate On Grant page layout ‘Expenditures to Date’ replace with  ‘Spent to Date’ and the rolled up amount able to see
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -4592,7 +4592,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly cannot see field "Expenditures to Date" inside page block
     Then I softly see field "Spent to Date" as "$4,500.00"
 
-  @488687 @ValidateFOProfileimpactofDrawdownbyAwardwithFOProfile
+  @488687 @ValidateFOProfileimpactofDrawdownbyAwardwithFOProfile @GRegression3 @FO_Grantee @P3_Grantee
   Scenario: Validate FO Profile impact of Drawdown by Award with FO Profile
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"

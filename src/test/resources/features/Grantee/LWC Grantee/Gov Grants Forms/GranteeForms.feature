@@ -11501,20 +11501,19 @@ Feature: Grantee Forms Scenario
     Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
 
   @492769 @ValidatePMProfilewithduplicatefilenotallowtocontinueValidationmessageshouldbedisplay
-  Scenario Outline: Validate PM Profile with duplicate file not allow to continue Validation message should be display
-    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
-    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default-<UserName>"
-    Given I login to "As a Grantee" app as "<OwnerType>" user
+  Scenario: Validate PM Profile with duplicate file not allow to continue Validation message should be display
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
-    And I wait for "2" seconds
     When I click on "Convert to Opportunity" in the page details
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212745" with properties "default"
-    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0001212745" with properties "default-<UserName>"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -11537,9 +11536,6 @@ Feature: Grantee Forms Scenario
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | 2 duplicate file title(s) found: Attachment.pdf. Please ensure all file titles are unique. |
-    Examples:
-      | UserName      | OwnerType  |
-      | Sarah PM user | GRANTEE PM |
 
   @477439 @ValidateBudgetNarrativeattachmentformPMusercanaddfilesinBudgetnarrativeattachmentinEditmodeandsuccessfullysubmitapplicationtograntsgov
   Scenario: Validate Budget Narrative attachment form PM user can add files in Budget narrative attachment in Edit mode and successfully submit application to grants.gov

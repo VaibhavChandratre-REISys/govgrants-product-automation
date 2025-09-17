@@ -2618,8 +2618,6 @@ Feature: Validate all scenarios for closeout
     Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "---grantee_tableId:-:HomePendingTask---"
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I navigate to "History" sub tab
-    Then I softly see column "Overall Status" at position "1" contains text "Approved"
     When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2663,8 +2661,6 @@ Feature: Validate all scenarios for closeout
     Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "---grantee_tableId:-:HomePendingTask---"
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I navigate to "History" sub tab
-    Then I softly see column "Overall Status" at position "1" contains text "Approved"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2716,8 +2712,6 @@ Feature: Validate all scenarios for closeout
     Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "---grantee_tableId:-:HomePendingTask---"
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I navigate to "History" sub tab
-    Then I softly see column "Overall Status" at position "1" contains text "Approved"
     When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     When I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

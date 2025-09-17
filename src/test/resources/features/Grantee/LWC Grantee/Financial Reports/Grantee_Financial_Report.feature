@@ -1826,9 +1826,18 @@ Feature: Validate all scenarios for Financial Report
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     And I navigate to "Management" sub tab
+    And I wait for "3" seconds
+    And I expand nested table containing column value "Financial Report"
+    And I save the value from row "2" for column name "EGMS ID" as "EGMS ID1" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+      | EGMS ID               | Report Creation Date |
+      | {SavedValue:EGMS ID2} | 0                    |
+    And I wait for "250" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see "cross" symbol against the value "{SavedValue:EGMS ID2}" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
     And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details contains:
-      | You cannot create new Financial Report as another Financial Report marked as 'Final' has been submitted to the grantor. |
+    Then I softly see field "Status" as "Created"

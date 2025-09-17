@@ -511,7 +511,7 @@ Feature: Validate all scenarios for KPI
     Then I softly see "No Records Found" inside flex table with id "Goals"
     Then I softly see "No Records Found" inside flex table with id "KPIsGranteeRelatedAwards"
 
-  @443867 @ValidatePMusershouldabletoseerequiredfieldsvalidationonclickofSavebuttonondetailpagelayoutofKPIwhenIkeptrequiredfieldsareblank
+  @443867 @ValidatePMusershouldabletoseerequiredfieldsvalidationonclickofSavebuttonondetailpagelayoutofKPIwhenIkeptrequiredfieldsareblank @GRegression5 @PM_Grantee @P3_Grantee
   Scenario Outline: Validate PM user should able to see required fields validation on click of Save button on detail page layout of KPI when I kept required fields are blank
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
