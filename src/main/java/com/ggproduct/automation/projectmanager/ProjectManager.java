@@ -263,7 +263,7 @@ public class ProjectManager extends ProjectWebServices {
     }
 
     public void MouseOnTheFieldOfPageBlock(String fieldName, String pageBlockName) {
-//        I.amPerforming().scroll().onPageToSpecificElement(By.xpath("//div//span[contains(text(),'" + pageBlockName + "')] /../parent::div//div//label[contains(text(), '" + fieldName + "')]//..//div[@part='help-text']//button"));
-        I.amPerforming().scroll().withMouseToElement(By.xpath("//div//span[contains(text(),'" + pageBlockName + "')] /../parent::div//div//label[contains(text(), '" + fieldName + "')]//..//div[@part='help-text']//button"));
+        I.amPerforming().scroll().withMouseToElement(By.xpath("//div//span[contains(text(),'" + pageBlockName + "')]/../parent::div//div[@data-field_api_name='" + fieldName + "']"));
+        I.amPerforming().scroll().withMouseToElement(By.xpath("//div[@data-field_api_name='" + fieldName + "']//div[@part='help-text']//lightning-button-icon"));
     }
 }

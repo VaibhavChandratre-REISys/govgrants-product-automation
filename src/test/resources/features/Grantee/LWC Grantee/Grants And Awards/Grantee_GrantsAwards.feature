@@ -4465,7 +4465,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
 
-  @443851 @ValidateAwardwithPMProfileIfamendmentiscreatedtheninawardabletoseeamendedstateandcheckaccess
+  @443851 @ValidateAwardwithPMProfileIfamendmentiscreatedtheninawardabletoseeamendedstateandcheckaccess @GRegression5 @PM_Grantee @P3_Grantee
   Scenario: Validate Award with PM Profile If amendment is created then in award able to see amended state and check access
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
