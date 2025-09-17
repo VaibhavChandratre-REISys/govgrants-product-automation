@@ -4695,7 +4695,7 @@ Feature: Validate all scenarios for Grants & Awards
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Activated"
-    And I "Approved" of type "Budget Period Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I "Approved" of type "Budget Period Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Victor EXE user"
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "Amendments" sub tab

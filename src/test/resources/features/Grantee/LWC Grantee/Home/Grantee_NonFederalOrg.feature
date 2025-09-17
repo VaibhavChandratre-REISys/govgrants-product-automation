@@ -1399,7 +1399,7 @@ Feature: Validate all scenarios for Non Federal Organization
     And I save the field labeled "Organization Name" as "OrganizationName"
     Then I softly see field "Organization Name" as "{SavedValue:OrganizationName}"
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:nonFedChildOrgTableId---"
-    When I click "Associate" after selection of "Department of Health" in the table "---grantee_tableId:-:nonFedChildOrgAssociateTableId---"
+    When I click "Associate" after selection of "department of city" in the table "---grantee_tableId:-:nonFedChildOrgAssociateTableId---"
     And I wait for "2" seconds
     And I click modal button "Close"
     And I wait for "2" seconds

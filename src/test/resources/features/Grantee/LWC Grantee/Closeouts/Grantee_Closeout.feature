@@ -2840,5 +2840,5 @@ Feature: Validate all scenarios for closeout
     Then I softly see field "Status" as "Created"
     When I click on "Override" in the page details
     Then I softly see field "Status" as "Overridden"
-    When I navigate to "Open Items" sub tab
+    When I navigate to "Open  Items" sub tab
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:pendingAmendmentCloseoutTableId---"
