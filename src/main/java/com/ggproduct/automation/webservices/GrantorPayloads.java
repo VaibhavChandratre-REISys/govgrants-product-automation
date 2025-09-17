@@ -2736,7 +2736,7 @@ public class GrantorPayloads {
                         .dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         grant.addProperty("BudgetCategoryPackage", "Construction");
         grant.addProperty("GrantDescription", "API Testing For Award Activation From Direct Grant");
-        grant.addProperty("ExternalOrganization", ProjectWebServices.getIdOf("Account", "Test Automation Organization"));
+        grant.addProperty("ExternalOrganization", ProjectWebServices.getIdOf("Account", "LA County Parks"));
         grant.addProperty("InternalOrganization", ProjectWebServices.getIdOf("Account", "SAN DIEGO ELECTRICAL TRAINING TRUST"));
         grant.addProperty("Program", ProjectWebServices.getIdOf("Program__c", "Automation Permanent Internal Program"));
         grant.addProperty("DoesGrantAllowIndirect", "Yes");
