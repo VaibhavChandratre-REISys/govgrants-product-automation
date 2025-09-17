@@ -4639,7 +4639,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
-  @488689 @ValidateAdminProfileimpactofDrawdownbyAwardwithAdminProfile
+  @488689 @ValidateAdminProfileimpactofDrawdownbyAwardwithAdminProfile @GRegression3 @ADMIN_Grantee @P3_Grantee
   Scenario: Validate Admin Profile impact of Drawdown by Award with Admin Profile
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
