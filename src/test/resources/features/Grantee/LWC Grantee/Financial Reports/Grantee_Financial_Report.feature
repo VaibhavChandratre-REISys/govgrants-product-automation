@@ -1752,7 +1752,7 @@ Feature: Validate all scenarios for Financial Report
     Then I softly see value "Reviewed" for title "New Value" inside field history table
     Then I softly see value "Submitted for Review" for title "Original Value" inside field history table
 
-  @499578 @ValidatethatoncefinalfinancialreportiscreatedandapprovedthenlaterusershouldnotcreatedscheduleFR
+  @499578 @ValidatethatoncefinalfinancialreportiscreatedandapprovedthenlaterusershouldnotcreatedscheduleFR @GRegression5 @PM_Grantee @P3_Grantee
   Scenario: Validate that once final financial report is created and approved then later user should not created schedule FR
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"

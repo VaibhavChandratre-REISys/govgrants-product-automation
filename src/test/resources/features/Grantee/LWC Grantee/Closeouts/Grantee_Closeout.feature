@@ -2532,7 +2532,7 @@ Feature: Validate all scenarios for closeout
     Then I softly see field "Status" as "Completed"
     Then I softly see status in Progress-bar is "Completed" and is "dark blue"
 
-  @499041 @Validatefourstepapproverabletoapprovethecloseout
+  @499041 @Validatefourstepapproverabletoapprovethecloseout @GRegression5 @PM_Grantee @P2_Grantee
   Scenario: Validate four step approver able to approve the closeout
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
