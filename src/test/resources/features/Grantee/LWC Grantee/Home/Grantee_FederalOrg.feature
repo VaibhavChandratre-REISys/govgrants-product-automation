@@ -791,7 +791,7 @@ Feature: Validate all scenarios for Federal Organization
     When I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
     When I enter in modal value "12345" into field "MailingPostalCode"
     When I click modal button "Save"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I save the field labeled "Title" as "ContactTitle" on modal
     When I click modal button "Close"
     When I perform quick search for "{SavedValue:ContactTitle}" in "---grantee_tableId:-:FedOrgRelatedContacts---" panel
