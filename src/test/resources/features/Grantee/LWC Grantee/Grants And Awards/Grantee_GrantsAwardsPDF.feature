@@ -962,3 +962,52 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     Examples:
       | userType   | userName      |
       | GRANTEE PM | Sarah PM user |
+
+  @485099 @ValidatePOAwardlistviewpageInawardspecialconditionmodulewhichisvisibleinmonitoringphase
+  Scenario: Validate PO Award list view page In award special condition module which is visible in monitoring phase
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Monitoring" sub tab
+    And I save the value from row "1" for column name "Title" as "TermsTitle" from flex table "---grantee_tableId:-:SpecialConditionTableId---"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Awards Special Conditions" content inside "Monitoring" subheader on left panel
+    Then I softly see "Awards" page block displayed
+    When I click on parallel lines menu bar with data target value "Awards"
+    And I wait for "1" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I select "Refresh" from parallel lines dropdown of "Awards"
+    Then I see table is refreshing
+    And I click on page navigation arrow "---grantee_tableId:-:specialConditionPhaseLevelTableId---" for table id "Next"
+    Then I see table "---grantee_tableId:-:specialConditionPhaseLevelTableId---" shows "Page 2"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
+    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
+    Then I see table "---grantee_tableId:-:specialConditionPhaseLevelTableId---" shows "Page 1"
+    And I save the total records from the flex table id "---grantee_tableId:-:specialConditionPhaseLevelTableId---" as "totalRecords"
+    Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
+    And I select value inside table "---grantee_tableId:-:specialConditionPhaseLevelTableId---" is "5"
+    Then I see "5" records inside flex table id "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
+    And I click on advance filter of table id "---grantee_tableId:-:specialConditionPhaseLevelTableId---" for LWC
+    And I enter advance filter values inside id "---grantee_tableId:-:specialConditionPhaseLevelTableId---" for LWC
+      | EGMS ID | contains | {SavedValue:AwardEGMSID} |
+    And I pause execution for "5" seconds
+    Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
+    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:specialConditionPhaseLevelTableId---" panel
+    And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
+    Then I softly see value "{SavedValue:TermsTitle}" for title "Title" inside table "---grantee_tableId:-:specialConditionsChildTableId---"
