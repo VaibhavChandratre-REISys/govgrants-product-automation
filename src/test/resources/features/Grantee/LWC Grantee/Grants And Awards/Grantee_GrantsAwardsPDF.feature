@@ -963,7 +963,7 @@ Feature: Validate all scenarios for Grants & Awards for PDF
       | userType   | userName      |
       | GRANTEE PM | Sarah PM user |
 
-  @485099 @ValidatePOAwardlistviewpageInawardspecialconditionmodulewhichisvisibleinmonitoringphase
+  @485099 @ValidatePOAwardlistviewpageInawardspecialconditionmodulewhichisvisibleinmonitoringphase @GRegression5 @PO_Grantee @P3_Grantee
   Scenario: Validate PO Award list view page In award special condition module which is visible in monitoring phase
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
