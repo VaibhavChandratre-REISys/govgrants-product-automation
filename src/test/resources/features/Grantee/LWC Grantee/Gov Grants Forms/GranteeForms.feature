@@ -11501,7 +11501,7 @@ Feature: Grantee Forms Scenario
     Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
 
   @492769 @ValidatePMProfilewithduplicatefilenotallowtocontinueValidationmessageshouldbedisplay
-    Scenario Outline: Validate PM Profile with duplicate file not allow to continue Validation message should be display
+  Scenario Outline: Validate PM Profile with duplicate file not allow to continue Validation message should be display
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default-<UserName>"
     Given I login to "As a Grantee" app as "<OwnerType>" user
@@ -11523,6 +11523,7 @@ Feature: Grantee Forms Scenario
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
     When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     When I click on "View" icon for "Other Attachments Forms" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
@@ -11535,7 +11536,7 @@ Feature: Grantee Forms Scenario
     And I wait for "2" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
-      | 2 duplicate file title(s) found: Attachment.pdf. Please ensure all file titles are unique.        |
+      | 2 duplicate file title(s) found: Attachment.pdf. Please ensure all file titles are unique. |
     Examples:
       | UserName      | OwnerType  |
       | Sarah PM user | GRANTEE PM |
