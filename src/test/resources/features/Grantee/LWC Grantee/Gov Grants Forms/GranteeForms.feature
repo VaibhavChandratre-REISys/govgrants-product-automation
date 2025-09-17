@@ -11048,3 +11048,80 @@ Feature: Grantee Forms Scenario
     Then I softly see value "No" for title "Validated" against the value "Grants.gov Lobbying Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+
+  @492536 @BudgetNarrativeattachmentform(Optional)VerifyPMusercanseevalidationforoptionalBudgetnarrativeform
+  Scenario:Budget Narrative attachment form (Optional)- Verify PM user can see validation for optional Budget narrative form
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I click on "Edit" in the page details
+    And I enter value "123" into field "CongressionalDistrict1__c"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    Then I softly see value "Budget Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see "cross" symbol against the value "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "Preview" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "View" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "SplitView" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "Edit" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I navigate to "Quickview" sub tab in split screen
+    When I click on "SplitView" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see top right button "Edit" in the split screen page details
+    Then I softly can see top right button "Validate" in the split screen page details
+    And I click on "Validate" in the split screen page details
+    Then I softly see the following messages in the page details contains:
+      | Please upload exactly one 'Mandatory Budget Narrative'. |
+    When I navigate to "Forms and Files" sub tab
+    When I click on "View" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I softly can see top right button "Validate" in page detail
+    Then I softly can see top right button "Edit" in page detail
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Please upload exactly one 'Mandatory Budget Narrative'. |
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "3" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative" from computer
+    And I wait for "3" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Optional Budget Narrative" from computer
+    And I wait for "3" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I wait for "2" seconds
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Optional Budget Narrative" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | 2 duplicate file title(s) found: AttachmentTesting.pdf. Please ensure all file titles are unique. |
+      | 2 duplicate file title(s) found: Attachment.pdf. Please ensure all file titles are unique. |
+      | Please upload exactly one 'Mandatory Budget Narrative'. |
+      | Please upload no more than one 'Optional Budget Narrative'. |
