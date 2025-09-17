@@ -11329,6 +11329,7 @@ Feature: Grantee Forms Scenario
     Then I softly see "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" page block displayed
     Then I softly see field "Name" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
     Then I softly see asterisk mark on "Reporting_Entity_Organization_Name__c"
+    And I hover mouse on the field "Reporting_Entity_Street_1__c" of page block "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime"
     And I hover mouse on the field "Reporting_Entity_Organization_Name__c" of page block "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime"
     Then I softly see "enter the full name of the prime Federal recipient. Max character limit for this field is 60." shown as help text
     Then I softly see field "Street 1" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section

@@ -3073,9 +3073,86 @@ public class GrantorPayloads {
                 return updatePreApplicationAsYesWithNoConstructionForOpportunity(defaultJson);
             case "PRE_APP_YES_NGO_BUDGET_TYPE":
                 return updatePreApplicationAsYesWithNGOBudgetType(defaultJson);
+            case "APPLICATION_DUE_DATE_PASSED":
+                return updateApplicationDueDatePassed(defaultJson, oppoNo, state);
             default:
                 return defaultJson;
         }
+    }
+
+    private JsonObject updateApplicationDueDatePassed(JsonObject defaultJson, String oppoNo, String state) {
+        JsonObject opportunityData = new JsonObject();
+        opportunityData.addProperty("OpportunityNumber", oppoNo);
+        opportunityData.addProperty("isDraftOrApprovedOpportunity", state);
+        opportunityData.addProperty("budgetType", "Construction");
+        opportunityData.addProperty("projectPeriodStartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(210, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        opportunityData.addProperty("projectPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(365, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        opportunityData.addProperty("isPreApplicationRequired", "No");
+        opportunityData.addProperty("preApplicationDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(-2, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        opportunityData.addProperty("letterOfIntentRequired", "Yes");
+        opportunityData.addProperty("letterOfIntentDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(-3, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        opportunityData.addProperty("applicationDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(-1, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        opportunityData.addProperty("IsProgramIncomeAllowed", "Yes");
+        opportunityData.addProperty("LinkAdditionalInformation", "www.google.com");
+        opportunityData.addProperty("GrantorContactInformation", "Automation Test Information");
+        opportunityData.addProperty("AdditionalInformationEligibility", "Added Eligibility Details");
+        opportunityData.addProperty("programIncomeTreatmentType", "Additive");
+        opportunityData.addProperty("indirectCostsAllowed", "Yes");
+        opportunityData.addProperty("IsLeverageAllowed", "Yes");
+        opportunityData.addProperty("MatchSource", "External Source");
+        opportunityData.addProperty("q1_receivedAward", "Yes");
+        opportunityData.addProperty("q1a_pastFundingDescription", "Automation Test");
+        opportunityData.addProperty("q2_probabilityOfWinning", "25");
+        opportunityData.addProperty("q2a_BrieflyExplain", "Automation Test");
+        opportunityData.addProperty("q3_domainKnowledge", "Yes");
+        opportunityData.addProperty("q3a_explainDomainKnowledge", "Automation Test");
+        opportunityData.addProperty("q4_requiredResources", "Yes");
+        opportunityData.addProperty("q4a_explainResources", "Automation Test");
+        opportunityData.addProperty("q5_financialTools", "Yes");
+        opportunityData.addProperty("q5a_explainFinancialTools", "test");
+        opportunityData.addProperty("q6_applicationEffort", "Estimated 9 hrs");
+        opportunityData.addProperty("q7_fteRequired", "8");
+        opportunityData.addProperty("q8_qualifiedByOthers", "No");
+        opportunityData.addProperty("q8a_leadOrgAgreement", "Yes");
+        opportunityData.addProperty("q9_requiresCollaboration", "Yes");
+        opportunityData.addProperty("q9a_explainCollaboration", "Automation Test");
+        opportunityData.addProperty("q14_DoesTheGranteRequirePass", "Yes");
+        opportunityData.addProperty("q14a_PercentOfFunding", 10);
+        opportunityData.addProperty("q16_AdminCostLimit", "Yes");
+        opportunityData.addProperty("q16a_PercentOfAdminCostLimit", 10);
+        opportunityData.addProperty("q18_LegalRequirements", "Automation Test");
+        opportunityData.addProperty("q19_OrgCertificationInfo", "Automation Test");
+        opportunityData.addProperty("q17_sustainabilityPlan", "Automation Test");
+        opportunityData.addProperty("CostSharingOrMatchingRequirement", "Cash and Non-Cash Match");
+        opportunityData.addProperty("requiredMatch", "10");
+        opportunityData.addProperty("isMatchRequired", "Yes");
+        opportunityData.addProperty("AnticipatedAwardDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(105, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        opportunityData.addProperty("HowProgramWillSustain", "Automation Test");
+        opportunityData.addProperty("MaximumIndirectCostRate", "10");
+        opportunityData.addProperty("RateForOrgnizationUse", "Federally approved indirect rate");
+        opportunityData.addProperty("q13_MaintenanceEffortRequire", "Yes");
+        opportunityData.addProperty("ExpectedNumberofAwards", 10);
+        opportunityData.addProperty("q13_aStatutoryMaintenanceOfEffort", "Automation Test");
+        opportunityData.addProperty("FundingOrgGrantsSystem", "spaceX private");
+        opportunityData.addProperty("LastUpdateDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(1, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+
+        // Creating the OpportunityData array and adding the OpportunityData object
+        JsonArray opportunityDataArray = new JsonArray();
+        opportunityDataArray.add(opportunityData);
+
+        // Creating the approvers object
+        JsonArray approvers = new JsonArray();
+        JsonObject approver = new JsonObject();
+        approver.addProperty("name", ProjectWebServices.getIdOf("User", "Victor EXE"));
+        approver.addProperty("Announcement", "Step1");
+        approvers.add(approver);
+
+        // Creating the final JSON object
+        JsonObject finalJson = new JsonObject();
+        finalJson.add("OpportunityData", opportunityDataArray);
+        finalJson.add("approvers", approvers);
+
+        return defaultJson;
     }
 
     private JsonObject updatePreApplicationAsYesWithNGOBudgetType(JsonObject defaultJson) {
