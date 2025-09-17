@@ -2775,7 +2775,7 @@ Feature: Validate all scenarios for closeout
     When I navigate to "History" sub tab
     Then I softly see column "Overall Status" at position "1" contains text "Approved"
 
-  @499896 @ValidateAmendmentstatusasnotacceptedshouldnotgetoverriddenincloseout
+  @499896 @ValidateAmendmentstatusasnotacceptedshouldnotgetoverriddenincloseout @GRegression5 @PM_Grantee @P3_Grantee
   Scenario: Validate Amendment status as not accepted should not get overridden in closeout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
