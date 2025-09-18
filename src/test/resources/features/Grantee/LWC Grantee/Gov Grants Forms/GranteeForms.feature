@@ -11696,7 +11696,7 @@ Feature: Grantee Forms Scenario
     Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
 
-  @492777 @ValidatePMProfileifmandatoryformisblankthenonclickValidatebuttonvalidationabletosee
+  @492777 @ValidatePMProfileifmandatoryformisblankthenonclickValidatebuttonvalidationabletosee @GRegression3 @P3_Grantee @PM_Grantee
   Scenario: Validate PM Profile if mandatory form is blank then on click Validate button validation able to see
     Given I delete the grantee record "{grantee_testData:GrantsGovKeyContactMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269340" with properties "default"
@@ -11738,7 +11738,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | Please validate the Forms by clicking validate button. |
 
-  @480738 @ValidatePOprofileonClickViewactionOtherAttachmentformgetopeninviewTab
+  @480738 @ValidatePOprofileonClickViewactionOtherAttachmentformgetopeninviewTab @GRegression5 @P2_Grantee @PO_Grantee
   Scenario: Validate PO profile on Click View action Other Attachment form get open in view Tab
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -11857,7 +11857,7 @@ Feature: Grantee Forms Scenario
     Then I softly can see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Validate" in the split screen page details
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Mandatory Other Attachment" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Optional Other Attachment" from computer
     When I click modal button "Close"
     Then I see "AttachmentTesting.pdf" has been added in "Files" flex table
     And I click on "Validate" in the split screen page details
@@ -11877,7 +11877,7 @@ Feature: Grantee Forms Scenario
     Then I softly can see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Validate" in the split screen page details
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "Attachment1.pdf" of type "Mandatory Other Attachment" from computer
+    And I upload attachment without random number "Attachment1.pdf" of type "Optional Other Attachment" from computer
     When I click modal button "Close"
     Then I see "Attachment1.pdf" has been added in "Files" flex table
     And I click on "Validate" in the split screen page details
