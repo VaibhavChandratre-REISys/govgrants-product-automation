@@ -2842,3 +2842,137 @@ Feature: Validate all scenarios for closeout
     Then I softly see field "Status" as "Overridden"
     When I navigate to "Open  Items" sub tab
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:pendingAmendmentCloseoutTableId---"
+
+  @446126 @ValidateGPCloseoutWithPMProfilePhaselevelListviewpageandmodule
+  Scenario: Validate GP Closeout With PM Profile Phase level List view page and module
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Closeout" tab
+    And I wait for "2" seconds
+    Then I see "Project Period Closeouts" inside "Closeouts" is displayed
+    Then I softly see "Project Period Closeout - My Records" page block displayed
+    Then I softly do not see "Budget Period Closeout - My Records" page block displayed
+    Then I softly see default toggle as "Project Period Closeout - My Records" for table "---grantee_tableId:-:phaseCloseoutTableId---"
+    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:phaseCloseoutTableId---"
+    When I click on parallel lines menu bar with data target value "Project Period Closeout - My Records"
+    And I wait for "3" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Download as CSV" present in parallel dropdown
+    Then I softly see toggle option "Project Period Closeout  - All" inside flex table id "---grantee_tableId:-:phaseCloseoutTableId---"
+    Then I softly see toggle option "Project Period Closeout - Draft" inside flex table id "---grantee_tableId:-:phaseCloseoutTableId---"
+    Then I softly see toggle option "Project Period Closeout - My Records" inside flex table id "---grantee_tableId:-:phaseCloseoutTableId---"
+    Then I softly see toggle option "Project Period Closeout - Submitted" inside flex table id "---grantee_tableId:-:phaseCloseoutTableId---"
+    Then I softly see toggle option "Project Period Closeout - Completed" inside flex table id "---grantee_tableId:-:phaseCloseoutTableId---"
+    And I click toggle button to select "Project Period Closeout - Draft"
+    When I perform quick search for "Created" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:phaseCloseoutTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    Then I softly see the following messages in the page details :
+      | Table has been reset. |
+    When I perform quick search for "Created" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
+    And I save the value from row "1" for column name "EGMS ID" as "closeoutId" from flex table "---grantee_tableId:-:phaseCloseoutTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    And I click toggle button to select "Project Period Closeout - Draft"
+    When I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
+    Then I softly can see row level action button "Edit" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    And I save the total records from the flex table id "---grantee_tableId:-:phaseCloseoutTableId---" as "totalRecords"
+    Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:phaseCloseoutTableId---"
+    And I select value inside table "---grantee_tableId:-:AwardBudgetTableId---" is "5"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    Then I softly see the following messages in the page details :
+      | Table has been reset. |
+    And I click toggle button to select "Project Period Closeout - Submitted"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    And I click toggle button to select "Project Period Closeout - Completed"
+    When I perform quick search for "Completed" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
+    Then I softly see value "Completed" for title "Status" inside table "---grantee_tableId:-:phaseCloseoutTableId---"
+    And I click toggle button to select "Project Period Closeout - All"
+    When I perform quick search for "Completed" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
+    Then I softly see value "Completed" for title "Status" inside table "---grantee_tableId:-:phaseCloseoutTableId---"
+    When I perform quick search for "Created" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:phaseCloseoutTableId---"
+    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
+    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:phaseCloseoutTableId---"
+
+  @446139 @ValidateGPCloseoutwithPMProfileIfCloseoutisinOverridestatethenabletoseetheaccessofsection
+  Scenario: Validate GP Closeout with PM Profile If Closeout is in Override state then able to see the access of section
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    And I "Created" of type "Budget Period Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    When I navigate to "Amendments" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AmendEGMSID"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    And I save the field labeled "Project Period Start Date" as "PPST"
+    When I navigate to "Closeout" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
+    When I enter values into fields
+      | Value             | Field           |
+      | {SavedValue:PPST} | CloseoutDate__c |
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Closeout_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "closeoutID"
+    Then I softly see field "Status" as "Created"
+    When I click on "Override" in the page details without processing
+    Then I softly see confirmation box with body "The status of all open items will be changed to Forced Closed. Are you sure, you want to override and proceed with the closeout?" is displayed
+    And I click "OK" on modal confirmation box
+    Then I softly see field "Status" as "Overridden"
+    When I navigate to "Open  Items" sub tab
+    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:AmendEGMSID}" inside table "---grantee_tableId:-:pendingAmendmentCloseoutTableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:closeoutPeerReviewTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:closeoutApproverTableId---"
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:closeoutAddFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Supporting Documents" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:closeoutAddFilesTableId---"
+    Then I softly can see row level action button "Delete" against "Supporting Documents" in flex table with id "---grantee_tableId:-:closeoutAddFilesTableId---"
+    Then I softly can see row level action button "Edit" against "Supporting Documents" in flex table with id "---grantee_tableId:-:closeoutAddFilesTableId---"
+    Then I softly can see row level action button "View" against "Supporting Documents" in flex table with id "---grantee_tableId:-:closeoutAddFilesTableId---"
+    Then I softly can see row level action button "Download" against "Supporting Documents" in flex table with id "---grantee_tableId:-:closeoutAddFilesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:closeoutNotesTableId---" by clicking "New" :
+      | Title         | Description      |
+      | Notes Record1 | Automation Notes |
+    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:closeoutNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:closeoutNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:closeoutNotesTableId---"
+
+  @446146 @ValidateGPCloseoutwhileEXEProfileOndirectgrantmodalunabletoseeIsBudgetPeriodCloseoutRequestRequiredField
+  Scenario: Validate GP Closeout - Verify while EXE Profile ,On direct grant modal unable to see Is Budget Period Closeout Request Required? Field
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I wait for "2" seconds
+    Then I softly see "Create Grant" opens in overLay window
+    Then I softly cannot see field "Is Budget Period Closeout Request Required?" inside page block
