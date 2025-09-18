@@ -23625,7 +23625,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     When I enter in modal value "Budget Period Change" into field "GranteeAmendmentType__c"
-    And I enter in modal value "Grantee" into field "InitiatedByGrantee__c"
+    And I enter in modal value "Grantor" into field "InitiatedByGrantee__c"
     And I enter in modal value "Automation Test" into field "PurposeRTA__c"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
@@ -23638,7 +23638,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     When I enter in modal value "Carry Forward" into field "GranteeAmendmentType__c"
-    And I enter in modal value "Grantee" into field "InitiatedByGrantee__c"
+    And I enter in modal value "Grantor" into field "InitiatedByGrantee__c"
     And I enter in modal value "Automation Test" into field "PurposeRTA__c"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
@@ -23648,7 +23648,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     When I enter in modal value "Budget Period Change" into field "GranteeAmendmentType__c"
     When I enter in modal value "Periodic Renewal" into field "GranteeAmendmentType__c"
-    And I enter in modal value "Grantee" into field "InitiatedByGrantee__c"
+    And I enter in modal value "Grantor" into field "InitiatedByGrantee__c"
     And I enter in modal value "Automation Test" into field "PurposeRTA__c"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
@@ -23658,7 +23658,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     When I enter in modal value "Funding Change" into field "GranteeAmendmentType__c"
     When I enter in modal value "Budget Redirection" into field "GranteeAmendmentType__c"
-    And I enter in modal value "Grantee" into field "InitiatedByGrantee__c"
+    And I enter in modal value "Grantor" into field "InitiatedByGrantee__c"
     And I enter in modal value "Automation Test" into field "PurposeRTA__c"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:

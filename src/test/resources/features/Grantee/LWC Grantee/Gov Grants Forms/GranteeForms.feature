@@ -11974,7 +11974,7 @@ Feature: Grantee Forms Scenario
     Then I softly can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
 
-  @478188 @ValidatePoProfilevalidatebuttononpagelayoutandquickviewtab
+  @478188 @ValidatePoProfilevalidatebuttononpagelayoutandquickviewtab @GRegression5 @P2_Grantee @PO_Grantee
   Scenario: Validate Po Profile validate button on page layout and quick view tab
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySFLLL}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269344" with properties "default-Grantee PO user"
