@@ -23604,7 +23604,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click modal button "Close"
     Then I softly see field "Status" as "Accepted"
 
-  @449140 @ValidatePMuserasAwardOwnercannotabletoCreateAmendmentRequestinfollowingcombinationsseevalidationmessageonclickofSaveContinuebutton
+  @449140 @ValidatePMuserasAwardOwnercannotabletoCreateAmendmentRequestinfollowingcombinationsseevalidationmessageonclickofSaveContinuebutton @GRegression5 @P2_Grantee @PM_Grantee
   Scenario: Validate PM user as Award Owner cannot able to Create Amendment Request in following combinations & see validation message on click of Save & Continue button
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -23710,7 +23710,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "EGMS ID" as "AwardId1"
-    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD_STEP_FOUR_APPROVER_FD_OWNER"
+    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD_PO_OWNER"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -23724,9 +23724,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click on "View" icon for "Carry Forward" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I save the field labeled "EGMS ID" as "CFAMENDID"
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name     | Amendment Request |
-      | David FO | Step 1            |
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
+      | Amendment Request | Name     |
+      | Step 1            | David FO |
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer

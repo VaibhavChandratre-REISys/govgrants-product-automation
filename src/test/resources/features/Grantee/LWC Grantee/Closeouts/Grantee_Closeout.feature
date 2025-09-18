@@ -2980,7 +2980,7 @@ Feature: Validate all scenarios for closeout
     Then I softly see "Create Grant" opens in overLay window
     Then I softly cannot see field "Is Budget Period Closeout Request Required?" inside page block
 
-  @490296 @ValidateGPCloseoutwithPOProfileIfCloseoutisinsubmittedforapprovalstatethenwithforwardeduserabletoapprovedandcompletethecloseout
+  @490296 @ValidateGPCloseoutwithPOProfileIfCloseoutisinsubmittedforapprovalstatethenwithforwardeduserabletoapprovedandcompletethecloseout @GRegression5 @P2_Grantee @PO_Grantee
   Scenario: Validate GP Closeout with PO Profile If Closeout is in submitted for approval state then with forwarded user able to approved and complete the closeout
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
