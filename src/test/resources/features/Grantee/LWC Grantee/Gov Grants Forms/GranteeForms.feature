@@ -11876,7 +11876,7 @@ Feature: Grantee Forms Scenario
     And I click on "Splitview" icon for "Other Attachments Forms" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Validate" in the split screen page details
-    When I click on "Delete" icon for "AttachmentTesting.pdf" inside table with table id "---grantee_tableId:-:applicationFormAddFileTableId---" without processing
+    And I click on "Delete" icon for "AttachmentTesting.pdf" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I upload attachment without random number "Attachment1.pdf" of type "Optional Other Attachment" from computer
