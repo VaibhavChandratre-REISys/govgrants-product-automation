@@ -1647,7 +1647,7 @@ Feature: Validate all scenarios for Leads
       | UserType       | filter |
       | GRANTEE ADMIN1 | see    |
 
-  @462677 @ValidateEXEuserseevalidationmessageisdisplayforrequiredtosavefields
+  @462677 @ValidateEXEuserseevalidationmessageisdisplayforrequiredtosavefields @GRegression5 @P3_Grantee @EXE_Grantee
   Scenario: Validate EXE user see validation message is display for required to save fields
     Given I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Opportunities" tab
@@ -1665,7 +1665,7 @@ Feature: Validate all scenarios for Leads
       | To Save, Lead Description is required in the Additional Information section.                |
       | To Save, Cost Sharing or Matching Requirement is required in the Financial Details section. |
 
-  @463541 @ValidateOpportunitiesNotconvertedafterdeletingopportunityOrganizationswhohavequalifiedtheleadcanconverttheleadtoopportunityagain
+  @463541 @ValidateOpportunitiesNotconvertedafterdeletingopportunityOrganizationswhohavequalifiedtheleadcanconverttheleadtoopportunityagain @GRegression5 @P2_Grantee @PM_Grantee
   Scenario: Validate Opportunities Not converted after deleting opportunity Organizations who have qualified the lead can convert the lead to opportunity again
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default-Product Admin user"

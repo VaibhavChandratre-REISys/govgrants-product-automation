@@ -2879,7 +2879,10 @@ Feature: Validate all scenarios for closeout
     Then I softly can see row level action button "View" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
     And I save the total records from the flex table id "---grantee_tableId:-:phaseCloseoutTableId---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:phaseCloseoutTableId---"
-    And I select value inside table "---grantee_tableId:-:AwardBudgetTableId---" is "5"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    Then I softly see the following messages in the page details :
+      | Table has been reset. |
+    And I select value inside table "---grantee_tableId:-:phaseCloseoutTableId---" is "5"
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
     Then I softly see the following messages in the page details :
       | Table has been reset. |
@@ -3060,7 +3063,7 @@ Feature: Validate all scenarios for closeout
     And I click modal button "Close"
     Then I softly see field "Status" as "Completed"
 
-  @459818 @ValidateCloseoutforNotesectionAddisReplacewithNewbutton
+  @459818 @ValidateCloseoutforNotesectionAddisReplacewithNewbutton @GRegression3 @P3_Grantee @PM_Grantee
   Scenario: Validate Closeout for Note section "Add" is Replace with New button
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
