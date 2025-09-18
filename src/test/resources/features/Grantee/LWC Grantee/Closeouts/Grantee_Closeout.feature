@@ -3012,7 +3012,7 @@ Feature: Validate all scenarios for closeout
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:closeoutApproverTableId---" by clicking "New" :
       | Name       | Closeout |
-      | Victor EXE | Step 1   |
+      | David FO   | Step 1   |
     When I click on "Override" in the page details
     Then I softly see field "Status" as "Overridden"
     When I click on "Validate" in the page details
