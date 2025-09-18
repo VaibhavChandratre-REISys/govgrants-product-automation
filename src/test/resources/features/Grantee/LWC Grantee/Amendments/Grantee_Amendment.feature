@@ -23664,7 +23664,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see the following messages in the page details contains:
       | Budget Redirection and Funding change request cannot be done simultaneously. |
 
-  @502412 @ValidateCFPOuserAROwnercanabletoSubmitARforApprovalApprovedfromsingleapprover
+  @502412 @ValidateCFPOuserAROwnercanabletoSubmitARforApprovalApprovedfromsingleapprover @GRegression5 @PO_Grantee @P2_Grantee
   Scenario: Validate CF PO user AR Owner can able to Submit AR for Approval & Approved from single approver
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"

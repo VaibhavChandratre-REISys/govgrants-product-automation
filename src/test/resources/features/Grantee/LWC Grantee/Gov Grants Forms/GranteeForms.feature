@@ -11776,7 +11776,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the field "Agency Owner :" as "Grants.gov" on forms
     Then I softly see the field "Version :" as "1.2" on forms
     Then I softly can see "Form" sub tab at view detail page
-    Then I softly can see top right button "Add" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    Then I softly can see top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Please upload exactly one 'Mandatory Other Attachment'. |

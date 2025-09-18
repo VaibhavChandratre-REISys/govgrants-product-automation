@@ -2843,7 +2843,7 @@ Feature: Validate all scenarios for closeout
     When I navigate to "Open  Items" sub tab
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:pendingAmendmentCloseoutTableId---"
 
-  @446126 @ValidateGPCloseoutWithPMProfilePhaselevelListviewpageandmodule
+  @446126 @ValidateGPCloseoutWithPMProfilePhaselevelListviewpageandmodule @GRegression3 @P3_Grantee @PM_Grantee
   Scenario: Validate GP Closeout With PM Profile Phase level List view page and module
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
