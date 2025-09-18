@@ -12000,7 +12000,6 @@ Feature: Grantee Forms Scenario
     And I click on "View" icon for "Disclosure of Lobbying Activities (SF-LLL)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I wait for "2" seconds
-    And I halt execution
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form cannot be validated because data is missing in one or more fields that are required to submit. To view the fields that are required to submit, click the Edit button. |
