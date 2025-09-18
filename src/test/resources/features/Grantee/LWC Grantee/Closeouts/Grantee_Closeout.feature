@@ -2868,8 +2868,9 @@ Feature: Validate all scenarios for closeout
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
     Then I softly see the following messages in the page details :
       | Table has been reset. |
-    When I perform quick search for "Created" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
     And I wait for "2" seconds
+    When I perform quick search for "Created" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
+    And I wait for "4" seconds
     And I save the value from row "1" for column name "EGMS ID" as "closeoutId" from flex table "---grantee_tableId:-:phaseCloseoutTableId---"
     Then I softly can see row level action button "Edit" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
     Then I softly can see row level action button "View" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
