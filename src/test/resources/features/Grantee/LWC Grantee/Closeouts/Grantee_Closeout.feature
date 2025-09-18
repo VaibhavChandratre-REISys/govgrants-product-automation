@@ -2858,7 +2858,6 @@ Feature: Validate all scenarios for closeout
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Download as CSV" present in parallel dropdown
-    Then I softly see toggle option "Project Period Closeout  - All" inside flex table id "---grantee_tableId:-:phaseCloseoutTableId---"
     Then I softly see toggle option "Project Period Closeout - Draft" inside flex table id "---grantee_tableId:-:phaseCloseoutTableId---"
     Then I softly see toggle option "Project Period Closeout - My Records" inside flex table id "---grantee_tableId:-:phaseCloseoutTableId---"
     Then I softly see toggle option "Project Period Closeout - Submitted" inside flex table id "---grantee_tableId:-:phaseCloseoutTableId---"
@@ -2888,7 +2887,7 @@ Feature: Validate all scenarios for closeout
     And I click toggle button to select "Project Period Closeout - Completed"
     When I perform quick search for "Completed" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
     Then I softly see value "Completed" for title "Status" inside table "---grantee_tableId:-:phaseCloseoutTableId---"
-    And I click toggle button to select "Project Period Closeout - All"
+    And I click toggle button to select "Project Period Closeout  - All"
     When I perform quick search for "Completed" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
     Then I softly see value "Completed" for title "Status" inside table "---grantee_tableId:-:phaseCloseoutTableId---"
     When I perform quick search for "Created" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
@@ -2967,7 +2966,7 @@ Feature: Validate all scenarios for closeout
     Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:closeoutNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:closeoutNotesTableId---"
 
-  @446146 @ValidateGPCloseoutwhileEXEProfileOndirectgrantmodalunabletoseeIsBudgetPeriodCloseoutRequestRequiredField
+  @446146 @ValidateGPCloseoutwhileEXEProfileOndirectgrantmodalunabletoseeIsBudgetPeriodCloseoutRequestRequiredField @GRegression5 @EXE_Grantee @P2_Grantee
   Scenario: Validate GP Closeout - Verify while EXE Profile ,On direct grant modal unable to see Is Budget Period Closeout Request Required? Field
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab

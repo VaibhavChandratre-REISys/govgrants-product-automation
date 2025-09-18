@@ -23592,7 +23592,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     When I navigate to "Amendments" sub tab
-    And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I click on "View" icon for "Submitted to Grantor" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I wait for "2" seconds
     When I click on "Record Decision" in the page details
     When I enter values into fields
@@ -23623,10 +23623,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Amendments" sub tab
-    And I save the value from row "1" for column name "EGMS ID" as "amendEGMSId" from flex table "---grantee_tableId:-:AmendmentRequestTableId---"
-    When I click on "Delete" icon for "{SavedValue:amendEGMSId}" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    And I wait for "2" seconds
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     When I enter in modal value "Budget Period Change" into field "GranteeAmendmentType__c"
     And I enter in modal value "Grantee" into field "InitiatedByGrantee__c"
@@ -23636,6 +23632,10 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Amendment Request is already in progress. Kindly complete the request to create new request. |
     When I click modal button "Close"
     And I wait for "1" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "amendEGMSId" from flex table "---grantee_tableId:-:AmendmentRequestTableId---"
+    When I click on "Delete" icon for "{SavedValue:amendEGMSId}" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I wait for "2" seconds
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     When I enter in modal value "Carry Forward" into field "GranteeAmendmentType__c"
     And I enter in modal value "Grantee" into field "InitiatedByGrantee__c"
