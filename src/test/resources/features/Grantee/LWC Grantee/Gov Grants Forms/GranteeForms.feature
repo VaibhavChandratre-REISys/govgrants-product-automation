@@ -11876,6 +11876,8 @@ Feature: Grantee Forms Scenario
     And I click on "Splitview" icon for "Other Attachments Forms" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Validate" in the split screen page details
+    When I click on "Delete" icon for "AttachmentTesting.pdf" inside table with table id "---grantee_tableId:-:applicationFormAddFileTableId---" without processing
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I upload attachment without random number "Attachment1.pdf" of type "Optional Other Attachment" from computer
     When I click modal button "Close"
@@ -11884,7 +11886,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
 
-  @481419 @ValidatewithpeerreviewerabletoseetheformineditmodeonlyifalloweditingisYes
+  @481419 @ValidatewithpeerreviewerabletoseetheformineditmodeonlyifalloweditingisYes @PO_Grantee @P2_Grantee @GRegression5
   Scenario: Validate with peer reviewer able to see the form in edit mode only if allow editing is Yes
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
