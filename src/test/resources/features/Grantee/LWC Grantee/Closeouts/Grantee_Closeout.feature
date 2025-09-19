@@ -3163,6 +3163,7 @@ Feature: Validate all scenarios for closeout
     And I wait for "2" seconds
     #Reject Amendment
     And I "Created" of type "Key Personnel Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "KEY_PERSONNEL_CHANGE"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3188,7 +3189,6 @@ Feature: Validate all scenarios for closeout
     Then I softly see field "Status" as "Rejected"
     #Accepted Amendment
     And I "Approved" of type "Budget Redirection" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "BUDGET_REDIRECTION"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3221,7 +3221,6 @@ Feature: Validate all scenarios for closeout
     Then I softly see field "Status" as "Accepted"
     #Submitted to Grantor
     And I "Approved" of type "Scope of Work Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
