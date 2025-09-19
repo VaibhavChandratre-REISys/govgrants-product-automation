@@ -983,3 +983,115 @@ Feature: Validate all scenarios for Pre-Applications Manual
     Then I softly see field "Rate for Organization Use" as "Federally approved indirect rate"
     Then I softly see field "Are Indirect Costs Allowed?" as "Yes"
     Then I softly see field "Is Leverage Allowed?" as "Yes"
+
+  @463428 @ValidatePMprofileAsperbudgettypeNonConstructionabletoseetheCategories
+  Scenario: Validate PM profile As per budget type Non-Construction able to see the Categories
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "COSTSHARING_NO-Grantee PO user"
+    When I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "PRE_APP_YES_NO_CONST_NO_SETTING"
+    And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "LINE_ITEM_BUDGET-Grantee PO user"
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:PreApplication---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I save the field labeled "EGMS ID" as "PreappEGMSID"
+    And I navigate to "Budget" sub tab
+    Then I softly see field "Budget Type" as "Non-Construction"
+    Given I expand nested table containing column value "BP01"
+    Then I softly see value "Personnel" for title "Category" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+    Then I softly see value "Fringe Benefits" for title "Category" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+    Then I softly see value "Travel" for title "Category" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+    Then I softly see value "Equipment" for title "Category" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+    Then I softly see value "Supplies" for title "Category" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+    Then I softly see value "Contractual" for title "Category" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+    Then I softly see value "Construction" for title "Category" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+    Then I softly see value "Other" for title "Category" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
+
+  @463438 @ValidatePreAppwithPOprofilevalidatebutton
+  Scenario: Validate Pre App with PO profile validate button
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
+    When I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "PRE_APPLICATION_YES"
+    And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "default-Grantee PO user"
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:PreApplication---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I save the field labeled "EGMS ID" as "PreappEGMSID"
+    When I click on "Validate" in the page details
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Files Tab - Attach the "Letter of Intent" required for the Funding Opportunity. |
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Letter of Intent" from computer
+    When I click modal button "Close"
+    And I navigate to "Overview" sub tab
+    And I click on "Remove" icon for "Victor EXE" inside flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    And I wait for "2" seconds
+    When I click on "Validate" in the page details
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - Associate at least one Contact with Pre-Application. |
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:preAppAssociateContactTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationContactTableId---" by clicking "Edit" :
+      | Name       | Is Key Contact | Project Role                                   |
+      | Victor EXE | Checked        | Project Director/Principal Investigator(PI/PD) |
+    And I click on "Edit" in the page details
+    And I clear the value from field "ProjectAbstract__c"
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - Provide a value for Project Abstract. |
+    And I click on "Edit" in the page details
+    When I enter value "Automation Test" into field "ProjectAbstract__c"
+    And I click on remove for lookup from field "DUNS__c"
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - Provide a value for UEI. |
+    And I click on "Edit" in the page details
+    When I enter value "YRNMVN96JC17" into field "DUNS__c"
+    When I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    Given I expand nested table containing column value "BP01"
+    When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" with wait for record
+    When I click on "Delete" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
+    And I wait for "3" seconds
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
+    When I close "Budget Category Line Item" modal by clicking the top right x button
+    When I click on "Validate" in the page details
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Budget Tab - Enter budget details for all the budget periods associated before submitting the Pre-Application for approval. |
+    When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" with wait for record
+    When I enter the following values into flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---" by clicking "New" :
+      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
+      | Construction | The narrative | 5000         | 500        | 500            |
+    When I close "Budget Category Line Item" modal by clicking the top right x button
+    And I wait for "2" seconds
+    When I click on "Validate" in the page details
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Pre-Application has been validated successfully. |

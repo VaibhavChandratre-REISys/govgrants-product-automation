@@ -1635,7 +1635,7 @@ Feature: Validate all scenarios for Financial Report
     Then I see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID2}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I softly see total records count "Total Records: 4" in flex table "---grantee_tableId:-:FinancialsReportTableId---"
 
-  @496165 @ValidateAwardFromAppReviewedthefinancialreportbyassignedReviewerwithallowrecordeditingYes @P2_Grantee @PM_Grantee @GRegression1
+  @496165 @ValidateAwardFromAppReviewedthefinancialreportbyassignedReviewerwithallowrecordeditingYes @P2_Grantee @PM_Grantee @GRegression5
   Scenario: Validate Award from App Reviewed the financial report by assigned Reviewer with allow record editing Yes
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"

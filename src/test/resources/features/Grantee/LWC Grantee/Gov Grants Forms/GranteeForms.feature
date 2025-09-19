@@ -11537,7 +11537,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | 2 duplicate file title(s) found: Attachment.pdf. Please ensure all file titles are unique. |
 
-  @477439 @ValidateBudgetNarrativeattachmentformPMusercanaddfilesinBudgetnarrativeattachmentinEditmodeandsuccessfullysubmitapplicationtograntsgov
+  @477439 @ValidateBudgetNarrativeattachmentformPMusercanaddfilesinBudgetnarrativeattachmentinEditmodeandsuccessfullysubmitapplicationtograntsgov @P2_Grantee @PM_Grantee @GRegression5
   Scenario: Validate Budget Narrative attachment form PM user can add files in Budget narrative attachment in Edit mode and successfully submit application to grants.gov
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
