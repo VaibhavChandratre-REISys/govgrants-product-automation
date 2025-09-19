@@ -24986,7 +24986,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       Then I can see top right button "Record Decision" in page detail
       Then I can see top right button "Revise Amendment" in page detail
 
-    @472191 @CombinationofamendmentVerifyasEXEuser(ARrecordowner)checkimpactofnewlycreatedAwardonGrant&Award
+    @472191 @CombinationofamendmentVerifyasEXEuser(ARrecordowner)checkimpactofnewlycreatedAwardonGrant&Award @P2_Grantee @GRegression2 @EXE_Grantee
      Scenario Outline:Combination of amendment : Verify as EXE user (AR record owner)  check impact of newly created Award on Grant & Award
       And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<filter>"
       And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -25356,7 +25356,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
           | User           | filter             | Owner          |
           | GRANTEE EXE    | Victor EXE user    | GRANTEE EXE    |
 
-  @500061 @ValidateuserabletoIncreasethebudgetinbudgetchangesectiononPeriodicRenewalAmendmentRequest
+  @500061 @ValidateuserabletoIncreasethebudgetinbudgetchangesectiononPeriodicRenewalAmendmentRequest  @P2_Grantee @Gregression2 @PM_Grantee
   Scenario: Validate PM user able to Increase the budget in Budget  change section on Periodic Renewal Amendment Request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "CASH_MATCH_NON_CASH_MATCH_PO_OWNER"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "NON_CASH_MATCH_BUDGET"
