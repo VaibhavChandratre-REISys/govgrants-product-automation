@@ -25355,3 +25355,46 @@ Feature: Validate all scenarios for Grantee Amendment Request
       Examples:
           | User           | filter             | Owner          |
           | GRANTEE EXE    | Victor EXE user    | GRANTEE EXE    |
+
+  @469404 @ValidateuserabletoIncreasethebudgetinbudgetchangesectiononPeriodicRenewalAmendmentRequest
+  Scenario: Validate PM user able to Increase the budget in Budget  change section on Periodic Renewal Amendment Request
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "CASH_MATCH_NON_CASH_MATCH_PO_OWNER"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "NON_CASH_MATCH_BUDGET"
+    And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    And I wait for "2" seconds
+    And I "Created" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
+    When I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    When I navigate to "Amendments" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    When I get the "EGMS ID"
+    When I navigate to "Overview" sub tab
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
+      | Title        | Narrative     | Awarded Budget | Cash Match | Non-Cash Match |
+      | Construction | The narrative | 4500           | 450        | 450            |
+    When I close "Add Line Items" modal by clicking the top right x button
+    And I wait for "2" seconds
+    Then I softly see value "$6,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see value "$650.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see value "$450.00" for title "Non-Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
+      | Title        | Narrative     | Awarded Budget | Cash Match | Non-Cash Match |
+      | Construction | The narrative | 9000           | 900        | 900            |
+    When I close "Add Line Items" modal by clicking the top right x button
+    And I wait for "2" seconds
+    Then I softly see value "$13,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see value "$1,350.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see value "$1,350.00" for title "Non-Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
