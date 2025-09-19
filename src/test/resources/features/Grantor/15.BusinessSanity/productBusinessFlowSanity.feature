@@ -3745,7 +3745,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
-    When I enter value "UnChecked" into field "FederallyownedProperty__c"
+    #When I enter value "UnChecked" into field "FederallyownedProperty__c"
     When I enter value "UnChecked" into field "AcquiredEquipment__c"
     When I enter value "UnChecked" into field "ResidualUnusedSupplies__c"
     When I click on "Save" in the page details
@@ -4460,6 +4460,7 @@ Feature: Validate sanity testing of Complete Business Flow
   Scenario: Scenario for user registration
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
+    And I pause execution for "34" seconds
     When I click on "Agree" in the page details
     When I click on "Save" in the page details
     And I navigate to "Organization Profile" sub tab

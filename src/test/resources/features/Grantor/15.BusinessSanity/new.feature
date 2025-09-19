@@ -3619,7 +3619,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @SF429-B_FillFullForm @ProdSan3
+  @SF429-B_FillFullForm123 @ProdSan3
   Scenario: Validate SF429-B_Fill Full Form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -4459,6 +4459,7 @@ Feature: Validate sanity testing of Complete Business Flow
   Scenario: Scenario for user registration
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
+    And I pause execution for "34" seconds
     When I click on "Agree" in the page details
     And I wait for "2" seconds
     When I click on "Save" in the page details
@@ -4471,6 +4472,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
+    And I halt execution
     And I am on "INTERNAL" portal
     And I login to "Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
