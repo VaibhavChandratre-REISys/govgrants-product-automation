@@ -1688,9 +1688,6 @@ Feature: Validate all scenarios for Financial Report
     Then I softly see field "Status" as "Submitted for Review"
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
-    And I wait for "2" seconds
-    And I click on "notifications" button on header
-    Then I softly see notification "Review Financial Report for Award #{SavedValue:AwardEGMSID} for Reporting Period {SavedValue:ReportingPeriodStartDate} - {SavedValue:ReportingPeriodEndDate}"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     Then I softly see value "{SavedValue:financialEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"

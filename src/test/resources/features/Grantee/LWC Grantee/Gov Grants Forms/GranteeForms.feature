@@ -11784,7 +11784,7 @@ Feature: Grantee Forms Scenario
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
 
-  @480739 @ValidatePOprofileIfrecordisincreatedReviewedstateonClickSplitViewactionotherattachmentformgetopeninquickviewandabletoseeEditandvalidateaction
+  @480739 @ValidatePOprofileIfrecordisincreatedReviewedstateonClickSplitViewactionotherattachmentformgetopeninquickviewandabletoseeEditandvalidateaction @P3_Grantee @PO_Grantee @GRegression5
   Scenario: Validate PO profile If record is in created Reviewed state on Click Split View action other attachment form get open in quick view and able to see Edit and validate action
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
