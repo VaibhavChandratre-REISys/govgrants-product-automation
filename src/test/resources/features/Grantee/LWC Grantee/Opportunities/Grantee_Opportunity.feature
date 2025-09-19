@@ -1799,7 +1799,7 @@ Feature: Validate all scenarios for Opportunity
       | userType        |
       | GRANTEE AUDITOR |
 
-  @487159 @validateaspodetailsdisplayedonoverviewtabofopportunitiesnotconverteddetailspagewhenrecordisopenedinviewmode  @P2_Grantee @Gregression2 @PO_Grantee
+  @487159 @463544 @validateaspodetailsdisplayedonoverviewtabofopportunitiesnotconverteddetailspagewhenrecordisopenedinviewmode  @P2_Grantee @Gregression2 @PO_Grantee
   Scenario Outline: Validate as PO , details displayed on Overview Tab of Opportunities Not converted- details page when record is opened in view mode
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<userName>"
     Given I login to "As a Grantee" app as "<userType>" user
@@ -1908,6 +1908,7 @@ Feature: Validate all scenarios for Opportunity
     Examples:
       | userName        | userType   |
       | Grantee PO user | GRANTEE PO |
+      | Grantee PM user | GRANTEE PM |
 
   @463548 @validateonsubmitforapprovalvalidationisdisplayedtoPOuserforrequireforsubmitfieldsandiconisdisplayedforrequiredforsubmitfields @P2_Grantee @PO_Grantee @GRegression3
   Scenario: Validate on Submit for approval, validation is displayed to PO user for required for submit fields and icon is displayed for required for submit fields
