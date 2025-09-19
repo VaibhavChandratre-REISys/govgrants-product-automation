@@ -4450,7 +4450,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Closed"
 
-  @482622 @validatePMusercansubmitawardforapprovalafteradding3stepapprovers
+  @482622 @validatePMusercansubmitawardforapprovalafteradding3stepapprovers @Gregression2 @P2_Grantee @PM_Grantee
   Scenario: Validate PM user can submit award for approval after adding 3 step approvers
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
