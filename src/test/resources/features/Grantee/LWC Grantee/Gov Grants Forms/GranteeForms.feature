@@ -11282,7 +11282,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | Please validate the Forms by clicking validate button. |
 
-  @481490 @ValidatePMPMusershouldnotabletosubmittheapplicationwithoutfillingformifformismandatoryonapplication
+  @481490 @ValidatePMPMusershouldnotabletosubmittheapplicationwithoutfillingformifformismandatoryonapplication @P2_Grantee @PM_Grantee @Gregression2
   Scenario: Validate PM user should not able to submit the application without filling form if form is mandatory on application
     Given I delete the grantee record "{grantee_testData:GrantsGovProjectPerformanceMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269345" with properties "default"
