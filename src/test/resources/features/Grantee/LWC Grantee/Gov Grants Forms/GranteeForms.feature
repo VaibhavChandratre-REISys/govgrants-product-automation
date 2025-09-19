@@ -11173,6 +11173,7 @@ Feature: Grantee Forms Scenario
     When I enter value "123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" into field "IndirectCharges__c"
     When I enter value "123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890 12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234" into field "Remarks__c"
     When I click on "Save" in the page details
+    When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | The value of the field "21. Direct Charges:" exceeds the maximum allowed limit of 50 characters.   |
       | The value of the field "22. Indirect Charges:" exceeds the maximum allowed limit of 50 characters. |
