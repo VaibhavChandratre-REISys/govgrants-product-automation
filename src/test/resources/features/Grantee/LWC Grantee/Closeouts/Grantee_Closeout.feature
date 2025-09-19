@@ -3178,13 +3178,15 @@ Feature: Validate all scenarios for closeout
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Amendments" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AmendEGMSID"
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I perform quick search for "{SavedValue:AmendEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:AmendEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I "Reject" in the approval decision
     Then I softly see field "Status" as "Rejected"
     #Accepted Amendment
@@ -3203,6 +3205,7 @@ Feature: Validate all scenarios for closeout
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Amendments" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I save the field labeled "EGMS ID" as "AmendEGMSID1"
     When I click on "Submit to Grantor" in the page details
     When I enter values into fields
       | Value | Field                 |
@@ -3235,6 +3238,7 @@ Feature: Validate all scenarios for closeout
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Amendments" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I save the field labeled "EGMS ID" as "AmendEGMSID2"
     When I click on "Submit to Grantor" in the page details
     When I enter values into fields
       | Value | Field                 |

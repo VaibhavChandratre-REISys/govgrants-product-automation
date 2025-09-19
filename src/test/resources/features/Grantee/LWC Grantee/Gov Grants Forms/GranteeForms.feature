@@ -11941,7 +11941,7 @@ Feature: Grantee Forms Scenario
     Then I softly see value "100.00%" for title "Percentage" against the value "Disclosure of Lobbying Activities (SF-LLL)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "Yes" for title "Validated" against the value "Disclosure of Lobbying Activities (SF-LLL)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
 
-  @479463 @479465 @479466 @ValidateAdminwithadminprofileabletoviewtheKeycontactformandthesubmissionhistory
+  @479463 @479465 @479466 @ValidateAdminwithadminprofileabletoviewtheKeycontactformandthesubmissionhistory @ADMIN_Grantee @FO_Grantee @FD_Grantee @P3_Grantee @GRegression3
   Scenario: Validate Admin with admin profile able to view the Key contact form and the submission history
     Given I delete the grantee record "{grantee_testData:GrantsGovKeyContactMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269340" with properties "default-Grantee PO user"
@@ -12100,7 +12100,7 @@ Feature: Grantee Forms Scenario
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
 
-  @479265 @ValidatePOProfileunabletoseevalidateandeditbuttononformsandsplitviewscreenonceformsstatusSubmittedforapprovalApprovedSubmitedtograntor
+  @479265 @ValidatePOProfileunabletoseevalidateandeditbuttononformsandsplitviewscreenonceformsstatusSubmittedforapprovalApprovedSubmitedtograntor @P2_Grantee @PO_Grantee @GRegression5
   Scenario: Validate PO Profile unable to see validate and edit button on forms and split view screen once forms status Submitted for approval /Approved/Submited to grantor
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySFLLL}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269344" with properties "default-Grantee PO user"
