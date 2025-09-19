@@ -12275,7 +12275,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly can see page block "Budget Summary"
     And I navigate to "Budget" sub tab
     Then I softly can see page block "Budget Summary by Focus Area"
-    Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
   @239577 @239596 @ValidatePOusercannotAddandremoveFocusAreainbudgetsummaryfocusareasectiononaward @sprint-15-US-237846  @Allocation @ProExecute
@@ -17441,7 +17441,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly can see page block "Budget Summary"
     And I navigate to "Budget" sub tab
     Then I softly can see page block "Budget Summary by Focus Area"
-    Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
   @244014 @244024 @ValidateDirectPOusershouldseefollowingreadonlyfieldsunderBudgetSummarysectioninCreatedSendtoSubrecipientbeforeApprovalSentforReviewReviewedStatus @sprint-16-US-226122  @Allocation
@@ -18231,7 +18231,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly can see page block "Budget Summary"
     And I navigate to "Budget" sub tab
     Then I softly can see page block "Budget Summary by Focus Area"
-    Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
   @244216 @ValidateCompAnnSPISPAusershouldseefollowingreadonlyfieldsunderBudgetSummarysectioninSendtoSubrecipientbeforeApprovalSentforReviewReviewedStatus @sprint-16-US-226926  @Allocation

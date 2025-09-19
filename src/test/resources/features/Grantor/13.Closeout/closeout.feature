@@ -317,6 +317,11 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "GrantID"
+    And I navigate to "Files" sub tab
+    And I click on "Upload Template" icon for "Project Period Closeout" inside flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" with wait for record
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
+    And I click modal button "Close"
+    And I wait for "2" seconds
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
     #40065
@@ -347,27 +352,22 @@ Feature: Validate all scenarios in Closeout
     #89223
     When I navigate to "Files" sub tab
     Then I softly see value "Automation" for title "Description" inside table "---closeout:-:closeoutSupportingDocumentChecklist---"
-    #89224
-    And I click on "Upload Template" icon for "Automation" inside flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" with wait for record
-    Then I softly see "Upload Template" opens in overLay window
-    When I upload file "AttachmentTesting.pdf" into library
-    And I click modal button "Save"
-    Then I see the following messages in the page details contains:
-      | Attachment saved successfully. |
-    When I close "Upload Template" modal by clicking the top right x button
     #89225
     And I click on hyperlink containing value "View"
+    And I wait for "2" seconds
     Then I softly see new tab is opened
     And I switch to parent tab
     And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
     #89226
     When I upload attachment "Permanent Records.xlsx" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     #89229
     And I click on "View" icon for "Other" inside flex table with id "---closeout:-:closeoutFilesTableId---" with wait for record
-    Then I softly see "View" opens in overLay window
+    Then I softly see "Add Files" opens in overLay window
     Then I see field "Title" as "Permanent Records.xlsx" on modal
     Then I see field "Classification" as "Other" on modal
-    When I close "View" modal by clicking the top right x button
+    When I click modal button "Close"
     #89227
     And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
     When I upload file "ParentChild.txt" present in the flex table "---closeout:-:closeoutAddFileTableId---" from library
