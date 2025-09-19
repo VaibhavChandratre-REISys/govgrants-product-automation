@@ -701,7 +701,7 @@ Feature: Validate all scenarios for Federal Organization
       | userType    | attachment            | Notes         |
       | GRANTEE FD  | AttachmentTesting.pdf | Notes for FD  |
 
-  @482153 @ValidateEXEprofileusershouldseeallfieldsandsectiononfederalOrglayout
+  @482153 @ValidateEXEprofileusershouldseeallfieldsandsectiononfederalOrglayout @EXE_Grantee @P2_Grantee @Gregression2
   Scenario Outline: Validate EXE profile user should see all fields and section on federal Org layout
     When I login to "As a Grantee" app as "<userType>" user
     When I navigate to "Home" tab

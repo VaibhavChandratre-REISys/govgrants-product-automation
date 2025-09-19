@@ -25038,7 +25038,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
           | Proposed Name | Project Role    | Is Key Contact |
           | David FO      | Project Officer | Checked        |
       And I save the value from row "1" for column name "Proposed Name" as "ProposedName" from flex table "---grantee_tableId:-:amendmentContactTableId---"
-      Then I softly see value "{SavedValue:ProposedName}" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+      Then I softly see value "{SavedValue:ProposedName}" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"
+      And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
       When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---grantee_tableId:-:amendmentAssociateObjectiveTableId---"
       Then I softly see the following messages in the page details contains:
           | Objectives were associated successfully. |
