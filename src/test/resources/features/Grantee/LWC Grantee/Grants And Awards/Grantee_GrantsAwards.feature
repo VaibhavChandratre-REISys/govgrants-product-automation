@@ -4497,7 +4497,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I see "AttachmentTesting.pdf" has been added in "Award Files" flex table
     And I click on "Submit For Approval" in the page details
 
-    @488674 @488676 @488677 @488681 @validateGrantAmountfieldonactualtabinFinancialSummarysection
+    @488674 @488676 @488677 @488681 @validateGrantAmountfieldonactualtabinFinancialSummarysection @P2_Grantee @Gregression2 @PM_Grantee
     Scenario: Validate Grant Amount field on actual tab in Financial Summary section.
     And I "Created" standalone subaward "Automation Runtime Award" with properties "NON_CONSTRUCTION"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
