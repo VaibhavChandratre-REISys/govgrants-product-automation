@@ -984,7 +984,7 @@ Feature: Validate all scenarios for Pre-Applications Manual
     Then I softly see field "Are Indirect Costs Allowed?" as "Yes"
     Then I softly see field "Is Leverage Allowed?" as "Yes"
 
-  @463428 @ValidatePMprofileAsperbudgettypeNonConstructionabletoseetheCategories
+  @463428 @ValidatePMprofileAsperbudgettypeNonConstructionabletoseetheCategories @GRegression5 @PM_Grantee @P2_Grantee
   Scenario: Validate PM profile As per budget type Non-Construction able to see the Categories
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "COSTSHARING_NO-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PO" user
@@ -1015,7 +1015,7 @@ Feature: Validate all scenarios for Pre-Applications Manual
     Then I softly see value "Construction" for title "Category" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
     Then I softly see value "Other" for title "Category" inside table "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---"
 
-  @463438 @ValidatePreAppwithPOprofilevalidatebutton
+  @463438 @ValidatePreAppwithPOprofilevalidatebutton @GRegression5 @P2_Grantee @PO_Grantee
   Scenario: Validate Pre App with PO profile validate button
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     When I login to "As a Grantee" app as "GRANTEE PO" user
