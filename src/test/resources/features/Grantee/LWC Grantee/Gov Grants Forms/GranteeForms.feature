@@ -11178,7 +11178,7 @@ Feature: Grantee Forms Scenario
       | The value of the field "22. Indirect Charges:" exceeds the maximum allowed limit of 50 characters. |
       | The value of the field "23. Remarks:" exceeds the maximum allowed limit of 250 characters.        |
 
-  @481495 @ValidatePOuserseevalidationmessagesifusertrytosavetheinvaliddataonform
+  @481495 @ValidatePOuserseevalidationmessagesifusertrytosavetheinvaliddataonform @P2_Grantee @Gregression2 @PO_Grantee
   Scenario: Validate PO user see validation messages if user try to save the invalid data on form
     Given I delete the grantee record "{grantee_testData:GrantsGovProjectPerformanceMandatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269345" with properties "default-Grantee PO user"
