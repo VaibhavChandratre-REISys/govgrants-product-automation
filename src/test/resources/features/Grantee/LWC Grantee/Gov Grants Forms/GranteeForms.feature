@@ -11126,7 +11126,6 @@ Feature: Grantee Forms Scenario
       | Please upload exactly one 'Mandatory Budget Narrative'. |
       | Please upload no more than one 'Optional Budget Narrative'. |
 
-
   @480415 @ValidateBudgetInformationNonConstructionProgramthatPMuserseevalidationmessageifdonotfill&clickontoplevelsavebutton
   Scenario: Validate Budget Information Non Construction Program that PM user see validation message if do not fill & click on top level save button
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySF424A}"

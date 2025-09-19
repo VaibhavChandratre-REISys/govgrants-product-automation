@@ -25356,7 +25356,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
           | User           | filter             | Owner          |
           | GRANTEE EXE    | Victor EXE user    | GRANTEE EXE    |
 
-  @469404 @ValidateuserabletoIncreasethebudgetinbudgetchangesectiononPeriodicRenewalAmendmentRequest
+  @500061 @ValidateuserabletoIncreasethebudgetinbudgetchangesectiononPeriodicRenewalAmendmentRequest
   Scenario: Validate PM user able to Increase the budget in Budget  change section on Periodic Renewal Amendment Request
     And I "Created" standalone subaward "Automation Runtime Award" with properties "CASH_MATCH_NON_CASH_MATCH_PO_OWNER"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "NON_CASH_MATCH_BUDGET"
