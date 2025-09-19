@@ -3189,8 +3189,8 @@ Feature: Validate all scenarios for closeout
     When I click on "Start" icon for "{SavedValue:AmendEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I "Reject" in the approval decision
     Then I softly see field "Status" as "Rejected"
-    #Accepted Amendment
-    And I "Approved" of type "Budget Redirection" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "BUDGET_REDIRECTION"
+    #Accepted
+    And I "Approved" of type "Scope of Work Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "SOW_AMENDMENT_NEW_AWARD_ID"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3205,7 +3205,7 @@ Feature: Validate all scenarios for closeout
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Amendments" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    And I save the field labeled "EGMS ID" as "AmendEGMSID1"
+    And I save the field labeled "EGMS ID" as "AmendEGMSID2"
     When I click on "Submit to Grantor" in the page details
     When I enter values into fields
       | Value | Field                 |
@@ -3222,8 +3222,15 @@ Feature: Validate all scenarios for closeout
     And I click modal button "Save"
     And I click modal button "Close"
     Then I softly see field "Status" as "Accepted"
+    And I click on "Amend Award" in the page details
+    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+    When I click on "Activate Award" in the page details
+    Then I softly see field "Status" as "Activated"
+    And I save the field labeled "EGMS ID" as "AwardId1"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Title" as "AwardTitle"
     #Submitted to Grantor
-    And I "Approved" of type "Scope of Work Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I "Approved" of type "Budget Redirection" amendment request for title "{SavedValue:AwardTitle}" with properties "BUDGET_REDIRECTION"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3231,14 +3238,13 @@ Feature: Validate all scenarios for closeout
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I click on "View" icon for "{SavedValue:AwardTitle}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
-    And I save the field labeled "Award Title" as "AwardTitle"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Amendments" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    And I save the field labeled "EGMS ID" as "AmendEGMSID2"
+    And I save the field labeled "EGMS ID" as "AmendEGMSID1"
     When I click on "Submit to Grantor" in the page details
     When I enter values into fields
       | Value | Field                 |
