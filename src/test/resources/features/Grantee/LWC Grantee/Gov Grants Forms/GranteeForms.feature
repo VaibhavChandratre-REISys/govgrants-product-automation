@@ -11381,11 +11381,7 @@ Feature: Grantee Forms Scenario
     And I wait for "2" seconds
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Form Validated Successfully. |
-    And I close the tab
-    And I refresh the page
-    When I click on "Edit" icon for "Assurances for Non-Construction Programs (SF-424B)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1"
+      | To Save, TITLE is required in the Authorized Certifying Official Information section.  |
     And I enter value "Automation Test Execution" into field "AOR_Title__c"
     And I click on "Save" in the page details
     When I click on "Validate" in the page details
