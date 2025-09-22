@@ -3181,6 +3181,7 @@ Feature: Validate all scenarios for the global search
     Then I softly can see top right button "Cancel" in page detail
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:PO Username}" inside flex table with id "SiteVisitReviewerRoles"
+    And I wait for "3" seconds
     And I enter values into fields
       | Value  | Field             |
       | Passed | Rating__c         |
