@@ -3155,7 +3155,7 @@ Feature: Validate all scenarios for closeout
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:closeoutNotesTableId---"
     Then I softly do not see top right button "Add" inside flex table "---grantee_tableId:-:closeoutNotesTableId---"
 
-  @473897 @ValidateAmendmentReqPMusershouldnotseeamendmentrequestwithstateRejectedSubmittedtoGrantorAcceptedinPPCloseoutopenitems
+  @473897 @ValidateAmendmentReqPMusershouldnotseeamendmentrequestwithstateRejectedSubmittedtoGrantorAcceptedinPPCloseoutopenitems @P2_Grantee @PM_Grantee @GRegression5
   Scenario: Validate Amendment Req PM user should not see amendment request with state Rejected Submitted to Grantor Accepted in PP Closeout open items
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
