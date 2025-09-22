@@ -293,7 +293,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I click on submit review
     And I pause execution for "2" seconds
-#    When I close "Enter Review" modal by clicking the top right x button
+    When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -1555,7 +1555,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I click on submit review
     And I wait for "1" seconds
-#    When I click modal button "Close"
+    When I click modal button "Close"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1795,7 +1795,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "5" seconds
     And I click on submit review
-#    When I click modal button "Close"
+    When I click modal button "Close"
     When I re-login to "As a Grantor" app as "DynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
@@ -1953,6 +1953,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "2" seconds
     When I click modal button "Close"
+    And I halt execution
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 
   @72350 @adhocAdvanceHappyPath @ProdSan1
