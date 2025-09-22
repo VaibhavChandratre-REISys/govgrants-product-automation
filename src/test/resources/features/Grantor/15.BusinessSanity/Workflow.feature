@@ -1792,7 +1792,7 @@ Feature: Validate all scenarios of every modules flow
       | SubrecipientUser |
       | SPI3             |
 
-  @testchckAwards @debug
+  @testchckAwards
   Scenario:
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM1 user" of type "Competitive"
      #Progress Report

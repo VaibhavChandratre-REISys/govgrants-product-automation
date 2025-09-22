@@ -806,7 +806,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @388926 @ValidatethatuserisnotabletochangetheownerinanystateofInternalProgramandwillgettheerrormessageandnonowneruseisnotabletoseethechangeowneroption @sprint-2-US-386939  @GlobalSearch
+  @388926 @ValidatethatuserisnotabletochangetheownerinanystateofInternalProgramandwillgettheerrormessageandnonowneruseisnotabletoseethechangeowneroption @sprint-2-US-386939 @GlobalSearch
   Scenario: Validate that user is not able to change the owner in any state of Internal Program and will get the error message and non-owner user is not able to see the change owner option
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -2010,9 +2010,9 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
-    And I select "Progress Report" from dropdown for Global search
+    And I select "Monitoring Reports" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
-    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Progress Report"
+    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Monitoring Reports"
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
@@ -2028,18 +2028,18 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
-    And I select "Progress Report" from dropdown for Global search
+    And I select "Monitoring Reports" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
-    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Progress Report"
+    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Monitoring Reports"
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
-    And I select "Progress Report" from dropdown for Global search
+    And I select "Monitoring Reports" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
-    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Progress Report"
+    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Monitoring Reports"
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
@@ -2053,27 +2053,27 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Sent Back to Subrecipient"
     And I wait for "5" seconds
     And I navigate to "Monitoring" tab
-    And I select "Progress Report" from dropdown for Global search
+    And I select "Monitoring Reports" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
-    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Progress Report"
+    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Monitoring Reports"
     Then I softly see field "Status" as "Sent Back to Subrecipient"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
-    And I select "Progress Report" from dropdown for Global search
+    And I select "Monitoring Reports" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
-    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Progress Report"
+    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Monitoring Reports"
     Then I softly see field "Status" as "Sent Back to Subrecipient"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
-    And I select "Progress Report" from dropdown for Global search
+    And I select "Monitoring Reports" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
-    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Progress Report"
+    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Monitoring Reports"
     Then I softly see field "Status" as "Sent Back to Subrecipient"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
@@ -2101,9 +2101,9 @@ Feature: Validate all scenarios for the global search
     Given I click on "Submit for Approval" in the page details
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
-    And I select "Progress Report" from dropdown for Global search
+    And I select "Monitoring Reports" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
-    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Progress Report"
+    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Monitoring Reports"
     Then I softly see field "Status" as "Submitted for Approval"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
@@ -2117,9 +2117,9 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Approved"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
-    And I select "Progress Report" from dropdown for Global search
+    And I select "Monitoring Reports" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
-    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Progress Report"
+    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Monitoring Reportst"
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
@@ -2240,9 +2240,9 @@ Feature: Validate all scenarios for the global search
     Then I see value "Force Closed" for title "Status" against the value "{SavedValue:progID}" inside table "---progressreport:-:grantorProgressReportsTableId---"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
-    And I select "Progress Report" from dropdown for Global search
+    And I select "Monitoring Reports" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
-    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Progress Report"
+    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Monitoring Reports"
     Then I softly see field "Status" as "Force Closed"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
@@ -2270,9 +2270,9 @@ Feature: Validate all scenarios for the global search
     And I click on "Save" in the page details
     And I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
-    And I select "Progress Report" from dropdown for Global search
+    And I select "Monitoring Reports" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
-    Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "Progress Report"
+    Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "Monitoring Reports"
     And I perform quick search inside global search "PR--"
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Type" inside refine by filter
@@ -2283,7 +2283,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Due Date" inside refine by filter
     Then I softly see "Status" inside refine by filter
     And I filter field record by "{SavedValue:progID}" by label "EGMS ID" in left panel for global search
-    Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "Progress Report"
+    Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "Monitoring Reports"
     Then I softly see the text "Refine By" on left navigation for global search
     And I click on "Expand List" button on left navigation for global search
     Then I softly see the text "Reports" on left navigation for global search
@@ -2313,7 +2313,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     And I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
-    And I select "Progress Report" from dropdown for Global search
+    And I select "Monitoring Reports" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
     And I click on hyperlink for global search containing value "{SavedValue:progID}"
     Then I softly see the text containing "{SavedValue:progID}"
@@ -3589,7 +3589,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
-    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
+    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Awards"
     Then I softly see field "Status" as "Created"
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -3665,7 +3665,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
-    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
+    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Awards"
     Then I softly see field "Status" as "Submitted for Review"
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3693,7 +3693,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
-    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
+    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Awards"
     Then I softly see field "Status" as "Reviewed"
     And I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
@@ -3708,7 +3708,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
-    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
+    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Awards"
     Then I softly see field "Status" as "Accepted"
     Examples:
       | Award Name                                   | Grant Name                                   |
@@ -3733,7 +3733,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
-    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
+    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Awards"
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
@@ -3822,7 +3822,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Grants" tab
     And I wait for "3" seconds
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
-    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
+    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Awards"
     Then I softly see field "Status" as "Submitted for Review"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
@@ -3854,7 +3854,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
-    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
+    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Awards"
     Then I softly see field "Status" as "Reviewed"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
@@ -3879,7 +3879,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
-    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
+    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Awards"
     Then I softly see field "Status" as "Accepted"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
@@ -3903,7 +3903,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
-    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
+    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Awards"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
@@ -3921,7 +3921,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Grants" tab
     And I wait for "3" seconds
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
-    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
+    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Awards"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
@@ -3947,7 +3947,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
-    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
+    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Awards"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
@@ -3966,7 +3966,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
-    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
+    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Awards"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
@@ -4001,7 +4001,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
-    Then I softly cannot see row level action button "Change Owner" against "{SavedValue:AnnEGMSID}" in global search with id "Subawards"
+    Then I softly cannot see row level action button "Change Owner" against "{SavedValue:AnnEGMSID}" in global search with id "Awards"
 
   @389017 @sprint-2-US-386939  @GlobalSearch
   Scenario Outline: Verify that PM user as Reviewer have edit access for record only when edit access setting is yes for peer reviewer when award is a submit for review state.
@@ -4093,7 +4093,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
-    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
+    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Awards"
     Then I softly see field "Status" as "Submitted for Review"
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
@@ -4191,7 +4191,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
-    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
+    And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Awards"
     Then I softly see field "Status" as "Submitted for Review"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
@@ -4272,7 +4272,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "2" seconds
     And I navigate to "Grants" tab
     And I wait for "3" seconds
-    And I select "Subawards" from dropdown for Global search
+    And I select "Awards" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
     And I wait for "2" seconds
     And I click on "Awards" button on left navigation for global search
@@ -4298,7 +4298,7 @@ Feature: Validate all scenarios for the global search
   Scenario: Verify that user can sort any objects after global search any record (Eg: EGMS ID, Relevance, Program)
     When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
-    And I select "Subawards" from dropdown for Global search
+    And I select "Awards" from dropdown for Global search
     And I perform quick search inside global search "awards"
     And I click on "Awards" button on left navigation for global search
     Then I softly see options "Relevance" inside "Relevance" dropdown
