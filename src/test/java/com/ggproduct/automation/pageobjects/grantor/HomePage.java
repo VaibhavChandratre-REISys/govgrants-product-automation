@@ -173,6 +173,7 @@ public class HomePage extends GrantorProjectManager {
             List<Elements> elements= I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//ul[@aria-label='All Searchable Items']//li"));
             for (Elements element : elements) {
                 if (element.getText().contains(dropDownValue)) {
+                    element.isEnabled();
                     element.click();
                     break;
                 }}
