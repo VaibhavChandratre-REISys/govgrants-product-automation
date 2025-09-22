@@ -1,4 +1,4 @@
-@globalSearch1 @grantor-regression @grantor-parallel-regression @regression
+@globalSearch1 @grantor-regression @grantor-parallel-regression @regression @globalExecution1
 Feature: Validate all scenarios for the global search
 
   @388972 @ValidatethatusercansortanyobjectsafterglobalsearchanyrecordbyEGMSIDCreatedDateRelevanceInternalProgramInternalOrganizationApplicationDueDateStatus @sprint-2-US-386939  @GlobalSearch

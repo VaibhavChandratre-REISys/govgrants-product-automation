@@ -1,4 +1,4 @@
-@globalSearch2 @grantor-regression @grantor-parallel-regression @regression
+@globalSearch2 @grantor-regression @grantor-parallel-regression @regression @globalExecution2
 Feature: Validate all scenarios for the global search
 
   @390386 @390389 @ValidateEXEuserisabletoseetheglobalsearchbarforSubrecipientOrganziation @sprint-2-US-386939 @GlobalSearch
