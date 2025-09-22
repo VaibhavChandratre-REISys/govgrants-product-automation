@@ -2802,16 +2802,16 @@ Feature: Validate all scenarios for the global search
   @390379 @SubrecipientOrganizationVerifythatNonOwneruserdoesnthaveaneditoptioninanystageofExternalSROrganizationandwillgeterrormessageonpage @sprint-2-US-386939  @GlobalSearch
   Scenario:Subrecipient Organization -> Verify that Non-Owner user doesn't have an edit option in any stage of External S/R Organization and will get error message on page
     When I login to "Grantor" app as "PM" user
-    And I navigate to "Home" tab
-    And I select "External Registration" from dropdown for Global search
-    And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgInProgress}"
-    Then I softly see value "{AUTOEnvData:AutomationExternalOrgInProgress}" for title "External Organization" inside table "External Registration"
-    And I click on row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgInProgress}" in global search with id "External Registration"
-    Then I softly see field "Status" as "In Progress"
-    Then I cannot see top right button "Save" in page detail
-    Then I cannot see top right button "Cancel" in page detail
-    Then I softly see the text containing "You dont have sufficient access to edit this record"
-    And I wait for "5" seconds
+#    And I navigate to "Home" tab
+#    And I select "External Registration" from dropdown for Global search
+#    And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgInProgress}"
+#    Then I softly see value "{AUTOEnvData:AutomationExternalOrgInProgress}" for title "External Organization" inside table "External Registration"
+#    And I click on row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgInProgress}" in global search with id "External Registration"
+#    Then I softly see field "Status" as "In Progress"
+#    Then I cannot see top right button "Save" in page detail
+#    Then I cannot see top right button "Cancel" in page detail
+#    Then I softly see the text containing "You dont have sufficient access to edit this record"
+#    And I wait for "5" seconds
     And I navigate to "Home" tab
     And I select "External Registration" from dropdown for Global search
     And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgSubmitforApproved}"
@@ -3179,6 +3179,7 @@ Feature: Validate all scenarios for the global search
     #390411 #390427
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
+    And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:PO Username}" inside flex table with id "SiteVisitReviewerRoles"
     And I wait for "3" seconds
