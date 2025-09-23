@@ -24513,9 +24513,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | userName      | User       | Approval |
-      | Sarah PM user | GRANTEE PM | Sarah PM |
-
+      | userName      | User       |
+      | Sarah PM user | GRANTEE PM |
 
   @491637 @ValidatePMProfileonamendedawardcreatedperiodicamendmentandcheckallaward(WithoutDrawdown/WithSpent).
   Scenario: Validate PM Profile on amended award created periodic amendment and check all award(Without Drawdown / With Spent).

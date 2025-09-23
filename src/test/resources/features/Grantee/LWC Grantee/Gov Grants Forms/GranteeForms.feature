@@ -10607,7 +10607,7 @@ Feature: Grantee Forms Scenario
       | UserName        | OwnerType   | NonOwner        |
       | Sarah PM user   | GRANTEE PM  | GRANTEE PM2      |
 
-  @481535 @ProjectAbstractSummaryVerifyPMusershouldnotableedittheformsinsubmitforapprovalapprovedsubmittograntorstate
+  @481535 @ProjectAbstractSummaryVerifyPMusershouldnotableedittheformsinsubmitforapprovalapprovedsubmittograntorstate @P2_Grantee @Gregression2 @PM_Grantee
   Scenario: Project Abstract Summary Verify PM user should not able to edit the forms in submit for approval, approved, submit to grantor state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -11332,7 +11332,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | Please validate the Forms by clicking validate button. |
 
-  @483677 @ValidateAssurancesforNonConstructionProgramsSF424BwithPOProfilePOuserseevalidationisgeneratedonsavebuttonafterenteringincorrectdataortrytosaveformwithoutenteringfiledvaluesinallfieldsonSF-424Bform
+  @483677 @ValidateAssurancesforNonConstructionProgramsSF424BwithPOProfilePOuserseevalidationisgeneratedonsavebuttonafterenteringincorrectdataortrytosaveformwithoutenteringfiledvaluesinallfieldsonSF-424Bform  @P2_Grantee @PO_Grantee @Gregression2
   Scenario: Validate Assurances for Non-Construction Programs SF-424B with PO Profile see validation is generated on save button after entering incorrect data or try to save form without entering filed values in all fields on SF-424 B form
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySF424B}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269346" with properties "default-Grantee PO user"
