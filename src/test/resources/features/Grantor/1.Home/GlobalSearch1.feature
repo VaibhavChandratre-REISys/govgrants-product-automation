@@ -139,7 +139,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Closeout" tab
     And I select "Closeout" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:CloseoutID}"
-    And I click on row level action button "Edit" against "{SavedValue:CloseoutID}" in global search with id "Closeout"
+    And I click on row level action button "Edit" against "{SavedValue:CloseoutID}" in global search with id "Closeouts"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutPeerReviewTableId---" by clicking "New" :
@@ -151,7 +151,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Closeout" tab
     And I select "Closeout" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:CloseoutID}"
-    And I click on row level action button "Edit" against "{SavedValue:CloseoutID}" in global search with id "Closeout"
+    And I click on row level action button "Edit" against "{SavedValue:CloseoutID}" in global search with id "Closeouts"
     Then I softly see field "Status" as "Submitted for Review"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail

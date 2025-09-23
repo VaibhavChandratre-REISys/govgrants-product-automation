@@ -490,7 +490,7 @@ Feature: Validate all scenarios for the global search
       #390455
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @390459 @390459 @390460 @390461 @390465 @ValidateEXEuserisabletoseetheglobalsearchbarforPre-ApplicationNegotiation @sprint-2-US-386939 @GlobalSearch
+  @390459 @390460 @390461 @390465 @ValidateEXEuserisabletoseetheglobalsearchbarforPre-ApplicationNegotiation @sprint-2-US-386939 @GlobalSearch
   Scenario: Verify that Record owner can edit only the negotiation tab when pre-application is in the submit to grantor state and negotiation is in the created state
   |Verify that Record owner can edit only the negotiation tab when pre-application is in the submit to grantor state and negotiation is in the created state|
   |Verify that Non-Owner user doesn't have an edit option in any stage of Pre-application and will get error message on page.|
@@ -506,7 +506,7 @@ Feature: Validate all scenarios for the global search
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -800,7 +800,7 @@ Feature: Validate all scenarios for the global search
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @389008  @sprint-2-US-386939  @GlobalSearch
+  @389008 @sprint-2-US-386939  @GlobalSearch
   Scenario Outline: Verify that Non-Owner user doesn't have an edit option in any stage of award and will get error message on page.
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1489,7 +1489,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see value "EXE" for title "Owner Last Name" inside table "Grants" for global search record
     Then I softly see the text "Refine By" on left navigation for global search
     And I click on "Expand List" button on left navigation for global search
-    Then I softly see the text "Subawards" on left navigation for global search
+    Then I softly see the text "Awards" on left navigation for global search
     Then I softly see the text "Site Visits" on left navigation for global search
     Then I softly see the text "Grants" on left navigation for global search
 
