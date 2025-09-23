@@ -47,12 +47,18 @@ public class QuickSearch {
      */
     public void performGlobalQuickSearch(String searchTerm) {
             try {
+                I.amPerforming().waitFor().makeThreadSleep(1000);
                 I.amPerforming().textInput().toClear(globalSearchInputLwc);
+                I.amPerforming().waitFor().makeThreadSleep(1000);
                 I.amPerforming().textInput().in(globalSearchInputLwc, searchTerm);
+                I.amPerforming().waitFor().makeThreadSleep(1000);
                 I.amPerforming().textInput().in(globalSearchButtonLwc, Keys.ENTER.toString());
             } catch (Exception e) {
+                I.amPerforming().waitFor().makeThreadSleep(1000);
                 I.amPerforming().textInput().toClear(globalSearchInputLwc);
+                I.amPerforming().waitFor().makeThreadSleep(1000);
                 I.amPerforming().textInput().in(globalSearchInputLwc, searchTerm);
+                I.amPerforming().waitFor().makeThreadSleep(1000);
                 I.amPerforming().click().on(globalSearchButtonLwc);
             }
     }
