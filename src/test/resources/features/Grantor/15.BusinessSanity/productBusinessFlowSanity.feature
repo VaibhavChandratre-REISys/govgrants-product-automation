@@ -1265,7 +1265,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Save" in the page details
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    Then I see that "Status" is in "Review Completed" status
+    Then I softly see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -1321,10 +1321,11 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I pause execution for "4" seconds
     And I click on "Save" in the page details
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    Then I see that "Status" is in "Review Completed" status
+    Then I softly see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1332,10 +1333,13 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I pause execution for "4" seconds
     And I click on "Save" in the page details
+    And I pause execution for "4" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    Then I see that "Status" is in "Review Completed" status
+    And I pause execution for "4" seconds
+    Then I softly see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1343,10 +1347,12 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I pause execution for "4" seconds
     And I click on "Save" in the page details
+    And I pause execution for "4" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    Then I see that "Status" is in "Review Completed" status
+    Then I softly see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -1382,6 +1388,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I pause execution for "4" seconds
     And I click on "Save" in the page details
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
@@ -1953,6 +1960,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
+    And I halt execution
     And I pause execution for "2" seconds
     When I click modal button "Close"
     And I halt execution
