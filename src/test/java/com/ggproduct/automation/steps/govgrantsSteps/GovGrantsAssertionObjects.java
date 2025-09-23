@@ -4310,4 +4310,23 @@ public final class GovGrantsAssertionObjects {
         }
         return flag;
     }
+	
+    public void assertValuesAreInFlexTableWithColumnTitleForGlobalSearch(String columnValue, String columnTitle, String flexTableDivId,
+                                                                         Boolean checkifpresent, boolean isSoftly) {
+        String columnValueUpdated = columnValue;
+        if (columnValue.equalsIgnoreCase("Record Id")) {
+            columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
+        }
+        if (checkifpresent != govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForGlobalSearch(columnValueUpdated, columnTitle,
+                flexTableDivId)) {
+        }
+
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForGlobalSearch(columnValueUpdated, columnTitle,
+                    flexTableDivId)).isEqualTo(checkifpresent);
+        } else {
+            Assert.assertEquals(checkifpresent, govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForGlobalSearch(columnValueUpdated, columnTitle,
+                    flexTableDivId));
+        }
+    }
 }

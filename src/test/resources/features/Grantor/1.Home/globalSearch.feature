@@ -1096,7 +1096,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Announcements" tab
     And I select "Announcements" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
-    Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "Announcements"
+    Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "Announcements" for global search record
     And I perform quick search inside global search "Announcement"
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Announcement Name" inside refine by filter
@@ -1104,7 +1104,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Created By" inside refine by filter
     Then I softly see "Status" inside refine by filter
     And I filter field record by "{SavedValue:PM Username}" by label "Created By" in left panel for global search
-    Then I softly see value "{SavedValue:PM Username}" for title "Created By" inside table "Announcements"
+    Then I softly see value "{SavedValue:PM Username}" for title "Created By" inside table "Announcements" for global search record
     Then I softly see the text "Refine By" on left navigation for global search
     And I click on "Expand List" button on left navigation for global search
     Then I softly see the text "Announcements" on left navigation for global search
@@ -1128,7 +1128,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Planning" tab
     And I select "Programs" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
-    Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "Programs"
+    Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "Programs" for global search record
     And I perform quick search inside global search "Programs"
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Type" inside refine by filter
@@ -1136,7 +1136,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Created By" inside refine by filter
     Then I softly see "Status" inside refine by filter
     And I filter field record by "{SavedValue:PM Username}" by label "Created By" in left panel for global search
-    Then I softly see value "{SavedValue:PM Username}" for title "Created By" inside table "Programs"
+    Then I softly see value "{SavedValue:PM Username}" for title "Created By" inside table "Programs" for global search record
     Then I softly see the text "Refine By" on left navigation for global search
     And I click on "Expand List" button on left navigation for global search
     Then I softly see the text "Programs" on left navigation for global search

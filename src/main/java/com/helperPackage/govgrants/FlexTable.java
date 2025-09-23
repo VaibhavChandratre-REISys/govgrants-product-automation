@@ -614,6 +614,29 @@ public final class FlexTable implements FlexTableComponent {
         }
     }
 
+    /**
+     * Handles assertion of column value for the given column title in the given
+     * flextable
+     *
+     * @param columnValue
+     * @param columnTitle
+     * @param flexTableDivId
+     * @return
+     * @author john.phillips
+     * modifier saranjit.modak - added xpath in nested table row 29-12-2022
+     */
+    public boolean assertCoulmnValueAgainstColumnTitleForGlobalSearch(String columnValue, String columnTitle, String flexTableDivId) {
+        try {
+            I.amPerforming().getElementReference().of((By.xpath("//h2//a[text()='" + flexTableDivId + "']")));
+            WebElement row = I.amPerforming().getElementReference().of((By.xpath("//h2//a[text()='" + flexTableDivId + "']/../parent::div/ancestor::div[contains(@class,'results')]//table//th//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1] | //h2//a[text()='" + flexTableDivId + "']/../parent::div/ancestor::div[contains(@class,'results')]//table//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1]")));
+            Map<String, Integer> columnMapping = constructColumnMappingForGlobalSearch(row, Collections.singleton(columnTitle));
+            I.amPerforming().getElementReference().ofNested(row, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + columnMapping.get(columnTitle) + "]//descendant-or-self::*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "] | .//th[not(contains(@class, 'ng-hide'))][" + columnMapping.get(columnTitle) + "]//descendant-or-self::*[" + I.amPerforming().sanityOfXpathTo().equals("@title", columnValue) + "]"));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public boolean assertCoulmnValueAgainstColumnTitleWithQuote(String columnValue, String columnTitle, String flexTableDivId) {
         try {
             I.amPerforming().getElementReference().of((By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']")));
@@ -833,6 +856,29 @@ public final class FlexTable implements FlexTableComponent {
             for (int i = 1; i <= columnCount; i++) {
                 if (I.amPerforming().getElementReference().forListOfElements().ofNested(headerRow, By.xpath(".//*[(local-name()='th' or local-name()='td') and not(contains(@class, 'ng-hide'))][" + i + "]//span[text()='"
                         + headerLabel + "']")).size() > 0) {
+                    mapHeaderLabelsToColumnPositions.put(headerLabel, i);
+                }
+            }
+        }
+        return mapHeaderLabelsToColumnPositions;
+    }
+
+    /**
+     * @param row
+     * @param headerLabels
+     * @return
+     * @author vaibhav.chandratre
+     */
+    public Map<String, Integer> constructColumnMappingForGlobalSearch(WebElement row, Set<String> headerLabels) {
+        By headerRowLocator = By.xpath(".//ancestor::table[1]//th//ancestor::tr[position()=1]");
+        WebElement headerRow = I.amPerforming().getElementReference().ofNested(row, headerRowLocator);
+
+        Map<String, Integer> mapHeaderLabelsToColumnPositions = new HashMap<>();
+
+        int columnCount = I.amPerforming().getElementReference().forListOfElements().ofNested(headerRow, By.xpath(".//th")).size();
+        for (String headerLabel : headerLabels) {
+            for (int i = 1; i <= columnCount; i++) {
+                if (I.amPerforming().getElementReference().forListOfElements().ofNested(headerRow, By.xpath(".//*[(local-name()='th' or local-name()='td') and not(contains(@class, 'ng-hide')) and not(contains(@class,'errorColumnHeader'))][" + i + "]//span[text()='" + headerLabel + "']")).size() > 0) {
                     mapHeaderLabelsToColumnPositions.put(headerLabel, i);
                 }
             }

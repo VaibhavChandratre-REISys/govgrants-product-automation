@@ -179,7 +179,7 @@ Feature: Validate all scenarios for the global search
     And I select "Closeouts" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:CloseoutID}"
     And I wait for "2" seconds
-    Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "Closeouts"
+    Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "Closeouts" for global search record
     And I perform quick search inside global search "CL--"
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Type" inside refine by filter
@@ -189,8 +189,8 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Project Period" inside refine by filter
     Then I softly see "Created By" inside refine by filter
     Then I softly see "Status" inside refine by filter
-    Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "Closeouts"
-    Then I softly see value "{SavedValue:EXE Username}" for title "Created By" inside table "Closeouts"
+    Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "Closeouts" for global search record
+    Then I softly see value "{SavedValue:EXE Username}" for title "Created By" inside table "Closeouts" for global search record
 
   @389645 @VerifythatuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedEGMSIDGrantEGMSIDCreatedByonobjectsafterglobalsearchtheanyrecordf0orCloseout @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user redirect to that record when user click on any hyperlink provided (e.g. -EGMS ID, Grant EGMS ID, Created By) on objects after global search the any record for Closeout.
@@ -332,15 +332,15 @@ Feature: Validate all scenarios for the global search
     And I select "Funding Sources" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:FundingSourcesID}"
     And I wait for "2" seconds
-    Then I softly see value "{SavedValue:FundingSourcesID}" for title "EGMS ID" inside table "Funding Sources"
+    Then I softly see value "{SavedValue:FundingSourcesID}" for title "EGMS ID" inside table "Funding Sources" for global search record
     And I perform quick search inside global search "FS--"
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Title" inside refine by filter
     Then I softly see "Funding Source Type" inside refine by filter
     Then I softly see "Created By" inside refine by filter
     Then I softly see "Status" inside refine by filter
-    Then I softly see value "{SavedValue:FundingSourcesID}" for title "EGMS ID" inside table "Funding Sources"
-    Then I softly see value "{SavedValue:EXE Username}" for title "Created By" inside table "Funding Sources"
+    Then I softly see value "{SavedValue:FundingSourcesID}" for title "EGMS ID" inside table "Funding Sources" for global search record
+    Then I softly see value "{SavedValue:EXE Username}" for title "Created By" inside table "Funding Sources" for global search record
 
   @390085 @VerifythatuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedEGMSIDCreatedbyonobjectsafteglobalsearchtheanyrecordforFundingSources @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID, Created by ) on objects after global search the any record for Funding Sources.
@@ -671,7 +671,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Grants" tab
     And I select "Amendment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:budgetPChangeId}"
-    Then I softly see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "Amendment Requests"
+    Then I softly see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "Amendment Requests" for global search record
     And I perform quick search inside global search "CR--"
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Subaward ID" inside refine by filter
@@ -680,7 +680,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Initiated By" inside refine by filter
     Then I softly see "Status" inside refine by filter
     And I filter field record by "{SavedValue:budgetPChangeId}" by label "EGMS ID" in left panel for global search
-    Then I softly see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "Amendment Requests"
+    Then I softly see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "Amendment Requests" for global search record
     Then I softly see the text "Refine By" on left navigation for global search
     And I click on "Expand List" button on left navigation for global search
     Then I softly see the text "Programs" on left navigation for global search
@@ -1011,7 +1011,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Monitoring" tab
     And I select "Monitoring Reports" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
-    Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "Monitoring Reports"
+    Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "Monitoring Reports" for global search record
     And I perform quick search inside global search "PR--"
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Type" inside refine by filter
@@ -1022,7 +1022,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Due Date" inside refine by filter
     Then I softly see "Status" inside refine by filter
     And I filter field record by "{SavedValue:progID}" by label "EGMS ID" in left panel for global search
-    Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "Monitoring Reports"
+    Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "Monitoring Reports" for global search record
     Then I softly see the text "Refine By" on left navigation for global search
     And I click on "Expand List" button on left navigation for global search
     Then I softly see the text "Reports" on left navigation for global search
@@ -1364,7 +1364,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Monitoring" tab
     And I select "Risk Assessment" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:riskID}"
-    Then I softly see value "{SavedValue:riskID}" for title "EGMS ID" inside table "Risk Assessment"
+    Then I softly see value "{SavedValue:riskID}" for title "EGMS ID" inside table "Risk Assessment" for global search record
     And I perform quick search inside global search "RA-"
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Effective Date" inside refine by filter
@@ -1372,7 +1372,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Risk Level" inside refine by filter
     Then I softly see "Status" inside refine by filter
     And I filter field record by "{SavedValue:riskID}" by label "EGMS ID" in left panel for global search
-    Then I softly see value "{SavedValue:riskID}" for title "EGMS ID" inside table "Risk Assessment"
+    Then I softly see value "{SavedValue:riskID}" for title "EGMS ID" inside table "Risk Assessment" for global search record
     Then I softly see the text "Refine By" on left navigation for global search
     And I click on "Expand List" button on left navigation for global search
     Then I softly see the text "Risk Assessment" on left navigation for global search
@@ -1408,7 +1408,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Monitoring" tab
     And I select "Risk Assessment" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:riskID}"
-    Then I softly see value "{SavedValue:riskID}" for title "EGMS ID" inside table "Risk Assessment"
+    Then I softly see value "{SavedValue:riskID}" for title "EGMS ID" inside table "Risk Assessment" for global search record
     And I click on hyperlink for global search containing value "{SavedValue:riskID}"
     Then I softly see the text containing "{SavedValue:riskID}"
 
@@ -1473,7 +1473,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Monitoring" tab
     And I select "Payment Request" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:paymentEGMSID}"
-    Then I softly see value "{SavedValue:paymentEGMSID}" for title "EGMS ID" inside table "Payment Request"
+    Then I softly see value "{SavedValue:paymentEGMSID}" for title "EGMS ID" inside table "Payment Request" for global search record
     And I perform quick search inside global search "PR-"
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Type" inside refine by filter
@@ -1482,7 +1482,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Payment Period" inside refine by filter
     Then I softly see "Status" inside refine by filter
     And I filter field record by "{SavedValue:paymentEGMSID}" by label "EGMS ID" in left panel for global search
-    Then I softly see value "{SavedValue:paymentEGMSID}" for title "EGMS ID" inside table "Payment Request"
+    Then I softly see value "{SavedValue:paymentEGMSID}" for title "EGMS ID" inside table "Payment Request" for global search record
     Then I softly see the text "Refine By" on left navigation for global search
     And I click on "Expand List" button on left navigation for global search
     Then I softly see the text "Payment Requests" on left navigation for global search
@@ -1512,7 +1512,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Monitoring" tab
     And I select "Payment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:paymentEGMSID}"
-    Then I softly see value "{SavedValue:paymentEGMSID}" for title "EGMS ID" inside table "Payment Requests"
+    Then I softly see value "{SavedValue:paymentEGMSID}" for title "EGMS ID" inside table "Payment Requests" for global search record
     And I click on hyperlink for global search containing value "{SavedValue:paymentEGMSID}"
     Then I softly see the text containing "{SavedValue:paymentEGMSID}"
 
@@ -1522,7 +1522,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Home" tab
     And I select "Organizations" from dropdown for Global search
     And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgApproved}"
-    Then I softly see value "{AUTOEnvData:AutomationExternalOrgApproved}" for title "Account Name" inside table "Organizations"
+    Then I softly see value "{AUTOEnvData:AutomationExternalOrgApproved}" for title "Account Name" inside table "Organizations" for global search record
     And I click on row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgApproved}" in global search with id "Organizations"
     Then I softly see field "Status" as "Active"
     Then I can see top right button "Save" in page detail
@@ -1531,7 +1531,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Home" tab
     And I select "Organizations" from dropdown for Global search
     And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgApproved}"
-    Then I softly see value "{AUTOEnvData:AutomationExternalOrgApproved}" for title "External Organization" inside table "Organizations"
+    Then I softly see value "{AUTOEnvData:AutomationExternalOrgApproved}" for title "External Organization" inside table "Organizations" for global search record
     And I click on row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgApproved}" in global search with id "Organizations"
     Then I softly see field "Status" as "Active"
     Then I cannot see top right button "Save" in page detail
@@ -1554,7 +1554,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Home" tab
     And I select "External Registration" from dropdown for Global search
     And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgSubmitforApproved}"
-    Then I softly see value "{AUTOEnvData:AutomationExternalOrgSubmitforApproved}" for title "External Organization" inside table "External Registration"
+    Then I softly see value "{AUTOEnvData:AutomationExternalOrgSubmitforApproved}" for title "External Organization" inside table "External Registration" for global search record
     And I click on row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgSubmitforApproved}" in global search with id "External Registration"
     Then I softly see field "Status" as "Submitted for Approval"
     Then I cannot see top right button "Save" in page detail
@@ -1564,7 +1564,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Home" tab
     And I select "External Registration" from dropdown for Global search
     And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgApproved}"
-    Then I softly see value "{AUTOEnvData:AutomationExternalOrgApproved}" for title "External Organization" inside table "External Registration"
+    Then I softly see value "{AUTOEnvData:AutomationExternalOrgApproved}" for title "External Organization" inside table "External Registration" for global search record
     And I click on row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgApproved}" in global search with id "External Registration"
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Save" in page detail
@@ -1573,7 +1573,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Home" tab
     And I select "External Registration" from dropdown for Global search
     And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgRejected}"
-    Then I softly see value "{AUTOEnvData:AutomationExternalOrgRejected}" for title "External Organization" inside table "External Registration"
+    Then I softly see value "{AUTOEnvData:AutomationExternalOrgRejected}" for title "External Organization" inside table "External Registration" for global search record
     And I click on row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgRejected}" in global search with id "External Registration"
     Then I softly see field "Status" as "Active"
     Then I cannot see top right button "Save" in page detail
@@ -1586,7 +1586,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Applications" tab
     And I select "Reviews" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}"
-    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" for title "Review Form EGMS ID" inside table "Reviews"
+    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" for title "Review Form EGMS ID" inside table "Reviews" for global search record
     And I click on row level action button "Edit" against "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" in global search with id "Reviews"
     And I wait for "2" seconds
     Then I softly see that "Status" is in "Sent for Review" status
@@ -1598,7 +1598,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Applications" tab
     And I select "Reviews" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}"
-    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" for title "Review Form EGMS ID" inside table "Reviews"
+    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" for title "Review Form EGMS ID" inside table "Reviews" for global search record
     And I perform quick search inside global search "R-"
     Then I softly see "Review Form EGMS ID" inside refine by filter
     Then I softly see "Announcement EGMS Id" inside refine by filter
@@ -1610,7 +1610,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Due Date" inside refine by filter
     Then I softly see "Status" inside refine by filter
     And I filter field record by "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" by label "Review Form EGMS ID" in left panel for global search
-    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" for title "Review Form EGMS ID" inside table "Reviews"
+    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" for title "Review Form EGMS ID" inside table "Reviews" for global search record
     Then I softly see the text "Refine By" on left navigation for global search
     And I click on "Expand List" button on left navigation for global search
     Then I softly see the text "Reviews" on left navigation for global search
@@ -1620,7 +1620,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Applications" tab
     And I select "Reviews" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}"
-    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" for title "Review Form EGMS ID" inside table "Reviews"
+    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" for title "Review Form EGMS ID" inside table "Reviews" for global search record
     And I click on row level action button "Edit" against "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" in global search with id "Reviews"
     And I wait for "2" seconds
     #@389525
@@ -1631,7 +1631,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Applications" tab
     And I select "Reviews" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AutomationPermanentApplicationReviewCompleted}"
-    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewCompleted}" for title "Review Form EGMS ID" inside table "Reviews"
+    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewCompleted}" for title "Review Form EGMS ID" inside table "Reviews" for global search record
     And I click on row level action button "Edit" against "{SavedValue:AutomationPermanentApplicationReviewCompleted}" in global search with id "Reviews"
     And I wait for "2" seconds
     Then I softly see that "Status" is in "Review Completed" status
@@ -1641,7 +1641,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Applications" tab
     And I select "Reviews" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AutomationPermanentApplicationReviewDecline}"
-    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewDecline}" for title "Review Form EGMS ID" inside table "Reviews"
+    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewDecline}" for title "Review Form EGMS ID" inside table "Reviews" for global search record
     And I click on row level action button "Edit" against "{SavedValue:AutomationPermanentApplicationReviewDecline}" in global search with id "Reviews"
     And I wait for "2" seconds
     Then I softly see that "Status" is in "Review Declined" status
@@ -1651,7 +1651,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Applications" tab
     And I select "Reviews" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}"
-    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" for title "Review Form EGMS ID" inside table "Reviews"
+    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" for title "Review Form EGMS ID" inside table "Reviews" for global search record
     And I click on hyperlink for global search containing value "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}"
     #@389537
     Then I softly see the text containing "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}"

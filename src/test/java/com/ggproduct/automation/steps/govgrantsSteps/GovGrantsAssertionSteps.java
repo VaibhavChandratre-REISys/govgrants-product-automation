@@ -918,4 +918,15 @@ public final class GovGrantsAssertionSteps {
     public void iSoftlySeeValueForTheEditModeField(String usage, String fieldName, String fieldAPIName) {
         ggAssertionObjects.assertalueForTheEditModeField(usage, fieldName, fieldAPIName);
     }
+
+    @Then("^I (softly see|see|do not see|softly do not see) value \"([^\"]*)\" for title \"([^\"]*)\" inside table \"([^\"]*)\" for global search record$")
+    public void iSoftlySeeValueForTitleInsideTableForGlobalSearchRecord(String seeornotsee, String columnValue, String columnTitle, String flextableDivId) {
+        ggAssertionObjects.assertValuesAreInFlexTableWithColumnTitleForGlobalSearch(
+                columnValue,
+                columnTitle,
+                flextableDivId,
+                "softly see".equalsIgnoreCase(seeornotsee) || "see".equalsIgnoreCase(seeornotsee),
+                seeornotsee.contains("softly")
+        );
+    }
 }

@@ -8,13 +8,13 @@ Feature: Validate all scenarios for the global search
     And I wait for "1" seconds
     And I select "Organizations" from dropdown for Global search
     And I perform quick search inside global search "SAN DIEGO ELECTRICAL TRAINING TRUST"
-    Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Account Name" inside table "Organizations"
+    Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Account Name" inside table "Organizations" for global search record
     And I click on hyperlink for global search containing value "SAN DIEGO ELECTRICAL TRAINING TRUST"
     Then I softly see page title contains as "SAN DIEGO ELECTRICAL TRAINING TRUST"
     Then I softly see field "Status" as "Active"
     And I select "Organizations" from dropdown for Global search
     And I perform quick search inside global search "SAN DIEGO ELECTRICAL TRAINING TRUST"
-    Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Account Name" inside table "Organizations"
+    Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Account Name" inside table "Organizations" for global search record
     Then I softly see "Account Name" inside refine by filter
     Then I softly see "Type" inside refine by filter
     Then I softly see "EIN" inside refine by filter
@@ -77,7 +77,7 @@ Feature: Validate all scenarios for the global search
     And I select value "Automation EXE1" into field "input-2"
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitSourceTableId---" panel
-    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
+    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---" for global search record
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:DeskReview}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
@@ -86,7 +86,7 @@ Feature: Validate all scenarios for the global search
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitTargetTableId---" panel
-    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
+    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---" for global search record
     And I pause execution for "2" seconds
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I wait for "1" seconds
@@ -223,7 +223,7 @@ Feature: Validate all scenarios for the global search
     And I select value "Automation EXE1" into field "input-2"
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
-    Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
+    Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---" for global search record
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
@@ -232,7 +232,7 @@ Feature: Validate all scenarios for the global search
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
-    Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
+    Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---" for global search record
     And I pause execution for "2" seconds
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I pause execution for "1" seconds
@@ -367,7 +367,7 @@ Feature: Validate all scenarios for the global search
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
-    Then I softly see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "Site Visits"
+    Then I softly see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "Site Visits" for global search record
     #390430
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Type" inside refine by filter
@@ -380,7 +380,7 @@ Feature: Validate all scenarios for the global search
     And I refresh the page
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
-    Then I softly see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "Site Visits"
+    Then I softly see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "Site Visits" for global search record
     And I click on hyperlink for global search containing value "{SavedValue:SitevVisitId}"
   #390418 #390432
     Then I softly see page title contains as "{SavedValue:Automation Runtime Site Visit}"
@@ -411,7 +411,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
-    Then I softly see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "Site Visits"
+    Then I softly see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "Site Visits" for global search record
     #390429
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Type" inside refine by filter
@@ -425,7 +425,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "4" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
-    Then I softly see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "Site Visits"
+    Then I softly see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "Site Visits" for global search record
     And I click on hyperlink for global search containing value "{SavedValue:DeskReview}"
       #390419 #390431
     Then I softly see page title contains as "{SavedValue:Automation Runtime Award Desk}"
@@ -470,7 +470,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see page title contains as "{SavedValue:Automation Runtime FDM Announcement}"
     And I select "Applications" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AppID}"
-    Then I softly see value "{SavedValue:AppID}" for title "EGMS ID" inside table "Applications"
+    Then I softly see value "{SavedValue:AppID}" for title "EGMS ID" inside table "Applications" for global search record
     And I perform quick search inside global search "Applications"
       #390458
     Then I softly see "EGMS ID" inside refine by filter
@@ -553,7 +553,7 @@ Feature: Validate all scenarios for the global search
     Then I softly can see top right button "Send to Subrecipient" in page detail
     And I select "Pre-Applications" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:PreAppID}"
-    Then I softly see value "{SavedValue:PreAppID}" for title "EGMS ID" inside table "Pre-Applications"
+    Then I softly see value "{SavedValue:PreAppID}" for title "EGMS ID" inside table "Pre-Applications" for global search record
     #390465
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Pre-Application Name" inside refine by filter
@@ -651,11 +651,11 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Announcements" tab
     And I select "Announcements" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
-    Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "Announcements"
-    Then I softly see value "{SavedValue:Automation Runtime Competitive Announcement}" for title "Announcement Name" inside table "Announcements"
-    Then I softly see value "" for title "Application Due Date" inside table "Announcements"
-    Then I softly see value "Automation EXE" for title "Created By" inside table "Announcements"
-    Then I softly see value "Created" for title "Status" inside table "Announcements"
+    Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "Announcements" for global search record
+    Then I softly see value "{SavedValue:Automation Runtime Competitive Announcement}" for title "Announcement Name" inside table "Announcements" for global search record
+    Then I softly see value "" for title "Application Due Date" inside table "Announcements" for global search record
+    Then I softly see value "Automation EXE" for title "Created By" inside table "Announcements" for global search record
+    Then I softly see value "Created" for title "Status" inside table "Announcements" for global search record
 
   @389003  @sprint-2-US-386939  @GlobalSearch
   Scenario Outline: Verify that the record owner is able to edit the access for record when Award is in the Created, submit for review, Reviewed, Accepted state
@@ -1474,7 +1474,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Grants" tab
     And I select "Grants" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:GrantEGMSID}"
-    Then I softly see value "{SavedValue:GrantEGMSID}" for title "EGMS ID" inside table "Grants"
+    Then I softly see value "{SavedValue:GrantEGMSID}" for title "EGMS ID" inside table "Grants" for global search record
     And I perform quick search inside global search "Grants"
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Grant Title" inside refine by filter
@@ -1486,7 +1486,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Owner First Name" inside refine by filter
     Then I softly see "Owner Last Name" inside refine by filter
     And I filter field record by "EXE" by label "Owner Last Name" in left panel for global search
-    Then I softly see value "EXE" for title "Owner Last Name" inside table "Grants"
+    Then I softly see value "EXE" for title "Owner Last Name" inside table "Grants" for global search record
     Then I softly see the text "Refine By" on left navigation for global search
     And I click on "Expand List" button on left navigation for global search
     Then I softly see the text "Subawards" on left navigation for global search
@@ -1520,7 +1520,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Owner Last Name" inside refine by filter
     Then I softly see the text "Status" on left navigation for global search
     And I filter field record by "EXE" by label "Owner Last Name" in left panel for global search
-    Then I softly see value "EXE" for title "Owner Last Name" inside table "Focus Areas"
+    Then I softly see value "EXE" for title "Owner Last Name" inside table "Focus Areas" for global search record
     Then I softly see the text "Refine By" on left navigation for global search
     And I click on "Expand List" button on left navigation for global search
     Then I softly see the text "External Registration" on left navigation for global search

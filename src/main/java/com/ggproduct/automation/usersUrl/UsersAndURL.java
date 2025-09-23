@@ -180,6 +180,12 @@ public class UsersAndURL implements UsersController {
             case "PM":
                 password = "Grantor@123";
                 break;
+            case "FO":
+                password = "Grantor@123";
+                break;
+            case "FO1":
+                password = "Grantor@123";
+                break;
             case "ADMIN":
                 password = "Automation@2026";
                 break;
