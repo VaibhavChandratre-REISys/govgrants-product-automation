@@ -10061,7 +10061,7 @@ Feature: Grantee Forms Scenario
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-   @493229 @validateaspouserifenterdatawronglywhichisnotasperGrants.Govthenonclickcheckstatusbuttonformsgetrejected.
+   @493229 @validateaspouserifenterdatawronglywhichisnotasperGrants.Govthenonclickcheckstatusbuttonformsgetrejected.  @P2_Grantee @Gregression2 @PO_Grantee
     Scenario: Validate as PO user if enter data wrongly which is not as per Grants.Gov then on click check status button forms get rejected.
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -10456,7 +10456,7 @@ Feature: Grantee Forms Scenario
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-   @477441 @BudgetNarrativeattachmentformVerifyPMusercanaddfilesinBudgetnarrativeattachmentinsplitViewmodeandsuccessfullysubmitapplicationtograntsgov @Grantee_Smoke1 @GranteeTBE
+   @477441 @BudgetNarrativeattachmentformVerifyPMusercanaddfilesinBudgetnarrativeattachmentinsplitViewmodeandsuccessfullysubmitapplicationtograntsgov
    Scenario Outline: Budget Narrative attachment form - Verify PM user can add files in Budget narrative attachment in splitView mode and successfully submit application to grants.gov
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-<UserName>"
@@ -10719,7 +10719,7 @@ Feature: Grantee Forms Scenario
     Then I softly cannot see top right button "Edit" in page detail
     And I close the tab
 
-  @481562 @ProjectAbstractSummaryVerifyPMusershouldabletocheckstatusaftersubmittogrants.gov&verifythesubmissionhistory
+  @481562 @ProjectAbstractSummaryVerifyPMusershouldabletocheckstatusaftersubmittogrants.gov&verifythesubmissionhistory @Gregression2 @PM_Grantee @P2_Grantee
   Scenario:Validate PM User should able to check status after submit to grants.gov & verify the submission history
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"

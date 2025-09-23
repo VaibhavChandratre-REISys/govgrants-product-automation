@@ -2300,7 +2300,7 @@ Feature: Validate all scenarios for Opportunity
       | User       |
       | GRANTEE PM |
 
-  @463561 @Opportunities(manual)-VerifyPMusershouldabletosubmitandapproved/senttoowner/forward/RejecttheOpportunityrecord
+  @463561 @Opportunities(manual)-VerifyPMusershouldabletosubmitandapproved/senttoowner/forward/RejecttheOpportunityrecord @Gregression2 @P2_Grantee @PM_Grantee
   Scenario: Opportunities Not converted (Manual) - Verify PM user should able to submit and approved/sent to owner/forward/Reject the Opportunity record
   And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
   Given I login to "As a Grantee" app as "GRANTEE PM" user
