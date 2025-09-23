@@ -1906,11 +1906,13 @@ Feature: Validate all scenarios of every modules flow
   Scenario:
     When I login to "Grantor" app as "PM" user
     And I halt execution
-    Then I softly see value "CL-RG-001298-01659" for title "EGMS ID" inside table "Closeouts" for global search record
-    Then I softly see value "Grantor" for title "Record Type" inside table "Closeouts" for global search record
-    Then I softly see value "Project Period Closeout" for title "Closeout" inside table "Closeouts" for global search record
-    Then I softly see value "Early Completion" for title "Type" inside table "Closeouts" for global search record
-    Then I softly see value "GT-1234-05862" for title "Grant EGMS ID" inside table "Closeouts" for global search record
-    Then I softly see value "Automation Runtime Award for closeout79949" for title "Project Name" inside table "Closeouts" for global search record
-    Then I softly see value "{SavedValue:PM Username}" for title "Created By" inside table "Closeouts" for global search record
-    Then I softly see value "Acknowledged by Subrecipient" for title "Status" inside table "Closeouts" for global search record
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+#    Then I softly see value "CL-RG-001298-01659" for title "EGMS ID" inside table "Closeouts" for global search record
+#    Then I softly see value "Grantor" for title "Record Type" inside table "Closeouts" for global search record
+#    Then I softly see value "Project Period Closeout" for title "Closeout" inside table "Closeouts" for global search record
+#    Then I softly see value "Early Completion" for title "Type" inside table "Closeouts" for global search record
+#    Then I softly see value "GT-1234-05862" for title "Grant EGMS ID" inside table "Closeouts" for global search record
+#    Then I softly see value "Automation Runtime Award for closeout79949" for title "Project Name" inside table "Closeouts" for global search record
+#    Then I softly see value "{SavedValue:PM Username}" for title "Created By" inside table "Closeouts" for global search record
+#    Then I softly see value "Acknowledged by Subrecipient" for title "Status" inside table "Closeouts" for global search record

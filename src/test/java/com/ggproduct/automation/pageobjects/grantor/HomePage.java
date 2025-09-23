@@ -166,21 +166,23 @@ public class HomePage extends GrantorProjectManager {
      */
     public void selectValueFromGlobalSearchDropDown(String dropDownValue) {
         I.amPerforming().waitFor().makeThreadSleep(2000);
-        By globalDropdownSelector = By.xpath("//*[@data-value='Search: All']");
+        By globalDropdownSelector = By.xpath("//*[contains(@data-value,'Search:')]");
         I.amPerforming().waitFor().ElementToBeClickable(globalDropdownSelector);
-        if(I.amPerforming().checkToSee().isElementDisplayed(globalDropdownSelector)){
+        if (I.amPerforming().checkToSee().isElementDisplayed(globalDropdownSelector)) {
             I.amPerforming().click().on(globalDropdownSelector);
             I.amPerforming().waitFor().ElementToBeClickable(By.xpath("//ul[@aria-label='All Searchable Items']//li"));
-            List<Elements> elements= I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//ul[@aria-label='All Searchable Items']//li"));
+            List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//ul[@aria-label='All Searchable Items']//li"));
             for (Elements element : elements) {
                 if (element.getText().contains(dropDownValue)) {
-                    element.isEnabled();
-                    element.click();
+                    I.amPerforming().waitFor().ElementToBeClickable(By.xpath("//ul[@aria-label='All Searchable Items']//li//span[text()='" + element.getText() + "']"));
+                    I.amPerforming().click().withJavaScript(By.xpath("//ul[@aria-label='All Searchable Items']//li//span[text()='" + element.getText() + "']"));
                     break;
-                }}
+                }
+            }
         } else {
-        I.amPerforming().dropDownSelection().from(globalDropdownSelector).selectByVisibleText(dropDownValue);
-    }}
+            I.amPerforming().dropDownSelection().from(globalDropdownSelector).selectByVisibleText(dropDownValue);
+        }
+    }
 
     /**
      * To save the todays date as well as date after one year
