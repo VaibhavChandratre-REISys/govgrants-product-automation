@@ -627,8 +627,8 @@ public final class FlexTable implements FlexTableComponent {
      */
     public boolean assertCoulmnValueAgainstColumnTitleForGlobalSearch(String columnValue, String columnTitle, String flexTableDivId) {
         try {
-            I.amPerforming().getElementReference().of((By.xpath("//h2//a[text()='" + flexTableDivId + "']")));
-            WebElement row = I.amPerforming().getElementReference().of((By.xpath("//h2//a[text()='" + flexTableDivId + "']/../parent::div/ancestor::div[contains(@class,'results')]//table//th//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1] | //h2//a[text()='" + flexTableDivId + "']/../parent::div/ancestor::div[contains(@class,'results')]//table//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1]")));
+            I.amPerforming().getElementReference().of((By.xpath("//h2//*[text()='" + flexTableDivId + "']")));
+            WebElement row = I.amPerforming().getElementReference().of((By.xpath("//h2//*[text()='" + flexTableDivId + "']/../parent::div/ancestor::div[contains(@class,'results')]//table//th//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1] | //h2//a[text()='" + flexTableDivId + "']/../parent::div/ancestor::div[contains(@class,'results')]//table//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1]")));
             Map<String, Integer> columnMapping = constructColumnMappingForGlobalSearch(row, Collections.singleton(columnTitle));
             I.amPerforming().getElementReference().ofNested(row, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + columnMapping.get(columnTitle) + "]//descendant-or-self::*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "] | .//th[not(contains(@class, 'ng-hide'))][" + columnMapping.get(columnTitle) + "]//descendant-or-self::*[" + I.amPerforming().sanityOfXpathTo().equals("@title", columnValue) + "]"));
             return true;
