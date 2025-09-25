@@ -983,9 +983,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see "Preview Package" opens in overLay window
     #169905
     Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---program:-:previewPackageTableId---"
-    #169907 #Bug446605
+    #169907
     And I wait for "2" seconds
-    Then I see new tab is opened
+    Then I see the header is "Create Pre-Application Form - Preview" in the page details
 
   @bug-397757 @194677 @194682 @194683 @194690 @194685  @sprint-4  @reassignment @ownvai
   Scenario: Validate user should able to click on play button after selecting the source & target user with the same profile PM

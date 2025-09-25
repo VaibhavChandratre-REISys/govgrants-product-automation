@@ -484,12 +484,10 @@ Feature: Validate all scenarios in the home tab
     Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
-    #When I perform quick search for "Teaching and Learning" in "---home:-:internalOrganizationId---" panel
     And I expand nested table containing column value "Test Automation Organization"
-   #Then I see values "Career and College Transition Division" and "Division" inside table
-    Then I softly see "Internal Organization" in flex table header "---home:-:internalOrganizationId---"
-    Then I softly see "Agency Abbreviation" in flex table header "---home:-:internalOrganizationId---"
-    Then I softly see "Account Type" in flex table header "---home:-:internalOrganizationId---"
+    Then I softly see "Internal Organization" in flex table header "DivisionsGrantor"
+    Then I softly see "Agency Abbreviation" in flex table header "DivisionsGrantor"
+    Then I softly see "Account Type" in flex table header "DivisionsGrantor"
 
     Examples:
       | User  |

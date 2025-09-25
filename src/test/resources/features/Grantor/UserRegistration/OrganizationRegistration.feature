@@ -18,8 +18,9 @@ Feature: Validate all registration related scenarios
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---user:-:orgRegistrationAttachmentTableId---"
     And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---user:-:orgRegistrationAttachmentTableId---"
+    And I wait for "2" seconds
     And I update title as "Automation.pdf" on upload file modal
-    And I select Classification as "Indirect Rate Plan" at upload file modal
+    And I select Classification as "Resume/CSV" at upload file modal
     When I click modal button "Save"
 #    And I click modal button "Close"
     And I wait for "2" seconds

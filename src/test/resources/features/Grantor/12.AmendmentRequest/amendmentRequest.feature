@@ -122,7 +122,6 @@ Feature: Validate all scenarios in the Amendment Request
     Then I cannot see top right button "Acknowledge" in page detail
     Then I can see top right button "Submit to Grantor" in page detail
 
-
   @53203 @97561 @97383 @submitForApprovalSOWAmendmentRequest
   Scenario: Submit Amendment Request for Approval
     Given I navigate to "Management" sub tab

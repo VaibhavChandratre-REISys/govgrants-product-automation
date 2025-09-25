@@ -77,7 +77,7 @@ Feature: Validate all scenarios for the global search
     And I select value "Automation EXE1" into field "input-2"
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitSourceTableId---" panel
-    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---" for global search record
+    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:DeskReview}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
@@ -86,7 +86,7 @@ Feature: Validate all scenarios for the global search
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitTargetTableId---" panel
-    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---" for global search record
+    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I wait for "1" seconds
@@ -129,6 +129,7 @@ Feature: Validate all scenarios for the global search
       | Passed | Rating__c         |
       | Passed | ReviewComments__c |
     When I click modal button "Save"
+    And I click on submit review
     And I pause execution for "5" seconds
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I wait for "1" seconds
@@ -223,7 +224,7 @@ Feature: Validate all scenarios for the global search
     And I select value "Automation EXE1" into field "input-2"
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
-    Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---" for global search record
+    Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
@@ -232,7 +233,7 @@ Feature: Validate all scenarios for the global search
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
-    Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---" for global search record
+    Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I pause execution for "1" seconds
@@ -462,7 +463,7 @@ Feature: Validate all scenarios for the global search
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Send to Subrecipient" in page detail
     Then I softly can see top right button "Cancel Negotiation" in page detail
-    Then I softly can see top right button "Back to Current Review Step" in page detail
+    Then I can see top right button "Back to Current Review Step" in page detail
     And I select "Applications" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AppID}"
     And I click on hyperlink for global search containing value "{SavedValue:AppID}"
@@ -579,7 +580,7 @@ Feature: Validate all scenarios for the global search
     And I select "Contacts" from dropdown for Global search
     And I perform quick search inside global search "{user:NewUser}"
     #390886
-    Then I softly see "Full Name" inside refine by filter
+    Then I softly see "Name" inside refine by filter
     Then I softly see "Type" inside refine by filter
     Then I softly see "Organization Name" inside refine by filter
     Then I softly see "Email" inside refine by filter
@@ -1961,6 +1962,7 @@ Feature: Validate all scenarios for the global search
     When I click on top right button "New" in flex table with id "---home:-:termsAndConditionsTableId---"
     And I enter "Creation" values from "TermsandConditions_Field_Values.xlsx"
     When I click modal button "Save"
+    And I wait for "2" seconds
     When I save the field labeled "EGMS ID" as "EGMSID"
     And I click modal button "Close"
     And I pause execution for "3" seconds
@@ -1994,6 +1996,5 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Planning" tab
     And I select "Terms and Conditions" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:EGMSID}"
-        #389497 #hold due to bug
     And I click on row level action button "Edit" against "{SavedValue:EGMSID}" in global search with id "Terms and Conditions"
     Then I softly see the text containing "You dont have sufficient access to edit this record"

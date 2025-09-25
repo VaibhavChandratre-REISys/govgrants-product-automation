@@ -67,6 +67,8 @@ public class UsersAndURL implements UsersController {
             userName = getProLwcEnvironmentUser(setUpUserLevel(userLevel));
         }else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("NYLWC"))) {
             userName = getNYLwcEnvironmentUser(setUpUserLevel(userLevel));
+        }else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("MERGE"))) {
+            userName = getMergeEnvironmentUser(setUpUserLevel(userLevel));
         }else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("WASHINGTON"))) {
             userName = getWashingtonEnvironmentUser(setUpUserLevel(userLevel));
         }else {
@@ -86,7 +88,10 @@ public class UsersAndURL implements UsersController {
             password = getProLwcEnvironmentPassword(setUpUserLevel(userLevel));
         } else if (EnvironmentFactory.getEnvironmentName().contains("NYLWC")) {
             password = getNYLwcEnvironmentPassword(setUpUserLevel(userLevel));
-        }else if (EnvironmentFactory.getEnvironmentName().contains("WASHINGTON")) {
+        } else if (EnvironmentFactory.getEnvironmentName().contains("MERGE")) {
+            password = getMergeEnvironmentPassword(setUpUserLevel(userLevel));
+        }
+        else if (EnvironmentFactory.getEnvironmentName().contains("WASHINGTON")) {
             password = getWashingtonEnvironmentPassword(setUpUserLevel(userLevel));
         }else
             password = getAUTOEnvironmentPassword(setUpUserLevel(userLevel));
@@ -137,6 +142,36 @@ public class UsersAndURL implements UsersController {
                 break;
             default:
                 password = "Automation@2025";
+        }
+        return password;
+    }
+
+    private String getMergeEnvironmentPassword(String userLevel) {
+        String password;
+        switch (userLevel.toUpperCase()) {
+            case "GRANTEE ADMIN":
+                password = "Qaadmin@2030";
+                break;
+            case "GRANTEE PM":
+                password = "Rei@2025";
+                break;
+            case "GRANTEE EXE":
+                password = "Rei@2026";
+                break;
+            case "GRANTEE FO":
+                password = "Rei@2025";
+                break;
+            case "SARAH PM":
+                password = "Merge@2025";
+                break;
+            case "PO":
+                password = "Auto@2021";
+                break;
+            case "AUDITOR":
+                password = "Auto@2021";
+                break;
+            default:
+                password = "Auto@2020";
         }
         return password;
     }
@@ -361,6 +396,45 @@ public class UsersAndURL implements UsersController {
         username.put("SME", "sme11@yopmail.com.ggqa2");
         username.put("SPI4", "spi4@yopmail.com.ggqa2");
         username.put("SARAH PM", "sarah.pm@ggp.test8.ggqa2");
+
+        username.put("GRANTEE ADMIN", "product.qa@ggp.test8.ggqa2");
+        username.put("GRANTEE ADMIN1", "qa.admin@ggp.test8.ggdev2");
+        username.put("GRANTEE PM", "sarah.pm@ggp.test8.ggqa2");
+        username.put("GRANTEE EXE", "victor.exe@ggp.test8.ggqa2");
+        username.put("GRANTEE FO", "david.fo@ggp.test8.ggqa2");
+        username.put("GRANTEE FD", "danielle.garcia@ggp.test8.ggdev2");
+        username.put("GRANTEE PO", "grantee.po@yopmail.com.ggdev2");
+        username.put("GRANTEE AUDITOR", "automationauditor@yopmail.com.ggdev2");
+
+        if (userLevel.toUpperCase() != null) {
+            return username.get(userLevel.toUpperCase());
+        } else {
+            return username.get("ADMIN");
+        }
+    }
+
+    private String getMergeEnvironmentUser(String userLevel) {
+        Map<String, String> username = new HashMap<>();
+        username.put("ADMIN", "govgrantsauto@yopmail.com.ggmergeqa2");
+        username.put("ADMIN1", "manu.admin@ggp.test8.ggmergeqa2");
+        username.put("EXE", "exe.automation.ggmergeqa2@yopmail.com");
+        username.put("PM", "pm.automation@yopmail.com.ggmergeqa2");
+        username.put("FO", "fo.automation.ggmergeqa2@yopmail.com");
+        username.put("PO", "automationpo@yopmail.com.ggmergeqa2");
+        username.put("FD", "automationfd.ggmergeqa2@yopmail.com");
+        username.put("PM1", "pm1.automation@yopmail.com.ggmergeqa2");
+        username.put("EXE1", "exe1.automation@yopmail.com.ggmergeqa2");
+        username.put("PO1", "automationpo1@yopmail.com.ggmergeqa2");
+        username.put("FO1", "fo1.automation@yopmail.com.ggmergeqa2");
+        username.put("FD1", "automationfd1@yopmail.com.ggmergeqa2");
+        username.put("AUDITOR", "automationauditor@yopmail.com.ggmergeqa2");
+        username.put("SPI3", "automationspi31.ggdev2@yopmail.com.ggmergeqa2");
+        username.put("SPA", "spaautomation12@yopmail.com.ggmergeqa2");
+        username.put("SA", "asa@grants.gov.ggmergeqa2");
+        username.put("IND", "ind12.automation@yopmail.com.ggmergeqa2");
+        username.put("SME", "sme11@yopmail.com.ggmergeqa2");
+        username.put("SPI4", "spi4@yopmail.com.ggmergeqa2");
+        username.put("SARAH PM", "sarah.pm@ggp.test8.ggmergeqa2");
 
         username.put("GRANTEE ADMIN", "product.qa@ggp.test8.ggqa2");
         username.put("GRANTEE ADMIN1", "qa.admin@ggp.test8.ggdev2");

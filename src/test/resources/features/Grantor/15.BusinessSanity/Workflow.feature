@@ -1786,11 +1786,36 @@ Feature: Validate all scenarios of every modules flow
     When I login to "Grants Portal" app as "<SubrecipientUser>" user
     When I navigate to "Home" tab
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
-    And I save the value for column name "<string>" as "<string>" from flex table "<string>"
+    When I navigate to "Home" tab
 
     Examples:
       | SubrecipientUser |
       | SPI3             |
+
+    @TestIssue
+      Scenario:
+      When I login to "Grantor" app as "GRANTEE PM" user
+      When I navigate to "Home" tab
+      When I re-login to "Grantor" app as "GRANTEE EXE" user on "INTERNAL" portal
+      When I navigate to "Home" tab
+
+    @APITest
+      Scenario:
+      And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
+      And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
+      And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
+      Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime FDM Announcement}"
+      And I activate award from FDM having application name "{SavedValue:Automation Runtime FDM Announcement}"
+     # Direct Grant
+       Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
+     # Progress Report
+      Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
+      When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "ProgressReports__c"
+     # Payment Request
+      Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Payment Request"
+      When I create a post award record "PaymentRequest" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "PaymentRequest__c"
+     # Closeout
+      When I create a post award record "Closeout" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "Closeout"
 
   @testchckAwards
   Scenario:
@@ -1904,15 +1929,51 @@ Feature: Validate all scenarios of every modules flow
 
   @testChecking @debug
   Scenario:
-    When I login to "Grantor" app as "PM" user
-    And I halt execution
-    And I select "Programs" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
-#    Then I softly see value "CL-RG-001298-01659" for title "EGMS ID" inside table "Closeouts" for global search record
-#    Then I softly see value "Grantor" for title "Record Type" inside table "Closeouts" for global search record
-#    Then I softly see value "Project Period Closeout" for title "Closeout" inside table "Closeouts" for global search record
-#    Then I softly see value "Early Completion" for title "Type" inside table "Closeouts" for global search record
-#    Then I softly see value "GT-1234-05862" for title "Grant EGMS ID" inside table "Closeouts" for global search record
-#    Then I softly see value "Automation Runtime Award for closeout79949" for title "Project Name" inside table "Closeouts" for global search record
-#    Then I softly see value "{SavedValue:PM Username}" for title "Created By" inside table "Closeouts" for global search record
-#    Then I softly see value "Acknowledged by Subrecipient" for title "Status" inside table "Closeouts" for global search record
+    And I published "Competitive" type announcement having name "Automation Permanent Closed Annoucement" and properties "default"
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Permanent Closed Annoucement}" in "---applicationReview:-:reviewsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Permanent Closed Annoucement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
+    When I click on "Qualify" in the page details
+    When I click on "Create Application" in the page details
+    And I wait for "3" seconds
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    When I enter "Edition" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I navigate to "Budget" sub tab
+    When I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match |
+      | Construction  | 1000   | 100        | 100            |
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
+    When I navigate to "Proposal" sub tab
+    When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
+      | EGMS ID                  | Target |
+      | Automation Permanent KPI | 10     |
+    And I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I switch to tab number "1"
+    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I close the tab
+    And I wait for "2" seconds
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I switch to tab number "1"
+    And I wait for "2" seconds
+    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I close the tab
+    And I wait for "2" seconds
+    And I get the "EGMS ID"
+    When I click on "Submit Application" in the page details
+    And I wait for "3" seconds
+    Then I see status in Progress-bar is "Submitted" and is "dark blue"
