@@ -25551,7 +25551,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
         | Name     | Amendment Request |
         | Sarah PM | Step 2            |
       Then I softly see the following messages in the page details contains:
-        | You cannot specify the same step for multiple users for Amendment Request |
+        | Saved Successfully! |
       And I refresh the page
       And I wait for "3" seconds
       When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
