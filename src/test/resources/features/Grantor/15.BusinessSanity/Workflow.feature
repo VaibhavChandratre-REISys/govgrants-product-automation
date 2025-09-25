@@ -1930,8 +1930,9 @@ Feature: Validate all scenarios of every modules flow
   @testChecking @debug
   Scenario:
 #    And I published "Competitive" type announcement having name "Automation Permanent Closed Formula Announcement" and properties "default"
-    And I published "Formula" type announcement having name "Automation Permanent Closed Formula Ann-By Applicant" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO"
-    And I initiated an application review for application "{SavedValue:Automation Permanent Closed Formula Ann-By Applicant}" on announcement "{SavedValue:Automation Permanent Closed Formula Ann-By Applicant}" with properties "default"
+    And I published "Formula" type announcement having name "Automation Permanent FDM Approved Closed Formula Ann-By Applicant" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO"
+    And I initiated an application review for application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By Applicant}" on announcement "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By Applicant}" with properties "default"
+    And I created approved FDM on application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By Applicant}"
 
 #    Given I am on "SUBPORTAL" portal
 #    When I login to "Grants Portal" app as "SPI3" user
