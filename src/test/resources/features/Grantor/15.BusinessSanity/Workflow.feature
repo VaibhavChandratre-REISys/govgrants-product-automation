@@ -1929,10 +1929,16 @@ Feature: Validate all scenarios of every modules flow
 
   @testChecking @debug
   Scenario:
-#    And I published "Competitive" type announcement having name "Automation Permanent Closed Formula Announcement" and properties "default"
-    And I published "Formula" type announcement having name "Automation Permanent FDM Approved Closed Formula Ann-By Applicant" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO"
-    And I initiated an application review for application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By Applicant}" on announcement "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By Applicant}" with properties "default"
-    And I created approved FDM on application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By Applicant}"
+#   And I published "Competitive" type announcement having name "Automation Runtime testing Formula Announcement" and properties "default"
+#    And I published "Formula" type announcement having name "Automation Permanent Archived Formula Ann-By Applicant and Focus Area" and properties "BY_APPLICANT_FOCUS_AREA_NO"
+#    And I initiated an application review for application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}" on announcement "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}" with properties "default"
+#    And I created approved FDM on application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}"
+#    Given I activated standalone subaward "Automation Executable Award" with properties "default" of type "Competitive"
+    And I published "Formula" type announcement having name "Automation FDM Announcement Focus Area No" and properties "BY_APPLICANT_FOCUS_AREA_NO_RISKASSESSMENT_NO"
+    And I initiated an application review for application "{SavedValue:Automation FDM Announcement Focus Area No}" on announcement "{SavedValue:Automation FDM Announcement Focus Area No}" with properties "default"
+    And I created approved FDM on application "{SavedValue:Automation FDM Announcement Focus Area No}"
+    Given I created award from approved FDM with announcement "{SavedValue:Automation FDM Announcement Focus Area No}"
+    And I activate award from FDM having application name "{SavedValue:Automation FDM Announcement Focus Area No}"
 
 #    Given I am on "SUBPORTAL" portal
 #    When I login to "Grants Portal" app as "SPI3" user

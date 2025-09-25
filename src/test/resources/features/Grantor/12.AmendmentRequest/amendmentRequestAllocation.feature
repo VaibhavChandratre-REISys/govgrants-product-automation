@@ -16172,6 +16172,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "<Properties>-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY-<UserProfile>"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
+    And I halt execution
     Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime FDM Announcement}" and properties "Automation EXE user"
     And I activate award from FDM having application name "{SavedValue:Automation Runtime FDM Announcement}"
     When I login to "Grantor" app as "EXE" user

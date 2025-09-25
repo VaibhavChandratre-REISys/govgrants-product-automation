@@ -14570,18 +14570,18 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see field "NewObligation__c" not in edit mode
     Then I softly see field "CumulativeObligation__c" not in edit mode
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-#    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside table
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    And I navigate to "Budget" sub tab
-#    #240521
-#    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
-#    Then I softly see field "NewObligation__c" not in edit mode
-#    Then I softly see field "CumulativeObligation__c" not in edit mode
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I navigate to "Budget" sub tab
+    #240521
+    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see field "NewObligation__c" not in edit mode
+    Then I softly see field "CumulativeObligation__c" not in edit mode
 
     Examples:
       | Award Name                                       | Grant Name                                       |
@@ -14770,17 +14770,17 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see field "NewObligation__c" not in edit mode
     Then I softly see field "CumulativeObligation__c" not in edit mode
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-#    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside table
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    And I navigate to "Budget" sub tab
-#    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
-#    Then I softly see field "NewObligation__c" not in edit mode
-#    Then I softly see field "CumulativeObligation__c" not in edit mode
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I navigate to "Budget" sub tab
+    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see field "NewObligation__c" not in edit mode
+    Then I softly see field "CumulativeObligation__c" not in edit mode
 
     Examples:
       | Award Name                                       | Grant Name                                       |
@@ -15828,18 +15828,18 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly see field "NewObligation__c" not in edit mode
     Then I softly see field "CumulativeObligation__c" not in edit mode
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" in "---progressReport:-:recipientActiveGrantId---" panel
-#    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside table
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
-#    Then I softly see that "Subaward" is in "Closed" status
-#    And I navigate to "Budget" sub tab
-#    Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
-#    Then I softly see field "NewObligation__c" not in edit mode
-#    Then I softly see field "CumulativeObligation__c" not in edit mode
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" in "---progressReport:-:recipientActiveGrantId---" panel
+    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
+    Then I softly see that "Subaward" is in "Closed" status
+    And I navigate to "Budget" sub tab
+    Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+    Then I softly see field "NewObligation__c" not in edit mode
+    Then I softly see field "CumulativeObligation__c" not in edit mode
 
     Examples:
       | Award Name                                       | Grant Name                                       |
