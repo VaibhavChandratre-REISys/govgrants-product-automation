@@ -25534,7 +25534,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
       Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
       Then I softly see value "{SavedValue:Classification}" for title "Classification" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
       When I get the "EGMS ID"
-      And I save the field labeled "EGMS ID" as "AmendEGMSID"
       When I navigate to "Responsibilities" sub tab
       When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
         | Name     | Amendment Request |
@@ -25576,6 +25575,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       Then I softly see confirmation box with body "Are you sure, you want to submit this request for approval?" is displayed
       And I click "OK" on modal confirmation box
       Then I softly see field "Status" as "Submitted for Approval"
+      And I save the field labeled "EGMS ID" as "AmendEGMSID"
       And I navigate to "History" sub tab
       Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
       When I "Send to Owner" in the approval decision
@@ -25590,8 +25590,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
       When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
       And I navigate to "Grants" tab
       When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-      And I perform quick search for "{SavedValue:SOWEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-      When I click on "Start" icon for "{SavedValue:SOWEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+      And I perform quick search for "{SavedValue:AmendEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+      When I click on "Start" icon for "{SavedValue:AmendEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
       When I select radio button "Forward" in the approval decision
       And I select user "David FO" in the approval decision
       When I enter comment "Automation testing" in the approval decision
@@ -25602,8 +25602,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
       When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
       And I navigate to "Grants" tab
       When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-      And I perform quick search for "{SavedValue:SOWEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-      When I click on "Start" icon for "{SavedValue:SOWEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+      And I perform quick search for "{SavedValue:AmendEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+      When I click on "Start" icon for "{SavedValue:AmendEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
       Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
       Then I cannot see top right button "Edit" in page detail
       And I submit the approval in the approval decision without processing
