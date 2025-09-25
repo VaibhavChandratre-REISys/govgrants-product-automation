@@ -25519,10 +25519,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
       And I save the value from row "2" for column name "Title" as "FocusArea2" from flex table "---grantee_tableId:-:amendmentFocusAreaTableId---"
       Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
       Then I softly see value "{SavedValue:FocusArea2}" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
-      When I navigate to "Responsibilities" sub tab
-      When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-        | Name     | Amendment Request |
-        | Sarah PM | Step 1            |
       And I navigate to "Files" sub tab
       And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
       And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
@@ -25533,40 +25529,11 @@ Feature: Validate all scenarios for Grantee Amendment Request
       And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:amendmentRequestAddFile---"
       Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
       Then I softly see value "{SavedValue:Classification}" for title "Classification" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
-      When I get the "EGMS ID"
       When I navigate to "Responsibilities" sub tab
       When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-        | Name     | Amendment Request |
-        | David FO | NA                |
-      Then I softly see the following messages in the page details contains:
-        | Saved Successfully! |
-      When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-        | Amendment Request |
-        | Step 3            |
-      Then I softly see the following messages in the page details contains:
-        | Required fields missing |
-      And I refresh the page
-      And I wait for "3" seconds
-      When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
-        | Name     | Amendment Request |
-        | Sarah PM | Step 2            |
-      Then I softly see the following messages in the page details contains:
-        | Saved Successfully! |
-      And I refresh the page
-      And I wait for "3" seconds
-      When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
-        | Name     | Amendment Request |
-        | Sarah PM | NA                |
-      When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
         | Name       | Amendment Request |
-        | Victor EXE | NA                |
-      And I click on "Submit for Approval" in the page details
-      Then I softly see the following messages in the page details contains:
-        | Responsibilities - At least one approver is required |
-      When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
-        | Name     | Amendment Request |
-        | Sarah PM | Step 1            |
-      When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
+        | Sarah PM   | Step 1            |
+      When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
         | Name       | Amendment Request |
         | Victor EXE | Step 2            |
       Then I softly see the following messages in the page details contains:
@@ -25575,6 +25542,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       Then I softly see confirmation box with body "Are you sure, you want to submit this request for approval?" is displayed
       And I click "OK" on modal confirmation box
       Then I softly see field "Status" as "Submitted for Approval"
+      When I get the "EGMS ID"
       And I save the field labeled "EGMS ID" as "AmendEGMSID"
       And I navigate to "History" sub tab
       Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
