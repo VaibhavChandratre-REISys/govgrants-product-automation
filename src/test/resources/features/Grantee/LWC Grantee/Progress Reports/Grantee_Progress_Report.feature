@@ -3381,7 +3381,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
     And I click modal button "Save and Continue"
 
-  @444488 @validateEXEuser(progressreportrecordowner)caneditthefieldsonAdhocprogressreportisinCreated,submittedforreview/reviewed states
+  @444488 @validateEXEuser(progressreportrecordowner)caneditthefieldsonAdhocprogressreportisinCreated,submittedforreview/reviewedstates
   Scenario:Validate EXE user (progress report record owner) can edit the fields on  Adhoc progress report is in Created, submitted for review/reviewed states
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
