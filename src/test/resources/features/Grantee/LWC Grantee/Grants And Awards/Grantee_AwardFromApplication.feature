@@ -6072,7 +6072,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see value "Submitted" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:awardPeerReviewerTableId---"
     Then I softly cannot see row level action button "Enter Review" against "David FO" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
 
-  @482624 @validateassignedapproverscanforwardSenttoownerApprovetheaward
+  @482624 @validateassignedapproverscanforwardSenttoownerApprovetheaward @Gregression2 @P2_Grantee @PM_Grantee
   Scenario Outline: Validate Assigned approvers can  Forward/Sent to owner/Approve the award
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
