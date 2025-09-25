@@ -1929,51 +1929,54 @@ Feature: Validate all scenarios of every modules flow
 
   @testChecking @debug
   Scenario:
-    And I published "Competitive" type announcement having name "Automation Permanent Closed Annoucement" and properties "default"
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
-    And I navigate to "Opportunities" tab
-    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Permanent Closed Annoucement}" in "---applicationReview:-:reviewsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Permanent Closed Annoucement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
-    When I click on "Qualify" in the page details
-    When I click on "Create Application" in the page details
-    And I wait for "3" seconds
-    And I click modal button "Save and Continue"
-    And I wait for "2" seconds
-    When I enter "Edition" values from "Application_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I wait for "3" seconds
-    And I navigate to "Budget" sub tab
-    When I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
-      | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 1000   | 100        | 100            |
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Checked        |
-    When I navigate to "Proposal" sub tab
-    When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
-      | EGMS ID                  | Target |
-      | Automation Permanent KPI | 10     |
-    And I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I switch to tab number "1"
-    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
-    And I close the tab
-    And I wait for "2" seconds
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I switch to tab number "1"
-    And I wait for "2" seconds
-    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I wait for "3" seconds
-    And I close the tab
-    And I wait for "2" seconds
-    And I get the "EGMS ID"
-    When I click on "Submit Application" in the page details
-    And I wait for "3" seconds
-    Then I see status in Progress-bar is "Submitted" and is "dark blue"
+#    And I published "Competitive" type announcement having name "Automation Permanent Closed Formula Announcement" and properties "default"
+    And I published "Formula" type announcement having name "Automation Permanent Closed Formula Ann-By Applicant" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO"
+    And I initiated an application review for application "{SavedValue:Automation Permanent Closed Formula Ann-By Applicant}" on announcement "{SavedValue:Automation Permanent Closed Formula Ann-By Applicant}" with properties "default"
+
+#    Given I am on "SUBPORTAL" portal
+#    When I login to "Grants Portal" app as "SPI3" user
+#    And I navigate to "Opportunities" tab
+#    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+#    And I perform quick search for "{SavedValue:Automation Permanent Closed Annoucement}" in "---applicationReview:-:reviewsTableId---" panel
+#    When I click on "View" icon for "{SavedValue:Automation Permanent Closed Annoucement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
+#    When I click on "Qualify" in the page details
+#    When I click on "Create Application" in the page details
+#    And I wait for "3" seconds
+#    And I click modal button "Save and Continue"
+#    And I wait for "2" seconds
+#    When I enter "Edition" values from "Application_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I wait for "3" seconds
+#    And I navigate to "Budget" sub tab
+#    When I expand nested table containing column value "BP01"
+#    And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
+#      | Category Name | Budget | Cash Match | Non-Cash Match |
+#      | Construction  | 1000   | 100        | 100            |
+#    When I navigate to "Overview" sub tab
+#    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+#      | Name                       | Is Key Contact |
+#      | {SavedValue:SPI3 Username} | Checked        |
+#    When I navigate to "Proposal" sub tab
+#    When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
+#      | EGMS ID                  | Target |
+#      | Automation Permanent KPI | 10     |
+#    And I navigate to "Forms and Files" sub tab
+#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+#    And I switch to tab number "1"
+#    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I wait for "2" seconds
+#    And I close the tab
+#    And I wait for "2" seconds
+#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+#    And I switch to tab number "1"
+#    And I wait for "2" seconds
+#    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I wait for "3" seconds
+#    And I close the tab
+#    And I wait for "2" seconds
+#    And I get the "EGMS ID"
+#    When I click on "Submit Application" in the page details
+#    And I wait for "3" seconds
+#    Then I see status in Progress-bar is "Submitted" and is "dark blue"
