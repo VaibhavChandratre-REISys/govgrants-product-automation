@@ -3247,7 +3247,6 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly see fields "ReportingPeriodEndDate__c" is in edit mode
     Then I softly see fields "ReportDueDate__c" is in edit mode
     Then I softly see fields "IsFinalReport__c" is in edit mode
-    When I check
     And I click on "Save" in the page details
     When I navigate to "Performance" sub tab
     Then I softly see "Objectives" page block displayed
@@ -3386,8 +3385,8 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
-    And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime Opportunity}" with properties "NA_APPROVER_EXE_OWNER"
-    And I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "NA_APPROVER_EXE_OWNER"
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
