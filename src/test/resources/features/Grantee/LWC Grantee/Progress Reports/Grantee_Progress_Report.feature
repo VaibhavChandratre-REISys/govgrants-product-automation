@@ -3730,8 +3730,8 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-<userName>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
-    And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime Opportunity}" with properties "NA_APPROVER"
     When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "NA_APPROVER"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
