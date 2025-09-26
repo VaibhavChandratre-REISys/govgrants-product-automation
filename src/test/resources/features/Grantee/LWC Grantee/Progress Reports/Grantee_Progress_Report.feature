@@ -3881,7 +3881,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     Then I softly do not see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
-    And I re-login to "As a Grantee" app as "userType" user on "INTERNAL" portal
+    And I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - All"
@@ -3913,5 +3913,5 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I save the field labeled "Submitted On" as "SubmittedOn"
     Then I softly see field "Submitted On" as "{SavedValue:SubmittedOn}"
       Examples:
-        | userType   | userName      |
-        | GRANTEE EXE | Victor EXE user |
+           | userName      |
+           | Victor EXE user |
