@@ -3742,10 +3742,6 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I navigate to "Management" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
     And I save the field labeled "EGMS ID" as "progressEGMSID"
-    When I navigate to "Performance" sub tab
-    When I edit the following rows inline in flex table with id "---grantee_tableId:-:KPIOnProgressReport---" by clicking "Edit" :
-        | EGMS ID                | Reported Value | Reported Value As Of |
-        | Automation Runtime KPI | 10             | 1                    |
     When I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
         | Responsibilities - At least one approver is required.  |
