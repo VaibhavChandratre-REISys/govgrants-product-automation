@@ -1781,3 +1781,18 @@ Feature: Validate all scenarios of every modules flow
       And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "Automation Runtime Opportunity111316" with properties "default"
       And I updated award from application for title "Automation Runtime Opportunity111316" with properties "default"
       And I activate the award for title "Automation Runtime Opportunity111316"
+
+  @TestIssue
+  Scenario:
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Grants" tab
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+#    When I re-login to "Grantor" app as "GRANTEE PO" user on "INTERNAL" portal
+#    When I navigate to "Home" tab
+#    When I re-login to "Grantor" app as "GRANTEE FO" user on "INTERNAL" portal
+#    When I navigate to "Home" tab
+#    When I re-login to "Grantor" app as "GRANTEE FD" user on "INTERNAL" portal
+#    When I navigate to "Home" tab
+#    When I re-login to "Grantor" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+#    When I navigate to "Home" tab
