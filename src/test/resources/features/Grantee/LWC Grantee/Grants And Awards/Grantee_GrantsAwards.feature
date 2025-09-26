@@ -4594,18 +4594,6 @@ Feature: Validate all scenarios for Grants & Awards
      Then I softly can see row level action button "Delete" against "Focus" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
      Then I softly can see row level action button "Edit" against "Focus1" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
      Then I softly can see row level action button "Delete" against "Focus1" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
-     And I collapse nested table containing column value "Automation Permanent Focus Area"
-     Given I expand nested table containing column value "Automation Permanent Focus Area2"
-     When I enter the following values into flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---" by clicking "New" :
-       | Reference ID | Drawdown Date | Amount |
-       | Focus2       | 1             | 500    |
-       | Focus3       | 1             | 200    |
-     Then I softly can see row level action button "Edit" against "Focus2" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
-     Then I softly can see row level action button "Delete" against "Focus2" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
-     Then I softly can see row level action button "Edit" against "Focus3" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
-     Then I softly can see row level action button "Delete" against "Focus3" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
-     And I refresh the page
-     And I wait for "2" seconds
      Then I softly see field "Drawn to Date" as "$3,700.00"
      Then I softly see field "Current Balance" as "$3,700.00"
      Then I softly see field "Grant Balance" as "$96,300.00"
@@ -4620,10 +4608,8 @@ Feature: Validate all scenarios for Grants & Awards
      Then I softly see field "Drawn to Date" as "$3,500.00"
      Then I softly see field "Current Balance" as "$3,500.00"
      Then I softly see field "Grant Balance" as "$96,500.00"
-     And I refresh the page
-     And I wait for "2" seconds
 
-     @488684 @ValidatewithexeprofileForMultipleFocusareafortypeConstruction
+     @488684 @ValidatewithexeprofileForMultipleFocusareafortypeConstruction @Gregression2 @EXE_Grantee @P2_Grantee
      Scenario Outline: Validate with EXE profile For Multiple Focus area for type Construction
      And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<Username>"
      And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"

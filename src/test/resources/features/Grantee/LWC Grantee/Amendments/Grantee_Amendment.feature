@@ -12024,7 +12024,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | User           |
       | GRANTEE PO     |
 
-  @487062 @CombinationofamendmentVerifyEXEuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @P2_Grantee @EXE_Grantee @GRegression1 @GranteeTBE
+  @487062 @472141 @CombinationofamendmentVerifyEXEuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @P2_Grantee @EXE_Grantee @GRegression1 @GranteeTBE @PO_Grantee
   Scenario Outline: Combination of amendment - Verify EXE user (AR Owner) can able to Forward Amendment Request from Approval Process
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -12388,6 +12388,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Examples:
       | User           |
       | GRANTEE EXE    |
+      | GRANTEE PO    |
 
   @487063 @CombinationofamendmentVerifyFOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @P3_Grantee @FO_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Combination of amendment - Verify FO user (AR Owner) can able to Forward Amendment Request from Approval Process
