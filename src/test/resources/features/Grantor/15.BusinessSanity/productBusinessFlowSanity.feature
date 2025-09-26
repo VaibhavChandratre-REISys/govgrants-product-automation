@@ -222,7 +222,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I click on "Activate" in the page details
@@ -1891,7 +1891,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Risk Assessment" sub tab
     And I perform quick search for "Active" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     When I click on "View" icon for "Active" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---" without waiting for record
-    Then I softly see field "State" as "Active"
+    Then I softly see field "Status" as "Active"
 
   @72349 @adhocReimbursementHappyPath @ProdSan1
   Scenario: Validate the Reimbursement Payment Request happy path and the status changes to 'Paid'
@@ -2944,7 +2944,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I wait for "8" seconds
+    And I wait for "4" seconds
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "scopeWorkId"
@@ -4737,7 +4737,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Application Title   | Recommend for Funding | Comments    |
       | <Announcement Name> | Yes                   | Recommended |
     And I refresh the page
-    Then I softly see field "Total Allocation Funding" as "$1,000"
+    Then I softly see field "Total Allocation Funding" as "$1,000.00"
     When I hovering mouse on help text icon inside page block detail "Total Allocation Funding"
     Then I softly see "Total amount allocated across all approved applications in relationship to this Announcement" shown as help text
 

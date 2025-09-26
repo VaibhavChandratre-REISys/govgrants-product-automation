@@ -159,7 +159,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I navigate to "Overview" sub tab
     And I wait for "5" seconds
     #97383 #monu
-    Then I softly see field "Amendment Types" as "Scope of Work Change"
+    Then I softly see field "Amendment Type(s)" as "Scope of Work Change"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -329,7 +329,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I wait for "2" seconds
-    Then I softly see field "Amendment Types" as "Scope of Work Change"
+    Then I softly see field "Amendment Type(s)" as "Scope of Work Change"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -398,7 +398,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I wait for "2" seconds
-    Then I softly see field "Amendment Types" as "Scope of Work Change"
+    Then I softly see field "Amendment Type(s)" as "Scope of Work Change"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2188,7 +2188,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I save the field labeled "EGMS ID" as "EGMSID"
     And I navigate to "Overview" sub tab
     And I save the field labeled "Subaward Id" as "AwardNo"
-    And I save the field labeled "Amendment Types" as "AmendmentType"
+    And I save the field labeled "Amendment Type(s)" as "AmendmentType"
     And I click on "Send to Subrecipient" in the page details
     #97938 #monu
     Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
@@ -2199,7 +2199,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
    #97942 #monu
     Then I softly see field "Subaward" as "{SavedValue:AwardNo}"
-    Then I softly see field "Amendment Types" as "{SavedValue:AmendmentType}"
+    Then I softly see field "Amendment Type(s)" as "{SavedValue:AmendmentType}"
     And I click on "Acknowledge" in the page details
     #97966 #monu
     Then I softly see status in Progress-bar is "Acknowledged" and is "dark blue"

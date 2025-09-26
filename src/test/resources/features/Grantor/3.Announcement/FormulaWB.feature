@@ -4730,7 +4730,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Application Title   | Recommend for Funding | Comments    |
       | <Announcement Name> | Yes                   | Recommended |
     And I refresh the page
-    Then I softly see field "Total Allocation Funding" as "$1,000"
+    Then I softly see field "Total Allocation Funding" as "$1,000.00"
     When I hovering mouse on help text icon inside page block detail "Total Allocation Funding"
     Then I softly see "Total amount allocated across all approved applications in relationship to this Announcement" shown as help text
     #227729
