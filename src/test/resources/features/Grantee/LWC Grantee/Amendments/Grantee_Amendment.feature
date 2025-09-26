@@ -25769,7 +25769,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       And I navigate to "Monitoring" sub tab
       Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:awardObjectiveTableId---"
       Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-      Then I softly see value "{SavedValue:Terms1}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+      Then I softly see value "Terms1" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
       When I click on "Activate Award" in the page details
       And I wait for "3" seconds
       Then I softly see field "Status" as "Activated"
@@ -25779,7 +25779,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       And I navigate to "Monitoring" sub tab
       Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:awardObjectiveTableId---"
       Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-      Then I softly see value "{SavedValue:Terms1}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+      Then I softly see value "Terms1" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
       And I wait for "3" seconds
       And I navigate to "Grants" tab
       When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
