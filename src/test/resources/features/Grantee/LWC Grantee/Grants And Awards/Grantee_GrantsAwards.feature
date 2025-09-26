@@ -4567,7 +4567,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see field "Current Balance" as "$3,500.00"
     Then I softly see field "Grant Balance" as "$96,500.00"
 
-   @488683 @ValidateusingpmprofileforsinglefocusareaforTypeNonconstructionWithDrawdownandwithoutSpent
+   @488683 @ValidateusingpmprofileforsinglefocusareaforTypeNonconstructionWithDrawdownandwithoutSpent @Gregression2 @PM_Grantee @P2_Grantee
    Scenario: Validate using PM profile For single focus area for Type Non construction With Drawdown and without Spent
      And I "Created" standalone subaward "Automation Runtime Award" with properties "NON_CONSTRUCTION"
      And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "Default"
@@ -4594,6 +4594,7 @@ Feature: Validate all scenarios for Grants & Awards
      Then I softly can see row level action button "Delete" against "Focus" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
      Then I softly can see row level action button "Edit" against "Focus1" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
      Then I softly can see row level action button "Delete" against "Focus1" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
+     And I refresh the page
      Then I softly see field "Drawn to Date" as "$3,000.00"
      Then I softly see field "Current Balance" as "$3,000.00"
      Then I softly see field "Grant Balance" as "$97,000.00"
