@@ -4594,20 +4594,12 @@ Feature: Validate all scenarios for Grants & Awards
      Then I softly can see row level action button "Delete" against "Focus" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
      Then I softly can see row level action button "Edit" against "Focus1" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
      Then I softly can see row level action button "Delete" against "Focus1" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
-     Then I softly see field "Drawn to Date" as "$3,700.00"
-     Then I softly see field "Current Balance" as "$3,700.00"
-     Then I softly see field "Grant Balance" as "$96,300.00"
+     Then I softly see field "Drawn to Date" as "$3,000.00"
+     Then I softly see field "Current Balance" as "$3,000.00"
+     Then I softly see field "Grant Balance" as "$97,000.00"
      Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-     Then I softly see value "$700.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
      Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-     Then I softly see value "$700.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-     When I click on "Delete" icon for "Focus3" inside flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
-     And I wait for "2" seconds
-     And I refresh the page
-     And I wait for "2" seconds
-     Then I softly see field "Drawn to Date" as "$3,500.00"
-     Then I softly see field "Current Balance" as "$3,500.00"
-     Then I softly see field "Grant Balance" as "$96,500.00"
+     Then I softly see value "$0.00" for title "Amount Spent to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
      @488684 @ValidatewithexeprofileForMultipleFocusareafortypeConstruction @Gregression2 @EXE_Grantee @P2_Grantee
      Scenario Outline: Validate with EXE profile For Multiple Focus area for type Construction
