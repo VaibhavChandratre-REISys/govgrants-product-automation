@@ -2751,6 +2751,7 @@ public class GrantorPayloads {
         grant.addProperty("WBSRequired", "No");
         grant.addProperty("IsBuildUpFunctionality", "No");
         grant.addProperty("AreExpensesBuildIUpLevel", "Yes");
+        grant.addProperty("IsMatchRequired", "Yes");
         grant.addProperty("GranteeMatch", 10);
         grant.addProperty("BudgetCloseoutrequestRequired", "Yes");
         grant.addProperty("CostSharing", "Cash Match");
