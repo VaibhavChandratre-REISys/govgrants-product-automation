@@ -3154,9 +3154,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I clear in modal the value from table field "NonCashMatch__c"
     And I click on top right button "Save" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     And I wait for "5" seconds
-    Then I softly see value "$0.00" for title "Award Amount" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    Then I softly see value "$0.00" for title "Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    Then I softly see value "$0.00" for title "Non-Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
+    Then I softly see value "" for title "Award Amount" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
+    Then I softly see value "" for title "Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
+    Then I softly see value "" for title "Non-Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     When I click on "Delete" icon for "Extra Salary" inside flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     And I wait for "5" seconds
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
