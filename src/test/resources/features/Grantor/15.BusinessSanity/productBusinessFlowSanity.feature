@@ -4561,8 +4561,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
     And I click "Send" button in modal
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Email Sent Successfully. |
+    Then I see the text "Email Sent Successfully." in modal
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
     And I navigate to maildrop portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Notification: You have been Invited to Register in the"
     When I click on "Agree" in the page details
