@@ -25588,7 +25588,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       Then I softly see status in Progress-bar is "Approved" and is "dark blue"
       Then I cannot see top right button "Edit" in page detail
 
-      @447994 @validateIsee"RecordDecision"buttononamendmentrequestanduseraccepttheARandcreatednewawardandseeeffectsongrantaward
+      @447994 @validateIsee"RecordDecision"buttononamendmentrequestanduseraccepttheARandcreatednewawardandseeeffectsongrantaward @P2_Grantee @PM_Grantee @Gregression2
       Scenario Outline: Validate I see "Record Decision" button on amendment request and user accept the AR and created new award and see effects on grant award
       And I "Created" standalone subaward "Automation Runtime award" with properties "default"
       And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
