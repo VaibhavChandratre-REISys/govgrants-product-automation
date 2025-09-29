@@ -4783,7 +4783,7 @@ Feature: Validate all scenarios for Grants & Awards
     When I click modal button "Save"
     And I click on submit review
     And I wait for "3" seconds
-    Then I softly see value "Submitted" for title "Status" against the value "Grantee PO" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly see value "Submitted" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     And I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
@@ -4812,7 +4812,7 @@ Feature: Validate all scenarios for Grants & Awards
       | David FO      | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Review"
-    And I "Submitted for Approval" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
+    And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -4825,6 +4825,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I navigate to "Management" sub tab
     And I click on "View" icon for "Submitted for Approval" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
     And I save the field labeled "EGMS ID" as "progressEGMSID2"
+    And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approved" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
     And I navigate to "Grants" tab
@@ -4915,7 +4916,7 @@ Feature: Validate all scenarios for Grants & Awards
       | David FO      | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Review"
-    And I "Submitted for Approval" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
+    And I "Created" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -4928,6 +4929,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I navigate to "Management" sub tab
     And I click on "View" icon for "Submitted for Approval" inside flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
     And I save the field labeled "EGMS ID" as "financialEGMSID2"
+    And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approved" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
     And I navigate to "Grants" tab
@@ -5038,8 +5040,8 @@ Feature: Validate all scenarios for Grants & Awards
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
+    And I "Created" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
     When I login to "As a Grantee" app as "GRANTEE PO" user
-    And I "Submitted for Approval" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -5052,8 +5054,9 @@ Feature: Validate all scenarios for Grants & Awards
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     And I navigate to "Management" sub tab
-    And I click on "View" icon for "Submitted for Approval" inside flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
     And I save the field labeled "EGMS ID" as "financialEGMSID2"
+    And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Submitted to Grantor" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
     And I navigate to "Grants" tab
@@ -5065,7 +5068,7 @@ Feature: Validate all scenarios for Grants & Awards
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Management" sub tab
-    And I click on "View" icon for "Submitted for Approval" inside flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I click on "View" icon for "Submitted to Grantor" inside flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
     And I save the field labeled "EGMS ID" as "financialEGMSID3"
     Then I softly see field "Status" as "Submitted to Grantor"
     And I "Created" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
