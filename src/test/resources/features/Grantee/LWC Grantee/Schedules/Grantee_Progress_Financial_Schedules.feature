@@ -16614,7 +16614,6 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I save the value from row "10" for column name "EGMS ID" as "EGMS ID10" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "11" for column name "EGMS ID" as "EGMS ID11" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "12" for column name "EGMS ID" as "EGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    And I save the value from row "13" for column name "EGMS ID" as "EGMS ID13" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I collapse nested table containing column value "Progress Report"
     And I wait for "2" seconds
     And I expand nested table containing column value "Financial Report"
@@ -16633,7 +16632,6 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I save the value from row "10" for column name "EGMS ID" as "FINANEGMS ID10" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "11" for column name "EGMS ID" as "FINANEGMS ID11" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "12" for column name "EGMS ID" as "FINANEGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    And I save the value from row "13" for column name "EGMS ID" as "FINANEGMS ID13" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I collapse nested table containing column value "Financial Report"
     And I wait for "2" seconds
     And I "Approved" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
@@ -16698,7 +16696,6 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     Then I softly see value "{SavedValue:FINANEGMS ID10}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{SavedValue:FINANEGMS ID11}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{SavedValue:FINANEGMS ID12}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:FINANEGMS ID13}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
 
   @473154 @ValidatePOuserincaseperiodicrenewalschedulesarenotcreatedin1stawardthenin2ndawardschedulesunabletosee
   Scenario: Validate PO user in case periodic renewal schedules are not created in 1st award then in 2nd award schedules unable to see

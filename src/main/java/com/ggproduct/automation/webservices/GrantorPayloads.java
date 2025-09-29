@@ -5994,26 +5994,7 @@ public class GrantorPayloads {
         programIncome1.addProperty("programIncomeJustification", "Automation Test");
         programIncome.add(programIncome1);
         grantDetails.add("programIncome", programIncome);
-
-        // Adding reports schedule
-        JsonArray reportsSchedule = new JsonArray();
-        JsonObject report1 = new JsonObject();
-        report1.addProperty("reportType", "Progress Report");
-        report1.addProperty("Description", "Automation Test");
-        report1.addProperty("scheduleBase", "Calendar");
-        report1.addProperty("ReportingPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(380, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        report1.addProperty("Frequency", "Monthly");
-        reportsSchedule.add(report1);
-
-        JsonObject report2 = new JsonObject();
-        report2.addProperty("reportType", "Financial Report");
-        report2.addProperty("Description", "Automation Test");
-        report2.addProperty("scheduleBase", "Reporting Period");
-        report2.addProperty("ReportingPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(380, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        report2.addProperty("Frequency", "Monthly");
-        reportsSchedule.add(report2);
-        grantDetails.add("reportsSchedule", reportsSchedule);
-
+        
         // Adding objectives
         JsonArray objectives = new JsonArray();
         objectives.add("Automation Permanent Objective");
