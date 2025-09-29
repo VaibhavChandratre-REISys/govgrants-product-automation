@@ -1,5 +1,5 @@
 @programExecution @grantor-regression @grantor-parallel-regression @planning @regression
-Feature: Validate all scenarios for program 
+Feature: Validate all scenarios for program
 
   Background: Create Program
     When I login to "Grantor" app as "dynamicUser" user
