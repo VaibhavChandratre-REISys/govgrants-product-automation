@@ -5994,7 +5994,7 @@ public class GrantorPayloads {
         programIncome1.addProperty("programIncomeJustification", "Automation Test");
         programIncome.add(programIncome1);
         grantDetails.add("programIncome", programIncome);
-        
+
         // Adding objectives
         JsonArray objectives = new JsonArray();
         objectives.add("Automation Permanent Objective");
