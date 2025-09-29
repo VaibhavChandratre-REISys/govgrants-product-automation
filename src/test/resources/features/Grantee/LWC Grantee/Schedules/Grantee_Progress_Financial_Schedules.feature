@@ -16585,6 +16585,7 @@ Feature: Validate all scenarios for Progress & Financial Schedules
   Scenario: Validate PO user in case periodic renewal schedules are created in 1st award then in 2nd award as per schedules of 2nd award able to see
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -16592,14 +16593,45 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    When I navigate to "Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Interim Award Document" from computer
-    When I click modal button "Close"
-    Then I softly see value "Interim Award Document" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
-
-    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    When I navigate to "Management" sub tab
+    And I expand nested table containing column value "Progress Report"
+    And I save the total records from the flex table id "---grantee_tableId:-:financialReportProgressReportSchedules---" as "totalRecords"
+    Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I select value inside table "---grantee_tableId:-:financialReportProgressReportSchedules---" is "All"
+    And I save the value from row "1" for column name "EGMS ID" as "EGMS ID1" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "2" for column name "EGMS ID" as "EGMS ID2" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "3" for column name "EGMS ID" as "EGMS ID3" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "4" for column name "EGMS ID" as "EGMS ID4" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "5" for column name "EGMS ID" as "EGMS ID5" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "6" for column name "EGMS ID" as "EGMS ID6" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "7" for column name "EGMS ID" as "EGMS ID7" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "8" for column name "EGMS ID" as "EGMS ID8" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "9" for column name "EGMS ID" as "EGMS ID9" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "10" for column name "EGMS ID" as "EGMS ID10" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "11" for column name "EGMS ID" as "EGMS ID11" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "12" for column name "EGMS ID" as "EGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "13" for column name "EGMS ID" as "EGMS ID13" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I collapse nested table containing column value "Progress Report"
+    And I wait for "2" seconds
+    And I expand nested table containing column value "Financial Report"
+    And I save the total records from the flex table id "---grantee_tableId:-:financialReportProgressReportSchedules---" as "FinancialtotalRecords"
+    Then I softly see total records count "{SavedValue:FinancialtotalRecords}" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I select value inside table "---grantee_tableId:-:financialReportProgressReportSchedules---" is "All"
+    And I save the value from row "1" for column name "EGMS ID" as "FINANEGMS ID1" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "2" for column name "EGMS ID" as "FINANEGMS ID2" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "3" for column name "EGMS ID" as "FINANEGMS ID3" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "4" for column name "EGMS ID" as "FINANEGMS ID4" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "5" for column name "EGMS ID" as "FINANEGMS ID5" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "6" for column name "EGMS ID" as "FINANEGMS ID6" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "7" for column name "EGMS ID" as "FINANEGMS ID7" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "8" for column name "EGMS ID" as "FINANEGMS ID8" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "9" for column name "EGMS ID" as "FINANEGMS ID9" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "10" for column name "EGMS ID" as "FINANEGMS ID10" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "11" for column name "EGMS ID" as "FINANEGMS ID11" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "12" for column name "EGMS ID" as "FINANEGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "13" for column name "EGMS ID" as "FINANEGMS ID13" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I collapse nested table containing column value "Financial Report"
     And I wait for "2" seconds
     And I "Approved" of type "Scope of Work Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I navigate to "Grants" tab
@@ -16643,3 +16675,20 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I navigate to "Management" sub tab
+    And I expand nested table containing column value "Progress Report"
+    Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I select value inside table "---grantee_tableId:-:financialReportProgressReportSchedules---" is "All"
+    Then I softly see value "{SavedValue:EGMS ID1}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:EGMS ID2}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:EGMS ID3}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:EGMS ID4}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:EGMS ID5}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:EGMS ID6}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:EGMS ID7}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:EGMS ID8}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:EGMS ID9}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:EGMS ID10}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:EGMS ID11}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I collapse nested table containing column value "Progress Report"
