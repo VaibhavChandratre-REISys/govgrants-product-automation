@@ -4905,7 +4905,7 @@ Feature: Validate all scenarios for Grants & Awards
     When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Financial Reports - All"
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
-    When I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:FinancialReportsOnMonitoring---"
+    When I click on "View" icon for "{SavedValue:financialEGMSID}" inside flex table with id "---grantee_tableId:-:FinancialReportsOnMonitoring---"
     When I click on "Complete Review" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Reviewed"
