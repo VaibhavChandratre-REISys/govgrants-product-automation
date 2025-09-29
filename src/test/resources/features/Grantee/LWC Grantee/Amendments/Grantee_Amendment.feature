@@ -26716,13 +26716,18 @@ Feature: Validate all scenarios for Grantee Amendment Request
           When I click on "Activate Award" in the page details
           Then I softly see field "Status" as "Activated"
           And I save the field labeled "EGMS ID" as "AwardEGMSID1"
-          When I re-login to "As a Grantee" app as "GRANTEE EXE" user
+          And I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
           And I navigate to "Grants" tab
-          When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-          And I click toggle button to select "Awards - All"
-          When I perform quick search for "{SavedValue:AwardEGMSID1}" in "---grantee_tableId:-:GrantsTable---" panel
-          And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+          When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+          And I click toggle button to select "Grants - All"
+          When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+          And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
           Then I softly see field "Status" as "Active"
+          Then I softly see status in Progress-bar is "Active" and is "dark blue"
+          And I save the field labeled "EGMS ID" as "GrantEGMSID"
+          When I navigate to "Awards" sub tab
+          And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+          Then I softly see field "Status" as "Activated"
           When I navigate to "Amendments" sub tab
           Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
           And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
@@ -26806,11 +26811,23 @@ Feature: Validate all scenarios for Grantee Amendment Request
           And I click on back arrow
           And I click on "Amend Award" in the page details
           Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
-          Then I can see top right button "Delete" in page detail
+          When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+          And I navigate to "Grants" tab
+          When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+          And I click toggle button to select "Grants - All"
+          When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+          And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+          When I navigate to "Awards" sub tab
+          And I click on "View" icon for "Pending Activation" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
           Then I can see top right button "Activate Award" in page detail
+          Then I can see top right button "Delete" in page detail
           When I click on "Activate Award" in the page details
+          And I wait for "3" seconds
           Then I softly see field "Status" as "Activated"
+          Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+          And I wait for "2" seconds
           And I save the field labeled "EGMS ID" as "AwardEGMSID2"
+          When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
           And I navigate to "Grants" tab
           When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
           And I click toggle button to select "Grants - All"
