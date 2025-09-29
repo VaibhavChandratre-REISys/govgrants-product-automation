@@ -170,7 +170,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Key Performance Indicators (KPI) -Active"
+    And I click toggle button to select "Key Performance Indicators (KPI) - Active"
     When I perform quick search for "{SavedValue:Automation Runtime KPI}" in "---keyperformanceindicator:-:kpiTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime KPI}" inside table
     Then I cannot see top right button "Deactivate" in page detail
@@ -252,7 +252,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     Then I softly see that "{SavedValue:KPINAME}" has been added in flextable with Id "---strategicplan:-:ObjectivesKPITableId---"
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Key Performance Indicators (KPI) -Active"
+    And I click toggle button to select "Key Performance Indicators (KPI) - Active"
     When I perform quick search for "{SavedValue:KPINAME}" in "---keyperformanceindicator:-:kpiTableId---" panel
     And I click on "View" icon for "{SavedValue:KPINAME}" inside table
     When I navigate to "Related Log" sub tab

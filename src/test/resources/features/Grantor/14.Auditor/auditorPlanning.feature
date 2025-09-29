@@ -141,7 +141,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     When I login to "Grantor" app as "<User>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Key Performance Indicators (KPI) -Active"
+    And I click toggle button to select "Key Performance Indicators (KPI) - Active"
     When I perform quick search for "<KPI>" in "---keyperformanceindicator:-:kpiTableId---" panel
     Then I softly cannot see row level action button "Edit" against "<KPI>" in flex table with id "---keyperformanceindicator:-:kpiTableId---"
     And I click on "View" icon for "<KPI>" inside flex table with id "---keyperformanceindicator:-:kpiTableId---"
@@ -237,7 +237,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     When I login to "Grantor" app as "<User>" user
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    When I click toggle button to select "All NGO Programs"
+    When I click toggle button to select "NGO Programs - All"
     Then I softly cannot see top right button "New" for "---auditor:-:externalProgramTableID---" flex table
     When I perform quick search for "NGOProgram" in "---auditor:-:nonfederaltableId---" panel
     Then I softly can see row level action button "View" against "NGOProgram" in flex table with id "---auditor:-:nonfederaltableId---"
