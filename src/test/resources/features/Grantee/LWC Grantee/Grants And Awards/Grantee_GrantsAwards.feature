@@ -4776,7 +4776,6 @@ Feature: Validate all scenarios for Grants & Awards
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I navigate to "Responsibilities" sub tab
-    Then I softly can see top right button "Edit" in page detail
     When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     And I wait for "2" seconds
     And I enter a review as "Passed"
@@ -4823,8 +4822,12 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Management" sub tab
-    And I click on "View" icon for "Submitted for Approval" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
     And I save the field labeled "EGMS ID" as "progressEGMSID2"
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
+      | Name     | Progress Report |
+      | Sarah PM | Step 1          |
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approved" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
@@ -4838,7 +4841,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Management" sub tab
-    And I click on "View" icon for "Submitted for Approval" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
     And I save the field labeled "EGMS ID" as "progressEGMSID3"
     Then I softly see field "Status" as "Approved"
     And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
@@ -4927,8 +4930,12 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Management" sub tab
-    And I click on "View" icon for "Submitted for Approval" inside flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
     And I save the field labeled "EGMS ID" as "financialEGMSID2"
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportApproverTableId---" by clicking "New" :
+      | Name     | Financial Report |
+      | Sarah PM | Step 1           |
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approved" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
@@ -4942,7 +4949,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Management" sub tab
-    And I click on "View" icon for "Submitted for Approval" inside flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
     And I save the field labeled "EGMS ID" as "financialEGMSID3"
     Then I softly see field "Status" as "Approved"
     And I "Created" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
@@ -5010,7 +5017,8 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see value "{SavedValue:AwardId1}" for title "Award EGMS ID" against the value "{SavedValue:financialEGMSID1}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I softly see value "{SavedValue:financialEGMSID2}" for title "EGMS ID" inside table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I softly see value "{SavedValue:AwardId1}" for title "Award EGMS ID" against the value "{SavedValue:financialEGMSID2}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I softly do not see value "{SavedValue:financialEGMSID3}" for title "EGMS ID" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "{SavedValue:financialEGMSID3}" for title "EGMS ID" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "{SavedValue:AwardEGMSID}" for title "Award EGMS ID" against the value "{SavedValue:financialEGMSID3}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I softly see value "{SavedValue:financialEGMSID4}" for title "EGMS ID" inside table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I softly see value "{SavedValue:AwardId1}" for title "Award EGMS ID" against the value "{SavedValue:financialEGMSID4}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I softly see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:ProgressReportTableId---"
@@ -5019,7 +5027,8 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see value "{SavedValue:AwardId1}" for title "Award EGMS ID" against the value "{SavedValue:progressEGMSID1}" inside table "---grantee_tableId:-:ProgressReportTableId---"
     Then I softly see value "{SavedValue:progressEGMSID2}" for title "EGMS ID" inside table "---grantee_tableId:-:ProgressReportTableId---"
     Then I softly see value "{SavedValue:AwardId1}" for title "Award EGMS ID" against the value "{SavedValue:progressEGMSID2}" inside table "---grantee_tableId:-:ProgressReportTableId---"
-    Then I softly do not see value "{SavedValue:progressEGMSID3}" for title "EGMS ID" inside table "---grantee_tableId:-:ProgressReportTableId---"
+    Then I softly see value "{SavedValue:progressEGMSID3}" for title "EGMS ID" inside table "---grantee_tableId:-:ProgressReportTableId---"
+    Then I softly see value "{SavedValue:AwardEGMSID}" for title "Award EGMS ID" against the value "{SavedValue:progressEGMSID3}" inside table "---grantee_tableId:-:ProgressReportTableId---"
     Then I softly see value "{SavedValue:progressEGMSID4}" for title "EGMS ID" inside table "---grantee_tableId:-:ProgressReportTableId---"
     Then I softly see value "{SavedValue:AwardId1}" for title "Award EGMS ID" against the value "{SavedValue:progressEGMSID4}" inside table "---grantee_tableId:-:ProgressReportTableId---"
     And I navigate to "Grants" tab
@@ -5056,6 +5065,10 @@ Feature: Validate all scenarios for Grants & Awards
     And I navigate to "Management" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
     And I save the field labeled "EGMS ID" as "financialEGMSID2"
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportApproverTableId---" by clicking "New" :
+      | Name     | Financial Report |
+      | Sarah PM | Step 1           |
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Submitted to Grantor" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
@@ -5124,7 +5137,8 @@ Feature: Validate all scenarios for Grants & Awards
     And I navigate to "Management" sub tab
     Then I softly see value "{SavedValue:financialEGMSID2}" for title "EGMS ID" inside table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I softly see value "{SavedValue:AwardId1}" for title "Award EGMS ID" against the value "{SavedValue:financialEGMSID2}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I softly do not see value "{SavedValue:financialEGMSID3}" for title "EGMS ID" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "{SavedValue:financialEGMSID3}" for title "EGMS ID" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "{SavedValue:AwardEGMSID}" for title "Award EGMS ID" against the value "{SavedValue:financialEGMSID3}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I softly see value "{SavedValue:financialEGMSID4}" for title "EGMS ID" inside table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I softly see value "{SavedValue:AwardId1}" for title "Award EGMS ID" against the value "{SavedValue:financialEGMSID4}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
     And I navigate to "Grants" tab
