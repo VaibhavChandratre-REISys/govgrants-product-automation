@@ -26902,3 +26902,134 @@ Feature: Validate all scenarios for Grantee Amendment Request
           Then I softly see value "$0.00" for title "Cash Match" against the value "Architectural and engineering fees" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
           Then I softly see value "$0.00" for title "Program Income Expenditures" against the value "Architectural and engineering fees" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
 
+          @474361 @validatethatuserseevalidationonSubmitforApprovalbuttononCFlayout
+          Scenario:Validate that user see validation on Submit for Approval button on CF layout
+            And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+            And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+            And I activate the award for title "{SavedValue:Automation Runtime Award}"
+            And I "Approved" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
+            When I login to "As a Grantee" app as "GRANTEE PM" user
+            And I navigate to "Grants" tab
+            When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+            And I click toggle button to select "Grants - All"
+            When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+            And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+            Then I softly see field "Status" as "Active"
+            Then I softly see status in Progress-bar is "Active" and is "dark blue"
+            And I save the field labeled "EGMS ID" as "GrantEGMSID"
+            When I navigate to "Awards" sub tab
+            And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+            Then I softly see field "Status" as "Activated"
+            And I save the field labeled "EGMS ID" as "AwardEGMSID"
+            And I navigate to "Overview" sub tab
+            And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+            When I navigate to "Amendments" sub tab
+            And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+            And I save the field labeled "EGMS ID" as "PRAMENDID"
+            When I click on "Submit to Grantor" in the page details
+            When I enter values into fields
+              | Value | Field                 |
+              | 0     | SubmittedToGrantor__c |
+            And I click modal button "Save"
+            And I click modal button "Close"
+            Then I softly see field "Status" as "Submitted to Grantor"
+            Then I can see top right button "Record Decision" in page detail
+            Then I can see top right button "Revise Amendment" in page detail
+            When I click on "Record Decision" in the page details
+            When I enter values into fields
+              | Value                       | Field             |
+              | Accepted                    | Decision__c       |
+              | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
+              | Test                        | Comments__c       |
+            And I click modal button "Save"
+            And I click modal button "Close"
+            Then I softly see field "Status" as "Accepted"
+            And I click on "Amend Award" in the page details
+            Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+            When I click on "Activate Award" in the page details
+            Then I softly see field "Status" as "Activated"
+            And I save the field labeled "EGMS ID" as "AwardEGMSID1"
+            When I re-login to "As a Grantee" app as "GRANTEE EXE" user
+            And I navigate to "Grants" tab
+            When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+            And I click toggle button to select "Awards - All"
+            When I perform quick search for "{SavedValue:AwardEGMSID1}" in "---grantee_tableId:-:GrantsTable---" panel
+            And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+            Then I softly see field "Status" as "Active"
+            When I navigate to "Amendments" sub tab
+            Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
+            And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+            And I enter "Grantee_CF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+            And I click modal button "Save and Continue"
+            And I wait for "2" seconds
+            And I enter "Grantee_CF_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+            When I click on "Save" in the page details
+            And I get the "EGMS ID"
+            And I save the field labeled "EGMS ID" as "CFAMENDID"
+            And I click on "Edit" in the page details
+            And I enter value "Checked" into field "GeneralConditionChanged__c"
+            And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
+            And I click on "Save" in the page details
+            Given I expand nested table containing column value "BP01"
+            And I edit the following rows inline in flex table with id "---grantee_tableId:-:carryForwardBudgetTableId---" by clicking "Edit" :
+              | Category Name | Carry Forward |
+              | Construction  | 2000          |
+            When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+            And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
+              | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
+              | Construction   | The narrative | 0               |     0      |      0       |
+            When I close "Add Line Items" modal by clicking the top right x button
+            And I wait for "3" seconds
+            And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+            When I enter in modal value "CFTermsCondition" into field "Title__c"
+            When I enter in modal value "Terms Description" into field "Description__c"
+            When I enter in modal value "1" into field "Sequence__c"
+            When I enter in modal value "1" into field "EffectiveFrom__c"
+            When I enter in modal value "1" into field "EffectiveTill__c"
+            And I click modal button "Save"
+            And I wait for "3" seconds
+            Then I softly see value "CFTermsCondition" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+            And I save the value from row "1" for column name "Title" as "CFTermsCondition" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+            When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
+              | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+              | Rate2 | 30             | 12              | 100                             | Final                   |
+            Then I softly see the following messages in the page details contains:
+              | 'Effective from' date should be earlier than 'Effective until' date. |
+            When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
+              | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+              | Rate1 | 15             | 30              | 110                            | Final                   |
+            Then I softly see the following messages in the page details contains:
+              | The approved indirect cost rate cannot be greater than 100%. |
+            When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
+              | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+              |       |                |                 |                                |                     |
+            Then I softly see the following messages in the page details contains:
+              | Required fields missing  |
+            When I navigate to "Responsibilities" sub tab
+            When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+              | Name       | Amendment Request |
+              | Victor EXE | NA                |
+            And I navigate to "Files" sub tab
+            And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+            And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
+            When I click modal button "Close"
+            And I wait for "2" seconds
+            And I click on "Submit for Approval" in the page details
+            Then I softly see the following messages in the page details contains:
+              | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
+              | Overview Tab - Awarded Budget must be greater than $0.  |
+              |  Responsibilities - At least one approver is required   |
+            When I navigate to "Overview" sub tab
+            When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+            And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
+              | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
+              | Construction   | The narrative | 4000           |   10        |     20        |
+            When I close "Add Line Items" modal by clicking the top right x button
+            And I wait for "3" seconds
+            And I click on "Submit for Approval" in the page details
+            Then I softly see the following messages in the page details contains:
+              | Overview Tab - Carry Forward Amount in the Budget Periods section must be equal to the Difference Amount in Budget Change section. |
+              | Overview Tab - Insufficient match $10.00. The required match for the current budget is $400.00.  |
+
+
+
