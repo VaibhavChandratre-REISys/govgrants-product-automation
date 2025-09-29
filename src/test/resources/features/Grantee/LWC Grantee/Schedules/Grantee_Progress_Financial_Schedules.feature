@@ -16583,10 +16583,10 @@ Feature: Validate all scenarios for Progress & Financial Schedules
 
   @473156 @ValidatePOuserincaseperiodicrenewalschedulesarecreatedin1stawardthenin2ndawardasperschedulesof2ndawardabletosee
   Scenario: Validate PO user in case periodic renewal schedules are created in 1st award then in 2nd award as per schedules of 2nd award able to see
-    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -16594,6 +16594,9 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     When I navigate to "Management" sub tab
     And I expand nested table containing column value "Progress Report"
     And I save the total records from the flex table id "---grantee_tableId:-:financialReportProgressReportSchedules---" as "totalRecords"
@@ -16633,25 +16636,13 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I save the value from row "13" for column name "EGMS ID" as "FINANEGMS ID13" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I collapse nested table containing column value "Financial Report"
     And I wait for "2" seconds
-    And I "Approved" of type "Scope of Work Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    Then I softly see field "Status" as "Active"
-    Then I softly see status in Progress-bar is "Active" and is "dark blue"
-    And I save the field labeled "EGMS ID" as "GrantEGMSID"
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    Then I softly see field "Status" as "Activated"
-    And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    And I navigate to "Overview" sub tab
-    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    And I "Approved" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Amendments" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "KPCID"
+    And I save the field labeled "EGMS ID" as "periodicID"
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     When I enter values into fields
@@ -16692,3 +16683,85 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     Then I softly see value "{SavedValue:EGMS ID11}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I collapse nested table containing column value "Progress Report"
+    And I expand nested table containing column value "Financial Report"
+    Then I softly see total records count "{SavedValue:FinancialtotalRecords}" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I select value inside table "---grantee_tableId:-:financialReportProgressReportSchedules---" is "All"
+    Then I softly see value "{SavedValue:FINANEGMS ID1}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:FINANEGMS ID2}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:FINANEGMS ID3}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:FINANEGMS ID4}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:FINANEGMS ID5}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:FINANEGMS ID6}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:FINANEGMS ID7}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:FINANEGMS ID8}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:FINANEGMS ID9}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:FINANEGMS ID10}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:FINANEGMS ID11}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:FINANEGMS ID12}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:FINANEGMS ID13}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+
+  @473154 @ValidatePOuserincaseperiodicrenewalschedulesarenotcreatedin1stawardthenin2ndawardschedulesunabletosee
+  Scenario: Validate PO user in case periodic renewal schedules are not created in 1st award then in 2nd award schedules unable to see
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "NO_SCHEDULES"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    When I navigate to "Management" sub tab
+    And I expand nested table containing column value "Progress Report"
+    And I wait for "2" seconds
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I collapse nested table containing column value "Progress Report"
+    And I wait for "2" seconds
+    And I expand nested table containing column value "Financial Report"
+    And I wait for "2" seconds
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I collapse nested table containing column value "Financial Report"
+    And I wait for "2" seconds
+    And I "Approved" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
+    And I refresh the page
+    And I wait for "3" seconds
+    When I navigate to "Amendments" sub tab
+    And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "periodicID"
+    When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
+    When I enter values into fields
+      | Value | Field                 |
+      | 0     | SubmittedToGrantor__c |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I click on "Record Decision" in the page details
+    When I enter values into fields
+      | Value                       | Field             |
+      | Accepted                    | Decision__c       |
+      | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
+      | Test                        | Comments__c       |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Accepted"
+    And I click on "Amend Award" in the page details
+    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID2"
+    When I click on "Activate Award" in the page details
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I navigate to "Management" sub tab
+    And I expand nested table containing column value "Progress Report"
+    And I wait for "2" seconds
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I collapse nested table containing column value "Progress Report"
+    And I expand nested table containing column value "Financial Report"
+    And I wait for "2" seconds
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"

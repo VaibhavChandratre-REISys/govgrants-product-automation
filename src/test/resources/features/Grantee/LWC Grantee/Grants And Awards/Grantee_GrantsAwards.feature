@@ -4743,7 +4743,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
-  @464088 @ValidatePOuserARownercanseeabletoseeAnyrecordProgressReportFinancialReportifitisinflightinstateotherthanApprovedwillgetreparentedpointtonewawardidNewAwardIdwillshowonrecordsPRFR
+  @464088 @ValidatePOuserARownercanseeabletoseeAnyrecordProgressReportFinancialReportifitisinflightinstateotherthanApprovedwillgetreparentedpointtonewawardidNewAwardIdwillshowonrecordsPRFR @P2_Grantee @PO_Grantee @GRegression5
   Scenario: Validate PO user AR owner can see able to see Any record Progress Report Financial Report if it is in flight in state other than Approved will get reparented point to new award id & New Award Id will show on records PR & FR\
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
