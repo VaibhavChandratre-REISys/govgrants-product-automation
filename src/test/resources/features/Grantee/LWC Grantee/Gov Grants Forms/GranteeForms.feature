@@ -11472,19 +11472,20 @@ Feature: Grantee Forms Scenario
     Then I softly see the field "OMB Expiration Date :" as "02/08/2025" on forms
     Then I softly see the text containing "When filling out the data within this form, please adhere to the character limits for each field as specified within the information icon for the field."
     Then I softly can see "Form" sub tab at view detail page
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ABudgetSummaryTableId---" by clicking "Edit" :
       | Grant Program Function or Activity (a) | Catalog of Federal Domestic Assistance Number (b) | Estimated Unobligated Federal Funds (c) | Estimated Unobligated Non-Federal Funds (d) | New or Revised Federal Budget (e) | New or Revised Non-Federal Budget (f) |
-      | Automation Permanent Focus Area | Automation Test                                   | 1000                                    | 1000                                        | 1000                              | 1000                                  |
+      | Automation Permanent Focus Area - BP01 | Automation Test                                   | 1000                                    | 1000                                        | 1000                              | 1000                                  |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ANonFedResourceTableId---" by clicking "Edit" :
-      | (a) Grant Program                      | (b) Applicant | (c) State | (d) Other Sources |
-      | Automation Permanent Focus Area | 1000          | 1000      | 1000              |
+      | (a) Grant Program                       | (b) Applicant | (c) State | (d) Other Sources |
+      | Automation Permanent Focus Area - BP01  | 1000          | 1000      | 1000              |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ANonConstructionGridDTableId---" by clicking "Edit" :
       | Type        | 1st Quarter | 2nd Quarter | 3rd Quarter | 4th Quarter |
       | Federal     | 1000        | 1000        | 1000        | 1000        |
       | Non-Federal | 1000        | 1000        | 1000        | 1000        |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ANonConstructionGridETableId---" by clicking "Edit" :
       | (a) Grant Program                      | (b) First Future Funding Period | (c) Second Future Funding Period | (d) Third Future Funding Period | (e) Fourth Future Funding Period |
-      | Automation Permanent Focus Area | 1000                            | 1000                             | 1000                            | 1000                             |
+      | Automation Permanent Focus Area - BP01 | 1000                            | 1000                             | 1000                            | 1000                             |
     And I wait for "1" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
