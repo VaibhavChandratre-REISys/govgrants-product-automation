@@ -11648,3 +11648,4 @@ Feature: Grantee Forms Scenario
       When I click on "Splitview" icon for "Other Attachments Forms" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
       Then I softly cannot see top right button "Edit" in the split screen page details
       Then I softly cannot see top right button "Validate" in the split screen page details
+
