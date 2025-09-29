@@ -11389,7 +11389,7 @@ Feature: Grantee Forms Scenario
       | Form Validated Successfully. |
     And I close the tab
 
-    @481830 @validatePOusershouldabletoseethecorrect&understandablecommentifsubmissiontogrants.govisfailed
+    @481830 @validatePOusershouldabletoseethecorrect&understandablecommentifsubmissiontogrants.govisfailed @PO_Grantee @P2_Grantee @Gregression2
     Scenario: Validate PO user should able to see the correct & understandable comment if submission to grants.gov is failed
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySF424A}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269351" with properties "default-Grantee PO user"
@@ -11533,7 +11533,7 @@ Feature: Grantee Forms Scenario
     Then I softly see value "{SavedValue:TrackingNumber}" for title "Tracking Number" against the value "Rejected with Errors" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
     @480740 @validatePOprofile,ifrecordisinsubmitedforapproval/approved/SubmittograntorstateonClickSplitViewactionotherattachmentformgetopeninquickview
-      Scenario: Validate with PO profile , If Record is in submited for approval /approved /Submit to grantor  state on Click Split View action other attachment form get open in quick view.
+      Scenario: Validate with PO profile , If Record is in submited for approval /approved /Submit to grantor state on Click Split View action other attachment form get open in quick view.
       Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
       And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
       Given I login to "As a Grantee" app as "GRANTEE PM" user
@@ -11594,6 +11594,8 @@ Feature: Grantee Forms Scenario
       And I click on "View" icon for "Mandatory Other Attachment" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
       Then I softly see the image "Attachment.pdf" in page detail
       And I click on "Close" button for view files page
+      When I click on "Save" in the page details
+      And I wait for "1" seconds
       When I click on "Validate" in the page details
       Then I softly see the following messages in the page details :
         | Form validated successfully. |

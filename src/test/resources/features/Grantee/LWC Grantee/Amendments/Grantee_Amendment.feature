@@ -21154,7 +21154,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "Messages" sub tab
     Then I softly see "Messages" page block displayed
 
-  @474405 @474309 @validatePMuserseeImpactonGrant&AwardifCarryForwardedalltheamountfrompreviousawardtonewaward  @GRegression1 @P1_Grantee @PM_Grantee @sprint15
+  @474405 @validatePMuserseeImpactonGrant&AwardifCarryForwardedalltheamountfrompreviousawardtonewaward  @GRegression1 @P1_Grantee @PM_Grantee @sprint15
     Scenario: Validate PM user see Impact on Grant & Award if Carry Forwarded all the amount from previous award to new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -21211,7 +21211,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "CFAMENDID"
-    #474309
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:carryForwardBudgetTableId---" by clicking "Edit" :
       | Category Name | Carry Forward |
@@ -26670,7 +26669,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
           Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
           Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
-        @474311 @validateEXEusercanredirectmoneyintodifferentbudgetcategoriesduringacarryforwardinsamefocusarea
+        @474311 @474309 @validateEXEusercanredirectmoneyintodifferentbudgetcategoriesduringacarryforwardinsamefocusarea
           Scenario: Validate EXE user can redirect money into different budget categories during a carry forward in same focus area
           And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
           And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
