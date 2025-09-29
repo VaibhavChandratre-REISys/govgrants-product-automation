@@ -249,7 +249,7 @@ Feature: Validate all scenarios in the home tab
     Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Contact Us" content inside "Technical Support" subheader on left panel
-    And I see "Customer_Support" in current url
+    Then I see "Customer_Support" in current url
     Examples:
       | User  |
       | ADMIN |
@@ -371,14 +371,10 @@ Feature: Validate all scenarios in the home tab
     And I pause execution for "3" seconds
     And I click on "Full Name" column header inside table with id "---home:-:relatedContactsTableId---"
     And I pause execution for "3" seconds
-    #And I close "Create Contact" modal by clicking the top right x button
-#    And I save the contact name as "Automation Runtime Contact"
-#    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:relatedContactsTableId---" panel
     Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime Contact} Contact" in flex table with id "---home:-:relatedContactsTableId---"
     And I click on "Edit" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:relatedContactsTableId---" without waiting for record
     When I enter "RelatedContactsEdition" values from "InternalOrganization_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit" modal by clicking the top right x button
     Then I softly see that "Internal Organization" is in "Active" status
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
@@ -864,9 +860,7 @@ Feature: Validate all scenarios in the home tab
     And I navigate to "Home" tab
     And I select "Programs" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:ProgramID}"
-    #And I click toggle button to select "Internal Programs"
-#    And I perform quick search for "{SavedValue:ProgramID}" in "Program__c" panel
-    Then I see value "{SavedValue:ProgramID}" for title "EGMS ID" inside table "Programs||List View"
+    Then I see value "{SavedValue:ProgramID}" for title "EGMS ID" inside table "Programs"
 
   @62912 @VerifyrecentlyViewedRecordAndDetailsOnMiniPageLayoutAndHoverLink  @wip
   Scenario: The Internal User should be able to view the recently viewed record and details on the Mini pagelayout and the hover link  will take to the record
