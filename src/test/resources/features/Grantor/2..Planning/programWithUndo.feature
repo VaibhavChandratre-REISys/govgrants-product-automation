@@ -1957,7 +1957,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I wait for "5" seconds
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I can see top right button "Undo" in page detail
@@ -2660,7 +2660,7 @@ Feature: Validate all scenarios for program
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
@@ -2737,7 +2737,7 @@ Feature: Validate all scenarios for program
     When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "Record Id" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I navigate to "Responsibilities" sub tab
@@ -2852,7 +2852,7 @@ Feature: Validate all scenarios for program
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I wait for "3" seconds
