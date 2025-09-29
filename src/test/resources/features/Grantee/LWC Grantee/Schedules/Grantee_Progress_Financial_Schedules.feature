@@ -16793,6 +16793,7 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    And I save the field labeled "Award Title" as "Automation Runtime Award"
     When I navigate to "Management" sub tab
     And I expand nested table containing column value "Progress Report"
     And I wait for "2" seconds
