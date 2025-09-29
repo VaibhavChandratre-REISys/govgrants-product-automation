@@ -860,7 +860,7 @@ Feature: Validate all scenarios in the home tab
     And I navigate to "Home" tab
     And I select "Programs" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:ProgramID}"
-    Then I see value "{SavedValue:ProgramID}" for title "EGMS ID" inside table "Programs"
+    Then I see value "{SavedValue:ProgramID}" for title "EGMS ID" inside table "Programs" for global search record
 
   @62912 @VerifyrecentlyViewedRecordAndDetailsOnMiniPageLayoutAndHoverLink  @wip
   Scenario: The Internal User should be able to view the recently viewed record and details on the Mini pagelayout and the hover link  will take to the record
