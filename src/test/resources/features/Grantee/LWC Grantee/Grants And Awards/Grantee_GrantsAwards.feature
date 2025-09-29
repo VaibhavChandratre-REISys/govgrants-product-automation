@@ -4828,6 +4828,16 @@ Feature: Validate all scenarios for Grants & Awards
     When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
       | Name     | Progress Report |
       | Sarah PM | Step 1          |
+    When I navigate to "Forms and Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Progress Report" from computer
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    When I navigate to "Performance" sub tab
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:KPIOnProgressReport---" by clicking "Edit" :
+      | EGMS ID                | Reported Value | Reported Value As Of |
+      | Automation Runtime KPI | 10             | 1                    |
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approved" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
@@ -4883,14 +4893,13 @@ Feature: Validate all scenarios for Grants & Awards
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I navigate to "Responsibilities" sub tab
-    Then I softly can see top right button "Edit" in page detail
     When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     And I wait for "2" seconds
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
     And I wait for "3" seconds
-    Then I softly see value "Submitted" for title "Status" against the value "Grantee PO" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly see value "Submitted" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     And I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
@@ -5044,7 +5053,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see value "{SavedValue:progressEGMSID3}" for title "EGMS ID" inside table "---grantee_tableId:-:ProgressReportTableId---"
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Award EGMS ID" against the value "{SavedValue:progressEGMSID3}" inside table "---grantee_tableId:-:ProgressReportTableId---"
 
-  @463588 @ValidateOtherTypeARtheReparentingthefinancialreportfromothertypeofamendmentrequest
+  @463588 @ValidateOtherTypeARtheReparentingthefinancialreportfromothertypeofamendmentrequest @PO_Grantee @P2_Grantee @GRegression5
   Scenario: Validate Other Type AR the Reparenting the financial report from other type of amendment request
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
