@@ -1784,15 +1784,9 @@ Feature: Validate all scenarios of every modules flow
 
   @TestIssue
   Scenario:
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
-    And I navigate to "Grants" tab
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-    When I navigate to "Home" tab
-#    When I re-login to "Grantor" app as "GRANTEE PO" user on "INTERNAL" portal
-#    When I navigate to "Home" tab
-#    When I re-login to "Grantor" app as "GRANTEE FO" user on "INTERNAL" portal
-#    When I navigate to "Home" tab
-#    When I re-login to "Grantor" app as "GRANTEE FD" user on "INTERNAL" portal
-#    When I navigate to "Home" tab
-#    When I re-login to "Grantor" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
-#    When I navigate to "Home" tab
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    And I "Submitted to Grantor" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
+#    And I "Submitted for Approval" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
+    And I halt execution
