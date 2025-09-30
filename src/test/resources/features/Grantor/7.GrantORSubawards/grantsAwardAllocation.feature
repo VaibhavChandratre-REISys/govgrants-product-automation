@@ -6124,6 +6124,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Construction    | 1200         | 100        | 100            |
     And I wait for "3" seconds
     And I click on "Accept" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - The Budgeted Amount must be equal to the New Obligation for the following Focus Areas - (Automation Permanent Focus Area) |
     #244246

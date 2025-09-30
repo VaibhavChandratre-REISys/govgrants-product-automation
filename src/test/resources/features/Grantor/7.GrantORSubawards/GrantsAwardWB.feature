@@ -1955,6 +1955,8 @@ Feature: Validate all scenarios of grants and award without background
     And I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    And I navigate to "Budget" sub tab
+    And I enter value "15" into field "BudgetRedirectionThreshhold__c"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -1996,9 +1998,6 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "3" seconds
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | NA              |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:PM Username} | Step 1          |
@@ -2469,6 +2468,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Closed"
+    When I perform quick search for "<Award Name>" in "---subAwardFromFDM:-:grantsTableId---" panel
     When I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:grantsTableId---" without waiting for record
     And I navigate to "Budget" sub tab
     Then I softly see field "Cumulative Obligation" as "{SavedValue:CumulativeObligation}"
@@ -5514,7 +5514,7 @@ Feature: Validate all scenarios of grants and award without background
       | Description                 | Required  | Applies To  | Status |
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---subAwardStandAlone:-:grantSupportDocTableId---" without waiting for record
-    Then I softly see "Add Supporting Documents Checklist" opens in overLay window
+    Then I softly see "Upload Document" opens in overLay window
 
   @220559 @sprint-7-US-205248
   Scenario: Validate PO user click on Upload Template icon a new modal will open It will have one option Upload File from Computer
@@ -5785,7 +5785,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
+      Sandbox: Notification: Award {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
       """
     Then I see the mail text is as follows :
       """
@@ -8539,15 +8539,6 @@ Feature: Validate all scenarios of grants and award without background
       """
       Hello,
 
-      The task(s) below have been reassigned from [Automation FO] to [Automation FO1] successfully. Please find the details below:
-
-      EGMS ID Type Status Subject Assigned By Due Date
-
-
-      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-      Login in to EGMS and click on EGMS IDs to access the assigned record.
-
-
       The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
 
       EGMS ID Type Status Subject Assigned By Reason of Failure
@@ -9807,7 +9798,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
+      Sandbox: Notification: Award {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
       """
     Then I see the mail text is as follows :
       """
@@ -10790,7 +10781,8 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
     And I navigate to "Budget" sub tab
-    Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
   @196080 @ValidateEXEusergrantownercanabletoEditDeletefilesongrantifuserhaseditaccessonmaineditbuttonforgrantisinCreatedstate @addFiles
   Scenario: Validate EXE user grant owner can able to Edit/Delete files on grant if user has edit access on main edit button for grant is in 'Created' state

@@ -596,8 +596,7 @@ public class GrantorProjectManager extends ProjectManager {
                 "IsBuildUpFunctionality__c",
                 "AreExpensesBuildIUpLevel__c",
                 "IsMatchRequired__c",
-                "GranteeMatch__c",
-                "BudgetRedirectionThreshhold__c"
+                "GranteeMatch__c"
         );
         if (usage.contains("softly")) {
             I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(modalEnlarge)).isTrue();

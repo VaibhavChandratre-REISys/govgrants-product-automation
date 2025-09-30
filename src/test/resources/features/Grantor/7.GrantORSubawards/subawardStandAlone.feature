@@ -31,6 +31,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I perform quick search for "<Contact>" in "---subAwardStandAlone:-:keyContactsTableId---" panel
     And I check "All" boxes in flex table with id "---subAwardStandAlone:-:keyContactsTableId---"
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:keyContactsTableId---"
+    And I wait for "2" seconds
     And I refresh the page
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
