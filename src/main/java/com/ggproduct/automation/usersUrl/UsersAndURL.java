@@ -97,16 +97,16 @@ public class UsersAndURL implements UsersController {
         String password;
         switch (userLevel.toUpperCase()) {
             case "PM":
-                password = "Salesforce@2042";
+                password = "Demo@2035";
                 break;
             case "ADMIN":
-                password = "Salesforce@2042";
+                password = "Demo@2035";
                 break;
             case "ADMIN1":
-                password = "Salesforce@2043";
+                password = "Demo@2035";
                 break;
             default:
-                password = "Salesforce@2042";
+                password = "Demo@2035";
         }
         return password;
     }
@@ -269,26 +269,26 @@ public class UsersAndURL implements UsersController {
 
     private String getProLwcEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "govgrantsautomation@yopmail.com.rposdgap");
-        username.put("ADMIN1", "manu.admin@ggp.test8.rposdgap");
-        username.put("EXE", "test@gmaildemo.com.rposdgap");
-        username.put("PM", "donald_pm@ggp.test7.atm.rposdgap");
-        username.put("FO", "auto.fm@auto.com.rposdgap");
-        username.put("PO", "automationpo@yopmail.com.rposdgap");
-        username.put("FD", "automationfd@yopmail.com.rposdgap");
-        username.put("PM1", "pm1.automation@yopmail.com.rposdgap");
-        username.put("EXE1", "exe1.automation@yopmail.com.rposdgap");
-        username.put("PO1", "automationpo1@yopmail.com.rposdgap");
-        username.put("FO1", "fo1.automation@yopmail.com.rposdgap");
-        username.put("FD1", "automationfd1@yopmail.com.rposdgap");
-        username.put("SPI3", "aspi3@grants.gov.rposdgap");
-        username.put("SPA", "spaautomation12@yopmail.com.rposdgap");
-        username.put("SA", "asa@grants.gov.rposdgap");
-        username.put("IND", "ind12.automation@yopmail.com.rposdgap");
-        username.put("AUDITOR", "automationauditor@yopmail.com.rposdgap");
-        username.put("SME", "sme11@yopmail.com.rposdgap");
-        username.put("SPI4", "spi4@yopmail.com.rposdgap");
-        username.put("SARAH PM", "sarah.pm@ggp.test8.rposdgap");
+        username.put("ADMIN", "demo.admin@ggp.test8.nasafitgap");
+        username.put("ADMIN1", "manu.admin@ggp.test8.nasafitgap");
+        username.put("EXE", "test@gmaildemo.com.nasafitgap");
+        username.put("PM", "donald_pm@ggp.test7.atm.nasafitgap");
+        username.put("FO", "auto.fm@auto.com.nasafitgap");
+        username.put("PO", "automationpo@yopmail.com.nasafitgap");
+        username.put("FD", "automationfd@yopmail.com.nasafitgap");
+        username.put("PM1", "pm1.automation@yopmail.com.nasafitgap");
+        username.put("EXE1", "exe1.automation@yopmail.com.nasafitgap");
+        username.put("PO1", "automationpo1@yopmail.com.nasafitgap");
+        username.put("FO1", "fo1.automation@yopmail.com.nasafitgap");
+        username.put("FD1", "automationfd1@yopmail.com.nasafitgap");
+        username.put("SPI3", "aspi3@grants.gov.nasafitgap");
+        username.put("SPA", "spaautomation12@yopmail.com.nasafitgap");
+        username.put("SA", "asa@grants.gov.nasafitgap");
+        username.put("IND", "ind12.automation@yopmail.com.nasafitgap");
+        username.put("AUDITOR", "automationauditor@yopmail.com.nasafitgap");
+        username.put("SME", "sme11@yopmail.com.nasafitgap");
+        username.put("SPI4", "spi4@yopmail.com.nasafitgap");
+        username.put("SARAH PM", "sarah.pm@ggp.test8.nasafitgap");
 
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());
