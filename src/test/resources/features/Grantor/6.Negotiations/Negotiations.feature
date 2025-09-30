@@ -2355,6 +2355,7 @@ Feature: Validate all scenarios in Negotiations
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:internalHomePendingTableId---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:internalHomePendingTableId---"
     When I click on "Request Negotiations" in the page details
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Cancel Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
