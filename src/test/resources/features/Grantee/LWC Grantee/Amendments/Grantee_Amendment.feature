@@ -27338,3 +27338,144 @@ Feature: Validate all scenarios for Grantee Amendment Request
       Then I softly see field "Drawn to Date" as "$3,000.00"
       Then I softly see field "Current Balance" as "$3,000.00"
       Then I softly see field "Grant Balance" as "$97,000.00"
+
+    @471684 @Combinationofamendment-VerifytheValidationonsubmitforapprovalonrelatedtoBRamendmentrequestlayout
+     Scenario Outline: Combination of amendment - Verify the Validation on submit for approval on related to BR amendment request layout
+      And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<UserName>"
+      And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+      And I activate the award for title "{SavedValue:Automation Runtime Award}"
+      When I login to "As a Grantee" app as "GRANTEE EXE" user
+      And I navigate to "Grants" tab
+      When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+      And I click toggle button to select "Grants - All"
+      When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+      And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+      When I navigate to "Awards" sub tab
+      And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+      And I navigate to "Overview" sub tab
+      And I save the field labeled "EGMS ID" as "AwardEGMSID"
+      And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+      When I navigate to "Amendments" sub tab
+      And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+      And I enter "Grantee_Combination_Creation2" values from "AmendmentRequest_Field_Values.xlsx"
+      And I click modal button "Save and Continue"
+      And I enter "Grantee_Combination_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+      When I click on "Save" in the page details
+      When I navigate to "Overview" sub tab
+      Then I softly see "Details" page block displayed
+      Then I softly see "Key Personnel Change" page block displayed
+      Then I softly see "Award Description" page block displayed
+      Then I softly see "Place of Performance" page block displayed
+      Then I softly see "Other Changes" page block displayed
+      Then I softly see "Objectives" page block displayed
+      Then I softly see "Key Performance Indicators (KPIs)" page block displayed
+      Then I softly see "Budget Period Details" page block displayed
+      Then I softly see "Budget Period Change" page block displayed
+      Then I softly see "Funding Change" page block displayed
+      Then I softly see "Focus Areas" page block displayed
+      Then I softly see "Budget Change" page block displayed
+      Then I softly see "Indirect Rates" page block displayed
+      Then I softly see "General Condition" page block displayed
+      Then I softly see "Special Conditions" page block displayed
+      Then I softly see "System Information" page block displayed
+      When I save the field labeled "Description of Other Changes" as "Description1"
+      When I save the field labeled "Justification for Purpose and Summary" as "Description2"
+      When I save the field labeled "If Other amendment type, explain" as "Description3"
+      When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
+      When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:amendmentAssociateContactTableId---"
+      And I wait for "2" seconds
+      And I click modal button "Close"
+      And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentContactTableId---" by clicking "Edit" :
+        | Proposed Name | Project Role    | Is Key Contact |
+        | David FO      | Project Officer | Checked        |
+      Then I softly see value "David FO" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"
+      And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+      When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---grantee_tableId:-:amendmentAssociateObjectiveTableId---"
+      Then I softly see the following messages in the page details contains:
+        | Objectives were associated successfully. |
+      And I click modal button "Close"
+      And I save the value from row "1" for column name "Title" as "ObjectiveTitle" from flex table "---grantee_tableId:-:amendmentObjectiveTableId---"
+      Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
+      And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
+      When I click "Associate" after selection of "Automation Runtime KPI2" in the table "---grantee_tableId:-:selectAmendmentKPITableId---"
+      Then I softly see the following messages in the page details contains:
+        | KPIs added successfully. |
+      And I click modal button "Close"
+      And I save the value from row "1" for column name "Title" as "KPITitle" from flex table "---grantee_tableId:-:amendmentKPITableId---"
+      Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:amendmentKPITableId---"
+      And I click on "Edit" in the page details
+      And I enter value "120" into field "ApprovedIndirectCostRate__c"
+      Then I softly see fields "GeneralConditionChanged__c" is in edit mode
+      And I enter value "Checked" into field "GeneralConditionChanged__c"
+      And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
+      And I click on "Save" in the page details
+      And I wait for "2" seconds
+      Then I softly can see row level action button "View" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+      Then I softly can see row level action button "Edit" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+      Then I softly can see row level action button "Delete" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+      And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+      When I enter in modal value "Terms1" into field "Title__c"
+      When I enter in modal value "Terms Description" into field "Description__c"
+      When I enter in modal value "1" into field "Sequence__c"
+      When I enter in modal value "1" into field "EffectiveFrom__c"
+      When I enter in modal value "1" into field "EffectiveTill__c"
+      And I click modal button "Save"
+      And I wait for "2" seconds
+      And I save the value from row "1" for column name "Title" as "Terms1" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+      Then I softly see value "{SavedValue:Terms1}" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+      When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
+        | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+        | Rate1 | 15             | 30              | 10                             | Final                   |
+      And I save the value from row "1" for column name "Title" as "TitleIndirectRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+      And I save the value from row "1" for column name "Effective from" as "Effectivefrom" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+      And I save the value from row "1" for column name "Effective until" as "Effectiveuntil" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+      And I save the value from row "1" for column name "Approved Indirect Cost Rate(%)" as "ApprovedIndirectCostRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+      And I click on "Edit" in the page details
+      When I enter values into fields
+        | Value | Field                      |
+        | 2000  | RequestedChangeInBudget__c |
+      And I click on "Save" in the page details
+      And I navigate to "Overview" sub tab
+      Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+      When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+      And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
+        | Title        | Narrative     | Awarded Budget | Cash Match |
+        | Construction | The narrative | 4500           | 450        |
+      When I close "Add Line Items" modal by clicking the top right x button
+      When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---"
+      When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
+        | Title        | Narrative     | Awarded Budget | Cash Match |
+        | Extra Salary | The narrative | 600            | 60         |
+      When I close "Add Line Items" modal by clicking the top right x button
+      And I wait for "2" seconds
+      And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
+      And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
+        | Title                           | End Date                            |
+        | Automation Permanent Focus Area | {SavedValue:NewBudgetPeriodEndDate} |
+      And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+      Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
+      When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
+      And I click modal button "Close"
+      And I refresh the page
+      And I wait for "3" seconds
+      And I save the value from row "1" for column name "Title" as "FocusArea1" from flex table "---grantee_tableId:-:amendmentFocusAreaTableId---"
+      And I save the value from row "2" for column name "Title" as "FocusArea2" from flex table "---grantee_tableId:-:amendmentFocusAreaTableId---"
+      Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
+      Then I softly see value "{SavedValue:FocusArea2}" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
+      When I navigate to "Responsibilities" sub tab
+      When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+        | Name     | Amendment Request |
+        | Sarah PM | NA          |
+       When I get the "EGMS ID"
+      And I save the field labeled "EGMS ID" as "AmendEGMSID"
+      And I click on "Submit for Approval" in the page details
+      Then I softly see the following messages in the page details contains:
+        | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection.                                                                         |
+        | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero.                                                                   |
+        | Overview Tab - The budget redirection threshold for each focus area cannot exceed the budget redirection threshold 10.00%                                                |
+        | Overview Tab - Maximum Indirect Cost Rate cannot be greater than 100%.                                                                                                   |
+        | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
+        | Responsibilities - At least one approver is required.                                                                                                                    |
+      Examples:
+        | UserName         |
+        | Victor EXE user  |
