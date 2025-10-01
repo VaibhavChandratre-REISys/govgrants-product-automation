@@ -2780,6 +2780,7 @@ public class GrantorPayloads {
 
         JsonObject award = new JsonObject();
         JsonArray awardArray = new JsonArray();
+        award.addProperty("BudgetRedirectionThreshhold", 10);
         award.addProperty("GrantAwardDescription", "Award Created From Automation API");
         award.addProperty("BudgetPeriodEndDate", I.amPerforming()
                 .dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
