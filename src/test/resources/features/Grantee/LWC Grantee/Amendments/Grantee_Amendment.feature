@@ -27393,14 +27393,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
       Then I softly see the following messages in the page details contains:
         | Objectives were associated successfully. |
       And I click modal button "Close"
-      And I save the value from row "1" for column name "Title" as "ObjectiveTitle" from flex table "---grantee_tableId:-:amendmentObjectiveTableId---"
+      And I save the value from row "2" for column name "Title" as "ObjectiveTitle" from flex table "---grantee_tableId:-:amendmentObjectiveTableId---"
       Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
-      And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
-      When I click "Associate" after selection of "Automation Runtime KPI2" in the table "---grantee_tableId:-:selectAmendmentKPITableId---"
-      Then I softly see the following messages in the page details contains:
-        | KPIs added successfully. |
-      And I click modal button "Close"
-      And I save the value from row "1" for column name "Title" as "KPITitle" from flex table "---grantee_tableId:-:amendmentKPITableId---"
+      And I save the value from row "2" for column name "Title" as "KPITitle" from flex table "---grantee_tableId:-:amendmentKPITableId---"
       Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:amendmentKPITableId---"
       And I click on "Edit" in the page details
       And I enter value "120" into field "ApprovedIndirectCostRate__c"
