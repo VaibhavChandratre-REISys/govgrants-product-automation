@@ -2787,7 +2787,7 @@ Feature: Validate all scenarios for program
       | Description                 | Required  | Applies To  | Status |
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
-    Then I softly see "Add Files" opens in overLay window
+    Then I softly see "Upload Document" opens in overLay window
 
   @204033 @ValidatenewmodalofaddfilesopenitwillhaveoneoptionUploadFilefromComputer @sprint-7-US-202724
   Scenario: Validate new modal of add files open it will have one option Upload File from Computer

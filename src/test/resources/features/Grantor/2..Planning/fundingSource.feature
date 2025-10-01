@@ -232,7 +232,7 @@ Feature: Validate all scenarios in Funding Source
     And I refresh the page
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Internal Funding Sources -Closed"
+    And I click toggle button to select "Internal Funding Sources - Closed"
     When I perform quick search for "<Funding Source>" in "---fundingsource:-:fundingSourceTableId---" panel
     And I click on "View" icon for "<Funding Source>" inside table
     And I wait for "3" seconds
@@ -354,7 +354,7 @@ Feature: Validate all scenarios in Funding Source
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Internal Funding Sources -Closed"
+    And I click toggle button to select "Internal Funding Sources - Closed"
     When I perform quick search for "{SavedValue:FUNDINGSOURCE}" in "---fundingsource:-:fundingSourceTableId---" panel
     And I click on "View" icon for "{SavedValue:FUNDINGSOURCE}" inside table
     When I navigate to "Files" sub tab
@@ -593,7 +593,7 @@ Feature: Validate all scenarios in Funding Source
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
-    And I click toggle button to select "All External Funding Sources"
+    And I click toggle button to select "External Funding Sources - All"
     When I perform quick search for "{SavedValue:FUNDINGSOURCE}" in "---fundingsource:-:externalFundingTableId---" panel
     And I click on "View" icon for "{SavedValue:FUNDINGSOURCE}" inside table
     When I navigate to "Files" sub tab
@@ -661,7 +661,7 @@ Feature: Validate all scenarios in Funding Source
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
-    And I click toggle button to select "All External Funding Sources"
+    And I click toggle button to select "External Funding Sources - All"
     When I perform quick search for "{SavedValue:FUNDINGSOURCE}" in "---fundingsource:-:externalFundingTableId---" panel
     And I click on "View" icon for "{SavedValue:FUNDINGSOURCE}" inside table
     When I navigate to "Files" sub tab
@@ -729,7 +729,7 @@ Feature: Validate all scenarios in Funding Source
     When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
-    And I click toggle button to select "All External Funding Sources"
+    And I click toggle button to select "External Funding Sources - All"
     When I perform quick search for "{SavedValue:FUNDINGSOURCE}" in "---fundingsource:-:externalFundingTableId---" panel
     And I click on "View" icon for "{SavedValue:FUNDINGSOURCE}" inside table
     When I navigate to "Files" sub tab
