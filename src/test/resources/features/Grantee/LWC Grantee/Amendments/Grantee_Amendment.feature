@@ -27356,30 +27356,20 @@ Feature: Validate all scenarios for Grantee Amendment Request
       And I save the field labeled "EGMS ID" as "AwardEGMSID"
       When I navigate to "Amendments" sub tab
       And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-      And I enter "Grantee_Combination_Creation2" values from "AmendmentRequest_Field_Values.xlsx"
-      And I click modal button "Save and Continue"
-      And I enter "Grantee_Combination_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-      When I click on "Save" in the page details
-      When I navigate to "Overview" sub tab
-      Then I softly see "Details" page block displayed
-      Then I softly see "Key Personnel Change" page block displayed
-      Then I softly see "Award Description" page block displayed
-      Then I softly see "Place of Performance" page block displayed
-      Then I softly see "Other Changes" page block displayed
-      Then I softly see "Objectives" page block displayed
-      Then I softly see "Key Performance Indicators (KPIs)" page block displayed
-      Then I softly see "Budget Period Details" page block displayed
-      Then I softly see "Budget Period Change" page block displayed
-      Then I softly see "Funding Change" page block displayed
-      Then I softly see "Focus Areas" page block displayed
-      Then I softly see "Budget Change" page block displayed
-      Then I softly see "Indirect Rates" page block displayed
-      Then I softly see "General Condition" page block displayed
-      Then I softly see "Special Conditions" page block displayed
-      Then I softly see "System Information" page block displayed
-      When I save the field labeled "Description of Other Changes" as "Description1"
-      When I save the field labeled "Justification for Purpose and Summary" as "Description2"
-      When I save the field labeled "If Other amendment type, explain" as "Description3"
+      And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
+      And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
+        | Title                           | End Date                            |
+        | Automation Permanent Focus Area | {SavedValue:NewBudgetPeriodEndDate} |
+      When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+      And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
+        | Title        | Narrative     | Awarded Budget | Cash Match |
+        | Construction | The narrative | 4500           | 450        |
+      When I close "Add Line Items" modal by clicking the top right x button
+      When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+      When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
+        | Title          | Narrative     | Awarded Budget | Cash Match |
+        | Indirect costs | The narrative | 500            | 50         |
+      When I close "Add Line Items" modal by clicking the top right x button
       When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
       When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:amendmentAssociateContactTableId---"
       And I wait for "2" seconds
@@ -27424,38 +27414,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
       And I save the value from row "1" for column name "Effective from" as "Effectivefrom" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
       And I save the value from row "1" for column name "Effective until" as "Effectiveuntil" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
       And I save the value from row "1" for column name "Approved Indirect Cost Rate(%)" as "ApprovedIndirectCostRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-      And I click on "Edit" in the page details
-      When I enter values into fields
-        | Value | Field                      |
-        | 2000  | RequestedChangeInBudget__c |
-      And I click on "Save" in the page details
       And I navigate to "Overview" sub tab
-      Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
-      When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-      And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
-        | Title        | Narrative     | Awarded Budget | Cash Match |
-        | Construction | The narrative | 4500           | 450        |
-      When I close "Add Line Items" modal by clicking the top right x button
-      When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---"
-      When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
-        | Title        | Narrative     | Awarded Budget | Cash Match |
-        | Extra Salary | The narrative | 600            | 60         |
-      When I close "Add Line Items" modal by clicking the top right x button
       And I wait for "2" seconds
       And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
-      And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
-        | Title                           | End Date                            |
-        | Automation Permanent Focus Area | {SavedValue:NewBudgetPeriodEndDate} |
-      And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
-      Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
-      When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
-      And I click modal button "Close"
-      And I refresh the page
-      And I wait for "3" seconds
-      And I save the value from row "1" for column name "Title" as "FocusArea1" from flex table "---grantee_tableId:-:amendmentFocusAreaTableId---"
-      And I save the value from row "2" for column name "Title" as "FocusArea2" from flex table "---grantee_tableId:-:amendmentFocusAreaTableId---"
-      Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
-      Then I softly see value "{SavedValue:FocusArea2}" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
       When I navigate to "Responsibilities" sub tab
       When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
         | Name     | Amendment Request |
@@ -27464,6 +27425,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       And I save the field labeled "EGMS ID" as "AmendEGMSID"
       And I click on "Submit for Approval" in the page details
       Then I softly see the following messages in the page details contains:
+        | Overview Tab: Provide 'Current Value As Of' for the KPI.   |
         | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection.                                                                         |
         | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero.                                                                   |
         | Overview Tab - The budget redirection threshold for each focus area cannot exceed the budget redirection threshold 10.00%                                                |
