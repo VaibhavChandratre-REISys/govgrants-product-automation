@@ -5102,7 +5102,7 @@ Feature: Validate all scenarios of grants and award without background
       Subaward Title: {SavedValue:Automation Runtime Direct Award}
       Subaward Type: Initial
       Subaward Number: {SavedValue:AwardEGMSID}
-      Grant :
+      Grant : {SavedValue:GrantEGMSID}
       Log in to EGMS and click here for more details.
       Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com, if you have any questions or need assistance with this task.
       Thank you.
@@ -7591,7 +7591,7 @@ Feature: Validate all scenarios of grants and award without background
     And I close the tab
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
-    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I see field "Status" as "Submitted to Grantor"
     And I activated standalone subaward "Automation Runtime Award Desk Review" with properties "Automation EXE user" of type "Competitive"
     And I wait for "5" seconds
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
