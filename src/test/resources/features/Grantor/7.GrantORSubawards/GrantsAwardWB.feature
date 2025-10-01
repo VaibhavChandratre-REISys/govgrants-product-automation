@@ -480,9 +480,6 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardFromFDM:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | NA              |
-    When I enter the following values into flex table with id "---subAwardFromFDM:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
       | {SavedValue:PM Username} | Step 1          |
     When I enter the following values into flex table with id "---subAwardFromFDM:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
@@ -559,9 +556,10 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+    And I pause execution for "3" seconds
     And I enter a review as "Passed"
     When I click modal button "Save"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I click on submit review
     And I wait for "3" seconds
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
