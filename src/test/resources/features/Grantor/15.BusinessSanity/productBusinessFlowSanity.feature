@@ -1,4 +1,4 @@
-@productBusinessFlowSanity @product @grantor-regression
+@productBusinessFlowSanity @product @grantor-regression 
 Feature: Validate sanity testing of Complete Business Flow
 
   @72335  @72335@activationOfFocusArea @ProdSan1
@@ -4766,7 +4766,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I do not see value "Record id" for title "Announcement Name" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
 
   @541932 @ValidateSMEreviewerissubmitthereviewcommentsandcompletetheapplicationreview
-    Scenario Outline: Validate SME reviewer is submit the review comments and complete the application review
+  Scenario Outline: Validate SME reviewer is submit the review comments and complete the application review
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
     And I login to "Grantor" app as "PM" user
@@ -4789,7 +4789,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-      | Reviewer                 |
+      | Reviewer                  |
       | {SavedValue:SME Username} |
     And I click on "Assign" icon for "{SavedValue:SME Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
@@ -4812,6 +4812,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
+    And I save the field in the form labeled "Score" as "preScreenScore"
+    Then I softly see field in the form "Score" as "{SavedValue:preScreenScore}"
+    Then I softly can see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -4869,6 +4872,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
+    And I save the field in the form labeled "Score" as "programSMEScore"
+    Then I softly see field in the form "Score" as "{SavedValue:programSMEScore}"
+    Then I softly can see top right button "Undo" in page detail
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---negotiation:-:homePendingTasks---" panel
@@ -4879,6 +4885,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
+    And I save the field in the form labeled "Score" as "fiscalSMEScore"
+    Then I softly see field in the form "Score" as "{SavedValue:fiscalSMEScore}"
+    Then I softly can see top right button "Undo" in page detail
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---negotiation:-:homePendingTasks---" panel
@@ -4889,6 +4898,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
+    And I save the field in the form labeled "Score" as "complianceSMEScore"
+    Then I softly see field in the form "Score" as "{SavedValue:complianceSMEScore}"
+    Then I softly can see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -4905,7 +4917,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Form Name         | Due in Days |
       | Management Review | 5           |
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-      | Reviewer                 |
+      | Reviewer                  |
       | {SavedValue:SME Username} |
     And I click on "Assign" icon for "{SavedValue:SME Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
@@ -4928,6 +4940,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
+    And I save the field in the form labeled "Score" as "managementScore"
+    Then I softly see field in the form "Score" as "{SavedValue:managementScore}"
+    Then I softly can see top right button "Undo" in page detail
 
     Examples:
       | Announcement Name                                               | Application Name                                                |
