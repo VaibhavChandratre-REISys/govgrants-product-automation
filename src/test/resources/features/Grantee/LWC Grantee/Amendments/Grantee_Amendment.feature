@@ -27354,7 +27354,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
       And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
       And I navigate to "Overview" sub tab
       And I save the field labeled "EGMS ID" as "AwardEGMSID"
-      And I save the field labeled "Award Issue Date" as "AwardIssueDate"
       When I navigate to "Amendments" sub tab
       And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
       And I enter "Grantee_Combination_Creation2" values from "AmendmentRequest_Field_Values.xlsx"
