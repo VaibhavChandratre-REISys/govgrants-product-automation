@@ -535,13 +535,13 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     And I save the value from row "1" for column name "EGMS ID" as "EGMS ID1" from flex table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EGMS ID1}" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Funding Account1" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     And I navigate to "Budget" sub tab
     When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account       | Encumbrance |
-      | {SavedValue:EGMS ID1} | 1000        |
+      | Funding Account              | Encumbrance |
+      | {SavedValue:fundingAccount1} | 1000        |
     And I click on "Remove" icon for "{SavedValue:fundingAccount}" inside flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" by clicking "New" :
