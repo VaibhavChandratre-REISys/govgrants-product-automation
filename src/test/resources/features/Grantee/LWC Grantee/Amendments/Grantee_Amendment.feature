@@ -27356,6 +27356,12 @@ Feature: Validate all scenarios for Grantee Amendment Request
       And I save the field labeled "EGMS ID" as "AwardEGMSID"
       When I navigate to "Amendments" sub tab
       And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+      When I navigate to "Amendments" sub tab
+      And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+      And I enter "Grantee_Combination_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+      And I click modal button "Save and Continue"
+      And I enter "Grantee_Combination_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+      When I click on "Save" in the page details
       And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
       And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
         | Title                           | End Date                            |
