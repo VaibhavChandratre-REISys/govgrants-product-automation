@@ -2049,7 +2049,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Advance Applied |
       | Extra Salary | The narrative | 30         | 1        | Feet        | 10              |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
@@ -3669,6 +3669,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
