@@ -1036,69 +1036,6 @@ Feature: Validate all scenarios for Financial Report
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
-
-
-
-      And I save the field labeled "Grant Number" as "GrantNumber"
-      When I navigate to "Awards" sub tab
-      And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-      And I save the field labeled "EGMS ID" as "AwardEGMSID"
-      And I navigate to "Management" sub tab
-      And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
-      And I click modal button "Save and Continue"
-      Then I softly see the following messages in the page details contains:
-        | The Reporting Due Date cannot be before the Reporting Period End Date |
-      And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
-      And I click modal button "Save and Continue"
-      And I click on "Save" in the page details
-      And I wait for "2" seconds
-      And I save the field labeled "EGMS ID" as "financialEGMSID"
-      When I click on "Validate" in the page details
-      And I wait for "2" seconds
-      Then I softly see the following messages in the page details contains:
-        | Forms and Files Tab - Attach Progress Report document.        |
-        | Performance Tab - Provide 'Reported Value As Of' for the KPI. |
-        | Responsibilities - At least one approver is required.         |
-      And I save the field labeled "Reporting Period Start Date" as "ReportingPeriodStartDate"
-      And I save the field labeled "Reporting Period End Date" as "ReportingPeriodEndDate"
-      And I save the field labeled "Report Due Date" as "ReportDueDate"
-      And I save the field labeled "EGMS ID" as "progressEGMSID"
-      And I click on "Edit" in the page details
-      And I clear the value from field "ReportingPeriodStartDate__c"
-      And I clear the value from field "ReportingPeriodEndDate__c"
-      And I clear the value from field "ReportDueDate__c"
-      And I click on "Save" in the page details
-      And I wait for "2" seconds
-      Then I softly see the following messages in the page details contains:
-        | To Save, Reporting Period Start Date is required in the Overview tab under the Report Overview section. |
-        | To Save, Reporting Period End Date is required in the Overview tab under the Report Overview section.   |
-        | To Save, Report Due Date is required in the Overview tab under the Report Overview section.             |
-      And I navigate to "Monitoring" tab
-      When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
-      And I click toggle button to select "Progress Reports - My Records"
-      And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
-      Then I softly see value "Created" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:ProgressReports---"
-      Then I softly can see row level action button "Edit" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-      Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-      Then I softly can see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-      When I click on "Delete" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:ProgressReports---"
-      And I wait for "1" seconds
-      And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
-      Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:ProgressReports---"
-      And I navigate to "Grants" tab
-      When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-      And I click toggle button to select "Grants - All"
-      When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
-      And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-      And I navigate to "Management" sub tab
-      Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:grantProgressReportTableId---"
-      When I navigate to "Awards" sub tab
-      And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-      Then I softly see field "Status" as "Activated"
-      Then I softly see status in Progress-bar is "Activated" and is "dark blue"
-      And I navigate to "Management" sub tab
-      Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
-
       @485500 @validateaspmuserallvalidationonfinancialreport(FinalfinancialReport)
       Scenario: Validate all validation on financial report(Final financial Report)
       And I "Created" standalone subaward "Automation Runtime award" with properties "default"

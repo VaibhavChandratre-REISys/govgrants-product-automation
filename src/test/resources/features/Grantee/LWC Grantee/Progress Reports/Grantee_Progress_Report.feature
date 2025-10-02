@@ -3913,3 +3913,46 @@ Feature: Validate all scenarios for Grantee Progress Report
       Examples:
            | userName      |
            | Victor EXE user |
+
+
+    @484561 @ValidateasEXEuser(progressreportrecordowner)canseefieldsonCreateProgressreportmodal&validationsonmodal
+    Scenario: Validate as EXE user (progress report record owner) can see fields on Create Progress report modal & validations on modala
+      And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
+      And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+      And I activate the award for title "{SavedValue:Automation Runtime award}"
+      When I login to "As a Grantee" app as "GRANTEE EXE" user
+      And I navigate to "Grants" tab
+      When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+      And I click toggle button to select "Grants - All"
+      When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+      And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+      And I navigate to "Overview" sub tab
+      And I save the field labeled "EGMS ID" as "GrantEGMSID"
+      And I save the field labeled "Grant Number" as "GrantNumber"
+      When I navigate to "Awards" sub tab
+      And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+      Then I softly see field "Status" as "Activated"
+      Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+      And I save the field labeled "EGMS ID" as "AwardEGMSID"
+      And I navigate to "Management" sub tab
+      And I click on top right button "New" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+      And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
+      And I clear the value from field "ReportingPeriodStartDate__c"
+      And I enter in modal value "3650" into field "ReportingPeriodStartDate__c"
+       And I click modal button "Save and Continue"
+      Then I softly see the following messages in the page details contains:
+        | The Reporting Period Start Date cannot be after the Reporting Period End Date |
+      And I clear the value from field "ReportingPeriodStartDate__c"
+      And I clear the value from field "ReportingPeriodEndDate__c"
+      And I clear the value from field "ReportDueDate__c"
+      And I click modal button "Save and Continue"
+      Then I softly see the following messages in the page details contains:
+        | To Save, Reporting Period Start Date is required.|
+        |  To Save, Reporting Period End Date is required.  |
+        | To Save, Report Due Date is required. |
+      And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
+      And I clear the value from field "ReportDueDate__c"
+      And I enter in modal value "1" into field "ReportDueDate__c"
+      And I click modal button "Save and Continue"
+      Then I softly see the following messages in the page details contains:
+        | The Reporting Due Date cannot be before the Reporting Period End Date |
