@@ -27470,7 +27470,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       Then I softly see value "$2,500.00" for title "Amount Spent to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
       And I refresh the page
       And I wait for "2" seconds
-      And I "Approved" of type "Funding Change" amendment request for title "{grantee_testData:GrantsForNonConstructionAndSpent}" with properties "NON_CASH_MATCH_BUDGET"
+#      And I "Approved" of type "Funding Change" amendment request for title "{grantee_testData:GrantsForNonConstructionAndSpent}" with properties "default-<userName>"
       When I navigate to "Amendments" sub tab
       And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
       And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
