@@ -1804,6 +1804,7 @@ Feature: Validate all scenarios for closeout
     Then I softly see field "Status" as "Closed"
 
    @449019 @validatewithPMProfile,IfamendmentissubmittoGrantorstatethenunabletoseeamendmentrecordinpendingamendmentrequestswhileapprovevalidationmessageablesee.
+   Scenario: Validate with PM Profile , If amendment is submit to  Grantor state then unable to see amendment record  in pending amendment requests while approve validation message able see.
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
