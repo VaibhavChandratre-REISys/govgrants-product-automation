@@ -27104,7 +27104,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I refresh the page
     And I wait for "2" seconds
     And I "Approved" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -27441,3 +27441,71 @@ Feature: Validate all scenarios for Grantee Amendment Request
       Examples:
         | UserName         |
         | Victor EXE user  |
+
+      @491723 @validateusingadminprofileaddedamountfordrawdownandspentchecktheimpactifRecorddecisionselectNotAccepted.
+      Scenario: Admin Profile : Verify if added amount for drawdown and spent check the impact if Record decision select Not Accepted.
+      When I login to "As a Grantee" app as "GRANTEE ADMIN" user
+      And I navigate to "Grants" tab
+      When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+      And I click toggle button to select "Grants - All"
+      When I perform quick search for "{grantee_testData:GrantsForNonConstructionAndSpent}" in "---grantee_tableId:-:GrantsTable---" panel
+      And I click on "View" icon for "{grantee_testData:GrantsForNonConstructionAndSpent}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+      When I navigate to "Awards" sub tab
+      And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+      And I navigate to "Overview" sub tab
+      And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+      And I save the field labeled "Award Title" as "AwardTitle"
+      And I save the field labeled "EGMS ID" as "AwardEGMSID"
+      When I navigate to "Actuals" sub tab
+      Then I softly see field "Drawn to Date" as "$4,500.00"
+      Then I softly see field "Current Balance" as "$0.00"
+      Then I softly see field "Grant Balance" as "$95,500.00"
+      Then I softly see field "Spent to Date" as "$4,500.00"
+      When I perform quick search for "Construction" in "---grantee_tableId:-:ExpenditureDetailsTableId---" panel
+      When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+      Then I softly see value "$2,000.00" for title "Spent to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+      And I click on page navigation arrow "---grantee_tableId:-:ExpenditureDetailsTableId---" for table id "Next"
+      Then I softly see value "$2,500.00" for title "Spent to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+      Then I softly see value "$2,000.00" for title "Amount Spent to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+      Then I softly see value "$2,500.00" for title "Amount Spent to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+      And I refresh the page
+      And I wait for "2" seconds
+      And I "Approved" of type "Funding Change" amendment request for title "{grantee_testData:GrantsForNonConstructionAndSpent}" with properties "NON_CASH_MATCH_BUDGET"
+      When I navigate to "Amendments" sub tab
+      And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+      And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
+      When I click on "Submit to Grantor" in the page details
+      When I enter values into fields
+        | Value | Field                 |
+        | 0     | SubmittedToGrantor__c |
+      And I click modal button "Save"
+      And I click modal button "Close"
+      Then I softly see field "Status" as "Submitted to Grantor"
+      When I click on "Record Decision" in the page details
+      When I enter values into fields
+          | Value        | Field       |
+          | Not Accepted | Decision__c |
+      And I click modal button "Save"
+      And I click modal button "Close"
+      Then I softly see field "Status" as "Not Accepted"
+      Then I see status in Progress-bar is "Not Accepted" and is "Red"
+      When I navigate to "Overview" sub tab
+      And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+      When I navigate to "Awards" sub tab
+      And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+      Then I softly see field "Status" as "Activated"
+      When I navigate to "Actuals" sub tab
+      Then I softly see field "Drawn to Date" as "$4,500.00"
+      Then I softly see field "Current Balance" as "$0.00"
+      Then I softly see field "Grant Balance" as "$95,500.00"
+      Then I softly see field "Spent to Date" as "$4,500.00"
+      When I perform quick search for "Construction" in "---grantee_tableId:-:ExpenditureDetailsTableId---" panel
+      When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+      Then I softly see value "$2,000.00" for title "Spent to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+      And I click on page navigation arrow "---grantee_tableId:-:ExpenditureDetailsTableId---" for table id "Next"
+      Then I softly see value "$2,500.00" for title "Spent to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+      Then I softly see value "$2,000.00" for title "Amount Spent to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+      Then I softly see value "$2,500.00" for title "Amount Spent to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+#      Examples:
+#        | userType      | userName   |
+#        | GRANTEE ADMIN | Product QA  |
