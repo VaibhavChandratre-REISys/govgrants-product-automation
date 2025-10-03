@@ -1,7 +1,7 @@
 @programWithUndo @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios for program
 
-   @279282 @Verifyusershouldnotseeundobuttonincreatedsentforreviewreviewedstateofprogram @sprint-25-US-295138  @Undo
+  @279282 @Verifyusershouldnotseeundobuttonincreatedsentforreviewreviewedstateofprogram @sprint-25-US-295138  @Undo
   Scenario: Verify user should not see undo button in created, sent for review, reviewed state of program
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -439,6 +439,7 @@ Feature: Validate all scenarios for program
      Thank you.
      The EGMS Team
      """
+
   @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138  @Undo
   Scenario: Verify Admin user can see Undo and Activate button after approved the program if program owner and approver is same
     When I login to "Grantor" app as "Admin" user
@@ -1359,7 +1360,7 @@ Feature: Validate all scenarios for program
      The EGMS Team
       """
 
-   @279491 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-295138  @Undo
+  @279491 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-295138  @Undo
   Scenario:Verify reassign approver should see Undo button after forwarded approver change approval task ownership
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2087,7 +2088,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
 
-   @279528 @VerifyIfFDasstep4approverclickonUndobuttonthenemailshouldbegeneratedforallpreviousassignapproverandprogramowner @sprint-25-US-291914  @Undo
+  @279528 @VerifyIfFDasstep4approverclickonUndobuttonthenemailshouldbegeneratedforallpreviousassignapproverandprogramowner @sprint-25-US-291914  @Undo
   Scenario:Verify If FD as step 4 approver click on Undo button then email should be generated for all previous assign approver and program owner
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2274,7 +2275,7 @@ Feature: Validate all scenarios for program
      """
 
 
-    @279535 @Verifystep2approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-291914  @Undo
+  @279535 @Verifystep2approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-291914  @Undo
   Scenario: Verify step 2 approver can Reject the program after click on Undo button and active program task should cancel and display under completed task table
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2698,7 +2699,7 @@ Feature: Validate all scenarios for program
     When I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-   @279567 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-291914
+  @279567 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-291914
   Scenario: Verify notification email should generate to new owner of program after click on Undo button
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3239,7 +3240,9 @@ Feature: Validate all scenarios for program
     And I wait for "7" seconds
     And I download the file
     And I wait for "3" seconds
-    Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
+    Then I softly see following details in "govgrants" pdf file:
+      | Detail                     | Page Number |
+      | {SavedValue:ProgramEGMSID} | 1           |
     Then I softly see following details in "govgrants" pdf file:
       | Detail   | Page Number |
       | Contacts | 1           |
