@@ -4493,12 +4493,16 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Save" in the page details
     And I wait for "3" seconds
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} User" inside flex table with id "---home:-:userContactsTableId---" without waiting for record
+    And I wait for "2" seconds
     And I click "Send" button in modal
+    And I wait for "4" seconds
     Then I softly see the following messages in the page details :
       | Email Sent Successfully. |
-    When I click modal button "Ok"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I logout
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
-    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Notification: You have been Invited to Register in the"
+    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Notification: Invitation to be a user of EGMS"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     And I click on "Save" in the page details
@@ -4559,8 +4563,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
-    And I click "Send" button in modal
     And I wait for "2" seconds
+    And I click "Send" button in modal
+    And I wait for "4" seconds
     Then I see the text "Email Sent Successfully." in modal
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
     And I navigate to maildrop portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Notification: You have been Invited to Register in the"
@@ -4577,7 +4582,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to reset password link
     Then I set password for the user
     And I navigate to "Home" tab
-    And I select "My Profile" from user dropdown
+    And I select "Profile" from user dropdown
     Then I see the header is "{SavedValue:Automation Runtime} Contact" in the page details
 
   @227725 @VerifythenewreadonlyfieldforTotalAllocationFundingthisshouldbetotalofAllAllocationAmountfromrecommendedapplicationsectionforformulaannouncement @ProdSan4
