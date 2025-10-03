@@ -3239,7 +3239,7 @@ Feature: Validate all scenarios for program
     And I click on "Download as PDF" in the page details
     And I wait for "7" seconds
     And I download the file
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     Then I softly see following details in "govgrants" pdf file:
       | Detail                     | Page Number |
       | {SavedValue:ProgramEGMSID} | 1           |
