@@ -1650,8 +1650,10 @@ Feature: Validate all scenarios for program
     And I click on "Download" button for snapshot view
     And I wait for "3" seconds
     When I download the file for snapshot
-    And I wait for "3" seconds
-    Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
+    And I wait for "5" seconds
+    Then I softly see following details in "govgrants" pdf file:
+      | Detail                     | Page Number |
+      | {SavedValue:ProgramEGMSID} | 1           |
     Then I softly see "Submitted for Approval" on page "1" of "govgrants" pdf file
     Then I softly see "Test Automation Organization" on page "1" of "govgrants" pdf file
 
