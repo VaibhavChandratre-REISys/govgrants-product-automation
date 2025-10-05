@@ -39,7 +39,7 @@ Feature: Validate all scenarios for Focus Areas
     And I perform quick search for "{SavedValue:FocusAreaId}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
 
-  @441788 @ValidateFocusAreanonrecordEXEProfileownershouldnotabletoactivatedeactivatethefocusArea @P2_Grantee @EXE_Grantee @GRegression1
+  @441788 @459775 @ValidateFocusAreanonrecordEXEProfileownershouldnotabletoactivatedeactivatethefocusArea @P2_Grantee @EXE_Grantee @GRegression1
   Scenario: Validate Focus Area non record EXE Profile owner should not able to activate & deactivate the focus Area
     When I login to "As a Grantee" app as "GRANTEE PM" user
     When I navigate to "Planning" tab
@@ -57,6 +57,8 @@ Feature: Validate all scenarios for Focus Areas
     And I wait for "2" seconds
     When I click modal button "Close"
     Then I see "AttachmentTesting.pdf" has been added in "Focus Area Files" flex table
+    #459775
+    Then I cannot see top right button "Add" in flex table with id "---grantee_tableId:-:focusAreaNotesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:focusAreaNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |

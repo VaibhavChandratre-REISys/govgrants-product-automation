@@ -1309,3 +1309,173 @@ Feature: Validate all scenarios for Financial Report
       Then I softly can see row level action button "Edit" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
       And I navigate to "Chatter" sub tab in split screen
       Then I softly see the text containing "Post"
+
+  @495229 @validatethecreatemultiplefinancialreport
+   Scenario: Validate the create multiple financial report
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "financialEGMSID1"
+    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "financialEGMSID2"
+    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "financialEGMSID3"
+    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "financialEGMSID4"
+    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "financialEGMSID5"
+    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "financialEGMSID6"
+    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "financialEGMSID7"
+    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "financialEGMSID8"
+    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "financialEGMSID9"
+    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "financialEGMSID10"
+    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I navigate to "Management" sub tab
+    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID1}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID2}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID3}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID4}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID5}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID6}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID7}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID8}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID9}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID10}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I click on "Edit" icon for "Financial Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
+    When I enter in modal "Grantee_Financial_Schedules" values from "Award_Field_Values.xlsx"
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    And I expand nested table containing column value "Financial Report"
+    And I save the value from row "1" for column name "EGMS ID" as "EGMS ID1" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "1" for column name "EGMS ID" as "EGMS ID2" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "1" for column name "EGMS ID" as "EGMS ID3" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "1" for column name "EGMS ID" as "EGMS ID4" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "1" for column name "EGMS ID" as "EGMS ID5" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "1" for column name "EGMS ID" as "EGMS ID6" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+      | EGMS ID               | Report Creation Date |
+      | {SavedValue:EGMS ID1} | 0                    |
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+      | EGMS ID               | Report Creation Date |
+      | {SavedValue:EGMS ID2} | 0                    |
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+      | EGMS ID               | Report Creation Date |
+      | {SavedValue:EGMS ID3} | 0                    |
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+      | EGMS ID               | Report Creation Date |
+      | {SavedValue:EGMS ID4} | 0                    |
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+      | EGMS ID               | Report Creation Date |
+      | {SavedValue:EGMS ID5} | 0                    |
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+      | EGMS ID               | Report Creation Date |
+      | {SavedValue:EGMS ID6} | 0                    |
+    And I wait for "200" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "financialEGMSID1" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID1}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I save the value from row "2" for column name "EGMS ID" as "financialEGMSID2" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID2}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I save the value from row "3" for column name "EGMS ID" as "financialEGMSID3" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID3}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I save the value from row "4" for column name "EGMS ID" as "financialEGMSID4" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID4}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I save the value from row "5" for column name "EGMS ID" as "financialEGMSID5" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID5}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I save the value from row "6" for column name "EGMS ID" as "financialEGMSID6" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID6}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+
+
+
+
+
+

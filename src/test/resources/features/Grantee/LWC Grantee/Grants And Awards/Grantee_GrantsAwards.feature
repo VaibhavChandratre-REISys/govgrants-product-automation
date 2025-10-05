@@ -4659,3 +4659,32 @@ Feature: Validate all scenarios for Grants & Awards
     Examples:
        | Username        |
        | Victor EXE user |
+
+    @483598 @validateifsearchthereportthroughglobalsearchthenselectedreportabletosee"ActiveGrantSummarybyAgency".
+    Scenario: Validate if search the report through global search then selected report able to see "Active Grant Summary by Agency".
+      When I login to "As a Grantee" app as "GRANTEE ADMIN" user
+      And I perform quick search inside global search "Active Grant Summary by Agency"
+      Then I softly see value "Active Grant Summary by Agency" for title "Report Name" inside table "Reports"
+      And I click on row level action button "Run" against "Active Grant Summary by Agency" in global search with id "Reports"
+      Then I see the header is "Active Grant Summary by Agency" in the page details
+      Then I see the sub-header is "This report provides a consolidated view of all active grants associated with each Funding Organization." in the page details
+
+      @459803 @VerifyforNotesection"Add"isReplacewith"New"button.
+      Scenario: Verify for Note section "Add" is Replace with "New" button.
+      When I login to "As a Grantee" app as "GRANTEE PM" user
+      And I navigate to "Grants" tab
+      When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+      And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+      And I enter "Grantee_Grant_Setting_No" values from "Award_Field_Values.xlsx"
+      When I click modal button "Save and Continue"
+      And I save the field labeled "EGMS ID" as "GrantEGMSID"
+      Then I softly see field "Status" as "Draft"
+      Then I softly see status in Progress-bar is "Created" and is "dark blue"
+      Then I softly can see top right button "Save" in page detail
+      Then I softly can see top right button "Cancel" in page detail
+      And I navigate to "Files" sub tab
+      Then I cannot see top right button "Add" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
+      Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
+      When I enter the following values into flex table with id "---grantee_tableId:-:grantNotesTableId---" by clicking "New" :
+        | Title        | Description      |
+        | Notes Record | Automation Notes |

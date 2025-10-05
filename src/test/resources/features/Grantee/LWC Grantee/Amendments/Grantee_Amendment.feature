@@ -27442,8 +27442,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
         | UserName         |
         | Victor EXE user  |
 
-      @491723 @validateusingadminprofileaddedamountfordrawdownandspentchecktheimpactifRecorddecisionselectNotAccepted.
-      Scenario: Admin Profile : Verify if added amount for drawdown and spent check the impact if Record decision select Not Accepted.
+      @491723 @491469 @validateusingadminprofileaddedamountfordrawdownandspentchecktheimpactifRecorddecisionselectNotAccepted.
+      Scenario Outline: Admin Profile Verify if added amount for drawdown and spent check the impact if Record decision select Not Accepted.
       When I login to "As a Grantee" app as "GRANTEE ADMIN" user
       And I navigate to "Grants" tab
       When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -27470,7 +27470,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       Then I softly see value "$2,500.00" for title "Amount Spent to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
       And I refresh the page
       And I wait for "2" seconds
-#      And I "Approved" of type "Funding Change" amendment request for title "{grantee_testData:GrantsForNonConstructionAndSpent}" with properties "default-<userName>"
+      And I "Approved" of type "Funding Change" amendment request for title "{grantee_testData:GrantsForNonConstructionAndSpent}" with properties "default-<userName>"
       When I navigate to "Amendments" sub tab
       And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
       And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
@@ -27506,6 +27506,51 @@ Feature: Validate all scenarios for Grantee Amendment Request
       Then I softly see value "$2,500.00" for title "Spent to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
       Then I softly see value "$2,000.00" for title "Amount Spent to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
       Then I softly see value "$2,500.00" for title "Amount Spent to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-#      Examples:
-#        | userType      | userName   |
-#        | GRANTEE ADMIN | Product QA  |
+      #491469
+      And I "Approved" of type "Funding Change" amendment request for title "{grantee_testData:GrantsForNonConstructionAndSpent}" with properties "default-<userName>"
+      When I navigate to "Amendments" sub tab
+      And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+      When I get the "EGMS ID"
+      And I save the field labeled "EGMS ID" as "AmendEGMSID1"
+      And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
+      And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
+      When I click on "Submit to Grantor" in the page details
+      When I enter values into fields
+          | Value | Field                 |
+          | 0     | SubmittedToGrantor__c |
+      And I click modal button "Save"
+      And I click modal button "Close"
+      Then I softly see field "Status" as "Submitted to Grantor"
+      When I click on "Record Decision" in the page details
+      Then I can see top right button "Revise Amendment" in page detail
+      And I click on "Revise Amendment" in the page details
+      Then I softly see field "Status" as "Revision in Progress"
+      When I navigate to "Overview" sub tab
+      And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+      When I navigate to "Awards" sub tab
+      And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+      Then I softly see field "Status" as "Activated"
+      When I navigate to "Actuals" sub tab
+      Then I softly see field "Drawn to Date" as "$4,500.00"
+      Then I softly see field "Current Balance" as "$0.00"
+      Then I softly see field "Grant Balance" as "$95,500.00"
+      Then I softly see field "Spent to Date" as "$4,500.00"
+      When I perform quick search for "Construction" in "---grantee_tableId:-:ExpenditureDetailsTableId---" panel
+      When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
+      Then I softly see value "$2,000.00" for title "Spent to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+      And I click on page navigation arrow "---grantee_tableId:-:ExpenditureDetailsTableId---" for table id "Next"
+      Then I softly see value "$2,500.00" for title "Spent to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+      Then I softly see value "$2,000.00" for title "Amount Spent to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+      Then I softly see value "$2,500.00" for title "Amount Spent to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+      When I navigate to "Amendments" sub tab
+      And I click on "View" icon for "{SavedValue:AmendEGMSID1}" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---" without waiting for record
+      Then I softly see field "Status" as "Revision in Progress"
+      Then I can see top right button "Delete" in page detail
+      Then I can see top right button "Edit" in page detail
+      And I click on "Delete" in the page details
+      And I wait for "3" seconds
+      When I navigate to "Amendments" sub tab
+      Then I do not see value "Record Id" for title "{SavedValue:AmendEGMSID1}" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
+      Examples:
+        | userType      | userName   |
+        | GRANTEE ADMIN | Product QA  |
