@@ -2037,20 +2037,6 @@ Feature: Validate all scenarios for closeout
      And I navigate to "Overview" sub tab
      And I save the field labeled "Project Period Start Date" as "PPST"
      When I navigate to "Closeout" sub tab
-     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
-     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
-     When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
-     When I enter values into fields
-       | Value             | Field           |
-       | {SavedValue:PPST} | CloseoutDate__c |
-     And I click modal button "Save and Continue"
-     And I wait for "5" seconds
-     And I navigate to "Grants" tab
-     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-     And I click toggle button to select "Grants - All"
-     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
-     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-     When I navigate to "Closeout" sub tab
      And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
      When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
      When I enter values into fields
