@@ -4708,6 +4708,6 @@ Feature: Validate all scenarios for Grants & Awards
     And I navigate to "Files" sub tab
     Then I cannot see top right button "Add" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:grantNotesTableId---" by clicking "New" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
