@@ -27367,12 +27367,12 @@ Feature: Validate all scenarios for Grantee Amendment Request
       When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
       And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
         | Title        | Narrative     | Awarded Budget | Cash Match |
-        | Construction | The narrative | 4500           | 450        |
+        | Construction | The narrative | 4000           | 200        |
       When I close "Add Line Items" modal by clicking the top right x button
       When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
       When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
         | Title          | Narrative     | Awarded Budget | Cash Match |
-        | Indirect costs | The narrative | 500            | 50         |
+        | Indirect costs | The narrative | 2000            | 50         |
       When I close "Add Line Items" modal by clicking the top right x button
       When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
       When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:amendmentAssociateContactTableId---"
