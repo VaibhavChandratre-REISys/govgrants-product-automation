@@ -4688,3 +4688,26 @@ Feature: Validate all scenarios for Grants & Awards
       When I enter the following values into flex table with id "---grantee_tableId:-:grantNotesTableId---" by clicking "New" :
         | Title        | Description      |
         | Notes Record | Automation Notes |
+
+  @459814 @VerifyforAwardsNotesection"Add"isReplacewith"New"button.
+  Scenario: Verify for Award Note section "Add" is Replace with "New" button.
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I enter "Grantee_Grant_Setting_No" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    Then I softly see field "Status" as "Draft"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly can see top right button "Save" in page detail
+    Then I softly can see top right button "Cancel" in page detail
+    And I click on "Save" in the page details
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I navigate to "Files" sub tab
+    Then I cannot see top right button "Add" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:grantNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
