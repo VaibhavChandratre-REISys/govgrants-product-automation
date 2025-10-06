@@ -494,6 +494,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     And I get current URL
     And I pause execution for "5" seconds
+    And I refresh the page
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
   @72342 @publishingDirectedAnnouncement @ProdSan2
@@ -759,6 +760,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "ActiveFundingOpportunities" panel
     And I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "ActiveFundingOpportunities" without waiting for record
     And I click on "Publish" in the page details
+    And I get current URL
+    And I wait for "2" seconds
+    And I refresh the page
     Then I softly see status in Progress-bar is "Published" and is "dark blue"
 
   @72343_1 @publishingFormulaAnnouncementByApplicantFocusArea @ProdSan2
@@ -1118,6 +1122,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     And I click on "Publish" in the page details
+    And I get current URL
+    And I pause execution for "3" seconds
     Then I softly see field "Status" as "Published"
 
   @72344 @preApplicationSubmittedToGrantor @ProdSan2

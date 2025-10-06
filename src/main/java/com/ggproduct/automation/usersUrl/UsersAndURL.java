@@ -29,6 +29,7 @@ public class UsersAndURL implements UsersController {
         I.amPerforming().propertiesFileOperationsTo().saveValue("SPI Username", "Automation SPI");
         I.amPerforming().propertiesFileOperationsTo().saveValue("SPI3 Username", "Automation SPI3");
         I.amPerforming().propertiesFileOperationsTo().saveValue("SPA Username", "Automation SPA");
+        I.amPerforming().propertiesFileOperationsTo().saveValue("SME Username", "Automation SME");
         I.amPerforming().propertiesFileOperationsTo().saveValue("SPI4 Username", "Automation SPI4");
         I.amPerforming().propertiesFileOperationsTo().saveValue("IND Username", "Automation IND");
         I.amPerforming().propertiesFileOperationsTo().saveValue("GRANTEE ADMIN Username", "Grantee ADMIN");
@@ -106,6 +107,9 @@ public class UsersAndURL implements UsersController {
                 password = "Demo@2035";
                 break;
             case "EXE":
+                password = "Demo@2045";
+                break;
+            case "SA":
                 password = "Demo@2045";
                 break;
             default:

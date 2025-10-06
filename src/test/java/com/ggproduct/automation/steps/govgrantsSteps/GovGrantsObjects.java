@@ -372,6 +372,7 @@ public final class GovGrantsObjects {
      *                 flex table then we can use this step...
      */
     public void uploadAttachmentInFlexTableFromComputer(Boolean withoutRandomNumber, String fileName, String fileType) {
+        I.amPerforming().waitFor().makeThreadSleep(10000);
         By classificationType = By.xpath("//select[@title='Classification' or @name='Classification']");
         By options = By.xpath("//select//option");
         By filePath = By.xpath("//label[contains(@id,'file')]/../input");
