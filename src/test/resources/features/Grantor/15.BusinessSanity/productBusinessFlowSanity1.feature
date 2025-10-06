@@ -4782,7 +4782,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     Then I do not see value "Record id" for title "Announcement Name" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
 
-  @541932 @ValidateSMEreviewerissubmitthereviewcommentsandcompletetheapplicationreview
+  @541932 @ValidateSMEreviewerissubmitthereviewcommentsandcompletetheapplicationreview @ProdSan4
   Scenario Outline: Validate SME reviewer is submit the review comments and complete the application review
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -4818,7 +4818,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "SME" user on "INTERNAL" portal
+    When I re-login to "Grants Portal" app as "SME" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---negotiation:-:homePendingTasks---" panel
@@ -4878,7 +4878,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "SME" user on "INTERNAL" portal
+    When I re-login to "Grants Portal" app as "SME" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---negotiation:-:homePendingTasks---" panel
@@ -4946,7 +4946,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "SME" user on "INTERNAL" portal
+    When I re-login to "Grants Portal" app as "SME" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---negotiation:-:homePendingTasks---" panel
