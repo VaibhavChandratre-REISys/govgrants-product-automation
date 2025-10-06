@@ -27513,7 +27513,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
       When I get the "EGMS ID"
       And I save the field labeled "EGMS ID" as "AmendEGMSID1"
       And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
-      And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
       When I click on "Submit to Grantor" in the page details
       When I enter values into fields
           | Value | Field                 |
