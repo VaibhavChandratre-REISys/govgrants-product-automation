@@ -6192,6 +6192,7 @@ Feature: Validate all scenarios for Grantee Award from Application
 
    @482617 @ValidateasPMuserEditablefieldsandactionsdisplayedonAwardwhenawardisinCreated,Submittedforreview,Reviewedstate
    Scenario: Validate as PM user Editable fields and actions displayed on Award when award is in Created, Submitted for review, Reviewed state
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
