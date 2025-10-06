@@ -26566,7 +26566,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
             | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
             | Test  | The narrative | 5000           | 800        | 200            |
         When I close "Add Line Items" modal by clicking the top right x button
-         #496200
         When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
         When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
             | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
@@ -26589,9 +26588,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
         When I "Reject" in the approval decision
         When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
         And I navigate to "Grants" tab
-        And I navigate to "Grants" tab
         When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-        And I click toggle button to select "Amendment Requests - My Records"
+        And I click toggle button to select "Amendment Requests - All"
         When I perform quick search for "{SavedValue:FNCAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
         Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
         And I click on "View" icon for "{SavedValue:FNCAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
