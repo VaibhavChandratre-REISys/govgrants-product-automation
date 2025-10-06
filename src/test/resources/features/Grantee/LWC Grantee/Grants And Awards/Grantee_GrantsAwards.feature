@@ -4706,8 +4706,8 @@ Feature: Validate all scenarios for Grants & Awards
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    Then I cannot see top right button "Add" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
-    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
+    Then I cannot see top right button "Add" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |

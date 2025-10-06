@@ -25401,7 +25401,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "$1,350.00" for title "Non-Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
 
     @472030 @combinationofamendmentverifypmusershouldabletosubmitandsenttoowner/approvedtheamendmentrequest @Gregression2 @P2_Grantee @PM_Grantee
-    Scenario: Combination of amendment - Verify PM user should able to submit and Sent to owner/Approved the amendment request
+    Scenario: CombinatFion of amendment - Verify PM user should able to submit and Sent to owner/Approved the amendment request
       And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
       And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
       And I activate the award for title "{SavedValue:Automation Runtime Award}"
