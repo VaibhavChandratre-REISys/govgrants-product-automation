@@ -4512,7 +4512,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click "Send" button in modal
 #    Then I softly see the following messages in the page details :
 #      | Email Sent Successfully. |
-    When I click modal button "Ok"
+#    When I click modal button "Ok"
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
     And I navigate to maildrop portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Notification: You have been Invited to Register in the"
     When I click on "Agree" in the page details
