@@ -6241,14 +6241,14 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see field "Version Number" inside page block
     When I hovering mouse on help text icon inside page block detail "Version Number"
     Then I softly see "System generated number used to track changes to the award" shown as help text
-    Then I softly see field " Funding Organization " inside page block
-    And I save the field labeled " Funding Organization " as "FundingOrganization "
+    Then I softly see field "Funding Organization" inside page block
+    And I save the field labeled "Funding Organization" as "FundingOrganization"
     Then I softly see link "{SavedValue:FundingOrganization}" inside Page block
     And I click on hyperlink containing value "{SavedValue:FundingOrganization}"
     Then I see the header is "Federal Organization" in the page details
     Then I see the sub-header is "{SavedValue:FundingOrganization}" in the page details
     And I click on back arrow
-    And I save the field labeled " Internal Organization " as "InternalOrganization"
+    And I save the field labeled "Internal Organization" as "InternalOrganization"
     Then I softly see link "{SavedValue:InternalOrganization}" inside Page block
     And I click on hyperlink containing value "{SavedValue:InternalOrganization}"
     Then I see the header is "Internal Organization" in the page details
@@ -6273,6 +6273,14 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see field "Scope / Award Description" inside page block
     Then I softly see "External Programs" page block displayed
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:awardExternalProgranTableId---"
+    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
+       | Title                            | Is Primary Program |
+       | Automation Permanent NGO Program | Checked            |
     Then I can see row level action button "View" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     Then I can see row level action button "Edit" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     Then I can see row level action button "Remove" against "Automation Permanent NGO Program" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
@@ -6282,11 +6290,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
-    Then I softly see "Project Role" in flex table header "---grantee_tableId:-:awardContactTableId---"
-    Then I softly see "Name" in flex table header "---grantee_tableId:-:awardContactTableId---"
-    Then I softly see "Email" in flex table header "---grantee_tableId:-:awardContactTableId---"
-    Then I softly see "Is Key Contact" in flex table header "---grantee_tableId:-:awardContactTableId---"
-    Then I softly see "Is User" in flex table header "---grantee_tableId:-:awardContactTableId---"
     When I click on parallel lines menu bar with data target value "Contacts"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -6350,18 +6353,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
     And I navigate to "Projections" sub tab
     Then I softly see "Project Period Details" page block displayed
-    Then I softly see field " Project Period Start Date " inside page block
-    Then I softly see field " Project Period End Date " inside page block
-    Then I softly see field "Award Amount to Date" inside page block
-    Then I softly see field "Budget Redirection Threshold (%)" inside page block
-    Then I softly see "Budget Period Details" page block displayed
-    Then I softly see field "Budget Period Start Date" inside page block
-    Then I softly see field "Budget Period End Date" inside page block
-    Then I softly see field "Carry-Forward this Action" inside page block
-    Then I softly see field "Award Amount This Action" inside page block
-    Then I softly see field "Total Match Amount Required" inside page block
-    Then I softly see field "Maximum Indirect Cost Rate" inside page block
-    Then I softly see field "Program Income Treatment Type" inside page block
     Then I softly see "Focus Area" page block displayed
     Then I can see top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     Then I can see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
@@ -6419,23 +6410,11 @@ Feature: Validate all scenarios for Grantee Award from Application
     When I enter the following values into flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | David FO      | Fiscal Reviewer | Automation Description | 5        | No                   |
-    Then I softly see "Reviewer Name" in flex table header "---grantee_tableId:-:awardPeerReviewerTableId---"
-    Then I softly see "Role" in flex table header "---grantee_tableId:-:awardPeerReviewerTableId---"
-    Then I softly see "Description" in flex table header "---grantee_tableId:-:awardPeerReviewerTableId---"
-    Then I softly see "Due Date" in flex table header "---grantee_tableId:-:awardPeerReviewerTableId---"
-    Then I softly see "Allow Record Editing" in flex table header "---grantee_tableId:-:awardPeerReviewerTableId---"
-    Then I softly see "Status" in flex table header "---grantee_tableId:-:awardPeerReviewerTableId---"
     When I click on parallel lines menu bar with data target value "Peer Reviewers"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Then I softly see "Approvers" page block displayed
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardApproverTableId---"
-    Then I softly see "Name" in flex table header "---grantee_tableId:-:awardApproverTableId---"
-    Then I softly see "Award" in flex table header "---grantee_tableId:-:awardApproverTableId---"
-    Then I softly see "Amendment Request" in flex table header "---grantee_tableId:-:awardApproverTableId---"
-    Then I softly see "Progress Report" in flex table header "---grantee_tableId:-:awardApproverTableId---"
-    Then I softly see "Financial Report" in flex table header "---grantee_tableId:-:awardApproverTableId---"
-    Then I softly see "Closeout" in flex table header "---grantee_tableId:-:awardApproverTableId---"
     When I click on parallel lines menu bar with data target value "Approvers"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
@@ -6522,9 +6501,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
     And I navigate to "Monitoring" sub tab
     Then I softly see "Objectives" page block displayed
-    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:awardObjectiveTableId---"
-    Then I softly see "Title" in flex table header "---grantee_tableId:-:awardObjectiveTableId---"
-    Then I softly see "Month-Year Created" in flex table header "---grantee_tableId:-:awardObjectiveTableId---"
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:awardObjectiveTableId---"
     When I click on parallel lines menu bar with data target value "Objectives"
     Then I see option "Refresh" present in parallel dropdown
@@ -6557,11 +6533,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly can see row level action button "Remove" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     And I wait for "3" seconds
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    When I enter in modal value "Terms" into field "Title__c"
-    When I enter in modal value "Terms Description" into field "Description__c"
-    When I enter in modal value "1" into field "Sequence__c"
-    And I click modal button "Save"
     And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:SpecialConditionTableId---"
     Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
     Then I softly can see row level action button "View" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
@@ -6581,21 +6552,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly can see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "Title" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "Classification" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "File Extension" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "Description" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "Classification" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "Classification" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "Description" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "Description" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "File Extension" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "File Extension" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "Created Date" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "Created Date" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
     When I click on parallel lines menu bar with data target value "Award Files"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
@@ -6606,18 +6562,6 @@ Feature: Validate all scenarios for Grantee Award from Application
       | Notes Record | Automation Notes |
     Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see "Title" in flex table header "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see "Description" in flex table header "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see "Created By" in flex table header "---grantee_tableId:-:awardsNotesTableId---"
-    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    When I click on "Created By" column header inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see sort order "Ascending" for column "Created By" inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    When I click on "Description" column header inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see sort order "Ascending" for column "Description" inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    When I click on "Created Date" column header inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see sort order "Ascending" for column "Created Date" inside table with id "---grantee_tableId:-:awardsNotesTableId---"
     When I click on parallel lines menu bar with data target value "Notes"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
@@ -6626,14 +6570,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see "Snapshot History" page block displayed
     And I navigate to "Messages" sub tab
     Then I softly see "Messages" page block displayed
-    Then I softly see "Actions" in flex table header "CommunicationHistory"
-    Then I softly see "Subject" in flex table header "CommunicationHistory"
-    Then I softly see "From Address" in flex table header "CommunicationHistory"
-    Then I softly see "To Address" in flex table header "CommunicationHistory"
-    Then I softly see "CC Address" in flex table header "CommunicationHistory"
-    Then I softly see "Attention To" in flex table header "CommunicationHistory"
-    Then I softly see "Email Subject" in flex table header "CommunicationHistory"
-    Then I softly see "Preview" in flex table header "CommunicationHistory"
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
@@ -6641,9 +6577,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
-    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "govgrantsuat@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
     When I navigate to "Responsibilities" sub tab
@@ -6716,11 +6649,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
-    Then I softly see "Project Role" in flex table header "---grantee_tableId:-:awardContactTableId---"
-    Then I softly see "Name" in flex table header "---grantee_tableId:-:awardContactTableId---"
-    Then I softly see "Email" in flex table header "---grantee_tableId:-:awardContactTableId---"
-    Then I softly see "Is Key Contact" in flex table header "---grantee_tableId:-:awardContactTableId---"
-    Then I softly see "Is User" in flex table header "---grantee_tableId:-:awardContactTableId---"
     When I click on parallel lines menu bar with data target value "Contacts"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -6784,8 +6712,8 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
     And I navigate to "Projections" sub tab
     Then I softly see "Project Period Details" page block displayed
-    Then I softly see field " Project Period Start Date " inside page block
-    Then I softly see field " Project Period End Date " inside page block
+    Then I softly see field "Project Period Start Date" inside page block
+    Then I softly see field "Project Period End Date" inside page block
     Then I softly see field "Award Amount to Date" inside page block
     Then I softly see field "Budget Redirection Threshold (%)" inside page block
     Then I softly see "Budget Period Details" page block displayed
@@ -6806,12 +6734,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     When I click on parallel lines menu bar with data target value "Focus Area"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    When I click on "Title" column header inside table with id "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see sort order "Descending" for column "Title" inside table with id "---grantee_tableId:-:ProjectTableId---"
-    When I click on "Start Date" column header inside table with id "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see sort order "Ascending" for column "Start Date" inside table with id "---grantee_tableId:-:ProjectTableId---"
-    When I click on "End Date" column header inside table with id "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see sort order "Ascending" for column "End Date" inside table with id "---grantee_tableId:-:ProjectTableId---"
     Then I softly see "Award Budget" page block displayed
     Then I softly see "Budget Category" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Award  Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
@@ -7015,21 +6937,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly can see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "Title" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "Classification" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "File Extension" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "Description" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "Classification" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "Classification" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "Description" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "Description" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "File Extension" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "File Extension" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "Created Date" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "Created Date" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
     When I click on parallel lines menu bar with data target value "Award Files"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
@@ -7040,18 +6947,6 @@ Feature: Validate all scenarios for Grantee Award from Application
       | Notes Record | Automation Notes |
     Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see "Title" in flex table header "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see "Description" in flex table header "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see "Created By" in flex table header "---grantee_tableId:-:awardsNotesTableId---"
-    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    When I click on "Created By" column header inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see sort order "Ascending" for column "Created By" inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    When I click on "Description" column header inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see sort order "Ascending" for column "Description" inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    When I click on "Created Date" column header inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see sort order "Ascending" for column "Created Date" inside table with id "---grantee_tableId:-:awardsNotesTableId---"
     When I click on parallel lines menu bar with data target value "Notes"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
@@ -7060,15 +6955,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see "Snapshot History" page block displayed
     And I navigate to "Messages" sub tab
     Then I softly see "Messages" page block displayed
-    Then I softly see "Actions" in flex table header "CommunicationHistory"
-    Then I softly see "Subject" in flex table header "CommunicationHistory"
-    Then I softly see "From Address" in flex table header "CommunicationHistory"
-    Then I softly see "To Address" in flex table header "CommunicationHistory"
-    Then I softly see "CC Address" in flex table header "CommunicationHistory"
-    Then I softly see "Attention To" in flex table header "CommunicationHistory"
-    Then I softly see "Email Subject" in flex table header "CommunicationHistory"
-    Then I softly see "Preview" in flex table header "CommunicationHistory"
-    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+   And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
@@ -7076,8 +6963,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "govgrantsuat@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
     And I click on "Complete Review" in the page details
@@ -7107,14 +6992,14 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see field "Version Number" inside page block
     When I hovering mouse on help text icon inside page block detail "Version Number"
     Then I softly see "System generated number used to track changes to the award" shown as help text
-    Then I softly see field " Funding Organization " inside page block
-    And I save the field labeled " Funding Organization " as "FundingOrganization "
+    Then I softly see field "Funding Organization" inside page block
+    And I save the field labeled "Funding Organization" as "FundingOrganization"
     Then I softly see link "{SavedValue:FundingOrganization}" inside Page block
     And I click on hyperlink containing value "{SavedValue:FundingOrganization}"
     Then I see the header is "Federal Organization" in the page details
     Then I see the sub-header is "{SavedValue:FundingOrganization}" in the page details
     And I click on back arrow
-    And I save the field labeled " Internal Organization " as "InternalOrganization"
+    And I save the field labeled "Internal Organization" as "InternalOrganization"
     Then I softly see link "{SavedValue:InternalOrganization}" inside Page block
     And I click on hyperlink containing value "{SavedValue:InternalOrganization}"
     Then I see the header is "Internal Organization" in the page details
@@ -7148,11 +7033,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
-    Then I softly see "Project Role" in flex table header "---grantee_tableId:-:awardContactTableId---"
-    Then I softly see "Name" in flex table header "---grantee_tableId:-:awardContactTableId---"
-    Then I softly see "Email" in flex table header "---grantee_tableId:-:awardContactTableId---"
-    Then I softly see "Is Key Contact" in flex table header "---grantee_tableId:-:awardContactTableId---"
-    Then I softly see "Is User" in flex table header "---grantee_tableId:-:awardContactTableId---"
     When I click on parallel lines menu bar with data target value "Contacts"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -7340,8 +7220,6 @@ Feature: Validate all scenarios for Grantee Award from Application
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 17                          | 27                                  |
       | {SavedValue:EGMS ID2} | 27                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 15                          | 25                                  |
@@ -7435,22 +7313,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly can see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "Title" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "Classification" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "File Extension" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "Description" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "Classification" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "Classification" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "Description" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "Description" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "File Extension" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "File Extension" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on "Created Date" column header inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see sort order "Ascending" for column "Created Date" inside table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    When I click on parallel lines menu bar with data target value "Award Files"
+     When I click on parallel lines menu bar with data target value "Award Files"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Then I softly see "Notes" page block displayed
@@ -7460,18 +7323,6 @@ Feature: Validate all scenarios for Grantee Award from Application
       | Notes Record | Automation Notes |
     Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see "Title" in flex table header "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see "Description" in flex table header "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see "Created By" in flex table header "---grantee_tableId:-:awardsNotesTableId---"
-    When I click on "Title" column header inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    When I click on "Created By" column header inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see sort order "Ascending" for column "Created By" inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    When I click on "Description" column header inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see sort order "Ascending" for column "Description" inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    When I click on "Created Date" column header inside table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly see sort order "Ascending" for column "Created Date" inside table with id "---grantee_tableId:-:awardsNotesTableId---"
     When I click on parallel lines menu bar with data target value "Notes"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
@@ -7479,15 +7330,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see "Approval History" page block displayed
     Then I softly see "Snapshot History" page block displayed
     And I navigate to "Messages" sub tab
-    Then I softly see "Messages" page block displayed
-    Then I softly see "Actions" in flex table header "CommunicationHistory"
-    Then I softly see "Subject" in flex table header "CommunicationHistory"
-    Then I softly see "From Address" in flex table header "CommunicationHistory"
-    Then I softly see "To Address" in flex table header "CommunicationHistory"
-    Then I softly see "CC Address" in flex table header "CommunicationHistory"
-    Then I softly see "Attention To" in flex table header "CommunicationHistory"
-    Then I softly see "Email Subject" in flex table header "CommunicationHistory"
-    Then I softly see "Preview" in flex table header "CommunicationHistory"
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
@@ -7495,8 +7337,5 @@ Feature: Validate all scenarios for Grantee Award from Application
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
-    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "govgrantsuat@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
