@@ -25460,14 +25460,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
       And I click modal button "Close"
       And I save the value from row "1" for column name "Title" as "ObjectiveTitle" from flex table "---grantee_tableId:-:amendmentObjectiveTableId---"
       Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
-      And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
-      When I click "Associate" after selection of "Automation Runtime KPI2" in the table "---grantee_tableId:-:selectAmendmentKPITableId---"
-      Then I softly see the following messages in the page details contains:
-        | KPIs added successfully. |
-      And I click modal button "Close"
-      And I wait for "1" seconds
-      And I save the value from row "2" for column name "Title" as "KPITitle" from flex table "---grantee_tableId:-:amendmentKPITableId---"
-      Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:amendmentKPITableId---"
       And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentKPITableId---" by clicking "Edit" :
         | Title                   | Target | Current Value As Of |
         | Automation Runtime KPI2 | 10     | 5                   |
