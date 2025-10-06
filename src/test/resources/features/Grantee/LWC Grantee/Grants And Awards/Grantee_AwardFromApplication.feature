@@ -6273,11 +6273,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see field "Scope / Award Description" inside page block
     Then I softly see "External Programs" page block displayed
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
-    And I wait for "3" seconds
-    And I click modal button "Close"
-    And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
        | Title                            | Is Primary Program |
        | Automation Permanent NGO Program | Checked            |
