@@ -492,6 +492,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I click on "Publish" in the page details
+    And I get current URL
+    And I pause execution for "5" seconds
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
   @72342 @publishingDirectedAnnouncement @ProdSan2
@@ -1427,6 +1429,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
+    And I get current URL
     Then I softly see field "Status" as "Approved"
 
     Examples:
@@ -4468,7 +4471,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
-   And I wait for "5" seconds
+    And I wait for "5" seconds
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
     And I generate the random maildropEmail and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
