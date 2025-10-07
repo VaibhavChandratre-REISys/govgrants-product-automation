@@ -27286,14 +27286,19 @@ Feature: Validate all scenarios for Grantee Amendment Request
       Then I softly can see row level action button "Edit" against "Focus1" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
       Then I softly can see row level action button "Delete" against "Focus1" in flex table with id "---grantee_tableId:-:DrawDownFinancialTransactionTableId---"
       And I collapse nested table containing column value "Automation Permanent Focus Area"
+      And I refresh the page
       And I wait for "2" seconds
       Then I softly see field "Drawn to Date" as "$3,000.00"
       Then I softly see field "Current Balance" as "$3,000.00"
       Then I softly see field "Grant Balance" as "$97,000.00"
-      Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-      Then I softly see value "$0.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-      Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-      Then I softly see value "$0.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+#      Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+#      Then I softly see value "$0.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+#      Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+#      Then I softly see value " " for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+      Then I softly see value "$3,000.00" for title "Balance Amount" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+      Then I softly see value "$0.00.00" for title "Balance Amount" against the value "Automation Permanent Focus Area2" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+      Then I softly see value "$3,000.00" for title "Amount Drawn to Date" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+      Then I softly see value "$0.00.00" for title "Amount Drawn to Date" against the value "Automation Permanent Focus Area2" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
       And I wait for "2" seconds
       And I refresh the page
       Then I softly see field "Drawn to Date" as "$3,000.00"
