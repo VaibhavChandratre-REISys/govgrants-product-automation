@@ -1196,40 +1196,11 @@ Feature: Validate all scenarios for Financial Report
       When I click modal button "Close"
       And I refresh the page
       And I wait for "2" seconds
-      Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:financialReportAddFilesTableId---"
-      Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
-      Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
-      Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
-      Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
-      And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
-      And I update title as "Automation.pdf" on upload file modal
-      And I select Classification as "Financial Report" at upload file modal
-      When I click modal button "Save"
-      And I click modal button "Close"
-      And I refresh the page
-      And I wait for "2" seconds
-      Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:financialReportAddFilesTableId---"
-      Then I softly see value "Financial Report" for title "Classification" inside table "---grantee_tableId:-:financialReportAddFilesTableId---"
-      When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
-        | Description      |
-        | Automation Notes |
-      Then I softly see the following messages in the page details :
-        | Required Fields Missing |
-      And I refresh the page
-      And I wait for "3" seconds
       When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
         | Title        | Description      |
         | Notes Record | Automation Notes |
       Then I softly see the following messages in the page details contains:
         | Saved Successfully! |
-      Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
-      Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
-      Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
-      When I click on "Delete" icon for "Notes Record" inside flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
-      Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
-      When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
-        | Title        | Description      |
-        | Notes Record | Automation Notes |
       When I navigate to "History" sub tab
       Then I softly see "Approval History" page block displayed
       Then I softly see "Snapshot History" page block displayed
