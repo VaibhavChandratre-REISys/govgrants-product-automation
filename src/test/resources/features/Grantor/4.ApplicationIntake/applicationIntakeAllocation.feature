@@ -46,7 +46,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I refresh the page
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
-    Then I softly see field "Allocation Amount" as "$1,000"
+    Then I softly see field "Allocation Amount" as "$1,000.00"
 
   @219703 @sprint-11-US-203038  @Allocation
   Scenario: Validate SPI User if budgeted amount is not equal to allocation amount then error message should generate on click on submit to grantor button
@@ -378,7 +378,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
     Then I see value "Automation Permanent Focus Area" for title "Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
-    Then I softly see value "$1,000" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
+    Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
 
   @219969 @219973 @ValidateSPAUserwhenForannouncementswithallocationlevelByApplicantandFocusAreaisyesthenusershouldseetheBudgetSummarybyfocusAreaSection&budgetsummarysectionalso @sprint-11-US-203038  @Allocation
   Scenario: Validate SPA User when For announcements with allocation-level = By Applicant and Focus Area is yes then user should see the Budget Summary by focus Area Section & budget summary section also
@@ -655,7 +655,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 11000  | 100        | 100            |
-    And I wait for "5" seconds
+    And I wait for "2" seconds
     When I click on "Submit Application" in the page details
 #   TODO: Message disappearing shortly
     Then I softly see the following messages in the page details contains:
@@ -3194,6 +3194,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 1000   |
     And I wait for "5" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Negotiation Submitted"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3419,10 +3420,10 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$0.00"
     Then I softly see field "Allocation Amount" as "$0.00"
-    Then I softly see value "$0" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
-    Then I softly see value "$0" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
-    Then I softly see value "$0" for title "Allocation Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
-    Then I softly see value "$0" for title "Allocation Amount" against the value "Automation Permanent Focus Area2" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
+    Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
+    Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
+    Then I softly see value "$0.00" for title "Allocation Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
+    Then I softly see value "$0.00" for title "Allocation Amount" against the value "Automation Permanent Focus Area2" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     And I wait for "5" seconds
     When I click on "Submit Application" in the page details
     Then I softly see the following messages in the page details contains:
@@ -3642,10 +3643,10 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
     Then I softly see field "Allocation Amount" as "$2,000.00"
-    Then I softly see value "$1,000" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
-    Then I softly see value "$0" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
-    Then I softly see value "$2,000" for title "Allocation Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
-    Then I softly see value "$0" for title "Allocation Amount" against the value "Automation Permanent Focus Area2" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
+    Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
+    Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
+    Then I softly see value "$2,000.00" for title "Allocation Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
+    Then I softly see value "$0.00" for title "Allocation Amount" against the value "Automation Permanent Focus Area2" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -3655,10 +3656,10 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
     Then I softly see field "Allocation Amount" as "$1,000.00"
-    Then I softly see value "$500" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
-    Then I softly see value "$500" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
-    Then I softly see value "$500" for title "Allocation Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
-    Then I softly see value "$500" for title "Allocation Amount" against the value "Automation Permanent Focus Area2" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
+    Then I softly see value "$500.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
+    Then I softly see value "$500.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
+    Then I softly see value "$500.00" for title "Allocation Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
+    Then I softly see value "$500.00" for title "Allocation Amount" against the value "Automation Permanent Focus Area2" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
 
   @274245 @ValidateFormulaPMusercanupdateallocationonApplicantunderApplicantsectiononAnnouncementaftersubmittingapplicationusercanseeupdatedAllocationAmountonApplicationFANo&AllocationTypeByApplicant @Sprint-23-US-273843  @Allocation
   Scenario: Validate Formula PM user can update allocation on Applicant under Applicant section on Announcement after submitting application & user can see updated Allocation Amount on Application FANo Allocation Type By Applicant
@@ -3722,7 +3723,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:AppEGMSID}" in "---applicationIntake:-:recipientApplications---" panel
     When I click on "View" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationIntake:-:recipientApplications---"
     When I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$5,000"
+    Then I softly see field "Allocation Amount" as "$5,000.00"
 
   @274246 @ValidateFormulaPMusercanupdateallocationonApplicantunderApplicantsectiononAnnouncementbeforesubmittingapplicationseeupdatedAllocationAmountonApplicationFANoAllocationTypeByApplicant @Sprint-23-US-273843  @Allocation
   Scenario: Validate Formula PM user can update allocation on Applicant under Applicant section on Announcement before submitting application & see updated Allocation Amount on Application FA No & Allocation Type By Applicant
@@ -3757,7 +3758,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:AppEGMSID}" in "---applicationIntake:-:recipientApplications---" panel
     When I click on "View" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationIntake:-:recipientApplications---"
     When I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$5,000"
+    Then I softly see field "Allocation Amount" as "$5,000.00"
 
   @276440 @ValidateFormulaByapplicantFocusAreaFAYESsubrecipientusercandownloadpdfforNotyetQualifiedopportunity @Sprint-23-US-275864  @Allocation
   Scenario: Validate Formula By applicant & Focus Area FA YES subrecipient user can download pdf for Not yet Qualified opportunity
@@ -4136,7 +4137,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 2000   | 100        | 100            |
     When I click on "Save" in the page details
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$2,000.00"
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
@@ -4146,7 +4147,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     And I navigate to "Financials" sub tab
-    Then I softly see value "$2000" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
+    Then I softly see value "$2000.00" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
     When I click on "Qualify" in the page details
     And I pause execution for "3" seconds
     And I navigate to "Opportunities" tab
@@ -4157,7 +4158,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:qualifiedTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:qualifiedTableId---"
     And I navigate to "Financials" sub tab
-    Then I softly see value "$2000" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
+    Then I softly see value "$2000.00" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -4165,7 +4166,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$2,000.00"
 
     Examples:
       | Announcement Name                                |

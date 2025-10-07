@@ -79,6 +79,7 @@ Feature: Validate all scenarios in the Application Intake
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     When I click on "Submit Application" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Forms and Files Tab - All mandatory forms must be 100% completed. |
     When I navigate to "Forms and Files" sub tab
@@ -252,7 +253,7 @@ Feature: Validate all scenarios in the Application Intake
       | Project Director/Manager |
       | Authorized Signatory     |
 
-  @70527 @applicationAttachmentAndNotes   @buglogged169487
+  @70527 @applicationAttachmentAndNotes
   Scenario: Validate whether user can add attachment checklist and Notes on the Application
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---applicationIntake:-:ApplicationAttachmentTableId---"
@@ -318,7 +319,7 @@ Feature: Validate all scenarios in the Application Intake
     And I click on hyperlink containing value "Snapshot_Application_Submission.pdf"
     And I click on "Download" button for snapshot view
     And I wait for "3" seconds
-    When I download the file for snapshot
+    When I download the file
     And I wait for "3" seconds
     Then I see "Submitted to Grantor" on page "1" of "govgrants" pdf file
     Examples:

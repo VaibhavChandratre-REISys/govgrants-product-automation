@@ -232,6 +232,7 @@ Feature: Validate all scenarios in the Pre-Application
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 1000   | 100        | 100            | 100            |
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Overview Tab - Enter an Acknowledgement before submitting this Pre-Application. |
 

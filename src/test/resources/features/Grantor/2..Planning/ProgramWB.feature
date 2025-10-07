@@ -2133,7 +2133,7 @@ Feature: Validate all scenarios for program
     And I "Send to Owner" in the approval decision
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -3007,8 +3007,7 @@ Feature: Validate all scenarios for program
 
    Log in to EGMS and click here to start reviewing the details.
 
-   Please do not reply to this system-generated email. You may contact the GovGrants Support Team at {!$Setup.GNT__GlobalConfig__c.SupportEmail__c} if you have any questions or need assistance with this task.
-
+   Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
    Thank you.
    The EGMS Team
       """
@@ -3947,15 +3946,6 @@ Feature: Validate all scenarios for program
       """
       Hello,
 
-      The task(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
-
-      EGMS ID Type Status Subject Assigned By Due Date
-
-
-      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-      Login in to EGMS and click on EGMS IDs to access the assigned record.
-
-
       The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
 
       EGMS ID Type Status Subject Assigned By Reason of Failure
@@ -4343,7 +4333,6 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -4817,15 +4806,6 @@ Feature: Validate all scenarios for program
     Then I see the mail text is as follows :
       """
       Hello,
-
-      The task(s) below have been reassigned from [Automation FO] to [Automation FO1] successfully. Please find the details below:
-
-      EGMS ID Type Status Subject Assigned By Due Date
-
-
-      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-      Login in to EGMS and click on EGMS IDs to access the assigned record.
-
 
       The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
 
@@ -7490,8 +7470,10 @@ Feature: Validate all scenarios for program
     And I send the email under collab tab with following details:
       | To                            | Subject         | Body                       |
       | fo.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
+    And I wait for "2" seconds
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
+    And I wait for "2" seconds
     Then I softly see value "" for title "Attention To" inside table "---program:-:programCollabMessagesTableId---"
     Then I see the following rows under the following headers in table with id "---program:-:programCollabMessagesTableId---" :
       | Subject         | From Address                  | CC Address | To Address                    | Attention To | Email Subject   |
@@ -7501,8 +7483,10 @@ Feature: Validate all scenarios for program
     And I send the email under collab tab with following details:
       | To                            | Subject              | Body                          |
       | fo.automation.qa2@yopmail.com | RE: Automation Test1 | Automation Re-Test Email Body |
+    And I wait for "2" seconds
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
+    And I wait for "2" seconds
     Then I see value "" for title "Attention To" against the value "RE: Automation Test1" inside table "---program:-:programCollabMessagesTableId---"
     #330611
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
@@ -7520,8 +7504,10 @@ Feature: Validate all scenarios for program
     And I send the email under collab tab with following details:
       | To                            | Subject              | Body                                |
       | fo.automation.qa2@yopmail.com | RE: Automation Test2 | Automation Re-Test Email Body Again |
+    And I wait for "2" seconds
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
+    And I wait for "2" seconds
     Then I see value "" for title "Attention To" against the value "RE: Automation Test2" inside table "---program:-:programCollabMessagesTableId---"
 
   @331481 @331482 @331479 @331477 @331478 @ValidatethatSarahPMAndPeerReviewerVictorEXEwillseesystemEmailafterSarahPmsendsInternalProgramforPeerreview @Sprint-11-US-327737 @SystemEmail

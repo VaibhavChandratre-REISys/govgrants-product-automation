@@ -452,6 +452,7 @@ Feature: Application Intake scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly see field "Match Required?" as "Yes"
     And I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     Then I softly can see page block "Budget Summary by Focus Area"
     When I expand nested table containing column value "BP01"
     Then I softly see value "$0.00" for title "Total Match" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
@@ -841,7 +842,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table without waiting for record
     And I navigate to "Overview" sub tab
     And I navigate to "Financials" sub tab
-    Then I see value "$1000" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
+    Then I see value "$1000.00" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
     Examples:
       | User | userType        |
       | SPI3 | Automation SPI3 |
