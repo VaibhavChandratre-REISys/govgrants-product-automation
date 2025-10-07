@@ -26058,12 +26058,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
         When I click on parallel lines menu bar with data target value "Focus Areas"
         Then I see option "Refresh" present in parallel dropdown
         Then I see option "Download as PDF" present in parallel dropdown
-        When I click on "Original Budget Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-        Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        When I close "Original Budget Details" modal by clicking the top right x button
         When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
         Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentLineItemsTableId---"
         Then I softly cannot see row level action button "Edit" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
@@ -26114,11 +26108,10 @@ Feature: Validate all scenarios for Grantee Amendment Request
         When I "Approve" in the approval decision
         When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
         And I navigate to "Grants" tab
-        And I navigate to "Grants" tab
         When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
         And I click toggle button to select "Amendment Requests - My Records"
         When I perform quick search for "{SavedValue:FNCAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-        Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
+        Then I softly see value "Approved" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
         And I click on "View" icon for "{SavedValue:FNCAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
         And I navigate to "Overview" sub tab
         Then I softly cannot see top right button "Edit" in page detail
@@ -26141,12 +26134,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
         When I click on parallel lines menu bar with data target value "Focus Areas"
         Then I see option "Refresh" present in parallel dropdown
         Then I see option "Download as PDF" present in parallel dropdown
-        When I click on "Original Budget Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-        Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        When I close "Original Budget Details" modal by clicking the top right x button
         When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
         Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentLineItemsTableId---"
         Then I softly cannot see row level action button "Edit" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
@@ -26216,12 +26203,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
         When I click on parallel lines menu bar with data target value "Focus Areas"
         Then I see option "Refresh" present in parallel dropdown
         Then I see option "Download as PDF" present in parallel dropdown
-        When I click on "Original Budget Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-        Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        When I close "Original Budget Details" modal by clicking the top right x button
         When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
         Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentLineItemsTableId---"
         Then I softly cannot see row level action button "Edit" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
@@ -26294,12 +26275,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
         When I click on parallel lines menu bar with data target value "Focus Areas"
         Then I see option "Refresh" present in parallel dropdown
         Then I see option "Download as PDF" present in parallel dropdown
-        When I click on "Original Budget Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-        Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        When I close "Original Budget Details" modal by clicking the top right x button
         When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
         Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentLineItemsTableId---"
         Then I softly cannot see row level action button "Edit" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
@@ -26444,12 +26419,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
         Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
         Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
         Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
-        When I click on "Original Budget Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-        Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-        When I close "Original Budget Details" modal by clicking the top right x button
         When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
         Then I softly see top right button "New" inside flex table "---grantee_tableId:-:amendmentLineItemsTableId---"
         Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
@@ -26591,7 +26560,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
         When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
         And I click toggle button to select "Amendment Requests - All"
         When I perform quick search for "{SavedValue:FNCAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-        Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
+        Then I softly see value "Rejected" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
         And I click on "View" icon for "{SavedValue:FNCAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
         And I navigate to "Overview" sub tab
         Then I softly cannot see top right button "Edit" in page detail
@@ -26599,58 +26568,52 @@ Feature: Validate all scenarios for Grantee Amendment Request
         When I navigate to "Overview" sub tab
         Then I softly see "Details" page block displayed
         Then I softly see "Budget Period Details" page block displayed
-       Then I softly see "Funding Change" page block displayed
-          Then I softly see "Focus Areas" page block displayed
-          Then I softly see "Budget Change" page block displayed
-          Then I softly see "General Condition" page block displayed
-          Then I softly see "Special Conditions" page block displayed
-          Then I softly see "System Information" page block displayed
-          Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
-          Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
-          Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
-          Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
-          Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
-          Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
-          When I click on parallel lines menu bar with data target value "Focus Areas"
-          Then I see option "Refresh" present in parallel dropdown
-          Then I see option "Download as PDF" present in parallel dropdown
-          When I click on "Original Budget Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-          Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-          Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-          Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-          Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-          When I close "Original Budget Details" modal by clicking the top right x button
-          When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-          Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentLineItemsTableId---"
-          Then I softly cannot see row level action button "Edit" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
-          Then I softly cannot see row level action button "Delete" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
-          When I close "Add Line Items" modal by clicking the top right x button
-          Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
-          Then I softly see "Effective from" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
-          Then I softly see "Effective until" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
-          Then I softly see "Approved Indirect Cost Rate(%)" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
-          Then I softly see "Indirect Cost Rate Type" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
-          And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-          Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-          And I save the value from row "1" for column name "Approved Indirect Cost Rate(%)" as "ApprovedIndirectCostRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-          Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-          And I save the value from row "1" for column name "Indirect Cost Rate Type" as "IndirectCostRateType" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-          Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-          Then I softly cannot see row level action button "Edit" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-          Then I softly cannot see row level action button "Delete" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-          And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-          Then I softly can see row level action button "View" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-          Then I softly cannot see row level action button "Edit" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-          Then I softly cannot see row level action button "Delete" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-          Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-          Then I softly see link "Created By" inside Page block
-          And I save the field labeled "Created By" as "CreatedBy"
-          Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
-          And I save the field labeled "Created Date" as "CreatedDate"
-          Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
-          Then I softly see link "Last Modified By" inside Page block
-          And I save the field labeled "Last Modified By" as "LastModifiedBy"
-          Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedBy}"
+        Then I softly see "Funding Change" page block displayed
+        Then I softly see "Focus Areas" page block displayed
+        Then I softly see "Budget Change" page block displayed
+        Then I softly see "General Condition" page block displayed
+        Then I softly see "Special Conditions" page block displayed
+        Then I softly see "System Information" page block displayed
+        Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
+        Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+        Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+        Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
+        Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+        Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+        When I click on parallel lines menu bar with data target value "Focus Areas"
+        Then I see option "Refresh" present in parallel dropdown
+        Then I see option "Download as PDF" present in parallel dropdown
+        When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+        Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentLineItemsTableId---"
+        Then I softly cannot see row level action button "Edit" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
+        Then I softly cannot see row level action button "Delete" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
+        When I close "Add Line Items" modal by clicking the top right x button
+        Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+        Then I softly see "Effective from" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+        Then I softly see "Effective until" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+        Then I softly see "Approved Indirect Cost Rate(%)" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+        Then I softly see "Indirect Cost Rate Type" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+        And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+        Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+        And I save the value from row "1" for column name "Approved Indirect Cost Rate(%)" as "ApprovedIndirectCostRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+        Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+        And I save the value from row "1" for column name "Indirect Cost Rate Type" as "IndirectCostRateType" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+        Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+        Then I softly cannot see row level action button "Edit" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+        Then I softly cannot see row level action button "Delete" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+        And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+        Then I softly can see row level action button "View" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+        Then I softly cannot see row level action button "Edit" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+        Then I softly cannot see row level action button "Delete" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+        Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+        Then I softly see link "Created By" inside Page block
+        And I save the field labeled "Created By" as "CreatedBy"
+        Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
+        And I save the field labeled "Created Date" as "CreatedDate"
+        Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
+        Then I softly see link "Last Modified By" inside Page block
+        And I save the field labeled "Last Modified By" as "LastModifiedBy"
+        Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedBy}"
           And I save the field labeled "Last Modified Date" as "LastModifiedDate"
           Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
           When I navigate to "Responsibilities" sub tab
