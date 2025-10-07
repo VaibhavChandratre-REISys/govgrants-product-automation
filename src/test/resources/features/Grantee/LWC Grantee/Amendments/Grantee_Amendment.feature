@@ -27405,7 +27405,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
 
       @491723 @491469 @validateusingadminprofileaddedamountfordrawdownandspentchecktheimpactifRecorddecisionselectNotAccepted.
       Scenario Outline: Admin Profile Verify if added amount for drawdown and spent check the impact if Record decision select Not Accepted.
-      When I login to "As a Grantee" app as "GRANTEE ADMIN" user
+      When I login to "As a Grantee" app as "<userType>" user
       And I navigate to "Grants" tab
       When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
       And I click toggle button to select "Grants - All"
@@ -27469,6 +27469,13 @@ Feature: Validate all scenarios for Grantee Amendment Request
       Then I softly see value "$2,500.00" for title "Amount Spent to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
       #491469
       And I "Approved" of type "Funding Change" amendment request for title "{grantee_testData:GrantsForNonConstructionAndSpent}" with properties "default-<userName>"
+      And I navigate to "Grants" tab
+      When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+      And I click toggle button to select "Grants - All"
+      When I perform quick search for "{grantee_testData:GrantsForNonConstructionAndSpent}" in "---grantee_tableId:-:GrantsTable---" panel
+      And I click on "View" icon for "{grantee_testData:GrantsForNonConstructionAndSpent}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+      When I navigate to "Awards" sub tab
+      And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
       When I navigate to "Amendments" sub tab
       And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
       When I get the "EGMS ID"
@@ -27512,5 +27519,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
       When I navigate to "Amendments" sub tab
       Then I do not see value "Record Id" for title "{SavedValue:AmendEGMSID1}" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
       Examples:
-        | userType      | userName   |
-        | GRANTEE ADMIN | Product QA  |
+        Examples:
+          | userType      | userName   |
+          | GRANTEE ADMIN | Product QA |

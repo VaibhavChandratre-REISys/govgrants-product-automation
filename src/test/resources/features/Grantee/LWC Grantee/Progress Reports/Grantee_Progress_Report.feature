@@ -3706,12 +3706,12 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly do not see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
 
     @444524 @validateEXEuser(PRowner)canabletoSubmitProgressReportforapproval&Approvedfromassigned4stepapprover&candoSendtoOwner/Forward/Approvedactions&see'MarkasSubmitted'buttononceApprovedthePR&seevalidationsonmodal
-    Scenario Outline:Validate EXE user(PR owner) can able to Submit Progress Report for Approval & Approved from assigned 4 step approver & can do Send to Owner/ Forward/ Approved actions & see 'Mark as Submitted' button once Approved the PR & see validations on modal
-    And I "Created" standalone subaward "Automation Runtime award" with properties "default-<userName>"
+    Scenario: Validate EXE user(PR owner) can able to Submit Progress Report for Approval & Approved from assigned 4 step approver & can do Send to Owner/ Forward/ Approved actions & see 'Mark as Submitted' button once Approved the PR & see validations on modal
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
+    And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime Award}" with properties "NA_APPROVER_EXE_OWNER"
     When I login to "As a Grantee" app as "GRANTEE EXE" user
-    And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "default-<userName>"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3892,9 +3892,6 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly see field "Submitted By" as "{SavedValue:SubmittedBy}"
     And I save the field labeled "Submitted On" as "SubmittedOn"
     Then I softly see field "Submitted On" as "{SavedValue:SubmittedOn}"
-      Examples:
-           | userName      |
-           | Victor EXE user |
 
     @484561 @ValidateasEXEuser(progressreportrecordowner)canseefieldsonCreateProgressreportmodal&validationsonmodal
     Scenario: Validate as EXE user (progress report record owner) can see fields on Create Progress report modal & validations on modala
