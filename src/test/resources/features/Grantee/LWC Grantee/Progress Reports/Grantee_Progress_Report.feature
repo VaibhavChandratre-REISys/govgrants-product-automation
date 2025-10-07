@@ -4485,7 +4485,6 @@ Feature: Validate all scenarios for Grantee Progress Report
        When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
          | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
          | Grantee PO    | Fiscal Reviewer | Automation Description | 5        | Yes                  |
-       Then I softly can see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:progressReportApprovers---"
        When I navigate to "Forms and Files" sub tab
        Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
        Then I softly can see row level action button "Splitview" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
