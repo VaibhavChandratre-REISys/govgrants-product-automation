@@ -27524,6 +27524,5 @@ Feature: Validate all scenarios for Grantee Amendment Request
       When I navigate to "Amendments" sub tab
       Then I do not see value "Record Id" for title "{SavedValue:AmendEGMSID1}" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
       Examples:
-        Examples:
           | userType      | userName   |
           | GRANTEE ADMIN | Product QA |
