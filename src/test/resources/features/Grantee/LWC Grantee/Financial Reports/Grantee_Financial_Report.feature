@@ -1310,84 +1310,84 @@ Feature: Validate all scenarios for Financial Report
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I wait for "2" seconds
     And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "financialEGMSID2"
-    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I wait for "2" seconds
     And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "financialEGMSID3"
-    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I wait for "2" seconds
     And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "financialEGMSID4"
-    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I wait for "2" seconds
     And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "financialEGMSID5"
-    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I wait for "2" seconds
     And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "financialEGMSID6"
-    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I wait for "2" seconds
     And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "financialEGMSID7"
-    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I wait for "2" seconds
     And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "financialEGMSID8"
-    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I wait for "2" seconds
     And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "financialEGMSID9"
-    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I wait for "2" seconds
     And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "financialEGMSID10"
-    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab
     Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID1}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
