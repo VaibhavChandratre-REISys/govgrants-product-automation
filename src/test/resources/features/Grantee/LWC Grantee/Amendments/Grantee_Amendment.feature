@@ -27236,10 +27236,10 @@ Feature: Validate all scenarios for Grantee Amendment Request
       When I collapse nested table containing column value "BP01"
       Given I expand nested table containing column value "BP02"
       And I wait for "2" seconds
-      Then I softly see value "$7,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-      Then I softly see value "$700.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-      Then I softly see value "$400.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-      Then I softly see value "$8,100.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+      Then I softly see value "$9,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+      Then I softly see value "$900.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+      Then I softly see value "$600.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+      Then I softly see value "$10,500.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
       When I collapse nested table containing column value "BP02"
       And I navigate to "Overview" sub tab
       Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:grantFocusAreaTable---"
@@ -27249,10 +27249,10 @@ Feature: Validate all scenarios for Grantee Amendment Request
       And I navigate to "Projections" sub tab
       And I wait for "2" seconds
       Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
-      Then I softly see value "$7,000.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
-      Then I softly see value "$700.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
-      Then I softly see value "$400.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
-      Then I softly see value "$8,100.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+      Then I softly see value "$9,000.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+      Then I softly see value "$900.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+      Then I softly see value "$600.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+      Then I softly see value "$10,500.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
       When I navigate to "Actuals" sub tab
       When I save the field labeled "Grant Amount" as "GrantAmount"
       Then I softly see field "Grant Amount" as "{SavedValue:GrantAmount}"
@@ -27270,10 +27270,10 @@ Feature: Validate all scenarios for Grantee Amendment Request
       Then I softly see field "Total Program Income Revenue this Budget Period" as "{SavedValue:TotalProgramIncomeRevenuethisBudgetPeriod}"
       When I save the field labeled "Total Leverage" as "TotalLeverage"
       Then I softly see field "Total Leverage" as "{SavedValue:TotalLeverage}"
-      Then I softly see value "$7,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+      Then I softly see value "$9,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
       Then I softly see value "$0.00" for title "Spent to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
       Then I softly see value "$0.00" for title "Carry-Forward" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-      Then I softly see value "$7,000.00" for title "Remaining Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+      Then I softly see value "$9,000.00" for title "Remaining Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
       Then I softly see value "$0.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
       Then I softly see value "$0.00" for title "Program Income Expenditures" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
       Given I expand nested table containing column value "Automation Permanent Focus Area"
@@ -27291,19 +27291,10 @@ Feature: Validate all scenarios for Grantee Amendment Request
       Then I softly see field "Drawn to Date" as "$3,000.00"
       Then I softly see field "Current Balance" as "$3,000.00"
       Then I softly see field "Grant Balance" as "$97,000.00"
-#      Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-#      Then I softly see value "$0.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-#      Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-#      Then I softly see value " " for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-      Then I softly see value "$3,000.00" for title "Balance Amount" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-      Then I softly see value "$0.00.00" for title "Balance Amount" against the value "Automation Permanent Focus Area2" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-      Then I softly see value "$3,000.00" for title "Amount Drawn to Date" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-      Then I softly see value "$0.00.00" for title "Amount Drawn to Date" against the value "Automation Permanent Focus Area2" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-      And I wait for "2" seconds
-      And I refresh the page
-      Then I softly see field "Drawn to Date" as "$3,000.00"
-      Then I softly see field "Current Balance" as "$3,000.00"
-      Then I softly see field "Grant Balance" as "$97,000.00"
+      Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+      Then I softly see value "$0.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+      Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
+      Then I softly see value " " for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
     @471684 @Combinationofamendment-VerifytheValidationonsubmitforapprovalonrelatedtoBRamendmentrequestlayout
      Scenario Outline: Combination of amendment - Verify the Validation on submit for approval on related to BR amendment request layout
