@@ -3919,29 +3919,28 @@ Feature: Validate all scenarios for Grantee Progress Report
       And I save the field labeled "EGMS ID" as "AwardEGMSID"
       And I navigate to "Management" sub tab
       And I click on top right button "New" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+      And I wait for "2" seconds
+      And I enter in modal value "-3000" into field "ReportDueDate__c"
+      And I click modal button "Save and Continue"
+      Then I softly see the following messages in the page details contains:
+        | The Reporting Due Date cannot be before the Reporting Period End Date |
+      And I wait for "4" seconds
       And I clear the value from field "ReportingPeriodStartDate__c"
+      And I enter in modal value "4000" into field "ReportingPeriodStartDate__c"
+      And I enter in modal value "4000" into field "ReportDueDate__c"
+      And I click modal button "Save and Continue"
+      Then I softly see the following messages in the page details contains:
+        | The Reporting Period Start Date cannot be after the Reporting Period End Date |
+      And I wait for "3" seconds
+      And I clear the value from field "ReportingPeriodStartDate__c"
+      And I clear the value from field "ReportingPeriodEndDate__c"
       And I clear the value from field "ReportingPeriodEndDate__c"
       And I click modal button "Save and Continue"
       Then I softly see the following messages in the page details contains:
         | To Save, Reporting Period Start Date is required.|
         |  To Save, Reporting Period End Date is required.  |
         | To Save, Report Due Date is required. |
-      And I wait for "4" seconds
-      And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
-      And I wait for "2" seconds
-      And I clear the value from field "ReportingPeriodStartDate__c"
-      And I enter in modal value "4000" into field "ReportingPeriodStartDate__c"
-       And I click modal button "Save and Continue"
-      Then I softly see the following messages in the page details contains:
-        | The Reporting Period Start Date cannot be after the Reporting Period End Date |
-      And I wait for "4" seconds
-      And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
-      And I wait for "2" seconds
-      And I clear the value from field "ReportDueDate__c"
-      And I enter in modal value "-3000" into field "ReportDueDate__c"
-      And I click modal button "Save and Continue"
-      Then I softly see the following messages in the page details contains:
-        | The Reporting Due Date cannot be before the Reporting Period End Date |
+      
 
     @444491 @validatePMuser(progressreportrecordowner)canseevalidationsonwhilesubmitting2ndSceduledProgressReportforApproval,IfpreviouslyFinalreportisapprovedonSceduleProgressReport&UnmarkProgressReportduringRevisethenscedulescando
     Scenario: Validate PM user (progress report record owner) can see  validations on while submitting 2nd Sceduled Progress Report for Approval, If previously Final report is approved on Scedule Progress Report & Unmark Progress Report during Revise then scedules can do
