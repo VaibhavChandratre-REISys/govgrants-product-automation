@@ -26923,7 +26923,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
             When I click on "Activate Award" in the page details
             Then I softly see field "Status" as "Activated"
             And I save the field labeled "EGMS ID" as "AwardEGMSID1"
-            When I re-login to "As a Grantee" app as "GRANTEE EXE" user
+            And I wait for "2" seconds
+            And I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
             And I navigate to "Grants" tab
             When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
             And I click toggle button to select "Awards - All"
