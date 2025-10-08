@@ -3934,7 +3934,7 @@ Feature: Validate all scenarios for Grantee Progress Report
       And I wait for "3" seconds
       And I clear the value from field "ReportingPeriodStartDate__c"
       And I clear the value from field "ReportingPeriodEndDate__c"
-      And I clear the value from field "ReportingPeriodEndDate__c"
+      And I clear the value from field "ReportDueDate__c"
       And I click modal button "Save and Continue"
       Then I softly see the following messages in the page details contains:
         | To Save, Reporting Period Start Date is required.|
