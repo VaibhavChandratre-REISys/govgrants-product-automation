@@ -3786,7 +3786,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - All"
