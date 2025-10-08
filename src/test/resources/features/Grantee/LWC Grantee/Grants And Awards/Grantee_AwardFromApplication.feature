@@ -6543,7 +6543,6 @@ Feature: Validate all scenarios for Grantee Award from Application
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
-    And I refresh the page
     And I wait for "3" seconds
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"

@@ -3707,16 +3707,19 @@ Feature: Validate all scenarios for Grantee Progress Report
 
     @444524 @validateEXEuser(PRowner)canabletoSubmitProgressReportforapproval&Approvedfromassigned4stepapprover&candoSendtoOwner/Forward/Approvedactions&see'MarkasSubmitted'buttononceApprovedthePR&seevalidationsonmodal
     Scenario: Validate EXE user(PR owner) can able to Submit Progress Report for Approval & Approved from assigned 4 step approver & can do Send to Owner/ Forward/ Approved actions & see 'Mark as Submitted' button once Approved the PR & see validations on modal
-    And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "NA_APPROVER_EXE_OWNER"
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    And I navigate to "Management" sub tab
+      And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
+      And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+      And I activate the award for title "{SavedValue:Automation Runtime award}"
+      And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "NA_APPROVER_EXE_OWNER"
+      When I login to "As a Grantee" app as "GRANTEE EXE" user
+      And I navigate to "Grants" tab
+      When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+      And I click toggle button to select "Grants - All"
+      When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+      And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+      When I navigate to "Awards" sub tab
+      And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+      And I navigate to "Management" sub tab
     Then I softly can see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
     Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
     Then I softly can see row level action button "Delete" against "Created" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
@@ -3727,6 +3730,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:KPIOnProgressReport---" by clicking "Edit" :
         | EGMS ID                | Reported Value | Reported Value As Of |
         | Automation Runtime KPI | 10             | 1                    |
+    And I wait for "2" seconds
     When I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
         | Responsibilities - At least one approver is required.  |
@@ -3922,15 +3926,17 @@ Feature: Validate all scenarios for Grantee Progress Report
         | To Save, Reporting Period Start Date is required.|
         |  To Save, Reporting Period End Date is required.  |
         | To Save, Report Due Date is required. |
-      And I wait for "2" seconds
+      And I wait for "4" seconds
       And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
+      And I wait for "2" seconds
       And I clear the value from field "ReportingPeriodStartDate__c"
       And I enter in modal value "4000" into field "ReportingPeriodStartDate__c"
        And I click modal button "Save and Continue"
       Then I softly see the following messages in the page details contains:
         | The Reporting Period Start Date cannot be after the Reporting Period End Date |
-      And I wait for "2" seconds
+      And I wait for "4" seconds
       And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
+      And I wait for "2" seconds
       And I clear the value from field "ReportDueDate__c"
       And I enter in modal value "-3000" into field "ReportDueDate__c"
       And I click modal button "Save and Continue"
