@@ -3699,6 +3699,7 @@ public final class GovGrantsAssertionObjects {
     public boolean AssertTextinModal(String text) {
         boolean flag = false;
         try {
+            I.amPerforming().waitFor().ElementToBePresent(By.xpath("//div[contains(@class,'slds-modal__container')]//*[contains(text(),'" + text + "')]"));
             if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(ByUsing.xpath("//div[contains(@class,'slds-modal__container')]//*[contains(text(),'" + text + "')]")))) {
                 flag = true;
             }

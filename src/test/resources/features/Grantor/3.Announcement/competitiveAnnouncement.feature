@@ -335,7 +335,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I pause execution for "3" seconds
     When I click on "Upload Template" icon for "Automation test description" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
-    When I close "Add Files" modal by clicking the top right x button
+    When I close "Upload Document" modal by clicking the top right x button
     Then I softly see value "Mandatory" for title "Required" inside table "---announcement:-:annChecklist---"
     Then I softly see value "Award" for title "Applies To" inside table "---announcement:-:annChecklist---"
     Then I softly see value "Active" for title "Status" inside table "---announcement:-:annChecklist---"
@@ -490,7 +490,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I refresh the page
     And I wait for "4" seconds
     And I perform quick search for "Bus Testing" in "---announcement:-:relatedAnnouncementTableId---" panel
-    And I click on "Viw" icon for "Bus Testing" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
+    And I click on "View" icon for "Bus Testing" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
     Then I see the header is "Federal Program" in the page details
     Then I see the sub-header is "Bus Testing" in the page details
     And I wait for "5" seconds
