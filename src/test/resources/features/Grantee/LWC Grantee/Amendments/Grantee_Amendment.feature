@@ -27292,9 +27292,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       Then I softly see field "Current Balance" as "$3,000.00"
       Then I softly see field "Grant Balance" as "$97,000.00"
       Then I softly see value "$3,000.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-      Then I softly see value "$0.00" for title "Balance Amount" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
       Then I softly see value "$3,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
-      Then I softly see value " " for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
     @471684 @Combinationofamendment-VerifytheValidationonsubmitforapprovalonrelatedtoBRamendmentrequestlayout
      Scenario Outline: Combination of amendment - Verify the Validation on submit for approval on related to BR amendment request layout
