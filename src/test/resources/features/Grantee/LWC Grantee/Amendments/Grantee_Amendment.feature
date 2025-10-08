@@ -26928,8 +26928,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
             And I navigate to "Grants" tab
             When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
             And I click toggle button to select "Awards - All"
-            When I perform quick search for "{SavedValue:AwardEGMSID1}" in "---grantee_tableId:-:GrantsTable---" panel
-            And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+            When I perform quick search for "{SavedValue:AwardEGMSID1}" in "---grantee_tableId:-:awardTableId---" panel
+            And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:awardTableId---" without waiting for record
             Then I softly see field "Status" as "Active"
             When I navigate to "Amendments" sub tab
             Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
