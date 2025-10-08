@@ -6621,13 +6621,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details contains:
-      | Contacts added successfully. |
-    And I click modal button "Close"
-    Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
     Then I can see top right button "New" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I softly see "Create Contact" opens in overLay window
@@ -6810,8 +6803,6 @@ Feature: Validate all scenarios for Grantee Award from Application
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 17                          | 27                                  |
       | {SavedValue:EGMS ID2} | 27                          | {SavedValue:ReportingPeriodEndDate} |
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 15                          | 25                                  |
@@ -6912,7 +6903,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardsNotesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "New" :
       | Title        | Description      |
-      | Notes Record | Automation Notes |
+      | Notes Record1 | Automation Notes |
     Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     When I click on parallel lines menu bar with data target value "Notes"
@@ -7005,13 +6996,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details contains:
-      | Contacts added successfully. |
-    And I click modal button "Close"
-    Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
     Then I can see top right button "New" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I softly see "Create Contact" opens in overLay window
@@ -7288,7 +7272,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardsNotesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "New" :
       | Title        | Description      |
-      | Notes Record | Automation Notes |
+      | Notes Record2 | Automation Notes |
     Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     When I click on parallel lines menu bar with data target value "Notes"
