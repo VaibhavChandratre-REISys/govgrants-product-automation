@@ -3928,8 +3928,9 @@ Feature: Validate all scenarios for Grantee Progress Report
        And I click modal button "Save and Continue"
       Then I softly see the following messages in the page details contains:
         | The Reporting Period Start Date cannot be after the Reporting Period End Date |
+      And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
       And I clear the value from field "ReportDueDate__c"
-      And I enter in modal value "" into field "ReportDueDate__c"
+      And I enter in modal value "-3000" into field "ReportDueDate__c"
       And I click modal button "Save and Continue"
       Then I softly see the following messages in the page details contains:
         | The Reporting Due Date cannot be before the Reporting Period End Date |
