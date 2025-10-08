@@ -804,6 +804,7 @@ Feature: Application Intake scenarios without background
       | Automation Negotiation Iniatiation | ApplicantResponse__c |
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Negotiation Submitted"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab

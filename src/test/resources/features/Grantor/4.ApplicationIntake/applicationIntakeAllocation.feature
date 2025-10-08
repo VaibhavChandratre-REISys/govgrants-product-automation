@@ -658,6 +658,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "2" seconds
     When I click on "Submit Application" in the page details
 #   TODO: Message disappearing shortly
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount should be less than or equal to the Subaward Ceiling Amount. Adjust the Budgeted Amount in the Budget period section. |
 

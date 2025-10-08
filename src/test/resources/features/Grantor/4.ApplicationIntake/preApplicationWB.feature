@@ -980,7 +980,7 @@ Feature: Pre-Application scenarios without background
     And I wait for "3" seconds
     And I click on "Download" button for snapshot view
     And I wait for "3" seconds
-    When I download the file for snapshot
+    When I download the file
     And I wait for "3" seconds
     Then I see "Created" on page "1" of "govgrants" pdf file
 
