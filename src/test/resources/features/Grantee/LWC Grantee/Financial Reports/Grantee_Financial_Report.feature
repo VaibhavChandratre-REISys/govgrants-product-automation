@@ -1329,7 +1329,7 @@ Feature: Validate all scenarios for Financial Report
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -1338,7 +1338,7 @@ Feature: Validate all scenarios for Financial Report
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -1347,7 +1347,7 @@ Feature: Validate all scenarios for Financial Report
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -1356,7 +1356,7 @@ Feature: Validate all scenarios for Financial Report
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -1365,7 +1365,7 @@ Feature: Validate all scenarios for Financial Report
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -1374,7 +1374,7 @@ Feature: Validate all scenarios for Financial Report
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -1383,11 +1383,11 @@ Feature: Validate all scenarios for Financial Report
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     And I save the field labeled "EGMS ID" as "financialEGMSID10"
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab

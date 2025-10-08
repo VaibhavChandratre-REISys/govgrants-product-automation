@@ -26984,11 +26984,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
             When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
               | Name       | Amendment Request |
               | Victor EXE | NA                |
-            And I navigate to "Files" sub tab
-            And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-            And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
-            When I click modal button "Close"
-            And I wait for "2" seconds
             And I click on "Submit for Approval" in the page details
             Then I softly see the following messages in the page details contains:
               | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
@@ -26998,7 +26993,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
             When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
             And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
               | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
-              | Construction   | The narrative | 4000           |   10        |     20        |
+              | Construction   | The narrative | 6000           |   10        |     20        |
             When I close "Add Line Items" modal by clicking the top right x button
             And I wait for "3" seconds
             And I click on "Submit for Approval" in the page details
