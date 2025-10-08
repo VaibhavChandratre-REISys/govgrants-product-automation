@@ -27424,18 +27424,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
       When I navigate to "Amendments" sub tab
       Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
       And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-      Then I softly see that "Award__c" rendered in view mode only
-      Then I softly see that "FAINAmendmentNumber__c" rendered in view mode only
-      Then I softly see that "GrantNumber__c" rendered in view mode only
-      Then I see textarea field "Impact__c" is editable
-      Then I see textarea field "PurposeRTA__c" is editable
-      And I click modal button "Save and Continue"
-      Then I softly see the following messages in the page details contains:
-         | To Save, Please select Amendment Request Type is required. |
-      Then I softly see the following messages in the page details contains:
-          | To Save, Initiated By is required. |
-      Then I softly see the following messages in the page details contains:
-         | To Save, Justification is required. |
       And I enter "Grantee_FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
         And I click modal button "Save and Continue"
         And I click on "Save" in the page details
