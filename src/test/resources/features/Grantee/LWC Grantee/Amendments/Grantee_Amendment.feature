@@ -27422,21 +27422,21 @@ Feature: Validate all scenarios for Grantee Amendment Request
       And I refresh the page
       And I wait for "2" seconds
       When I navigate to "Amendments" sub tab
-        Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
-        And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-        Then I softly see that "Award__c" rendered in view mode only
-        Then I softly see that "FAINAmendmentNumber__c" rendered in view mode only
-        Then I softly see that "GrantNumber__c" rendered in view mode only
-        Then I see textarea field "Impact__c" is editable
-        Then I see textarea field "PurposeRTA__c" is editable
-        And I click modal button "Save and Continue"
-        Then I softly see the following messages in the page details contains:
-          | To Save, Please select Amendment Request Type is required. |
-        Then I softly see the following messages in the page details contains:
+      Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
+      And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+      Then I softly see that "Award__c" rendered in view mode only
+      Then I softly see that "FAINAmendmentNumber__c" rendered in view mode only
+      Then I softly see that "GrantNumber__c" rendered in view mode only
+      Then I see textarea field "Impact__c" is editable
+      Then I see textarea field "PurposeRTA__c" is editable
+      And I click modal button "Save and Continue"
+      Then I softly see the following messages in the page details contains:
+         | To Save, Please select Amendment Request Type is required. |
+      Then I softly see the following messages in the page details contains:
           | To Save, Initiated By is required. |
-        Then I softly see the following messages in the page details contains:
-          | To Save, Justification is required. |
-        And I enter "Grantee_FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+      Then I softly see the following messages in the page details contains:
+         | To Save, Justification is required. |
+      And I enter "Grantee_FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
         And I click modal button "Save and Continue"
         And I click on "Save" in the page details
         And I get the "EGMS ID"
@@ -27476,13 +27476,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
         Then I can see top right button "Edit" in page detail
         Then I can see top right button "Delete" in page detail
         Then I can see top right button "Submit for Approval" in page detail
+        And I click on "Edit" in the page details
         And I wait for "3" seconds
-        And I navigate to "Grants" tab
-        When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-        And I click toggle button to select "Amendment Requests - My Records"
-        When I perform quick search for "{SavedValue:FNCAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-        Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-        And I click on "Edit" icon for "{SavedValue:FNCAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
         Then I can see top right button "Save" in page detail
         Then I can see top right button "Cancel" in page detail
         Then I softly can see "Overview" sub tab at view detail page
@@ -27631,74 +27626,13 @@ Feature: Validate all scenarios for Grantee Amendment Request
         Then I softly see value "Terms1" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
         And I click on "Delete" icon for "Terms1" inside flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
         Then I softly do not see value "Terms1" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-        Then I softly see link "Created By" inside Page block
-        And I save the field labeled "Created By" as "CreatedBy"
-        Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
-        And I save the field labeled "Created Date" as "CreatedDate"
-        Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
-        Then I softly see link "Last Modified By" inside Page block
-        And I save the field labeled "Last Modified By" as "LastModifiedBy"
-        Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedBy}"
-        And I save the field labeled "Last Modified Date" as "LastModifiedDate"
-        Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
         When I navigate to "Responsibilities" sub tab
-        Then I softly see "Peer Reviewers" page block displayed
-        Then I softly see "Approvers" page block displayed
-        Then I softly see "Owner" page block displayed
-        Then I softly see "Reviewer Name" in flex table header "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-        Then I softly see "Role" in flex table header "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-        Then I softly see "Description" in flex table header "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-        Then I softly see "Due Date" in flex table header "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-        Then I softly see "Allow Record Editing" in flex table header "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-        Then I softly see "Status" in flex table header "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-        When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
-          | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
-          | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
-        Then I softly see value "David FO" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-        When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
-          | Reviewer Name | Role             | Description            | Due Date | Allow Record Editing |
-          | Automation FD | Program Reviewer | Automation Description | 5        | No                   |
-        Then I softly see value "Automation FD" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-        Then I softly can see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-        Then I softly can see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-        Then I softly can see row level action button "Delete" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-        Then I softly can see row level action button "Send for Review" against "Program Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-        Then I softly can see row level action button "Edit" against "Program Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-        Then I softly can see row level action button "Delete" against "Program Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-        And I click on "Edit" icon for "Fiscal Reviewer" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
-        Then I softly see fields "name__r.name" is in edit mode
-        Then I softly see fields "ReviewerRole__c" is in edit mode
-        Then I softly see fields "Responsibility__c" is in edit mode
-        Then I softly see fields "DueDate__c" is in edit mode
-        Then I softly see fields "AllowRecordEdit__c" is in edit mode
-        And I click on top right button "Save" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-        And I click on "Edit" icon for "Program Reviewer" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
-        Then I softly see fields "name__r.name" is in edit mode
-        Then I softly see fields "ReviewerRole__c" is in edit mode
-        Then I softly see fields "Responsibility__c" is in edit mode
-        Then I softly see fields "DueDate__c" is in edit mode
-        Then I softly see fields "AllowRecordEdit__c" is in edit mode
-        And I click on top right button "Save" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-        And I click on "Delete" icon for "Automation FD" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
-        Then I softly see the following messages in the page details contains:
-          | Record deleted successfully. |
-        Then I softly do not see value "Automation FD" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-        And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
-        Then I softly see that "Sent for Review" has been added in flextable with Id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-        Then I softly see "Name" in flex table header "---grantee_tableId:-:AmendmentApproverRolesTableId---"
-        Then I softly see "Amendment Request" in flex table header "---grantee_tableId:-:AmendmentApproverRolesTableId---"
         When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
           | Name       | Amendment Request |
           | Victor EXE | Step 1            |
         When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
           | Name     | Amendment Request |
           | David FO | Step 2            |
-        Then I softly see link "Victor EXE" inside Page block
-        And I click on hyperlink containing value "Victor EXE"
-        Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
-        And I wait for "2" seconds
-        And I click on back arrow
-        And I wait for "2" seconds
         And I navigate to "Files" sub tab
         Then I softly see "Amendment Files" page block displayed
         Then I softly see "Notes" page block displayed

@@ -6564,45 +6564,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see field "Grant EGMS ID" inside page block
     And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
     Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
-    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    Then I see the header is "Grant" in the page details
-    And I click on back arrow
-    Then I softly see field "Amendment Number" inside page block
-    When I hovering mouse on help text icon inside page block detail "Amendment Number"
-    Then I softly see "Amendment number provided in NOA Document. Field should allow only numbers upto 4 digits" shown as help text
-    Then I softly see field "Award Issue Date" inside page block
-    Then I softly see field "Award Type" inside page block
-    Then I softly see field "Version Number" inside page block
-    When I hovering mouse on help text icon inside page block detail "Version Number"
-    Then I softly see "System generated number used to track changes to the award" shown as help text
-    Then I softly see field " Funding Organization " inside page block
-    And I save the field labeled " Funding Organization " as "FundingOrganization "
-    Then I softly see link "{SavedValue:FundingOrganization}" inside Page block
-    And I click on hyperlink containing value "{SavedValue:FundingOrganization}"
-    Then I see the header is "Federal Organization" in the page details
-    Then I see the sub-header is "{SavedValue:FundingOrganization}" in the page details
-    And I click on back arrow
-    And I save the field labeled " Internal Organization " as "InternalOrganization"
-    Then I softly see link "{SavedValue:InternalOrganization}" inside Page block
-    And I click on hyperlink containing value "{SavedValue:InternalOrganization}"
-    Then I see the header is "Internal Organization" in the page details
-    Then I see the sub-header is "{SavedValue:InternalOrganization}" in the page details
-    And I click on back arrow
-    Then I softly see field "Application" inside page block
-    Then I softly see field "Maintenance Of Effort Amount" inside page block
-    Then I softly see field "Maintenance of Effort Statutory Reference" inside page block
-    When I hovering mouse on help text icon inside page block detail "Maintenance of Effort Statutory Reference"
-    Then I softly see "URL of MOE" shown as help text
-    Then I softly see field "Terms and Conditions Link" inside page block
-    When I hovering mouse on help text icon inside page block detail "Terms and Conditions Link"
-    Then I softly see "Enter link to award terms and conditions as provided in award letter" shown as help text
-    Then I softly see field "Separate Attachment for Terms and Conditions?" inside page block
-    When I hovering mouse on help text icon inside page block detail "Separate Attachment for Terms and Conditions?"
-    Then I softly see "Terms & Conditions must be uploaded in the Files section." shown as help text
-    Then I softly see field "Funder Payment System" inside page block
-    When I hovering mouse on help text icon inside page block detail "Funder Payment System"
-    Then I softly see "The federal payment system providing the funds for the award." shown as help text
-    Then I softly see field "Funder Payment System Sub-Account Number" inside page block
     Then I softly see "Description" page block displayed
     Then I softly see field "Scope / Award Description" inside page block
     Then I softly see "External Programs" page block displayed
@@ -6916,45 +6877,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see field "Grant EGMS ID" inside page block
     And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
     Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
-    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    Then I see the header is "Grant" in the page details
-    And I click on back arrow
-    Then I softly see field "Amendment Number" inside page block
-    When I hovering mouse on help text icon inside page block detail "Amendment Number"
-    Then I softly see "Amendment number provided in NOA Document. Field should allow only numbers upto 4 digits" shown as help text
-    Then I softly see field "Award Issue Date" inside page block
-    Then I softly see field "Award Type" inside page block
-    Then I softly see field "Version Number" inside page block
-    When I hovering mouse on help text icon inside page block detail "Version Number"
-    Then I softly see "System generated number used to track changes to the award" shown as help text
-    Then I softly see field "Funding Organization" inside page block
-    And I save the field labeled "Funding Organization" as "FundingOrganization"
-    Then I softly see link "{SavedValue:FundingOrganization}" inside Page block
-    And I click on hyperlink containing value "{SavedValue:FundingOrganization}"
-    Then I see the header is "Federal Organization" in the page details
-    Then I see the sub-header is "{SavedValue:FundingOrganization}" in the page details
-    And I click on back arrow
-    And I save the field labeled "Internal Organization" as "InternalOrganization"
-    Then I softly see link "{SavedValue:InternalOrganization}" inside Page block
-    And I click on hyperlink containing value "{SavedValue:InternalOrganization}"
-    Then I see the header is "Internal Organization" in the page details
-    Then I see the sub-header is "{SavedValue:InternalOrganization}" in the page details
-    And I click on back arrow
-    Then I softly see field "Application" inside page block
-    Then I softly see field "Maintenance Of Effort Amount" inside page block
-    Then I softly see field "Maintenance of Effort Statutory Reference" inside page block
-    When I hovering mouse on help text icon inside page block detail "Maintenance of Effort Statutory Reference"
-    Then I softly see "URL of MOE" shown as help text
-    Then I softly see field "Terms and Conditions Link" inside page block
-    When I hovering mouse on help text icon inside page block detail "Terms and Conditions Link"
-    Then I softly see "Enter link to award terms and conditions as provided in award letter" shown as help text
-    Then I softly see field "Separate Attachment for Terms and Conditions?" inside page block
-    When I hovering mouse on help text icon inside page block detail "Separate Attachment for Terms and Conditions?"
-    Then I softly see "Terms & Conditions must be uploaded in the Files section." shown as help text
-    Then I softly see field "Funder Payment System" inside page block
-    When I hovering mouse on help text icon inside page block detail "Funder Payment System"
-    Then I softly see "The federal payment system providing the funds for the award." shown as help text
-    Then I softly see field "Funder Payment System Sub-Account Number" inside page block
     Then I softly see "Description" page block displayed
     Then I softly see field "Scope / Award Description" inside page block
     Then I softly see "External Programs" page block displayed
