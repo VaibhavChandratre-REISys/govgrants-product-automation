@@ -26706,7 +26706,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
           When I close "Add Line Items" modal by clicking the top right x button
           And I wait for "3" seconds
           When I click on "Add Line Items" icon for "Architectural and engineering fees" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-          And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
+          When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
             | Title                              | Narrative     | Awarded Budget | Cash Match | Other Leverage |
             | Architectural and engineering fees | The narrative | 1000           | 100        | 100            |
           When I close "Add Line Items" modal by clicking the top right x button
