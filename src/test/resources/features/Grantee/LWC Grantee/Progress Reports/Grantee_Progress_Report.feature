@@ -3707,10 +3707,7 @@ Feature: Validate all scenarios for Grantee Progress Report
 
     @444524 @validateEXEuser(PRowner)canabletoSubmitProgressReportforapproval&Approvedfromassigned4stepapprover&candoSendtoOwner/Forward/Approvedactions&see'MarkasSubmitted'buttononceApprovedthePR&seevalidationsonmodal
     Scenario: Validate EXE user(PR owner) can able to Submit Progress Report for Approval & Approved from assigned 4 step approver & can do Send to Owner/ Forward/ Approved actions & see 'Mark as Submitted' button once Approved the PR & see validations on modal
-    And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
-    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
-    And I activate the award for title "{SavedValue:Automation Runtime award}"
-    And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime Award}" with properties "NA_APPROVER_EXE_OWNER"
+    And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "NA_APPROVER_EXE_OWNER"
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -3720,8 +3717,12 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Management" sub tab
+    Then I softly can see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    Then I softly can see row level action button "Delete" against "Created" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
     And I save the field labeled "EGMS ID" as "progressEGMSID"
+    And I wait for "3" seconds
     When I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:KPIOnProgressReport---" by clicking "Edit" :
         | EGMS ID                | Reported Value | Reported Value As Of |
