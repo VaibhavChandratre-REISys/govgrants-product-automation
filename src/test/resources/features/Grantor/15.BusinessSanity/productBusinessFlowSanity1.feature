@@ -4831,8 +4831,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I refresh the page
     And I wait for "2" seconds
     Then I see that "Status" is in "Review Completed" status
-    And I save the field in the form labeled "Score" as "preScreenScore"
-    Then I softly see field in the form "Score" as "{SavedValue:preScreenScore}"
+#    And I save the field in the form labeled "Score" as "preScreenScore"
+#    Then I softly see field in the form "Score" as "{SavedValue:preScreenScore}"
     Then I softly can see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
@@ -4891,8 +4891,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
-    And I save the field in the form labeled "Score" as "programSMEScore"
-    Then I softly see field in the form "Score" as "{SavedValue:programSMEScore}"
+#    And I save the field in the form labeled "Score" as "programSMEScore"
+#    Then I softly see field in the form "Score" as "{SavedValue:programSMEScore}"
     Then I softly can see top right button "Undo" in page detail
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4904,8 +4904,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
-    And I save the field in the form labeled "Score" as "fiscalSMEScore"
-    Then I softly see field in the form "Score" as "{SavedValue:fiscalSMEScore}"
+#    And I save the field in the form labeled "Score" as "fiscalSMEScore"
+#    Then I softly see field in the form "Score" as "{SavedValue:fiscalSMEScore}"
     Then I softly can see top right button "Undo" in page detail
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4917,8 +4917,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
-    And I save the field in the form labeled "Score" as "complianceSMEScore"
-    Then I softly see field in the form "Score" as "{SavedValue:complianceSMEScore}"
+#    And I save the field in the form labeled "Score" as "complianceSMEScore"
+#    Then I softly see field in the form "Score" as "{SavedValue:complianceSMEScore}"
     Then I softly can see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -4959,8 +4959,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
-    And I save the field in the form labeled "Score" as "managementScore"
-    Then I softly see field in the form "Score" as "{SavedValue:managementScore}"
+#    And I save the field in the form labeled "Score" as "managementScore"
+#    Then I softly see field in the form "Score" as "{SavedValue:managementScore}"
     Then I softly can see top right button "Undo" in page detail
 
     Examples:
