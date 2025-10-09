@@ -1233,7 +1233,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
-    And I pause execution for "30" seconds
+    And I pause execution for "60" seconds
     And I refresh the page
     And I pause execution for "3" seconds
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
