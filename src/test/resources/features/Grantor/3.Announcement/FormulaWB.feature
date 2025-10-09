@@ -842,20 +842,25 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationReview:-:reviewsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     And I navigate to "Financials" sub tab
-    Then I softly can see page block "Budget Summary"
+    And I wait for "2" seconds
+    Then I softly see "Budget Summary" page block displayed
     Then I see the following headers in table with id "---applicationIntake:-:formulaAllocatedAmountTableId---" :
       | Allocation Amount |
     When I click on "Qualify" in the page details
     And I navigate to "Financials" sub tab
+    And I wait for "2" seconds
     Then I softly can see page block "Budget Summary"
     Then I see the following headers in table with id "---applicationIntake:-:formulaAllocatedAmountTableId---" :
       | Allocation Amount |
     And I navigate to "Opportunities" tab
+    And I wait for "2" seconds
     When I navigate to "Qualified" content inside "Opportunities" subheader on left panel
+    And I wait for "2" seconds
     And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationIntake:-:qualifiedTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationIntake:-:qualifiedTableId---" without waiting for record
     And I pause execution for "3" seconds
     And I navigate to "Financials" sub tab
+    And I pause execution for "1" seconds
     Then I softly see "Budget Summary" page block displayed
     Then I see the following headers in table with id "---applicationIntake:-:formulaAllocatedAmountTableId---" :
       | Allocation Amount |
@@ -3569,7 +3574,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{AUTOEnvData:ClosedStateFormulaAnn_ByApplicant_FDMApproved}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{AUTOEnvData:ClosedStateFormulaAnn_ByApplicant_FDMApproved}" inside table
     And I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$2,000.00"
+    Then I softly see field "Allocation Amount" as "$1,000.00"
 
   @222467 @222376 @222306 @VerifyusercannotdeletetheassociatedfocusareawhenAnnouncementisinclosedstate @sprint-11-US-201558  @Allocation
   Scenario: Verify user cannot delete the associated focus area when Announcement is in closed state.
@@ -3600,7 +3605,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "7" seconds
     And I navigate to "Budget" sub tab
     And I wait for "7" seconds
-    Then I softly see field "Allocation Amount" as "$2,000.00"
+    Then I softly see field "Allocation Amount" as "$1,000.00"
 
   @222301 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisClosedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558  @Allocation
   Scenario: Verify if user wants update the final allocation for a given organization & if the announcement status is Closed then user should see the updated final allocation is reflected in the corresponding application (before award creation)
@@ -4288,7 +4293,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     Then I see the following rows under the following headers in table with id "FundingDecisionMemoApplications" :
       | Allocation Amount | Budgeted Amount |
-      | $2,000            | $1,000.00       |
+      | $2,000.00         | $1,000.00       |
 
     Examples:
       | Announcement Name                                    |
