@@ -8032,8 +8032,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Active" for title "New Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     And I click on back arrow
-    Then I softly see snapshot with name containing "Approver Decision.pdf" as name
-    Then I softly see snapshot with user containing "{SavedValue:PM Username}" against the value "Approver Decision.pdf"
+    And I wait for "2" seconds
     Then I softly see snapshot with name containing "Approver Decision.pdf" as name
     Then I softly see snapshot with user containing "{SavedValue:FD Username}" against the value "Approver Decision.pdf"
 

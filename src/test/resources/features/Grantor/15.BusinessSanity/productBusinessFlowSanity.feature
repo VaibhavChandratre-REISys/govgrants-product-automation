@@ -4501,6 +4501,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Close"
     And I wait for "2" seconds
     And I logout
+    And I wait for "2" seconds
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
     And I navigate to maildrop portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Notification: Invitation to be a user of EGMS"
     When I click on "Agree" in the page details

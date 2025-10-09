@@ -392,6 +392,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Accept" in the page details
     And I wait for "3" seconds
     And I logout
+    And I wait for "3" seconds
     And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "50" seconds
     And I refresh the page
