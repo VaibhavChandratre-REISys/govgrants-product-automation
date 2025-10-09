@@ -7349,6 +7349,8 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click modal button "Continue"
     And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I get the "EGMS ID"
