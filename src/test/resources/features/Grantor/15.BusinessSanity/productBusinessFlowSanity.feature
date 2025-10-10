@@ -1262,6 +1262,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I pause execution for "4" seconds
     And I click on "Save" in the page details
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
@@ -1960,10 +1961,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-    And I halt execution
     And I pause execution for "2" seconds
     When I click modal button "Close"
-    And I halt execution
+    And I refresh the page
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 
   @72350 @adhocAdvanceHappyPath @ProdSan1
@@ -2157,6 +2157,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "2" seconds
     When I click modal button "Close"
+    And I refresh the page
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     Examples:
       | Award Name                            | Grant Name                            |
@@ -4482,7 +4483,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I generate the random maildropEmail and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
     When I click on "Save" in the page details
+    And I pause execution for "15" seconds
     When I click on "Submit" in the page details
+    And I pause execution for "30" seconds
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
@@ -4541,8 +4544,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "Individual_PrimaryDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
+    And I pause execution for "30" seconds
     When I click on "Submit" in the page details
-    And I pause execution for "5" seconds
+    And I pause execution for "15" seconds
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
@@ -4552,6 +4556,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
     And I click on mail with subject "Sandbox: Welcome to GovGrants 3.0 Recipient Portal"
     And I navigate to reset password link
+    And I pause execution for "60" seconds
     Then I set password for the user
     And I navigate to "Home" tab
     When I navigate to "Individual Profile" content inside "Organization" subheader on left panel
