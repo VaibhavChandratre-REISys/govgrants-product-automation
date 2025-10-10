@@ -1602,6 +1602,7 @@ Feature: Amendment Request scenarios with Undo
       | Budget Category | Carry Forward |
       | Construction    | 500           |
     When I click on button "resetIcon" in flex table with id "---progressReport:-:budgetChangeTableId---"
+    And I wait for "1" seconds
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1200                 | 120        | 0              |
@@ -3024,12 +3025,9 @@ Feature: Amendment Request scenarios with Undo
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I click on "Save" in the page details
+    And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
-    When I click on "Edit" in the page details
-    And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    When I click on "Save" in the page details
     When I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I enter values into fields
       | Value                                    | Field        |
@@ -7548,12 +7546,10 @@ Feature: Amendment Request scenarios with Undo
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
-    And I get the "EGMS ID"
-    When I click on "Edit" in the page details
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
+    And I get the "EGMS ID"
     When I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I pause execution for "5" seconds
     And I enter values into fields
@@ -9611,12 +9607,10 @@ Feature: Amendment Request scenarios with Undo
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
-    And I get the "EGMS ID"
-    When I click on "Edit" in the page details
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
+    And I get the "EGMS ID"
     When I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I enter values into fields
       | Value                                    | Field        |
@@ -11267,6 +11261,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send to Owner |
@@ -11296,6 +11291,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -11319,6 +11315,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send to Owner |
@@ -11331,6 +11328,7 @@ Feature: Amendment Request scenarios with Undo
     And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Send to Subrecipient" in the page details
+    Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -11400,6 +11398,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send to Owner |

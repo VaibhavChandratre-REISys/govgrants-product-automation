@@ -735,7 +735,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Management" sub tab
-    Then I can see row level action button "Delete" against "Funding Change" in flex table with id "---amendment:-:amendmentRequestTableId---"
+    Then I cannot see row level action button "Delete" against "Funding Change" in flex table with id "---amendment:-:amendmentRequestTableId---"
 
   @56971 @56859  @56855 @VerifyAlertMessageIfSubRecipientSendbackAmendmentRequestToGrantorWithoutUpdated
   Scenario: Verify alert message if sub-recipient send backs amendment request without update to grantor |  Verify SPI user is able to check
@@ -2169,7 +2169,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
+      | Value                    | Field          |
       | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     #97917 #monu

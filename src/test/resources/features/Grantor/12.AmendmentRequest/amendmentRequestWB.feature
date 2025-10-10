@@ -6074,6 +6074,7 @@ Feature: Amendment Request scenarios without background
       | {SavedValue:PM Username} | Step 1 | Step 1            |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
+    Then I softly see field "Status" as "Sent to Subrecipient"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -10754,8 +10755,6 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    When I click on "Edit" in the page details
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "scopeWorkId"
@@ -11699,13 +11698,11 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---amendment:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientBPC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "budgetPChangeId"
-    And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "budgetPChangeId"
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Submit to Grantor" in the page details
@@ -23210,15 +23207,12 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Scope&BudgetPeriod_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "budgetPC&ScopeId"
-    And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
-    When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I pause execution for "2" seconds
+    And I save the field labeled "EGMS ID" as "budgetPC&ScopeId"
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I pause execution for "3" seconds
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
