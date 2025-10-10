@@ -25625,6 +25625,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Management" sub tab
     Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    And I navigate to "Overview" sub tab
     Then I softly see field "Overall Risk" as "{SavedValue:OverAllRisk}"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
