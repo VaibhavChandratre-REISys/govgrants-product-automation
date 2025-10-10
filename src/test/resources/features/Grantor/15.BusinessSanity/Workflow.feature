@@ -1929,7 +1929,3 @@ Feature: Validate all scenarios of every modules flow
 
   @testChecking @debug
   Scenario:
-    When I login to "Grantor" app as "PM" user
-    When I navigate to "Planning" tab
-    And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
-    And I click toggle button to select "External Funding Sources - All"
