@@ -7166,13 +7166,13 @@ Feature: Amendment Request scenarios with Undo
     When I click on "Override" in the page details
     When I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Completed" and is "dark blue"
+    Then I see status in Progress-bar is "Completed" and is "dark blue"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---closeout:-:grantsTableId---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---closeout:-:grantsTableId---"
-    Then I softly see field "Status" as "Closed/Completed"
+    Then I see field "Status" as "Closed/Completed"
     And I navigate to "Grants" tab
     And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - All"
@@ -9108,6 +9108,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
 
   @289043 @Verifywhenlaststepapproverclickundothenwarningmessageisdisplayedtotheuser @Sprint-1-US-297244  @Undo
@@ -9185,6 +9186,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
 
   @329496 @ValidateBudgetperiodchangeauditorusercannotseeUndobuttonontheBPchangeamendmentwhenamendmentisinapprovedstate @Undo
@@ -11618,13 +11620,13 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     And I refresh the page
     When I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Completed" and is "dark blue"
+    Then I see status in Progress-bar is "Completed" and is "dark blue"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---closeout:-:grantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---closeout:-:grantsTableId---"
-    Then I softly see field "Status" as "Closed/Completed"
+    Then I see field "Status" as "Closed/Completed"
     Then I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:ActivatedSubAwardId}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
@@ -12341,10 +12343,12 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I see field "Status" as "Submitted for Approval"
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send to Owner |
     When I "Send to Owner" in the approval decision
+    And I wait for "50" seconds
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     Then I can see top right button "Edit" in page detail
@@ -12485,6 +12489,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send to Owner |
@@ -12590,6 +12595,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send to Owner |
@@ -14660,7 +14666,7 @@ Feature: Amendment Request scenarios with Undo
     When I perform quick search for "{SavedValue:TermsCondId}" in "---program:-:grantorTaskReassignTableId---" panel
     When I check "{SavedValue:TermsCondId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
-    And I pause execution for "30" seconds
+    And I pause execution for "50" seconds
     And I reset the table
     When I perform quick search for "{SavedValue:TermsCondId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:TermsCondId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
@@ -14681,6 +14687,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "Grants" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
@@ -14754,6 +14761,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send to Owner |
@@ -14806,6 +14814,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send to Owner |
@@ -14872,6 +14881,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     #292591
     And I navigate to "History" sub tab
@@ -15098,6 +15108,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "Grants" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
@@ -15162,6 +15173,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send to Owner |
@@ -15184,6 +15196,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send to Owner |

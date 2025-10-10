@@ -1831,8 +1831,9 @@ Feature: Amendment Request scenarios without background
     #100163 #monu
     When I click on top right button "Associate" in flex table with id "---amendment:-:goalsAndObjectivesTableId---"
     And I click "Associate" after selection of "<Objectives>" by showing entries "All" in flex table with id "---amendment:-:objectivesTableId---"
+    And I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see that "<Objectives>" has been added in flextable with Id "---amendment:-:goalsAndObjectivesTableId---"
-    And I refresh the page
     When I edit the following rows inline in flex table with id "---amendment:-:AmendmentKPITableId---" by clicking "Edit" :
       | Title                    | Target |
       | Automation Permanent KPI | 5      |
