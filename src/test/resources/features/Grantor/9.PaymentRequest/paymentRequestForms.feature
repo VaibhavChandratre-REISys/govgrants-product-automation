@@ -1,7 +1,6 @@
 @paymntRequestForms @grantor-parallel-regression @paymentRequest @payReqPendingExecution
 Feature: Payment Request Forms scenarios
 
-
   @308590 @308685 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-1-US-282692 @Forms
   Scenario: Validate SPI user can able to save & validate form after entering correct & valid data on all fields present on form
     And I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
@@ -64,7 +63,7 @@ Feature: Payment Request Forms scenarios
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     And I wait for "2" seconds
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I wait for "5" seconds
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -332,7 +331,6 @@ Feature: Payment Request Forms scenarios
     Then I softly see the text containing "OMB Number: 4040-0012"
     Then I softly see the text containing "Expiration Date: 01/31/2025"
     When I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
     Then I softly see the following messages in the page details contains:
       | To Save, Street1 is required in the 10. Payee (Where check is to be sent if different than item 9) section.           |
       | To Save, City is required in the 10. Payee (Where check is to be sent if different than item 9) section.              |
@@ -1067,6 +1065,7 @@ Feature: Payment Request Forms scenarios
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "5" seconds
     And I click modal button "Save and Continue"
     And I wait for "3" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -1103,12 +1102,11 @@ Feature: Payment Request Forms scenarios
     And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "5" seconds
+    And I wait for "2" seconds
     And I close the tab
     And I wait for "2" seconds
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
-    And I wait for "3" seconds
     Then I see field "Status" as "Submitted to Grantor"
     Given I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab

@@ -1,4 +1,4 @@
-@siteVisitDeskReviewWB @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisitUndo @siteVisit_Lwc_Run @siteAndDeskReview
+@siteVisitDeskReviewWB @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisitUndo @siteVisit_Lwc_Run @siteAndDeskReview @siteExecution
 Feature: Validate all scenarios in the Site Visit with Undo
 
   @279063 @279065 @VerifyFDuserassinglestepapproverstep1canabletoseeUNDObuttonafterApprovedtheSiteVisitbyassignedapprover @sprint-5-US-295139  @Undo
@@ -394,7 +394,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "automationfd1@yopmail.com"
+    And I checkout to yopmail with mailid "automation.fd1.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -420,7 +420,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "automationfd@yopmail.com"
+    And I checkout to yopmail with mailid "automation.fd.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     Then I do not see the mail text is as follows :
@@ -442,7 +442,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -564,7 +564,8 @@ Feature: Validate all scenarios in the Site Visit with Undo
     When I perform quick search for "Record Id" in "---sitevisits:-:homeCompletedTaskTableId---" panel
     Then I softly see value "Cancelled" for title "Status" against the value "{SavedValue:SitevVisitId}" inside table "---sitevisits:-:homeCompletedTaskTableId---"
     And I logout
-    And I checkout to yopmail with mailid "automationfd@yopmail.com"
+    And I wait for "2" seconds
+    And I checkout to yopmail with mailid "automation.fd.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -590,7 +591,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -616,7 +617,6 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Thank you.
     The EGMS Team
     """
-    Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "Grantor" app as "PM" user
     And I navigate to "Monitoring" tab
@@ -723,7 +723,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     And I logout
     And I pause execution for "2" seconds
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -745,7 +745,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+    And I checkout to yopmail with mailid "automation.po.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -772,7 +772,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     The EGMS Team
     """
     Then I refresh the page
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -912,7 +912,8 @@ Feature: Validate all scenarios in the Site Visit with Undo
     When I perform quick search for "Record Id" in "---sitevisits:-:homeCompletedTaskTableId---" panel
     Then I softly see value "Cancelled" for title "Status" against the value "{SavedValue:SitevVisitId}" inside table "---sitevisits:-:homeCompletedTaskTableId---"
     And I logout
-    And I checkout to yopmail with mailid "automationfd@yopmail.com"
+    And I pause execution for "2" seconds
+    And I checkout to yopmail with mailid "automation.fd.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -938,7 +939,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -964,7 +965,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -991,7 +992,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     The EGMS Team
     """
     Then I refresh the page
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1178,7 +1179,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     And I logout
     And I pause execution for "2" seconds
-    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+    And I checkout to yopmail with mailid "automation.po.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1205,7 +1206,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     The EGMS Team
     """
     Then I refresh the page
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1379,7 +1380,8 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
     And I logout
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "2" seconds
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1405,7 +1407,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+    And I checkout to yopmail with mailid "automation.po.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1431,7 +1433,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :

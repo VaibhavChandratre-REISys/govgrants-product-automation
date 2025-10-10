@@ -33,8 +33,6 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
-    And I wait for "10" seconds
-    And I refresh the page
     When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I wait for "3" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -50,6 +48,9 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    And I click on advance filter of table id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+    And I enter advance filter values inside id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+      | Status | equals to | Not Started |
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---"
     And I navigate to "Risk Assessment" sub tab
     When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"

@@ -2751,6 +2751,7 @@ public class GrantorPayloads {
         grant.addProperty("WBSRequired", "No");
         grant.addProperty("IsBuildUpFunctionality", "No");
         grant.addProperty("AreExpensesBuildIUpLevel", "Yes");
+        grant.addProperty("IsMatchRequired", "Yes");
         grant.addProperty("GranteeMatch", 10);
         grant.addProperty("BudgetCloseoutrequestRequired", "Yes");
         grant.addProperty("CostSharing", "Cash Match");
@@ -2780,6 +2781,7 @@ public class GrantorPayloads {
 
         JsonObject award = new JsonObject();
         JsonArray awardArray = new JsonArray();
+        award.addProperty("BudgetRedirectionThreshhold", 10);
         award.addProperty("GrantAwardDescription", "Award Created From Automation API");
         award.addProperty("BudgetPeriodEndDate", I.amPerforming()
                 .dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));

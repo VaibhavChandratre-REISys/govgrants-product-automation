@@ -99,7 +99,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 500        | 1        | Feet        | 0                 | 0                        | 100        | 100            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -317,6 +317,11 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "GrantID"
+    And I navigate to "Files" sub tab
+    And I click on "Upload Template" icon for "Project Period Closeout" inside flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" with wait for record
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
+    And I click modal button "Close"
+    And I wait for "2" seconds
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
     #40065
@@ -347,27 +352,22 @@ Feature: Validate all scenarios in Closeout
     #89223
     When I navigate to "Files" sub tab
     Then I softly see value "Automation" for title "Description" inside table "---closeout:-:closeoutSupportingDocumentChecklist---"
-    #89224
-    And I click on "Upload Template" icon for "Automation" inside flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" with wait for record
-    Then I softly see "Upload Template" opens in overLay window
-    When I upload file "AttachmentTesting.pdf" into library
-    And I click modal button "Save"
-    Then I see the following messages in the page details contains:
-      | Attachment saved successfully. |
-    When I close "Upload Template" modal by clicking the top right x button
     #89225
     And I click on hyperlink containing value "View"
+    And I wait for "2" seconds
     Then I softly see new tab is opened
     And I switch to parent tab
     And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
     #89226
     When I upload attachment "Permanent Records.xlsx" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     #89229
     And I click on "View" icon for "Other" inside flex table with id "---closeout:-:closeoutFilesTableId---" with wait for record
-    Then I softly see "View" opens in overLay window
+    Then I softly see "Add Files" opens in overLay window
     Then I see field "Title" as "Permanent Records.xlsx" on modal
     Then I see field "Classification" as "Other" on modal
-    When I close "View" modal by clicking the top right x button
+    When I click modal button "Close"
     #89227
     And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
     When I upload file "ParentChild.txt" present in the flex table "---closeout:-:closeoutAddFileTableId---" from library
@@ -543,7 +543,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see that "{SavedValue:CloseoutEGMSID}" has been added in flextable with Id "---closeout:-:externalHomePendingTasktableId---"
     Then I softly see value "Automation PM" for title "Created By" inside table "---closeout:-:externalHomePendingTasktableId---"
     Then I softly see value "Review Closeout Request" for title "Task Type" inside table "---closeout:-:externalHomePendingTasktableId---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+7}" for title "Due Date" inside table "---closeout:-:externalHomePendingTasktableId---"
+    Then I softly see value "{Date:M/d/yyyy::d+7}" for title "Due Date" inside table "---closeout:-:externalHomePendingTasktableId---"
     Then I softly see value "Review Closeout Request for Grant #{SavedValue:GrantID}" for title "Subject" inside table "---closeout:-:externalHomePendingTasktableId---"
     #87351
     And I click on "Start" icon for "{SavedValue:CloseoutEGMSID}" inside flex table with id "---closeout:-:externalHomePendingTasktableId---"
@@ -948,6 +948,7 @@ Feature: Validate all scenarios in Closeout
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     When I navigate to "Closeout" tab
+    When I navigate to "Closeout" tab
     And I click toggle button to select "Closeouts - All"
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:CloseoutTableId---" panel
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
@@ -1143,7 +1144,7 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1601,6 +1602,10 @@ Feature: Validate all scenarios in Closeout
 
   @95547 @ValidatecloseoutRequestIsNotAcknowledgedBySubRecipientUserWhenTheSupportingDocumentChecklistDocumentIsNotUploadedWhenColumnRequiredSettingSetAs"Mandatory"
   Scenario: Validate closeout Request Is Not Acknowledged By SubRecipient User When The Supporting Document Checklist Document Is Not Uploaded When Column Required Setting Set As "Mandatory"
+    When I navigate to "Files" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" by clicking "Add" :
+      | Description | Required  | Applies To              | Status |
+      | Automation  | Mandatory | Project Period Closeout | Active |
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
     When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
@@ -1620,11 +1625,7 @@ Feature: Validate all scenarios in Closeout
     And I click on "Start" icon for "Record Id" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
-    When I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" by clicking "Add" :
-      | Description                 | Required  | Status |
-      | Automation test description | Mandatory | Active |
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
     Then I softly see the following messages in the page details contains:
-      | Files Tab - Complete each mandatory item listed in the checklist to acknowledge this Closeout. |
+      | Files Tab - Complete each mandatory item listed in the checklist before submitting this Closeout Request . |

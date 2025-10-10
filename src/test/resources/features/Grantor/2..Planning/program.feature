@@ -681,7 +681,7 @@ Feature: Validate all scenarios for program
       | Reviewer                 |
       | {SavedValue:PM Username} |
     Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:reviewStepTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "Email" inside table "---program:-:reviewStepTableId---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "Email" inside table "---program:-:reviewStepTableId---"
     Then I softly see value "Test Automation Organization" for title "Organization Name" inside table "---program:-:reviewStepTableId---"
     And I refresh the page
     And I navigate to "Setup" sub tab
@@ -706,16 +706,18 @@ Feature: Validate all scenarios for program
     And I click on "Delete" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly see the following messages in the page details :
       | Record deleted Successfully. |
+    And I wait for "8" seconds
     When I enter the following values into flex table with id "---program:-:reviewFormPanelId---" by clicking "New" :
       | Form Name         | Required? | Minimum Number of Reviews per Application |
       | Automation Review | Checked   | 1                                         |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:PM Username} |
     Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:addReviewersTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "Email" inside table "---program:-:addReviewersTableId---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "Email" inside table "---program:-:addReviewersTableId---"
     Then I softly see value "Test Automation Organization" for title "Organization Name" inside table "---program:-:addReviewersTableId---"
     And I click on "Remove from Form" icon for "{SavedValue:PM Username}" inside flex table with id "---program:-:addReviewersTableId---" without waiting for record
     And I wait for "2" seconds
@@ -1242,8 +1244,6 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
-    And I refresh the page
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
@@ -1330,7 +1330,7 @@ Feature: Validate all scenarios for program
     Then I do not see value "Record Id" for title "EGMS ID" inside table "---focusarea:-:relatedProgramsTableId---"
     Examples:
       | Focus Area                      | Program Name                                     |
-      | Automation Permanent Focus Area | {SavedValue:EXE Username}cution Internal Program |
+      | Automation Permanent Focus Area | {SavedValue:Automation Runtime Internal Program} |
 
   @53692 @Verify_Relatedlogs_table_for_focusArea_for_Active_Program_ViewAction
   Scenario Outline: Verify related log table for focus area for Active Program view Action
@@ -2644,6 +2644,7 @@ Feature: Validate all scenarios for program
     And I switch to parent tab
     And I wait for "3" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
+    And I wait for "2" seconds
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type | Max Score |
       | 11             | Test 11  | Date | 0         |
@@ -4337,7 +4338,6 @@ Feature: Validate all scenarios for program
   @77487 @77602 @77603 @77604 @ValidatingMinimumNoOfReviewsShouldBeGreaterThanZeroInProgramFiscalAndComplianceReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) : 0% ,Minimum Number of Reviews per Application : 0 , Required? : checked ,for Program,Fiscal and Compliance Review form, in SME Review step in planning phase
     And I click on "Edit" in the page details
-    And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
@@ -4364,6 +4364,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Required? |
       | Program Review | Check     |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | For required panel the Minimum Number of Reviews should be greater than zero. |
     #77602
@@ -4381,6 +4382,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name     | Required? |
       | Fiscal Review | Check     |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | For required panel the Minimum Number of Reviews should be greater than zero. |
     #77603
@@ -4398,6 +4400,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? |
       | Compliance Review | Check     |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | For required panel the Minimum Number of Reviews should be greater than zero. |
     #77604 #monu
@@ -4417,6 +4420,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? |
       | Compliance Review | Check     |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | For required panel the Minimum Number of Reviews should be greater than zero. |
     Examples:
@@ -4442,11 +4446,13 @@ Feature: Validate all scenarios for program
       | Management Review | 25              |
       | SME Review        | 50              |
       | Pre-Screen Review | 25              |
+    And I wait for "6" seconds
     And I expand nested table containing column value "SME Review"
     #77476
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Program Review | Unchecked | 0               | 0                                         |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     When I collapse nested table containing column value "SME Review"
@@ -4455,6 +4461,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
       | Program Review | Checked   | 0                                         | 50              |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | For required panel the Minimum Number of Reviews should be greater than zero. |
      #77477
@@ -4466,36 +4473,40 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name     | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Fiscal Review | Unchecked | 0               | 0                                         |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
+    And I wait for "6" seconds
     When I collapse nested table containing column value "SME Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name     | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
       | Fiscal Review | Checked   | 0                                         | 30              |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | For required panel the Minimum Number of Reviews should be greater than zero. |
         #77478
     And I refresh the page
     And I navigate to "Setup" sub tab
     When I collapse nested table containing column value "SME Review"
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Compliance Review | Unchecked | 0               | 0                                         |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     When I collapse nested table containing column value "SME Review"
-    And I wait for "2" seconds
+    And I wait for "6" seconds
     And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
       | Compliance Review | Checked   | 0                                         | 30              |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | For required panel the Minimum Number of Reviews should be greater than zero. |
-    #And I click on top right button "save" in flex table with id "---program:-:reviewStepTableId---"
     Examples:
       | Objective                      |
       | Automation Permanent Objective |
@@ -4522,6 +4533,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Management Review | Unchecked | 0               | 0                                         |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     And I collapse nested table containing column value "Management Review"
@@ -4530,6 +4542,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
       | Management Review | Checked   | 0                                         | 100             |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | For required panel the Minimum Number of Reviews should be greater than zero. |
     Examples:
@@ -4582,6 +4595,7 @@ Feature: Validate all scenarios for program
       | Management Review | 25              |
       | SME Review        | 50              |
       | Pre-Screen Review | 25              |
+    And I wait for "5" seconds
     And I expand nested table containing column value "SME Review"
     #77685
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
@@ -4693,7 +4707,6 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-
   @77420 @77479 @ValidatingWeightErrorMessageProgramReviewForm
   Scenario Outline:To validate system generated error message, if Form Weight (%) :40% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for Program Review form in SME Review step in planning phase
     And I click on "Edit" in the page details
@@ -4716,6 +4729,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Program Review | Unchecked | 40              | 0                                         |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | You cannot associate a weight to an optional panel |
     And I refresh the page
@@ -4729,6 +4743,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name  | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Pre-Screen | Checked   | 100             | 0                                         |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | For required panel the Minimum Number of Reviews should be greater than zero. |
     Examples:
@@ -5806,7 +5821,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @passed @106332 @106322 @106319 @106317 @verifyActivationOfAmendedProgram
+  @106332 @106322 @106319 @106317 @verifyActivationOfAmendedProgram
   Scenario Outline: Verify user is able to activate the amended internal program
     And I click on "Edit" in the page details
     And I wait for "10" seconds
@@ -6001,7 +6016,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "5" seconds
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I see the mail subject is as follows :
       """
       Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
@@ -6012,14 +6027,14 @@ Feature: Validate all scenarios for program
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
     Then I softly see value "Approve Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:pendingTaskTableId---"
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I click on mail with subject "Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}"
     And I see the mail subject is as follows :
       """
       Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
       """
 
-  @VerifyValidationMessageForReviewFormWeightLessThan100%
+  @Notags @VerifyValidationMessageForReviewFormWeightLessThan100%
   Scenario: validate user is able to see validation message when review form weight is les than 100%
     And I navigate to "Setup" sub tab
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
@@ -6228,7 +6243,7 @@ Feature: Validate all scenarios for program
       | {SavedValue:FD Username} | Step 4  |
     Then I softly see "Saved Successfully!" inside flex table with id "---program:-:approverTableId---"
 
-  @passed @138465 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtProgram-RnRFunctionality  @buglogged154221
+  @138465 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtProgram-RnRFunctionality  @buglogged154221
   Scenario: Validate program owner cant add same user for multiple steps  while assigning approvers for program on program record
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :

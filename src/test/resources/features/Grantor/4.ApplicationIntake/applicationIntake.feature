@@ -1,4 +1,4 @@
-@applicationIntake @grantor-regression @grantor-parallel-regression @app @regression @ApplicationExecution-reg
+@applicationIntake @grantor-regression @grantor-parallel-regression @app @regression @ApplicationAndPre-App
 Feature: Validate all scenarios in the Application Intake
 
   Background: Qualify Announcement and Create Application
@@ -79,6 +79,7 @@ Feature: Validate all scenarios in the Application Intake
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     When I click on "Submit Application" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Forms and Files Tab - All mandatory forms must be 100% completed. |
     When I navigate to "Forms and Files" sub tab
@@ -252,7 +253,7 @@ Feature: Validate all scenarios in the Application Intake
       | Project Director/Manager |
       | Authorized Signatory     |
 
-  @70527 @applicationAttachmentAndNotes   @buglogged169487
+  @70527 @applicationAttachmentAndNotes
   Scenario: Validate whether user can add attachment checklist and Notes on the Application
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---applicationIntake:-:ApplicationAttachmentTableId---"
@@ -264,8 +265,8 @@ Feature: Validate all scenarios in the Application Intake
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Suspension" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---applicationIntake:-:ApplicationAttachmentTableId---"
     Then I softly see value "Suspension" for title "Classification" inside table "---applicationIntake:-:ApplicationAttachmentTableId---"
     When I enter the following values into flex table with id "---applicationIntake:-:ApplicationNotesTableId---" by clicking "New" :
@@ -318,7 +319,7 @@ Feature: Validate all scenarios in the Application Intake
     And I click on hyperlink containing value "Snapshot_Application_Submission.pdf"
     And I click on "Download" button for snapshot view
     And I wait for "3" seconds
-    When I download the file for snapshot
+    When I download the file
     And I wait for "3" seconds
     Then I see "Submitted to Grantor" on page "1" of "govgrants" pdf file
     Examples:
@@ -329,9 +330,9 @@ Feature: Validate all scenarios in the Application Intake
   Scenario:Validate whether user is able to associate new contacts while creating an application
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    When I click "Add" after selection of "Automation SPA" by showing entries "All" in flex table with id "---applicationIntake:-:associateNewContactsTableId---"
-    And I refresh the page
-    #When I perform quick search for "Automation SPA" in "---applicationReview:-:flexGridAppContactTableId---" panel
+    When I click "Add" after selection of "Automation SPA" in the table "---preApplication:-:associatePreAppContactsTableId---"
+    And I click modal button "Close"
+    And I wait for "3" seconds
     Then I softly see value "Automation SPA" for title "Name" inside table "---applicationReview:-:flexGridAppContactTableId---"
 
   @73944 @73945 @71409 @73947 @73950 @73948 @73949

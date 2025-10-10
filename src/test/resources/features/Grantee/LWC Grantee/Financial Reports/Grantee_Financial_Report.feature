@@ -311,13 +311,13 @@ Feature: Validate all scenarios for Financial Report
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
     When I click on "Validate" in the page details
@@ -534,4 +534,3 @@ Feature: Validate all scenarios for Financial Report
     And I click on hyperlink containing value "View All"
     Then I softly see value "Reviewed" for title "New Value" inside field history table
     Then I softly see value "Submitted for Review" for title "Original Value" inside field history table
-

@@ -1,4 +1,4 @@
-@organizationalDeskReview @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteAndDeskReview
+@organizationalDeskReview @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteAndDeskReview @deskExecution
 Feature: Validate all scenarios in Organizational Desk Review
 
   Background: Creation of Organizational Desk Review
@@ -517,14 +517,19 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I perform quick search for "Record Id" in "---orgLevelDeskReview:-:phasePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:phasePendingTaskTableId---"
     And I "Send to Owner" in the approval decision
+    And I wait for "120" seconds
     And I refresh the page
     And I wait for "3" seconds
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     And I navigate to "Monitoring" tab
-    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
-    Then I softly see that "Record Id" has been added in flextable with Id "---deskreview:-:deskReviewGridViewTableId---"
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
+    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+    Given I navigate to "Related Log" sub tab
+    When I perform quick search for "Record Id" in "---orgLevelDeskReview:-:deskreviewPanelId---" panel
+    Then I softly see that "Record Id" has been added in flextable with Id "---orgLevelDeskReview:-:deskreviewPanelId---"
+    Then I softly see value "In Progress" for title "Status" inside table "---orgLevelDeskReview:-:deskreviewPanelId---"
 
   @55459 @54887 @deskReviewOrgLevelSendToSubrecipientWithOutAddingCorerctiveItems  @organizationalDeskReviewFirst
   Scenario:  Validate User will not be able to submit the Desk Review Org Level to Grantor without adding corrective actions to findings.
@@ -775,7 +780,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:homePhasePendingTasks---"
     Then I softly cannot see "Reports and Outcomes" sub tab at view detail page
     Then I softly see field "Status" as "Notified"
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -898,8 +903,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Other" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
     Then I softly see value "Other" for title "Classification" inside table "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"

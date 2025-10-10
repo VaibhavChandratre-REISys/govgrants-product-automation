@@ -1,4 +1,4 @@
-@directedAnnouncementsWB @grantor-regression @grantor-parallel-regression @announcement @regression @AnnouncementTemp1
+@directedAnnouncementsWB @grantor-regression @grantor-parallel-regression @announcement @regression @annExecution
 Feature: Validate all scenarios in the directed Announcement tab
 
   @219074 @219166 @AdminUserVerifiesInfoTextForDirectedAnnouncement @sprint-9-US-208408 @Allocation
@@ -15,7 +15,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click on "Save" in the page details
     And I wait for "3" seconds
     When I navigate to "Overview" sub tab
-    When I hovering mouse on help text icon inside page block detail "Applicants"
+    When I hovering mouse on help text icon inside page block detail for invisible element "Applicants"
     Then I softly see "Verify that all invited applicants are eligible to submit an application based on the eligibility criteria associated with this announcement" shown as help text
     And I wait for "3" seconds
     #219166
@@ -32,8 +32,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "4" seconds
     And I click modal button "Save and Continue"
-    And I wait for "5" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Proposal" sub tab
@@ -52,14 +52,6 @@ Feature: Validate all scenarios in the directed Announcement tab
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-#    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-#    And I click on "Save" in the page details
-#    Given I click on "Back" in the page details
-#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-#    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-#    And I click on "Save" in the page details
-#    Given I click on "Back" in the page details
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
@@ -74,22 +66,22 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "Save" in the split screen page details
     When I click on "Submit Application" in the page details
     And I save the field labeled "EGMS ID" as "AppEgmdId"
-#    Given I am on "INTERNAL" portal
-#    When I login to "Grantor" app as "PM" user
-#    And I navigate to "Announcements" tab
-#    When I navigate to "Directed" content inside "Announcements" subheader on left panel
-#    And I click toggle button to select "All Directed Announcements"
-#    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "ActiveFundingOpportunities" panel
-#    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "ActiveFundingOpportunities"
-#    #219077
-#    Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :
-#      | Application EGMS ID | Application Status |
-#    Then I softly see value "{SavedValue:AppEgmdId}" for title "Application EGMS ID" inside table "---announcement:-:directedInvitedApplicatsTableId---"
-#    Then I softly see value "Submitted to Grantor" for title "Application Status" inside table "---announcement:-:directedInvitedApplicatsTableId---"
-#    And I click on hyperlink containing value "{SavedValue:AppEgmdId}"
-#    And I wait for "3" seconds
-#    Then I see the header is "Application" in the page details
-#    Then I softly see field "Status" as "Submitted to Grantor"
+    Given I am on "INTERNAL" portal
+    When I login to "Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Directed" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Directed Announcements"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "ActiveFundingOpportunities" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "ActiveFundingOpportunities"
+    #219077
+    Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :
+      | Application EGMS ID | Application Status |
+    Then I softly see value "{SavedValue:AppEgmdId}" for title "Application EGMS ID" inside table "---announcement:-:directedInvitedApplicatsTableId---"
+    Then I softly see value "Submitted to Grantor" for title "Application Status" inside table "---announcement:-:directedInvitedApplicatsTableId---"
+    And I click on hyperlink containing value "{SavedValue:AppEgmdId}"
+    And I wait for "3" seconds
+    Then I see the header is "Application" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
 
   @219075 @AdminUserShouldAbleToSeeTwoColumnsInPublishedStateForDirectedAnnouncement @sprint-9-US-208408 @Allocation
   Scenario: Verify Admin user should able to see the two columns in published state for Directed Announcement
@@ -215,7 +207,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see the following messages in the page details contains:
       | Selected Applicants are associated successfully |
 
-  @219110 @219161  @sprint-9-US-208408 @Allocation @Re-RunPlanningAndAnnouncement
+  @219110 @219161 @sprint-9-US-208408 @Allocation @Re-RunPlanningAndAnnouncement
   Scenario: Verify PM user should remove the sr, by clicking the remove icon, & success message should be display for Directed Announcement
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -233,6 +225,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Overview" sub tab
     When I check "SAN DIEGO ELECTRICAL TRAINING TRUST" boxes in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
     When I click table top right button "Remove Selected" in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"

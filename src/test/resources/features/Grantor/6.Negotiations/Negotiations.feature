@@ -19,8 +19,8 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     Then I click on "Initiate Negotiation" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I wait for "5" seconds
-    Then I softly can see "Negotiations" sub tab at view detail page
     And I navigate to "Negotiations" sub tab
+    Then I softly can see "Negotiations" sub tab at view detail page
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -139,6 +139,7 @@ Feature: Validate all scenarios in Negotiations
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     When I click on "Initiate Negotiation" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I wait for "3" seconds
+    And I click on "Save" in the page details
     When I save the field labeled "EGMS ID" as "EGMSID"
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
@@ -260,7 +261,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "2" seconds
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | To Save , Details is required in the Negotiations tab under the Applicant Response section. |
+      | To Save, Details is required in the Negotiations tab under the Applicant Response section. |
 
   @34387 @negotiationWhenOpenUserCannotCreateOther
   Scenario: Verify that with open negotiation request user can not Complete Negotiation (Negative TC)
@@ -307,7 +308,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     And I logout
     And I wait for "5" seconds
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -365,7 +366,7 @@ Feature: Validate all scenarios in Negotiations
     When I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     And I click on "Save" in the page details
     And I wait for "3" seconds
-    Then I softly see field "Details" as "Negotiation InitiatedNegoatiation Initiated"
+    Then I softly see field "Details" as "Negoatiation Initiated"
     When I click on "Send to Subrecipient" in the page details
     And I wait for "3" seconds
     Then I softly cannot see top right button "Edit" in page detail
@@ -505,7 +506,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "2" seconds
     When I click on "Save" in the page details
     Then I see the following messages in the page details contains:
-      | To Save , Details is required in the Negotiations tab under the Applicant Response section. |
+      | To Save, Details is required in the Negotiations tab under the Applicant Response section. |
 
   @57839 @57840 @66445 @pendingNegotiationsViewAndSendToSubrecipientAfterSubmittingToGrantor
   Scenario: Validate whether users able to Send to Subrecipient after Submit to Grantor for adjustments and view the record  inside Pending Negotaitions Table |Validate Task is craeted to Subrecipient even when the negotiation is send back to subrecipient
@@ -721,8 +722,7 @@ Feature: Validate all scenarios in Negotiations
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Suspension" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "Automation.pdf" for title "Title" inside table "GrantorApplicationFiles"
@@ -955,7 +955,9 @@ Feature: Validate all scenarios in Negotiations
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:phasePendingTasksTableId---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:phasePendingTasksTableId---"
     When I click on "Complete Negotiation" in the page details
+    And I wait for "2" seconds
     And I click on "Create Subaward" in the page details
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Applications" tab
     When I navigate to "Negotiations" content inside "Application Reviews" subheader on left panel
@@ -1046,9 +1048,9 @@ Feature: Validate all scenarios in Negotiations
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:grantsTableId---"
     And I navigate to "Overview" sub tab
     And I wait for "3" seconds
-    When I click on hyperlink containing value "{SavedValue:AnnID}"
+    When I click on hyperlink for invisible fields containing value "{SavedValue:AnnID}"
     And I wait for "6" seconds
-    Then I see status in Progress-bar is "Converted to Award" and is "dark blue"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
 
   @133262 @133251 @ValidatePMUserAllowEditSelectAtLeastOneFormErrorMessage @Sprint-3
   Scenario: Validate PM User Allow Edit Select At Least One Form Error Message
@@ -1425,7 +1427,7 @@ Feature: Validate all scenarios in Negotiations
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I pause execution for "5" seconds
-    Then I softly see field "Application Sections for Negotiation" as "Forms and Files:Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Forms and Files: Forms"
 
   @166360  @sprint-3 @vrishali @bug-190352
   Scenario: Verify validation is displayed to PM user to select the "Allow edit" for at least one form in the available forms for Revisions table
@@ -2353,6 +2355,7 @@ Feature: Validate all scenarios in Negotiations
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:internalHomePendingTableId---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:internalHomePendingTableId---"
     When I click on "Request Negotiations" in the page details
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Cancel Negotiation" in the page details
     And I navigate to "Negotiations" sub tab

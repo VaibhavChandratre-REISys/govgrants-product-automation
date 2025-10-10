@@ -3,6 +3,7 @@ package com.ggproduct.automation.steps.govgrantsSteps;
 import com.helperPackage.handlers.govgrants;
 import com.helperPackage.exception.TestingBlazeCustomException;
 import com.helperPackage.register.I;
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import jdk.jfr.Description;
@@ -127,8 +128,8 @@ public final class GovGrantsAssertionSteps {
 
     @Then("^I (softly see|softly do not see|see) field (matches exactly )?\"([^\"]*)\" as \"([^\"]*)\"$")
     public void assertFieldValue(String usage, String matchExact, String fieldName, String fieldValue) {
-        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         I.amPerforming().browserOperationsTo().CheckPageLoadingStatus();
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         ggAssertionObjects.assertFieldValue(
                 fieldName,
                 matchExact != null,
@@ -737,6 +738,7 @@ public final class GovGrantsAssertionSteps {
 
     @Then("^I (see|do not see) the text \"([^\"]*)\" in modal$")
     public void validateTextInModal(String usage, String text) {
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         if (usage.equalsIgnoreCase("see")) {
             I.amPerforming().assertionsTo().assertThat(ggAssertionObjects.AssertTextinModal(text)).isTrue();
         } else if (usage.equalsIgnoreCase("do not see")) {
@@ -910,5 +912,21 @@ public final class GovGrantsAssertionSteps {
     @Then("I (softly see|see|do not see|softly do not see) label \"([^\"]*)\" maximum length is \"([^\"]*)\" for input field$")
     public void iSoftlySeeLabelMaximumLengthIsForInputField(String usage, String labelName, String length) {
         ggAssertionObjects.assertLabelMaximumLengthIsForInputField(usage, labelName, length);
+    }
+
+    @Then("I (softly see|see|do not see|softly do not see) value \"([^\"]*)\" for the edit mode field \"([^\"]*)\"$")
+    public void iSoftlySeeValueForTheEditModeField(String usage, String fieldName, String fieldAPIName) {
+        ggAssertionObjects.assertalueForTheEditModeField(usage, fieldName, fieldAPIName);
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) value \"([^\"]*)\" for title \"([^\"]*)\" inside table \"([^\"]*)\" for global search record$")
+    public void iSoftlySeeValueForTitleInsideTableForGlobalSearchRecord(String seeornotsee, String columnValue, String columnTitle, String flextableDivId) {
+        ggAssertionObjects.assertValuesAreInFlexTableWithColumnTitleForGlobalSearch(
+                columnValue,
+                columnTitle,
+                flextableDivId,
+                "softly see".equalsIgnoreCase(seeornotsee) || "see".equalsIgnoreCase(seeornotsee),
+                seeornotsee.contains("softly")
+        );
     }
 }

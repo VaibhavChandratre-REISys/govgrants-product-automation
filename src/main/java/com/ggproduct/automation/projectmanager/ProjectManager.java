@@ -106,10 +106,10 @@ public class ProjectManager extends ProjectWebServices {
         By confirmationBoxMessage = By.xpath("//div[contains(@class,'modal-dialog')]//div[contains(@class, 'bootbox-body')] | //div[contains(@class,'modal__container')]//lightning-confirm |//div[contains(@class,'modal__container')]//lightning-modal-body//span | //div[contains(@class,'modal__container')]//lightning-confirm//p");
         if (isSoftly) {
             I.amPerforming().assertionsTo().assertThat(message).isEqualTo(
-                    I.amPerforming().actionToGet().attribute(confirmationBoxMessage, "innerText").replaceAll("\\u00a0", " ")
+                    I.amPerforming().actionToGet().attribute(confirmationBoxMessage, "innerText").replaceAll("\\u00a0", "")
             );
         } else {
-            Assert.assertEquals(I.amPerforming().actionToGet().attribute(confirmationBoxMessage, "innerText").replaceAll("\\u00a0", " "), message);
+            Assert.assertEquals(I.amPerforming().actionToGet().attribute(confirmationBoxMessage, "innerText").replaceAll("\\u00a0", ""), message);
         }
     }
 
@@ -259,7 +259,8 @@ public class ProjectManager extends ProjectWebServices {
     }
 
     public void clickOnuttonForSnapshotView(String buttonName) {
-        I.amPerforming().click().on(By.xpath("//button[@title='" + buttonName + "']"));
+        I.amPerforming().waitFor().ElementToBeClickable(By.xpath("//button[@title='" + buttonName + "'] | //a[@title='" + buttonName + "']"));
+        I.amPerforming().click().on(By.xpath("//button[@title='" + buttonName + "'] | //a[@title='" + buttonName + "']"));
     }
 
     public void clickOnHyperlinkForTheFieldContainingValue(String fieldAPIName, String value) {

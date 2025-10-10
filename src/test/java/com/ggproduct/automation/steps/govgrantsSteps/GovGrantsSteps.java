@@ -173,6 +173,7 @@ public final class GovGrantsSteps {
         I.amPerforming().browserOperationsTo().CheckPageLoadingStatus();
         I.amPerforming().waitFor().makeThreadSleep(2000);
         govgrants.perform().mainPage().clickMainMenuBarForLwc(tabName);
+        govgrants.perform().modal().acceptPopUpForEditPage();
     }
 
     @Description("Navigate to sidebar content inside a sidebar subheader")
@@ -549,6 +550,7 @@ public final class GovGrantsSteps {
     @When("^I close \"([^\"]*)\" modal by clicking the top right x button$")
     public void iCloseModalModalByClickingTheTopRightXButton(String titleName) {
         govgrants.perform().modal().closeModalByClickingTopRightCloseButton(titleName);
+        govgrants.perform().modal().acceptPopUp();
     }
 
     /******* Page Details ***********/

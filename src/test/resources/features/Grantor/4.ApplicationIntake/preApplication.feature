@@ -110,11 +110,10 @@ Feature: Validate all scenarios in the Pre-Application
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Justification Of Project Cost" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
     Then I softly see value "Justification Of Project Cost" for title "Classification" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
-    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     Then I softly cannot see top right button "Edit" in page detail
@@ -233,6 +232,7 @@ Feature: Validate all scenarios in the Pre-Application
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 1000   | 100        | 100            | 100            |
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Overview Tab - Enter an Acknowledgement before submitting this Pre-Application. |
 

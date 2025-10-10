@@ -1,4 +1,4 @@
-@FormulaWB @grantor-regression @grantor-parallel-regression @announcement @regression @AnnouncementTemp2
+@FormulaWB @grantor-regression @grantor-parallel-regression @announcement @regression @annExecution
 Feature: Validate all scenarios in the Formula Announcement tab
 
   @195853 @ValidateAnnownerAdminusercanseeAddorganizationbuttonintheInvitedApplicantswhenFormulaannouncementisselectedwithallocationlevelisbyApplicant @sprint-8-US-206947  @Allocation
@@ -52,7 +52,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
-    When I hovering mouse on help text icon inside page block detail "Applicants"
+    When I hovering mouse on help text icon inside page block detail for invisible element "Applicants"
     Then I softly see "Verify that all invited applicants are eligible to submit an application based on the eligibility criteria associated with this announcement" shown as help text
 
   @204325 @ValidateusershouldabletoseetheinfotextonApplicantsinfoIcon @sprint-8-US-206947 @Allocation
@@ -70,7 +70,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
-    When I hovering mouse on help text icon inside page block detail "Applicants"
+    When I hovering mouse on help text icon inside page block detail for invisible element "Applicants"
     Then I softly see "Verify that all invited applicants are eligible to submit an application based on the eligibility criteria associated with this announcement" shown as help text
 
   @195860 @ValidateAnnownerEXEusercanselectsingleormultipleS/RonclickonAddOrganizationbutton @sprint-8-US-206947  @Allocation
@@ -224,7 +224,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Title                            | Allocation Amount |
       | Automation Permanent Focus Area  | 100               |
       | Automation Permanent Focus Area2 | 100               |
-    Then I see value "$200" for title "Allocation Amount" inside table "---announcement:-:formulaFocusAreaInvitedTableId---"
+    Then I see value "$200.00" for title "Allocation Amount" inside table "---announcement:-:formulaFocusAreaInvitedTableId---"
     When I click on "Remove" icon for "Automation Permanent Focus Area2" inside table with table id "---announcement:-:AnnouncementServiceArea1TableId---" without processing
     #204387
     Then I see confirmation box with body "This Focus area will also get removed from the Applicants table, Are you sure you want to proceed?" is displayed
@@ -232,7 +232,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I refresh the page
     #204386
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---announcement:-:formulaFocusAreaInvitedTableId---"
-    Then I see value "$100" for title "Allocation Amount" inside table "---announcement:-:formulaFocusAreaInvitedTableId---"
+    Then I see value "$100.00" for title "Allocation Amount" inside table "---announcement:-:formulaFocusAreaInvitedTableId---"
 
   @204408 @204412 @ValidatewhenuseraddanyfocusareaintheFocusareassectionthenthatFocusarearowintheApplicantssectionshouldgetupdatedautomaticallywith"0"allocationamountforallapplicantswhichcanbelaterinlineedited @sprint-8-US-206947  @Allocation
   Scenario: Validate when user add any focus area in the "Focus areas" section, then that Focus area row in the "Applicants" section should  get updated automatically with "0" allocation amount for all applicants, which can be later inline edited
@@ -265,7 +265,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---announcement:-:formulaFocusAreaInvitedTableId---"
     Then I see the following rows under the following headers in table with id "---announcement:-:formulaFocusAreaInvitedTableId---" :
       | Title                            | Allocation Amount |
-      | Automation Permanent Focus Area2 | $0                |
+      | Automation Permanent Focus Area2 | $0.00             |
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---"
     #204412
     Then I softly cannot see row level action button "Delete" against "Automation Permanent Focus Area2" in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---"
@@ -388,7 +388,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
      #204414
     And I click on "Publish" in the page details
     Then I softly see field "Status" as "Published"
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     Then I refresh the page
     And I pause execution for "120" seconds
     And I see the mail subject is as follows :
@@ -566,7 +566,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Application EGMS ID | Application Status |
     #219090
     And I click on "Publish" in the page details
-    And I pause execution for "5" seconds
+    Then I softly see field "Status" as "Published"
     And I click on "Unpublish" in the page details
     And I pause execution for "3" seconds
     Then I softly see field "Status" as "Under Revision"
@@ -607,7 +607,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click table top right button "Remove Selected" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     Then I softly see confirmation box with body "This action will remove the selected organization(s), Are you sure you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
-    And I refresh the page
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I wait for "2" seconds
     Then I softly do not see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Applicants" inside table "---announcement:-:formulaInvitedApplicatsTableId---"
@@ -842,20 +842,25 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationReview:-:reviewsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     And I navigate to "Financials" sub tab
-    Then I softly can see page block "Budget Summary"
+    And I wait for "2" seconds
+    Then I softly see "Budget Summary" page block displayed
     Then I see the following headers in table with id "---applicationIntake:-:formulaAllocatedAmountTableId---" :
       | Allocation Amount |
     When I click on "Qualify" in the page details
     And I navigate to "Financials" sub tab
+    And I wait for "2" seconds
     Then I softly can see page block "Budget Summary"
     Then I see the following headers in table with id "---applicationIntake:-:formulaAllocatedAmountTableId---" :
       | Allocation Amount |
     And I navigate to "Opportunities" tab
+    And I wait for "2" seconds
     When I navigate to "Qualified" content inside "Opportunities" subheader on left panel
+    And I wait for "2" seconds
     And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationIntake:-:qualifiedTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationIntake:-:qualifiedTableId---" without waiting for record
     And I pause execution for "3" seconds
     And I navigate to "Financials" sub tab
+    And I pause execution for "1" seconds
     Then I softly see "Budget Summary" page block displayed
     Then I see the following headers in table with id "---applicationIntake:-:formulaAllocatedAmountTableId---" :
       | Allocation Amount |
@@ -864,7 +869,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | User |
       | SPI3 |
 
-  @FormulaWBRerun @219624 @INDUserVerifyforformulaannouncementinbudgetsummarysectionAllocationAmountfieldshouldbedisplaywithallocationlevelByApplicantQualified&NotyetQualifiedpage @sprint-9-US-204998  @Allocation @Pre-ScreenOnHoldSPI
+  @219624 @INDUserVerifyforformulaannouncementinbudgetsummarysectionAllocationAmountfieldshouldbedisplaywithallocationlevelByApplicantQualified&NotyetQualifiedpage @sprint-9-US-204998  @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: IND UserVerify for formula announcement in budget summary section Allocation Amount field should be display with allocation level-By Applicant. (Qualified & Not yet Qualified  page )
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA_NO"
     Given I am on "SUBPORTAL" portal
@@ -886,8 +891,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationIntake:-:qualifiedTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationIntake:-:qualifiedTableId---" without waiting for record
-    And I pause execution for "3" seconds
     And I navigate to "Financials" sub tab
+    And I pause execution for "3" seconds
     Then I softly see "Budget Summary" page block displayed
     Then I see the following headers in table with id "---applicationIntake:-:formulaAllocatedAmountTableId---" :
       | Allocation Amount |
@@ -984,7 +989,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click "OK" on modal confirmation box
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I click on "Edit" in the page details
+#    And I click on "Edit" in the page details
     #226440
     When I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
@@ -995,7 +1000,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     And I wait for "4" seconds
-    And I click on "Edit" in the page details
+#    And I click on "Edit" in the page details
     And I wait for "2" seconds
     When I click on "Removes" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table with table id "---announcement:-:addOrganizationByAppFocusAreaTableId---" without processing
     Then I see confirmation box with body "This action will delete the Organization and associated focus areas and Unsaved data will be lost due to page refresh . Please save the record to continue." is displayed
@@ -1825,7 +1830,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "<Announcement Name>" inside table
     And I navigate to "Budget" sub tab
     #226434 #222201
-    Then I softly see field "Allocation Amount" as "$1,000"
+    Then I softly see field "Allocation Amount" as "$1,000.00"
     Examples:
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
@@ -1893,7 +1898,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @FormulaWBRerun @222215 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusispublishedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558  @Allocation
+  @222215 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusispublishedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558  @Allocation
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is published then user should see the updated final allocation is reflected in the corresponding application (before award creation).
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT-Automation EXE user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -1939,7 +1944,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 2000   | 100        | 100            |
     When I click on "Save" in the page details
     Then I softly see field "Budgeted Amount" as "$2,000.00"
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$2,000.00"
     When I click on "Submit to Grantor" in the page details
     And I refresh the page
     And I wait for "5" seconds
@@ -1958,7 +1963,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside table
     And I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$2,000.00"
     Then I softly see field "Budgeted Amount" as "$2,000.00"
 
     Examples:
@@ -2071,9 +2076,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
-      | {SavedValue:PM Username} | NA           |
-    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -2117,7 +2119,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 2000   | 100        | 100            |
     When I click on "Save" in the page details
     Then I softly see field "Budgeted Amount" as "$2,000.00"
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$2,000.00"
     And I refresh the page
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
@@ -2169,7 +2171,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see field "Budgeted Amount" as "$2,000.00"
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$2,000.00"
     When I click on "Submit to Grantor" in the page details
     And I refresh the page
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
@@ -2351,7 +2353,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "<Announcement Name>" inside table
     And I navigate to "Budget" sub tab
     #226436
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$2,000.00"
 
     Examples:
       | Announcement Name                                |
@@ -2666,7 +2668,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see field "Budgeted Amount" as "$2,000.00"
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$2,000.00"
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
@@ -2690,7 +2692,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    And I wait for "2" seconds
     And I wait for "2" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
@@ -2790,7 +2791,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside table
     And I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$2,000.00"
 
     Examples:
       | Announcement Name                                |
@@ -3037,7 +3038,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$2,000.00"
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$2,000.00"
     When I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -3159,7 +3160,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside table
     And I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$2,000.00"
 
     Examples:
       | Announcement Name                                |
@@ -3422,7 +3423,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 2000   | 100        | 100            |
     When I click on "Save" in the page details
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$2,000.00"
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
@@ -3434,7 +3435,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     And I navigate to "Financials" sub tab
-    Then I see value "$2000" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
+    Then I see value "$2000.00" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
     When I click on "Qualify" in the page details
     And I wait for "8" seconds
     And I navigate to "Opportunities" tab
@@ -3444,7 +3445,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:qualifiedTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:qualifiedTableId---"
     And I navigate to "Financials" sub tab
-    Then I see value "$2000" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
+    Then I see value "$2000.00" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -3452,7 +3453,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside table
     And I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$2,000.00"
     #222555 #222479
     When I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -3519,13 +3520,13 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     And I wait for "3" seconds
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$2,000.00"
 
     Examples:
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @FormulaWBRerun @222010 @VerifyPOusercannotdeleteinvitedorganizationsforformulaAnnouncementwhenannouncementisinclosedstate. @sprint-11-US-201558  @Allocation
+  @222010 @VerifyPOusercannotdeleteinvitedorganizationsforformulaAnnouncementwhenannouncementisinclosedstate. @sprint-11-US-201558  @Allocation
   Scenario: Verify PO user cannot delete invited organizations for formula Announcement when announcement is in closed state.
     When I login to "Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -3562,7 +3563,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "5" seconds
     And I navigate to "Budget" sub tab
     And I wait for "5" seconds
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$2,000.00"
 
   @222259 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisClosedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558  @Allocation
   Scenario: Verify if user wants update the final allocation for a given organization & if the announcement status is Closed then user should see the updated final allocation is reflected in the corresponding application (before award creation)
@@ -3573,7 +3574,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{AUTOEnvData:ClosedStateFormulaAnn_ByApplicant_FDMApproved}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{AUTOEnvData:ClosedStateFormulaAnn_ByApplicant_FDMApproved}" inside table
     And I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$1,000.00"
 
   @222467 @222376 @222306 @VerifyusercannotdeletetheassociatedfocusareawhenAnnouncementisinclosedstate @sprint-11-US-201558  @Allocation
   Scenario: Verify user cannot delete the associated focus area when Announcement is in closed state.
@@ -3604,7 +3605,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "7" seconds
     And I navigate to "Budget" sub tab
     And I wait for "7" seconds
-    Then I softly see field "Allocation Amount" as "$2,000.00"
+    Then I softly see field "Allocation Amount" as "$1,000.00"
 
   @222301 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisClosedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558  @Allocation
   Scenario: Verify if user wants update the final allocation for a given organization & if the announcement status is Closed then user should see the updated final allocation is reflected in the corresponding application (before award creation)
@@ -3615,9 +3616,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{AUTOEnvData:ClosedStateFormulaAnn_ByApplicantAndFocusArea_FDMApproved}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{AUTOEnvData:ClosedStateFormulaAnn_ByApplicantAndFocusArea_FDMApproved}" inside table
     And I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$2,000.00"
+    Then I softly see field "Allocation Amount" as "$1,000.00"
 
-  @FormulaWBRerun @222469 @222158 @VerifyusercannotdeletetheassociatedfocusareawhenAnnouncementisinArchivedstate. @sprint-11-US-201558  @Allocation
+  @222469 @222158 @VerifyusercannotdeletetheassociatedfocusareawhenAnnouncementisinArchivedstate. @sprint-11-US-201558  @Allocation
   Scenario: Verify user cannot delete the associated focus area when Announcement is in Archived state.
   | Verify PM user  can see row level edit action in the applicant section when formula announcement is in Archived state(formula announcements with allocation-level = By Applicant)|
     When I login to "Grantor" app as "PM" user
@@ -3642,7 +3643,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #222020
     Then I softly cannot see top right button "Remove Selected" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
 
-  @FormulaWBRerun @222381 @VerifyusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinArchivedstateformulaannouncementswithallocationlevelByApplicantFocusArea @sprint-11-US-201558  @Allocation
+  @222381 @VerifyusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinArchivedstateformulaannouncementswithallocationlevelByApplicantFocusArea @sprint-11-US-201558  @Allocation
   Scenario: Verify user can see row level edit action in the applicant section when formula announcement is in Archived state(formula announcements with allocationlevel By Applicant & Focus Area)
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3908,7 +3909,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 2000             |
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I wait for "210" seconds
     Then I refresh the page
     Then I see the mail text is as follows :
@@ -3933,14 +3934,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     Then I see status in Progress-bar is "Published" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AnnEgmsId"
-    When I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    When I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I wait for "190" seconds
     Then I refresh the page
     Then I see the mail text is as follows :
        """
       Hello,
 
-      This email is to notify you that Opportunity  # {SavedValue:AnnEGMSID} has been published and the amount allocated to your organization is $1,000.
+      This email is to notify you that Opportunity  # {SavedValue:AnnEGMSID} has been published and the amount allocated to your organization is $1,000.00.
       Log in to EGMS and click here to review the details and submit an application.
       Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
@@ -3964,7 +3965,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                           | Allocation Amount |
       | Automation Permanent Focus Area | 2000              |
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I wait for "190" seconds
     Then I refresh the page
     Then I see the mail text is as follows :
@@ -3976,8 +3977,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
       Opportunity Type: Formula
 
       Focus Areas	Allocation Amount
-      Automation Permanent Focus Area	2000
-      SubTotal	2000
+      Automation Permanent Focus Area	2000.00
+      SubTotal	2000.00
 
       Log in to EGMS and click on click here to access the assigned record.
       Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
@@ -3998,10 +3999,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Financials" sub tab
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "4" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "1" seconds
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
@@ -4044,7 +4047,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                           | Allocation Amount |
       | Automation Permanent Focus Area | 2000              |
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I wait for "190" seconds
     And I refresh the page
     And I see the mail subject is as follows :
@@ -4081,7 +4084,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     Then I see status in Progress-bar is "Published" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AnnEgmsId"
-    When I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    When I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I wait for "190" seconds
     Then I refresh the page
     Then I see the mail text is as follows :
@@ -4097,8 +4100,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Opportunity Type: Formula
 
     Focus Areas	Allocation Amount
-    Automation Permanent Focus Area	1000
-    SubTotal	1000
+    Automation Permanent Focus Area	1000.00
+    SubTotal	1000.00
 
     Log in to EGMS and click on click here to access the assigned record.
     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
@@ -4271,7 +4274,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #227709
     Then I see the following rows under the following headers in table with id "FundingDecisionMemoApplications" :
       | Allocation Amount | Budgeted Amount |
-      | $1,000            | $1,000.00       |
+      | $1,000.00         | $1,000.00       |
     #227717
     When I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -4290,7 +4293,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     Then I see the following rows under the following headers in table with id "FundingDecisionMemoApplications" :
       | Allocation Amount | Budgeted Amount |
-      | $2,000            | $1,000.00       |
+      | $2,000.00         | $1,000.00       |
 
     Examples:
       | Announcement Name                                    |
@@ -4572,7 +4575,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @FormulaWBRerun @227725 @227729 @VerifythenewreadonlyfieldforTotalAllocationFundingthisshouldbetotalofAllAllocationAmountfromrecommendedapplicationsectionforformulaannouncement @sprint-13-US-204132  @Allocation @Pre-ScreenOnHoldSPI
+  @227725 @227729 @VerifythenewreadonlyfieldforTotalAllocationFundingthisshouldbetotalofAllAllocationAmountfromrecommendedapplicationsectionforformulaannouncement @sprint-13-US-204132  @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify the new readonly field for "Total Allocation Funding", this should be total of All Allocation Amount, from recommended application section for formula announcement .
   | FDM - Verify Subaward floor and Subaward Ceiling fields are hidden for formula announcement |
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT"
@@ -4728,7 +4731,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Application Title   | Recommend for Funding | Comments    |
       | <Announcement Name> | Yes                   | Recommended |
     And I refresh the page
-    Then I softly see field "Total Allocation Funding" as "$1,000"
+    Then I softly see field "Total Allocation Funding" as "$1,000.00"
     When I hovering mouse on help text icon inside page block detail "Total Allocation Funding"
     Then I softly see "Total amount allocated across all approved applications in relationship to this Announcement" shown as help text
     #227729
@@ -5873,7 +5876,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$2,000.00"
-    Then I softly see field "Allocation Amount" as "$1,000"
+    Then I softly see field "Allocation Amount" as "$1,000.00"
     When I click on "Submit to Grantor" in the page details
     #226381
     Then I softly see the following messages in the page details contains:
@@ -6039,7 +6042,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$2,000.00"
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$2,000.00"
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Negotiation Submitted"
@@ -6048,7 +6051,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | IND  |
 
-  @FormulaWBRerun @225419 @VerifythatINDuserwillabletochangethevalueinbudgetbudgetdetailswhileresubmittingthenegotiationstograntorinprescreenreviewwhenallocationamountinannouncementischangedischanged @sprint-11-US-204300  @Allocation
+  @225419 @VerifythatINDuserwillabletochangethevalueinbudgetbudgetdetailswhileresubmittingthenegotiationstograntorinprescreenreviewwhenallocationamountinannouncementischangedischanged @sprint-11-US-204300  @Allocation
   Scenario Outline: Verify that IND user will able to change the value in budget:budget details while resubmitting the negotiations to grantor in pre screen review when allocation amount in announcement is changed is changed
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation IND user"
@@ -6107,9 +6110,11 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 2000   | 100        | 100            | 100            |
-    And I wait for "5" seconds
+    And I wait for "1" seconds
     And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
+    And I wait for "3" seconds
     Then I softly see field "Budgeted Amount" as "$2,000.00"
     Then I softly see field "Allocation Amount" as "$2,000.00"
     When I click on "Submit to Grantor" in the page details
@@ -6119,7 +6124,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | IND  |
 
-  @FormulaWBRerun @226387 @VerifythatINDuserwillabletochangethevalueinbudgetbudgetdetailswhileresubmittingthenegotiationstograntorinSMEreviewwhenallocationamountinannouncementischangedischanged @sprint-11-US-204300  @Allocation @Pre-ScreenOnHoldSPI
+  @226387 @VerifythatINDuserwillabletochangethevalueinbudgetbudgetdetailswhileresubmittingthenegotiationstograntorinSMEreviewwhenallocationamountinannouncementischangedischanged @sprint-11-US-204300  @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify that IND user will able to change the value in budget budget details while resubmitting the negotiations to grantor in SME review when allocation amount in announcement is changed is changed
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation IND user"
@@ -6189,6 +6194,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Budgeted Amount" as "$2,000.00"
     Then I softly see field "Allocation Amount" as "$2,000.00"
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Negotiation Submitted"
 
     Examples:

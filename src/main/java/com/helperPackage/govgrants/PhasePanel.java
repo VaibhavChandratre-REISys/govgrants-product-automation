@@ -84,7 +84,7 @@ public final class PhasePanel {
         By filterAction = null;
         By dropDownSelector1 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//c-outer-picklist//label[contains(text(),'Column')]/..//input");
         By dropDownSelector2 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//c-outer-picklist//label[contains(text(),'Operator')]/..//input");
-        By dropDownSelector3 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Value')]/..//input");
+        By dropDownSelector3 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//c-outer-picklist//label[contains(text(),'Value')]/..//input");
         By inputField = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Value')]/..//input");
         filterAction = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//*[@title='Apply']");
         I.amPerforming().textInput().toClear(dropDownSelector1);
@@ -99,10 +99,9 @@ public final class PhasePanel {
             I.amPerforming().textInput().toClear(inputField);
             I.amPerforming().textInput().in(inputField, rowvalues.get(2).toString());
         } else {
-            I.amPerforming().textInput().toClear(dropDownSelector3);
-            I.amPerforming().textInput().in(dropDownSelector3, rowvalues.get(2).toString());
+            I.amPerforming().click().on(dropDownSelector3);
             By selectDropdown3 = By.xpath("//c-outer-picklist//ul//li//span[text()='" + rowvalues.get(2).toString() +"']");
-            I.amPerforming().click().withJavaScript(selectDropdown3);
+            I.amPerforming().click().on(selectDropdown3);
         }
         I.amPerforming().click().withJavaScript(filterAction);
     }
@@ -369,7 +368,11 @@ public final class PhasePanel {
      */
     public void selectItemFromParallelMenuBars(String panelTitleName, String menuItemName) {
         By parallelMenuItem = By.xpath("//*[text()='"+panelTitleName+"']/ancestor::c-flex-gridlwc//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"'] | //*[text()='"+panelTitleName+"']/ancestor::c-lwc-flex-table//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"']");
-        I.amPerforming().click().on(parallelMenuItem);
+       try {
+           I.amPerforming().click().on(parallelMenuItem);
+       } catch (Exception j) {
+           I.amPerforming().click().withJavaScript(parallelMenuItem);
+       }
         try {
                 govgrants.perform().modal().acceptPopUpWithParameter("Yes");
         } catch (Exception e) {
@@ -399,10 +402,12 @@ public final class PhasePanel {
     private By getDoubleArrowLocatorForLWC(String anyItemContainedInDropDown) {
         if(anyItemContainedInDropDown.contains("Announcements") || anyItemContainedInDropDown.contains("Funding Decision Memos") || anyItemContainedInDropDown.contains("Contact")){
             return By.xpath("//c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
-        } else if(anyItemContainedInDropDown.contains("External Funding Sources")|| anyItemContainedInDropDown.contains("NGO Programs")){
-            String toggleName1 = anyItemContainedInDropDown.split(" ")[1];
-            return By.xpath("//span[contains(text(),'" + toggleName1 + "')]/ancestor::gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //span[contains(text(),'" + toggleName1 + "')]/ancestor::c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
-        } else if(anyItemContainedInDropDown.contains("Subawards")){
+        }
+//        else if(anyItemContainedInDropDown.contains("External Funding Sources")|| anyItemContainedInDropDown.contains("NGO Programs")){
+//            String toggleName1 = anyItemContainedInDropDown.split(" ")[1];
+//            return By.xpath("//span[contains(text(),'" + toggleName1 + "')]/ancestor::gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //span[contains(text(),'" + toggleName1 + "')]/ancestor::c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
+//        }
+        else if(anyItemContainedInDropDown.contains("Subawards")){
             String toggleName1 = anyItemContainedInDropDown.split(" -")[0];
             return By.xpath("//span[contains(text(),'" + toggleName1 + "')]/ancestor::gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //span[contains(text(),'" + toggleName1 + "')]/ancestor::c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
         } else {

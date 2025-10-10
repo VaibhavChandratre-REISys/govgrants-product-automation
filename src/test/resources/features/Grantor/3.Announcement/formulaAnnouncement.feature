@@ -1,4 +1,4 @@
-@formulaAnnouncements @grantor-regression @grantor-parallel-regression @announcement @regression @AnnouncementTemp1
+@formulaAnnouncements @grantor-regression @grantor-parallel-regression @announcement @regression @annExecution
 Feature: Validate all scenarios in the Formula Announcement tab
 
   Background: Create Announcement
@@ -45,6 +45,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page
+    And I wait for "3" seconds
     And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---announcement:-:formulaInvitedApplicatsTableId---"
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" against the value "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table "---announcement:-:formulaInvitedApplicatsTableId---"
     And I click on "Remove" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
@@ -61,7 +62,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Applicants                          | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
     And I wait for "2" seconds
-    Then I softly see value "$1,000" for title "Allocated Amount" against the value "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table "---announcement:-:formulaInvitedApplicatsTableId---"
+    Then I softly see value "$1,000.00" for title "Allocated Amount" against the value "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table "---announcement:-:formulaInvitedApplicatsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -88,6 +89,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Overview Tab - The answer submission deadline must be before the Application due date.   |
     And I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
+    And I wait for "3" seconds
     And I enter value "10" into field "ApplicationDueDate__c"
     And I enter value "No" into field "QAAvailability__c"
     And I click on "Save" in the page details

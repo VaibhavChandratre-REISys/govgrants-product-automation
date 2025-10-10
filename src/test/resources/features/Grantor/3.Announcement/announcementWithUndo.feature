@@ -1,4 +1,4 @@
-@grantor-regression @grantor-parallel-regression @announcement @regression @announcement-undo
+@grantor-regression @grantor-parallel-regression @announcement @regression @announcement-undo @annExecution
 Feature: Validate all scenarios in the Announcement with Undo
 
   @283963 @283966 @283973 @283965 @VerifywhenPmapprovercanclickonundobuttoninAnnouncementrecordwhenrecordisinApprovedstate @sprint-4-US-295141  @Undo
@@ -16,6 +16,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I enter "Edition1" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -28,6 +29,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I pause execution for "3" seconds
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     Then I refresh the page
+    And I pause execution for "3" seconds
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
@@ -95,10 +97,11 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     #283965
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
-    And I pause execution for "10" seconds
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
+    And I pause execution for "150" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -124,7 +127,7 @@ Feature: Validate all scenarios in the Announcement with Undo
    Thank you.
    The EGMS Team
     """
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -151,7 +154,7 @@ Feature: Validate all scenarios in the Announcement with Undo
    Thank you.
    The EGMS Team
   """
-    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+    And I checkout to yopmail with mailid "automation.po.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -178,7 +181,7 @@ Feature: Validate all scenarios in the Announcement with Undo
    Thank you.
    The EGMS Team
   """
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -297,6 +300,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -315,6 +319,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I select radio button "Forward" in the approval decision
     And I select user "{SavedValue:FD Username}" in the approval decision
@@ -387,6 +392,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
+    And I wait for "1" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -418,6 +424,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Forward | Send to Owner  | Reject |
@@ -584,6 +591,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "Announcements" tab
     And I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
@@ -674,6 +682,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Forward |Send to Owner  | Reject |
@@ -819,6 +828,9 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Draft"
     Then I cannot see top right button "Undo" in page detail
+    And I wait for "30" seconds
+    And I refresh the page
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
@@ -1186,6 +1198,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I pause execution for "2" seconds
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I pause execution for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -1301,6 +1314,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I select radio button "Forward" in the approval decision
     And I select user "{SavedValue:FD Username}" in the approval decision
@@ -1481,7 +1495,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Undo" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "History" sub tab
-    Then I softly see column "Date" at position "1" contains text "Step : Re - approval (Pending for approval) "
+    Then I softly see column "Date" at position "1" contains text "Step : Re - approval (Pending for approval)"
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     Then I softly see snapshot with name containing "Snapshot_Announcement_Submission.pdf" as name
     And I navigate to "Field Audit" sub tab in split screen
@@ -1604,7 +1618,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:homePendingTasksTableId---" panel
     Then I softly see "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:homePendingTasksTableId---"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :

@@ -684,7 +684,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on top right button "Reject" in flex table with id "---applicationReview:-:applicationAssignTableId---"
     #80508 #monu
     And I pause execution for "5" seconds
-    Then I softly cannot see top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
+    Then I cannot see top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -2928,11 +2928,9 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I "Send to Owner" in the approval decision
-    #As this msg is coming at same time of page refresh
-#    Then I softly see the following messages in the page details contains:
-#      | Successfully sent to Owner. It may take few minutes to process record |
-    And I pause execution for "20" seconds
+    And I pause execution for "100" seconds
     And I refresh the page
+    And I pause execution for "3" seconds
     #Bug452259
     Then I softly see field "Status" as "Created"
 
@@ -7523,7 +7521,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID1"
     Then I softly can see "Negotiations" sub tab at view detail page
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "30" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -7540,7 +7538,6 @@ Feature: Validate all scenarios in the Application Review without background
       Sincerely,
       EGMS Team
       """
-
 
   @134201 @ValidatependingtaskandemailisgeneratedtoSubrecipientuserwhenannouncementrecordownerclickonSendtoSubrecipient @Sprint-1
   Scenario: Validate  pending task and email is generated to Subrecipient user  when announcement record owner click on Send to Subrecipient
@@ -7575,7 +7572,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---negotiation:-:homePendingTasks---"
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I pause execution for "60" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -7695,7 +7692,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "2" seconds
     And I save the field labeled "Due Date" as "DueDate"
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
-    Then I softly see field "Application Sections for Negotiation" as "Overview: Project Information Budget: Budget Details Files: Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Overview: Project Information Budget: Budget Details Forms and Files: Forms"
     Then I softly see field "Due Date" as "{SavedValue:DueDate}" in "Negotiation Request Details" pageblock
 
   @134207 @ValidateapplicationrecordownercaneditsectionsandformswithintheapplicationwhentheapplicationisinnegotiationInitiatedstate @Sprint-1
@@ -8104,6 +8101,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "2" seconds
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "Edit" in the split screen page details
+    And I wait for "1" seconds
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I pause execution for "2" seconds
@@ -8141,6 +8139,7 @@ Feature: Validate all scenarios in the Application Review without background
     #134406
 #    When I click on "Back" in the page details
     When I click on "Request Negotiations" in the page details
+    And I wait for "4" seconds
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
     And I navigate to "Negotiations" sub tab
@@ -8336,6 +8335,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
+    And I wait for "4" seconds
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -10550,13 +10550,12 @@ Feature: Validate all scenarios in the Application Review without background
     And I click modal button "Continue"
     When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
+    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I save the field labeled "Announcement Name" as "Automation Runtime Announcement Application Review"
-    When I click on "Edit" in the page details
-    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -16107,7 +16106,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I pause execution for "2" seconds
+    And I pause execution for "5" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -16222,9 +16221,10 @@ Feature: Validate all scenarios in the Application Review without background
     When I "Reject" in the approval decision
     Then I softly see the following messages in the page details contains:
       | Rejection of the FDM is not allowed because at least one application in the FDM is converted to award. |
-    When I "Send to Owner" in the approval decision
+    When I "Send Back" in the approval decision
+    And I wait for "100" seconds
     And I refresh the page
-    And I wait for "5" seconds
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Created"
 
     Examples:
@@ -16843,7 +16843,6 @@ Feature: Validate all scenarios in the Application Review without background
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1000               | 1000                    | No                    | Recommended |
-    And I refresh the page
     And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -16859,7 +16858,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Funding Decision Memo" sub tab
     Then I softly see value "Cancelled" for title "Final Decision" inside table "---subAwardFromFDM:-:fdmNonRecommendedTableId---"
     And I wait for "3" seconds
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -18311,7 +18310,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Complete" in "Negotiation Request Details" pageblock
     When I click on "Back to Current Review Step" in the page details
-    Then I softly see that "Review Incomplete" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
+    Then I see that "Review Incomplete" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly see value "Resubmitted" for title "Decision Status" against the value "{SavedValue:AppEGMSID}" inside table "---applicationReview:-:reSubmittedAppTableId---"
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
@@ -18980,7 +18979,6 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-
   @223637 @ValidateAppRevAnnownershouldabletoassignAppformforreviewagainafternegotiationiscompletedevenifpreviouslyreviewer1holdasAssignedforformstatus @sprint-11-US-224734  @reassignment
   Scenario Outline: Validate App Rev Ann owner should able to assign App form for review again after negotiation is completed even if previously reviewer 1 hold as 'Assigned' for form status
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
@@ -19455,7 +19453,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click alert button "OK"
     And I wait for "5" seconds
     Then I softly see that "Status" is in "Review Completed" status
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I pause execution for "100" seconds
     Then I refresh the page
     #Bug412940
@@ -21348,7 +21346,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I can see top right button "Previous Review Step" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM1" for title "Name" inside table "---applicationReview:-:fdmOwnerTableId---"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :

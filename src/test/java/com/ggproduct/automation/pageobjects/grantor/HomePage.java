@@ -52,8 +52,6 @@ public class HomePage extends GrantorProjectManager {
         I.amPerforming().browserOperationsTo().navigateToUrl("http://www.maildrop.cc/");
         By mailboxInput = By.xpath("//div[@id='navbar']//input[@placeholder='view-this-mailbox']");
         By submitButton = By.xpath("//div[@id='navbar']//button[@type='submit']");
-        By refreshButton = By.xpath("//span[text()='Refresh']/parent::button[@type='button'] | //button[@id='refresh']");
-        By refreshMailboxButtonOld = By.xpath("//span[text()='Refresh Mailbox']/parent::button[@type='button']");
         By mailSubject = By.xpath("//div[contains(@class,'message')]//div[contains(text(),'" + subject + "')]");
         By iframe = By.xpath("//iframe");
         By hereLink = By.xpath("//body//tr//a[text()='here']");
@@ -62,30 +60,31 @@ public class HomePage extends GrantorProjectManager {
         I.amPerforming().textInput().in(mailboxInput, emailId);
         I.amPerforming().click().on(submitButton);
 
-        boolean isOldRefreshButtonVisible = I.amPerforming().checkToSee().isElementDisplayed(refreshMailboxButtonOld);
-
-        waitAndClickOnSubject(mailSubject, isOldRefreshButtonVisible ? refreshMailboxButtonOld : refreshButton);
-
-        I.amPerforming().click().on(mailSubject);
-        I.amPerforming().waitFor().makeThreadSleep(2000);
-
-        I.amPerforming().switchTo().frame(iframe);
-        I.amPerforming().waitFor().ElementToBeVisible(hereLink);
-        String link = I.amPerforming().actionToGet().attribute(By.xpath("//a[@href]"), "href");
-        System.out.println("This is the link: " + link);
-        I.amPerforming().browserOperationsTo().navigateToUrl(link);
-    }
-
-    private void waitAndClickOnSubject(By mailSubject, By refreshButton) {
-        for (int i = 0; i < 18; i++) {
-            try {
-                if (I.amPerforming().checkToSee().isElementDisplayed(mailSubject)) {
-                    I.amPerforming().click().on(mailSubject);
-                    break;
+        try {
+            I.amPerforming().click().on(mailSubject);
+            I.amPerforming().click().on(mailSubject);
+            I.amPerforming().switchTo().frame(iframe);
+            I.amPerforming().waitFor().ElementToBeVisible(hereLink);
+            String link = I.amPerforming().actionToGet().attribute(By.xpath("//a[@href]"), "href");
+            System.out.println("This is the link: " + link);
+            I.amPerforming().waitFor().makeThreadSleep(2000);
+            I.amPerforming().browserOperationsTo().navigateToUrl(link);
+        } catch (Exception e) {
+            for (int i = 0; i < 18; i++) {
+                I.amPerforming().click().on(By.xpath("//span[text()='Refresh']/parent::button[@type='button'] | //button[@id='refresh'] | //span[text()='Refresh Mailbox']/parent::button[@type='button']"));
+                try {
+                    if (I.amPerforming().checkToSee().isElementDisplayed(mailSubject)) {
+                        I.amPerforming().click().on(mailSubject);
+                        I.amPerforming().switchTo().frame(iframe);
+                        I.amPerforming().waitFor().ElementToBeVisible(hereLink);
+                        String link = I.amPerforming().actionToGet().attribute(By.xpath("//a[@href]"), "href");
+                        System.out.println("This is the link: " + link);
+                        I.amPerforming().browserOperationsTo().navigateToUrl(link);
+                        break;
+                    }
+                } catch (Exception j) {
+                    I.amPerforming().waitFor().makeThreadSleep(10000);
                 }
-            } catch (Exception e) {
-                I.amPerforming().waitFor().makeThreadSleep(10000);
-                I.amPerforming().click().on(refreshButton);
             }
         }
     }
@@ -166,18 +165,24 @@ public class HomePage extends GrantorProjectManager {
      * @param dropDownValue - value to be selected
      */
     public void selectValueFromGlobalSearchDropDown(String dropDownValue) {
-        By globalDropdownSelector = By.xpath("//*[@data-value='Search: All']");
-        if(I.amPerforming().checkToSee().isDisplayed(globalDropdownSelector)){
+        I.amPerforming().waitFor().makeThreadSleep(2000);
+        By globalDropdownSelector = By.xpath("//*[contains(@data-value,'Search:')]");
+        I.amPerforming().waitFor().ElementToBeClickable(globalDropdownSelector);
+        if (I.amPerforming().checkToSee().isElementDisplayed(globalDropdownSelector)) {
             I.amPerforming().click().on(globalDropdownSelector);
-            List<Elements> elements= I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//ul[@aria-label='All Searchable Items']//li"));
+            I.amPerforming().waitFor().ElementToBeClickable(By.xpath("//ul[@aria-label='All Searchable Items']//li"));
+            List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//ul[@aria-label='All Searchable Items']//li"));
             for (Elements element : elements) {
                 if (element.getText().contains(dropDownValue)) {
-                    element.click();
+                    I.amPerforming().waitFor().ElementToBeClickable(By.xpath("//ul[@aria-label='All Searchable Items']//li//span[text()='" + element.getText() + "']"));
+                    I.amPerforming().click().withJavaScript(By.xpath("//ul[@aria-label='All Searchable Items']//li//span[text()='" + element.getText() + "']"));
                     break;
-                }}
+                }
+            }
         } else {
-        I.amPerforming().dropDownSelection().from(globalDropdownSelector).selectByVisibleText(dropDownValue);
-    }}
+            I.amPerforming().dropDownSelection().from(globalDropdownSelector).selectByVisibleText(dropDownValue);
+        }
+    }
 
     /**
      * To save the todays date as well as date after one year

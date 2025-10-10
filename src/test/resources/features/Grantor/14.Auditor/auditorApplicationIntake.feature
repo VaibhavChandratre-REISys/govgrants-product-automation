@@ -12,6 +12,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -161,6 +162,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     Then I softly see field "Status" as "Published"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "4" seconds
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -180,14 +182,12 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I click on "Save" in the page details
 #    Given I click on "Back" in the page details
     And I close the tab
-    And I refresh the page
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     And I switch to tab number "1"
     Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    Given I click on "Back" in the page details
     And I close the tab
-    And I refresh the page
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "AppContactFlexGrid" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
@@ -207,7 +207,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | {SavedValue:Automation Runtime Announcement for Application} | Auditor |
 
   @69941 @69940 @audiorPreApplicationToApplication
-  Scenario Outline: Validate Auditor should have view / read  only access to submitted pre-application| Validate Auditor should not be  able to Review/Accept/Reject Preapplication
+  Scenario: Validate Auditor should have view / read  only access to submitted pre-application| Validate Auditor should not be  able to Review/Accept/Reject Preapplication
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
@@ -217,6 +217,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -253,9 +254,6 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I softly cannot see top right button "Reject" in page detail
     Then I softly cannot see top right button "Accept" in page detail
-    Examples:
-      | Announcement Name                                        |
-      | {SavedValue:Automation Runtime Announcement Application} |
 
   @69984 @auditorApplicationReview
   Scenario Outline: Validate auditor should have view / read  only access to completed status Application review

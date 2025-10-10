@@ -1,7 +1,7 @@
 @programWithUndo @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios for program
 
-   @279282 @Verifyusershouldnotseeundobuttonincreatedsentforreviewreviewedstateofprogram @sprint-25-US-295138  @Undo
+  @279282 @Verifyusershouldnotseeundobuttonincreatedsentforreviewreviewedstateofprogram @sprint-25-US-295138  @Undo
   Scenario: Verify user should not see undo button in created, sent for review, reviewed state of program
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -319,7 +319,7 @@ Feature: Validate all scenarios for program
     And I wait for "4" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     #279415
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -343,7 +343,7 @@ Feature: Validate all scenarios for program
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+    And I checkout to yopmail with mailid "automation.po.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -367,7 +367,7 @@ Feature: Validate all scenarios for program
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -391,7 +391,7 @@ Feature: Validate all scenarios for program
      Thank you.
      The EGMS Team
      """
-    And I checkout to yopmail with mailid "automationfd@yopmail.com"
+    And I checkout to yopmail with mailid "automation.fd.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -415,7 +415,7 @@ Feature: Validate all scenarios for program
       Thank you.
       The EGMS Team
       """
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -439,6 +439,7 @@ Feature: Validate all scenarios for program
      Thank you.
      The EGMS Team
      """
+
   @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138  @Undo
   Scenario: Verify Admin user can see Undo and Activate button after approved the program if program owner and approver is same
     When I login to "Grantor" app as "Admin" user
@@ -845,7 +846,7 @@ Feature: Validate all scenarios for program
     When I select radio button "Approve" in the approval decision
     And I submit the approval in the approval decision
     Then I see the following messages in the page details contains:
-      | Comments are Required. |
+      | Comments are required. |
 
   @279442 @VerifyusershouldnotseeactiveprogramtaskinpendingtaskfterpproverclickonUndobutton @sprint-25-US-295138  @Undo
   Scenario: Verify user should not see active program task in pending task after approver click on Undo button
@@ -1314,7 +1315,7 @@ Feature: Validate all scenarios for program
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     Then I do not see the mail text is as follows :
@@ -1334,7 +1335,7 @@ Feature: Validate all scenarios for program
      Thank you.
      The EGMS Team
       """
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
     """
@@ -1359,7 +1360,7 @@ Feature: Validate all scenarios for program
      The EGMS Team
       """
 
-   @279491 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-295138  @Undo
+  @279491 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-295138  @Undo
   Scenario:Verify reassign approver should see Undo button after forwarded approver change approval task ownership
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1445,7 +1446,7 @@ Feature: Validate all scenarios for program
     Then I can see top right button "Undo" in page detail
     And I logout
     And I pause execution for "5" seconds
-    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "150" seconds
     Then I refresh the page
     And I click on mail with subject "Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}"
@@ -1648,9 +1649,11 @@ Feature: Validate all scenarios for program
     And I click on hyperlink containing value "Internal Program - Undo Approval.pdf"
     And I click on "Download" button for snapshot view
     And I wait for "3" seconds
-    When I download the file for snapshot
-    And I wait for "3" seconds
-    Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
+    When I download the file
+    And I wait for "5" seconds
+    Then I softly see following details in "govgrants" pdf file:
+      | Detail                     | Page Number |
+      | {SavedValue:ProgramEGMSID} | 1           |
     Then I softly see "Submitted for Approval" on page "1" of "govgrants" pdf file
     Then I softly see "Test Automation Organization" on page "1" of "govgrants" pdf file
 
@@ -1957,7 +1960,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I wait for "5" seconds
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I can see top right button "Undo" in page detail
@@ -2087,7 +2090,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
 
-   @279528 @VerifyIfFDasstep4approverclickonUndobuttonthenemailshouldbegeneratedforallpreviousassignapproverandprogramowner @sprint-25-US-291914  @Undo
+  @279528 @VerifyIfFDasstep4approverclickonUndobuttonthenemailshouldbegeneratedforallpreviousassignapproverandprogramowner @sprint-25-US-291914  @Undo
   Scenario:Verify If FD as step 4 approver click on Undo button then email should be generated for all previous assign approver and program owner
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2152,7 +2155,7 @@ Feature: Validate all scenarios for program
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -2176,7 +2179,7 @@ Feature: Validate all scenarios for program
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+    And I checkout to yopmail with mailid "automation.po.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -2200,7 +2203,7 @@ Feature: Validate all scenarios for program
      Thank you.
      The EGMS Team
      """
-    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -2224,7 +2227,7 @@ Feature: Validate all scenarios for program
      Thank you.
      The EGMS Team
      """
-    And I checkout to yopmail with mailid "automationfd@yopmail.com"
+    And I checkout to yopmail with mailid "automation.fd.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -2248,7 +2251,7 @@ Feature: Validate all scenarios for program
      Thank you.
      The EGMS Team
      """
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -2274,7 +2277,7 @@ Feature: Validate all scenarios for program
      """
 
 
-    @279535 @Verifystep2approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-291914  @Undo
+  @279535 @Verifystep2approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-291914  @Undo
   Scenario: Verify step 2 approver can Reject the program after click on Undo button and active program task should cancel and display under completed task table
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2367,9 +2370,8 @@ Feature: Validate all scenarios for program
     And I pause execution for "3" seconds
     When I select radio button "Approve" in the approval decision
     And I submit the approval in the approval decision
-    #Bug431809
     Then I softly see the following messages in the page details contains:
-      | Comments are Required. |
+      | Comments are required. |
 
   @279561 @VerifyusershouldnotseeactiveprogramtaskinpendingtaskafterapproveclickonUndobutton @sprint-3-US-291914  @Undo
   Scenario: Verify user should not see active program task in pending task after approver click on Undo button
@@ -2454,7 +2456,10 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
-    And I wait for "5" seconds
+    And I wait for "30" seconds
+    And I reset the table
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
+    Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2658,7 +2663,7 @@ Feature: Validate all scenarios for program
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
@@ -2696,7 +2701,7 @@ Feature: Validate all scenarios for program
     When I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-   @279567 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-291914
+  @279567 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-291914
   Scenario: Verify notification email should generate to new owner of program after click on Undo button
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2735,7 +2740,7 @@ Feature: Validate all scenarios for program
     When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "Record Id" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I navigate to "Responsibilities" sub tab
@@ -2750,7 +2755,7 @@ Feature: Validate all scenarios for program
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I wait for "100" seconds
     Then I refresh the page
     Then I do not see the mail text is as follows :
@@ -2770,7 +2775,7 @@ Feature: Validate all scenarios for program
      Thank you.
      The EGMS Team
       """
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
     """
@@ -2850,7 +2855,7 @@ Feature: Validate all scenarios for program
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I wait for "3" seconds
@@ -2897,7 +2902,7 @@ Feature: Validate all scenarios for program
     And I click on hyperlink containing value "External NGO Program - Undo Approval.pdf"
     And I click on "Download" button for snapshot view
     And I wait for "3" seconds
-    When I download the file for snapshot
+    When I download the file
     And I wait for "3" seconds
     Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
     Then I softly see "Submitted for Approval" on page "1" of "govgrants" pdf file
@@ -2965,7 +2970,6 @@ Feature: Validate all scenarios for program
     And I pause execution for "4" seconds
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Undo" in page detail
-
 
   @279387 @332438 @ExternalProgVerifyEXEasstep3approverseewarningmessageafterclickonUndobuttononprogram @sprint-7-US-304339  @Undo
   Scenario: External Prog_ Verify EXE as step 3 approver see warning message after click on Undo button on program
@@ -3232,15 +3236,15 @@ Feature: Validate all scenarios for program
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     And I "Reject" in the approval decision
-    And I refresh the page
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Rejected"
     Then I cannot see top right button "Undo" in page detail
-    And I click on "Download As PDF" in the page details
+    And I click on "Download as PDF" in the page details
     And I wait for "7" seconds
     And I download the file
-    And I wait for "3" seconds
-    Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
+    And I wait for "5" seconds
+    Then I softly see following details in "govgrants" pdf file:
+      | Detail                     | Page Number |
+      | {SavedValue:ProgramEGMSID} | 1           |
     Then I softly see following details in "govgrants" pdf file:
       | Detail   | Page Number |
       | Contacts | 1           |

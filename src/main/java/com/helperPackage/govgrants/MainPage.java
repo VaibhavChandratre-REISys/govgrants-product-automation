@@ -234,7 +234,7 @@ public final class MainPage {
      */
     public void waitForNavigationLogoToDisappear() {
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(navLogo, false)) {
+            if (I.amPerforming().checkToSee().isElementDisplayed(navLogo, false)) {
                 I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_INFO, GREEN, TICK, "Processing the Navigation Logo");
                 I.amPerforming().waitFor().ElementToDisappear(navLogo, 10);
             }

@@ -1,4 +1,4 @@
-@directedAnnouncements @grantor-regression @grantor-parallel-regression @announcement @regression @AnnouncementTemp1
+@directedAnnouncements @grantor-regression @grantor-parallel-regression @announcement @regression @annExecution
 Feature: Validate all scenarios in the directed Announcement tab
 
   Background: Create Announcement
@@ -134,6 +134,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
     When I navigate to "Overview" sub tab
+    And I wait for "3" seconds
     And I enter value "-1" into field "ApplicationDueDate__c"
     And I click on "Save" in the page details
 #    Additional Information-Overview Tab - Application Due Date cannot be in the past.

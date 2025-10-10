@@ -1,4 +1,4 @@
-@announcement @grantor-regression @grantor-parallel-regression @regression @annWithNotes
+@announcement @grantor-regression @grantor-parallel-regression @regression @annWithNotes @annExecution
 Feature: Validate all notes scenarios in the  Announcement tab
 
   @219720 @ValidatePMADMINusercanAddeditdeletehisnotesonacompetitiveannouncmentincreatedstatus @sprint-9-US-201923  @Notes
@@ -1711,16 +1711,16 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Formula Announcements"
-    And I perform quick search for "{SavedValue:FormulaClosedAnnoucement}" in "---announcement:-:formulaAnnouncementTableId---" panel
-    And I click on "View" icon for "{SavedValue:FormulaClosedAnnoucement}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
+    And I perform quick search for "---AUTOEnvData:-:Automation_Formula_Closed_Announcement_By_Applicant---" in "---announcement:-:formulaAnnouncementTableId---" panel
+    And I click on "View" icon for "---AUTOEnvData:-:Automation_Formula_Closed_Announcement_By_Applicant---" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     And I navigate to "Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---announcement:-:AnnouncementNotestableId---"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Formula Announcements"
-    And I perform quick search for "{SavedValue:FormulaClosedAnnoucement}" in "---announcement:-:formulaAnnouncementTableId---" panel
-    And I click on "View" icon for "{SavedValue:FormulaClosedAnnoucement}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
+    And I perform quick search for "---AUTOEnvData:-:Automation_Formula_Closed_Announcement_By_Applicant---" in "---announcement:-:formulaAnnouncementTableId---" panel
+    And I click on "View" icon for "---AUTOEnvData:-:Automation_Formula_Closed_Announcement_By_Applicant---" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     And I navigate to "Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 

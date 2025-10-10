@@ -323,8 +323,7 @@ Feature: Validate all scenarios for program with add file
     And I click on "Edit" icon for "Program Artifacts" inside flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I select Classification as "Other Artifacts" at upload file modal
     When I click modal button "Save"
-    When I click modal button "Close"
-    And I refresh the page
+#    When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Other Artifacts" for title "Classification" inside table "---program:-:GrantorInternalProgramFilesTableId---"
     And I click on "Delete" icon for "Other Artifacts" inside flex table with id "---program:-:GrantorInternalProgramFilesTableId---" without waiting for record
@@ -568,8 +567,7 @@ Feature: Validate all scenarios for program with add file
     And I click on "Edit" icon for "Program Artifacts" inside flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I select Classification as "Other Artifacts" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Other Artifacts" for title "Classification" inside table "---program:-:GrantorInternalProgramFilesTableId---"
     And I click on "Delete" icon for "Other Artifacts" inside flex table with id "---program:-:GrantorInternalProgramFilesTableId---" without waiting for record
@@ -735,6 +733,7 @@ Feature: Validate all scenarios for program with add file
     And I click on top right button "Add Files" in flex table with id "---program:-:externalProgramAddFilesYableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other Artifacts" from computer
     And I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---program:-:externalProgramAddFilesYableId---"
     Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---program:-:externalProgramAddFilesYableId---"
     Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---program:-:externalProgramAddFilesYableId---"
@@ -742,7 +741,7 @@ Feature: Validate all scenarios for program with add file
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Financial Artifacts" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---program:-:externalProgramAddFilesYableId---"
