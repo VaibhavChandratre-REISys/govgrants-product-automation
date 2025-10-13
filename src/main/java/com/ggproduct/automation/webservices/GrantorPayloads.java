@@ -373,6 +373,7 @@ public class GrantorPayloads {
         award.addProperty("GrantAwardDescription", "Award Created From Automation API");
         award.addProperty("BudgetPeriodEndDate", I.amPerforming()
                 .dateOperationsToGet().currentDateWithOffsetInDesiredFormat(150, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        award.addProperty("BudgetRedirectionThreshhold", 10);
         award.addProperty("PM", ProjectWebServices.getIdOf("User", "Automation PM"));
         award.addProperty("FO", ProjectWebServices.getIdOf("User", "Automation FO"));
         award.addProperty("EXE", ProjectWebServices.getIdOf("User", "Automation EXE"));
@@ -574,6 +575,8 @@ public class GrantorPayloads {
                 return invitedIndUserOrganizationPreApplicationAndNegotiationAsYes(json);
             case "SECOND_FOCUS_AREA_APPLICANT_IND_ORG_PRE_APPLICATION":
                 return invitedIndUserOrganizationSecondFocusAreaPreApplicationYes(json);
+            case "INVITED_APP_IND_ORG_BY_AP_TWO_FOCUS_AREA_RISK_NO":
+                return invitedIndUserOrganizationbyApplicantTwoFocusAreaRiskNo(json);
             case "INVITED_APP_IND_ORG_BY_APP_TWO_FOCUS_AREA_RISK_NO":
                 return invitedIndUserOrganizationbyAppTwoFocusAreaRiskNo(json);
             case "SECOND_FOCUS_AREA":
@@ -605,6 +608,27 @@ public class GrantorPayloads {
             default:
                 return json;
         }
+    }
+
+    private JsonObject invitedIndUserOrganizationbyApplicantTwoFocusAreaRiskNo(JsonObject json) {
+        JsonArray serviceArea = new JsonArray();
+        JsonObject serviceAreaB = new JsonObject();
+        serviceAreaB.addProperty("ServiceArea", ProjectWebServices.getIdOf("ServiceArea__c", "Automation Permanent Focus Area2"));
+        serviceArea.add(serviceAreaB);
+        json.add("AnnouncementServiceArea", serviceArea);
+        JsonObject jsonObject1 = json.getAsJsonArray("Announcement").get(0).getAsJsonObject();
+        JsonArray pre1 = new JsonArray();
+        jsonObject1.addProperty("Allocationlevel", "By Applicant");
+        jsonObject1.addProperty("RiskAssessment_Required", "No");
+        pre1.add(jsonObject1);
+        json.add("Announcement", pre1);
+        JsonObject invApp = new JsonObject();
+        JsonArray invAppA = new JsonArray();
+        invApp.addProperty("Organization", ProjectWebServices.getIdOf("Account", "Automation IND"));
+        invApp.addProperty("AllocatedAmount", 1000);
+        invAppA.add(invApp);
+        json.add("InvitedApplicant", invAppA);
+        return json;
     }
 
     private JsonObject invitedIndUserOrganizationbyApplicantRiskNo(JsonObject json) {
