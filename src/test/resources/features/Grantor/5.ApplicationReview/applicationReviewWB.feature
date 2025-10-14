@@ -8133,10 +8133,14 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly cannot see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly cannot see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "View" icon for "Program Application Form" inside flex table with id "---negotiation:-:negotiationFilesFormTableId---"
+    And I switch to tab number "1"
     Then I softly cannot see top right button "Edit" in page detail
+    And I close the tab
 #    When I click on "Back" in the page details
     And I click on "View" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:negotiationFilesFormTableId---"
+    And I switch to tab number "1"
     Then I softly cannot see top right button "Edit" in page detail
+    And I close the tab
     #134406
 #    When I click on "Back" in the page details
     When I click on "Request Negotiations" in the page details

@@ -2848,7 +2848,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
-    Then I see field "Status" as "Submitted to Grantor"
+    Then I see field "Status" as "Negotiation Submitted"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
