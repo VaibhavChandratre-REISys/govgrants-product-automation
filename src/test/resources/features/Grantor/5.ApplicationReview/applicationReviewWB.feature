@@ -13414,8 +13414,10 @@ Feature: Validate all scenarios in the Application Review without background
     When I expand nested table containing column value "<Application Name>"
     And I click on "Automation PM: Review Completed - Recommended" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     Then I see the page contains text "Only the announcement record owner or the assigned reviewer can view the reviewer's response. If you need access to the reviewer's response, please contact technical support."
+    And I close the tab
     And I click on "Automation EXE: Review Completed - Recommended" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I wait for "3" seconds
+    And I close the tab
 #    Then I softly see that "Reviewer" is in "Automation EXE" status
     #236830
     Then I softly do not see "Average Score" in flex table header "---applicationReview:-:reviewFormsTableId---"
