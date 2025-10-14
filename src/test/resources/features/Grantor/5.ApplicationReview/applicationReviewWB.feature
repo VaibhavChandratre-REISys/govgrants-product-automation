@@ -8133,12 +8133,12 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly cannot see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly cannot see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "View" icon for "Program Application Form" inside flex table with id "---negotiation:-:negotiationFilesFormTableId---"
-    And I switch to tab number "1"
+    And I switch to tab number "2"
     Then I softly cannot see top right button "Edit" in page detail
     And I close the tab
 #    When I click on "Back" in the page details
     And I click on "View" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:negotiationFilesFormTableId---"
-    And I switch to tab number "1"
+    And I switch to tab number "2"
     Then I softly cannot see top right button "Edit" in page detail
     And I close the tab
     #134406
@@ -13425,7 +13425,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                        | Application Name                                         |
       | {SavedValue:Automation Runtime Competitive Announcement} | {SavedValue:Automation Runtime Competitive Announcement} |
 
-  @236831  @sprint-14-US-236321  @reassignment @bug-412783
+  @236831  @sprint-14-US-236321  @reassignment
   Scenario Outline: Validate old user should not see the average weighted score column on application
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
