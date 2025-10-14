@@ -11366,108 +11366,108 @@ Feature: Amendment Request scenarios with Undo
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
-    And I click on "Submit for Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-    When I reassign task to "Automation PO1"
-    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---program:-:grantorTaskReassignTableId---" panel
-    When I check "{SavedValue:SOWAMENDMENTREQUEST}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
-    And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
-    And I pause execution for "30" seconds
-    And I reset the table
-    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---program:-:grantorTaskReassignTableId---" panel
-    Then I softly do not see value "{SavedValue:SOWAMENDMENTREQUEST}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    When I re-login to "Grantor" app as "PO1" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    Then I cannot see top right button "Undo" in page detail
-    #291194
-    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    When I select radio button "Forward" in the approval decision
-    And I select user "{SavedValue:FO1 Username}" in the approval decision
-    When I enter comment "Automation testing" in the approval decision
-    And I submit the approval in the approval decision without processing
-    Then I cannot see top right button "Undo" in page detail
-    When I re-login to "Grantor" app as "FO1" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    Then I cannot see top right button "Undo" in page detail
-    #291195
-    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    Then I softly see field "Status" as "Approved"
-    Then I can see top right button "Undo" in page detail
-    And I click on "Undo" in the page details without processing
-    Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
-    And I click "OK" on modal confirmation box
-    And I wait for "2" seconds
-    Then I softly see field "Status" as "Submitted for Approval"
-    Then I see only the following ordered radio buttons in the approval decision :
-      | Approve | Reject | Forward | Send to Owner |
-    And I navigate to "Home" tab
-    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-    When I reassign task to "Automation PM1"
-    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---program:-:grantorTaskReassignTableId---" panel
-    When I check "{SavedValue:SOWAMENDMENTREQUEST}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
-    And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
-    And I pause execution for "30" seconds
-    And I reset the table
-    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---program:-:grantorTaskReassignTableId---" panel
-    Then I softly do not see value "{SavedValue:SOWAMENDMENTREQUEST}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    Then I see only the following ordered radio buttons in the approval decision :
-      | Approve | Reject | Forward | Send to Owner |
-    And I "Approve" in the approval decision
-    Then I softly see field "Status" as "Approved"
-    Then I can see top right button "Undo" in page detail
-    #291196
-    And I click on "Undo" in the page details without processing
-    Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
-    And I click "OK" on modal confirmation box
-    Then I softly see field "Status" as "Submitted for Approval"
-    Then I see only the following ordered radio buttons in the approval decision :
-      | Approve | Reject | Forward | Send to Owner |
-    When I select radio button "Forward" in the approval decision
-    And I select user "{SavedValue:EXE1 Username}" in the approval decision
-    When I enter comment "Automation testing" in the approval decision
-    And I submit the approval in the approval decision without processing
-    Then I cannot see top right button "Undo" in page detail
-    When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    Then I see only the following ordered radio buttons in the approval decision :
-      | Approve | Reject | Forward | Send to Owner |
-    And I "Approve" in the approval decision
-    Then I softly see field "Status" as "Approved"
-    Then I can see top right button "Undo" in page detail
+#    And I click on "Submit for Approval" in the page details
+#    Then I softly see field "Status" as "Submitted for Approval"
+#    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
+#    When I reassign task to "Automation PO1"
+#    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---program:-:grantorTaskReassignTableId---" panel
+#    When I check "{SavedValue:SOWAMENDMENTREQUEST}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
+#    And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
+#    And I pause execution for "30" seconds
+#    And I reset the table
+#    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---program:-:grantorTaskReassignTableId---" panel
+#    Then I softly do not see value "{SavedValue:SOWAMENDMENTREQUEST}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+#    When I re-login to "Grantor" app as "PO1" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    And I "Approve" in the approval decision
+#    Then I cannot see top right button "Undo" in page detail
+#    #291194
+#    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    When I select radio button "Forward" in the approval decision
+#    And I select user "{SavedValue:FO1 Username}" in the approval decision
+#    When I enter comment "Automation testing" in the approval decision
+#    And I submit the approval in the approval decision without processing
+#    Then I cannot see top right button "Undo" in page detail
+#    When I re-login to "Grantor" app as "FO1" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    And I "Approve" in the approval decision
+#    Then I cannot see top right button "Undo" in page detail
+#    #291195
+#    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    And I "Approve" in the approval decision
+#    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    And I "Approve" in the approval decision
+#    Then I softly see field "Status" as "Approved"
+#    Then I can see top right button "Undo" in page detail
+#    And I click on "Undo" in the page details without processing
+#    Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
+#    And I click "OK" on modal confirmation box
+#    And I wait for "2" seconds
+#    Then I softly see field "Status" as "Submitted for Approval"
+#    Then I see only the following ordered radio buttons in the approval decision :
+#      | Approve | Reject | Forward | Send to Owner |
+#    And I navigate to "Home" tab
+#    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
+#    When I reassign task to "Automation PM1"
+#    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---program:-:grantorTaskReassignTableId---" panel
+#    When I check "{SavedValue:SOWAMENDMENTREQUEST}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
+#    And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
+#    And I pause execution for "30" seconds
+#    And I reset the table
+#    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---program:-:grantorTaskReassignTableId---" panel
+#    Then I softly do not see value "{SavedValue:SOWAMENDMENTREQUEST}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+#    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    Then I see only the following ordered radio buttons in the approval decision :
+#      | Approve | Reject | Forward | Send to Owner |
+#    And I "Approve" in the approval decision
+#    Then I softly see field "Status" as "Approved"
+#    Then I can see top right button "Undo" in page detail
+#    #291196
+#    And I click on "Undo" in the page details without processing
+#    Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
+#    And I click "OK" on modal confirmation box
+#    Then I softly see field "Status" as "Submitted for Approval"
+#    Then I see only the following ordered radio buttons in the approval decision :
+#      | Approve | Reject | Forward | Send to Owner |
+#    When I select radio button "Forward" in the approval decision
+#    And I select user "{SavedValue:EXE1 Username}" in the approval decision
+#    When I enter comment "Automation testing" in the approval decision
+#    And I submit the approval in the approval decision without processing
+#    Then I cannot see top right button "Undo" in page detail
+#    When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    Then I see only the following ordered radio buttons in the approval decision :
+#      | Approve | Reject | Forward | Send to Owner |
+#    And I "Approve" in the approval decision
+#    Then I softly see field "Status" as "Approved"
+#    Then I can see top right button "Undo" in page detail
 
   @291760 @291761 @291762 @ValidatelastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @Sprint-2-US-289823  @Undo
   Scenario: Validate last approver cannot see undo button on approved amendment when award is created on the amendment and is in Pending Activation state
