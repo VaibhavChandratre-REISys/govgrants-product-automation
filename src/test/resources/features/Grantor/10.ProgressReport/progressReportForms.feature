@@ -279,6 +279,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see field "City" as "{AUTOEnvData:StringOf35Chars}"
     When I click on "Edit" in the page details
     When I enter value "--None--" into field "CountrySF428__c"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     And I wait for "2" seconds
     #280216

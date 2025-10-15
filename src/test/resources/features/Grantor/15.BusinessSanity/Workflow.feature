@@ -1927,7 +1927,7 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Open Items" sub tab
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:progID}" inside table "---closeout:-:closeoutPendingProgressReportCloseoutTableId---"
 
-  @testChecking @debug
+  @testChecking
   Scenario:
     When I login to "Grantor" app as "PM" user
     And I halt execution

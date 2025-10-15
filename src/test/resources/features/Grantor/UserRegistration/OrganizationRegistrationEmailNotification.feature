@@ -31,7 +31,7 @@ Feature: Validate all registration related scenarios for Email Notification
        {regconfirmationmailbody:mailbody}
       """
 
-  @85792 @validateSAUserforUserRegistration-Organization
+  @85792 @validateSAUserforUserRegistration-Organization @debug
   Scenario:To verify SA allow to modify newly created contact in contact table  for Additional user registration process
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -77,7 +77,7 @@ Feature: Validate all registration related scenarios for Email Notification
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
       | Confirmation Message |
     And I am on "INTERNAL" portal
@@ -206,12 +206,14 @@ Feature: Validate all registration related scenarios for Email Notification
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} User" inside flex table with id "---home:-:userContactsTableId---"
     And I wait for "5" seconds
     #83533 #monu
-    And I wait for "3" seconds
     And I click "Send" button in modal
+    And I wait for "3" seconds
     Then I see the text "Email Sent Successfully." in modal
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Invitation Sent" for title "Status" inside table "---home:-:userContactsTableId---"
+    And I logout
+    And I wait for "2" seconds
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
     And I navigate to maildrop portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Notification: Invitation to be a user of EGMS"
     And I wait for "2" seconds

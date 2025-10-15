@@ -16,8 +16,7 @@ Feature: Validate all scenarios for SME Registration for Email Notification
     And I click "Send" button in modal
     And I wait for "2" seconds
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
-    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Notification: You have been Invited to Register in the"
-    And I pause execution for "200" seconds
+    And I pause execution for "60" seconds
     Then I refresh the page
     And I see the maildrop subject is as follows :
       """
@@ -58,7 +57,6 @@ Feature: Validate all scenarios for SME Registration for Email Notification
     Then I softly see fields "ExternalReviewerPhone__c" is in edit mode
     Then I softly see value "{SavedValue:uniqueEmailID}" for the edit mode field "ExternalReviewerEmail__c"
 
-
   @34991 @VerifySubjectMatterExpertFieldsDetails-SMEReviewerRegistration @smoke
   Scenario: Validate filled details of subject matter expert fields on page of Registration Step 1 of 1
     Given I login to "Grantor" app as "PM" user
@@ -73,9 +71,8 @@ Feature: Validate all scenarios for SME Registration for Email Notification
     And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
     And I click "Send" button in modal
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Email Sent Successfully. |
+    And I wait for "5" seconds
+    Then I see the text "Email Sent Successfully." in modal
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
     And I navigate to maildrop portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Notification: You have been Invited to Register in the"
     And I wait for "3" seconds
