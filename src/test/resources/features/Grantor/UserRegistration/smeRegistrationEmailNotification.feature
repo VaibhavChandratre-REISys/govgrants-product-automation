@@ -3,7 +3,7 @@ Feature: Validate all scenarios for SME Registration for Email Notification
 
   @94345 @validatingEmailNotificationForSMEReviewer
   Scenario: To verify Email notification should be received to SME contact after sending invitation by internal  user
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I enter in modal "smeReviewerRegistration" values from "Registration_Field_Values.xlsx"
@@ -26,7 +26,7 @@ Feature: Validate all scenarios for SME Registration for Email Notification
 
   @34872 @34840 @VerifyPageDetailsOnRegistrationStep1of1-SMEReviewerRegistration @smoke
   Scenario: Validate all expected fields are getting populated on page of Registration Step 1 of 1 while SME reviewer registration
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     When I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     When I click on top right button "New" in flex table with id "---home:-:reviewersTableId---"
@@ -61,7 +61,7 @@ Feature: Validate all scenarios for SME Registration for Email Notification
 
   @34991 @VerifySubjectMatterExpertFieldsDetails-SMEReviewerRegistration @smoke
   Scenario: Validate filled details of subject matter expert fields on page of Registration Step 1 of 1
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     When I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     When I click on top right button "New" in flex table with id "---home:-:reviewersTableId---"
@@ -94,7 +94,7 @@ Feature: Validate all scenarios for SME Registration for Email Notification
 
   @35013 @VerifyCreatedSMEUserAtActivePartneruser-SMEReviewerRegistration @smoke  @wip
   Scenario: Validate created SME user should get reflected at salesforce page inside Active Partnet usersall expected fields are getting populated on page of Registration Step 1 of 1 while SME reviewer registration
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "{grantor_sidebar:smeReviewer}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"

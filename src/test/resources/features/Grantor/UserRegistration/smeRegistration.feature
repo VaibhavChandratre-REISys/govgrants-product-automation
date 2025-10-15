@@ -3,7 +3,7 @@ Feature: Validate all scenarios for SME Registration
 
   @34834 @34836 @34831 @VerifyCreatedSMEUserDetails-SMEReviewerRegistration @smoke
   Scenario: Validate created SME user details on modal after clicking on view row level action
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
@@ -43,7 +43,7 @@ Feature: Validate all scenarios for SME Registration
 
   @33847 @VerifyInternalSubricepientAndSMEReviewerContact
   Scenario: Validate user is able to see all expected contacts
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
     When I perform quick search for "Automation PM" in "{grantor_tableId:InternalContactsTableId}" panel
@@ -58,7 +58,7 @@ Feature: Validate all scenarios for SME Registration
 
   @33837 @VerifySystemDisplayAllRelatedTasks
   Scenario: Validate user is able to see all expected contacts
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "{grantor_sidebar:PendingTaskLink}" content inside "{grantor_sidebar:MyTasksLinkName}" subheader on left panel
     And I wait for "2" seconds
@@ -75,7 +75,7 @@ Feature: Validate all scenarios for SME Registration
 
   @35012 @VerifySMEReviewerDetailPage-SMEReviewerRegistration @wip @smoke   @onhold
   Scenario: Validate all details of created Sme Reviewer
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "{grantor_sidebar:smeReviewer}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
