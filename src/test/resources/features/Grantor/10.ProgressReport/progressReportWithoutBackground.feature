@@ -8884,8 +8884,11 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I wait for "2" seconds
     And I navigate to "Monitoring" tab
+    And I wait for "2" seconds
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I click on "Edit" in the page details
