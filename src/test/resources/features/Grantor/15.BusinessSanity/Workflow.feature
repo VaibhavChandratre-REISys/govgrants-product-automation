@@ -1929,9 +1929,5 @@ Feature: Validate all scenarios of every modules flow
 
   @testChecking
   Scenario:
-    When I login to "Grantor" app as "PM" user
-    And I halt execution
-#    When I expand nested table containing column value "<Application Name>"
-    And I click on "Automation FO: Review Completed - Recommended" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
-    Then I see the page contains text "Only the announcement record owner or the assigned reviewer can view the reviewer's response. If you need access to the reviewer's response, please contact technical support."
-    And I close the tab
+#    When I login to "Grantor" app as "PM" user
+    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
