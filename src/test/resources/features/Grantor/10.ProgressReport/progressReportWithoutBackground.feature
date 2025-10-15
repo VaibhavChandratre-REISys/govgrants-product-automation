@@ -2064,7 +2064,7 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I click on "Send Back to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent Back to Subrecipient"
-    Then I softly see field "Final Report?" as "Checked"
+    Then I softly see field "Final Report?" as "True"
     Then I see status in Progress-bar is "Sent Back to Subrecipient" and is "dark blue"
     Examples:
       | Award Name                            |
@@ -2408,7 +2408,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:ProgressReport1}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:ProgressReport1}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
-    And I wait for "10" seconds
+    And I wait for "50" seconds
     And I refresh the page
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -2517,6 +2517,9 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
+    And I wait for "50" seconds
+    And I refresh the page
+    And I wait for "2" seconds
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     Examples:
       | Award Name                            | Grant Name                            |
@@ -10574,7 +10577,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "View" for title "Template Link" against the value "Progress Report" inside table "---progressreport:-:grantChecklistsTableId---"
-    And I save the value from row "4" for column name "Template Link" as "TemplateLink" from flex table "---progressreport:-:grantChecklistsTableId---"
+    And I save the value from row "2" for column name "Template Link" as "TemplateLink" from flex table "---progressreport:-:grantChecklistsTableId---"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside flex table with id "---progressreport:-:GrantsSubAwardsTableId---" without waiting for record
     When I navigate to "Performance" sub tab

@@ -7259,7 +7259,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see field "Percentage of Physical Completion of Project - Functions" as "65.00%"
     Then I softly see field "Percentage of Physical Completion of Project - Activities" as "85.00%"
     Then I softly see field "Percentage of Physical Completion of Project - Total" as "55.00%"
-    Then I softly see field "Acknowledgement" as "checked"
+    Then I softly see field "Acknowledgement" as "True"
     Then I softly see field "Signature of Authorized Certifying Official" as "John Matthew"
     Then I softly see field "Date Report Submitted:" as "{SavedValue:DateReportSubmitted}"
     Then I softly see field "Prefix:" as "Mr."

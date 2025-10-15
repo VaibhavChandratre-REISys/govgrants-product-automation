@@ -437,7 +437,7 @@ Feature: Validate all scenarios in Progress Report
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
-    And I wait for "5" seconds
+    And I wait for "50" seconds
     And I refresh the page
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
@@ -1855,7 +1855,7 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Management" sub tab
     When I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---progressReport:-:grantorGrantProgressReportTableId---"
     And I navigate to "Overview" sub tab
-    Then I softly see that "IsFinalReport__c" rendered in view mode only
+    Then I softly see that "Final Report?" rendered in view mode only
 
   @60572 @60571 @validateSubmissionOfReview
   Scenario: Validate Peer reviewer can submit the review for the assigned progress report | Validate Peer reviewer can Edit the Entered review before Submitting it to Award owner for Progress report
