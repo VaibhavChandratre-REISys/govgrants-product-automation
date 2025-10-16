@@ -33,7 +33,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Closeout" tab
     And I select "Closeout" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:closeoutRequestNo}"
-    And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in global search with id "Closeout"
+    And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in global search with id "Closeouts"
     Then I softly see field "Status" as "Created"
     And I wait for "3" seconds
     When I click on "Save" in the page details
@@ -55,7 +55,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Closeout" tab
     And I select "Closeout" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:closeoutRequestNo}"
-    And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in global search with id "Closeout"
+    And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in global search with id "Closeouts"
     Then I softly see field "Status" as "Acknowledged by Subrecipient"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
@@ -81,7 +81,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Closeout" tab
     And I select "Closeout" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:closeoutRequestNo}"
-    And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in global search with id "Closeout"
+    And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in global search with id "Closeouts"
     When I click on "Save" in the page details
     And I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
@@ -89,7 +89,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Closeout" tab
     And I select "Closeout" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:closeoutRequestNo}"
-    And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in global search with id "Closeout"
+    And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in global search with id "Closeouts"
     Then I softly see field "Status" as "Reviewed"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
@@ -99,7 +99,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Closeout" tab
     And I select "Closeout" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:closeoutRequestNo}"
-    And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in global search with id "Closeout"
+    And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in global search with id "Closeouts"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
 
@@ -292,7 +292,7 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "{SavedValue:FundingSourcesID}"
     And I wait for "2" seconds
     And I click on row level action button "Edit" against "{SavedValue:FundingSourcesID}" in global search with id "Funding Sources"
-    Then I softly see field "Status" as "Activated"
+    Then I softly see field "Status" as "Active"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
@@ -302,15 +302,18 @@ Feature: Validate all scenarios for the global search
     And I click toggle button to select "Internal Funding Sources - All"
     When I perform quick search for "{SavedValue:FundingSourcesID}" in "---fundingsource:-:fundingSourceTableId---" panel
     And I click on "View" icon for "{SavedValue:FundingSourcesID}" inside table
+    And I click on "View" icon for "Active" inside flex table with id "---fundingsource:-:fundingAccountTableId----"
     When I click on "Deactivate" in the page details
-    Then I softly see field "State" as "Closed"
+    Then I softly see field "Status" as "Closed"
+    And I click on hyperlink for invisible fields containing value "{SavedValue:FundingSourcesID}"
+    Then I softly see field "Status" as "Closed"
     When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I select "Funding Sources" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:FundingSourcesID}"
     And I wait for "2" seconds
     And I click on row level action button "Edit" against "{SavedValue:FundingSourcesID}" in global search with id "Funding Sources"
-    Then I softly see field "State" as "Closed"
+    Then I softly see field "Status" as "Closed"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
 
@@ -633,7 +636,7 @@ Feature: Validate all scenarios for the global search
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
-    When I click on "Reject" in the page details
+    When I "Reject" in the approval decision
     Then I softly see field "Status" as "Rejected"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -858,7 +861,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Monitoring" tab
     And I select "Monitoring Reports" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
-    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Monitoring Reportst"
+    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Monitoring Reports"
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
@@ -1541,16 +1544,6 @@ Feature: Validate all scenarios for the global search
   @390379 @SubrecipientOrganizationVerifythatNonOwneruserdoesnthaveaneditoptioninanystageofExternalSROrganizationandwillgeterrormessageonpage @sprint-2-US-386939  @GlobalSearch
   Scenario:Subrecipient Organization -> Verify that Non-Owner user doesn't have an edit option in any stage of External S/R Organization and will get error message on page
     When I login to "Grantor" app as "PM" user
-#    And I navigate to "Home" tab
-#    And I select "External Registration" from dropdown for Global search
-#    And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgInProgress}"
-#    Then I softly see value "{AUTOEnvData:AutomationExternalOrgInProgress}" for title "External Organization" inside table "External Registration"
-#    And I click on row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgInProgress}" in global search with id "External Registration"
-#    Then I softly see field "Status" as "In Progress"
-#    Then I cannot see top right button "Save" in page detail
-#    Then I cannot see top right button "Cancel" in page detail
-#    Then I softly see the text containing "You dont have sufficient access to edit this record"
-#    And I wait for "5" seconds
     And I navigate to "Home" tab
     And I select "External Registration" from dropdown for Global search
     And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgSubmitforApproved}"
