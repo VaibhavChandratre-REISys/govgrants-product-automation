@@ -31,7 +31,7 @@ Feature: Validate all registration related scenarios for Email Notification
        {regconfirmationmailbody:mailbody}
       """
 
-  @85792 @validateSAUserforUserRegistration-Organization @debug
+  @85792 @validateSAUserforUserRegistration-Organization
   Scenario:To verify SA allow to modify newly created contact in contact table  for Additional user registration process
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details

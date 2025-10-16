@@ -1540,7 +1540,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Home" tab
     And I select "Organizations" from dropdown for Global search
     And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgApproved}"
-    Then I softly see value "{AUTOEnvData:AutomationExternalOrgApproved}" for title "External Organization" inside table "Organizations" for global search record
+    Then I softly see value "{AUTOEnvData:AutomationExternalOrgApproved}" for title "Account Name" inside table "Organizations" for global search record
     And I click on row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgApproved}" in global search with id "Organizations"
     Then I softly see field "Status" as "Active"
     Then I cannot see top right button "Save" in page detail

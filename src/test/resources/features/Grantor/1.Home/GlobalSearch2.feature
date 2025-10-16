@@ -643,6 +643,7 @@ Feature: Validate all scenarios for the global search
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I save the field labeled "Announcement Name" as "Automation Runtime Competitive Announcement"
@@ -1361,12 +1362,12 @@ Feature: Validate all scenarios for the global search
     And I select "Awards" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
     And I wait for "2" seconds
-    And I click on "Awards" button on left navigation for global search
+#    And I click on "Awards" button on left navigation for global search
     #389043
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Announcement EGMS ID" inside refine by filter
-    Then I softly see "Subaward Title" inside refine by filter
-    Then I softly see "External  Organization" inside refine by filter
+    Then I softly see "Award Title" inside refine by filter
+    Then I softly see "Recipient Organization" inside refine by filter
     Then I softly see the text "Cumulative Obligation" on left navigation for global search
     Then I softly see "Min" inside refine by filter
     Then I softly see "Max" inside refine by filter
@@ -1386,11 +1387,11 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Grants" tab
     And I select "Awards" from dropdown for Global search
     And I perform quick search inside global search "awards"
-    And I click on "Awards" button on left navigation for global search
+#    And I click on "Awards" button on left navigation for global search
     Then I softly see options "Relevance" inside "Relevance" dropdown
     Then I softly see options "EGMS ID" inside "Relevance" dropdown
     Then I softly see options "Announcement EGMS ID" inside "Relevance" dropdown
-    Then I softly see options "Subaward Title" inside "Relevance" dropdown
+    Then I softly see options "Award Title" inside "Relevance" dropdown
     Then I softly see options "External Organization" inside "Relevance" dropdown
     Then I softly see options "New Obligation" inside "Relevance" dropdown
     Then I softly see options "Cumulative Obligation" inside "Relevance" dropdown
