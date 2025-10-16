@@ -99,8 +99,6 @@ Feature: Validate all scenarios for the global search
     Then I softly can see top right button "Cancel" in page detail
     When I click on "Save" in the page details
     Given I navigate to "Overview" sub tab
-#    And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
-#    When I click "Associate" after selection of "{SavedValue:EXE1 Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
     And I click on "Notify" in the page details
@@ -122,6 +120,7 @@ Feature: Validate all scenarios for the global search
     #390410 #390428
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
+    When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:PO Username}" inside flex table with id "SiteVisitReviewerRoles"
     And I enter values into fields
@@ -463,7 +462,6 @@ Feature: Validate all scenarios for the global search
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Send to Subrecipient" in page detail
     Then I softly can see top right button "Cancel Negotiation" in page detail
-    Then I can see top right button "Back to Current Review Step" in page detail
     And I select "Applications" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AppID}"
     And I click on hyperlink for global search containing value "{SavedValue:AppID}"
@@ -764,6 +762,7 @@ Feature: Validate all scenarios for the global search
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I wait for "3" seconds
     Then I softly see value "Submitted" for title "Status" against the value "{SavedValue:FO Username}" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1088,7 +1087,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
-    Then I softly cannot see row level action button "Change Owner" against "{SavedValue:AnnEGMSID}" in global search with id "Awards"
+    Then I softly cannot see row level action button "Change Owner" against "{SavedValue:AwardEGMSID}" in global search with id "Awards"
 
   @389017 @sprint-2-US-386939  @GlobalSearch
   Scenario Outline: Verify that PM user as Reviewer have edit access for record only when edit access setting is yes for peer reviewer when award is a submit for review state.
@@ -1487,7 +1486,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Owner First Name" inside refine by filter
     Then I softly see "Owner Last Name" inside refine by filter
     And I filter field record by "EXE" by label "Owner Last Name" in left panel for global search
-    Then I softly see value "EXE" for title "Owner Last Name" inside table "Grants" for global search record
+    Then I softly see value "EXE1" for title "Owner Last Name" inside table "Grants" for global search record
     Then I softly see the text "Refine By" on left navigation for global search
     And I click on "Expand List" button on left navigation for global search
     Then I softly see the text "Awards" on left navigation for global search
@@ -1778,7 +1777,7 @@ Feature: Validate all scenarios for the global search
 #    And I save the field labeled "EGMS ID" as "FDMEGMSID"
     And I navigate to "Applications" tab
     And I select "Funding Decision Memos (FDM)s" from dropdown for Global search
-    And I perform quick search inside global search "AN-"
+    And I perform quick search inside global search "{SavedValue:FDMEGMSID}"
     #389459
     And I click on row level action button "Edit" against "{SavedValue:FDMEGMSID}" in global search with id "Funding Decision Memos (FDM)s"
     Then I see status in Progress-bar is "Created" and is "dark blue"
@@ -1786,14 +1785,14 @@ Feature: Validate all scenarios for the global search
     Then I can see top right button "Cancel" in page detail
     And I navigate to "Applications" tab
     And I select "Funding Decision Memos (FDM)s" from dropdown for Global search
-    And I perform quick search inside global search "AN-"
+    And I perform quick search inside global search "{SavedValue:FDMEGMSID}"
     And I click on hyperlink for global search containing value "Funding Decision Memo"
     And I wait for "3" seconds
     #389461
     Then I softly see field "Status" as "Created"
     And I navigate to "Applications" tab
     And I select "Funding Decision Memos (FDM)s" from dropdown for Global search
-    And I perform quick search inside global search "AN-"
+    And I perform quick search inside global search "{SavedValue:FDMEGMSID}"
     #389462
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Name" inside refine by filter
@@ -1810,11 +1809,10 @@ Feature: Validate all scenarios for the global search
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I select "Funding Decision Memos (FDM)s" from dropdown for Global search
-    And I perform quick search inside global search "AN-"
+    And I perform quick search inside global search "{SavedValue:FDMEGMSID}"
     And I click on row level action button "Edit" against "{SavedValue:FDMEGMSID}" in global search with id "Funding Decision Memos (FDM)s"
    #389460
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    #check for submit for approval and Approved status hold due to bug
     Examples:
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |

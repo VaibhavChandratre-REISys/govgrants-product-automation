@@ -189,6 +189,9 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Project Period" inside refine by filter
     Then I softly see "Created By" inside refine by filter
     Then I softly see "Status" inside refine by filter
+    And I select "Closeouts" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:CloseoutID}"
+    And I wait for "2" seconds
     Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "Closeouts" for global search record
     Then I softly see value "{SavedValue:EXE Username}" for title "Created By" inside table "Closeouts" for global search record
 
@@ -342,6 +345,9 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Funding Source Type" inside refine by filter
     Then I softly see "Created By" inside refine by filter
     Then I softly see "Status" inside refine by filter
+    And I select "Funding Sources" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:FundingSourcesID}"
+    And I wait for "2" seconds
     Then I softly see value "{SavedValue:FundingSourcesID}" for title "EGMS ID" inside table "Funding Sources" for global search record
     Then I softly see value "{SavedValue:EXE Username}" for title "Created By" inside table "Funding Sources" for global search record
 
@@ -677,10 +683,10 @@ Feature: Validate all scenarios for the global search
     Then I softly see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "Amendment Requests" for global search record
     And I perform quick search inside global search "CR--"
     Then I softly see "EGMS ID" inside refine by filter
-    Then I softly see "Subaward ID" inside refine by filter
-    Then I softly see "Subaward Title" inside refine by filter
-    Then I softly see "Request Type" inside refine by filter
-    Then I softly see "Initiated By" inside refine by filter
+    Then I softly see "Record Type" inside refine by filter
+    Then I softly see "Award ID" inside refine by filter
+    Then I softly see "Award Title" inside refine by filter
+    Then I softly see "Amendment Type" inside refine by filter
     Then I softly see "Status" inside refine by filter
     And I filter field record by "{SavedValue:budgetPChangeId}" by label "EGMS ID" in left panel for global search
     Then I softly see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "Amendment Requests" for global search record
@@ -1019,7 +1025,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Type" inside refine by filter
     Then I softly see "Grant Title" inside refine by filter
-    Then I softly see "External Organization" inside refine by filter
+    Then I softly see "Recipient Organization" inside refine by filter
     Then I softly see "Reporting Period Start Date" inside refine by filter
     Then I softly see "Reporting Period End Date" inside refine by filter
     Then I softly see "Due Date" inside refine by filter
@@ -1476,7 +1482,7 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Monitoring" tab
     And I select "Payment Request" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:paymentEGMSID}"
-    Then I softly see value "{SavedValue:paymentEGMSID}" for title "EGMS ID" inside table "Payment Request" for global search record
+    Then I softly see value "{SavedValue:paymentEGMSID}" for title "EGMS ID" inside table "Payment Requests" for global search record
     And I perform quick search inside global search "PR-"
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Type" inside refine by filter
@@ -1485,7 +1491,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Payment Period" inside refine by filter
     Then I softly see "Status" inside refine by filter
     And I filter field record by "{SavedValue:paymentEGMSID}" by label "EGMS ID" in left panel for global search
-    Then I softly see value "{SavedValue:paymentEGMSID}" for title "EGMS ID" inside table "Payment Request" for global search record
+    Then I softly see value "{SavedValue:paymentEGMSID}" for title "EGMS ID" inside table "Payment Requests" for global search record
     Then I softly see the text "Refine By" on left navigation for global search
     And I click on "Expand List" button on left navigation for global search
     Then I softly see the text "Payment Requests" on left navigation for global search
